@@ -4,7 +4,7 @@ import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-public interface DRCOutputProcessor
+public interface RobotOutputProcessor
 {
    void initialize();
 

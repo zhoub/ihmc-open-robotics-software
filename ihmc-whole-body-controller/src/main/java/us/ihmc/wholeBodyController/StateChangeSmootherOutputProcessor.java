@@ -12,7 +12,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProcessor
+public class StateChangeSmootherOutputProcessor implements RobotOutputProcessor
 {
    private final YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
 
@@ -25,14 +25,14 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
    private final YoDouble timeAtHighLevelControllerStateChange = new YoDouble("timeAtControllerStateChange", registry);
    private final YoDouble slopTime = new YoDouble("slopTimeForSmoothedJointTorques", registry);
 
-   private final DRCOutputProcessor outputProcessor;
+   private final RobotOutputProcessor outputProcessor;
 
-   public DRCOutputProcessorWithStateChangeSmoother()
+   public StateChangeSmootherOutputProcessor()
    {
       this(null);
    }
 
-   public DRCOutputProcessorWithStateChangeSmoother(DRCOutputProcessor outputProcessor)
+   public StateChangeSmootherOutputProcessor(RobotOutputProcessor outputProcessor)
    {
       this.outputProcessor = outputProcessor;
       if (outputProcessor != null)

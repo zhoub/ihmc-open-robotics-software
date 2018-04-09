@@ -11,10 +11,10 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 import java.util.HashMap;
 
-public class DRCOutputProcessorWithTorqueOffsets implements DRCOutputProcessor, JointTorqueOffsetProcessor
+public class TorqueOffsetsOutputProcessor implements RobotOutputProcessor, JointTorqueOffsetProcessor
 {
    private final YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
-   private final DRCOutputProcessor outputProcessor;
+   private final RobotOutputProcessor outputProcessor;
 
    private final YoDouble alphaTorqueOffset = new YoDouble("alphaTorqueOffset", "Filter for integrating acceleration to get a torque offset at each joint",
                                                            registry);
@@ -26,7 +26,7 @@ public class DRCOutputProcessorWithTorqueOffsets implements DRCOutputProcessor, 
 
    private final double updateDT;
 
-   public DRCOutputProcessorWithTorqueOffsets(DRCOutputProcessor outputProcessor, double updateDT)
+   public TorqueOffsetsOutputProcessor(RobotOutputProcessor outputProcessor, double updateDT)
    {
       this.updateDT = updateDT;
       this.outputProcessor = outputProcessor;

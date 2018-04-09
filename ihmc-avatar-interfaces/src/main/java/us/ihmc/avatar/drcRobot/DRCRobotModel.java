@@ -70,7 +70,7 @@ public interface DRCRobotModel extends SimulatedFullHumanoidRobotModelFactory, W
     *
     * @return the custom output processor.
     */
-   public default DRCOutputProcessor getCustomSimulationOutputProcessor(HumanoidFloatingRootJointRobot humanoidFloatingRootJointRobot)
+   public default RobotOutputProcessor getCustomSimulationOutputProcessor(HumanoidFloatingRootJointRobot humanoidFloatingRootJointRobot)
    {
       return null;
    }

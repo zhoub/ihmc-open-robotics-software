@@ -72,8 +72,8 @@ public class DRCControllerThread implements MultiThreadedRobotControlElement
    private final CenterOfPressureDataHolder centerOfPressureDataHolderForEstimator;
 
    private final ThreadDataSynchronizerInterface threadDataSynchronizer;
-   private final DRCOutputProcessor outputProcessor;
-   private final DRCOutputWriter outputWriter;
+   private final RobotOutputProcessor outputProcessor;
+   private final RobotOutputWriter outputWriter;
 
    private final ModularRobotController robotController;
 
@@ -105,7 +105,7 @@ public class DRCControllerThread implements MultiThreadedRobotControlElement
    private final CloseableAndDisposableRegistry closeableAndDisposableRegistry = new CloseableAndDisposableRegistry();
 
    public DRCControllerThread(WholeBodyControllerParameters robotModel, DRCRobotSensorInformation sensorInformation, HighLevelHumanoidControllerFactory controllerFactory,
-                              ThreadDataSynchronizerInterface threadDataSynchronizer, DRCOutputProcessor outputProcessor, DRCOutputWriter outputWriter,
+                              ThreadDataSynchronizerInterface threadDataSynchronizer, RobotOutputProcessor outputProcessor, RobotOutputWriter outputWriter,
                               GlobalDataProducer dataProducer, RobotVisualizer robotVisualizer, double gravity, double estimatorDT)
    {
       this.threadDataSynchronizer = threadDataSynchronizer;

@@ -302,14 +302,14 @@ public class ValkyrieRosControlController extends IHMCWholeRobotControlJavaBridg
        */
       ValkyrieRosControlLowLevelOutputWriter valkyrieLowLevelOutputWriter = new ValkyrieRosControlLowLevelOutputWriter();
 
-      DRCOutputProcessor drcOutputProcessor = null;
-      DRCOutputWriter drcOutputWriter = null;
+      RobotOutputProcessor robotOutputProcessor = null;
+      RobotOutputWriter robotOutputWriter = null;
 
       if (DO_SLOW_INTEGRATION_FOR_TORQUE_OFFSET)
       {
          double controllerDT = robotModel.getControllerDT();
-         DRCOutputProcessorWithTorqueOffsets drcOutputWriterWithTorqueOffsets = new DRCOutputProcessorWithTorqueOffsets(drcOutputProcessor, controllerDT);
-         drcOutputProcessor = drcOutputWriterWithTorqueOffsets;
+         TorqueOffsetsOutputProcessor drcOutputWriterWithTorqueOffsets = new TorqueOffsetsOutputProcessor(robotOutputProcessor, controllerDT);
+         robotOutputProcessor = drcOutputWriterWithTorqueOffsets;
       }
 
       PelvisPoseCorrectionCommunicatorInterface externalPelvisPoseSubscriber = null;
@@ -336,7 +336,7 @@ public class ValkyrieRosControlController extends IHMCWholeRobotControlJavaBridg
       estimatorThread.addRobotController(handStateCommunicator);
 
       DRCControllerThread controllerThread = new DRCControllerThread(robotModel, sensorInformation, controllerFactory, threadDataSynchronizer,
-                                                                     drcOutputProcessor, drcOutputWriter, dataProducer, yoVariableServer, gravity, estimatorDT);
+                                                                     robotOutputProcessor, robotOutputWriter, dataProducer, yoVariableServer, gravity, estimatorDT);
 
       ValkyrieCalibrationControllerState calibrationControllerState = calibrationStateFactory.getCalibrationControllerState();
       calibrationControllerState.attachForceSensorCalibrationModule(estimatorThread.getForceSensorCalibrationModule());

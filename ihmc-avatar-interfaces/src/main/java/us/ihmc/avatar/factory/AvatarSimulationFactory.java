@@ -87,7 +87,7 @@ public class AvatarSimulationFactory
    private ThreadDataSynchronizerInterface threadDataSynchronizer;
    private SensorReaderFactory sensorReaderFactory;
    private JointDesiredOutputWriter simulatedOutputWriter;
-   private DRCOutputProcessor simulationOutputProcessor;
+   private RobotOutputProcessor simulationOutputProcessor;
    private DRCEstimatorThread stateEstimationThread;
    private DRCControllerThread controllerThread;
    private AbstractThreadedRobotController threadedRobotController;
@@ -168,7 +168,7 @@ public class AvatarSimulationFactory
 
       if (doSmoothJointTorquesAtControllerStateChanges.get())
       {
-         DRCOutputProcessorWithStateChangeSmoother drcOutputWriterWithStateChangeSmoother = new DRCOutputProcessorWithStateChangeSmoother(
+         StateChangeSmootherOutputProcessor drcOutputWriterWithStateChangeSmoother = new StateChangeSmootherOutputProcessor(
                simulationOutputProcessor);
          highLevelHumanoidControllerFactory.get()
                                            .attachControllerStateChangedListener(drcOutputWriterWithStateChangeSmoother.createControllerStateChangedListener());
@@ -178,8 +178,8 @@ public class AvatarSimulationFactory
 
       if (doSlowIntegrationForTorqueOffset.get())
       {
-         DRCOutputProcessorWithTorqueOffsets outputWriterWithTorqueOffsets = new DRCOutputProcessorWithTorqueOffsets(simulationOutputProcessor,
-                                                                                                                     robotModel.get().getControllerDT());
+         TorqueOffsetsOutputProcessor outputWriterWithTorqueOffsets = new TorqueOffsetsOutputProcessor(simulationOutputProcessor,
+                                                                                                       robotModel.get().getControllerDT());
          simulationOutputProcessor = outputWriterWithTorqueOffsets;
       }
    }

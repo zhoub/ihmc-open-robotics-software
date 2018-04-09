@@ -75,7 +75,7 @@ import us.ihmc.simulationconstructionset.FloatingRootJointRobot;
 import us.ihmc.simulationconstructionset.HumanoidFloatingRootJointRobot;
 import us.ihmc.tools.thread.CloseableAndDisposableRegistry;
 import us.ihmc.wholeBodyController.FootContactPoints;
-import us.ihmc.wholeBodyController.DRCOutputProcessor;
+import us.ihmc.wholeBodyController.RobotOutputProcessor;
 import us.ihmc.wholeBodyController.UIParameters;
 import us.ihmc.wholeBodyController.concurrent.ThreadDataSynchronizerInterface;
 
@@ -832,7 +832,7 @@ public class AtlasRobotModel implements DRCRobotModel, SDFDescriptionMutator
    }
 
    @Override
-   public DRCOutputProcessor getCustomSimulationOutputProcessor(HumanoidFloatingRootJointRobot humanoidFloatingRootJointRobot)
+   public RobotOutputProcessor getCustomSimulationOutputProcessor(HumanoidFloatingRootJointRobot humanoidFloatingRootJointRobot)
    {
       return new DRCSimulationOutputProcessForControllerThread(humanoidFloatingRootJointRobot);
    }
