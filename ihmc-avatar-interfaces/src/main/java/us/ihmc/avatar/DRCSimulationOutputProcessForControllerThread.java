@@ -90,7 +90,7 @@ public class DRCSimulationOutputProcessForControllerThread implements DRCOutputP
    }
 
    @Override
-   public void setLowLevelControllerCoreOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerOutput)
+   public void setLowLevelControllerOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerOutput)
    {
 
       for (int i = 0; i < lowLevelControllerOutput.getNumberOfJointsWithDesiredOutput(); i++)
@@ -115,7 +115,7 @@ public class DRCSimulationOutputProcessForControllerThread implements DRCOutputP
    }
 
    @Override
-   public YoVariableRegistry getControllerYoVariableRegistry()
+   public YoVariableRegistry getYoVariableRegistry()
    {
       return registry;
    }

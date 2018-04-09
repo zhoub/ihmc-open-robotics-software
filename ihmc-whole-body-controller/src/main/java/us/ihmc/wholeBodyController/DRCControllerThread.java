@@ -158,8 +158,8 @@ public class DRCControllerThread implements MultiThreadedRobotControlElement
       registry.addChild(robotController.getYoVariableRegistry());
       if(outputProcessor != null)
       {
-         outputProcessor.setLowLevelControllerCoreOutput(controllerFullRobotModel, threadDataSynchronizer.getControllerDesiredJointDataHolder());
-         registry.addChild(outputProcessor.getControllerYoVariableRegistry());
+         outputProcessor.setLowLevelControllerOutput(controllerFullRobotModel, threadDataSynchronizer.getControllerDesiredJointDataHolder());
+         registry.addChild(outputProcessor.getYoVariableRegistry());
       }
       if(outputWriter != null)
       {

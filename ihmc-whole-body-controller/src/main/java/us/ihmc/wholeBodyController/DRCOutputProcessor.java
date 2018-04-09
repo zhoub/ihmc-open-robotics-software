@@ -1,17 +1,20 @@
 package us.ihmc.wholeBodyController;
 
-import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public interface DRCOutputProcessor
 {
-   public abstract void initialize();
+   void initialize();
 
-   public abstract void processAfterController(long timestamp);
+   /**
+    * Processes the outputs from the controller before sending them to the output writer
+    * @param timestamp current robot timestamp in nanoseconds
+    */
+   void processAfterController(long timestamp);
 
-   public abstract void setLowLevelControllerCoreOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput);
+   void setLowLevelControllerOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput);
 
-   public abstract YoVariableRegistry getControllerYoVariableRegistry();
+   YoVariableRegistry getYoVariableRegistry();
 }

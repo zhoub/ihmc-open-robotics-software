@@ -1,7 +1,6 @@
 package us.ihmc.wholeBodyController;
 
 import us.ihmc.commons.Conversions;
-import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.robotics.controllers.ControllerStateChangedListener;
 import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
@@ -38,7 +37,7 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
       this.outputProcessor = outputProcessor;
       if (outputProcessor != null)
       {
-         registry.addChild(outputProcessor.getControllerYoVariableRegistry());
+         registry.addChild(outputProcessor.getYoVariableRegistry());
       }
 
       alphaForJointTorqueForStateChanges.set(0.0);
@@ -106,11 +105,11 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
    }
 
    @Override
-   public void setLowLevelControllerCoreOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
+   public void setLowLevelControllerOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
    {
       if (outputProcessor != null)
       {
-         outputProcessor.setLowLevelControllerCoreOutput(controllerRobotModel, lowLevelControllerCoreOutput);
+         outputProcessor.setLowLevelControllerOutput(controllerRobotModel, lowLevelControllerCoreOutput);
       }
 
       for (int i = 0; i < lowLevelControllerCoreOutput.getNumberOfJointsWithDesiredOutput(); i++)
@@ -125,7 +124,7 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
    }
 
    @Override
-   public YoVariableRegistry getControllerYoVariableRegistry()
+   public YoVariableRegistry getYoVariableRegistry()
    {
       return registry;
    }

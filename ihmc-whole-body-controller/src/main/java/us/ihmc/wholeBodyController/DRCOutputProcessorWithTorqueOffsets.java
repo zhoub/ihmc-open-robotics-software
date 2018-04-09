@@ -1,6 +1,5 @@
 package us.ihmc.wholeBodyController;
 
-import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
@@ -33,7 +32,7 @@ public class DRCOutputProcessorWithTorqueOffsets implements DRCOutputProcessor, 
       this.outputProcessor = outputProcessor;
       if (outputProcessor != null)
       {
-         registry.addChild(outputProcessor.getControllerYoVariableRegistry());
+         registry.addChild(outputProcessor.getYoVariableRegistry());
       }
    }
 
@@ -76,11 +75,11 @@ public class DRCOutputProcessorWithTorqueOffsets implements DRCOutputProcessor, 
    }
 
    @Override
-   public void setLowLevelControllerCoreOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
+   public void setLowLevelControllerOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
    {
       if (outputProcessor != null)
       {
-         outputProcessor.setLowLevelControllerCoreOutput(controllerRobotModel, lowLevelControllerCoreOutput);
+         outputProcessor.setLowLevelControllerOutput(controllerRobotModel, lowLevelControllerCoreOutput);
       }
 
       torqueOffsetList = new PairList<>();
@@ -98,7 +97,7 @@ public class DRCOutputProcessorWithTorqueOffsets implements DRCOutputProcessor, 
    }
 
    @Override
-   public YoVariableRegistry getControllerYoVariableRegistry()
+   public YoVariableRegistry getYoVariableRegistry()
    {
       return registry;
    }
