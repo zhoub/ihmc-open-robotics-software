@@ -16,10 +16,8 @@ import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerManager;
 import us.ihmc.quadrupedRobotics.controller.force.states.*;
 import us.ihmc.quadrupedRobotics.model.QuadrupedPhysicalProperties;
 import us.ihmc.quadrupedRobotics.model.QuadrupedRuntimeEnvironment;
-import us.ihmc.quadrupedRobotics.output.OutputProcessorBuilder;
 import us.ihmc.quadrupedRobotics.output.StateChangeSmootherComponent;
 import us.ihmc.quadrupedRobotics.planning.ContactState;
-import us.ihmc.robotics.robotController.OutputProcessor;
 import us.ihmc.robotics.robotController.RobotController;
 import us.ihmc.robotics.robotSide.RobotQuadrant;
 import us.ihmc.robotics.stateMachine.core.StateChangedListener;
@@ -27,6 +25,8 @@ import us.ihmc.robotics.stateMachine.core.StateMachine;
 import us.ihmc.robotics.stateMachine.extra.EventTrigger;
 import us.ihmc.robotics.stateMachine.factories.EventBasedStateMachineFactory;
 import us.ihmc.sensorProcessing.model.RobotMotionStatusHolder;
+import us.ihmc.sensorProcessing.outputProcessing.OutputProcessorFactory;
+import us.ihmc.sensorProcessing.outputProcessing.RobotOutputProcessor;
 import us.ihmc.tools.thread.CloseableAndDisposable;
 import us.ihmc.tools.thread.CloseableAndDisposableRegistry;
 import us.ihmc.util.PeriodicThreadScheduler;
@@ -56,7 +56,7 @@ public class QuadrupedForceControllerManager implements QuadrupedControllerManag
    private final QuadrupedRuntimeEnvironment runtimeEnvironment;
    private final QuadrupedForceControllerToolbox controllerToolbox;
    private final QuadrupedControlManagerFactory controlManagerFactory;
-   private final OutputProcessor outputProcessor;
+   private final RobotOutputProcessor outputProcessor;
 
    private final CommandInputManager commandInputManager;
    private final StatusMessageOutputManager statusMessageOutputManager;
@@ -98,11 +98,15 @@ public class QuadrupedForceControllerManager implements QuadrupedControllerManag
       controlManagerFactory.getOrCreateJointSpaceManager();
 
       // Initialize output processor
-      StateChangeSmootherComponent stateChangeSmootherComponent = new StateChangeSmootherComponent(runtimeEnvironment, registry);
+      StateChangeSmootherComponent stateChangeSmootherComponent = new StateChangeSmootherComponent(runtimeEnvironment.getRobotTimestamp(),
+                                                                                                   runtimeEnvironment.getControlDT());
       controlManagerFactory.getOrCreateFeetManager().attachStateChangedListener(stateChangeSmootherComponent.createFiniteStateMachineStateChangedListener());
-      OutputProcessorBuilder outputProcessorBuilder = new OutputProcessorBuilder(runtimeEnvironment.getFullRobotModel());
-      outputProcessorBuilder.addComponent(stateChangeSmootherComponent);
-      outputProcessor = outputProcessorBuilder.build();
+
+      OutputProcessorFactory outputProcessorFactory = new OutputProcessorFactory();
+      outputProcessorFactory.setLowLevelControllerOutput(runtimeEnvironment.getFullRobotModel(), runtimeEnvironment.getJointDesiredOutputList());
+      outputProcessorFactory.addComponent(stateChangeSmootherComponent);
+      outputProcessor = outputProcessorFactory.build();
+      registry.addChild(outputProcessor.getYoVariableRegistry());
 
       this.stateMachine = buildStateMachine(runtimeEnvironment, initialState);
    }
@@ -207,7 +211,7 @@ public class QuadrupedForceControllerManager implements QuadrupedControllerManag
       }
 
       // update output processor
-      outputProcessor.update();
+      outputProcessor.processAfterController();
    }
 
    @Override

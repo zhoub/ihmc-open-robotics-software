@@ -10,7 +10,7 @@ public interface RobotOutputProcessor
    
    void processAfterController();
 
-   void setLowLevelControllerCoreOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput);
+   void setLowLevelControllerOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput);
 
-   YoVariableRegistry getControllerYoVariableRegistry();
+   YoVariableRegistry getYoVariableRegistry();
 }
