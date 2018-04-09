@@ -73,6 +73,7 @@ public class DRCControllerThread implements MultiThreadedRobotControlElement
 
    private final ThreadDataSynchronizerInterface threadDataSynchronizer;
    private final DRCOutputProcessor outputProcessor;
+   private final DRCOutputWriter outputWriter;
 
    private final ModularRobotController robotController;
 
@@ -104,11 +105,12 @@ public class DRCControllerThread implements MultiThreadedRobotControlElement
    private final CloseableAndDisposableRegistry closeableAndDisposableRegistry = new CloseableAndDisposableRegistry();
 
    public DRCControllerThread(WholeBodyControllerParameters robotModel, DRCRobotSensorInformation sensorInformation, HighLevelHumanoidControllerFactory controllerFactory,
-                              ThreadDataSynchronizerInterface threadDataSynchronizer, DRCOutputProcessor outputProcessor,
+                              ThreadDataSynchronizerInterface threadDataSynchronizer, DRCOutputProcessor outputProcessor, DRCOutputWriter outputWriter,
                               GlobalDataProducer dataProducer, RobotVisualizer robotVisualizer, double gravity, double estimatorDT)
    {
       this.threadDataSynchronizer = threadDataSynchronizer;
       this.outputProcessor = outputProcessor;
+      this.outputWriter = outputWriter;
       this.robotVisualizer = robotVisualizer;
       this.controlDTInNS = Conversions.secondsToNanoseconds(robotModel.getControllerDT());
       this.estimatorDTInNS = Conversions.secondsToNanoseconds(estimatorDT);
@@ -159,6 +161,12 @@ public class DRCControllerThread implements MultiThreadedRobotControlElement
          outputProcessor.setLowLevelControllerCoreOutput(controllerFullRobotModel, threadDataSynchronizer.getControllerDesiredJointDataHolder(), threadDataSynchronizer.getControllerRawJointSensorDataHolderMap());
          outputProcessor.setForceSensorDataHolderForController(forceSensorDataHolderForController);
          registry.addChild(outputProcessor.getControllerYoVariableRegistry());
+      }
+      if(outputWriter != null)
+      {
+         outputWriter.setLowLevelControllerCoreOutput(controllerFullRobotModel, threadDataSynchronizer.getControllerDesiredJointDataHolder(), threadDataSynchronizer.getControllerRawJointSensorDataHolderMap());
+         outputWriter.setForceSensorDataHolderForController(forceSensorDataHolderForController);
+         registry.addChild(outputWriter.getControllerYoVariableRegistry());
       }
 
       lastEstimatorStartTime.set(Long.MIN_VALUE);
@@ -363,6 +371,10 @@ public class DRCControllerThread implements MultiThreadedRobotControlElement
                {
                   outputProcessor.initialize();
                }
+               if(outputWriter != null)
+               {
+                  outputWriter.initialize();
+               }
                firstTick.set(false);
             }
             controllerTimer.startMeasurement();
@@ -388,6 +400,10 @@ public class DRCControllerThread implements MultiThreadedRobotControlElement
             if(outputProcessor != null)
             {
                outputProcessor.processAfterController(controllerTimestamp.getLongValue());
+            }
+            if(outputWriter!= null)
+            {
+               outputWriter.processAfterController(controllerTimestamp.getLongValue());
             }
             totalDelay.set(timestamp - lastEstimatorStartTime.getLongValue());
 

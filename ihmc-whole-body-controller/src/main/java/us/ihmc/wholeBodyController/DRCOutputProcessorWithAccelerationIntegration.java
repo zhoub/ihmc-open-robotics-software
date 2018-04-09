@@ -77,22 +77,22 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
    private final ArmJointName[] armJointsForIntegratingAcceleration;
    private final SpineJointName[] spineJointsForIntegratingAcceleration;
 
-   public DRCOutputProcessorWithAccelerationIntegration(DRCOutputProcessor drcOutputWriter, LegJointName[] legJointToIntegrate,
-         ArmJointName[] armJointToIntegrate, SpineJointName[] spineJointToIntegrate, double updateDT, boolean runningOnRealRobot)
+   public DRCOutputProcessorWithAccelerationIntegration(DRCOutputProcessor drcOutputProcessor, LegJointName[] legJointToIntegrate,
+                                                        ArmJointName[] armJointToIntegrate, SpineJointName[] spineJointToIntegrate, double updateDT, boolean runningOnRealRobot)
    {
-      this(drcOutputWriter, legJointToIntegrate, armJointToIntegrate, spineJointToIntegrate, updateDT, runningOnRealRobot, false);
+      this(drcOutputProcessor, legJointToIntegrate, armJointToIntegrate, spineJointToIntegrate, updateDT, runningOnRealRobot, false);
    }
 
-   public DRCOutputProcessorWithAccelerationIntegration(DRCOutputProcessor drcOutputWriter, LegJointName[] legJointToIntegrate,
-         ArmJointName[] armJointToIntegrate, SpineJointName[] spineJointToIntegrate, double updateDT, boolean runningOnRealRobot, boolean conservative)
+   public DRCOutputProcessorWithAccelerationIntegration(DRCOutputProcessor drcOutputProcessor, LegJointName[] legJointToIntegrate,
+                                                        ArmJointName[] armJointToIntegrate, SpineJointName[] spineJointToIntegrate, double updateDT, boolean runningOnRealRobot, boolean conservative)
    {
       this.runningOnRealRobot = runningOnRealRobot;
       this.conservative = conservative;
-      this.drcOutputProcessor = drcOutputWriter;
+      this.drcOutputProcessor = drcOutputProcessor;
       this.updateDT = updateDT;
-      if(drcOutputWriter != null)
+      if(drcOutputProcessor != null)
       {
-         registry.addChild(drcOutputWriter.getControllerYoVariableRegistry());
+         registry.addChild(drcOutputProcessor.getControllerYoVariableRegistry());
       }
 
       alphaDesiredVelocity.set(0.0);
@@ -122,9 +122,9 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
 
    }
 
-   public DRCOutputProcessorWithAccelerationIntegration(DRCOutputProcessor drcOutputWriter, double updateDT, boolean runningOnRealRobot)
+   public DRCOutputProcessorWithAccelerationIntegration(DRCOutputProcessor drcOutputProcessor, double updateDT, boolean runningOnRealRobot)
    {
-      this(drcOutputWriter,
+      this(drcOutputProcessor,
             new LegJointName[] { LegJointName.HIP_PITCH, LegJointName.HIP_ROLL, LegJointName.HIP_YAW },
             new ArmJointName[] { ArmJointName.SHOULDER_PITCH, ArmJointName.SHOULDER_ROLL, ArmJointName.SHOULDER_YAW, ArmJointName.ELBOW_PITCH },
             new SpineJointName[] { SpineJointName.SPINE_PITCH, SpineJointName.SPINE_ROLL, SpineJointName.SPINE_YAW },

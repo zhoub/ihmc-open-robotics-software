@@ -1,7 +1,5 @@
 package us.ihmc.avatar;
 
-import java.util.ArrayList;
-
 import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotics.math.filters.DelayedYoDouble;
 import us.ihmc.robotics.robotController.RawOutputWriter;
@@ -15,7 +13,9 @@ import us.ihmc.wholeBodyController.DRCOutputProcessor;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-public class DRCSimulationOutputWriterForControllerThread implements DRCOutputProcessor
+import java.util.ArrayList;
+
+public class DRCSimulationOutputProcessForControllerThread implements DRCOutputProcessor
 {
    private static final int TICKS_TO_DELAY = 0;
 
@@ -35,7 +35,7 @@ public class DRCSimulationOutputWriterForControllerThread implements DRCOutputPr
       private DelayedYoDouble delayedJointTorque;
    }
 
-   public DRCSimulationOutputWriterForControllerThread(FloatingRootJointRobot robot)
+   public DRCSimulationOutputProcessForControllerThread(FloatingRootJointRobot robot)
    {
       this.robot = robot;
 

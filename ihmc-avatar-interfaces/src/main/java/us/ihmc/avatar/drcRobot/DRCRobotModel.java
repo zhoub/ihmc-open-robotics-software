@@ -21,11 +21,7 @@ import us.ihmc.simulationConstructionSetTools.robotController.MultiThreadedRobot
 import us.ihmc.simulationconstructionset.FloatingRootJointRobot;
 import us.ihmc.simulationconstructionset.HumanoidFloatingRootJointRobot;
 import us.ihmc.tools.thread.CloseableAndDisposableRegistry;
-import us.ihmc.wholeBodyController.DRCOutputProcessor;
-import us.ihmc.wholeBodyController.DRCRobotJointMap;
-import us.ihmc.wholeBodyController.SimulatedFullHumanoidRobotModelFactory;
-import us.ihmc.wholeBodyController.UIParameters;
-import us.ihmc.wholeBodyController.WholeBodyControllerParameters;
+import us.ihmc.wholeBodyController.*;
 import us.ihmc.wholeBodyController.concurrent.ThreadDataSynchronizerInterface;
 
 public interface DRCRobotModel extends SimulatedFullHumanoidRobotModelFactory, WholeBodyControllerParameters<RobotSide>

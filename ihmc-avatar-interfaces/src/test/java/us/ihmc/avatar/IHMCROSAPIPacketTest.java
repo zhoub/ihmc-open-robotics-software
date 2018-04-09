@@ -14,7 +14,6 @@ import org.junit.Before;
 import org.ros.RosCore;
 import org.ros.internal.message.Message;
 
-import controller_msgs.msg.dds.HighLevelStateMessage;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.factory.AvatarSimulation;
 import us.ihmc.avatar.initialSetup.DRCRobotInitialSetup;
@@ -145,7 +144,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
       HumanoidFloatingRootJointRobot sdfRobot = robotModel.createHumanoidFloatingRootJointRobot(false);
       DRCRobotInitialSetup<HumanoidFloatingRootJointRobot> robotInitialSetup = robotModel.getDefaultRobotInitialSetup(0, 0);
       robotInitialSetup.initializeRobot(sdfRobot, robotModel.getJointMap());
-      DRCSimulationOutputWriterForControllerThread outputWriter = new DRCSimulationOutputWriterForControllerThread(sdfRobot);
+      DRCSimulationOutputProcessForControllerThread outputWriter = new DRCSimulationOutputProcessForControllerThread(sdfRobot);
       HumanoidGlobalDataProducer globalDataProducer = new HumanoidGlobalDataProducer(controllerCommunicatorServer);
 
       AbstractThreadedRobotController robotController = createController(robotModel, controllerCommunicatorServer, globalDataProducer, outputWriter, sdfRobot);
@@ -241,7 +240,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
       HumanoidFloatingRootJointRobot sdfRobot = robotModel.createHumanoidFloatingRootJointRobot(false);
       DRCRobotInitialSetup<HumanoidFloatingRootJointRobot> robotInitialSetup = robotModel.getDefaultRobotInitialSetup(0, 0);
       robotInitialSetup.initializeRobot(sdfRobot, robotModel.getJointMap());
-      DRCSimulationOutputWriterForControllerThread outputWriter = new DRCSimulationOutputWriterForControllerThread(sdfRobot);
+      DRCSimulationOutputProcessForControllerThread outputWriter = new DRCSimulationOutputProcessForControllerThread(sdfRobot);
       HumanoidGlobalDataProducer globalDataProducer = new HumanoidGlobalDataProducer(packetCommunicatorServer);
 
       AbstractThreadedRobotController robotController = createController(robotModel, packetCommunicatorServer, globalDataProducer, outputWriter, sdfRobot);
@@ -301,7 +300,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
    }
 
    private AbstractThreadedRobotController createController(DRCRobotModel robotModel, PacketCommunicator packetCommunicator,
-         HumanoidGlobalDataProducer dataProducer, DRCSimulationOutputWriterForControllerThread outputWriter, FloatingRootJointRobot sdfRobot)
+                                                            HumanoidGlobalDataProducer dataProducer, DRCSimulationOutputProcessForControllerThread outputProcessor, FloatingRootJointRobot sdfRobot)
    {
       YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
       double gravity = -9.7925;
@@ -323,7 +322,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
             new PeriodicNonRealtimeThreadScheduler("DRCPoseCommunicator"), dataProducer, null, robotVisualizer, gravity);
 
       DRCControllerThread controllerThread = new DRCControllerThread(robotModel, robotModel.getSensorInformation(), controllerFactory, threadDataSynchronizer,
-            outputWriter, dataProducer, robotVisualizer, gravity, robotModel.getEstimatorDT());
+            outputProcessor, null, dataProducer, robotVisualizer, gravity, robotModel.getEstimatorDT());
 
       robotController.addController(estimatorThread, estimatorTicksPerSimulationTick, false);
       robotController.addController(controllerThread, controllerTicksPerSimulationTick, true);

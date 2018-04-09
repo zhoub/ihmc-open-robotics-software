@@ -6,7 +6,7 @@ import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.sensorProcessing.sensors.RawJointSensorDataHolderMap;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-public interface DRCOutputProcessor
+public interface DRCOutputWriter
 {
    public abstract void initialize();
 

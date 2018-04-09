@@ -54,10 +54,7 @@ import us.ihmc.tools.factories.RequiredFactoryField;
 import us.ihmc.tools.thread.CloseableAndDisposableRegistry;
 import us.ihmc.util.PeriodicNonRealtimeThreadScheduler;
 import us.ihmc.util.PeriodicNonRealtimeThreadSchedulerFactory;
-import us.ihmc.wholeBodyController.DRCControllerThread;
-import us.ihmc.wholeBodyController.DRCOutputProcessor;
-import us.ihmc.wholeBodyController.DRCOutputProcessorWithStateChangeSmoother;
-import us.ihmc.wholeBodyController.DRCOutputProcessorWithTorqueOffsets;
+import us.ihmc.wholeBodyController.*;
 import us.ihmc.wholeBodyController.concurrent.SingleThreadedThreadDataSynchronizer;
 import us.ihmc.wholeBodyController.concurrent.ThreadDataSynchronizer;
 import us.ihmc.wholeBodyController.concurrent.ThreadDataSynchronizerInterface;
@@ -66,8 +63,10 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 public class AvatarSimulationFactory
 {
    private final RequiredFactoryField<DRCRobotModel> robotModel = new RequiredFactoryField<>("robotModel");
-   private final RequiredFactoryField<HighLevelHumanoidControllerFactory> highLevelHumanoidControllerFactory = new RequiredFactoryField<>("highLevelHumanoidControllerFactory");
-   private final RequiredFactoryField<CommonAvatarEnvironmentInterface> commonAvatarEnvironment = new RequiredFactoryField<>("commonAvatarEnvironmentInterface");
+   private final RequiredFactoryField<HighLevelHumanoidControllerFactory> highLevelHumanoidControllerFactory = new RequiredFactoryField<>(
+         "highLevelHumanoidControllerFactory");
+   private final RequiredFactoryField<CommonAvatarEnvironmentInterface> commonAvatarEnvironment = new RequiredFactoryField<>(
+         "commonAvatarEnvironmentInterface");
    private final RequiredFactoryField<DRCRobotInitialSetup<HumanoidFloatingRootJointRobot>> robotInitialSetup = new RequiredFactoryField<>("robotInitialSetup");
    private final RequiredFactoryField<DRCSCSInitialSetup> scsInitialSetup = new RequiredFactoryField<>("scsInitialSetup");
    private final RequiredFactoryField<DRCGuiInitialSetup> guiInitialSetup = new RequiredFactoryField<>("guiInitialSetup");
@@ -75,7 +74,8 @@ public class AvatarSimulationFactory
 
    private final OptionalFactoryField<Double> gravity = new OptionalFactoryField<>("gravity");
    private final OptionalFactoryField<Boolean> doSlowIntegrationForTorqueOffset = new OptionalFactoryField<>("doSlowIntegrationForTorqueOffset");
-   private final OptionalFactoryField<Boolean> doSmoothJointTorquesAtControllerStateChanges = new OptionalFactoryField<>("doSmoothJointTorquesAtControllerStateChanges");
+   private final OptionalFactoryField<Boolean> doSmoothJointTorquesAtControllerStateChanges = new OptionalFactoryField<>(
+         "doSmoothJointTorquesAtControllerStateChanges");
    private final OptionalFactoryField<Boolean> addActualCMPVisualization = new OptionalFactoryField<>("addActualCMPVisualization");
    private final OptionalFactoryField<Boolean> createCollisionMeshes = new OptionalFactoryField<>("createCollisionMeshes");
    private final OptionalFactoryField<Boolean> createYoVariableServer = new OptionalFactoryField<>("createYoVariableServer");
@@ -86,8 +86,9 @@ public class AvatarSimulationFactory
    private SimulationConstructionSet simulationConstructionSet;
    private ThreadDataSynchronizerInterface threadDataSynchronizer;
    private SensorReaderFactory sensorReaderFactory;
-   private JointDesiredOutputWriter simulationOutputWriter;
+   private JointDesiredOutputWriter jointDesi;
    private DRCOutputProcessor simulationOutputProcessor;
+   private DRCOutputWriter simulationOutputWriter;
    private DRCEstimatorThread stateEstimationThread;
    private DRCControllerThread controllerThread;
    private AbstractThreadedRobotController threadedRobotController;
@@ -159,7 +160,7 @@ public class AvatarSimulationFactory
 
    private void setupSimulationOutputWriter()
    {
-      simulationOutputWriter = robotModel.get().getCustomSimulationOutputWriter(humanoidFloatingRootJointRobot);
+      jointDesi = robotModel.get().getCustomSimulationOutputWriter(humanoidFloatingRootJointRobot);
    }
 
    private void setupSimulationOutputProcessor()
@@ -169,7 +170,8 @@ public class AvatarSimulationFactory
 
       if (doSmoothJointTorquesAtControllerStateChanges.get())
       {
-         DRCOutputProcessorWithStateChangeSmoother drcOutputWriterWithStateChangeSmoother = new DRCOutputProcessorWithStateChangeSmoother(simulationOutputProcessor);
+         DRCOutputProcessorWithStateChangeSmoother drcOutputWriterWithStateChangeSmoother = new DRCOutputProcessorWithStateChangeSmoother(
+               simulationOutputProcessor);
          highLevelHumanoidControllerFactory.get()
                                            .attachControllerStateChangedListener(drcOutputWriterWithStateChangeSmoother.createControllerStateChangedListener());
 
@@ -189,7 +191,7 @@ public class AvatarSimulationFactory
       stateEstimationThread = new DRCEstimatorThread(robotModel.get().getSensorInformation(), robotModel.get().getContactPointParameters(), robotModel.get(),
                                                      robotModel.get().getStateEstimatorParameters(), sensorReaderFactory, threadDataSynchronizer,
                                                      new PeriodicNonRealtimeThreadScheduler("DRCSimGazeboYoVariableServer"), humanoidGlobalDataProducer.get(),
-                                                     simulationOutputWriter, yoVariableServer, gravity.get());
+                                                     jointDesi, yoVariableServer, gravity.get());
 
       if (humanoidGlobalDataProducer.get() != null)
       {
@@ -206,8 +208,8 @@ public class AvatarSimulationFactory
    private void setupControllerThread()
    {
       controllerThread = new DRCControllerThread(robotModel.get(), robotModel.get().getSensorInformation(), highLevelHumanoidControllerFactory.get(),
-                                                 threadDataSynchronizer, simulationOutputProcessor, humanoidGlobalDataProducer.get(), yoVariableServer,
-                                                 gravity.get(), robotModel.get().getEstimatorDT());
+                                                 threadDataSynchronizer, simulationOutputProcessor, simulationOutputWriter, humanoidGlobalDataProducer.get(),
+                                                 yoVariableServer, gravity.get(), robotModel.get().getEstimatorDT());
    }
 
    private void createClosableAndDisposableRegistry()

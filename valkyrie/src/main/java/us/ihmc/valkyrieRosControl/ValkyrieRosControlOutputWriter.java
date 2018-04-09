@@ -4,14 +4,14 @@ import us.ihmc.euclid.referenceFrame.FrameVector2D;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotics.controllers.ControllerFailureListener;
 import us.ihmc.robotics.controllers.ControllerStateChangedListener;
+import us.ihmc.wholeBodyController.DRCOutputWriter;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.sensors.ForceSensorDataHolderReadOnly;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.sensorProcessing.sensors.RawJointSensorDataHolderMap;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
-import us.ihmc.wholeBodyController.DRCOutputProcessor;
 
-public class ValkyrieRosControlOutputWriter implements DRCOutputProcessor, ControllerStateChangedListener, ControllerFailureListener
+public class ValkyrieRosControlOutputWriter implements DRCOutputWriter, ControllerStateChangedListener, ControllerFailureListener
 {
 
    public ValkyrieRosControlOutputWriter(ValkyrieRobotModel robotModel)
