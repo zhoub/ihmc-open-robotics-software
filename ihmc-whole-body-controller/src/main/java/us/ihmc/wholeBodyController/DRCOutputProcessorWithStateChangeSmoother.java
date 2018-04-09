@@ -28,6 +28,11 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
 
    private final DRCOutputProcessor outputProcessor;
 
+   public DRCOutputProcessorWithStateChangeSmoother()
+   {
+      this(null);
+   }
+
    public DRCOutputProcessorWithStateChangeSmoother(DRCOutputProcessor outputProcessor)
    {
       this.outputProcessor = outputProcessor;

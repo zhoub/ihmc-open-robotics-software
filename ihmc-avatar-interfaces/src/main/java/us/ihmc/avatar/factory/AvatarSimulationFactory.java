@@ -86,9 +86,8 @@ public class AvatarSimulationFactory
    private SimulationConstructionSet simulationConstructionSet;
    private ThreadDataSynchronizerInterface threadDataSynchronizer;
    private SensorReaderFactory sensorReaderFactory;
-   private JointDesiredOutputWriter jointDesi;
+   private JointDesiredOutputWriter simulatedOutputWriter;
    private DRCOutputProcessor simulationOutputProcessor;
-   private DRCOutputWriter simulationOutputWriter;
    private DRCEstimatorThread stateEstimationThread;
    private DRCControllerThread controllerThread;
    private AbstractThreadedRobotController threadedRobotController;
@@ -160,12 +159,11 @@ public class AvatarSimulationFactory
 
    private void setupSimulationOutputWriter()
    {
-      jointDesi = robotModel.get().getCustomSimulationOutputWriter(humanoidFloatingRootJointRobot);
+      simulatedOutputWriter = robotModel.get().getCustomSimulationOutputWriter(humanoidFloatingRootJointRobot);
    }
 
    private void setupSimulationOutputProcessor()
    {
-
       simulationOutputProcessor = robotModel.get().getCustomSimulationOutputProcessor(humanoidFloatingRootJointRobot);
 
       if (doSmoothJointTorquesAtControllerStateChanges.get())
@@ -191,7 +189,7 @@ public class AvatarSimulationFactory
       stateEstimationThread = new DRCEstimatorThread(robotModel.get().getSensorInformation(), robotModel.get().getContactPointParameters(), robotModel.get(),
                                                      robotModel.get().getStateEstimatorParameters(), sensorReaderFactory, threadDataSynchronizer,
                                                      new PeriodicNonRealtimeThreadScheduler("DRCSimGazeboYoVariableServer"), humanoidGlobalDataProducer.get(),
-                                                     jointDesi, yoVariableServer, gravity.get());
+                                                     simulatedOutputWriter, yoVariableServer, gravity.get());
 
       if (humanoidGlobalDataProducer.get() != null)
       {
@@ -208,7 +206,7 @@ public class AvatarSimulationFactory
    private void setupControllerThread()
    {
       controllerThread = new DRCControllerThread(robotModel.get(), robotModel.get().getSensorInformation(), highLevelHumanoidControllerFactory.get(),
-                                                 threadDataSynchronizer, simulationOutputProcessor, simulationOutputWriter, humanoidGlobalDataProducer.get(),
+                                                 threadDataSynchronizer, simulationOutputProcessor, null, humanoidGlobalDataProducer.get(),
                                                  yoVariableServer, gravity.get(), robotModel.get().getEstimatorDT());
    }
 
@@ -409,8 +407,8 @@ public class AvatarSimulationFactory
       setupSimulationConstructionSet();
       setupThreadDataSynchronizer();
       setupSensorReaderFactory();
-      setupSimulationOutputWriter();
       setupSimulationOutputProcessor();
+      setupSimulationOutputWriter();
       setupStateEstimationThread();
       setupControllerThread();
       createClosableAndDisposableRegistry();
