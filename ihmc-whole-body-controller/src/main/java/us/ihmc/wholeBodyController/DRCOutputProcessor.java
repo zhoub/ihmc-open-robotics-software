@@ -12,8 +12,7 @@ public interface DRCOutputProcessor
 
    public abstract void processAfterController(long timestamp);
 
-   public abstract void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput,
-                                                        RawJointSensorDataHolderMap rawJointSensorDataHolderMap);
+   public abstract void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput);
 
    public abstract void setForceSensorDataHolderForController(ForceSensorDataHolderReadOnly forceSensorDataHolderForController);
      

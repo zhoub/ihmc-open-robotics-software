@@ -249,11 +249,11 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
    private final LinkedHashMap<JointDesiredOutput, YoBoolean> doAccelerationIntegrationMap = new LinkedHashMap<>();
 
    @Override
-   public void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput, RawJointSensorDataHolderMap rawJointSensorDataHolderMap)
+   public void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
    {
       if(drcOutputProcessor != null)
       {
-         drcOutputProcessor.setLowLevelControllerCoreOutput(controllerRobotModel, lowLevelControllerCoreOutput, rawJointSensorDataHolderMap);
+         drcOutputProcessor.setLowLevelControllerCoreOutput(controllerRobotModel, lowLevelControllerCoreOutput);
       }
 
       jointStateAndData = new PairList<>();

@@ -78,12 +78,11 @@ public class DRCOutputProcessorWithTorqueOffsets implements DRCOutputProcessor, 
 
    @Override
    public void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel,
-                                               JointDesiredOutputList lowLevelControllerCoreOutput,
-                                               RawJointSensorDataHolderMap rawJointSensorDataHolderMap)
+                                               JointDesiredOutputList lowLevelControllerCoreOutput)
    {
       if (outputProcessor != null)
       {
-         outputProcessor.setLowLevelControllerCoreOutput(controllerRobotModel, lowLevelControllerCoreOutput, rawJointSensorDataHolderMap);
+         outputProcessor.setLowLevelControllerCoreOutput(controllerRobotModel, lowLevelControllerCoreOutput);
       }
 
       torqueOffsetList = new PairList<>();
