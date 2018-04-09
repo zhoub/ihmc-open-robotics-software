@@ -1,18 +1,16 @@
 package us.ihmc.wholeBodyController;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import us.ihmc.commons.Conversions;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotics.controllers.ControllerStateChangedListener;
 import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
-import us.ihmc.robotics.sensors.ForceSensorDataHolderReadOnly;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
-import us.ihmc.sensorProcessing.sensors.RawJointSensorDataHolderMap;
 import us.ihmc.tools.lists.PairList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProcessor
 {
@@ -21,7 +19,7 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
    private final YoDouble alphaForJointTorqueForStateChanges = new YoDouble("alphaJointTorqueForStateChanges", registry);
 
    private final PairList<JointDesiredOutput, AlphaFilteredYoVariable> jointTorquesSmoothedAtStateChange = new PairList<>();
-//   private final LinkedHashMap<LowLevelJointData, AlphaFilteredYoVariable> jointTorquesSmoothedAtStateChange = new LinkedHashMap<>();
+   //   private final LinkedHashMap<LowLevelJointData, AlphaFilteredYoVariable> jointTorquesSmoothedAtStateChange = new LinkedHashMap<>();
 
    private final AtomicBoolean hasHighLevelControllerStateChanged = new AtomicBoolean(false);
    private final YoDouble timeAtHighLevelControllerStateChange = new YoDouble("timeAtControllerStateChange", registry);
@@ -32,7 +30,7 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
    public DRCOutputProcessorWithStateChangeSmoother(DRCOutputProcessor outputProcessor)
    {
       this.outputProcessor = outputProcessor;
-      if(outputProcessor != null)
+      if (outputProcessor != null)
       {
          registry.addChild(outputProcessor.getControllerYoVariableRegistry());
       }
@@ -45,7 +43,7 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
    @Override
    public void initialize()
    {
-      if(outputProcessor != null)
+      if (outputProcessor != null)
       {
          outputProcessor.initialize();
       }
@@ -81,7 +79,7 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
          jointData.setDesiredTorque(smoothedJointTorque.getDoubleValue());
       }
 
-      if(outputProcessor != null)
+      if (outputProcessor != null)
       {
          outputProcessor.processAfterController(timestamp);
       }
@@ -104,28 +102,19 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
    @Override
    public void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
    {
-      if(outputProcessor != null)
+      if (outputProcessor != null)
       {
          outputProcessor.setLowLevelControllerCoreOutput(controllerRobotModel, lowLevelControllerCoreOutput);
       }
-
 
       for (int i = 0; i < lowLevelControllerCoreOutput.getNumberOfJointsWithDesiredOutput(); i++)
       {
          JointDesiredOutput jointData = lowLevelControllerCoreOutput.getJointDesiredOutput(i);
          String jointName = lowLevelControllerCoreOutput.getOneDoFJoint(i).getName();
 
-         AlphaFilteredYoVariable jointTorqueSmoothedAtStateChange = new AlphaFilteredYoVariable("smoothed_tau_" + jointName, registry, alphaForJointTorqueForStateChanges);
+         AlphaFilteredYoVariable jointTorqueSmoothedAtStateChange = new AlphaFilteredYoVariable("smoothed_tau_" + jointName, registry,
+                                                                                                alphaForJointTorqueForStateChanges);
          jointTorquesSmoothedAtStateChange.add(jointData, jointTorqueSmoothedAtStateChange);
-      }
-   }
-
-   @Override
-   public void setForceSensorDataHolderForController(ForceSensorDataHolderReadOnly forceSensorDataHolderForController)
-   {
-      if(outputProcessor != null)
-      {
-         outputProcessor.setForceSensorDataHolderForController(forceSensorDataHolderForController);
       }
    }
 

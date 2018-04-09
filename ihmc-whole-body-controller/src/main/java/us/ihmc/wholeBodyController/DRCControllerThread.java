@@ -159,7 +159,6 @@ public class DRCControllerThread implements MultiThreadedRobotControlElement
       if(outputProcessor != null)
       {
          outputProcessor.setLowLevelControllerCoreOutput(controllerFullRobotModel, threadDataSynchronizer.getControllerDesiredJointDataHolder());
-         outputProcessor.setForceSensorDataHolderForController(forceSensorDataHolderForController);
          registry.addChild(outputProcessor.getControllerYoVariableRegistry());
       }
       if(outputWriter != null)

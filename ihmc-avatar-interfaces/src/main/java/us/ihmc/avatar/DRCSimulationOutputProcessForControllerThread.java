@@ -3,10 +3,8 @@ package us.ihmc.avatar;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotics.math.filters.DelayedYoDouble;
 import us.ihmc.robotics.robotController.RawOutputWriter;
-import us.ihmc.robotics.sensors.ForceSensorDataHolderReadOnly;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
-import us.ihmc.sensorProcessing.sensors.RawJointSensorDataHolderMap;
 import us.ihmc.simulationconstructionset.FloatingRootJointRobot;
 import us.ihmc.simulationconstructionset.OneDegreeOfFreedomJoint;
 import us.ihmc.wholeBodyController.DRCOutputProcessor;
@@ -23,7 +21,6 @@ public class DRCSimulationOutputProcessForControllerThread implements DRCOutputP
 
    private final FloatingRootJointRobot robot;
    private final ArrayList<OutputDataSet> revoluteJoints = new ArrayList<>();
-
 
    private final ArrayList<RawOutputWriter> rawOutputWriters = new ArrayList<RawOutputWriter>();
 
@@ -51,7 +48,7 @@ public class DRCSimulationOutputProcessForControllerThread implements DRCOutputP
 
          double tau = 0.0;
 
-         if(data.jointData.hasDesiredTorque())
+         if (data.jointData.hasDesiredTorque())
          {
             tau = data.jointData.getDesiredTorque();
          }
@@ -65,21 +62,20 @@ public class DRCSimulationOutputProcessForControllerThread implements DRCOutputP
             tau = delayedJointTorque.getDoubleValue();
          }
 
-
          data.simulatedJoint.setTau(tau);
-         if(data.jointData.hasStiffness())
+         if (data.jointData.hasStiffness())
          {
             data.simulatedJoint.setKp(data.jointData.getStiffness());
          }
-         if(data.jointData.hasDamping())
+         if (data.jointData.hasDamping())
          {
             data.simulatedJoint.setKd(data.jointData.getDamping());
          }
-         if(data.jointData.hasDesiredPosition())
+         if (data.jointData.hasDesiredPosition())
          {
             data.simulatedJoint.setqDesired(data.jointData.getDesiredPosition());
          }
-         if(data.jointData.hasDesiredVelocity())
+         if (data.jointData.hasDesiredVelocity())
          {
             data.simulatedJoint.setQdDesired(data.jointData.getDesiredVelocity());
          }
@@ -103,7 +99,6 @@ public class DRCSimulationOutputProcessForControllerThread implements DRCOutputP
          OutputDataSet data = new OutputDataSet();
          data.rawJointTorque = new YoDouble("tau_desired_" + jointName, registry);
 
-
          data.delayedJointTorque = new DelayedYoDouble("tau_delayed_" + jointName, "", data.rawJointTorque, TICKS_TO_DELAY, registry);
 
          data.simulatedJoint = robot.getOneDegreeOfFreedomJoint(jointName);
@@ -116,11 +111,6 @@ public class DRCSimulationOutputProcessForControllerThread implements DRCOutputP
    public void addRawOutputWriter(RawOutputWriter rawOutputWriter)
    {
       rawOutputWriters.add(rawOutputWriter);
-   }
-
-   @Override
-   public void setForceSensorDataHolderForController(ForceSensorDataHolderReadOnly forceSensorDataHolderForEstimator)
-   {
    }
 
    @Override

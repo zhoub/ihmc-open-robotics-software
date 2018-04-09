@@ -1,17 +1,15 @@
 package us.ihmc.wholeBodyController;
 
-import java.util.HashMap;
-
 import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.robotics.sensors.ForceSensorDataHolderReadOnly;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
-import us.ihmc.sensorProcessing.sensors.RawJointSensorDataHolderMap;
 import us.ihmc.tools.lists.PairList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoDouble;
+
+import java.util.HashMap;
 
 public class DRCOutputProcessorWithTorqueOffsets implements DRCOutputProcessor, JointTorqueOffsetProcessor
 {
@@ -77,8 +75,7 @@ public class DRCOutputProcessorWithTorqueOffsets implements DRCOutputProcessor, 
    }
 
    @Override
-   public void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel,
-                                               JointDesiredOutputList lowLevelControllerCoreOutput)
+   public void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
    {
       if (outputProcessor != null)
       {
@@ -97,15 +94,6 @@ public class DRCOutputProcessorWithTorqueOffsets implements DRCOutputProcessor, 
          torqueOffsetMap.put(lowLevelControllerCoreOutput.getOneDoFJoint(i), torqueOffset);
       }
 
-   }
-
-   @Override
-   public void setForceSensorDataHolderForController(ForceSensorDataHolderReadOnly forceSensorDataHolderForController)
-   {
-      if (outputProcessor != null)
-      {
-         outputProcessor.setForceSensorDataHolderForController(forceSensorDataHolderForController);
-      }
    }
 
    @Override

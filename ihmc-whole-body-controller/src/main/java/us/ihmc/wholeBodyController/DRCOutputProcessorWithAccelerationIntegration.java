@@ -1,8 +1,5 @@
 package us.ihmc.wholeBodyController;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-
 import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotics.partNames.ArmJointName;
 import us.ihmc.robotics.partNames.LegJointName;
@@ -12,10 +9,8 @@ import us.ihmc.robotics.screwTheory.InverseDynamicsJoint;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.robotics.screwTheory.RigidBody;
 import us.ihmc.robotics.screwTheory.ScrewTools;
-import us.ihmc.robotics.sensors.ForceSensorDataHolderReadOnly;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
-import us.ihmc.sensorProcessing.sensors.RawJointSensorDataHolderMap;
 import us.ihmc.tools.lists.PairList;
 import us.ihmc.yoVariables.listener.VariableChangedListener;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -23,41 +18,44 @@ import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.yoVariables.variable.YoVariable;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
 public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputProcessor
 {
    private final boolean runningOnRealRobot;
    private final DRCOutputProcessor drcOutputProcessor;
    private final YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
 
-   private final YoDouble alphaDesiredVelocity = new YoDouble(
-         "alphaDesiredVelocity",
-         "Filter for velocity control in order to achieve acceleration control. Zero means compliant, but poor acceleration. One means stiff, but good acceleration tracking",
-         registry);
-   private final YoDouble alphaDesiredPosition = new YoDouble(
-         "alphaDesiredPosition",
-         "Filter for position control in order to achieve acceleration control. Zero means compliant, but poor acceleration. One means stiff, but good acceleration tracking",
-         registry);
+   private final YoDouble alphaDesiredVelocity = new YoDouble("alphaDesiredVelocity",
+                                                              "Filter for velocity control in order to achieve acceleration control. Zero means compliant, but poor acceleration. One means stiff, but good acceleration tracking",
+                                                              registry);
+   private final YoDouble alphaDesiredPosition = new YoDouble("alphaDesiredPosition",
+                                                              "Filter for position control in order to achieve acceleration control. Zero means compliant, but poor acceleration. One means stiff, but good acceleration tracking",
+                                                              registry);
 
-   private final YoDouble alphaArmDesiredVelocity = new YoDouble(
-         "alphaArmDesiredVelocity",
-         "Filter for velocity control in order to achieve acceleration control. Zero means compliant, but poor acceleration. One means stiff, but good acceleration tracking (Arms only)",
-         registry);
-   private final YoDouble alphaArmDesiredPosition = new YoDouble(
-         "alphaArmDesiredPosition",
-         "Filter for position control in order to achieve acceleration control. Zero means compliant, but poor acceleration. One means stiff, but good acceleration tracking (Arms only)",
-         registry);
+   private final YoDouble alphaArmDesiredVelocity = new YoDouble("alphaArmDesiredVelocity",
+                                                                 "Filter for velocity control in order to achieve acceleration control. Zero means compliant, but poor acceleration. One means stiff, but good acceleration tracking (Arms only)",
+                                                                 registry);
+   private final YoDouble alphaArmDesiredPosition = new YoDouble("alphaArmDesiredPosition",
+                                                                 "Filter for position control in order to achieve acceleration control. Zero means compliant, but poor acceleration. One means stiff, but good acceleration tracking (Arms only)",
+                                                                 registry);
 
    private final YoDouble kVelJointTorque = new YoDouble("kVelJointTorque",
-         "Gain for velocity control in order to achieve acceleration control using additional joint torque", registry);
+                                                         "Gain for velocity control in order to achieve acceleration control using additional joint torque",
+                                                         registry);
 
    private final YoDouble kPosJointTorque = new YoDouble("kPosJointTorque",
-         "Gain for position control in order to achieve acceleration control using additional joint torque", registry);
+                                                         "Gain for position control in order to achieve acceleration control using additional joint torque",
+                                                         registry);
 
    private final YoDouble kVelArmJointTorque = new YoDouble("kVelArmJointTorque",
-         "Gain for velocity control in order to achieve acceleration control using additional joint torque (Arms only)", registry);
+                                                            "Gain for velocity control in order to achieve acceleration control using additional joint torque (Arms only)",
+                                                            registry);
 
    private final YoDouble kPosArmJointTorque = new YoDouble("kPosArmJointTorque",
-         "Gain for position control in order to achieve acceleration control using additional joint torque (Arms only)", registry);
+                                                            "Gain for position control in order to achieve acceleration control using additional joint torque (Arms only)",
+                                                            registry);
 
    private PairList<OneDoFJoint, JointDesiredOutput> jointStateAndData;
    private LinkedHashMap<JointDesiredOutput, YoDouble> alphaDesiredVelocityMap;
@@ -78,19 +76,21 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
    private final SpineJointName[] spineJointsForIntegratingAcceleration;
 
    public DRCOutputProcessorWithAccelerationIntegration(DRCOutputProcessor drcOutputProcessor, LegJointName[] legJointToIntegrate,
-                                                        ArmJointName[] armJointToIntegrate, SpineJointName[] spineJointToIntegrate, double updateDT, boolean runningOnRealRobot)
+                                                        ArmJointName[] armJointToIntegrate, SpineJointName[] spineJointToIntegrate, double updateDT,
+                                                        boolean runningOnRealRobot)
    {
       this(drcOutputProcessor, legJointToIntegrate, armJointToIntegrate, spineJointToIntegrate, updateDT, runningOnRealRobot, false);
    }
 
    public DRCOutputProcessorWithAccelerationIntegration(DRCOutputProcessor drcOutputProcessor, LegJointName[] legJointToIntegrate,
-                                                        ArmJointName[] armJointToIntegrate, SpineJointName[] spineJointToIntegrate, double updateDT, boolean runningOnRealRobot, boolean conservative)
+                                                        ArmJointName[] armJointToIntegrate, SpineJointName[] spineJointToIntegrate, double updateDT,
+                                                        boolean runningOnRealRobot, boolean conservative)
    {
       this.runningOnRealRobot = runningOnRealRobot;
       this.conservative = conservative;
       this.drcOutputProcessor = drcOutputProcessor;
       this.updateDT = updateDT;
-      if(drcOutputProcessor != null)
+      if (drcOutputProcessor != null)
       {
          registry.addChild(drcOutputProcessor.getControllerYoVariableRegistry());
       }
@@ -124,11 +124,9 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
 
    public DRCOutputProcessorWithAccelerationIntegration(DRCOutputProcessor drcOutputProcessor, double updateDT, boolean runningOnRealRobot)
    {
-      this(drcOutputProcessor,
-            new LegJointName[] { LegJointName.HIP_PITCH, LegJointName.HIP_ROLL, LegJointName.HIP_YAW },
-            new ArmJointName[] { ArmJointName.SHOULDER_PITCH, ArmJointName.SHOULDER_ROLL, ArmJointName.SHOULDER_YAW, ArmJointName.ELBOW_PITCH },
-            new SpineJointName[] { SpineJointName.SPINE_PITCH, SpineJointName.SPINE_ROLL, SpineJointName.SPINE_YAW },
-            updateDT, runningOnRealRobot);
+      this(drcOutputProcessor, new LegJointName[] {LegJointName.HIP_PITCH, LegJointName.HIP_ROLL, LegJointName.HIP_YAW},
+           new ArmJointName[] {ArmJointName.SHOULDER_PITCH, ArmJointName.SHOULDER_ROLL, ArmJointName.SHOULDER_YAW, ArmJointName.ELBOW_PITCH},
+           new SpineJointName[] {SpineJointName.SPINE_PITCH, SpineJointName.SPINE_ROLL, SpineJointName.SPINE_YAW}, updateDT, runningOnRealRobot);
    }
 
    public void setVelocityGains(double kVelJointTorque, double kVelArmJointTorque)
@@ -158,7 +156,7 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
    @Override
    public void initialize()
    {
-      if(drcOutputProcessor != null)
+      if (drcOutputProcessor != null)
       {
          drcOutputProcessor.initialize();
       }
@@ -208,13 +206,14 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
          }
       }
 
-      if(drcOutputProcessor != null)
+      if (drcOutputProcessor != null)
       {
          drcOutputProcessor.processAfterController(timestamp);
       }
    }
 
-   private void integrateAccelerationsToGetDesiredVelocities(OneDoFJoint jointState, JointDesiredOutput lowLevelJointData, YoDouble qd_d_joint, YoDouble q_d_joint)
+   private void integrateAccelerationsToGetDesiredVelocities(OneDoFJoint jointState, JointDesiredOutput lowLevelJointData, YoDouble qd_d_joint,
+                                                             YoDouble q_d_joint)
    {
       double currentPosition = jointState.getQ();
       double currentVelocity = jointState.getQd();
@@ -251,7 +250,7 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
    @Override
    public void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
    {
-      if(drcOutputProcessor != null)
+      if (drcOutputProcessor != null)
       {
          drcOutputProcessor.setLowLevelControllerCoreOutput(controllerRobotModel, lowLevelControllerCoreOutput);
       }
@@ -263,19 +262,23 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
          for (RobotSide robotSide : RobotSide.values)
          {
             for (LegJointName jointName : legJointsForIntegratingAcceleration)
-               jointStateAndData.add(controllerRobotModel.getLegJoint(robotSide, jointName), lowLevelControllerCoreOutput.getJointDesiredOutput(controllerRobotModel.getLegJoint(robotSide, jointName)));
+               jointStateAndData.add(controllerRobotModel.getLegJoint(robotSide, jointName),
+                                     lowLevelControllerCoreOutput.getJointDesiredOutput(controllerRobotModel.getLegJoint(robotSide, jointName)));
             for (ArmJointName jointName : armJointsForIntegratingAcceleration)
-               jointStateAndData.add(controllerRobotModel.getArmJoint(robotSide, jointName), lowLevelControllerCoreOutput.getJointDesiredOutput(controllerRobotModel.getArmJoint(robotSide, jointName)));
+               jointStateAndData.add(controllerRobotModel.getArmJoint(robotSide, jointName),
+                                     lowLevelControllerCoreOutput.getJointDesiredOutput(controllerRobotModel.getArmJoint(robotSide, jointName)));
          }
-         
+
          for (SpineJointName jointName : spineJointsForIntegratingAcceleration)
-            jointStateAndData.add(controllerRobotModel.getSpineJoint(jointName), lowLevelControllerCoreOutput.getJointDesiredOutput(controllerRobotModel.getSpineJoint(jointName)));
+            jointStateAndData.add(controllerRobotModel.getSpineJoint(jointName),
+                                  lowLevelControllerCoreOutput.getJointDesiredOutput(controllerRobotModel.getSpineJoint(jointName)));
       }
       else
       {
-         for(int i = 0; i < lowLevelControllerCoreOutput.getNumberOfJointsWithDesiredOutput(); i++)
+         for (int i = 0; i < lowLevelControllerCoreOutput.getNumberOfJointsWithDesiredOutput(); i++)
          {
-            jointStateAndData.add(lowLevelControllerCoreOutput.getOneDoFJoint(i), lowLevelControllerCoreOutput.getJointDesiredOutput(lowLevelControllerCoreOutput.getOneDoFJoint(i)));
+            jointStateAndData.add(lowLevelControllerCoreOutput.getOneDoFJoint(i),
+                                  lowLevelControllerCoreOutput.getJointDesiredOutput(lowLevelControllerCoreOutput.getOneDoFJoint(i)));
          }
       }
 
@@ -308,7 +311,7 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
       {
          final OneDoFJoint jointState = jointStateAndData.first(i);
          final JointDesiredOutput jointData = jointStateAndData.second(i);
-         
+
          final YoBoolean doAccelerationIntegration = new YoBoolean("doAccelerationIntegration_" + jointState.getName(), registry);
          YoDouble desiredVelocity = new YoDouble("qd_d_" + jointState.getName(), registry);
          YoDouble desiredPosition = new YoDouble("q_d_" + jointState.getName(), registry);
@@ -363,22 +366,13 @@ public class DRCOutputProcessorWithAccelerationIntegration implements DRCOutputP
             for (ArmJointName armJointName : armJointsForIntegratingAcceleration)
             {
                OneDoFJoint armJoint = controllerRobotModel.getArmJoint(robotSide, armJointName);
-               if(armJoint!=null)
+               if (armJoint != null)
                   armJoint.setIntegrateDesiredAccelerations(true);
             }
          }
 
          for (SpineJointName spineJointName : spineJointsForIntegratingAcceleration)
             controllerRobotModel.getSpineJoint(spineJointName).setIntegrateDesiredAccelerations(true);
-      }
-   }
-
-   @Override
-   public void setForceSensorDataHolderForController(ForceSensorDataHolderReadOnly forceSensorDataHolderForEstimator)
-   {
-      if(drcOutputProcessor != null)
-      {
-         drcOutputProcessor.setForceSensorDataHolderForController(forceSensorDataHolderForEstimator);
       }
    }
 }
