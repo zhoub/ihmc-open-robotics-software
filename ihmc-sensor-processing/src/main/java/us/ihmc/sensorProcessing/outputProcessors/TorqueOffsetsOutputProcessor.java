@@ -26,6 +26,11 @@ public class TorqueOffsetsOutputProcessor implements RobotOutputProcessor, Joint
 
    private final double updateDT;
 
+   public TorqueOffsetsOutputProcessor(double updateDT)
+   {
+      this(null, updateDT);
+   }
+
    public TorqueOffsetsOutputProcessor(RobotOutputProcessor outputProcessor, double updateDT)
    {
       this.updateDT = updateDT;
