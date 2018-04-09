@@ -10,7 +10,7 @@ import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinemat
 import us.ihmc.commonWalkingControlModules.controllerCore.command.lowLevel.LowLevelOneDoFJointDesiredDataHolder;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualModelControlCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualModelControlCommandList;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputListReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputListReadOnly;
 
 /**
  * Class that contains the different lists that are submitted the whole body controller core. All

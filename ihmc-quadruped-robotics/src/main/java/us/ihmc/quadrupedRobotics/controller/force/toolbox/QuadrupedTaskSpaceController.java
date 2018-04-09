@@ -10,7 +10,6 @@ import us.ihmc.quadrupedRobotics.optimization.contactForceOptimization.Quadruped
 import us.ihmc.quadrupedRobotics.optimization.contactForceOptimization.QuadrupedContactForceOptimization;
 import us.ihmc.quadrupedRobotics.optimization.contactForceOptimization.QuadrupedContactForceOptimizationSettings;
 import us.ihmc.quadrupedRobotics.planning.ContactState;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoLong;
 import us.ihmc.robotics.robotSide.QuadrantDependentList;

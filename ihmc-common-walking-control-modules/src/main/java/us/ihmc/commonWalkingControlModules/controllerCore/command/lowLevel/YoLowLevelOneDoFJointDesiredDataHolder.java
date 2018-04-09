@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Map;
 
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputReadOnly;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputListReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputListReadOnly;
 import us.ihmc.tools.string.StringTools;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 

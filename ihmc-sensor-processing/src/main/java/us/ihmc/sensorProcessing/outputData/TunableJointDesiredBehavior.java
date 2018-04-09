@@ -1,4 +1,4 @@
-package us.ihmc.outputProcessing.outputData;
+package us.ihmc.sensorProcessing.outputData;
 
 import us.ihmc.yoVariables.parameters.DoubleParameter;
 import us.ihmc.yoVariables.parameters.EnumParameter;

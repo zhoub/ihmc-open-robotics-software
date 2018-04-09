@@ -14,7 +14,7 @@ import us.ihmc.robotics.sensors.CenterOfMassDataHolderReadOnly;
 import us.ihmc.robotics.sensors.ContactSensorHolder;
 import us.ihmc.robotics.sensors.ForceSensorDataHolder;
 import us.ihmc.sensorProcessing.model.RobotMotionStatusHolder;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.sensorProcessing.sensors.RawJointSensorDataHolderMap;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;

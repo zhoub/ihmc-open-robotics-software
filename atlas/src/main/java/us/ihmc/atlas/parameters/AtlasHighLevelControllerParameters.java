@@ -15,9 +15,9 @@ import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
 import us.ihmc.robotics.partNames.ArmJointName;
 import us.ihmc.robotics.partNames.NeckJointName;
 import us.ihmc.robotics.robotSide.RobotSide;
-import us.ihmc.outputProcessing.outputData.JointDesiredBehavior;
-import us.ihmc.outputProcessing.outputData.JointDesiredBehaviorReadOnly;
-import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.sensorProcessing.outputData.JointDesiredBehavior;
+import us.ihmc.sensorProcessing.outputData.JointDesiredBehaviorReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
 
 public class AtlasHighLevelControllerParameters implements HighLevelControllerParameters
 {

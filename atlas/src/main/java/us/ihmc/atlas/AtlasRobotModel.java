@@ -67,7 +67,7 @@ import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.robotiq.model.RobotiqHandModel;
 import us.ihmc.robotiq.simulatedHand.SimulatedRobotiqHandsController;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputWriter;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputWriter;
 import us.ihmc.sensorProcessing.parameters.DRCRobotSensorInformation;
 import us.ihmc.sensorProcessing.stateEstimation.StateEstimatorParameters;
 import us.ihmc.simulationConstructionSetTools.robotController.MultiThreadedRobotControlElement;
@@ -75,7 +75,7 @@ import us.ihmc.simulationconstructionset.FloatingRootJointRobot;
 import us.ihmc.simulationconstructionset.HumanoidFloatingRootJointRobot;
 import us.ihmc.tools.thread.CloseableAndDisposableRegistry;
 import us.ihmc.wholeBodyController.FootContactPoints;
-import us.ihmc.wholeBodyController.RobotOutputProcessor;
+import us.ihmc.sensorProcessing.outputProcessors.RobotOutputProcessor;
 import us.ihmc.wholeBodyController.UIParameters;
 import us.ihmc.wholeBodyController.concurrent.ThreadDataSynchronizerInterface;
 

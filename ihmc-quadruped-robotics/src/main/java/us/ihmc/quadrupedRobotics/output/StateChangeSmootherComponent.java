@@ -1,13 +1,13 @@
 package us.ihmc.quadrupedRobotics.output;
 
+import us.ihmc.sensorProcessing.outputProcessors.RobotOutputProcessor;
 import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.robotics.controllers.ControllerStateChangedListener;
 import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.robotics.stateMachine.core.StateChangedListener;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutput;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
-import us.ihmc.outputProcessing.outputProcessing.RobotOutputProcessor;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.yoVariables.parameters.DoubleParameter;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
@@ -67,7 +67,7 @@ public class StateChangeSmootherComponent implements RobotOutputProcessor
    }
 
    @Override
-   public void processAfterController()
+   public void processAfterController(long timestamp)
    {
       if (hasHighLevelControllerStateChanged.get())
       {

@@ -7,8 +7,8 @@ import us.ihmc.humanoidRobotics.communication.packets.dataobjects.HighLevelContr
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.robotics.screwTheory.ScrewTools;
 import us.ihmc.robotics.stateMachine.core.State;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputListReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputListReadOnly;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public abstract class HighLevelControllerState implements State, JointLoadStatusProvider

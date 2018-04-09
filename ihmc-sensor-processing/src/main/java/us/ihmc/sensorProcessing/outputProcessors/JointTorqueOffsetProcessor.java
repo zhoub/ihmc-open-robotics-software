@@ -1,4 +1,4 @@
-package us.ihmc.wholeBodyController;
+package us.ihmc.sensorProcessing.outputProcessors;
 
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 

@@ -33,6 +33,9 @@ import us.ihmc.humanoidRobotics.communication.subscribers.PelvisPoseCorrectionCo
 import us.ihmc.humanoidRobotics.communication.subscribers.PelvisPoseCorrectionCommunicatorInterface;
 import us.ihmc.humanoidRobotics.kryo.IHMCCommunicationKryoNetClassList;
 import us.ihmc.multicastLogDataProtocol.modelLoaders.LogModelProvider;
+import us.ihmc.sensorProcessing.outputProcessors.RobotOutputProcessor;
+import us.ihmc.sensorProcessing.outputProcessors.RobotOutputWriter;
+import us.ihmc.sensorProcessing.outputProcessors.TorqueOffsetsOutputProcessor;
 import us.ihmc.robotDataLogger.YoVariableServer;
 import us.ihmc.robotDataLogger.logger.LogSettings;
 import us.ihmc.robotics.robotSide.RobotSide;

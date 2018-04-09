@@ -1,11 +1,11 @@
-package us.ihmc.wholeBodyController;
+package us.ihmc.sensorProcessing.outputProcessors;
 
 import us.ihmc.commons.Conversions;
 import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.robotics.controllers.ControllerStateChangedListener;
 import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutput;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.tools.lists.PairList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;

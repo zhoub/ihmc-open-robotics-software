@@ -8,7 +8,7 @@ import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.factories.Hi
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelStates.HighLevelControllerState;
 import us.ihmc.humanoidRobotics.communication.packets.dataobjects.HighLevelControllerName;
 import us.ihmc.robotModels.FullRobotModel;
-import us.ihmc.wholeBodyController.JointTorqueOffsetProcessor;
+import us.ihmc.sensorProcessing.outputProcessors.JointTorqueOffsetProcessor;
 
 public class DiagnosticsWhenHangingControllerStateFactory implements HighLevelControllerStateFactory
 {

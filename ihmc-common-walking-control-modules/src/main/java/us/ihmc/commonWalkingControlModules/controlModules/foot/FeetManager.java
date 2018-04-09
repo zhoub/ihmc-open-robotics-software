@@ -34,7 +34,7 @@ import us.ihmc.robotics.screwTheory.MovingReferenceFrame;
 import us.ihmc.robotics.sensors.FootSwitchInterface;
 import us.ihmc.sensorProcessing.frames.CommonHumanoidReferenceFrames;
 import us.ihmc.yoVariables.parameters.DoubleParameter;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputListReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputListReadOnly;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class FeetManager

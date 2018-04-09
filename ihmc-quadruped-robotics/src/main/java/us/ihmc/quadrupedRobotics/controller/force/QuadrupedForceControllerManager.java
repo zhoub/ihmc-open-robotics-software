@@ -7,6 +7,7 @@ import us.ihmc.communication.controllerAPI.CommandInputManager;
 import us.ihmc.communication.controllerAPI.StatusMessageOutputManager;
 import us.ihmc.communication.packetCommunicator.PacketCommunicator;
 import us.ihmc.humanoidRobotics.communication.controllerAPI.converter.ClearDelayQueueConverter;
+import us.ihmc.sensorProcessing.outputProcessors.RobotOutputProcessor;
 import us.ihmc.quadrupedRobotics.communication.QuadrupedControllerAPIDefinition;
 import us.ihmc.quadrupedRobotics.communication.commands.QuadrupedRequestedControllerStateCommand;
 import us.ihmc.quadrupedRobotics.controlModules.QuadrupedControlManagerFactory;
@@ -25,8 +26,7 @@ import us.ihmc.robotics.stateMachine.core.StateMachine;
 import us.ihmc.robotics.stateMachine.extra.EventTrigger;
 import us.ihmc.robotics.stateMachine.factories.EventBasedStateMachineFactory;
 import us.ihmc.sensorProcessing.model.RobotMotionStatusHolder;
-import us.ihmc.outputProcessing.outputProcessing.OutputProcessorFactory;
-import us.ihmc.outputProcessing.outputProcessing.RobotOutputProcessor;
+import us.ihmc.sensorProcessing.outputProcessors.OutputProcessorFactory;
 import us.ihmc.tools.thread.CloseableAndDisposable;
 import us.ihmc.tools.thread.CloseableAndDisposableRegistry;
 import us.ihmc.util.PeriodicThreadScheduler;
@@ -211,7 +211,7 @@ public class QuadrupedForceControllerManager implements QuadrupedControllerManag
       }
 
       // update output processor
-      outputProcessor.processAfterController();
+      outputProcessor.processAfterController(Conversions.secondsToNanoseconds(runtimeEnvironment.getRobotTimestamp().getDoubleValue()));
    }
 
    @Override

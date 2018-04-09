@@ -2,7 +2,7 @@ package us.ihmc.valkyrieRosControl.dataHolders;
 
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.rosControl.wholeRobot.PositionJointHandle;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputReadOnly;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 

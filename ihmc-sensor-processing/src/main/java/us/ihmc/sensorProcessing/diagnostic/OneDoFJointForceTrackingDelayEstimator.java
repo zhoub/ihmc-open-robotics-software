@@ -2,8 +2,7 @@ package us.ihmc.sensorProcessing.diagnostic;
 
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutput;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputReadOnly;
 
 public class OneDoFJointForceTrackingDelayEstimator implements DiagnosticUpdatable
 {

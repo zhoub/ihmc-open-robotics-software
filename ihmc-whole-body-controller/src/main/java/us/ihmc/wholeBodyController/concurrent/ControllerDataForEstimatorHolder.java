@@ -12,7 +12,7 @@ import us.ihmc.humanoidRobotics.model.CenterOfPressureDataHolder;
 import us.ihmc.robotics.screwTheory.RigidBody;
 import us.ihmc.sensorProcessing.model.RobotMotionStatus;
 import us.ihmc.sensorProcessing.model.RobotMotionStatusHolder;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 
 public class ControllerDataForEstimatorHolder
 {

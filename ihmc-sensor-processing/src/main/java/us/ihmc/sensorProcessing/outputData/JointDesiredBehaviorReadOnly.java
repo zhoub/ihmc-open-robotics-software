@@ -1,4 +1,4 @@
-package us.ihmc.outputProcessing.outputData;
+package us.ihmc.sensorProcessing.outputData;
 
 /**
  * Parameter class that defines desired joint behavior.

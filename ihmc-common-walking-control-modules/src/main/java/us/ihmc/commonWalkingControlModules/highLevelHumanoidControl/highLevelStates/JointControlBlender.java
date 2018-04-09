@@ -4,9 +4,9 @@ import us.ihmc.commons.MathTools;
 import us.ihmc.euclid.tools.TupleTools;
 import us.ihmc.robotics.math.filters.DeltaLimitedYoVariable;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutput;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputReadOnly;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 

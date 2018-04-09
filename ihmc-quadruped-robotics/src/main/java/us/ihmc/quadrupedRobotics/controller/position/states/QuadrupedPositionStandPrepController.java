@@ -11,8 +11,8 @@ import us.ihmc.quadrupedRobotics.model.QuadrupedRuntimeEnvironment;
 import us.ihmc.quadrupedRobotics.model.QuadrupedSimulationInitialPositionParameters;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.robotics.trajectories.MinimumJerkTrajectory;
-import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.yoVariables.parameters.DoubleParameter;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 

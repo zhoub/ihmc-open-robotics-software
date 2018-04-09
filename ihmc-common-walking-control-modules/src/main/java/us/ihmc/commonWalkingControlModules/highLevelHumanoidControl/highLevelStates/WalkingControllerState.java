@@ -21,8 +21,8 @@ import us.ihmc.robotics.screwTheory.InverseDynamicsJoint;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.robotics.screwTheory.ScrewTools;
 import us.ihmc.robotics.time.ExecutionTimer;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputListReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputListReadOnly;
 import us.ihmc.yoVariables.variable.YoVariable;
 
 public class WalkingControllerState extends HighLevelControllerState

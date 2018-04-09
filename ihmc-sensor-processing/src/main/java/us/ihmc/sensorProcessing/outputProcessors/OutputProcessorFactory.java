@@ -1,7 +1,7 @@
-package us.ihmc.outputProcessing.outputProcessing;
+package us.ihmc.sensorProcessing.outputProcessors;
 
 import us.ihmc.robotModels.FullRobotModel;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.tools.factories.FactoryTools;
 import us.ihmc.tools.factories.RequiredFactoryField;
 

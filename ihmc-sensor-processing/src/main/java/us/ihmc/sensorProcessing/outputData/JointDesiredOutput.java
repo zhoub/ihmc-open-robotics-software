@@ -1,4 +1,4 @@
-package us.ihmc.outputProcessing.outputData;
+package us.ihmc.sensorProcessing.outputData;
 
 public class JointDesiredOutput extends JointDesiredOutputReadOnly
 {

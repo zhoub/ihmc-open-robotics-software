@@ -1,4 +1,4 @@
-package us.ihmc.outputProcessing.outputData;
+package us.ihmc.sensorProcessing.outputData;
 
 /**
  * Mutable implementation if the {@link JointDesiredBehaviorReadOnly} interface.

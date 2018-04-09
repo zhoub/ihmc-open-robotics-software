@@ -3,11 +3,11 @@ package us.ihmc.avatar;
 import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.robotics.math.filters.DelayedYoDouble;
 import us.ihmc.robotics.robotController.RawOutputWriter;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutput;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.simulationconstructionset.FloatingRootJointRobot;
 import us.ihmc.simulationconstructionset.OneDegreeOfFreedomJoint;
-import us.ihmc.wholeBodyController.RobotOutputProcessor;
+import us.ihmc.sensorProcessing.outputProcessors.RobotOutputProcessor;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 

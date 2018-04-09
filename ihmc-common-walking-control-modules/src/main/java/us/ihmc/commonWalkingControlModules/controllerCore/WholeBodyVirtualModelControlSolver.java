@@ -23,7 +23,7 @@ import us.ihmc.robotics.linearAlgebra.MatrixTools;
 import us.ihmc.robotics.math.frames.YoFrameVector;
 import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 import us.ihmc.robotics.screwTheory.*;
-import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 import java.util.List;

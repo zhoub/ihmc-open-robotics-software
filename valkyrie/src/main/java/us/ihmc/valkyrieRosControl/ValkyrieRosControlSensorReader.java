@@ -24,7 +24,7 @@ import us.ihmc.valkyrieRosControl.dataHolders.YoForceTorqueSensorHandle;
 import us.ihmc.valkyrieRosControl.dataHolders.YoIMUHandleHolder;
 import us.ihmc.valkyrieRosControl.dataHolders.YoJointStateHandleHolder;
 import us.ihmc.valkyrieRosControl.dataHolders.YoPositionJointHandleHolder;
-import us.ihmc.wholeBodyController.JointTorqueOffsetProcessor;
+import us.ihmc.sensorProcessing.outputProcessors.JointTorqueOffsetProcessor;
 import us.ihmc.wholeBodyController.diagnostics.JointTorqueOffsetEstimator;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 

@@ -32,8 +32,8 @@ import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 import us.ihmc.robotics.screwTheory.FloatingInverseDynamicsJoint;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.robotics.screwTheory.RigidBody;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputListReadOnly;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputListReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputReadOnly;
 
 public class KinematicsToolboxHelper
 {

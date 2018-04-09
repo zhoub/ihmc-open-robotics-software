@@ -45,7 +45,7 @@ import us.ihmc.rosControl.wholeRobot.PositionJointHandle;
 import us.ihmc.sensorProcessing.diagnostic.DiagnosticParameters.DiagnosticEnvironment;
 import us.ihmc.sensorProcessing.diagnostic.DiagnosticSensorProcessingConfiguration;
 import us.ihmc.sensorProcessing.model.RobotMotionStatusHolder;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.sensorProcessing.parameters.DRCRobotSensorInformation;
 import us.ihmc.sensorProcessing.sensorProcessors.SensorOutputMapReadOnly;
 import us.ihmc.sensorProcessing.sensors.RawJointSensorDataHolderMap;

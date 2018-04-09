@@ -9,8 +9,8 @@ import us.ihmc.quadrupedRobotics.controller.ControllerEvent;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedController;
 import us.ihmc.quadrupedRobotics.model.QuadrupedRuntimeEnvironment;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 
 /**
  * This controller sets desired joint angles to their actual values when the joint comes online.

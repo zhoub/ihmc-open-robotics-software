@@ -6,10 +6,10 @@ import java.util.Map;
 
 import gnu.trove.map.hash.TLongObjectHashMap;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutput;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputListReadOnly;
-import us.ihmc.outputProcessing.outputData.JointDesiredOutputReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputListReadOnly;
+import us.ihmc.sensorProcessing.outputData.JointDesiredOutputReadOnly;
 
 public class LowLevelOneDoFJointDesiredDataHolder implements JointDesiredOutputListReadOnly
 {
