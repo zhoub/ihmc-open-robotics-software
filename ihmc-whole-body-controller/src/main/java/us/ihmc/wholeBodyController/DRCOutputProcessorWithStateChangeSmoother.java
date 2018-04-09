@@ -2,6 +2,7 @@ package us.ihmc.wholeBodyController;
 
 import us.ihmc.commons.Conversions;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
+import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.robotics.controllers.ControllerStateChangedListener;
 import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
@@ -100,7 +101,7 @@ public class DRCOutputProcessorWithStateChangeSmoother implements DRCOutputProce
    }
 
    @Override
-   public void setLowLevelControllerCoreOutput(FullHumanoidRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
+   public void setLowLevelControllerCoreOutput(FullRobotModel controllerRobotModel, JointDesiredOutputList lowLevelControllerCoreOutput)
    {
       if (outputProcessor != null)
       {
