@@ -1,7 +1,7 @@
 package us.ihmc.wholeBodyController;
 
 import us.ihmc.robotModels.FullRobotModel;
-import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public interface RobotOutputProcessor

@@ -1,4 +1,4 @@
-package us.ihmc.sensorProcessing.outputData;
+package us.ihmc.outputProcessing.outputData;
 
 import us.ihmc.robotics.sensors.ForceSensorDataHolderReadOnly;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;

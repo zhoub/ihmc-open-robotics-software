@@ -16,7 +16,7 @@ import us.ihmc.sensorProcessing.diagnostic.OneDoFJointSensorValidityChecker;
 import us.ihmc.sensorProcessing.diagnostic.OrientationAngularVelocityConsistencyChecker;
 import us.ihmc.sensorProcessing.diagnostic.PositionVelocity1DConsistencyChecker;
 import us.ihmc.sensorProcessing.diagnostic.WrenchSensorValidityChecker;
-import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.sensorProcessing.sensorProcessors.SensorOutputMapReadOnly;
 import us.ihmc.sensorProcessing.stateEstimation.IMUSensorReadOnly;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;

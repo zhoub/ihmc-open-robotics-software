@@ -2,18 +2,16 @@ package us.ihmc.quadrupedRobotics.controller.force.states;
 
 import java.util.ArrayList;
 
-import us.ihmc.commonWalkingControlModules.controlModules.foot.FeetManager;
 import us.ihmc.quadrupedRobotics.controlModules.foot.QuadrupedFeetManager;
-import us.ihmc.quadrupedRobotics.controller.force.QuadrupedForceControllerToolbox;
 import us.ihmc.quadrupedRobotics.controller.ControllerEvent;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedController;
 import us.ihmc.quadrupedRobotics.model.QuadrupedRuntimeEnvironment;
 import us.ihmc.robotModels.FullQuadrupedRobotModel;
 import us.ihmc.robotics.partNames.JointRole;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
-import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
-import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.outputProcessing.outputData.JointDesiredOutput;
+import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 

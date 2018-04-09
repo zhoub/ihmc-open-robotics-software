@@ -16,9 +16,9 @@ import us.ihmc.robotics.partNames.LegJointName;
 import us.ihmc.robotics.partNames.NeckJointName;
 import us.ihmc.robotics.partNames.SpineJointName;
 import us.ihmc.robotics.robotSide.RobotSide;
-import us.ihmc.sensorProcessing.outputData.JointDesiredBehavior;
-import us.ihmc.sensorProcessing.outputData.JointDesiredBehaviorReadOnly;
-import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.outputProcessing.outputData.JointDesiredBehavior;
+import us.ihmc.outputProcessing.outputData.JointDesiredBehaviorReadOnly;
+import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
 import us.ihmc.valkyrie.parameters.ValkyrieJointMap;
 import us.ihmc.wholeBodyController.DRCRobotJointMap;
 

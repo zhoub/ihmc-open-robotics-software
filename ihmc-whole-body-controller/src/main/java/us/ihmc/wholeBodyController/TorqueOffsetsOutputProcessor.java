@@ -2,8 +2,8 @@ package us.ihmc.wholeBodyController;
 
 import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
-import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.outputProcessing.outputData.JointDesiredOutput;
+import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.tools.lists.PairList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;

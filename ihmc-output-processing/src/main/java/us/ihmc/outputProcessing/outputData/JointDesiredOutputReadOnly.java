@@ -1,4 +1,4 @@
-package us.ihmc.sensorProcessing.outputData;
+package us.ihmc.outputProcessing.outputData;
 
 /**
  * An interface for a data holder that is used to communicate desired joint behavior

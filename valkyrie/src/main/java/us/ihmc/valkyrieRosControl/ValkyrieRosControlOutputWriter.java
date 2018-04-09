@@ -7,7 +7,7 @@ import us.ihmc.robotics.controllers.ControllerStateChangedListener;
 import us.ihmc.wholeBodyController.RobotOutputWriter;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.sensors.ForceSensorDataHolderReadOnly;
-import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.sensorProcessing.sensors.RawJointSensorDataHolderMap;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 

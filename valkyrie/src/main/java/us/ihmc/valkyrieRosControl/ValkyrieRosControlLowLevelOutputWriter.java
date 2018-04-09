@@ -1,8 +1,8 @@
 package us.ihmc.valkyrieRosControl;
 
 import us.ihmc.robotics.sensors.ForceSensorDataHolderReadOnly;
-import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
-import us.ihmc.sensorProcessing.outputData.JointDesiredOutputWriter;
+import us.ihmc.outputProcessing.outputData.JointDesiredOutputList;
+import us.ihmc.outputProcessing.outputData.JointDesiredOutputWriter;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class ValkyrieRosControlLowLevelOutputWriter implements JointDesiredOutputWriter

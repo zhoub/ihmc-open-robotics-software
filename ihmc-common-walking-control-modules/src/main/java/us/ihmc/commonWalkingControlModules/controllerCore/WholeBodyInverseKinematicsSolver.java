@@ -18,7 +18,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.robotics.screwTheory.FloatingInverseDynamicsJoint;
 import us.ihmc.robotics.screwTheory.InverseDynamicsJoint;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.sensorProcessing.outputData.JointDesiredControlMode;
+import us.ihmc.outputProcessing.outputData.JointDesiredControlMode;
 
 public class WholeBodyInverseKinematicsSolver
 {

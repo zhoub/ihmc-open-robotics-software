@@ -1,4 +1,4 @@
-package us.ihmc.sensorProcessing.outputData;
+package us.ihmc.outputProcessing.outputData;
 
 public enum JointDesiredControlMode
 {
