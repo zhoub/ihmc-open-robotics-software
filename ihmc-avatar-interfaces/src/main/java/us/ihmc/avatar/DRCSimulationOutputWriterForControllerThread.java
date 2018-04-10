@@ -13,7 +13,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 import java.util.ArrayList;
 
-public class DRCSimulationOutputProcessForControllerThread implements RobotOutputProcessor
+public class DRCSimulationOutputWriterForControllerThread implements RobotOutputProcessor
 {
    private static final int TICKS_TO_DELAY = 0;
 
@@ -32,7 +32,7 @@ public class DRCSimulationOutputProcessForControllerThread implements RobotOutpu
       private DelayedYoDouble delayedJointTorque;
    }
 
-   public DRCSimulationOutputProcessForControllerThread(FloatingRootJointRobot robot)
+   public DRCSimulationOutputWriterForControllerThread(FloatingRootJointRobot robot)
    {
       this.robot = robot;
 

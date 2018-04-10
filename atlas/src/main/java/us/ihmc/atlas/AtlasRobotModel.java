@@ -22,7 +22,7 @@ import us.ihmc.atlas.parameters.AtlasWalkingControllerParameters;
 import us.ihmc.atlas.ros.AtlasPPSTimestampOffsetProvider;
 import us.ihmc.atlas.sensors.AtlasCollisionBoxProvider;
 import us.ihmc.atlas.sensors.AtlasSensorSuiteManager;
-import us.ihmc.avatar.DRCSimulationOutputProcessForControllerThread;
+import us.ihmc.avatar.DRCSimulationOutputWriterForControllerThread;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.handControl.packetsAndConsumers.HandModel;
@@ -834,7 +834,7 @@ public class AtlasRobotModel implements DRCRobotModel, SDFDescriptionMutator
    @Override
    public RobotOutputProcessor getCustomSimulationOutputProcessor(HumanoidFloatingRootJointRobot humanoidFloatingRootJointRobot)
    {
-      return new DRCSimulationOutputProcessForControllerThread(humanoidFloatingRootJointRobot);
+      return new DRCSimulationOutputWriterForControllerThread(humanoidFloatingRootJointRobot);
    }
 
    @Override
