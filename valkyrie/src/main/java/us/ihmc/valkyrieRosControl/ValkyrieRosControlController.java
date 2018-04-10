@@ -59,19 +59,28 @@ import us.ihmc.wholeBodyController.concurrent.ThreadDataSynchronizer;
 
 public class ValkyrieRosControlController extends IHMCWholeRobotControlJavaBridge
 {
-   private static final String[] allValkyrieJoints = {"leftHipYaw", "leftHipRoll", "leftHipPitch", "leftKneePitch", "leftAnklePitch", "leftAnkleRoll",
-         "rightHipYaw", "rightHipRoll", "rightHipPitch", "rightKneePitch", "rightAnklePitch", "rightAnkleRoll", "torsoYaw", "torsoPitch", "torsoRoll",
-         "lowerNeckPitch", "neckYaw", "upperNeckPitch", "leftShoulderPitch", "leftShoulderRoll", "leftShoulderYaw", "leftElbowPitch", "rightShoulderPitch",
-         "rightShoulderRoll", "rightShoulderYaw", "rightElbowPitch", "leftForearmYaw", "leftWristRoll", "leftWristPitch", "rightForearmYaw", "rightWristRoll",
-         "rightWristPitch", "leftIndexFingerPitch1", "leftMiddleFingerPitch1", "leftPinkyPitch1", "leftThumbRoll", "leftThumbPitch1", "leftThumbPitch2",
+   private static final String[] allValkyrieJoints = {
+         "leftHipYaw", "leftHipRoll", "leftHipPitch", "leftKneePitch", "leftAnklePitch", "leftAnkleRoll",
+         "rightHipYaw", "rightHipRoll", "rightHipPitch", "rightKneePitch", "rightAnklePitch", "rightAnkleRoll",
+         "torsoYaw", "torsoPitch", "torsoRoll",
+         "lowerNeckPitch", "neckYaw", "upperNeckPitch",
+         "leftShoulderPitch", "leftShoulderRoll", "leftShoulderYaw", "leftElbowPitch",
+         "rightShoulderPitch", "rightShoulderRoll", "rightShoulderYaw", "rightElbowPitch",
+         "leftForearmYaw", "leftWristRoll", "leftWristPitch",
+         "rightForearmYaw", "rightWristRoll", "rightWristPitch",
+         "leftIndexFingerPitch1", "leftMiddleFingerPitch1", "leftPinkyPitch1", "leftThumbRoll", "leftThumbPitch1", "leftThumbPitch2",
          "rightIndexFingerPitch1", "rightMiddleFingerPitch1", "rightPinkyPitch1", "rightThumbRoll", "rightThumbPitch1", "rightThumbPitch2"};
 
-   private static final String[] torqueControlledJoints = {"leftHipYaw", "leftHipRoll", "leftHipPitch", "leftKneePitch", "leftAnklePitch", "leftAnkleRoll",
-         "rightHipYaw", "rightHipRoll", "rightHipPitch", "rightKneePitch", "rightAnklePitch", "rightAnkleRoll", "torsoYaw", "torsoPitch", "torsoRoll",
-         "leftShoulderPitch", "leftShoulderRoll", "leftShoulderYaw", "leftElbowPitch", "rightShoulderPitch", "rightShoulderRoll", "rightShoulderYaw",
-         "rightElbowPitch", "leftForearmYaw", "leftWristRoll", "leftWristPitch", "rightForearmYaw", "rightWristRoll", "rightWristPitch",
-         "leftIndexFingerPitch1", "leftMiddleFingerPitch1", "leftPinkyPitch1", "leftThumbRoll", "leftThumbPitch1", "leftThumbPitch2", "rightIndexFingerPitch1",
-         "rightMiddleFingerPitch1", "rightPinkyPitch1", "rightThumbRoll", "rightThumbPitch1", "rightThumbPitch2"};
+   private static final String[] torqueControlledJoints = {
+         "leftHipYaw", "leftHipRoll", "leftHipPitch", "leftKneePitch", "leftAnklePitch", "leftAnkleRoll",
+         "rightHipYaw", "rightHipRoll", "rightHipPitch", "rightKneePitch", "rightAnklePitch", "rightAnkleRoll",
+         "torsoYaw", "torsoPitch", "torsoRoll",
+         "leftShoulderPitch", "leftShoulderRoll", "leftShoulderYaw", "leftElbowPitch",
+         "rightShoulderPitch", "rightShoulderRoll", "rightShoulderYaw", "rightElbowPitch",
+         "leftForearmYaw", "leftWristRoll", "leftWristPitch",
+         "rightForearmYaw", "rightWristRoll", "rightWristPitch",
+         "leftIndexFingerPitch1", "leftMiddleFingerPitch1", "leftPinkyPitch1", "leftThumbRoll", "leftThumbPitch1", "leftThumbPitch2",
+         "rightIndexFingerPitch1", "rightMiddleFingerPitch1", "rightPinkyPitch1", "rightThumbRoll", "rightThumbPitch1", "rightThumbPitch2"};
 
    private static final String[] positionControlledJoints = {"lowerNeckPitch", "neckYaw", "upperNeckPitch",};
 
