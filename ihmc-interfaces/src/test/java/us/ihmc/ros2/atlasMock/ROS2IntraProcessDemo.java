@@ -3,23 +3,22 @@ package us.ihmc.ros2.atlasMock;
 import controller_msgs.msg.dds.RobotConfigurationData;
 import controller_msgs.msg.dds.RobotConfigurationDataPubSubType;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.pubsub.common.MatchingInfo;
-import us.ihmc.pubsub.subscriber.Subscriber;
-import us.ihmc.pubsub.subscriber.SubscriberListener;
-import us.ihmc.ros2.IntraProcessNode;
-import us.ihmc.ros2.RosPublisher;
+import us.ihmc.pubsub.DomainFactory.PubSubImplementation;
+import us.ihmc.ros2.NonRealtimeRos2Node;
+import us.ihmc.ros2.Ros2Publisher;
+import us.ihmc.ros2.Ros2QosProfile;
 
 import java.io.IOException;
 
-public class ROS2IntraProcessDemo
+public class Ros2IntraProcessDemo
 {
    public static void publishUsingIntraProcessNode()
    {
       try
       {
-         IntraProcessNode node = new IntraProcessNode("MockAtlasController");
+         NonRealtimeRos2Node node = new NonRealtimeRos2Node(PubSubImplementation.INTRAPROCESS, "MockAtlasController");
          //      RosPublisher<AtlasRobotConfigurationData> publisher = node.createPublisher(new AtlasRobotConfigurationDataPubSubType(), "/robot_configuration_data");
-         RosPublisher<RobotConfigurationData> publisher = node.createPublisher(new RobotConfigurationDataPubSubType(), "/robot_configuration_data");
+         Ros2Publisher<RobotConfigurationData> publisher = node.createPublisher(new RobotConfigurationDataPubSubType(), "/robot_configuration_data");
 
          for (int i = 0; true; i++)
          {
@@ -42,35 +41,25 @@ public class ROS2IntraProcessDemo
    public static void subscribeUsingIntraProcessNode() throws IOException, InterruptedException
    {
 
-      IntraProcessNode node = new IntraProcessNode("MockNetworkProcessor");
+      NonRealtimeRos2Node node = new NonRealtimeRos2Node(PubSubImplementation.INTRAPROCESS, "MockNetworkProcessor");
       //      node.createSubscription(new AtlasRobotConfigurationDataPubSubType(), new Callback(), "/robot_configuration_data");
-      node.createSubscription(new RobotConfigurationDataPubSubType(), new SubscriberListener()
-      {
+      node.createSubscription(new RobotConfigurationDataPubSubType(), subscriber -> {
          RobotConfigurationData robotConfigurationData = new RobotConfigurationData();
-
-         @Override
-         public void onNewDataMessage(Subscriber subscriber)
+         try
          {
-            try
+            if (subscriber.takeNextData(robotConfigurationData, null))
             {
-               if (subscriber.takeNextData(robotConfigurationData, null))
-               {
-//                  System.out.println(robotConfigurationData.getHeader().getStamp().getNanosec());
-                  System.out.println(robotConfigurationData.getTimestamp());
-               }
-            }
-            catch (IOException e)
-            {
-               e.printStackTrace();
+               // System.out.println(robotConfigurationData.getHeader().getStamp().getNanosec());
+               System.out.println(robotConfigurationData.getTimestamp());
             }
          }
-
-         @Override
-         public void onSubscriptionMatched(Subscriber subscriber, MatchingInfo info)
+         catch (IOException e)
          {
-            System.out.println("Subscription matched!: " + subscriber.getAttributes().getTopic().getTopicName() + " " + info.getStatus().name());
+            e.printStackTrace();
          }
-      }, "/robot_configuration_data");
+      }, (subscriber, info) -> {
+         System.out.println("Subscription matched!: " + subscriber.getAttributes().getTopic().getTopicName() + " " + info.getStatus().name());
+      }, "/robot_configuration_data", Ros2QosProfile.DEFAULT());
       Thread.currentThread().join();
    }
 

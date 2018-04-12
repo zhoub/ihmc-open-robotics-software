@@ -17,10 +17,8 @@ package us.ihmc.ros2.atlasMock;
 
 import controller_msgs.msg.dds.RobotConfigurationData;
 import controller_msgs.msg.dds.RobotConfigurationDataPubSubType;
-import us.ihmc.pubsub.common.MatchingInfo;
-import us.ihmc.pubsub.subscriber.Subscriber;
-import us.ihmc.pubsub.subscriber.SubscriberListener;
-import us.ihmc.ros2.RosNode;
+import us.ihmc.pubsub.DomainFactory.PubSubImplementation;
+import us.ihmc.ros2.NonRealtimeRos2Node;
 
 import java.io.IOException;
 
@@ -28,28 +26,25 @@ public class MockNetworkProcessor
 {
    public static void main(String[] args) throws IOException, InterruptedException
    {
-      RosNode node = new RosNode("MockNetworkProcessor");
+      NonRealtimeRos2Node node = new NonRealtimeRos2Node(PubSubImplementation.FAST_RTPS, "MockNetworkProcessor");
 
       // Preallocate message for packing
       RobotConfigurationData robotConfigurationData = new RobotConfigurationData();
 
-      node.createSubscription(new RobotConfigurationDataPubSubType(), new SubscriberListener()
-      {
-         @Override
-         public void onNewDataMessage(Subscriber subscriber)
+      node.createSubscription(new RobotConfigurationDataPubSubType(), subscriber -> {
+         try
          {
-            try { if (subscriber.takeNextData(robotConfigurationData, null))
+            if (subscriber.takeNextData(robotConfigurationData, null))
             {
                // Access message data
-//               long nanosec = robotConfigurationData.getHeader().getStamp().getNanosec();
+               // long nanosec = robotConfigurationData.getHeader().getStamp().getNanosec();
                long nanosec = robotConfigurationData.getTimestamp();
-
-            } } catch (Exception e) {}
+               System.out.println(nanosec);
+            }
          }
-
-         @Override
-         public void onSubscriptionMatched(Subscriber subscriber, MatchingInfo info) { }
-
+         catch (Exception e)
+         {
+         }
       }, "/robot_configuration_data");
 
       Thread.currentThread().join();
