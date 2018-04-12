@@ -12,7 +12,7 @@ import us.ihmc.communication.packets.Packet;
 import us.ihmc.idl.IDLSequence;
 
 /**
- * A {@code MessageCollector} can be added to a {@link ControllerNetworkSubscriber}.
+ * A {@code MessageCollector} can be added to a {@link ControllerNetworkSubscriberKryo}.
  * <p>
  * It works with {@link MessageCollection} and allows the user to ensure that messages sent in group
  * are also processed in group.

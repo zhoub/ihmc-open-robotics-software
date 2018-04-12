@@ -9,7 +9,7 @@ import controller_msgs.msg.dds.WholeBodyTrajectoryMessage;
 import us.ihmc.commonWalkingControlModules.configurations.HighLevelControllerParameters;
 import us.ihmc.commonWalkingControlModules.configurations.ICPWithTimeFreezingPlannerParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriber;
+import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriberKryo;
 import us.ihmc.commonWalkingControlModules.controllerAPI.input.userDesired.UserDesiredControllerCommandGenerators;
 import us.ihmc.commonWalkingControlModules.controllers.Updatable;
 import us.ihmc.commonWalkingControlModules.desiredFootStep.ComponentBasedFootstepDataMessageGenerator;
@@ -516,8 +516,8 @@ public class HighLevelHumanoidControllerFactory implements CloseableAndDisposabl
 
    public void createControllerNetworkSubscriber(PeriodicThreadScheduler scheduler, PacketCommunicator packetCommunicator)
    {
-      ControllerNetworkSubscriber controllerNetworkSubscriber = new ControllerNetworkSubscriber(commandInputManager, statusMessageOutputManager, scheduler,
-                                                                                                packetCommunicator);
+      ControllerNetworkSubscriberKryo controllerNetworkSubscriber = new ControllerNetworkSubscriberKryo(commandInputManager, statusMessageOutputManager, scheduler,
+                                                                                                        packetCommunicator);
       controllerNetworkSubscriber.registerSubcriberWithMessageUnpacker(WholeBodyTrajectoryMessage.class, 9, MessageUnpackingTools.createWholeBodyTrajectoryMessageUnpacker());
       controllerNetworkSubscriber.addMessageCollector(ControllerAPIDefinition.createDefaultMessageIDExtractor());
       controllerNetworkSubscriber.addMessageValidator(ControllerAPIDefinition.createDefaultMessageValidation());

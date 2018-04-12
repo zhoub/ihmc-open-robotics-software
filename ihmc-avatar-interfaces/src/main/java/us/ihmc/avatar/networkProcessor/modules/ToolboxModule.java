@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import controller_msgs.msg.dds.ToolboxStateMessage;
-import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriber;
-import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriber.MessageFilter;
+import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriberKryo;
+import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriberKryo.MessageFilter;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -57,7 +57,7 @@ public abstract class ToolboxModule
    protected final PacketCommunicator packetCommunicator;
    protected final CommandInputManager commandInputManager;
    protected final StatusMessageOutputManager statusOutputManager;
-   protected final ControllerNetworkSubscriber controllerNetworkSubscriber;
+   protected final ControllerNetworkSubscriberKryo controllerNetworkSubscriber;
    private final int thisDesitination;
 
    protected final YoEnum<PacketDestination> activeMessageSource = new YoEnum<>("activeMessageSource", registry, PacketDestination.class, true);
@@ -92,7 +92,7 @@ public abstract class ToolboxModule
       packetCommunicator = PacketCommunicator.createIntraprocessPacketCommunicator(toolboxPort, new IHMCCommunicationKryoNetClassList());
       commandInputManager = new CommandInputManager(name, createListOfSupportedCommands());
       statusOutputManager = new StatusMessageOutputManager(createListOfSupportedStatus());
-      controllerNetworkSubscriber = new ControllerNetworkSubscriber(commandInputManager, statusOutputManager, null, packetCommunicator);
+      controllerNetworkSubscriber = new ControllerNetworkSubscriberKryo(commandInputManager, statusOutputManager, null, packetCommunicator);
 
 
       executorService = Executors.newScheduledThreadPool(1, threadFactory);

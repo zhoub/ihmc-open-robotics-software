@@ -1,7 +1,7 @@
 package us.ihmc.quadrupedRobotics.communication;
 
 import controller_msgs.msg.dds.*;
-import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriber;
+import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriberKryo;
 import us.ihmc.commonWalkingControlModules.controllerAPI.input.MessageCollector;
 import us.ihmc.communication.controllerAPI.command.Command;
 import us.ihmc.communication.packets.Packet;
@@ -59,9 +59,9 @@ public class QuadrupedControllerAPIDefinition
       return quadrupedSupportedStatusMessages;
    }
 
-   public static ControllerNetworkSubscriber.MessageValidator createDefaultMessageValidation()
+   public static ControllerNetworkSubscriberKryo.MessageValidator createDefaultMessageValidation()
    {
-      Map<Class<? extends Packet<?>>, ControllerNetworkSubscriber.MessageValidator> validators = new HashMap<>();
+      Map<Class<? extends Packet<?>>, ControllerNetworkSubscriberKryo.MessageValidator> validators = new HashMap<>();
       validators.put(SoleTrajectoryMessage.class, message -> validateSoleTrajectoryMessage((SoleTrajectoryMessage) message));
       //      validators.put(PelvisTrajectoryMessage.class, message -> validatePelvisTrajectoryMessage((PelvisTrajectoryMessage) message));
       validators.put(QuadrupedBodyOrientationMessage.class, message -> validateQuadrupedBodyOrientationMessage((QuadrupedBodyOrientationMessage) message));
@@ -70,12 +70,12 @@ public class QuadrupedControllerAPIDefinition
       //      validators.put(GoHomeMessage.class, message -> validateGoHomeMessage((GoHomeMessage) message));
       //      validators.put(FootLoadBearingMessage.class, message -> validateFootLoadBearingMessage((FootLoadBearingMessage) message));
 
-      return new ControllerNetworkSubscriber.MessageValidator()
+      return new ControllerNetworkSubscriberKryo.MessageValidator()
       {
          @Override
          public String validate(Packet<?> message)
          {
-            ControllerNetworkSubscriber.MessageValidator validator = validators.get(message.getClass());
+            ControllerNetworkSubscriberKryo.MessageValidator validator = validators.get(message.getClass());
             return validator == null ? null : validator.validate(message);
          }
       };

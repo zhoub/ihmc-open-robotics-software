@@ -24,7 +24,7 @@ import us.ihmc.tools.thread.CloseableAndDisposable;
 import us.ihmc.util.PeriodicThreadScheduler;
 
 /**
- * The ControllerNetworkSubscriber is meant to used as a generic interface between a network packet
+ * The ControllerNetworkSubscriberKryo is meant to used as a generic interface between a network packet
  * communicator and the controller API. It automatically creates all the {@link PacketConsumer} for
  * all the messages supported by the {@link CommandInputManager}. The status messages are send to
  * the network communicator on a separate thread to avoid any delay in the controller thread.
@@ -32,7 +32,7 @@ import us.ihmc.util.PeriodicThreadScheduler;
  * @author Sylvain
  *
  */
-public class ControllerNetworkSubscriber implements Runnable, CloseableAndDisposable
+public class ControllerNetworkSubscriberKryo implements Runnable, CloseableAndDisposable
 {
    private static final boolean DEBUG = false;
 
@@ -64,8 +64,8 @@ public class ControllerNetworkSubscriber implements Runnable, CloseableAndDispos
     */
    private final Map<Class<? extends Packet<?>>, ConcurrentRingBuffer<? extends Packet<?>>> statusMessageClassToBufferMap = new HashMap<>();
 
-   public ControllerNetworkSubscriber(CommandInputManager controllerCommandInputManager, StatusMessageOutputManager controllerStatusOutputManager,
-                                      PeriodicThreadScheduler scheduler, PacketCommunicator packetCommunicator)
+   public ControllerNetworkSubscriberKryo(CommandInputManager controllerCommandInputManager, StatusMessageOutputManager controllerStatusOutputManager,
+                                          PeriodicThreadScheduler scheduler, PacketCommunicator packetCommunicator)
    {
       this.controllerCommandInputManager = controllerCommandInputManager;
       this.controllerStatusOutputManager = controllerStatusOutputManager;
@@ -103,7 +103,7 @@ public class ControllerNetworkSubscriber implements Runnable, CloseableAndDispos
          public void receivedPacket(T multipleMessageHolder)
          {
             if (DEBUG)
-               PrintTools.debug(ControllerNetworkSubscriber.this,
+               PrintTools.debug(ControllerNetworkSubscriberKryo.this,
                                 "Received message: " + multipleMessageHolder.getClass().getSimpleName() + ", " + multipleMessageHolder);
 
             String errorMessage = messageValidator.get().validate(multipleMessageHolder);
@@ -190,12 +190,12 @@ public class ControllerNetworkSubscriber implements Runnable, CloseableAndDispos
    private <T extends Packet<T>> void receivedMessage(Packet<?> message)
    {
       if (DEBUG)
-         PrintTools.debug(ControllerNetworkSubscriber.this, "Received message: " + message.getClass().getSimpleName() + ", " + message);
+         PrintTools.debug(ControllerNetworkSubscriberKryo.this, "Received message: " + message.getClass().getSimpleName() + ", " + message);
 
       if (messageCollector.isCollecting() && messageCollector.interceptMessage(message))
       {
          if (DEBUG)
-            PrintTools.debug(ControllerNetworkSubscriber.this, "Collecting message: " + message.getClass().getSimpleName() + ", " + message);
+            PrintTools.debug(ControllerNetworkSubscriberKryo.this, "Collecting message: " + message.getClass().getSimpleName() + ", " + message);
 
          if (!messageCollector.isCollecting())
          {
@@ -227,7 +227,7 @@ public class ControllerNetworkSubscriber implements Runnable, CloseableAndDispos
       if (!messageFilter.get().isMessageValid(messageToTest))
       {
          if (DEBUG)
-            PrintTools.error(ControllerNetworkSubscriber.this, "Packet failed to validate filter! Filter class: "
+            PrintTools.error(ControllerNetworkSubscriberKryo.this, "Packet failed to validate filter! Filter class: "
                   + messageFilter.get().getClass().getSimpleName() + ", rejected message: " + messageToTest.getClass().getSimpleName());
          return false;
       }
@@ -247,8 +247,8 @@ public class ControllerNetworkSubscriber implements Runnable, CloseableAndDispos
          buffer.commit();
       }
 
-      PrintTools.error(ControllerNetworkSubscriber.this, "Packet failed to validate: " + messageClass.getSimpleName());
-      PrintTools.error(ControllerNetworkSubscriber.this, errorMessage);
+      PrintTools.error(ControllerNetworkSubscriberKryo.this, "Packet failed to validate: " + messageClass.getSimpleName());
+      PrintTools.error(ControllerNetworkSubscriberKryo.this, errorMessage);
    }
 
    private void createGlobalStatusMessageListener()

@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 import controller_msgs.msg.dds.*;
-import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriber.MessageValidator;
+import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriberKryo.MessageValidator;
 import us.ihmc.commonWalkingControlModules.controllerAPI.input.MessageCollector.MessageIDExtractor;
 import us.ihmc.communication.controllerAPI.command.Command;
 import us.ihmc.communication.packets.Packet;

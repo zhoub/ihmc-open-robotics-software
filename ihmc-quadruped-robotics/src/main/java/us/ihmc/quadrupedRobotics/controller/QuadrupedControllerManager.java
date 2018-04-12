@@ -1,7 +1,7 @@
 package us.ihmc.quadrupedRobotics.controller;
 
 import controller_msgs.msg.dds.QuadrupedControllerStateChangeMessage;
-import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriber;
+import us.ihmc.commonWalkingControlModules.controllerAPI.input.ControllerNetworkSubscriberKryo;
 import us.ihmc.commons.Conversions;
 import us.ihmc.communication.controllerAPI.CommandInputManager;
 import us.ihmc.communication.controllerAPI.StatusMessageOutputManager;
@@ -367,8 +367,8 @@ public class QuadrupedControllerManager implements RobotController, CloseableAnd
 
    public void createControllerNetworkSubscriber(PeriodicThreadScheduler scheduler, PacketCommunicator packetCommunicator)
    {
-      ControllerNetworkSubscriber controllerNetworkSubscriber = new ControllerNetworkSubscriber(commandInputManager, statusMessageOutputManager, scheduler,
-                                                                                                packetCommunicator);
+      ControllerNetworkSubscriberKryo controllerNetworkSubscriber = new ControllerNetworkSubscriberKryo(commandInputManager, statusMessageOutputManager, scheduler,
+                                                                                                        packetCommunicator);
       //      controllerNetworkSubscriber.registerSubcriberWithMessageUnpacker(WholeBodyTrajectoryMessage.class, 9, MessageUnpackingTools.createWholeBodyTrajectoryMessageUnpacker());
       controllerNetworkSubscriber.addMessageCollector(QuadrupedControllerAPIDefinition.createDefaultMessageIDExtractor());
       controllerNetworkSubscriber.addMessageValidator(QuadrupedControllerAPIDefinition.createDefaultMessageValidation());
