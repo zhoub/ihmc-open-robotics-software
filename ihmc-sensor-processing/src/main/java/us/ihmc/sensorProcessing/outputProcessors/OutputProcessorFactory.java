@@ -36,6 +36,6 @@ public class OutputProcessorFactory
       FactoryTools.checkAllFactoryFieldsAreSet(this);
       FactoryTools.disposeFactory(this);
 
-      return new ModularOutputProcessor("modularOutputProcessor", outputProcessors);
+      return new ModularOutputProcessor("ModularOutputProcessor", outputProcessors);
    }
 }

@@ -132,9 +132,11 @@
                     <parameter name="maximumStepStride" type="DoubleParameter" min="0.0" max="1.0" value="1.0"/>
                 </registry>
             </registry>
-            <registry name="StateChangeSmootherComponent">
-                <parameter name="stateChangeSmootherSlopTime" type="DoubleParameter" min="0.0" max="1.0" value="0.04"/>
-                <parameter name="stateChangeSmootherSlopBreakFrequency" type="DoubleParameter" min="0.0" max="1.0" value="30.0"/>
+            <registry name="ModularOutputProcessor">
+                <registry name="StateChangeSmootherProcessor">
+                    <parameter name="stateChangeSmootherSlopTime" type="DoubleParameter" min="0.0" max="1.0" value="0.04"/>
+                    <parameter name="stateChangeSmootherSlopBreakFrequency" type="DoubleParameter" min="0.0" max="1.0" value="30.0"/>
+                </registry>
             </registry>
             <registry name="QuadrupedForceBasedStandPrepController">
                 <parameter name="trajectoryTime" type="DoubleParameter" min="0.0" max="1.0" value="1.0"/>
