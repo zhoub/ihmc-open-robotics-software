@@ -1,22 +1,22 @@
 package us.ihmc.quadrupedRobotics.output;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import us.ihmc.quadrupedRobotics.model.QuadrupedRuntimeEnvironment;
+import us.ihmc.sensorProcessing.outputProcessors.RobotOutputProcessor;
 import us.ihmc.robotModels.FullRobotModel;
 import us.ihmc.robotics.controllers.ControllerStateChangedListener;
+import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
+import us.ihmc.robotics.screwTheory.OneDoFJoint;
+import us.ihmc.robotics.stateMachine.core.StateChangedListener;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutput;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.yoVariables.parameters.DoubleParameter;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
-import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
-import us.ihmc.robotics.screwTheory.OneDoFJoint;
-import us.ihmc.robotics.stateMachine.core.StateChangedListener;
 
-public class StateChangeSmootherComponent implements OutputProcessorComponent
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class NewStateChangeSmootherComponent implements RobotOutputProcessor
 {
    private final YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
    private final DoubleParameter slopTimeParameter = new DoubleParameter("stateChangeSmootherSlopTime", registry, 0.0);
@@ -29,27 +29,24 @@ public class StateChangeSmootherComponent implements OutputProcessorComponent
    private final AtomicBoolean hasHighLevelControllerStateChanged = new AtomicBoolean(false);
    private final YoDouble timeAtHighLevelControllerStateChange = new YoDouble("timeAtControllerStateChange", registry);
    private final double controlDT;
-   private final YoDouble controlTimestamp;
-   private final JointDesiredOutputList jointDesiredOutputList;
+   private final YoDouble controlTime;
 
-   public StateChangeSmootherComponent(QuadrupedRuntimeEnvironment runtimeEnvironment, YoVariableRegistry parentRegistry)
+   private JointDesiredOutputList jointDesiredOutputList;
+
+   public NewStateChangeSmootherComponent(YoDouble controllerTime, double controlDT)
    {
-      this.controlDT = runtimeEnvironment.getControlDT();
-      this.controlTimestamp = runtimeEnvironment.getRobotTimestamp();
-      this.jointDesiredOutputList = runtimeEnvironment.getJointDesiredOutputList();
+      this.controlDT = controlDT;
+      this.controlTime = controllerTime;
 
       alphaJointTorqueForStateChanges.set(0.0);
       timeAtHighLevelControllerStateChange.set(Double.NEGATIVE_INFINITY);
-
-      if (parentRegistry != null)
-      {
-         parentRegistry.addChild(registry);
-      }
    }
 
    @Override
-   public void setFullRobotModel(FullRobotModel fullRobotModel)
+   public void setLowLevelControllerOutput(FullRobotModel fullRobotModel, JointDesiredOutputList jointDesiredOutputList)
    {
+      this.jointDesiredOutputList = jointDesiredOutputList;
+
       OneDoFJoint[] joints = fullRobotModel.getOneDoFJoints();
       for (int i = 0; i < joints.length; i++)
       {
@@ -70,15 +67,15 @@ public class StateChangeSmootherComponent implements OutputProcessorComponent
    }
 
    @Override
-   public void update()
+   public void processAfterController(long timestamp)
    {
       if (hasHighLevelControllerStateChanged.get())
       {
          hasHighLevelControllerStateChanged.set(false);
-         timeAtHighLevelControllerStateChange.set(controlTimestamp.getDoubleValue());
+         timeAtHighLevelControllerStateChange.set(controlTime.getDoubleValue());
       }
 
-      double currentTime = controlTimestamp.getDoubleValue();
+      double currentTime = controlTime.getDoubleValue();
       double deltaTime = Math.max(currentTime - timeAtHighLevelControllerStateChange.getDoubleValue(), 0.0);
 
       if (deltaTime < slopTimeParameter.getValue())
@@ -101,6 +98,12 @@ public class StateChangeSmootherComponent implements OutputProcessorComponent
          smoothedJointTorque.update(tau);
          jointDesiredOutput.setDesiredTorque(smoothedJointTorque.getDoubleValue());
       }
+   }
+
+   @Override
+   public YoVariableRegistry getYoVariableRegistry()
+   {
+      return registry;
    }
 
    public <K extends Enum<K>> StateChangedListener<K> createFiniteStateMachineStateChangedListener()
