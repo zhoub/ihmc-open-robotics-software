@@ -2,7 +2,9 @@ package us.ihmc.quadrupedRobotics.controller.force.states;
 
 import java.util.ArrayList;
 
+import us.ihmc.commonWalkingControlModules.controlModules.foot.FeetManager;
 import us.ihmc.quadrupedRobotics.controlModules.foot.QuadrupedFeetManager;
+import us.ihmc.quadrupedRobotics.controller.force.QuadrupedForceControllerToolbox;
 import us.ihmc.quadrupedRobotics.controller.ControllerEvent;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedController;
 import us.ihmc.quadrupedRobotics.model.QuadrupedRuntimeEnvironment;
