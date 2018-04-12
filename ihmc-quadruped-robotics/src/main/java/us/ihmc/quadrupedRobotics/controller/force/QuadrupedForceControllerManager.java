@@ -57,7 +57,6 @@ public class QuadrupedForceControllerManager implements QuadrupedControllerManag
    private final QuadrupedForceControllerToolbox controllerToolbox;
    private final QuadrupedControlManagerFactory controlManagerFactory;
    private final OutputProcessor outputProcessor;
-//   private final RobotOutputProcessor outputProcessor;
 
    private final CommandInputManager commandInputManager;
    private final StatusMessageOutputManager statusMessageOutputManager;
@@ -99,19 +98,8 @@ public class QuadrupedForceControllerManager implements QuadrupedControllerManag
       controlManagerFactory.getOrCreateJointSpaceManager();
 
       // Initialize output processor
-      /*
-      NewStateChangeSmootherComponent stateChangeSmootherComponent = new NewStateChangeSmootherComponent(runtimeEnvironment.getRobotTimestamp(),
-                                                                                                         runtimeEnvironment.getControlDT());
-      controlManagerFactory.getOrCreateFeetManager().attachStateChangedListener(stateChangeSmootherComponent.createFiniteStateMachineStateChangedListener());
-
-      OutputProcessorFactory outputProcessorFactory = new OutputProcessorFactory();
-      outputProcessorFactory.setLowLevelControllerOutput(runtimeEnvironment.getFullRobotModel(), runtimeEnvironment.getJointDesiredOutputList());
-      outputProcessorFactory.addComponent(stateChangeSmootherComponent);
-      outputProcessor = outputProcessorFactory.build();
-      registry.addChild(outputProcessor.getYoVariableRegistry());
-      */
       StateChangeSmootherComponent stateChangeSmootherComponent = new StateChangeSmootherComponent(runtimeEnvironment, registry);
-
+      controlManagerFactory.getOrCreateFeetManager().attachStateChangedListener(stateChangeSmootherComponent.createFiniteStateMachineStateChangedListener());
       OutputProcessorBuilder outputProcessorBuilder = new OutputProcessorBuilder(runtimeEnvironment.getFullRobotModel());
       outputProcessorBuilder.addComponent(stateChangeSmootherComponent);
       outputProcessor = outputProcessorBuilder.build();
