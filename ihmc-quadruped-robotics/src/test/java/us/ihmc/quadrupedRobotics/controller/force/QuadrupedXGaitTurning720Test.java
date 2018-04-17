@@ -61,6 +61,7 @@ public abstract class QuadrupedXGaitTurning720Test implements QuadrupedMultiRobo
 
    public void rotate720InPlaceRight() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
+      conductor.setTestName("rotate720InPlaceRight");
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);
 
       stepTeleopManager.requestXGait();
@@ -89,6 +90,7 @@ public abstract class QuadrupedXGaitTurning720Test implements QuadrupedMultiRobo
    
    public void rotate720InPlaceLeft() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
+      conductor.setTestName("rotate720InPlaceLeft");
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);
 
       stepTeleopManager.requestXGait();

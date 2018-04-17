@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import junit.framework.AssertionFailedError;
+import org.lwjgl.Sys;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.yoVariables.variable.YoVariable;
@@ -21,7 +22,9 @@ public class GoalOrientedTestConductor implements SimulationDoneListener
 {
    private final SimulationConstructionSet scs;
    private final SimulationTestingParameters simulationTestingParameters;
+
    private final boolean exportSimulationDataOnFailure;
+   private String testName;
    
    private boolean yoTimeChangedListenerActive = false;
    
@@ -192,7 +195,16 @@ public class GoalOrientedTestConductor implements SimulationDoneListener
          String varGroup = "all";
          boolean useBinary = true;
          boolean compress = false;
-         String fileName = "simulation_data_" + System.currentTimeMillis() + ".data";
+         String fileName;
+         if(testName != null)
+         {
+            fileName = testName + System.currentTimeMillis() + ".data";
+         }
+         else
+         {
+            fileName = "simulation_data_" + System.currentTimeMillis() + ".data";
+         }
+
          scs.writeData(varGroup, useBinary, compress, fileName);
       }
    }
@@ -315,6 +327,11 @@ public class GoalOrientedTestConductor implements SimulationDoneListener
    public void setKeepSCSUp(boolean keepSCSUp)
    {
       simulationTestingParameters.setKeepSCSUp(keepSCSUp);
+   }
+
+   public void setTestName(String testName)
+   {
+      this.testName = testName;
    }
 
    @Override
