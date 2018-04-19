@@ -51,11 +51,7 @@ public class FrameYoFramePoint3D implements FramePoint3DBasics
    @Override
    public ReferenceFrame getReferenceFrame()
    {
-      if (frameMap.containsKey(frameId.getValue()))
-      {
-         return frameMap.get(frameId.getValue());
-      }
-      return null;
+      return frameMap.get(frameId.getValue());
    }
 
    @Override
