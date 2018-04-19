@@ -28,6 +28,7 @@ public class FrameYoFramePoint3D implements FramePoint3DBasics
       y = new YoDouble(YoFrameVariableNameTools.createYName(namePrefix, nameSuffix), registry);
       z = new YoDouble(YoFrameVariableNameTools.createZName(namePrefix, nameSuffix), registry);
       frameId = new YoLong(YoFrameVariableNameTools.createName(namePrefix, "FrameID", nameSuffix), registry);
+      frameId.set(NO_ENTRY_KEY);
    }
 
    @Override
@@ -51,6 +52,10 @@ public class FrameYoFramePoint3D implements FramePoint3DBasics
    @Override
    public ReferenceFrame getReferenceFrame()
    {
+      if (frameId.getValue() == NO_ENTRY_KEY)
+      {
+         return null;
+      }
       return frameMap.get(frameId.getValue());
    }
 
@@ -75,8 +80,13 @@ public class FrameYoFramePoint3D implements FramePoint3DBasics
    @Override
    public void setReferenceFrame(ReferenceFrame referenceFrame)
    {
-      long frameId = referenceFrame.getNameBasedHashCode();
+      if (referenceFrame == null)
+      {
+         this.frameId.set(NO_ENTRY_KEY);
+         return;
+      }
 
+      long frameId = referenceFrame.getNameBasedHashCode();
       if (frameId == NO_ENTRY_KEY)
       {
          throw new RuntimeException("The hash of a reference frame should never be " + NO_ENTRY_KEY);
