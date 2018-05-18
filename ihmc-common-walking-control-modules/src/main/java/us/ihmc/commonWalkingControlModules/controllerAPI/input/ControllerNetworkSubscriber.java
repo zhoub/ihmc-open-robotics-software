@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class ControllerNetworkSubscriber implements Runnable, CloseableAndDisposable
 {
-   private static final boolean DEBUG = false;
+   private static final boolean DEBUG = true;
 
    private final int buffersCapacity = 16;
    /** The input API to which the received messages should be submitted. */

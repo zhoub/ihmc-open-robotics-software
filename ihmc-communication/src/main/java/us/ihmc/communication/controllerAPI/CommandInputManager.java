@@ -221,6 +221,7 @@ public class CommandInputManager
       if (nextCommand == null)
       {
          PrintTools.warn(this, printStatementPrefix + "The buffer for the message: " + message.getClass().getSimpleName() + " is full. Message ignored.");
+         new Throwable().printStackTrace();
          return;
       }
 
