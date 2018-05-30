@@ -88,9 +88,14 @@ public class BipedSupportPolygons
 
    public void updateUsingContactStates(SideDependentList<? extends PlaneContactState> contactStates)
    {
+      updateUsingContactStates(contactStates, true);
+   }
+
+   public void updateUsingContactStates(SideDependentList<? extends PlaneContactState> contactStates, boolean checkForSupportFoot)
+   {
       timer.startMeasurement();
       boolean inDoubleSupport = true;
-      boolean neitherFootIsSupportingFoot = true;
+      boolean neitherFootIsSupportingFoot = checkForSupportFoot;
       RobotSide supportSide = null;
 
       for (RobotSide robotSide : RobotSide.values)
@@ -160,9 +165,13 @@ public class BipedSupportPolygons
       {
          supportPolygonInMidFeetZUp.setIncludingFrame(footPolygonsInMidFeetZUp.get(RobotSide.LEFT), footPolygonsInMidFeetZUp.get(RobotSide.RIGHT));
       }
-      else
+      else if (supportSide != null)
       {
          supportPolygonInMidFeetZUp.setIncludingFrame(footPolygonsInMidFeetZUp.get(supportSide));
+      }
+      else
+      {
+         supportPolygonInMidFeetZUp.clear();
       }
 
       supportPolygonInWorld.setIncludingFrame(supportPolygonInMidFeetZUp);

@@ -10,6 +10,9 @@ import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.exceptions.ReferenceFrameMismatchException;
+import us.ihmc.euclid.referenceFrame.interfaces.FixedFramePoint3DBasics;
+import us.ihmc.euclid.referenceFrame.interfaces.FixedFrameVector3DBasics;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.controllers.pidGains.PID3DGains;
@@ -99,7 +102,7 @@ public class CenterOfMassFeedbackControlCommand implements FeedbackControlComman
     * @throws ReferenceFrameMismatchException if the argument is not expressed in
     *            {@link ReferenceFrame#getWorldFrame()}.
     */
-   public void set(FramePoint3D desiredPosition)
+   public void set(FramePoint3DReadOnly desiredPosition)
    {
       desiredPosition.checkReferenceFrameMatch(worldFrame);
 
@@ -120,7 +123,7 @@ public class CenterOfMassFeedbackControlCommand implements FeedbackControlComman
     * @throws ReferenceFrameMismatchException if any of the three arguments is not expressed in
     *            {@link ReferenceFrame#getWorldFrame()}.
     */
-   public void set(FramePoint3D desiredPosition, FrameVector3D desiredLinearVelocity, FrameVector3D feedForwardLinearAcceleration)
+   public void set(FixedFramePoint3DBasics desiredPosition, FixedFrameVector3DBasics desiredLinearVelocity, FixedFrameVector3DBasics feedForwardLinearAcceleration)
    {
       desiredPosition.checkReferenceFrameMatch(worldFrame);
       desiredLinearVelocity.checkReferenceFrameMatch(worldFrame);

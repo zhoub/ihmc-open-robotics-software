@@ -82,8 +82,13 @@ public class ICPControlPolygons
 
    public void updateUsingContactStates(SideDependentList<? extends PlaneContactState> contactStates)
    {
+      updateUsingContactStates(contactStates, true);
+   }
+
+   public void updateUsingContactStates(SideDependentList<? extends PlaneContactState> contactStates, boolean checkForSupportFoot)
+   {
       boolean inDoubleSupport = true;
-      boolean neitherFootIsSupportingFoot = true;
+      boolean neitherFootIsSupportingFoot = checkForSupportFoot;
       RobotSide supportSide = null;
 
       for (RobotSide robotSide : RobotSide.values)
@@ -138,9 +143,13 @@ public class ICPControlPolygons
       {
          controlPolygonInMidFeetZUp.setIncludingFrame(footControlPolygonsInMidFeetZUp.get(RobotSide.LEFT), footControlPolygonsInMidFeetZUp.get(RobotSide.RIGHT));
       }
-      else
+      else if (supportSide != null)
       {
          controlPolygonInMidFeetZUp.setIncludingFrame(footControlPolygonsInMidFeetZUp.get(supportSide));
+      }
+      else
+      {
+         controlPolygonInMidFeetZUp.clear();
       }
 
       controlPolygonInWorld.setIncludingFrame(controlPolygonInMidFeetZUp);

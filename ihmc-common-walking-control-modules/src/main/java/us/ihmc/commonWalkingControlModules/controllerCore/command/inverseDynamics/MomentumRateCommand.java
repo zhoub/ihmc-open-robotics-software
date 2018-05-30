@@ -12,6 +12,7 @@ import us.ihmc.euclid.referenceFrame.FrameVector2D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.exceptions.ReferenceFrameMismatchException;
+import us.ihmc.euclid.referenceFrame.interfaces.FixedFrameVector3DBasics;
 import us.ihmc.euclid.tools.EuclidCoreIOTools;
 import us.ihmc.euclid.tuple3D.interfaces.Tuple3DReadOnly;
 import us.ihmc.robotics.screwTheory.Momentum;
@@ -174,7 +175,7 @@ public class MomentumRateCommand implements InverseDynamicsCommand<MomentumRateC
     * @throws ReferenceFrameMismatchException if {@code linearMomentumRateOfChange} is not expressed
     *            in world frame.
     */
-   public void setLinearMomentumRate(FrameVector3D linearMomentumRateOfChange)
+   public void setLinearMomentumRate(FixedFrameVector3DBasics linearMomentumRateOfChange)
    {
       linearMomentumRateOfChange.checkReferenceFrameMatch(worldFrame);
 

@@ -511,6 +511,7 @@ public class YoPolynomial implements PolynomialReadOnly
       setPositionRow(0, t0, z0);
       setPositionRow(1, tIntermediate1, zIntermediate1);
       setPositionRow(2, tFinal, zFinal);
+      setVelocityRow(3, tFinal, 0.0);
       solveForCoefficients();
       setYoVariables();
    }

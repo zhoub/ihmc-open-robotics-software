@@ -444,6 +444,11 @@ public class HighLevelHumanoidControllerToolbox
 
    public void update()
    {
+      update(true);
+   }
+
+   public void update(boolean checkForSupportFoot)
+   {
       referenceFrames.updateFrames();
       centerOfMassJacobian.compute();
 
@@ -452,7 +457,7 @@ public class HighLevelHumanoidControllerToolbox
 
       computeCop();
       computeCapturePoint();
-      updateBipedSupportPolygons();
+      updateBipedSupportPolygons(checkForSupportFoot);
       readWristSensorData();
 
       computeAngularMomentum();
@@ -491,8 +496,13 @@ public class HighLevelHumanoidControllerToolbox
 
    public void updateBipedSupportPolygons()
    {
-      bipedSupportPolygons.updateUsingContactStates(footContactStates);
-      icpControlPolygons.updateUsingContactStates(footContactStates);
+      updateBipedSupportPolygons(true);
+   }
+
+   public void updateBipedSupportPolygons(boolean checkForSupportFoot)
+   {
+      bipedSupportPolygons.updateUsingContactStates(footContactStates, checkForSupportFoot);
+      icpControlPolygons.updateUsingContactStates(footContactStates, checkForSupportFoot);
    }
 
    private final FramePoint2D capturePoint2d = new FramePoint2D();
