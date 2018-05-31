@@ -1,4 +1,4 @@
-package us.ihmc.commonWalkingControlModules.sensors.footSwitch;
+package us.ihmc.commonWalkingControlModules.sensors.footSwitch.interfaces;
 
 import us.ihmc.robotics.sensors.FootSwitchInterface;
 

@@ -4,6 +4,8 @@ import java.util.List;
 
 import us.ihmc.commonWalkingControlModules.controlModules.CenterOfPressureResolver;
 import us.ihmc.commonWalkingControlModules.desiredFootStep.DesiredFootstepCalculatorTools;
+import us.ihmc.commonWalkingControlModules.sensors.footSwitch.interfaces.HeelSwitch;
+import us.ihmc.commonWalkingControlModules.sensors.footSwitch.interfaces.ToeSwitch;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
