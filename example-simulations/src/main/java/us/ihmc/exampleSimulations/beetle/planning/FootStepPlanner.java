@@ -138,6 +138,17 @@ public class FootStepPlanner
    private final FramePoint3D bodyPositionProjectedInFuture = new FramePoint3D();
    private final FrameQuaternion rotationAtEnd = new FrameQuaternion();
    
+   
+   private void computeBodyPositionInFuture()
+   {
+      
+   }
+   
+   public void getDesiredFootPositionAndComputeSwingTime(RobotSextant robotSextant, FrameVector3D desiredLinearVelocity, FrameVector3D desiredAngularVelocity, double minimumSwingTime, FramePoint3D framePointToPack)
+   {
+      
+   }
+   
    public void getDesiredFootPosition(RobotSextant robotSextant, FrameVector3D desiredLinearVelocity, FrameVector3D desiredAngularVelocity, double swingTime, FramePoint3D framePointToPack)
    {
       YoFrameVector3D offsetFromBodyToFootDesired = nominalOffsetsFromBodyToFeet.get(robotSextant);

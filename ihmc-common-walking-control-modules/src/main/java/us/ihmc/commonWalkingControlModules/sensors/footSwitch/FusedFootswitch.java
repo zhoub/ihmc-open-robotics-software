@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import gnu.trove.list.array.TDoubleArrayList;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
-import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.robotics.screwTheory.Wrench;
 import us.ihmc.robotics.sensors.FootSwitchInterface;
@@ -13,7 +12,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 /**
  * Allows you to combine foot switches and assign weights for voting.
- * This is useful if you want to something like combine the Kinematics 
+ * This is useful if you want to combine the Kinematics 
  * Based foot switch and the ComputedForceBasedFootSwitch
  */
 public class FusedFootswitch implements FootSwitchInterface
