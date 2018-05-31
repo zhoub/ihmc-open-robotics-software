@@ -19,6 +19,8 @@ import us.ihmc.commonWalkingControlModules.desiredFootStep.footstepGenerator.Hea
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.HumanoidHighLevelControllerManager;
 import us.ihmc.commonWalkingControlModules.messageHandlers.WalkingMessageHandler;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.HighLevelHumanoidControllerToolbox;
+import us.ihmc.commonWalkingControlModules.sensors.footSwitch.ComputedForceBasedFootSwitch;
+import us.ihmc.commonWalkingControlModules.sensors.footSwitch.FusedFootswitch;
 import us.ihmc.commonWalkingControlModules.sensors.footSwitch.KinematicsBasedFootSwitch;
 import us.ihmc.commonWalkingControlModules.sensors.footSwitch.WrenchAndContactSensorFusedFootSwitch;
 import us.ihmc.commonWalkingControlModules.sensors.footSwitch.WrenchBasedFootSwitch;
@@ -50,7 +52,6 @@ import us.ihmc.robotics.sensors.ContactSensorHolder;
 import us.ihmc.robotics.sensors.FootSwitchInterface;
 import us.ihmc.robotics.sensors.ForceSensorDataHolderReadOnly;
 import us.ihmc.robotics.sensors.ForceSensorDataReadOnly;
-import us.ihmc.ros2.RealtimeRos2Node;
 import us.ihmc.sensorProcessing.frames.CommonHumanoidReferenceFrames;
 import us.ihmc.sensorProcessing.frames.ReferenceFrameHashCodeResolver;
 import us.ihmc.sensorProcessing.model.RobotMotionStatusChangedListener;
@@ -376,7 +377,7 @@ public class HighLevelHumanoidControllerFactory implements CloseableAndDisposabl
       double totalMass = TotalMassCalculator.computeSubTreeMass(fullRobotModel.getElevator());
       double totalRobotWeight = totalMass * gravityZ;
 
-      SideDependentList<FootSwitchInterface> footSwitches = createFootSwitches(feet, forceSensorDataHolder, contactSensorHolder, totalRobotWeight,
+      SideDependentList<FootSwitchInterface> footSwitches = createFootSwitches(fullRobotModel, feet, forceSensorDataHolder, contactSensorHolder, totalRobotWeight,
                                                                                yoGraphicsListRegistry, registry);
       SideDependentList<ForceSensorDataReadOnly> wristForceSensors = createWristForceSensors(forceSensorDataHolder);
 
@@ -423,7 +424,7 @@ public class HighLevelHumanoidControllerFactory implements CloseableAndDisposabl
       return humanoidHighLevelControllerManager;
    }
 
-   private SideDependentList<FootSwitchInterface> createFootSwitches(SideDependentList<? extends ContactablePlaneBody> bipedFeet,
+   private SideDependentList<FootSwitchInterface> createFootSwitches(FullHumanoidRobotModel fullRobotModel, SideDependentList<? extends ContactablePlaneBody> bipedFeet,
                                                                      ForceSensorDataHolderReadOnly forceSensorDataHolder,
                                                                      ContactSensorHolder contactSensorHolder, double totalRobotWeight,
                                                                      YoGraphicsListRegistry yoGraphicsListRegistry, YoVariableRegistry registry)
@@ -439,7 +440,8 @@ public class HighLevelHumanoidControllerFactory implements CloseableAndDisposabl
       for (RobotSide robotSide : RobotSide.values)
       {
          FootSwitchInterface footSwitch = null;
-         String footName = bipedFeet.get(robotSide).getName();
+         ContactablePlaneBody contactablePlaneBody = bipedFeet.get(robotSide);
+         String footName = contactablePlaneBody.getName();
          ForceSensorDataReadOnly footForceSensor = forceSensorDataHolder.getByName(footSensorNames.get(robotSide));
 
          FootSwitchType footSwitchType = walkingControllerParameters.getFootSwitchType();
@@ -449,15 +451,23 @@ public class HighLevelHumanoidControllerFactory implements CloseableAndDisposabl
             footSwitch = new KinematicsBasedFootSwitch(footName, bipedFeet, contactThresholdHeight, totalRobotWeight, robotSide, registry); //controller switch doesnt need com
             break;
          case WrenchBased:
-            footSwitch = new WrenchBasedFootSwitch(footName, footForceSensor, totalRobotWeight, bipedFeet.get(robotSide), contactThresholdForce,
+            footSwitch = new WrenchBasedFootSwitch(footName, footForceSensor, totalRobotWeight, contactablePlaneBody, contactThresholdForce,
                                                    secondContactThresholdForce, copThresholdFraction, yoGraphicsListRegistry, registry);
             break;
          case WrenchAndContactSensorFused:
             ContactSensor footContactSensor = contactSensorHolder.getByName(footContactSensorNames.get(robotSide));
-            footSwitch = new WrenchAndContactSensorFusedFootSwitch(footName, footForceSensor, footContactSensor, totalRobotWeight, bipedFeet.get(robotSide),
+            footSwitch = new WrenchAndContactSensorFusedFootSwitch(footName, footForceSensor, footContactSensor, totalRobotWeight, contactablePlaneBody,
                                                                    contactThresholdForce, secondContactThresholdForce, copThresholdFraction,
                                                                    yoGraphicsListRegistry, registry);
             break;
+         case TouchdownBased:
+            ComputedForceBasedFootSwitch<RobotSide> forceBasedTouchDownDetection = new ComputedForceBasedFootSwitch<RobotSide>(fullRobotModel, robotSide, contactThresholdForce, registry);
+            FusedFootswitch fusedFootswitch = new FusedFootswitch(footName, fullRobotModel.getSoleFrame(robotSide), 0.6, registry);
+            fusedFootswitch.addTouchdownDetector(forceBasedTouchDownDetection, 1.0);
+            fusedFootswitch.setTouchdownDetectorUsedToCalculateFootWrench(forceBasedTouchDownDetection);
+            footSwitch = fusedFootswitch;
+            break;
+            
          default:
             throw new RuntimeException("Implement foot switch type: " + footSwitchType);
          }
