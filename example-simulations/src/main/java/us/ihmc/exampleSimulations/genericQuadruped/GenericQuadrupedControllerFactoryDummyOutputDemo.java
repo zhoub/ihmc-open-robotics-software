@@ -156,7 +156,7 @@ public class GenericQuadrupedControllerFactoryDummyOutputDemo
 
       runtimeEnvironment = new QuadrupedRuntimeEnvironment(DT, controllerTime, fullRobotModel, controllerCoreOptimizationSettings, jointDesiredOutputList,
                                                            registry, yoGraphicsListRegistry, ignoredYoGraphicsListRegistry, dataProducer, contactableFeet,
-                                                           contactablePlaneBodies, footSwitches, GRAVITY);
+                                                           contactablePlaneBodies, footSwitches, GRAVITY, false);
       controllerManager = new QuadrupedControllerManager(runtimeEnvironment, physicalProperties, initialPositionParameters);
 
       InputStream resourceAsStream = getClass().getResourceAsStream(modelFactory.getParameterResourceName(QuadrupedControlMode.FORCE));

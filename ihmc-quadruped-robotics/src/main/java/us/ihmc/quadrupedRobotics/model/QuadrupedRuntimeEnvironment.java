@@ -32,13 +32,14 @@ public class QuadrupedRuntimeEnvironment
    private final List<ContactablePlaneBody> contactablePlaneBodies;
    // TODO: These are used to provide feedback from the controllers to the state estimator. Can they be moved somewhere else?
    private final QuadrantDependentList<FootSwitchInterface> footSwitches;
+   private final boolean isPositionControlledOnStartup;
 
    public QuadrupedRuntimeEnvironment(double controlDT, YoDouble robotTimestamp, FullQuadrupedRobotModel fullRobotModel,
                                       ControllerCoreOptimizationSettings controllerCoreOptimizationSettings, JointDesiredOutputList jointDesiredOutputList,
                                       YoVariableRegistry parentRegistry, YoGraphicsListRegistry graphicsListRegistry,
                                       YoGraphicsListRegistry graphicsListRegistryForDetachedOverhead, GlobalDataProducer globalDataProducer,
                                       QuadrantDependentList<ContactablePlaneBody> contactableFeet, List<ContactablePlaneBody> contactablePlaneBodies,
-                                      QuadrantDependentList<FootSwitchInterface> footSwitches, double gravity)
+                                      QuadrantDependentList<FootSwitchInterface> footSwitches, double gravity, boolean isPositionControlledOnStartup)
    {
       this.controlDT = controlDT;
       this.robotTimestamp = robotTimestamp;
@@ -53,6 +54,7 @@ public class QuadrupedRuntimeEnvironment
       this.contactablePlaneBodies = contactablePlaneBodies;
       this.gravityZ = Math.abs(gravity);
       this.jointDesiredOutputList = jointDesiredOutputList;
+      this.isPositionControlledOnStartup = isPositionControlledOnStartup;
    }
 
    public double getControlDT()
@@ -119,4 +121,10 @@ public class QuadrupedRuntimeEnvironment
    {
       return gravityZ;
    }
+
+   public boolean isPositionControlledOnStartup()
+   {
+      return isPositionControlledOnStartup;
+   }
+
 }
