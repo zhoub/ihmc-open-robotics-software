@@ -2,6 +2,7 @@ package us.ihmc.quadrupedRobotics.controlModules.foot;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.FeedbackControlCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.FeedbackControlCommandList;
+import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.InverseKinematicsCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualModelControlCommand;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -205,6 +206,11 @@ public class QuadrupedFootControlModule
    public VirtualModelControlCommand<?> getVirtualModelControlCommand()
    {
       return footStateMachine.getCurrentState().getVirtualModelControlCommand();
+   }
+
+   public InverseKinematicsCommand<?> getInverseKinematicsCommand()
+   {
+      return footStateMachine.getCurrentState().getInverseKinematicsCommand();
    }
 
    public FeedbackControlCommand<?> getFeedbackControlCommand()
