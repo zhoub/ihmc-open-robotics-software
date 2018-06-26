@@ -20,10 +20,10 @@ import us.ihmc.communication.ROS2Tools;
 import us.ihmc.communication.ROS2Tools.MessageTopicNameGenerator;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.pubsub.DomainFactory.PubSubImplementation;
-import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.QuadrupedTestGoals;
+import us.ihmc.quadrupedRobotics.QuadrupedTestYoVariables;
 import us.ihmc.quadrupedRobotics.communication.QuadrupedControllerAPIDefinition;
 import us.ihmc.quadrupedRobotics.communication.QuadrupedMessageTools;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControlMode;
@@ -40,7 +40,7 @@ import us.ihmc.tools.MemoryTools;
 public abstract class QuadrupedScriptedFlatGroundWalkingTest implements QuadrupedMultiRobotTestInterface
 {
    private GoalOrientedTestConductor conductor;
-   private QuadrupedForceTestYoVariables variables;
+   private QuadrupedTestYoVariables variables;
    private QuadrupedTeleopManager stepTeleopManager;
 
    @Before
@@ -67,7 +67,7 @@ public abstract class QuadrupedScriptedFlatGroundWalkingTest implements Quadrupe
       quadrupedTestFactory.setGroundContactModelType(QuadrupedGroundContactModelType.FLAT);
       quadrupedTestFactory.setUseNetworking(true);
       conductor = quadrupedTestFactory.createTestConductor();
-      variables = new QuadrupedForceTestYoVariables(conductor.getScs());
+      variables = new QuadrupedTestYoVariables(conductor.getScs());
       stepTeleopManager = quadrupedTestFactory.getStepTeleopManager();
 
       Ros2Node ros2Node = ROS2Tools.createRos2Node(PubSubImplementation.INTRAPROCESS, "scripted_flat_ground_walking");
