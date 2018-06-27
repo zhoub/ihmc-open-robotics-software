@@ -1,5 +1,7 @@
 package us.ihmc.quadrupedRobotics.model;
 
+import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCore;
+import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCoreMode;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.ControllerCoreOptimizationSettings;
 import us.ihmc.communication.streamingData.GlobalDataProducer;
 import us.ihmc.graphicsDescription.yoGraphics.YoGraphicsListRegistry;
@@ -32,14 +34,14 @@ public class QuadrupedRuntimeEnvironment
    private final List<ContactablePlaneBody> contactablePlaneBodies;
    // TODO: These are used to provide feedback from the controllers to the state estimator. Can they be moved somewhere else?
    private final QuadrantDependentList<FootSwitchInterface> footSwitches;
-   private final boolean isPositionControlledOnStartup;
+   private final WholeBodyControllerCoreMode controllerCoreMode;
 
    public QuadrupedRuntimeEnvironment(double controlDT, YoDouble robotTimestamp, FullQuadrupedRobotModel fullRobotModel,
                                       ControllerCoreOptimizationSettings controllerCoreOptimizationSettings, JointDesiredOutputList jointDesiredOutputList,
                                       YoVariableRegistry parentRegistry, YoGraphicsListRegistry graphicsListRegistry,
                                       YoGraphicsListRegistry graphicsListRegistryForDetachedOverhead, GlobalDataProducer globalDataProducer,
                                       QuadrantDependentList<ContactablePlaneBody> contactableFeet, List<ContactablePlaneBody> contactablePlaneBodies,
-                                      QuadrantDependentList<FootSwitchInterface> footSwitches, double gravity, boolean isPositionControlledOnStartup)
+                                      QuadrantDependentList<FootSwitchInterface> footSwitches, double gravity, WholeBodyControllerCoreMode controllerCoreMode)
    {
       this.controlDT = controlDT;
       this.robotTimestamp = robotTimestamp;
@@ -54,7 +56,7 @@ public class QuadrupedRuntimeEnvironment
       this.contactablePlaneBodies = contactablePlaneBodies;
       this.gravityZ = Math.abs(gravity);
       this.jointDesiredOutputList = jointDesiredOutputList;
-      this.isPositionControlledOnStartup = isPositionControlledOnStartup;
+      this.controllerCoreMode = controllerCoreMode;
    }
 
    public double getControlDT()
@@ -122,9 +124,9 @@ public class QuadrupedRuntimeEnvironment
       return gravityZ;
    }
 
-   public boolean isPositionControlledOnStartup()
+   public WholeBodyControllerCoreMode getControllerCoreMode()
    {
-      return isPositionControlledOnStartup;
+      return controllerCoreMode;
    }
 
 }

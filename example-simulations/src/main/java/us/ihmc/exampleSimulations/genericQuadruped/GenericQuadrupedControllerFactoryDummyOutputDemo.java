@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCoreMode;
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.factories.ContactableBodiesFactory;
 import us.ihmc.commons.Conversions;
 import us.ihmc.communication.packetCommunicator.PacketCommunicator;
@@ -156,10 +157,10 @@ public class GenericQuadrupedControllerFactoryDummyOutputDemo
 
       runtimeEnvironment = new QuadrupedRuntimeEnvironment(DT, controllerTime, fullRobotModel, controllerCoreOptimizationSettings, jointDesiredOutputList,
                                                            registry, yoGraphicsListRegistry, ignoredYoGraphicsListRegistry, dataProducer, contactableFeet,
-                                                           contactablePlaneBodies, footSwitches, GRAVITY, false);
+                                                           contactablePlaneBodies, footSwitches, GRAVITY, WholeBodyControllerCoreMode.VIRTUAL_MODEL);
       controllerManager = new QuadrupedControllerManager(runtimeEnvironment, physicalProperties, initialPositionParameters);
 
-      InputStream resourceAsStream = getClass().getResourceAsStream(modelFactory.getParameterResourceName(QuadrupedControlMode.FORCE));
+      InputStream resourceAsStream = getClass().getResourceAsStream(modelFactory.getParameterResourceName(WholeBodyControllerCoreMode.VIRTUAL_MODEL));
       ParameterLoaderHelper.loadParameters(this, resourceAsStream, registry);
 
       //      PrintTools.debug(this, "Warming up JIT compiler.");
