@@ -90,7 +90,6 @@ public class QuadrupedSwingState extends QuadrupedFootState
 
    private final FootSwitchInterface footSwitch;
 
-
    public QuadrupedSwingState(RobotQuadrant robotQuadrant, QuadrupedControllerToolbox controllerToolbox, YoBoolean stepCommandIsValid,
                               YoQuadrupedTimedStep currentStepCommand, YoGraphicsListRegistry graphicsListRegistry, YoVariableRegistry registry)
    {

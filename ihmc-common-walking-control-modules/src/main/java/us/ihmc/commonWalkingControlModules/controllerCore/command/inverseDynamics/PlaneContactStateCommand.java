@@ -18,8 +18,7 @@ import us.ihmc.robotics.lists.FrameTupleArrayList;
 import us.ihmc.commons.lists.RecyclingArrayList;
 import us.ihmc.robotics.screwTheory.RigidBody;
 
-public class PlaneContactStateCommand implements InverseDynamicsCommand<PlaneContactStateCommand>, VirtualModelControlCommand<PlaneContactStateCommand>,
-      InverseKinematicsCommand<PlaneContactStateCommand>
+public class PlaneContactStateCommand implements InverseDynamicsCommand<PlaneContactStateCommand>, VirtualModelControlCommand<PlaneContactStateCommand>
 {
    private RigidBody rigidBody;
    private String rigidBodyName;
