@@ -2180,7 +2180,7 @@ public class QuadrupedPositionBasedCrawlController implements QuadrupedControlle
       /**
        * tries to do some fancy ground speed matching, not well tuned
        */
-      private void initializeSwingTrajectory(RobotQuadrant swingLeg, FramePoint3DReadOnly swingInitial, FramePoint3DReadOnly swingTarget, double swingTime)
+      private void initializeSwingTrajectory(RobotQuadrant swingLeg, FramePoint3DReadOnly swingInitial, FramePoint3D swingTarget, double swingTime)
       {
          QuadrupedSwingTrajectoryGenerator swingTrajectoryGenerator = swingTrajectoryGenerators.get(swingLeg);
          speedMatchVelocity.setIncludingFrame(desiredBodyVelocity);
