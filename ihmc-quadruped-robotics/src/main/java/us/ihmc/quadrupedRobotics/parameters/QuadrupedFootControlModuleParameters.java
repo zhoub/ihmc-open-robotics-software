@@ -27,7 +27,7 @@ public class QuadrupedFootControlModuleParameters
 
    private final ParameterVector3D solePositionWeightsVMC = new ParameterVector3D("solePositionWeightVMC_", new Vector3D(), finalRegistry);
    private final ParameterVector3D solePositionWeightsIK = new ParameterVector3D("solePositionWeightIK_", new Vector3D(50.0, 50.0, 10.0), finalRegistry);
-   private final ParameterVector3D solePositionWeightsID = new ParameterVector3D("solePositionWeightID_", new Vector3D(50.0, 50.0, 10.0), finalRegistry);
+   private final ParameterVector3D solePositionWeightsID = new ParameterVector3D("solePositionWeightID_", new Vector3D(50.0, 50.0, 250.0), finalRegistry);
 
    private final DoubleParameter touchdownPressureLimitParameter = new DoubleParameter("touchdownPressureLimit", finalRegistry, 50);
    private final IntegerParameter touchdownTriggerWindowParameter = new IntegerParameter("touchdownTriggerWindow", finalRegistry,
