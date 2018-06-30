@@ -104,6 +104,7 @@ public class GenericQuadrupedModelFactory extends QuadrupedModelFactory
       {
       case INVERSE_KINEMATICS:
       case VIRTUAL_MODEL:
+      case INVERSE_DYNAMICS:
          return "/parameters/simulation_force_controller.xml";
       default:
          throw new RuntimeException("No parameter file exists for control mode: " + controlMode);
