@@ -48,9 +48,9 @@ public class QuadrupedFootControlModuleParameters
       solePositionGainsVMC = new ParameterizedPID3DGains("_solePositionVMC", GainCoupling.NONE, false, solePositionVMCGains, finalRegistry);
 
       DefaultPID3DGains solePositionIDGains = new DefaultPID3DGains();
-      solePositionVMCGains.setProportionalGains(250.0, 250.0, 250.0);
-      solePositionVMCGains.setDerivativeGains(20.0, 20.0, 20.0);
-      solePositionVMCGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
+      solePositionIDGains.setProportionalGains(250.0, 250.0, 250.0);
+      solePositionIDGains.setDerivativeGains(20.0, 20.0, 20.0);
+      solePositionIDGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
       solePositionGainsID = new ParameterizedPID3DGains("_solePositionID", GainCoupling.NONE, false, solePositionIDGains, finalRegistry);
 
       DefaultPID3DGains solePositionIKGains = new DefaultPID3DGains();

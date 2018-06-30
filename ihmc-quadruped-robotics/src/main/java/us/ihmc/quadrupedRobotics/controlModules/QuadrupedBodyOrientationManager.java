@@ -77,9 +77,9 @@ public class QuadrupedBodyOrientationManager
       bodyOrientationVMCGainsParameter = new ParameterizedPID3DGains("_bodyOrientationVMC", GainCoupling.NONE, false, bodyOrientationVMCGains, registry);
 
       DefaultPID3DGains bodyOrientationIDGains = new DefaultPID3DGains();
-      bodyOrientationVMCGains.setProportionalGains(250.0, 250.0, 250.0);
-      bodyOrientationVMCGains.setDerivativeGains(20.0, 20.0, 20.0);
-      bodyOrientationVMCGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
+      bodyOrientationIDGains.setProportionalGains(250.0, 250.0, 250.0);
+      bodyOrientationIDGains.setDerivativeGains(20.0, 20.0, 20.0);
+      bodyOrientationIDGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
       bodyOrientationIDGainsParameter = new ParameterizedPID3DGains("_bodyOrientationID", GainCoupling.NONE, false, bodyOrientationIDGains, registry);
 
       DefaultPID3DGains bodyOrientationIKGains = new DefaultPID3DGains();
