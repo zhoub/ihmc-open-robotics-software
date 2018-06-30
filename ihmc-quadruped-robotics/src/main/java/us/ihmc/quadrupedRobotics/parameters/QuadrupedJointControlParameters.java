@@ -70,23 +70,23 @@ public class QuadrupedJointControlParameters
       positionJointInitializationGains = new ParameterizedPDGains("positionJointInitialization", positionJointInitialization, registry);
 
       PDGains vmcLoaded = new PDGains();
-      vmcLoaded.setKp(Double.NaN);
-      vmcLoaded.setKd(Double.NaN);
+      vmcLoaded.setKp(0.0);
+      vmcLoaded.setKd(0.0);
       vmcLoadedGains = new ParameterizedPDGains("vmcLoaded", vmcLoaded, registry);
 
       PDGains vmcUnloaded = new PDGains();
-      vmcUnloaded.setKp(Double.NaN);
-      vmcUnloaded.setKd(Double.NaN);
+      vmcUnloaded.setKp(0.0);
+      vmcUnloaded.setKd(0.0);
       vmcUnloadedGains = new ParameterizedPDGains("vmcUnloaded", vmcUnloaded, registry);
       
       PDGains idLoaded = new PDGains();
-      vmcLoaded.setKp(Double.NaN);
-      vmcLoaded.setKd(Double.NaN);
+      idLoaded.setKp(0.0);
+      idLoaded.setKd(0.0);
       idLoadedGains = new ParameterizedPDGains("idLoaded", idLoaded, registry);
       
       PDGains idUnloaded = new PDGains();
-      vmcUnloaded.setKp(Double.NaN);
-      vmcUnloaded.setKd(Double.NaN);
+      idUnloaded.setKp(0.0);
+      idUnloaded.setKd(0.0);
       idUnloadedGains = new ParameterizedPDGains("idUnloaded", idUnloaded, registry);
       
       PDGains ikLoaded = new PDGains();
