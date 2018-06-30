@@ -63,8 +63,6 @@ public class QuadrupedDoNothingController implements QuadrupedController
          jointDesiredOutput.setDamping(pdGainsReadOnly.getKd());
          jointDesiredOutput.setMaxPositionError(pdGainsReadOnly.getMaximumFeedback());
          jointDesiredOutput.setMaxVelocityError(pdGainsReadOnly.getMaximumFeedbackRate());
-         jointDesiredOutput.setDesiredPosition(joint.getQ());
-         jointDesiredOutput.setDesiredVelocity(joint.getQd());
          jointDesiredOutput.setDesiredTorque(0.0);
       }
 
@@ -78,6 +76,8 @@ public class QuadrupedDoNothingController implements QuadrupedController
          OneDoFJoint joint = legJoints.get(i);
          JointDesiredOutput jointDesiredOutput = jointDesiredOutputList.getJointDesiredOutput(joint);
          jointDesiredOutput.setDesiredTorque(desiredDoNothingTorques.get(i).getDoubleValue());
+         jointDesiredOutput.setDesiredPosition(joint.getQ());
+         jointDesiredOutput.setDesiredVelocity(joint.getQd());
       }
    }
 
