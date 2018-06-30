@@ -2,6 +2,7 @@ package us.ihmc.quadrupedRobotics.controlModules;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.FeedbackControlCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.OrientationFeedbackControlCommand;
+import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.InverseDynamicsCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.InverseKinematicsCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualModelControlCommand;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
@@ -28,6 +29,7 @@ public class QuadrupedBodyOrientationManager
    private final YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
 
    private final ParameterizedPID3DGains bodyOrientationVMCGainsParameter;
+   private final ParameterizedPID3DGains bodyOrientationIDGainsParameter;
    private final ParameterizedPID3DGains bodyOrientationIKGainsParameter;
 
    private final YoBoolean useAbsoluteBodyOrientationTrajectory = new YoBoolean("useBaseBodyOrientationTrajectory", registry);
@@ -55,6 +57,7 @@ public class QuadrupedBodyOrientationManager
    private final YoDouble robotTimestamp;
 
    private final OrientationFeedbackControlCommand feedbackControlCommand = new OrientationFeedbackControlCommand();
+   private final YoFrameVector3D bodyIDAngularWeight = new YoFrameVector3D("bodyAngularWeightID", worldFrame, registry);
    private final YoFrameVector3D bodyVMCAngularWeight = new YoFrameVector3D("bodyAngularWeightVMC", worldFrame, registry);
    private final YoFrameVector3D bodyIKAngularWeight = new YoFrameVector3D("bodyAngularWeightIK", worldFrame, registry);
 
@@ -72,6 +75,12 @@ public class QuadrupedBodyOrientationManager
       bodyOrientationVMCGains.setDerivativeGains(250.0, 250.0, 250.0);
       bodyOrientationVMCGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
       bodyOrientationVMCGainsParameter = new ParameterizedPID3DGains("_bodyOrientationVMC", GainCoupling.NONE, false, bodyOrientationVMCGains, registry);
+
+      DefaultPID3DGains bodyOrientationIDGains = new DefaultPID3DGains();
+      bodyOrientationVMCGains.setProportionalGains(250.0, 250.0, 250.0);
+      bodyOrientationVMCGains.setDerivativeGains(20.0, 20.0, 20.0);
+      bodyOrientationVMCGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
+      bodyOrientationIDGainsParameter = new ParameterizedPID3DGains("_bodyOrientationID", GainCoupling.NONE, false, bodyOrientationIDGains, registry);
 
       DefaultPID3DGains bodyOrientationIKGains = new DefaultPID3DGains();
       bodyOrientationIKGains.setProportionalGains(10.0, 10.0, 10.0);
@@ -99,6 +108,7 @@ public class QuadrupedBodyOrientationManager
       desiredBodyAngularAcceleration = new FrameVector3D();
 
       bodyVMCAngularWeight.set(2.5, 2.5, 1.0);
+      bodyIDAngularWeight.set(2.5, 2.5, 1.0);
       bodyIKAngularWeight.set(1.0, 1.0, 1.0);
 
       parentRegistry.addChild(registry);
@@ -232,6 +242,10 @@ public class QuadrupedBodyOrientationManager
          feedbackControlCommand.setGains(bodyOrientationVMCGainsParameter);
          feedbackControlCommand.setWeightsForSolver(bodyVMCAngularWeight);
          break;
+      case INVERSE_DYNAMICS:
+         feedbackControlCommand.setGains(bodyOrientationIDGainsParameter);
+         feedbackControlCommand.setWeightsForSolver(bodyIDAngularWeight);
+         break;
       default:
          throw new RuntimeException("The controller core mode " + controllerToolbox.getControllerCoreMode() + " is not implemented for the body orientation manager.");
       }
@@ -287,6 +301,11 @@ public class QuadrupedBodyOrientationManager
    }
 
    public InverseKinematicsCommand<?> getInverseKinematicsCommand()
+   {
+      return null;
+   }
+
+   public InverseDynamicsCommand<?> getInverseDynamicsCommand()
    {
       return null;
    }

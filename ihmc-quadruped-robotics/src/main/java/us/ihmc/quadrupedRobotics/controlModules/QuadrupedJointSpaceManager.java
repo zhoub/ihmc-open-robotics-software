@@ -1,16 +1,21 @@
 package us.ihmc.quadrupedRobotics.controlModules;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.FeedbackControlCommand;
+import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.InverseDynamicsCommand;
+import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.JointLimitEnforcementMethodCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.InverseKinematicsCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.InverseKinematicsCommandList;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.JointVelocityIntegrationCommand;
-import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.JointspaceVelocityCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.JointLimitEnforcementCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.JointTorqueCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualModelControlCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualModelControlCommandList;
+import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.JointLimitEnforcement;
+import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.JointLimitParameters;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerToolbox;
+import us.ihmc.quadrupedRobotics.parameters.QuadrupedJointControlParameters;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
+import us.ihmc.robotics.screwTheory.ScrewTools;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
@@ -27,6 +32,7 @@ public class QuadrupedJointSpaceManager
 
    private final VirtualModelControlCommandList virtualModelControlCommandList = new VirtualModelControlCommandList();
    private final JointLimitEnforcementCommand jointLimitEnforcementCommand = new JointLimitEnforcementCommand();
+   private final JointLimitEnforcementMethodCommand idJointLimitEnforcementCommand = new JointLimitEnforcementMethodCommand();
    private final JointTorqueCommand vmcJointDampingCommand = new JointTorqueCommand();
 
    private final YoDouble vmcJointViscousDamping = new YoDouble("vmcJointViscousDamping", registry);
@@ -60,6 +66,20 @@ public class QuadrupedJointSpaceManager
          ikJointIntegrationCommand.setJointMaxima(i, 1.0, 100.0);
          ikJointIntegrationCommand
                .setBreakFrequencies(i, ikVelocityIntegrationBreakFrequency.getDoubleValue(), ikAccelerationDifferentiationBreakFrequency.getDoubleValue());
+      }
+      
+      QuadrupedJointControlParameters jointControlParameters = controllerToolbox.getJointControlParameters();
+      String[] jointNamesRestrictiveLimits = jointControlParameters.getJointsWithRestrictiveLimits();
+      JointLimitParameters limitParameters = jointControlParameters.getJointLimitParametersForJointsWithRestictiveLimits();
+      OneDoFJoint[] jointsWithRestrictiveLimit = ScrewTools.filterJoints(ScrewTools.findJointsWithNames(controlledJoints, jointNamesRestrictiveLimits),
+                                                                         OneDoFJoint.class);
+      for (OneDoFJoint joint : jointsWithRestrictiveLimit)
+      {
+         if (limitParameters == null)
+         {
+            throw new RuntimeException("Must define joint limit parameters if using joints with restrictive limits.");
+         }
+         idJointLimitEnforcementCommand.addLimitEnforcementMethod(joint, JointLimitEnforcement.RESTRICTIVE, limitParameters);
       }
 
       parentRegistry.addChild(registry);
@@ -107,5 +127,10 @@ public class QuadrupedJointSpaceManager
       inverseKinematicsCommandList.addCommand(ikJointIntegrationCommand);
 
       return inverseKinematicsCommandList;
+   }
+
+   public InverseDynamicsCommand<?> getInverseDynamicsCommand()
+   {
+      return idJointLimitEnforcementCommand;
    }
 }

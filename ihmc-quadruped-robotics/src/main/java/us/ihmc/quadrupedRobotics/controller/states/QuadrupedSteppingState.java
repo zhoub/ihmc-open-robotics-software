@@ -138,6 +138,7 @@ public class QuadrupedSteppingState implements QuadrupedController, QuadrupedSte
                                                                                        runtimeEnvironment.getGraphicsListRegistry(), registry);
       controlCoreToolbox.setupForVirtualModelControlSolver(fullRobotModel.getBody(), controllerToolbox.getContactablePlaneBodies());
       controlCoreToolbox.setupForInverseKinematicsSolver();
+      controlCoreToolbox.setupForInverseDynamicsSolver(controllerToolbox.getContactablePlaneBodies());
 
       FeedbackControlCommandList feedbackTemplate = controlManagerFactory.createFeedbackControlTemplate();
       controllerCore = new WholeBodyControllerCore(controlCoreToolbox, feedbackTemplate, jointDesiredOutputList, registry);
@@ -438,23 +439,28 @@ public class QuadrupedSteppingState implements QuadrupedController, QuadrupedSte
          controllerCoreCommand.addFeedbackControlCommand(feetManager.getFeedbackControlCommand(robotQuadrant));
          controllerCoreCommand.addVirtualModelControlCommand(feetManager.getVirtualModelControlCommand(robotQuadrant));
          controllerCoreCommand.addInverseKinematicsCommand(feetManager.getInverseKinematicsCommand(robotQuadrant));
+         controllerCoreCommand.addInverseDynamicsCommand(feetManager.getInverseDynamicsCommand(robotQuadrant));
 
          YoPlaneContactState contactState = controllerToolbox.getFootContactState(robotQuadrant);
          PlaneContactStateCommand planeContactStateCommand = planeContactStateCommandPool.add();
          contactState.getPlaneContactStateCommand(planeContactStateCommand);
          controllerCoreCommand.addVirtualModelControlCommand(planeContactStateCommand);
+         controllerCoreCommand.addInverseDynamicsCommand(planeContactStateCommand);
       }
 
       controllerCoreCommand.addFeedbackControlCommand(bodyOrientationManager.getFeedbackControlCommand());
       controllerCoreCommand.addVirtualModelControlCommand(bodyOrientationManager.getVirtualModelControlCommand());
       controllerCoreCommand.addInverseKinematicsCommand(bodyOrientationManager.getInverseKinematicsCommand());
+      controllerCoreCommand.addInverseDynamicsCommand(bodyOrientationManager.getInverseDynamicsCommand());
 
       controllerCoreCommand.addVirtualModelControlCommand(balanceManager.getVirtualModelControlCommand());
       controllerCoreCommand.addInverseKinematicsCommand(balanceManager.getInverseKinematicsCommand());
+      controllerCoreCommand.addInverseDynamicsCommand(balanceManager.getInverseDynamicsCommand());
 
       controllerCoreCommand.addFeedbackControlCommand(jointSpaceManager.getFeedbackControlCommand());
       controllerCoreCommand.addVirtualModelControlCommand(jointSpaceManager.getVirtualModelControlCommand());
       controllerCoreCommand.addInverseKinematicsCommand(jointSpaceManager.getInverseKinematicsCommand());
+      controllerCoreCommand.addInverseDynamicsCommand(jointSpaceManager.getInverseDynamicsCommand());
    }
 
    @Override

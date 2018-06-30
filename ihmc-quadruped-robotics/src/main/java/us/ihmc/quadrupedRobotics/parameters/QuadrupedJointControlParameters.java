@@ -1,6 +1,7 @@
 package us.ihmc.quadrupedRobotics.parameters;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCoreMode;
+import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.JointLimitParameters;
 import us.ihmc.robotics.controllers.pidGains.PDGainsReadOnly;
 import us.ihmc.robotics.controllers.pidGains.implementations.PDGains;
 import us.ihmc.robotics.controllers.pidGains.implementations.ParameterizedPDGains;
@@ -35,6 +36,8 @@ public class QuadrupedJointControlParameters
 
    private final ParameterizedPDGains vmcLoadedGains;
    private final ParameterizedPDGains vmcUnloadedGains;
+   private final ParameterizedPDGains idLoadedGains;
+   private final ParameterizedPDGains idUnloadedGains;
    private final ParameterizedPDGains ikLoadedGains;
    private final ParameterizedPDGains ikUnloadedGains;
 
@@ -67,15 +70,25 @@ public class QuadrupedJointControlParameters
       positionJointInitializationGains = new ParameterizedPDGains("positionJointInitialization", positionJointInitialization, registry);
 
       PDGains vmcLoaded = new PDGains();
-      vmcLoaded.setKp(0.0);
-      vmcLoaded.setKd(0.0);
+      vmcLoaded.setKp(Double.NaN);
+      vmcLoaded.setKd(Double.NaN);
       vmcLoadedGains = new ParameterizedPDGains("vmcLoaded", vmcLoaded, registry);
 
       PDGains vmcUnloaded = new PDGains();
-      vmcUnloaded.setKp(0.0);
-      vmcUnloaded.setKd(0.0);
+      vmcUnloaded.setKp(Double.NaN);
+      vmcUnloaded.setKd(Double.NaN);
       vmcUnloadedGains = new ParameterizedPDGains("vmcUnloaded", vmcUnloaded, registry);
-
+      
+      PDGains idLoaded = new PDGains();
+      vmcLoaded.setKp(Double.NaN);
+      vmcLoaded.setKd(Double.NaN);
+      idLoadedGains = new ParameterizedPDGains("idLoaded", idLoaded, registry);
+      
+      PDGains idUnloaded = new PDGains();
+      vmcUnloaded.setKp(Double.NaN);
+      vmcUnloaded.setKd(Double.NaN);
+      idUnloadedGains = new ParameterizedPDGains("idUnloaded", idUnloaded, registry);
+      
       PDGains ikLoaded = new PDGains();
       ikLoaded.setKp(500);
       ikLoaded.setKd(100.0);
@@ -162,6 +175,7 @@ public class QuadrupedJointControlParameters
       case INVERSE_KINEMATICS:
          return JointDesiredControlMode.POSITION;
       case VIRTUAL_MODEL:
+      case INVERSE_DYNAMICS:
          return JointDesiredControlMode.EFFORT;
       default:
          throw new RuntimeException("The controller core mode " + controllerCoreMode.getValue() + " is not implemented.");
@@ -176,6 +190,8 @@ public class QuadrupedJointControlParameters
          return ikLoadedGains;
       case VIRTUAL_MODEL:
          return vmcLoadedGains;
+      case INVERSE_DYNAMICS:
+         return idLoadedGains;
       default:
          throw new RuntimeException("The controller core mode " + controllerCoreMode.getValue() + " is not implemented.");
       }
@@ -189,8 +205,34 @@ public class QuadrupedJointControlParameters
          return ikUnloadedGains;
       case VIRTUAL_MODEL:
          return vmcUnloadedGains;
+      case INVERSE_DYNAMICS:
+         return idUnloadedGains;
       default:
          throw new RuntimeException("The controller core mode " + controllerCoreMode.getValue() + " is not implemented.");
       }
+   }
+   
+   /**
+    * Returns a list of joint that should use the more restrictive joint limit enforcement
+    * in the QP. If the list is not empty the method {@link #getJointLimitParametersForJointsWithRestictiveLimits()}
+    * must be overwritten to define the limit parameters.
+    */
+   public String[] getJointsWithRestrictiveLimits()
+   {
+      return new String[0];
+   }
+
+   /**
+    * Returns parameters for joint limits that will be used with the joints defined in
+    * {@link #getJointsWithRestrictiveLimits()}.
+    */
+   public JointLimitParameters getJointLimitParametersForJointsWithRestictiveLimits()
+   {
+      JointLimitParameters parameters = new JointLimitParameters();
+      parameters.setMaxAbsJointVelocity(15.0);
+      parameters.setJointLimitDistanceForMaxVelocity(30.0 * Math.PI/180.0);
+      parameters.setJointLimitFilterBreakFrequency(15.0);
+      parameters.setVelocityControlGain(30.0);
+      return parameters;
    }
 }

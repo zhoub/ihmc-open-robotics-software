@@ -23,9 +23,11 @@ public class QuadrupedFootControlModuleParameters
    // final parameters
    private final ParameterizedPID3DGains solePositionGainsVMC;
    private final ParameterizedPID3DGains solePositionGainsIK;
+   private final ParameterizedPID3DGains solePositionGainsID;
 
    private final ParameterVector3D solePositionWeightsVMC = new ParameterVector3D("solePositionWeightVMC_", new Vector3D(), finalRegistry);
    private final ParameterVector3D solePositionWeightsIK = new ParameterVector3D("solePositionWeightIK_", new Vector3D(50.0, 50.0, 10.0), finalRegistry);
+   private final ParameterVector3D solePositionWeightsID = new ParameterVector3D("solePositionWeightID_", new Vector3D(50.0, 50.0, 10.0), finalRegistry);
 
    private final DoubleParameter touchdownPressureLimitParameter = new DoubleParameter("touchdownPressureLimit", finalRegistry, 50);
    private final IntegerParameter touchdownTriggerWindowParameter = new IntegerParameter("touchdownTriggerWindow", finalRegistry,
@@ -44,6 +46,12 @@ public class QuadrupedFootControlModuleParameters
       solePositionVMCGains.setDerivativeGains(200.0, 200.0, 200.0);
       solePositionVMCGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
       solePositionGainsVMC = new ParameterizedPID3DGains("_solePositionVMC", GainCoupling.NONE, false, solePositionVMCGains, finalRegistry);
+
+      DefaultPID3DGains solePositionIDGains = new DefaultPID3DGains();
+      solePositionVMCGains.setProportionalGains(250.0, 250.0, 250.0);
+      solePositionVMCGains.setDerivativeGains(20.0, 20.0, 20.0);
+      solePositionVMCGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
+      solePositionGainsID = new ParameterizedPID3DGains("_solePositionID", GainCoupling.NONE, false, solePositionIDGains, finalRegistry);
 
       DefaultPID3DGains solePositionIKGains = new DefaultPID3DGains();
       solePositionIKGains.setProportionalGains(50.0, 50.0, 10.0);
@@ -65,6 +73,8 @@ public class QuadrupedFootControlModuleParameters
          return solePositionGainsVMC;
       case INVERSE_KINEMATICS:
          return solePositionGainsIK;
+      case INVERSE_DYNAMICS:
+         return solePositionGainsID;
       default:
          throw new RuntimeException("The controller core mode " + controllerCoreMode.getEnumValue() + " does not have foot control gains.");
       }
@@ -78,6 +88,8 @@ public class QuadrupedFootControlModuleParameters
             return solePositionWeightsVMC;
          case INVERSE_KINEMATICS:
             return solePositionWeightsIK;
+         case INVERSE_DYNAMICS:
+            return solePositionWeightsID;
          default:
             throw new RuntimeException("The controller core mode " + controllerCoreMode.getEnumValue() + " does not have foot control weights.");
       }
