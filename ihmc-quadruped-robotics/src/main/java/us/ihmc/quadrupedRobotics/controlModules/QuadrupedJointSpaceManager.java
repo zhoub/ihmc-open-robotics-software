@@ -2,10 +2,12 @@ package us.ihmc.quadrupedRobotics.controlModules;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.FeedbackControlCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.InverseDynamicsCommand;
+import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.InverseDynamicsCommandList;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.JointLimitEnforcementMethodCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.InverseKinematicsCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.InverseKinematicsCommandList;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.JointVelocityIntegrationCommand;
+import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.PrivilegedConfigurationCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.JointLimitEnforcementCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.JointTorqueCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualModelControlCommand;
@@ -13,6 +15,8 @@ import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelCo
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.JointLimitEnforcement;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.JointLimitParameters;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerToolbox;
+import us.ihmc.quadrupedRobotics.controller.toolbox.PrivilegedConfigurationCalculator;
+import us.ihmc.quadrupedRobotics.model.QuadrupedRuntimeEnvironment;
 import us.ihmc.quadrupedRobotics.parameters.QuadrupedJointControlParameters;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.robotics.screwTheory.ScrewTools;
@@ -32,23 +36,31 @@ public class QuadrupedJointSpaceManager
 
    private final VirtualModelControlCommandList virtualModelControlCommandList = new VirtualModelControlCommandList();
    private final JointLimitEnforcementCommand jointLimitEnforcementCommand = new JointLimitEnforcementCommand();
-   private final JointLimitEnforcementMethodCommand idJointLimitEnforcementCommand = new JointLimitEnforcementMethodCommand();
    private final JointTorqueCommand vmcJointDampingCommand = new JointTorqueCommand();
+
+   private final InverseDynamicsCommandList inverseDynamicsCommandList = new InverseDynamicsCommandList();
+   private final JointLimitEnforcementMethodCommand idJointLimitEnforcementCommand = new JointLimitEnforcementMethodCommand();
+
+   private final InverseKinematicsCommandList inverseKinematicsCommandList = new InverseKinematicsCommandList();
+   private final JointVelocityIntegrationCommand ikJointIntegrationCommand = new JointVelocityIntegrationCommand();
+
+   private final PrivilegedConfigurationCommand privilegedConfigurationCommand = new PrivilegedConfigurationCommand();
+   private final PrivilegedConfigurationCalculator privilegedConfigurationCalculator;
 
    private final YoDouble vmcJointViscousDamping = new YoDouble("vmcJointViscousDamping", registry);
    private final YoDouble jointPositionLimitDamping = new YoDouble("jointPositionLimitDamping", registry);
    private final YoDouble jointPositionLimitStiffness = new YoDouble("jointPositionLimitStiffness", registry);
 
-   private final InverseKinematicsCommandList inverseKinematicsCommandList = new InverseKinematicsCommandList();
-   private final JointVelocityIntegrationCommand ikJointIntegrationCommand = new JointVelocityIntegrationCommand();
-
    private final YoDouble ikVelocityIntegrationBreakFrequency = new YoDouble("ikVelocityIntegrationBreakFrequency", registry);
    private final YoDouble ikAccelerationDifferentiationBreakFrequency = new YoDouble("ikAccelerationDifferentiationBreakFrequency", registry);
+   
 
    public QuadrupedJointSpaceManager(QuadrupedControllerToolbox controllerToolbox, YoVariableRegistry parentRegistry)
    {
       controlledJoints = controllerToolbox.getFullRobotModel().getControllableOneDoFJoints();
-
+      QuadrupedRuntimeEnvironment runtimeEnvironment = controllerToolbox.getRuntimeEnvironment();
+      privilegedConfigurationCalculator = runtimeEnvironment.getPrivilegedConfigurationCalculator();
+      
       vmcJointViscousDamping.set(VMC_VISCOUS_DAMPING);
       jointPositionLimitDamping.set(POSITION_LIMIT_DAMPING);
       jointPositionLimitStiffness.set(POSITION_LIMIT_STIFFNESS);
@@ -100,6 +112,11 @@ public class QuadrupedJointSpaceManager
          ikJointIntegrationCommand
                .setBreakFrequencies(i, ikVelocityIntegrationBreakFrequency.getDoubleValue(), ikAccelerationDifferentiationBreakFrequency.getDoubleValue());
       }
+      
+      if(privilegedConfigurationCalculator != null)
+      {
+         privilegedConfigurationCalculator.calculate(privilegedConfigurationCommand);
+      }
    }
 
    public FeedbackControlCommand<?> createFeedbackControlTemplate()
@@ -125,12 +142,16 @@ public class QuadrupedJointSpaceManager
    {
       inverseKinematicsCommandList.clear();
       inverseKinematicsCommandList.addCommand(ikJointIntegrationCommand);
+      inverseKinematicsCommandList.addCommand(privilegedConfigurationCommand);
 
       return inverseKinematicsCommandList;
    }
 
    public InverseDynamicsCommand<?> getInverseDynamicsCommand()
    {
-      return idJointLimitEnforcementCommand;
+      inverseDynamicsCommandList.clear();
+      inverseDynamicsCommandList.addCommand(idJointLimitEnforcementCommand);
+      inverseDynamicsCommandList.addCommand(privilegedConfigurationCommand);
+      return inverseDynamicsCommandList;
    }
 }

@@ -24,6 +24,7 @@ import us.ihmc.quadrupedRobotics.controlModules.QuadrupedControlManagerFactory;
 import us.ihmc.quadrupedRobotics.controlModules.QuadrupedJointSpaceManager;
 import us.ihmc.quadrupedRobotics.controlModules.foot.QuadrupedFeetManager;
 import us.ihmc.quadrupedRobotics.controller.*;
+import us.ihmc.quadrupedRobotics.controller.toolbox.PrivilegedConfigurationCalculator;
 import us.ihmc.quadrupedRobotics.controller.toolbox.QuadrupedStepTransitionCallback;
 import us.ihmc.quadrupedRobotics.estimator.GroundPlaneEstimator;
 import us.ihmc.quadrupedRobotics.messageHandling.QuadrupedStepCommandConsumer;
@@ -136,6 +137,9 @@ public class QuadrupedSteppingState implements QuadrupedController, QuadrupedSte
                                                                                        controllerToolbox.getReferenceFrames().getCenterOfMassFrame(),
                                                                                        runtimeEnvironment.getControllerCoreOptimizationSettings(),
                                                                                        runtimeEnvironment.getGraphicsListRegistry(), registry);
+
+      PrivilegedConfigurationCalculator privilegedConfigurationCalculator = runtimeEnvironment.getPrivilegedConfigurationCalculator();
+      controlCoreToolbox.setJointPrivilegedConfigurationParameters(privilegedConfigurationCalculator.getJointPrivilegedConfigurationParameters());
       controlCoreToolbox.setupForVirtualModelControlSolver(fullRobotModel.getBody(), controllerToolbox.getContactablePlaneBodies());
       controlCoreToolbox.setupForInverseKinematicsSolver();
       controlCoreToolbox.setupForInverseDynamicsSolver(controllerToolbox.getContactablePlaneBodies());
