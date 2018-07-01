@@ -60,6 +60,11 @@ public abstract class RobotContactPointParameters<E extends Enum<E> & RobotSegme
       controllerFootGroundContactPoints = new SegmentDependentList<>(clazz);
       controllerToeContactPoints = new SegmentDependentList<>(clazz);
       controllerToeContactLines = new SegmentDependentList<>(clazz);
+      
+      for (E segment : robotSegments)
+      {
+         controllerFootGroundContactPoints.put(segment, new ArrayList<>());
+      }
    }
 
    protected void createFootContactPoints(FootContactPoints<E> footContactPoints)
@@ -77,7 +82,6 @@ public abstract class RobotContactPointParameters<E extends Enum<E> & RobotSegme
       for (E segment : robotSegments)
       {
          List<Tuple2DBasics> points = controllerContactPoints.get(segment);
-         controllerFootGroundContactPoints.put(segment, new ArrayList<>());
          for (Tuple2DBasics point : points)
             controllerFootGroundContactPoints.get(segment).add(new Point2D(point));
       }
