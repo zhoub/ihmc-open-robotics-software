@@ -31,6 +31,7 @@ import us.ihmc.quadrupedRobotics.controller.QuadrupedControlMode;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerEnum;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerManager;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedSimulationController;
+import us.ihmc.quadrupedRobotics.controller.toolbox.PrivilegedConfigurationCalculator;
 import us.ihmc.quadrupedRobotics.estimator.SimulatedQuadrupedFootSwitchFactory;
 import us.ihmc.quadrupedRobotics.estimator.referenceFrames.QuadrupedReferenceFrames;
 import us.ihmc.quadrupedRobotics.estimator.sensorProcessing.simulatedSensors.SDFQuadrupedPerfectSimulatedSensor;
@@ -116,6 +117,7 @@ public class QuadrupedSimulationFactory
          "simulatedElasticityParameters");
    private final OptionalFactoryField<QuadrupedGroundContactModelType> groundContactModelType = new OptionalFactoryField<>("groundContactModelType");
    private final OptionalFactoryField<QuadrupedRobotControllerFactory> headControllerFactory = new OptionalFactoryField<>("headControllerFactory");
+   private final OptionalFactoryField<PrivilegedConfigurationCalculator> privilegedConfigurationCalculator = new OptionalFactoryField<>("privilegedConfigurationCalculator");
    private final OptionalFactoryField<GroundProfile3D> providedGroundProfile3D = new OptionalFactoryField<>("providedGroundProfile3D");
    private final OptionalFactoryField<TerrainObject3D> providedTerrainObject3D = new OptionalFactoryField<>("providedTerrainObject3D");
    private final OptionalFactoryField<Boolean> usePushRobotController = new OptionalFactoryField<>("usePushRobotController");
@@ -331,7 +333,8 @@ public class QuadrupedSimulationFactory
    {
 
       QuadrupedRuntimeEnvironment runtimeEnvironment = new QuadrupedRuntimeEnvironment(controlDT.get(), sdfRobot.get().getYoTime(), fullRobotModel.get(),
-                                                                                       controllerCoreOptimizationSettings.get(), jointDesiredOutputList.get(),
+                                                                                       controllerCoreOptimizationSettings.get(),
+                                                                                       privilegedConfigurationCalculator.get(), jointDesiredOutputList.get(),
                                                                                        sdfRobot.get().getRobotsYoVariableRegistry(), yoGraphicsListRegistry,
                                                                                        yoGraphicsListRegistryForDetachedOverhead, globalDataProducer,
                                                                                        contactableFeet, contactablePlaneBodies, footSwitches, gravity.get(),
@@ -742,7 +745,6 @@ public class QuadrupedSimulationFactory
       this.referenceFrames.set(referenceFrames);
    }
 
-
    public void setGroundProfile3D(GroundProfile3D groundProfile3D)
    {
       providedGroundProfile3D.set(groundProfile3D);
@@ -781,5 +783,10 @@ public class QuadrupedSimulationFactory
    public void setSensorReaderWrapper(QuadrupedSensorReaderWrapper sensorReaderWrapper)
    {
       this.sensorReaderWrapper = sensorReaderWrapper;
+   }
+   
+   public void setPrivilegedConfigurationCalculator(PrivilegedConfigurationCalculator privilegedConfigurationCalculator)
+   {
+      this.privilegedConfigurationCalculator.set(privilegedConfigurationCalculator);
    }
 }

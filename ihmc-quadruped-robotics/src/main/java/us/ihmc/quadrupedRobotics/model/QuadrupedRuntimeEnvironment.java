@@ -1,20 +1,19 @@
 package us.ihmc.quadrupedRobotics.model;
 
-import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCore;
+import java.util.List;
+
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCoreMode;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.ControllerCoreOptimizationSettings;
 import us.ihmc.communication.streamingData.GlobalDataProducer;
 import us.ihmc.graphicsDescription.yoGraphics.YoGraphicsListRegistry;
 import us.ihmc.humanoidRobotics.bipedSupportPolygons.ContactablePlaneBody;
-import us.ihmc.quadrupedRobotics.planning.QuadrupedXGaitSettingsReadOnly;
+import us.ihmc.quadrupedRobotics.controller.toolbox.PrivilegedConfigurationCalculator;
 import us.ihmc.robotModels.FullQuadrupedRobotModel;
 import us.ihmc.robotics.robotSide.QuadrantDependentList;
 import us.ihmc.robotics.sensors.FootSwitchInterface;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
-
-import java.util.List;
 
 public class QuadrupedRuntimeEnvironment
 {
@@ -27,6 +26,7 @@ public class QuadrupedRuntimeEnvironment
    private final GlobalDataProducer globalDataProducer;
    private final JointDesiredOutputList jointDesiredOutputList;
    private final ControllerCoreOptimizationSettings controllerCoreOptimizationSettings;
+   private final PrivilegedConfigurationCalculator privilegedConfigurationCalculator;
 
    private final double gravityZ;
 
@@ -37,7 +37,8 @@ public class QuadrupedRuntimeEnvironment
    private final WholeBodyControllerCoreMode controllerCoreMode;
 
    public QuadrupedRuntimeEnvironment(double controlDT, YoDouble robotTimestamp, FullQuadrupedRobotModel fullRobotModel,
-                                      ControllerCoreOptimizationSettings controllerCoreOptimizationSettings, JointDesiredOutputList jointDesiredOutputList,
+                                      ControllerCoreOptimizationSettings controllerCoreOptimizationSettings,
+                                      PrivilegedConfigurationCalculator privilegedConfigurationCalculator, JointDesiredOutputList jointDesiredOutputList,
                                       YoVariableRegistry parentRegistry, YoGraphicsListRegistry graphicsListRegistry,
                                       YoGraphicsListRegistry graphicsListRegistryForDetachedOverhead, GlobalDataProducer globalDataProducer,
                                       QuadrantDependentList<ContactablePlaneBody> contactableFeet, List<ContactablePlaneBody> contactablePlaneBodies,
@@ -47,6 +48,7 @@ public class QuadrupedRuntimeEnvironment
       this.robotTimestamp = robotTimestamp;
       this.controllerCoreOptimizationSettings = controllerCoreOptimizationSettings;
       this.fullRobotModel = fullRobotModel;
+      this.privilegedConfigurationCalculator = privilegedConfigurationCalculator;
       this.parentRegistry = parentRegistry;
       this.graphicsListRegistry = graphicsListRegistry;
       this.graphicsListRegistryForDetachedOverhead = graphicsListRegistryForDetachedOverhead;
@@ -127,6 +129,11 @@ public class QuadrupedRuntimeEnvironment
    public WholeBodyControllerCoreMode getControllerCoreMode()
    {
       return controllerCoreMode;
+   }
+
+   public PrivilegedConfigurationCalculator getPrivilegedConfigurationCalculator()
+   {
+      return privilegedConfigurationCalculator;
    }
 
 }

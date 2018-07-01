@@ -155,7 +155,7 @@ public class GenericQuadrupedControllerFactoryDummyOutputDemo
       JointDesiredOutputList jointDesiredOutputList = new JointDesiredOutputList(fullRobotModel.getOneDoFJoints());
       YoGraphicsListRegistry ignoredYoGraphicsListRegistry = new YoGraphicsListRegistry();
 
-      runtimeEnvironment = new QuadrupedRuntimeEnvironment(DT, controllerTime, fullRobotModel, controllerCoreOptimizationSettings, jointDesiredOutputList,
+      runtimeEnvironment = new QuadrupedRuntimeEnvironment(DT, controllerTime, fullRobotModel, controllerCoreOptimizationSettings, null, jointDesiredOutputList,
                                                            registry, yoGraphicsListRegistry, ignoredYoGraphicsListRegistry, dataProducer, contactableFeet,
                                                            contactablePlaneBodies, footSwitches, GRAVITY, WholeBodyControllerCoreMode.VIRTUAL_MODEL);
       controllerManager = new QuadrupedControllerManager(runtimeEnvironment, physicalProperties, initialPositionParameters);
