@@ -226,6 +226,27 @@ public class PrivilegedConfigurationCommand implements InverseKinematicsCommand<
    }
    
    /**
+    * returns the index of the joint in this privileged configuration. 
+    * Returns -1 if the joint is not in the list.  
+    * This is not guaranteed to be the same as the command can be cleared!
+    * Uses joint name as the comparison, joints do not have to be the same instance
+    * @param joint
+    * @return the index of the joint
+    */
+   public int getJointIndex(OneDoFJoint joint)
+   {
+      String jointName = joint.getName();
+      for(int i = 0; i < joints.size(); i++)
+      {
+         if(joints.get(i).getName().equals(jointName))
+         {
+            return i;
+         }
+      }
+      return -1;
+   }
+   
+   /**
     * Adds or Updates the desired privileged configuration for a joint
     * If the joint hasn't been registered it will be added to the command
     *
@@ -234,14 +255,11 @@ public class PrivilegedConfigurationCommand implements InverseKinematicsCommand<
     */
    public void addOrSetOneDoFJoint(OneDoFJoint joint, double privilegedConfiguration)
    {
-      String jointName = joint.getName();
-      for(int i = 0; i < joints.size(); i++)
+      int jointIndex = getJointIndex(joint);
+      if(jointIndex > -1)
       {
-         if(joints.get(i).getName().equals(jointName))
-         {
-            setOneDoFJoint(i, privilegedConfiguration);
-            return;
-         }
+         setOneDoFJoint(jointIndex, privilegedConfiguration);
+         return;
       }
       
       addJoint(joint, privilegedConfiguration);
