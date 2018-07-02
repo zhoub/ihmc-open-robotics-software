@@ -1,5 +1,11 @@
 package us.ihmc.quadrupedRobotics.controller;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+
+import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.ContactPointVisualizer;
+import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.PlaneContactState;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCoreMode;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -9,12 +15,15 @@ import us.ihmc.euclid.referenceFrame.interfaces.FrameVector3DReadOnly;
 import us.ihmc.graphicsDescription.yoGraphics.YoGraphicsListRegistry;
 import us.ihmc.graphicsDescription.yoGraphics.plotting.YoArtifactPolygon;
 import us.ihmc.humanoidRobotics.bipedSupportPolygons.ContactablePlaneBody;
-import us.ihmc.quadrupedRobotics.parameters.QuadrupedFootControlModuleParameters;
-import us.ihmc.quadrupedRobotics.controller.toolbox.*;
+import us.ihmc.quadrupedRobotics.controller.toolbox.DivergentComponentOfMotionEstimator;
+import us.ihmc.quadrupedRobotics.controller.toolbox.LinearInvertedPendulumModel;
+import us.ihmc.quadrupedRobotics.controller.toolbox.QuadrupedFallDetector;
+import us.ihmc.quadrupedRobotics.controller.toolbox.QuadrupedSoleForceEstimator;
 import us.ihmc.quadrupedRobotics.estimator.GroundPlaneEstimator;
 import us.ihmc.quadrupedRobotics.estimator.referenceFrames.QuadrupedReferenceFrames;
 import us.ihmc.quadrupedRobotics.model.QuadrupedPhysicalProperties;
 import us.ihmc.quadrupedRobotics.model.QuadrupedRuntimeEnvironment;
+import us.ihmc.quadrupedRobotics.parameters.QuadrupedFootControlModuleParameters;
 import us.ihmc.quadrupedRobotics.parameters.QuadrupedJointControlParameters;
 import us.ihmc.quadrupedRobotics.planning.ContactState;
 import us.ihmc.robotModels.FullQuadrupedRobotModel;
@@ -23,13 +32,9 @@ import us.ihmc.robotics.robotSide.RobotQuadrant;
 import us.ihmc.robotics.screwTheory.CenterOfMassJacobian;
 import us.ihmc.robotics.screwTheory.RigidBody;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
-import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoEnum;
 import us.ihmc.yoVariables.variable.YoFrameConvexPolygon2D;
 import us.ihmc.yoVariables.variable.YoFrameVector3D;
-
-import java.awt.*;
-import java.util.List;
 
 public class QuadrupedControllerToolbox
 {
