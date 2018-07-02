@@ -139,7 +139,10 @@ public class QuadrupedSteppingState implements QuadrupedController, QuadrupedSte
                                                                                        runtimeEnvironment.getGraphicsListRegistry(), registry);
 
       PrivilegedConfigurationCalculator privilegedConfigurationCalculator = runtimeEnvironment.getPrivilegedConfigurationCalculator();
-      controlCoreToolbox.setJointPrivilegedConfigurationParameters(privilegedConfigurationCalculator.getJointPrivilegedConfigurationParameters());
+      if(privilegedConfigurationCalculator != null)
+      {
+         controlCoreToolbox.setJointPrivilegedConfigurationParameters(privilegedConfigurationCalculator.getJointPrivilegedConfigurationParameters());
+      }
       controlCoreToolbox.setupForVirtualModelControlSolver(fullRobotModel.getBody(), controllerToolbox.getContactablePlaneBodies());
       controlCoreToolbox.setupForInverseKinematicsSolver();
       controlCoreToolbox.setupForInverseDynamicsSolver(controllerToolbox.getContactablePlaneBodies());

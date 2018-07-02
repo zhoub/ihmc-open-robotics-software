@@ -508,6 +508,7 @@ public class QuadrupedSimulationFactory
       footSwitchType.setDefaultValue(FootSwitchType.TouchdownBased);
       useLocalCommunicator.setDefaultValue(false);
       kneeOrientationsOutward.setDefaultValue(new QuadrantDependentList<>(true, true, true, true));
+      privilegedConfigurationCalculator.set(null); //this is stupid. It's an optional field, but optional field defaults aren't allowed to be null
 
       FactoryTools.checkAllFactoryFieldsAreSet(this);
 

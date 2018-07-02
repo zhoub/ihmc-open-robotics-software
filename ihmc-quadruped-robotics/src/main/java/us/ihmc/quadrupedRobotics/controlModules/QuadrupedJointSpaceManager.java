@@ -142,7 +142,10 @@ public class QuadrupedJointSpaceManager
    {
       inverseKinematicsCommandList.clear();
       inverseKinematicsCommandList.addCommand(ikJointIntegrationCommand);
-      inverseKinematicsCommandList.addCommand(privilegedConfigurationCommand);
+      if(privilegedConfigurationCalculator != null)
+      {
+         inverseKinematicsCommandList.addCommand(privilegedConfigurationCommand);
+      }
 
       return inverseKinematicsCommandList;
    }
@@ -151,7 +154,10 @@ public class QuadrupedJointSpaceManager
    {
       inverseDynamicsCommandList.clear();
       inverseDynamicsCommandList.addCommand(idJointLimitEnforcementCommand);
-      inverseDynamicsCommandList.addCommand(privilegedConfigurationCommand);
+      if(privilegedConfigurationCalculator != null)
+      {
+         inverseDynamicsCommandList.addCommand(privilegedConfigurationCommand);
+      }
       return inverseDynamicsCommandList;
    }
 }
