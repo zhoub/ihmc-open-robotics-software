@@ -39,6 +39,11 @@ public abstract class RobotContactPointParameters<E extends Enum<E> & RobotSegme
 
 
    private boolean useSoftGroundContactParameters;
+   
+   public RobotContactPointParameters()
+   {
+      this(null, 0.0, 0.0, 0.0, null);
+   }
 
    public RobotContactPointParameters(LeggedJointNameMap<E> jointMap, double footWidth, double footLength,
                                       SegmentDependentList<E, RigidBodyTransform> soleToAnkleFrameTransforms)
