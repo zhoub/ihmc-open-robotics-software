@@ -50,6 +50,7 @@ public class QuadrupedSupportState extends QuadrupedFootState
    public void doAction(double timeInState)
    {
       spatialVelocityCommand.setSpatialVelocityToZero(soleFrame);
+      contactState.setFullyConstrained();
    }
 
    @Override
