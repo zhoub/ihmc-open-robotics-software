@@ -61,6 +61,7 @@ public class QuadrupedControllerToolbox
    private final YoEnum<WholeBodyControllerCoreMode> controllerCoreMode;
 
    private final QuadrupedJointControlParameters jointControlParameters;
+   private ContactPointVisualizer contactPointVisualizer;
 
    public QuadrupedControllerToolbox(QuadrupedRuntimeEnvironment runtimeEnvironment, QuadrupedPhysicalProperties physicalProperties,
                                      YoVariableRegistry registry, YoGraphicsListRegistry yoGraphicsListRegistry)
@@ -102,7 +103,7 @@ public class QuadrupedControllerToolbox
 
       double coefficientOfFriction = 1.0; // TODO: magic number...
       QuadrantDependentList<ContactablePlaneBody> contactableFeet = runtimeEnvironment.getContactableFeet();
-
+      ArrayList<PlaneContactState> planeContactStates = new ArrayList<>();
       for (RobotQuadrant robotQuadrant : RobotQuadrant.values)
       {
          ContactablePlaneBody contactableFoot = contactableFeet.get(robotQuadrant);
@@ -111,8 +112,12 @@ public class QuadrupedControllerToolbox
                                                                     contactableFoot.getContactPoints2d(), coefficientOfFriction, registry);
 
          footContactStates.put(robotQuadrant, contactState);
+         planeContactStates.add(contactState);
          contactStates.put(robotQuadrant, ContactState.IN_CONTACT);
       }
+      
+      
+      contactPointVisualizer = new ContactPointVisualizer(planeContactStates, yoGraphicsListRegistry, registry);
 
       update(); 
    }
@@ -130,6 +135,7 @@ public class QuadrupedControllerToolbox
       yoCoMVelocityEstimate.setMatchingFrame(comVelocityEstimate);
 
       dcmPositionEstimator.compute(comVelocityEstimate);
+      contactPointVisualizer.update(Double.NaN);
    }
 
    public void updateSupportPolygon()
