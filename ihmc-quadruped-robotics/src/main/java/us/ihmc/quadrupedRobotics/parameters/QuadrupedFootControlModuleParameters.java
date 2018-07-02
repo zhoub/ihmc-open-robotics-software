@@ -119,4 +119,14 @@ public class QuadrupedFootControlModuleParameters
    {
       return defaultTouchdownTriggerWindow;
    }
+
+   public boolean useNLowestContactPoints()
+   {
+      return true;
+   }
+
+   public int getNLowestContactPoints()
+   {
+      return 2;
+   }
 }

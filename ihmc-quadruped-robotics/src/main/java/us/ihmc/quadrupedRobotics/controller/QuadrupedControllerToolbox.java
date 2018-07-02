@@ -7,6 +7,7 @@ import java.util.List;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.ContactPointVisualizer;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.PlaneContactState;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
+import us.ihmc.commonWalkingControlModules.contact.YoLowestNPointsPlaneContactState;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCoreMode;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -113,8 +114,20 @@ public class QuadrupedControllerToolbox
       {
          ContactablePlaneBody contactableFoot = contactableFeet.get(robotQuadrant);
          RigidBody rigidBody = contactableFoot.getRigidBody();
-         YoPlaneContactState contactState = new YoPlaneContactState(contactableFoot.getSoleFrame().getName(), rigidBody, contactableFoot.getSoleFrame(),
-                                                                    contactableFoot.getContactPoints2d(), coefficientOfFriction, registry);
+         
+         YoPlaneContactState contactState;
+         if(footControlModuleParameters.useNLowestContactPoints())
+         {
+            contactState = new YoLowestNPointsPlaneContactState(contactableFoot.getSoleFrame().getName(), rigidBody, contactableFoot.getSoleFrame(),
+                                                                contactableFoot.getContactPoints2d(), footControlModuleParameters.getNLowestContactPoints(), coefficientOfFriction, registry);
+                                                                
+         }
+         else
+         {
+            contactState = new YoPlaneContactState(contactableFoot.getSoleFrame().getName(), rigidBody, contactableFoot.getSoleFrame(),
+                                                                       contactableFoot.getContactPoints2d(), coefficientOfFriction, registry);
+         }
+         
 
          footContactStates.put(robotQuadrant, contactState);
          planeContactStates.add(contactState);

@@ -23,11 +23,10 @@ import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.graphicsDescription.yoGraphics.YoGraphicsListRegistry;
 import us.ihmc.humanoidRobotics.bipedSupportPolygons.ContactablePlaneBody;
 import us.ihmc.jMonkeyEngineToolkit.GroundProfile3D;
+import us.ihmc.jMonkeyEngineToolkit.camera.CameraConfiguration;
 import us.ihmc.pubsub.DomainFactory.PubSubImplementation;
 import us.ihmc.quadrupedRobotics.communication.QuadrupedControllerAPIDefinition;
-import us.ihmc.jMonkeyEngineToolkit.camera.CameraConfiguration;
 import us.ihmc.quadrupedRobotics.communication.QuadrupedGlobalDataProducer;
-import us.ihmc.quadrupedRobotics.controller.QuadrupedControlMode;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerEnum;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerManager;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedSimulationController;
@@ -66,10 +65,19 @@ import us.ihmc.sensorProcessing.simulatedSensors.SimulatedSensorHolderAndReaderF
 import us.ihmc.sensorProcessing.stateEstimation.FootSwitchType;
 import us.ihmc.sensorProcessing.stateEstimation.StateEstimatorParameters;
 import us.ihmc.simulationConstructionSetTools.util.ground.RotatablePlaneTerrainProfile;
+import us.ihmc.simulationConstructionSetTools.util.groundContact.ZHeightContactPointDisablerGroundContactModel;
 import us.ihmc.simulationToolkit.controllers.PushRobotController;
 import us.ihmc.simulationToolkit.controllers.SpringJointOutputWriter;
 import us.ihmc.simulationToolkit.parameters.SimulatedElasticityParameters;
-import us.ihmc.simulationconstructionset.*;
+import us.ihmc.simulationconstructionset.CameraMount;
+import us.ihmc.simulationconstructionset.FloatingRootJointRobot;
+import us.ihmc.simulationconstructionset.GroundContactModel;
+import us.ihmc.simulationconstructionset.GroundContactPoint;
+import us.ihmc.simulationconstructionset.OneDegreeOfFreedomJoint;
+import us.ihmc.simulationconstructionset.SimulationConstructionSet;
+import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
+import us.ihmc.simulationconstructionset.UnreasonableAccelerationException;
+import us.ihmc.simulationconstructionset.ViewportConfiguration;
 import us.ihmc.simulationconstructionset.gui.tools.SimulationOverheadPlotterFactory;
 import us.ihmc.simulationconstructionset.util.LinearGroundContactModel;
 import us.ihmc.simulationconstructionset.util.RobotController;
@@ -82,7 +90,9 @@ import us.ihmc.stateEstimation.humanoid.kinematicsBasedStateEstimation.DRCKinema
 import us.ihmc.tools.factories.FactoryTools;
 import us.ihmc.tools.factories.OptionalFactoryField;
 import us.ihmc.tools.factories.RequiredFactoryField;
+import us.ihmc.wholeBodyController.RobotContactPointParameters;
 import us.ihmc.wholeBodyController.parameters.ParameterLoaderHelper;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class QuadrupedSimulationFactory
 {
@@ -90,6 +100,7 @@ public class QuadrupedSimulationFactory
    private final RequiredFactoryField<ControllerCoreOptimizationSettings> controllerCoreOptimizationSettings = new RequiredFactoryField<>(
          "controllerCoreOptimizationSettings");
    private final RequiredFactoryField<QuadrupedPhysicalProperties> physicalProperties = new RequiredFactoryField<>("physicalProperties");
+   private final RequiredFactoryField<RobotContactPointParameters<RobotQuadrant>> contactPointParameters = new RequiredFactoryField<>("contactPointParameters");
    private final RequiredFactoryField<WholeBodyControllerCoreMode> controlMode = new RequiredFactoryField<>("controlMode");
    private final RequiredFactoryField<FloatingRootJointRobot> sdfRobot = new RequiredFactoryField<>("sdfRobot");
    private final RequiredFactoryField<Double> simulationDT = new RequiredFactoryField<>("simulationDT");
@@ -126,6 +137,7 @@ public class QuadrupedSimulationFactory
    private final OptionalFactoryField<Integer> scsBufferSize = new OptionalFactoryField<>("scsBufferSize");
    private final OptionalFactoryField<QuadrupedControllerEnum> initialForceControlState = new OptionalFactoryField<>("initialForceControlState");
    private final OptionalFactoryField<Boolean> useLocalCommunicator = new OptionalFactoryField<>("useLocalCommunicator");
+   private final OptionalFactoryField<Double> zHeightContactPointDisableThreshold = new OptionalFactoryField<>("zHeightContactPointDisableThreshold");
 
    // TO CONSTRUCT
    private YoGraphicsListRegistry yoGraphicsListRegistry;
@@ -143,7 +155,7 @@ public class QuadrupedSimulationFactory
    private QuadrupedControllerManager controllerManager;
    private DRCPoseCommunicator poseCommunicator;
    private GroundProfile3D groundProfile3D;
-   private LinearGroundContactModel groundContactModel;
+   private GroundContactModel groundContactModel;
    private QuadrupedSimulationController simulationController;
    private QuadrupedLegInverseKinematicsCalculator legInverseKinematicsCalculator;
    private List<CameraConfiguration> cameraConfigurations = new ArrayList<>();
@@ -224,7 +236,7 @@ public class QuadrupedSimulationFactory
    {
       ContactableBodiesFactory<RobotQuadrant> footContactableBodiesFactory = new ContactableBodiesFactory<>();
       footContactableBodiesFactory.setFullRobotModel(fullRobotModel.get());
-      footContactableBodiesFactory.setFootContactPoints(physicalProperties.get().getFeetGroundContactPoints());
+      footContactableBodiesFactory.setFootContactPoints(contactPointParameters.get().getControllerFootGroundContactPoints());
       footContactableBodiesFactory.setReferenceFrames(referenceFrames.get());
       contactableFeet = new QuadrantDependentList<>(footContactableBodiesFactory.createFootContactablePlaneBodies());
       footContactableBodiesFactory.disposeFactory();
@@ -331,7 +343,6 @@ public class QuadrupedSimulationFactory
 
    public void createControllerManager() throws IOException
    {
-
       QuadrupedRuntimeEnvironment runtimeEnvironment = new QuadrupedRuntimeEnvironment(controlDT.get(), sdfRobot.get().getYoTime(), fullRobotModel.get(),
                                                                                        controllerCoreOptimizationSettings.get(),
                                                                                        privilegedConfigurationCalculator.get(), jointDesiredOutputList.get(),
@@ -410,13 +421,25 @@ public class QuadrupedSimulationFactory
       {
          groundProfile3D = providedGroundProfile3D.get();
       }
+      
+   
 
-      groundContactModel = new LinearGroundContactModel(sdfRobot.get(), sdfRobot.get().getRobotsYoVariableRegistry());
-      groundContactModel.setZStiffness(groundContactParameters.get().getZStiffness());
-      groundContactModel.setZDamping(groundContactParameters.get().getZDamping());
-      groundContactModel.setXYStiffness(groundContactParameters.get().getXYStiffness());
-      groundContactModel.setXYDamping(groundContactParameters.get().getXYDamping());
-      groundContactModel.setGroundProfile3D(groundProfile3D);
+      YoVariableRegistry robotsYoVariableRegistry = sdfRobot.get().getRobotsYoVariableRegistry();
+      LinearGroundContactModel linearGroundContactModel = new LinearGroundContactModel(sdfRobot.get(), robotsYoVariableRegistry);
+      linearGroundContactModel.setZStiffness(groundContactParameters.get().getZStiffness());
+      linearGroundContactModel.setZDamping(groundContactParameters.get().getZDamping());
+      linearGroundContactModel.setXYStiffness(groundContactParameters.get().getXYStiffness());
+      linearGroundContactModel.setXYDamping(groundContactParameters.get().getXYDamping());
+      linearGroundContactModel.setGroundProfile3D(groundProfile3D);
+      
+      groundContactModel = linearGroundContactModel;
+
+      if(zHeightContactPointDisableThreshold.hasValue())
+      {
+         ArrayList<GroundContactPoint> groundContactPoints = sdfRobot.get().getAllGroundContactPoints();
+         double zHeightThreshold = zHeightContactPointDisableThreshold.get();
+         groundContactModel = new ZHeightContactPointDisablerGroundContactModel(linearGroundContactModel, groundContactPoints, zHeightThreshold, robotsYoVariableRegistry);
+      }
    }
 
    private void createSimulationController()
@@ -789,5 +812,15 @@ public class QuadrupedSimulationFactory
    public void setPrivilegedConfigurationCalculator(PrivilegedConfigurationCalculator privilegedConfigurationCalculator)
    {
       this.privilegedConfigurationCalculator.set(privilegedConfigurationCalculator);
+   }
+
+   public void setZHeightContactPointDisableThreshold(double zHeightContactPointDisableThreshold)
+   {
+      this.zHeightContactPointDisableThreshold.set(zHeightContactPointDisableThreshold);
+   }
+   
+   public void setContactPointParameters(RobotContactPointParameters<RobotQuadrant> contactPointParameters)
+   {
+      this.contactPointParameters.set(contactPointParameters);
    }
 }
