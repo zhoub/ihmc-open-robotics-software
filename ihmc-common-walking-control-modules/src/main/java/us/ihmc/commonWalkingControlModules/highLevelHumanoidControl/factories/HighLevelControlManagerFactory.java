@@ -181,7 +181,7 @@ public class HighLevelControlManagerFactory
       Vector3DReadOnly pelvisLinearWeight = taskspaceAngularWeightMap.get(pelvisName);
       centerOfMassHeightManager = new CenterOfMassHeightManager(controllerToolbox, walkingControllerParameters, registry);
       centerOfMassHeightManager.setPelvisTaskspaceWeights(pelvisLinearWeight);
-      centerOfMassHeightManager.setComHeightGains(walkingControllerComHeightGains, walkingControllerMaxComHeightVelocity, userModeComHeightGains);
+      centerOfMassHeightManager.setComHeightGains(userModeComHeightGains);
       return centerOfMassHeightManager;
    }
 

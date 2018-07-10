@@ -41,7 +41,7 @@ import us.ihmc.yoVariables.providers.DoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-public class PelvisHeightControlState implements PelvisAndCenterOfMassHeightControlState
+public class PelvisHeightControlState
 {
    private final YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
 
@@ -145,10 +145,9 @@ public class PelvisHeightControlState implements PelvisAndCenterOfMassHeightCont
       taskspaceControlState.setWeights(null, linearWeight);
    }
 
-   @Override
-   public void doAction(double timeInState)
+   public void doAction()
    {
-      taskspaceControlState.doAction(timeInState);
+      taskspaceControlState.doAction(Double.NaN);
    }
 
    public boolean handlePelvisHeightTrajectoryCommand(PelvisHeightTrajectoryCommand command, FramePose3D initialPose)
@@ -268,7 +267,6 @@ public class PelvisHeightControlState implements PelvisAndCenterOfMassHeightCont
    /**
     * Packs positionToPack with the current desired height, The parameter's frame will be set to the trajectory frame
     */
-   @Override
    public void getCurrentDesiredHeightOfDefaultControlFrame(FramePoint3D positionToPack)
    {
       taskspaceControlState.getDesiredPose(tempPose);
@@ -282,7 +280,6 @@ public class PelvisHeightControlState implements PelvisAndCenterOfMassHeightCont
       positionToPack.add(tempPoint);
    }
 
-   @Override
    public void initializeDesiredHeightToCurrent()
    {
       taskspaceControlState.holdCurrent();
@@ -291,7 +288,6 @@ public class PelvisHeightControlState implements PelvisAndCenterOfMassHeightCont
    /**
     * sets the desired height to defaultHeightAboveAnkleForHome in baseFrame (MidFootZUpGroundFrame)
     */
-   @Override
    public void goHome(double trajectoryTime)
    {
       tempPose.setToZero(baseFrame);
@@ -303,7 +299,6 @@ public class PelvisHeightControlState implements PelvisAndCenterOfMassHeightCont
    /**
     * If the command says to stop then set the desired to the actual
     */
-   @Override
    public void handleStopAllTrajectoryCommand(StopAllTrajectoryCommand command)
    {
       if(command.isStopAllTrajectory())
@@ -323,7 +318,6 @@ public class PelvisHeightControlState implements PelvisAndCenterOfMassHeightCont
    /**
     * returns the point feedback command for the z height of the pelvis
     */
-   @Override
    public FeedbackControlCommand<?> getFeedbackControlCommand()
    {
       //We have to do some nasty copying, because the taskspaceControlState returns a spatial feedback command, but the controller core doesn't like
@@ -345,13 +339,8 @@ public class PelvisHeightControlState implements PelvisAndCenterOfMassHeightCont
       pointFeedbackCommand.setBodyFixedPointToControl(controlPosition);
 
       return pointFeedbackCommand;
-//      return null;
    }
 
-   /**
-    * Returns 0.0, we don't compute the acceleration here, we send the command to a feedback controller to do it for us
-    */
-   @Override
    public double computeDesiredCoMHeightAcceleration(FrameVector2D desiredICPVelocity, boolean isInDoubleSupport, double omega0, boolean isRecoveringFromPush,
          FeetManager feetManager)
    {
