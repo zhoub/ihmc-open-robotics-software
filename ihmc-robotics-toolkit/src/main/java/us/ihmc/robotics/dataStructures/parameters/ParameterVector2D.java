@@ -1,5 +1,6 @@
 package us.ihmc.robotics.dataStructures.parameters;
 
+import us.ihmc.euclid.tools.EuclidCoreIOTools;
 import us.ihmc.euclid.tuple2D.interfaces.Vector2DReadOnly;
 import us.ihmc.yoVariables.parameters.DoubleParameter;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -38,5 +39,11 @@ public class ParameterVector2D implements Vector2DReadOnly
    public double getY()
    {
       return y.getValue();
+   }
+
+   @Override
+   public String toString()
+   {
+      return getClass().getSimpleName() + ": " + EuclidCoreIOTools.getTuple2DString(this);
    }
 }

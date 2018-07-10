@@ -1,5 +1,6 @@
 package us.ihmc.robotics.dataStructures.parameters;
 
+import us.ihmc.euclid.tools.EuclidCoreIOTools;
 import us.ihmc.euclid.tuple3D.interfaces.Vector3DReadOnly;
 import us.ihmc.yoVariables.parameters.DoubleParameter;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -49,4 +50,9 @@ public class ParameterVector3D implements Vector3DReadOnly
       return z.getValue();
    }
 
+   @Override
+   public String toString()
+   {
+      return getClass().getSimpleName() + ": " + EuclidCoreIOTools.getTuple3DString(this);
+   }
 }
