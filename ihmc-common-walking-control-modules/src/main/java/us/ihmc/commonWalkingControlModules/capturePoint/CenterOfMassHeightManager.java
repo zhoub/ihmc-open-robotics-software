@@ -9,11 +9,11 @@ import us.ihmc.commonWalkingControlModules.momentumBasedController.HighLevelHuma
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.FrameVector2D;
+import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.euclid.tuple3D.interfaces.Vector3DReadOnly;
 import us.ihmc.humanoidRobotics.communication.controllerAPI.command.PelvisHeightTrajectoryCommand;
 import us.ihmc.humanoidRobotics.communication.controllerAPI.command.PelvisTrajectoryCommand;
 import us.ihmc.humanoidRobotics.communication.controllerAPI.command.StopAllTrajectoryCommand;
-import us.ihmc.humanoidRobotics.footstep.Footstep;
 import us.ihmc.robotics.controllers.pidGains.PIDGainsReadOnly;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -145,20 +145,17 @@ public class CenterOfMassHeightManager
    // TODO: move functionality
    public void initialize(TransferToAndNextFootstepsData transferToAndNextFootstepsData, double extraToeOffHeight)
    {
-      Footstep nextFootstep = transferToAndNextFootstepsData.getNextFootstep();
-      Footstep stanceFootstep = transferToAndNextFootstepsData.getTransferFromFootstep();
+//      centerOfMassHeightControlState.initialize(transferToAndNextFootstepsData, extraToeOffHeight);
+   }
 
-      if (nextFootstep == null)
+   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime, double transferTime)
+   {
+      if (enableUserPelvisControlDuringWalking.getBooleanValue())
       {
          return;
       }
 
-      FramePoint3D nextFootPosition = new FramePoint3D();
-      FramePoint3D stanceFootPosition = new FramePoint3D();
-      nextFootstep.getPosition(nextFootPosition);
-      stanceFootstep.getPosition(stanceFootPosition);
-
-//      centerOfMassHeightControlState.initialize(transferToAndNextFootstepsData, extraToeOffHeight);
+      pelvisHeightControlState.step(stanceFootPosition, touchdownPosition, swingTime, transferTime);
    }
 
    /**

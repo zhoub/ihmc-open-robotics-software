@@ -20,8 +20,11 @@ import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Point3D;
+import us.ihmc.euclid.tuple3D.Vector3D;
+import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.euclid.tuple3D.interfaces.Vector3DReadOnly;
 import us.ihmc.graphicsDescription.yoGraphics.YoGraphicsListRegistry;
+import us.ihmc.humanoidRobotics.communication.controllerAPI.command.EuclideanTrajectoryControllerCommand;
 import us.ihmc.humanoidRobotics.communication.controllerAPI.command.PelvisHeightTrajectoryCommand;
 import us.ihmc.humanoidRobotics.communication.controllerAPI.command.PelvisTrajectoryCommand;
 import us.ihmc.humanoidRobotics.communication.controllerAPI.command.StopAllTrajectoryCommand;
@@ -77,7 +80,7 @@ public class PelvisHeightControlState
    private final SymmetricPID3DGains symmetric3DGains = new SymmetricPID3DGains();
 
    public PelvisHeightControlState(HighLevelHumanoidControllerToolbox controllerToolbox, WalkingControllerParameters walkingControllerParameters,
-         YoVariableRegistry parentRegistry)
+                                   YoVariableRegistry parentRegistry)
    {
       FullHumanoidRobotModel fullRobotModel = controllerToolbox.getFullRobotModel();
       CommonHumanoidReferenceFrames referenceFrames = controllerToolbox.getReferenceFrames();
@@ -91,16 +94,17 @@ public class PelvisHeightControlState
 
       DoubleProvider proportionalGain = () -> symmetric3DGains.getProportionalGains()[2];
       DoubleProvider derivativeGain = () -> symmetric3DGains.getDerivativeGains()[2];
-      linearMomentumZPDController = AbstractPDController.createPDController("pelvisHeightControlState_linearMomentumZPDController", proportionalGain, derivativeGain, () -> 0.0, registry);
-      yoControlFrame =  new YoSE3OffsetFrame(pelvis.getName() + "HeightBodyFixedControlFrame", pelvis.getBodyFixedFrame(), registry);
+      linearMomentumZPDController = AbstractPDController.createPDController("pelvisHeightControlState_linearMomentumZPDController", proportionalGain,
+                                                                            derivativeGain, () -> 0.0, registry);
+      yoControlFrame = new YoSE3OffsetFrame(pelvis.getName() + "HeightBodyFixedControlFrame", pelvis.getBodyFixedFrame(), registry);
 
-      taskspaceControlState = new RigidBodyTaskspaceControlState("Height", pelvis, elevator, elevator, trajectoryFrames, pelvisFrame, baseFrame, yoTime, null, graphicsListRegistry, registry);
+      taskspaceControlState = new RigidBodyTaskspaceControlState("Height", pelvis, elevator, elevator, trajectoryFrames, pelvisFrame, baseFrame, yoTime, null,
+                                                                 graphicsListRegistry, registry);
 
       // the nominalHeightAboveAnkle is from the ankle to the pelvis, we need to add the ankle to sole frame to get the proper home height
       double soleToAnkleZHeight = computeSoleToAnkleMeanZHeight(controllerToolbox, fullRobotModel);
       defaultHeightAboveAnkleForHome = new YoDouble(getClass().getSimpleName() + "DefaultHeightAboveAnkleForHome", registry);
       defaultHeightAboveAnkleForHome.set(walkingControllerParameters.nominalHeightAboveAnkle() + soleToAnkleZHeight);
-
 
       currentPelvisHeightInWorld = new YoDouble("currentPelvisHeightInWorld", registry);
       desiredPelvisHeightInWorld = new YoDouble("desiredPelvisHeightInWorld", registry);
@@ -114,6 +118,29 @@ public class PelvisHeightControlState
    {
       symmetric3DGains.setGains(gains);
       taskspaceControlState.setGains(null, symmetric3DGains);
+   }
+
+   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime, double transferTime)
+   {
+      double distance = stanceFootPosition.distanceXY(touchdownPosition);
+
+      Point3D midPoint = new Point3D();
+      double height = defaultHeightAboveAnkleForHome.getValue();
+      double midHeight = Math.sqrt(height * height - (distance / 2.0) * (distance / 2.0));
+      midPoint.interpolate(stanceFootPosition, touchdownPosition, 0.5);
+      midPoint.addZ(midHeight);
+
+      Point3D endPoint = new Point3D();
+      endPoint.set(touchdownPosition);
+      endPoint.addZ(height);
+
+      EuclideanTrajectoryControllerCommand command = new EuclideanTrajectoryControllerCommand();
+      command.addTrajectoryPoint(swingTime, midPoint, new Vector3D());
+      command.addTrajectoryPoint(swingTime + transferTime, endPoint, new Vector3D());
+
+      taskspaceControlState.setDefaultControlFrame();
+      taskspaceControlState.getDesiredPose(tempPose);
+      taskspaceControlState.handleEuclideanTrajectoryCommand(command, tempPose);
    }
 
    /**
@@ -189,11 +216,11 @@ public class PelvisHeightControlState
 
       //set the selection matrix to z only
       SelectionMatrix6D commandSelectionMatrix = tempPelvisTrajectoryCommand.getSE3Trajectory().getSelectionMatrix();
-      if(commandSelectionMatrix != null)
+      if (commandSelectionMatrix != null)
       {
          linearZSelectionMatrix.set(commandSelectionMatrix);
          ReferenceFrame linearSelectionFrame = linearZSelectionMatrix.getLinearSelectionFrame();
-         if(linearSelectionFrame != null && !linearSelectionFrame.isZupFrame())
+         if (linearSelectionFrame != null && !linearSelectionFrame.isZupFrame())
          {
             PrintTools.warn("Selection Matrix Linear Frame was not Z up, PelvisTrajectoryCommand can only handle Selection matrix linear components with Z up frames.");
             return false;
@@ -211,11 +238,11 @@ public class PelvisHeightControlState
 
       //set the weight matrix to z only
       WeightMatrix6D commanedWeightMatrix = tempPelvisTrajectoryCommand.getSE3Trajectory().getWeightMatrix();
-      if(commanedWeightMatrix != null)
+      if (commanedWeightMatrix != null)
       {
          linearZWeightMatrix.set(commanedWeightMatrix);
          ReferenceFrame linearWeightFrame = linearZWeightMatrix.getLinearWeightFrame();
-         if(linearWeightFrame != null && !linearWeightFrame.isZupFrame())
+         if (linearWeightFrame != null && !linearWeightFrame.isZupFrame())
          {
             PrintTools.warn("Weight Matrix Linear Frame was not Z up, PelvisTrajectoryCommand can only handle weight matrix linear components with Z up frames.");
             return false;
@@ -249,7 +276,7 @@ public class PelvisHeightControlState
 
       initialPose.prependTranslation(tempPoint);
 
-      if(!taskspaceControlState.handlePoseTrajectoryCommand(tempPelvisTrajectoryCommand.getSE3Trajectory(), initialPose))
+      if (!taskspaceControlState.handlePoseTrajectoryCommand(tempPelvisTrajectoryCommand.getSE3Trajectory(), initialPose))
       {
          taskspaceControlState.clear();
          return false;
@@ -303,7 +330,7 @@ public class PelvisHeightControlState
     */
    public void handleStopAllTrajectoryCommand(StopAllTrajectoryCommand command)
    {
-      if(command.isStopAllTrajectory())
+      if (command.isStopAllTrajectory())
       {
          initializeDesiredHeightToCurrent();
       }
@@ -348,7 +375,7 @@ public class PelvisHeightControlState
    }
 
    public double computeDesiredCoMHeightAcceleration(FrameVector2D desiredICPVelocity, boolean isInDoubleSupport, double omega0, boolean isRecoveringFromPush,
-         FeetManager feetManager)
+                                                     FeetManager feetManager)
    {
       SpatialFeedbackControlCommand spatialFeedbackControlCommand = taskspaceControlState.getSpatialFeedbackControlCommand();
       spatialFeedbackControlCommand.getIncludingFrame(desiredPosition, desiredLinearVelocity);
@@ -368,7 +395,8 @@ public class PelvisHeightControlState
       desiredPelvisVelocityInWorld.set(desiredLinearVelocity.getZ());
       currentPelvisVelocityInWorld.set(currentLinearVelocity.getZ());
 
-      double acceleration = linearMomentumZPDController.compute(controlPosition.getZ(), desiredPosition.getZ(), currentLinearVelocity.getZ(), desiredLinearVelocity.getZ());
+      double acceleration = linearMomentumZPDController.compute(controlPosition.getZ(), desiredPosition.getZ(), currentLinearVelocity.getZ(),
+                                                                desiredLinearVelocity.getZ());
       return acceleration;
    }
 }

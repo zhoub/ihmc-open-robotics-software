@@ -10,7 +10,9 @@ import us.ihmc.sensorProcessing.frames.ReferenceFrameHashCodeResolver;
 
 public class PelvisTrajectoryCommand implements Command<PelvisTrajectoryCommand, PelvisTrajectoryMessage>, FrameBasedCommand<PelvisTrajectoryMessage>, EpsilonComparable<PelvisTrajectoryCommand>
 {
+   // TODO: remove
    private boolean enableUserPelvisControl = false;
+
    private boolean enableUserPelvisControlDuringWalking = false;
    private final SE3TrajectoryControllerCommand se3Trajectory;
 
@@ -96,7 +98,7 @@ public class PelvisTrajectoryCommand implements Command<PelvisTrajectoryCommand,
    {
       return se3Trajectory.epsilonEquals(other.se3Trajectory, epsilon);
    }
-   
+
    @Override
    public boolean isDelayedExecutionSupported()
    {
