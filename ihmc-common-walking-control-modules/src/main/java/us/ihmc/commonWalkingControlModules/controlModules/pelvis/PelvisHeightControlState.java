@@ -414,6 +414,11 @@ public class PelvisHeightControlState
       pointFeedbackCommand.set(spatialFeedbackControlCommand.getBase(), spatialFeedbackControlCommand.getEndEffector());
       spatialFeedbackControlCommand.getIncludingFrame(desiredPosition, desiredLinearVelocity);
       spatialFeedbackControlCommand.getFeedForwardLinearActionIncludingFrame(feedForwardLinearAcceleration);
+
+      // TODO: for some reason this is needed to avoid robot-blow up. It should be selected out by the selection matrix!
+      feedForwardLinearAcceleration.setX(0.0);
+      feedForwardLinearAcceleration.setY(0.0);
+
       pointFeedbackCommand.set(desiredPosition, desiredLinearVelocity);
       pointFeedbackCommand.setFeedForwardAction(feedForwardLinearAcceleration);
       pointFeedbackCommand.setControlBaseFrame(spatialFeedbackControlCommand.getControlBaseFrame());
