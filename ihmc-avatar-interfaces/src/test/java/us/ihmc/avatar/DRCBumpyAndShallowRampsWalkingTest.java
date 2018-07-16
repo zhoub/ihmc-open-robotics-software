@@ -1,6 +1,8 @@
 package us.ihmc.avatar;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,26 +18,26 @@ import us.ihmc.avatar.initialSetup.DRCRobotInitialSetup;
 import us.ihmc.avatar.initialSetup.DRCSCSInitialSetup;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
 import us.ihmc.commons.RandomNumbers;
+import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.graphicsDescription.appearance.AppearanceDefinition;
 import us.ihmc.graphicsDescription.appearance.YoAppearance;
 import us.ihmc.jMonkeyEngineToolkit.GroundProfile3D;
 import us.ihmc.jMonkeyEngineToolkit.camera.CameraConfiguration;
-import us.ihmc.yoVariables.variable.YoBoolean;
-import us.ihmc.yoVariables.variable.YoDouble;
-import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
-import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
+import us.ihmc.simulationConstructionSetTools.simulationTesting.NothingChangedVerifier;
+import us.ihmc.simulationConstructionSetTools.util.HumanoidFloatingRootJointRobot;
+import us.ihmc.simulationConstructionSetTools.util.ground.CombinedTerrainObject3D;
+import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.ground.BumpyGroundProfile;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
-import us.ihmc.simulationConstructionSetTools.simulationTesting.NothingChangedVerifier;
-import us.ihmc.simulationConstructionSetTools.util.HumanoidFloatingRootJointRobot;
-import us.ihmc.simulationConstructionSetTools.util.ground.CombinedTerrainObject3D;
+import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 import us.ihmc.tools.MemoryTools;
-import us.ihmc.commons.thread.ThreadTools;
+import us.ihmc.yoVariables.variable.YoBoolean;
+import us.ihmc.yoVariables.variable.YoDouble;
 
 public abstract class DRCBumpyAndShallowRampsWalkingTest implements MultiRobotTestInterface
 {
@@ -124,7 +126,7 @@ public abstract class DRCBumpyAndShallowRampsWalkingTest implements MultiRobotTe
       YoDouble desiredSpeed = (YoDouble) scs.getVariable("desiredVelocityCSGX");
 
 //    YoDouble centerOfMassHeight = (YoDouble) scs.getVariable("ProcessedSensors.comPositionz");
-      YoDouble comError = (YoDouble) scs.getVariable("positionError_comHeight");
+      YoDouble comError = (YoDouble) scs.getVariable("pelvisErrorPositionZ");
 //      YoDouble leftFootHeight = (YoDouble) scs.getVariable("p_leftFootPositionZ");
 //      YoDouble rightFootHeight = (YoDouble) scs.getVariable("p_rightFootPositionZ");
 
@@ -195,7 +197,7 @@ public abstract class DRCBumpyAndShallowRampsWalkingTest implements MultiRobotTe
       YoDouble desiredSpeed = (YoDouble) scs.getVariable("desiredVelocityCSGX");
 
 //    YoDouble centerOfMassHeight = (YoDouble) scs.getVariable("ProcessedSensors.comPositionz");
-      YoDouble comError = (YoDouble) scs.getVariable("positionError_comHeight");
+      YoDouble comError = (YoDouble) scs.getVariable("pelvisErrorPositionZ");
 
       initiateMotion(standingTimeDuration, blockingSimulationRunner, walk);
       desiredSpeed.set(desiredVelocityValue);
@@ -312,8 +314,8 @@ public abstract class DRCBumpyAndShallowRampsWalkingTest implements MultiRobotTe
 
       YoBoolean walk = (YoBoolean) scs.getVariable("walkCSG");
       YoDouble stepLength = (YoDouble) scs.getVariable("maxStepLengthCSG");
-      YoDouble offsetHeightAboveGround = (YoDouble) scs.getVariable("offsetHeightAboveGround");
-      YoDouble comError = (YoDouble) scs.getVariable("positionError_comHeight");
+      YoDouble offsetHeightAboveGround = (YoDouble) scs.getVariable("PelvisHeightControlStateOffset");
+      YoDouble comError = (YoDouble) scs.getVariable("pelvisErrorPositionZ");
       stepLength.set(0.4);
       offsetHeightAboveGround.set(-0.1);
       initiateMotion(standingTimeDuration, blockingSimulationRunner, walk);

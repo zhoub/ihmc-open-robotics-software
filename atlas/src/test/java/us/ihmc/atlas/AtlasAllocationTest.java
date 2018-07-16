@@ -73,14 +73,14 @@ public class AtlasAllocationTest
 
    private DRCSimulationTestHelper testHelper;
    private AllocationProfiler allocationProfiler = new AllocationProfiler();
-   
+
    @Before
    public void before() throws SimulationExceededMaximumTimeException
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
-      
+
       AllocationProfiler.checkInstrumentation();
-      
+
       allocationProfiler.includeAllocationsInsideClass(DRCControllerThread.class.getName()); // only testing these classes!
       allocationProfiler.includeAllocationsInsideClass(DRCEstimatorThread.class.getName()); // only testing these classes!
       allocationProfiler.excludeAllocationsInsideClass(MirroredYoVariableRegistry.class.getName());
@@ -101,14 +101,14 @@ public class AtlasAllocationTest
       // Ignore the following methods as they are related to printouts.
       allocationProfiler.excludeAllocationsInsideMethod(Throwable.class.getName() + ".printStackTrace");
       allocationProfiler.excludeAllocationsInsideMethod(PrintTools.class.getName() + ".print");
-      
+
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
 
       setup();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
-   @Test(timeout = 600000)
+   @Test(timeout = 800000)
    public void testForAllocationsStanding() throws SimulationExceededMaximumTimeException
    {
       testInternal(() -> {
@@ -124,7 +124,7 @@ public class AtlasAllocationTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
-   @Test(timeout = 600000)
+   @Test(timeout = 800000)
    public void testForAllocationsWalking() throws SimulationExceededMaximumTimeException
    {
       double defaultSwingDuration = 0.5;

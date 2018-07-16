@@ -42,6 +42,7 @@ import us.ihmc.robotics.screwTheory.Twist;
 import us.ihmc.robotics.weightMatrices.WeightMatrix3D;
 import us.ihmc.robotics.weightMatrices.WeightMatrix6D;
 import us.ihmc.sensorProcessing.frames.CommonHumanoidReferenceFrames;
+import us.ihmc.yoVariables.parameters.DoubleParameter;
 import us.ihmc.yoVariables.providers.DoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
@@ -69,6 +70,10 @@ public class PelvisHeightControlState
    private final YoDouble defaultHeight;
    private final YoDouble minHeight;
    private final YoDouble maxHeight;
+
+   private final DoubleProvider offset;
+   private final DoubleProvider offsetTrajectoryTime;
+   private double previousOffset = 0.0;
 
    private final FramePose3D tempPose = new FramePose3D();
    private final Point3D tempPoint = new Point3D();
@@ -115,6 +120,9 @@ public class PelvisHeightControlState
       minHeight.set(walkingControllerParameters.minimumHeightAboveAnkle() + soleToAnkleZHeight);
       maxHeight.set(walkingControllerParameters.maximumHeightAboveAnkle() + soleToAnkleZHeight);
 
+      offset = new YoDouble(getClass().getSimpleName() + "Offset", registry);
+      offsetTrajectoryTime = new DoubleParameter(getClass().getSimpleName() + "OffsetTrajectoryTime", registry, 0.5);
+
       currentPelvisHeightInWorld = new YoDouble("currentPelvisHeightInWorld", registry);
       desiredPelvisHeightInWorld = new YoDouble("desiredPelvisHeightInWorld", registry);
       desiredPelvisVelocityInWorld = new YoDouble("desiredPelvisVelocityInWorld", registry);
@@ -159,25 +167,22 @@ public class PelvisHeightControlState
       // Compute the mid step waypoint:
       double zInWorld = stanceFootPosition.getZ() + z;
       zInWorld = MathTools.clamp(zInWorld, zTouchdown + minHeight.getValue(), zTouchdown + maxHeight.getValue());
-      trajectoryPoint.interpolate(stanceFootPosition, touchdownPosition, alpha);
-      trajectoryPoint.setZ(zInWorld);
-
-      goToHeight(trajectoryPoint, swingTime);
+      goToHeight(zInWorld, swingTime);
    }
 
    public void transfer(Point3DReadOnly transferPosition, double transferTime)
    {
       // Compute the waypoint above the footstep to transfer to:
-      trajectoryPoint.set(transferPosition);
-      trajectoryPoint.addZ(defaultHeight.getValue());
-
-      goToHeight(trajectoryPoint, transferTime);
+      goToHeight(transferPosition.getZ() + defaultHeight.getValue(), transferTime);
    }
 
-   private void goToHeight(Point3D desired, double time)
+   private void goToHeight(double height, double time)
    {
+      trajectoryPoint.setToZero();
+      trajectoryPoint.setZ(height + offset.getValue());
+
       command.clear();
-      command.addTrajectoryPoint(time, desired, zeroVelocity);
+      command.addTrajectoryPoint(time, trajectoryPoint, zeroVelocity);
 
       taskspaceControlState.setDefaultControlFrame();
       taskspaceControlState.getDesiredPose(tempPose);
@@ -217,6 +222,15 @@ public class PelvisHeightControlState
 
    public void doAction()
    {
+      if (offset.getValue() != previousOffset)
+      {
+         taskspaceControlState.getDesiredPose(tempPose);
+         tempPose.changeFrame(ReferenceFrame.getWorldFrame());
+         double currentDesired = tempPose.getZ();
+         goToHeight(currentDesired - previousOffset, offsetTrajectoryTime.getValue());
+      }
+      previousOffset = offset.getValue();
+
       taskspaceControlState.doAction(Double.NaN);
    }
 
