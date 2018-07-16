@@ -121,6 +121,10 @@ public class PelvisHeightControlState
       taskspaceControlState.setGains(null, symmetric3DGains);
    }
 
+   private final EuclideanTrajectoryControllerCommand command = new EuclideanTrajectoryControllerCommand();
+   private final Vector3D zeroVelocity = new Vector3D();
+   private final Point3D trajectoryPoint = new Point3D();
+
    public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime)
    {
       double r = defaultHeightAboveAnkleForHome.getValue();
@@ -143,26 +147,25 @@ public class PelvisHeightControlState
       alpha = MathTools.clamp(alpha, 0.0, 1.0);
 
       // Compute the mid step waypoint:
-      Point3D midPoint = new Point3D();
-      midPoint.interpolate(stanceFootPosition, touchdownPosition, alpha);
-      midPoint.setZ(stanceFootPosition.getZ() + y);
+      trajectoryPoint.interpolate(stanceFootPosition, touchdownPosition, alpha);
+      trajectoryPoint.setZ(stanceFootPosition.getZ() + y);
 
-      EuclideanTrajectoryControllerCommand command = new EuclideanTrajectoryControllerCommand();
-      command.addTrajectoryPoint(swingTime, midPoint, new Vector3D());
-
-      taskspaceControlState.setDefaultControlFrame();
-      taskspaceControlState.getDesiredPose(tempPose);
-      taskspaceControlState.handleEuclideanTrajectoryCommand(command, tempPose);
+      goToHeight(trajectoryPoint, swingTime);
    }
 
    public void transfer(Point3DReadOnly transferPosition, double transferTime)
    {
       // Compute the waypoint above the footstep to transfer to:
-      Point3D endPoint = new Point3D(transferPosition);
-      endPoint.addZ(defaultHeightAboveAnkleForHome.getValue());
+      trajectoryPoint.set(transferPosition);
+      trajectoryPoint.addZ(defaultHeightAboveAnkleForHome.getValue());
 
-      EuclideanTrajectoryControllerCommand command = new EuclideanTrajectoryControllerCommand();
-      command.addTrajectoryPoint(transferTime, endPoint, new Vector3D());
+      goToHeight(trajectoryPoint, transferTime);
+   }
+
+   private void goToHeight(Point3D desired, double time)
+   {
+      command.clear();
+      command.addTrajectoryPoint(time, desired, zeroVelocity);
 
       taskspaceControlState.setDefaultControlFrame();
       taskspaceControlState.getDesiredPose(tempPose);
