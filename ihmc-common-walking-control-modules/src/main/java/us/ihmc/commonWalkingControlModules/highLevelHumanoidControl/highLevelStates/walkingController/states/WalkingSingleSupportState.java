@@ -387,8 +387,7 @@ public class WalkingSingleSupportState extends SingleSupportState
       FixedFramePoint3DBasics stanceFootPosition = transferToAndNextFootstepsData.getTransferFromFootstep().getFootstepPose().getPosition();
       FixedFramePoint3DBasics touchdownPosition = nextFootstep.getFootstepPose().getPosition();
       double swingTime = footstepTimings[0].getSwingTime();
-      double transferTime = footstepTimings[1].getTransferTime();
-      comHeightManager.step(stanceFootPosition, touchdownPosition, swingTime, transferTime);
+      comHeightManager.step(stanceFootPosition, touchdownPosition, swingTime);
 
       // Update the contact states based on the footstep. If the footstep doesn't have any predicted contact points, then use the default ones in the ContactablePlaneBodies.
       controllerToolbox.updateContactPointsForUpcomingFootstep(nextFootstep);

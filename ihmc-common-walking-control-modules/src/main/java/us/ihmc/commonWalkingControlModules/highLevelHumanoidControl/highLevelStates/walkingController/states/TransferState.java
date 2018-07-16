@@ -74,6 +74,7 @@ public abstract class TransferState extends WalkingState
       touchdownIsEnabled.set(ENABLE_TOUCHDOWN_STATE);
    }
 
+   @Override
    public RobotSide getTransferToSide()
    {
       return transferToSide;
@@ -176,6 +177,9 @@ public abstract class TransferState extends WalkingState
          isInTouchdown.set(false);
          updateICPPlan();
       }
+
+      Footstep footstep = walkingMessageHandler.getFootstepAtCurrentLocation(transferToSide);
+      comHeightManager.transfer(footstep.getFootstepPose().getPosition(), walkingMessageHandler.getNextTransferTime());
    }
 
    /**

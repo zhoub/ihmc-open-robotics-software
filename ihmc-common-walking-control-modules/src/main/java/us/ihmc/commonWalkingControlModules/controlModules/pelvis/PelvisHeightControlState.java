@@ -11,6 +11,7 @@ import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackContro
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.SpatialFeedbackControlCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.SpatialAccelerationCommand;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.HighLevelHumanoidControllerToolbox;
+import us.ihmc.commons.MathTools;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -120,23 +121,50 @@ public class PelvisHeightControlState
       taskspaceControlState.setGains(null, symmetric3DGains);
    }
 
-   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime, double transferTime)
+   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime)
    {
-      double distance = stanceFootPosition.distanceXY(touchdownPosition);
+      double r = defaultHeightAboveAnkleForHome.getValue();
 
+      // In a frame rotated up so the a axis matches the incline of the step the waypoing is here:
+      double x_incl = 0.5 *  stanceFootPosition.distance(touchdownPosition);
+      double y_incl = Math.sqrt(r * r - x_incl * x_incl);
+
+      // The angle of rotation up is:
+      double stepLength = stanceFootPosition.distanceXY(touchdownPosition);
+      double stepHeight = touchdownPosition.getZ() - stanceFootPosition.getZ();
+      double inclination = Math.atan2(stepHeight, stepLength);
+
+      // Rotate the coordinates:
+      double x = Math.cos(inclination) * x_incl - Math.sin(inclination) * y_incl;
+      double y = Math.sin(inclination) * x_incl + Math.cos(inclination) * y_incl;
+
+      // Compute the distance into the step that the low point is reached:
+      double alpha = x / stanceFootPosition.distanceXY(touchdownPosition);
+      alpha = MathTools.clamp(alpha, 0.0, 1.0);
+
+      // Compute the mid step waypoint:
       Point3D midPoint = new Point3D();
-      double height = defaultHeightAboveAnkleForHome.getValue();
-      double midHeight = Math.sqrt(height * height - (distance / 2.0) * (distance / 2.0));
-      midPoint.interpolate(stanceFootPosition, touchdownPosition, 0.5);
-      midPoint.addZ(midHeight);
-
-      Point3D endPoint = new Point3D();
-      endPoint.set(touchdownPosition);
-      endPoint.addZ(height);
+      midPoint.interpolate(stanceFootPosition, touchdownPosition, alpha);
+      midPoint.setZ(stanceFootPosition.getZ() + y);
 
       EuclideanTrajectoryControllerCommand command = new EuclideanTrajectoryControllerCommand();
       command.addTrajectoryPoint(swingTime, midPoint, new Vector3D());
-      command.addTrajectoryPoint(swingTime + transferTime, endPoint, new Vector3D());
+
+      taskspaceControlState.setDefaultControlFrame();
+      taskspaceControlState.getDesiredPose(tempPose);
+      taskspaceControlState.handleEuclideanTrajectoryCommand(command, tempPose);
+   }
+
+   public void transfer(Point3DReadOnly transferPosition, double transferTime)
+   {
+      System.out.println(transferPosition.getZ());
+
+      // Compute the waypoint above the footstep to transfer to:
+      Point3D endPoint = new Point3D(transferPosition);
+      endPoint.addZ(defaultHeightAboveAnkleForHome.getValue());
+
+      EuclideanTrajectoryControllerCommand command = new EuclideanTrajectoryControllerCommand();
+      command.addTrajectoryPoint(transferTime, endPoint, new Vector3D());
 
       taskspaceControlState.setDefaultControlFrame();
       taskspaceControlState.getDesiredPose(tempPose);
