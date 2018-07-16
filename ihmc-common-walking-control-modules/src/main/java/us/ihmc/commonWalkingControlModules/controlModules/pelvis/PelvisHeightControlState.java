@@ -65,7 +65,11 @@ public class PelvisHeightControlState
    private final RigidBody pelvis;
    private final MovingReferenceFrame pelvisFrame;
    private final ReferenceFrame baseFrame;
-   private final YoDouble defaultHeightAboveAnkleForHome;
+
+   private final YoDouble defaultHeight;
+   private final YoDouble minHeight;
+   private final YoDouble maxHeight;
+
    private final FramePose3D tempPose = new FramePose3D();
    private final Point3D tempPoint = new Point3D();
    private final RigidBodyTransform controlFrame = new RigidBodyTransform();
@@ -104,8 +108,12 @@ public class PelvisHeightControlState
 
       // the nominalHeightAboveAnkle is from the ankle to the pelvis, we need to add the ankle to sole frame to get the proper home height
       double soleToAnkleZHeight = computeSoleToAnkleMeanZHeight(controllerToolbox, fullRobotModel);
-      defaultHeightAboveAnkleForHome = new YoDouble(getClass().getSimpleName() + "DefaultHeightAboveAnkleForHome", registry);
-      defaultHeightAboveAnkleForHome.set(walkingControllerParameters.nominalHeightAboveAnkle() + soleToAnkleZHeight);
+      defaultHeight = new YoDouble(getClass().getSimpleName() + "DefaultHeight", registry);
+      minHeight = new YoDouble(getClass().getSimpleName() + "MinHeight", registry);
+      maxHeight = new YoDouble(getClass().getSimpleName() + "MaxHeight", registry);
+      defaultHeight.set(walkingControllerParameters.nominalHeightAboveAnkle() + soleToAnkleZHeight);
+      minHeight.set(walkingControllerParameters.minimumHeightAboveAnkle() + soleToAnkleZHeight);
+      maxHeight.set(walkingControllerParameters.maximumHeightAboveAnkle() + soleToAnkleZHeight);
 
       currentPelvisHeightInWorld = new YoDouble("currentPelvisHeightInWorld", registry);
       desiredPelvisHeightInWorld = new YoDouble("desiredPelvisHeightInWorld", registry);
@@ -127,28 +135,32 @@ public class PelvisHeightControlState
 
    public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime)
    {
-      double r = defaultHeightAboveAnkleForHome.getValue();
+      double r = defaultHeight.getValue();
 
       // In a frame rotated up so the a axis matches the incline of the step the waypoing is here:
       double x_incl = 0.5 *  stanceFootPosition.distance(touchdownPosition);
-      double y_incl = Math.sqrt(r * r - x_incl * x_incl);
+      double z_incl = Math.sqrt(r * r - x_incl * x_incl);
 
       // The angle of rotation up is:
       double stepLength = stanceFootPosition.distanceXY(touchdownPosition);
-      double stepHeight = touchdownPosition.getZ() - stanceFootPosition.getZ();
+      double zTouchdown = touchdownPosition.getZ();
+      double stepHeight = zTouchdown - stanceFootPosition.getZ();
       double inclination = Math.atan2(stepHeight, stepLength);
 
       // Rotate the coordinates:
-      double x = Math.cos(inclination) * x_incl - Math.sin(inclination) * y_incl;
-      double y = Math.sin(inclination) * x_incl + Math.cos(inclination) * y_incl;
+      double x = Math.cos(inclination) * x_incl - Math.sin(inclination) * z_incl;
+      double z = Math.sin(inclination) * x_incl + Math.cos(inclination) * z_incl;
+      MathTools.clamp(z, minHeight.getValue(), maxHeight.getValue());
 
       // Compute the distance into the step that the low point is reached:
       double alpha = x / stanceFootPosition.distanceXY(touchdownPosition);
       alpha = MathTools.clamp(alpha, 0.0, 1.0);
 
       // Compute the mid step waypoint:
+      double zInWorld = stanceFootPosition.getZ() + z;
+      zInWorld = MathTools.clamp(zInWorld, zTouchdown + minHeight.getValue(), zTouchdown + maxHeight.getValue());
       trajectoryPoint.interpolate(stanceFootPosition, touchdownPosition, alpha);
-      trajectoryPoint.setZ(stanceFootPosition.getZ() + y);
+      trajectoryPoint.setZ(zInWorld);
 
       goToHeight(trajectoryPoint, swingTime);
    }
@@ -157,7 +169,7 @@ public class PelvisHeightControlState
    {
       // Compute the waypoint above the footstep to transfer to:
       trajectoryPoint.set(transferPosition);
-      trajectoryPoint.addZ(defaultHeightAboveAnkleForHome.getValue());
+      trajectoryPoint.addZ(defaultHeight.getValue());
 
       goToHeight(trajectoryPoint, transferTime);
    }
@@ -349,7 +361,7 @@ public class PelvisHeightControlState
    public void goHome(double trajectoryTime)
    {
       tempPose.setToZero(baseFrame);
-      tempPose.setZ(defaultHeightAboveAnkleForHome.getDoubleValue());
+      tempPose.setZ(defaultHeight.getDoubleValue());
       taskspaceControlState.setDefaultControlFrame();
       taskspaceControlState.goToPoseFromCurrent(tempPose, trajectoryTime);
    }
