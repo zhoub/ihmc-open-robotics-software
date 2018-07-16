@@ -157,8 +157,6 @@ public class PelvisHeightControlState
 
    public void transfer(Point3DReadOnly transferPosition, double transferTime)
    {
-      System.out.println(transferPosition.getZ());
-
       // Compute the waypoint above the footstep to transfer to:
       Point3D endPoint = new Point3D(transferPosition);
       endPoint.addZ(defaultHeightAboveAnkleForHome.getValue());
