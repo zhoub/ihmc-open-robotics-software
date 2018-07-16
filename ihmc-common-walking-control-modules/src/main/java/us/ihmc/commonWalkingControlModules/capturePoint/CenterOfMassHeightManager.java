@@ -148,14 +148,14 @@ public class CenterOfMassHeightManager
 //      centerOfMassHeightControlState.initialize(transferToAndNextFootstepsData, extraToeOffHeight);
    }
 
-   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime)
+   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime, double heightOffset)
    {
       if (enableUserPelvisControlDuringWalking.getBooleanValue())
       {
          return;
       }
 
-      pelvisHeightControlState.step(stanceFootPosition, touchdownPosition, swingTime);
+      pelvisHeightControlState.step(stanceFootPosition, touchdownPosition, swingTime, heightOffset);
    }
 
    public void transfer(Point3DReadOnly transferPosition, double transferTime)

@@ -133,7 +133,7 @@ public class PelvisHeightControlState
    private final Vector3D zeroVelocity = new Vector3D();
    private final Point3D trajectoryPoint = new Point3D();
 
-   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime)
+   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime, double heightOffset)
    {
       double r = defaultHeight.getValue();
 
@@ -149,7 +149,7 @@ public class PelvisHeightControlState
 
       // Rotate the coordinates:
       double x = Math.cos(inclination) * x_incl - Math.sin(inclination) * z_incl;
-      double z = Math.sin(inclination) * x_incl + Math.cos(inclination) * z_incl;
+      double z = Math.sin(inclination) * x_incl + Math.cos(inclination) * z_incl + heightOffset;
       MathTools.clamp(z, minHeight.getValue(), maxHeight.getValue());
 
       // Compute the distance into the step that the low point is reached:
