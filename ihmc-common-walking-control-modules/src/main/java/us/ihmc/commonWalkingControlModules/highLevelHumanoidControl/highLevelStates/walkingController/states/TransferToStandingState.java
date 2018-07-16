@@ -32,6 +32,8 @@ public class TransferToStandingState extends WalkingState
    private final FeetManager feetManager;
    private final LegConfigurationManager legConfigurationManager;
 
+   private final Point3D midFootPosition = new Point3D();
+
    public TransferToStandingState(WalkingMessageHandler walkingMessageHandler, HighLevelHumanoidControllerToolbox controllerToolbox,
          HighLevelControlManagerFactory managerFactory, WalkingFailureDetectionControlModule failureDetectionControlModule, YoVariableRegistry parentRegistry)
    {
@@ -94,7 +96,6 @@ public class TransferToStandingState extends WalkingState
 
       Footstep footstepLeft = walkingMessageHandler.getFootstepAtCurrentLocation(RobotSide.LEFT);
       Footstep footstepRight = walkingMessageHandler.getFootstepAtCurrentLocation(RobotSide.LEFT);
-      Point3D midFootPosition = new Point3D();
       midFootPosition.interpolate(footstepLeft.getFootstepPose().getPosition(), footstepRight.getFootstepPose().getPosition(), 0.5);
       comHeightManager.transfer(midFootPosition, finalTransferTime);
 
