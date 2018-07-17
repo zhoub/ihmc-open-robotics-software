@@ -48,7 +48,7 @@ import us.ihmc.yoVariables.variable.YoEnum;
 public abstract class AvatarPushRecoveryOverSteppingStonesTest implements MultiRobotTestInterface
 {
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromEnvironmentVariables();
-   
+
    private DRCSimulationTestHelper drcSimulationTestHelper;
    private PushRobotController pushRobotController;
 
@@ -170,7 +170,7 @@ public abstract class AvatarPushRecoveryOverSteppingStonesTest implements MultiR
       return 0.3;
    }
 
- 
+
    private void setupCameraForWalkingOverEasySteppingStones(SimulationConstructionSet scs)
    {
       Point3D cameraFix = new Point3D(-8.6, -0.1, 0.94);
@@ -207,6 +207,7 @@ public abstract class AvatarPushRecoveryOverSteppingStonesTest implements MultiR
          FootstepDataMessage data = createFootstepDataMessage(robotSides[i], placeToStep, orientations.get(i));
          message.getFootstepDataList().add().set(data);
       }
+      message.setAreFootstepsAdjustable(true);
 
       return message;
    }
