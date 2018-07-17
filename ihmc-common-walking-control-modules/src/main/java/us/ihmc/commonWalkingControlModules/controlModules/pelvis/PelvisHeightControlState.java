@@ -221,7 +221,6 @@ public class PelvisHeightControlState
          double distanceAnkleDesiredPelvis = anklePosition.distance(pelvisPosition);
          double maxDistance = maxDistanceAnklePelvis.getValue();
 
-         System.out.println("Extra Height: " + toeOffHeight);
          if (side == swingSide)
          {
             maxDistance = maxDistance + toeOffHeight;
