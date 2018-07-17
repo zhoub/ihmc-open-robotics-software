@@ -171,7 +171,7 @@ public class PelvisHeightControlState
 
       // Rotate the coordinates:
       double x = Math.cos(inclination) * x_incl - Math.sin(inclination) * z_incl;
-      double z = Math.sin(inclination) * x_incl + Math.cos(inclination) * z_incl;
+      double z = Math.sin(inclination) * x_incl + Math.cos(inclination) * z_incl + toeOffHeight;
       MathTools.clamp(z, minHeight.getValue(), Double.POSITIVE_INFINITY);
 
       // Compute the distance into the step that the low point is reached:
