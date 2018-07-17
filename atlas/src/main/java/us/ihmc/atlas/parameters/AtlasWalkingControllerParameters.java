@@ -78,7 +78,7 @@ public class AtlasWalkingControllerParameters extends WalkingControllerParameter
       angularMomentumModifierParameters = new ICPAngularMomentumModifierParameters();
 
       minimumHeightAboveGround = jointMap.getModelScale() * ( 0.45 + 0.08 );
-      nominalHeightAboveGround = jointMap.getModelScale() * ( 0.625 + 0.08 );
+      nominalHeightAboveGround = jointMap.getModelScale() * ( 0.65 + 0.08 );
       maximumHeightAboveGround = jointMap.getModelScale() * ( 0.70 + 0.08 );
 
       runningOnRealRobot = target == RobotTarget.REAL_ROBOT;
@@ -212,7 +212,7 @@ public class AtlasWalkingControllerParameters extends WalkingControllerParameter
    @Override
    public double getMaximumLegLengthForSingularityAvoidance()
    {
-      return jointMap.getPhysicalProperties().getShinLength()  + jointMap.getPhysicalProperties().getThighLength();
+      return 0.05 + jointMap.getPhysicalProperties().getShinLength()  + jointMap.getPhysicalProperties().getThighLength();
    }
 
    @Override
@@ -239,7 +239,7 @@ public class AtlasWalkingControllerParameters extends WalkingControllerParameter
    {
       PDGains gains = new PDGains();
 
-      double kp = 40.0;
+      double kp = 20.0;
       double zeta = runningOnRealRobot ? 0.4 : 0.8;
       double maxAcceleration = 0.5 * 9.81;
       double maxJerk = maxAcceleration / 0.05;
