@@ -172,7 +172,7 @@ public class PelvisHeightControlState
       // Rotate the coordinates:
       double x = Math.cos(inclination) * x_incl - Math.sin(inclination) * z_incl;
       double z = Math.sin(inclination) * x_incl + Math.cos(inclination) * z_incl;
-      MathTools.clamp(z, minHeight.getValue(), maxHeight.getValue());
+      MathTools.clamp(z, minHeight.getValue(), Double.POSITIVE_INFINITY);
 
       // Compute the distance into the step that the low point is reached:
       double alpha = x / stanceFootPosition.distanceXY(touchdownPosition);
@@ -180,7 +180,7 @@ public class PelvisHeightControlState
 
       // Compute the mid step waypoint:
       double zInWorld = stanceFootPosition.getZ() + z;
-      zInWorld = MathTools.clamp(zInWorld, zTouchdown + minHeight.getValue(), zTouchdown + maxHeight.getValue());
+      zInWorld = MathTools.clamp(zInWorld, zTouchdown + minHeight.getValue(), Double.POSITIVE_INFINITY);
       zInWorld = avoidSingularities(zInWorld, swingSide, toeOffHeight);
       goToHeight(zInWorld, swingTime);
    }
