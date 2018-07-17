@@ -6,7 +6,6 @@ import us.ihmc.commonWalkingControlModules.controlModules.WalkingFailureDetectio
 import us.ihmc.commonWalkingControlModules.controlModules.foot.FeetManager;
 import us.ihmc.commonWalkingControlModules.controlModules.legConfiguration.LegConfigurationManager;
 import us.ihmc.commonWalkingControlModules.controlModules.pelvis.PelvisOrientationManager;
-import us.ihmc.commonWalkingControlModules.desiredFootStep.TransferToAndNextFootstepsData;
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.factories.HighLevelControlManagerFactory;
 import us.ihmc.commonWalkingControlModules.messageHandlers.WalkingMessageHandler;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.HighLevelHumanoidControllerToolbox;
@@ -235,6 +234,14 @@ public class WalkingSingleSupportState extends SingleSupportState
 
       updateFootstepParameters();
 
+      double extraToeOffHeight = 0.0;
+      if (feetManager.canDoSingleSupportToeOff(nextFootstep, swingSide))
+         extraToeOffHeight = feetManager.getToeOffManager().getExtraCoMMaxHeightWithToes();
+      FixedFramePoint3DBasics stanceFootPosition = walkingMessageHandler.getFootstepAtCurrentLocation(swingSide.getOppositeSide()).getFootstepPose().getPosition();
+      FixedFramePoint3DBasics touchdownPosition = nextFootstep.getFootstepPose().getPosition();
+      double swingTime = footstepTiming.getSwingTime();
+      comHeightManager.step(stanceFootPosition, touchdownPosition, swingTime, swingSide, extraToeOffHeight);
+
       balanceManager.setICPPlanSupportSide(supportSide);
       balanceManager.initializeICPPlanForSingleSupport(footstepTiming.getSwingTime(), footstepTiming.getTransferTime(), finalTransferTime);
 
@@ -376,18 +383,6 @@ public class WalkingSingleSupportState extends SingleSupportState
       pelvisOrientationManager.setTrajectoryTime(swingTime);
       pelvisOrientationManager.setUpcomingFootstep(nextFootstep);
       pelvisOrientationManager.updateTrajectoryFromFootstep(); // fixme this shouldn't be called when the footstep is updated
-
-      TransferToAndNextFootstepsData transferToAndNextFootstepsData = walkingMessageHandler.createTransferToAndNextFootstepDataForSingleSupport(nextFootstep,
-                                                                                                                                                swingSide);
-      transferToAndNextFootstepsData.setTransferFromDesiredFootstep(walkingMessageHandler.getLastDesiredFootstep(supportSide));
-      double extraToeOffHeight = 0.0;
-      if (feetManager.canDoSingleSupportToeOff(nextFootstep, swingSide))
-         extraToeOffHeight = feetManager.getToeOffManager().getExtraCoMMaxHeightWithToes();
-
-      FixedFramePoint3DBasics stanceFootPosition = transferToAndNextFootstepsData.getTransferFromFootstep().getFootstepPose().getPosition();
-      FixedFramePoint3DBasics touchdownPosition = nextFootstep.getFootstepPose().getPosition();
-      double swingTime = footstepTiming.getSwingTime();
-      comHeightManager.step(stanceFootPosition, touchdownPosition, swingTime, swingSide, extraToeOffHeight);
 
       // Update the contact states based on the footstep. If the footstep doesn't have any predicted contact points, then use the default ones in the ContactablePlaneBodies.
       controllerToolbox.updateContactPointsForUpcomingFootstep(nextFootstep);
