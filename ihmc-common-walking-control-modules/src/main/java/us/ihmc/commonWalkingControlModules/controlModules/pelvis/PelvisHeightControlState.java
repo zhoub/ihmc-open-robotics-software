@@ -213,8 +213,9 @@ public class PelvisHeightControlState
       pelvisPosition.setZ(height);
 
       boolean heightWasAdjusted = false;
-      for (RobotSide side : RobotSide.values)
+      for (int sideIdx = 0; sideIdx < RobotSide.values.length; sideIdx++)
       {
+         RobotSide side = RobotSide.values[sideIdx];
          anklePosition.setToZero(ankleFrames.get(side));
          anklePosition.changeFrame(ReferenceFrame.getWorldFrame());
 
