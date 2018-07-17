@@ -155,7 +155,7 @@ public class PelvisHeightControlState
    private final Vector3D zeroVelocity = new Vector3D();
    private final Point3D trajectoryPoint = new Point3D();
 
-   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime, double heightOffset)
+   public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime, RobotSide swingSide, double toeOffHeight)
    {
       double r = defaultHeight.getValue();
 
@@ -171,7 +171,7 @@ public class PelvisHeightControlState
 
       // Rotate the coordinates:
       double x = Math.cos(inclination) * x_incl - Math.sin(inclination) * z_incl;
-      double z = Math.sin(inclination) * x_incl + Math.cos(inclination) * z_incl + heightOffset;
+      double z = Math.sin(inclination) * x_incl + Math.cos(inclination) * z_incl;
       MathTools.clamp(z, minHeight.getValue(), maxHeight.getValue());
 
       // Compute the distance into the step that the low point is reached:
@@ -181,19 +181,20 @@ public class PelvisHeightControlState
       // Compute the mid step waypoint:
       double zInWorld = stanceFootPosition.getZ() + z;
       zInWorld = MathTools.clamp(zInWorld, zTouchdown + minHeight.getValue(), zTouchdown + maxHeight.getValue());
+      zInWorld = avoidSingularities(zInWorld, swingSide, toeOffHeight);
       goToHeight(zInWorld, swingTime);
    }
 
-   public void transfer(Point3DReadOnly transferPosition, double transferTime)
+   public void transfer(Point3DReadOnly transferPosition, double transferTime, RobotSide swingSide, double toeOffHeight)
    {
       // Compute the waypoint above the footstep to transfer to:
-      goToHeight(transferPosition.getZ() + defaultHeight.getValue(), transferTime);
+      double desiredHeight = transferPosition.getZ() + defaultHeight.getValue() + offset.getValue();
+      desiredHeight = avoidSingularities(desiredHeight, swingSide, toeOffHeight);
+      goToHeight(desiredHeight, transferTime);
    }
 
-   private void goToHeight(double height, double time)
+   private void goToHeight(double desiredHeight, double time)
    {
-      double desiredHeight = avoidSingularities(height + offset.getValue());
-
       trajectoryPoint.setToZero();
       trajectoryPoint.setZ(desiredHeight);
 
@@ -205,7 +206,7 @@ public class PelvisHeightControlState
       taskspaceControlState.handleEuclideanTrajectoryCommand(command, tempPose);
    }
 
-   private double avoidSingularities(double height)
+   private double avoidSingularities(double height, RobotSide swingSide, double toeOffHeight)
    {
       pelvisPosition.setToZero(pelvisFrame);
       pelvisPosition.changeFrame(ReferenceFrame.getWorldFrame());
@@ -219,6 +220,13 @@ public class PelvisHeightControlState
 
          double distanceAnkleDesiredPelvis = anklePosition.distance(pelvisPosition);
          double maxDistance = maxDistanceAnklePelvis.getValue();
+
+         System.out.println("Extra Height: " + toeOffHeight);
+         if (side == swingSide)
+         {
+            maxDistance = maxDistance + toeOffHeight;
+         }
+
          double alpha = (distanceAnkleDesiredPelvis - maxDistance) / distanceAnkleDesiredPelvis;
          if (alpha > 0.0)
          {
@@ -264,6 +272,7 @@ public class PelvisHeightControlState
 
    public void doAction()
    {
+      // This is to avoid a variable changed listener that would fire when using the SCS playback.
       if (offset.getValue() != previousOffset)
       {
          taskspaceControlState.getDesiredPose(tempPose);

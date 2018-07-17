@@ -14,6 +14,7 @@ import us.ihmc.commons.MathTools;
 import us.ihmc.euclid.referenceFrame.FrameConvexPolygon2D;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.interfaces.FixedFramePoint3DBasics;
 import us.ihmc.humanoidRobotics.footstep.Footstep;
 import us.ihmc.humanoidRobotics.footstep.FootstepTiming;
 import us.ihmc.robotics.robotSide.RobotSide;
@@ -178,8 +179,15 @@ public abstract class TransferState extends WalkingState
          updateICPPlan();
       }
 
+      double extraToeOffHeight = 0.0;
+      RobotSide swingSide = transferToSide.getOppositeSide();
+      if (feetManager.canDoDoubleSupportToeOff(nextFootstep, swingSide))
+         extraToeOffHeight = feetManager.getToeOffManager().getExtraCoMMaxHeightWithToes();
+
       Footstep footstep = walkingMessageHandler.getFootstepAtCurrentLocation(transferToSide);
-      comHeightManager.transfer(footstep.getFootstepPose().getPosition(), walkingMessageHandler.getNextTransferTime());
+      FixedFramePoint3DBasics transferFootPosition = footstep.getFootstepPose().getPosition();
+      double transferTime = walkingMessageHandler.getNextTransferTime();
+      comHeightManager.transfer(transferFootPosition, transferTime, swingSide, extraToeOffHeight);
    }
 
    /**
