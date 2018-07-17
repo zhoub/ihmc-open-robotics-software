@@ -98,6 +98,9 @@ public class PelvisHeightControlState
    private final FramePoint3D pelvisPosition = new FramePoint3D();
    private final FramePoint3D anklePosition = new FramePoint3D();
 
+   private RobotSide swingSide = null;
+   private double toeOffHeight = 0.0;
+
    public PelvisHeightControlState(HighLevelHumanoidControllerToolbox controllerToolbox, WalkingControllerParameters walkingControllerParameters,
                                    YoVariableRegistry parentRegistry)
    {
@@ -157,6 +160,9 @@ public class PelvisHeightControlState
 
    public void step(Point3DReadOnly stanceFootPosition, Point3DReadOnly touchdownPosition, double swingTime, RobotSide swingSide, double toeOffHeight)
    {
+      this.swingSide = swingSide;
+      this.toeOffHeight = toeOffHeight;
+
       double r = defaultHeight.getValue();
 
       // In a frame rotated up so the a axis matches the incline of the step the waypoing is here:
@@ -181,22 +187,26 @@ public class PelvisHeightControlState
       // Compute the mid step waypoint:
       double zInWorld = stanceFootPosition.getZ() + z;
       zInWorld = MathTools.clamp(zInWorld, zTouchdown + minHeight.getValue(), Double.POSITIVE_INFINITY);
-      zInWorld = avoidSingularities(zInWorld, swingSide, toeOffHeight);
       goToHeight(zInWorld, swingTime);
    }
 
    public void transfer(Point3DReadOnly transferPosition, double transferTime, RobotSide swingSide, double toeOffHeight)
    {
+      this.swingSide = swingSide;
+      this.toeOffHeight = toeOffHeight;
+
       // Compute the waypoint above the footstep to transfer to:
-      double desiredHeight = transferPosition.getZ() + defaultHeight.getValue() + offset.getValue();
-      desiredHeight = avoidSingularities(desiredHeight, swingSide, toeOffHeight);
+      double desiredHeight = transferPosition.getZ() + defaultHeight.getValue();
       goToHeight(desiredHeight, transferTime);
    }
 
    private void goToHeight(double desiredHeight, double time)
    {
+      double offsetDesiredHeight = desiredHeight + offset.getValue();
+      double adjustedDesiredHeight = avoidSingularities(offsetDesiredHeight);
+
       trajectoryPoint.setToZero();
-      trajectoryPoint.setZ(desiredHeight);
+      trajectoryPoint.setZ(adjustedDesiredHeight);
 
       command.clear();
       command.addTrajectoryPoint(time, trajectoryPoint, zeroVelocity);
@@ -206,7 +216,7 @@ public class PelvisHeightControlState
       taskspaceControlState.handleEuclideanTrajectoryCommand(command, tempPose);
    }
 
-   private double avoidSingularities(double height, RobotSide swingSide, double toeOffHeight)
+   private double avoidSingularities(double height)
    {
       pelvisPosition.setToZero(pelvisFrame);
       pelvisPosition.changeFrame(ReferenceFrame.getWorldFrame());
