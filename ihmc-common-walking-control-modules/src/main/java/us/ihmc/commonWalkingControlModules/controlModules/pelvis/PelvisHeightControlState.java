@@ -34,6 +34,7 @@ import us.ihmc.robotics.controllers.AbstractPDController;
 import us.ihmc.robotics.controllers.pidGains.PIDGainsReadOnly;
 import us.ihmc.robotics.controllers.pidGains.implementations.SymmetricPID3DGains;
 import us.ihmc.robotics.robotSide.RobotSide;
+import us.ihmc.robotics.robotSide.SideDependentList;
 import us.ihmc.robotics.screwTheory.MovingReferenceFrame;
 import us.ihmc.robotics.screwTheory.RigidBody;
 import us.ihmc.robotics.screwTheory.SelectionMatrix3D;
@@ -45,6 +46,7 @@ import us.ihmc.sensorProcessing.frames.CommonHumanoidReferenceFrames;
 import us.ihmc.yoVariables.parameters.DoubleParameter;
 import us.ihmc.yoVariables.providers.DoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
+import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoDouble;
 
 public class PelvisHeightControlState
@@ -89,6 +91,13 @@ public class PelvisHeightControlState
 
    private final SymmetricPID3DGains symmetric3DGains = new SymmetricPID3DGains();
 
+   // Used for singularity avoidance to make sure the distance between ankle and pelvis never exceeds a user defined distance.
+   private final SideDependentList<MovingReferenceFrame> ankleFrames;
+   private final YoDouble maxDistanceAnklePelvis;
+   private final YoBoolean adjustedDesiredForSingularity;
+   private final FramePoint3D pelvisPosition = new FramePoint3D();
+   private final FramePoint3D anklePosition = new FramePoint3D();
+
    public PelvisHeightControlState(HighLevelHumanoidControllerToolbox controllerToolbox, WalkingControllerParameters walkingControllerParameters,
                                    YoVariableRegistry parentRegistry)
    {
@@ -122,6 +131,11 @@ public class PelvisHeightControlState
 
       offset = new YoDouble(getClass().getSimpleName() + "Offset", registry);
       offsetTrajectoryTime = new DoubleParameter(getClass().getSimpleName() + "OffsetTrajectoryTime", registry, 0.5);
+
+      ankleFrames = controllerToolbox.getReferenceFrames().getAnkleZUpReferenceFrames();
+      maxDistanceAnklePelvis = new YoDouble("MaxDistanceAnklePelvis", registry);
+      adjustedDesiredForSingularity = new YoBoolean("AdjustedDesiredForSingularity", registry);
+      maxDistanceAnklePelvis.set(walkingControllerParameters.getMaximumLegLengthForSingularityAvoidance());
 
       currentPelvisHeightInWorld = new YoDouble("currentPelvisHeightInWorld", registry);
       desiredPelvisHeightInWorld = new YoDouble("desiredPelvisHeightInWorld", registry);
@@ -178,8 +192,10 @@ public class PelvisHeightControlState
 
    private void goToHeight(double height, double time)
    {
+      double desiredHeight = avoidSingularities(height + offset.getValue());
+
       trajectoryPoint.setToZero();
-      trajectoryPoint.setZ(height + offset.getValue());
+      trajectoryPoint.setZ(desiredHeight);
 
       command.clear();
       command.addTrajectoryPoint(time, trajectoryPoint, zeroVelocity);
@@ -187,6 +203,32 @@ public class PelvisHeightControlState
       taskspaceControlState.setDefaultControlFrame();
       taskspaceControlState.getDesiredPose(tempPose);
       taskspaceControlState.handleEuclideanTrajectoryCommand(command, tempPose);
+   }
+
+   private double avoidSingularities(double height)
+   {
+      pelvisPosition.setToZero(pelvisFrame);
+      pelvisPosition.changeFrame(ReferenceFrame.getWorldFrame());
+      pelvisPosition.setZ(height);
+
+      boolean heightWasAdjusted = false;
+      for (RobotSide side : RobotSide.values)
+      {
+         anklePosition.setToZero(ankleFrames.get(side));
+         anklePosition.changeFrame(ReferenceFrame.getWorldFrame());
+
+         double distanceAnkleDesiredPelvis = anklePosition.distance(pelvisPosition);
+         double maxDistance = maxDistanceAnklePelvis.getValue();
+         double alpha = (distanceAnkleDesiredPelvis - maxDistance) / distanceAnkleDesiredPelvis;
+         if (alpha > 0.0)
+         {
+            pelvisPosition.interpolate(anklePosition, alpha);
+            heightWasAdjusted = true;
+         }
+      }
+
+      adjustedDesiredForSingularity.set(heightWasAdjusted);
+      return pelvisPosition.getZ();
    }
 
    /**
