@@ -95,8 +95,11 @@ public class PelvisHeightControlState
    private final SideDependentList<MovingReferenceFrame> ankleFrames;
    private final YoDouble maxDistanceAnklePelvis;
    private final YoBoolean adjustedDesiredForSingularity;
+   private final YoDouble adjustmentAmount;
    private final FramePoint3D pelvisPosition = new FramePoint3D();
    private final FramePoint3D anklePosition = new FramePoint3D();
+   private final Vector3D ankleToPelvis = new Vector3D();
+   private final Vector3D zAxis = new Vector3D(0.0, 0.0, 1.0);
 
    private RobotSide swingSide = null;
    private double toeOffHeight = 0.0;
@@ -139,6 +142,7 @@ public class PelvisHeightControlState
       maxDistanceAnklePelvis = new YoDouble("MaxDistanceAnklePelvis", registry);
       adjustedDesiredForSingularity = new YoBoolean("AdjustedDesiredForSingularity", registry);
       maxDistanceAnklePelvis.set(walkingControllerParameters.getMaximumLegLengthForSingularityAvoidance());
+      adjustmentAmount = new YoDouble("AdjustmentAmount", registry);
 
       currentPelvisHeightInWorld = new YoDouble("currentPelvisHeightInWorld", registry);
       desiredPelvisHeightInWorld = new YoDouble("desiredPelvisHeightInWorld", registry);
@@ -223,30 +227,34 @@ public class PelvisHeightControlState
       pelvisPosition.setZ(height);
 
       boolean heightWasAdjusted = false;
+      double adjustment = 0.0;
       for (int sideIdx = 0; sideIdx < RobotSide.values.length; sideIdx++)
       {
          RobotSide side = RobotSide.values[sideIdx];
          anklePosition.setToZero(ankleFrames.get(side));
          anklePosition.changeFrame(ReferenceFrame.getWorldFrame());
 
-         double distanceAnkleDesiredPelvis = anklePosition.distance(pelvisPosition);
          double maxDistance = maxDistanceAnklePelvis.getValue();
-
          if (side == swingSide)
          {
             maxDistance = maxDistance + toeOffHeight;
          }
 
-         double alpha = (distanceAnkleDesiredPelvis - maxDistance) / distanceAnkleDesiredPelvis;
-         if (alpha > 0.0)
+         double distanceAnkleDesiredPelvis = anklePosition.distance(pelvisPosition);
+         double adjustmentAlongLeg = distanceAnkleDesiredPelvis - maxDistance;
+
+         if (adjustmentAlongLeg > 0.0)
          {
-            pelvisPosition.interpolate(anklePosition, alpha);
+            ankleToPelvis.sub(pelvisPosition, anklePosition);
+            double adjustmentAlongZ = adjustmentAlongLeg / Math.abs(Math.cos(ankleToPelvis.dot(zAxis)));
+            adjustment = Math.max(adjustment, adjustmentAlongZ);
             heightWasAdjusted = true;
          }
       }
 
+      adjustmentAmount.set(adjustment);
       adjustedDesiredForSingularity.set(heightWasAdjusted);
-      return pelvisPosition.getZ();
+      return pelvisPosition.getZ() - adjustment;
    }
 
    /**
