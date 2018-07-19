@@ -129,9 +129,9 @@ public abstract class AvatarPushRecoveryOverGapTest implements MultiRobotTestInt
 
       double totalMass  = getRobotModel().createFullRobotModel().getTotalMass();
       StateTransitionCondition firstPushCondition = singleSupportStartConditions.get(RobotSide.LEFT);
-      double delay = 0.5 * swingTime;
+      double delay = 0.3 * swingTime;
       Vector3D firstForceDirection = new Vector3D(1.0, 0.0, 0.0);
-      double percentWeight = 0.5;
+      double percentWeight = 0.4;
       double magnitude = percentWeight * totalMass * 9.81;
       double duration = 0.1;
       pushRobotController.applyForceDelayed(firstPushCondition, delay, firstForceDirection, magnitude, duration);
