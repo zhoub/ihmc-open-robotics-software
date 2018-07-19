@@ -71,7 +71,6 @@ public class PelvisHeightControlState
 
    private final YoDouble defaultHeight;
    private final YoDouble minHeight;
-   private final YoDouble maxHeight;
 
    private final DoubleProvider offset;
    private final DoubleProvider offsetTrajectoryTime;
@@ -130,10 +129,8 @@ public class PelvisHeightControlState
       double soleToAnkleZHeight = computeSoleToAnkleMeanZHeight(controllerToolbox, fullRobotModel);
       defaultHeight = new YoDouble(getClass().getSimpleName() + "DefaultHeight", registry);
       minHeight = new YoDouble(getClass().getSimpleName() + "MinHeight", registry);
-      maxHeight = new YoDouble(getClass().getSimpleName() + "MaxHeight", registry);
       defaultHeight.set(walkingControllerParameters.nominalHeightAboveAnkle() + soleToAnkleZHeight);
       minHeight.set(walkingControllerParameters.minimumHeightAboveAnkle() + soleToAnkleZHeight);
-      maxHeight.set(walkingControllerParameters.maximumHeightAboveAnkle() + soleToAnkleZHeight);
 
       offset = new YoDouble(getClass().getSimpleName() + "Offset", registry);
       offsetTrajectoryTime = new DoubleParameter(getClass().getSimpleName() + "OffsetTrajectoryTime", registry, 0.5);
