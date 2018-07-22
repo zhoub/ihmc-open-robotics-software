@@ -34,7 +34,7 @@ import java.io.IOException;
 
 public class GenericQuadrupedSimulationFactory
 {
-   private static final WholeBodyControllerCoreMode CONTROL_MODE = WholeBodyControllerCoreMode.VIRTUAL_MODEL;
+   private static final WholeBodyControllerCoreMode CONTROL_MODE = WholeBodyControllerCoreMode.INVERSE_DYNAMICS;
    private final QuadrupedGroundContactModelType groundContactModelType = QuadrupedGroundContactModelType.FLAT;
    private static final double CONTROL_DT = 0.001;
    private static final double SIMULATION_DT = 1e-4;

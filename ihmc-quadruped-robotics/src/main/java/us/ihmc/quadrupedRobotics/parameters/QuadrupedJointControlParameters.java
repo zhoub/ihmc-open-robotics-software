@@ -50,23 +50,23 @@ public class QuadrupedJointControlParameters
       positionStandPrepGains = new ParameterizedPDGains("positionStandPrep", ikStandPrep, registry);
 
       PDGains effortStandPrep = new PDGains();
-      effortStandPrep.setKp(500.0);
-      effortStandPrep.setKd(25.0);
+      effortStandPrep.setKp(2000.0);
+      effortStandPrep.setKd(200.0);
       effortStandPrepGains = new ParameterizedPDGains("effortStandPrep", effortStandPrep, registry);
 
       PDGains positionFreeze = new PDGains();
-      positionFreeze.setKp(1000.0);
-      positionFreeze.setKd(100.0);
+      positionFreeze.setKp(2000.0);
+      positionFreeze.setKd(200.0);
       positionFreezeGains = new ParameterizedPDGains("positionFreeze", positionFreeze, registry);
 
       PDGains positionDoNothing = new PDGains();
-      positionDoNothing.setKp(500.0);
-      positionDoNothing.setKd(25.0);
+      positionDoNothing.setKp(1000.0);
+      positionDoNothing.setKd(100.0);
       positionDoNothingGains = new ParameterizedPDGains("positionDoNothing", positionDoNothing, registry);
 
       PDGains positionJointInitialization = new PDGains();
-      positionJointInitialization.setKp(500.0);
-      positionJointInitialization.setKd(25.0);
+      positionJointInitialization.setKp(2000.0);
+      positionJointInitialization.setKd(200.0);
       positionJointInitializationGains = new ParameterizedPDGains("positionJointInitialization", positionJointInitialization, registry);
 
       PDGains vmcLoaded = new PDGains();

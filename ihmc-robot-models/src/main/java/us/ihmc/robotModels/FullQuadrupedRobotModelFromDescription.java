@@ -75,6 +75,36 @@ public class FullQuadrupedRobotModelFromDescription extends FullRobotModelFromDe
          soleFrames.put(robotQuadrant, soleFrame);
       }
    }
+   
+   public FullQuadrupedRobotModelFromDescription(RobotQuadrant[] robotQuadrants, RobotDescription description, QuadrupedJointNameMap sdfJointNameMap,
+                                                 String[] sensorLinksToTrack, LegJointName legJointBeforeSoleFrame)
+   {
+      super(description, sdfJointNameMap, sensorLinksToTrack);
+      
+      this.robotQuadrants = robotQuadrants;
+      
+      for (OneDoFJoint oneDoFJoint : getOneDoFJoints())
+      {
+         QuadrupedJointName quadrupedJointName = sdfJointNameMap.getJointNameForSDFName(oneDoFJoint.getName());
+         jointNameOneDoFJointBiMap.put(quadrupedJointName, oneDoFJoint);
+         
+         // Assign default joint limits
+         JointLimit jointLimit = new JointLimit(oneDoFJoint);
+         jointLimits.put(quadrupedJointName, jointLimit);
+         
+         jointLimitData.put(oneDoFJoint, new JointLimitData(oneDoFJoint));
+      }
+      
+      for (RobotQuadrant robotQuadrant : robotQuadrants)
+      {
+         RigidBodyTransform soleToParentTransform = sdfJointNameMap.getSoleToParentFrameTransform(robotQuadrant);
+         OneDoFJoint joint = getLegJoint(robotQuadrant, legJointBeforeSoleFrame);
+         
+         MovingReferenceFrame soleFrame = MovingReferenceFrame
+               .constructFrameFixedInParent(robotQuadrant.toString() + "SoleFrame", joint.getFrameAfterJoint(), soleToParentTransform);
+         soleFrames.put(robotQuadrant, soleFrame);
+      }
+   }
 
    private boolean hasQuadrant(RobotQuadrant quadrant)
    {

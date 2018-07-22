@@ -2,6 +2,7 @@ package us.ihmc.quadrupedRobotics.parameters;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCoreMode;
 import us.ihmc.euclid.tuple3D.Vector3D;
+import us.ihmc.euclid.tuple3D.interfaces.Vector3DReadOnly;
 import us.ihmc.robotics.controllers.pidGains.GainCoupling;
 import us.ihmc.robotics.controllers.pidGains.PID3DGainsReadOnly;
 import us.ihmc.robotics.controllers.pidGains.implementations.DefaultPID3DGains;
@@ -24,10 +25,14 @@ public class QuadrupedFootControlModuleParameters
    private final ParameterizedPID3DGains solePositionGainsVMC;
    private final ParameterizedPID3DGains solePositionGainsIK;
    private final ParameterizedPID3DGains solePositionGainsID;
+   private final ParameterizedPID3DGains soleOrientationGainsID;
+   private final ParameterizedPID3DGains supportOrientationGainsID;
 
    private final ParameterVector3D solePositionWeightsVMC = new ParameterVector3D("solePositionWeightVMC_", new Vector3D(), finalRegistry);
    private final ParameterVector3D solePositionWeightsIK = new ParameterVector3D("solePositionWeightIK_", new Vector3D(50.0, 50.0, 10.0), finalRegistry);
-   private final ParameterVector3D solePositionWeightsID = new ParameterVector3D("solePositionWeightID_", new Vector3D(50.0, 50.0, 250.0), finalRegistry);
+   private final ParameterVector3D solePositionWeightsID = new ParameterVector3D("solePositionWeightID_", new Vector3D(30.0, 30.0, 20.0), finalRegistry);
+
+   private final ParameterVector3D soleOrientationWeightsID = new ParameterVector3D("soleOrientationWeightID_", new Vector3D(10.0, 10.0, 10.0), finalRegistry);
 
    private final DoubleParameter touchdownPressureLimitParameter = new DoubleParameter("touchdownPressureLimit", finalRegistry, 50);
    private final IntegerParameter touchdownTriggerWindowParameter = new IntegerParameter("touchdownTriggerWindow", finalRegistry,
@@ -48,10 +53,22 @@ public class QuadrupedFootControlModuleParameters
       solePositionGainsVMC = new ParameterizedPID3DGains("_solePositionVMC", GainCoupling.NONE, false, solePositionVMCGains, finalRegistry);
 
       DefaultPID3DGains solePositionIDGains = new DefaultPID3DGains();
-      solePositionIDGains.setProportionalGains(250.0, 250.0, 250.0);
-      solePositionIDGains.setDerivativeGains(20.0, 20.0, 20.0);
+      solePositionIDGains.setProportionalGains(300.0, 300.0, 400.0);
+      solePositionIDGains.setDerivativeGains(30.0, 30.0, 40.0);
       solePositionIDGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
       solePositionGainsID = new ParameterizedPID3DGains("_solePositionID", GainCoupling.NONE, false, solePositionIDGains, finalRegistry);
+
+      DefaultPID3DGains soleOrientationIDGains = new DefaultPID3DGains();
+      soleOrientationIDGains.setProportionalGains(250.0, 250.0, 250.0);
+      soleOrientationIDGains.setDerivativeGains(20.0, 20.0, 20.0);
+      soleOrientationIDGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
+      soleOrientationGainsID = new ParameterizedPID3DGains("_soleOrientationGainsID", GainCoupling.NONE, false, soleOrientationIDGains, finalRegistry);
+
+      DefaultPID3DGains supportOrientationIDGains = new DefaultPID3DGains();
+      supportOrientationIDGains.setProportionalGains(250.0, 250.0, 250.0);
+      supportOrientationIDGains.setDerivativeGains(20.0, 20.0, 20.0);
+      supportOrientationIDGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
+      supportOrientationGainsID = new ParameterizedPID3DGains("_supportOrientationGainsID", GainCoupling.NONE, false, supportOrientationIDGains, finalRegistry);
 
       DefaultPID3DGains solePositionIKGains = new DefaultPID3DGains();
       solePositionIKGains.setProportionalGains(50.0, 50.0, 10.0);
@@ -94,6 +111,39 @@ public class QuadrupedFootControlModuleParameters
             throw new RuntimeException("The controller core mode " + controllerCoreMode.getEnumValue() + " does not have foot control weights.");
       }
    }
+   
+   public Vector3DReadOnly getSoleOrientationWeights()
+   {
+      switch (controllerCoreMode.getEnumValue())
+      {
+         case INVERSE_DYNAMICS:
+            return soleOrientationWeightsID;
+         default:
+            throw new RuntimeException("The controller core mode " + controllerCoreMode.getEnumValue() + " does not have foot control weights.");
+      }
+   }
+   
+   public PID3DGainsReadOnly getSoleOrientationGains()
+   {
+      switch (controllerCoreMode.getEnumValue())
+      {
+      case INVERSE_DYNAMICS:
+         return soleOrientationGainsID;
+      default:
+         throw new RuntimeException("The controller core mode " + controllerCoreMode.getEnumValue() + " does not have foot control gains.");
+      }
+   }
+
+   public PID3DGainsReadOnly getSupportOrientationGains()
+   {
+      switch (controllerCoreMode.getEnumValue())
+      {
+      case INVERSE_DYNAMICS:
+         return supportOrientationGainsID;
+      default:
+         throw new RuntimeException("The controller core mode " + controllerCoreMode.getEnumValue() + " does not have foot control gains.");
+      }
+   }
 
    public double getTouchdownPressureLimitParameter()
    {
@@ -127,6 +177,6 @@ public class QuadrupedFootControlModuleParameters
 
    public int getNLowestContactPoints()
    {
-      return 2;
+      return 1;
    }
 }

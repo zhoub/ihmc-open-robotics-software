@@ -77,8 +77,8 @@ public class QuadrupedBodyOrientationManager
       bodyOrientationVMCGainsParameter = new ParameterizedPID3DGains("_bodyOrientationVMC", GainCoupling.NONE, false, bodyOrientationVMCGains, registry);
 
       DefaultPID3DGains bodyOrientationIDGains = new DefaultPID3DGains();
-      bodyOrientationIDGains.setProportionalGains(250.0, 250.0, 250.0);
-      bodyOrientationIDGains.setDerivativeGains(20.0, 20.0, 20.0);
+      bodyOrientationIDGains.setProportionalGains(200.0, 200.0, 100.0);
+      bodyOrientationIDGains.setDerivativeGains(20.0, 20.0, 10.0);
       bodyOrientationIDGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
       bodyOrientationIDGainsParameter = new ParameterizedPID3DGains("_bodyOrientationID", GainCoupling.NONE, false, bodyOrientationIDGains, registry);
 
@@ -108,7 +108,7 @@ public class QuadrupedBodyOrientationManager
       desiredBodyAngularAcceleration = new FrameVector3D();
 
       bodyVMCAngularWeight.set(2.5, 2.5, 1.0);
-      bodyIDAngularWeight.set(2.5, 2.5, 1.0);
+      bodyIDAngularWeight.set(20.0, 20.0, 10.0);
       bodyIKAngularWeight.set(1.0, 1.0, 1.0);
 
       parentRegistry.addChild(registry);

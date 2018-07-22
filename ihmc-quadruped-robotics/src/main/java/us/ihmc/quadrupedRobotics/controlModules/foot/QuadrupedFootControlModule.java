@@ -62,7 +62,8 @@ public class QuadrupedFootControlModule
       this.stepCommandIsValid = new YoBoolean(prefix + "StepCommandIsValid", registry);
 
       // state machine
-      QuadrupedSupportState supportState = new QuadrupedSupportState(robotQuadrant, controllerToolbox);
+      QuadrupedSupportState supportState = new QuadrupedSupportState(robotQuadrant, controllerToolbox, registry);
+      QuadrupedSpatialSwingState spatialSwingState = new QuadrupedSpatialSwingState(robotQuadrant, controllerToolbox, currentStepCommand, registry, graphicsListRegistry);
       QuadrupedSwingState swingState = new QuadrupedSwingState(robotQuadrant, controllerToolbox, stepCommandIsValid, currentStepCommand, graphicsListRegistry,
                                                                registry);
       moveViaWaypointsState = new QuadrupedMoveViaWaypointsState(robotQuadrant, controllerToolbox, registry);
@@ -71,7 +72,8 @@ public class QuadrupedFootControlModule
       factory.setNamePrefix(prefix + "QuadrupedFootStates").setRegistry(registry).buildYoClock(controllerToolbox.getRuntimeEnvironment().getRobotTimestamp());
 
       factory.addState(QuadrupedFootStates.SUPPORT, supportState);
-      factory.addState(QuadrupedFootStates.SWING, swingState);
+//      factory.addState(QuadrupedFootStates.SWING, swingState);
+      factory.addState(QuadrupedFootStates.SWING, spatialSwingState);
       factory.addState(QuadrupedFootStates.MOVE_VIA_WAYPOINTS, moveViaWaypointsState);
 
       factory.addTransition(FootEvent.TIMEOUT, QuadrupedFootStates.SUPPORT, QuadrupedFootStates.SWING);

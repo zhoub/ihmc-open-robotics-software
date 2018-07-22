@@ -1,11 +1,12 @@
 package us.ihmc.quadrupedRobotics.controlModules.foot;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.FeedbackControlCommand;
-import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.PointFeedbackControlCommand;
+import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.SpatialFeedbackControlCommand;
 import us.ihmc.commonWalkingControlModules.trajectories.SoftTouchdownPositionTrajectoryGenerator;
 import us.ihmc.commonWalkingControlModules.trajectories.TwoWaypointSwingGenerator;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
@@ -30,7 +31,11 @@ import us.ihmc.robotics.trajectories.TrajectoryType;
 import us.ihmc.robotics.trajectories.providers.CurrentRigidBodyStateProvider;
 import us.ihmc.yoVariables.parameters.DoubleParameter;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
-import us.ihmc.yoVariables.variable.*;
+import us.ihmc.yoVariables.variable.YoBoolean;
+import us.ihmc.yoVariables.variable.YoDouble;
+import us.ihmc.yoVariables.variable.YoEnum;
+import us.ihmc.yoVariables.variable.YoFramePoint3D;
+import us.ihmc.yoVariables.variable.YoFrameVector3D;
 
 public class QuadrupedSwingState extends QuadrupedFootState
 {
@@ -80,7 +85,7 @@ public class QuadrupedSwingState extends QuadrupedFootState
    private final DoubleParameter percentPastSwingForDone;
    private final YoBoolean isSwingPastDone;
 
-   private final PointFeedbackControlCommand feedbackControlCommand = new PointFeedbackControlCommand();
+   private final SpatialFeedbackControlCommand feedbackControlCommand = new SpatialFeedbackControlCommand();
 
    private final QuadrupedControllerToolbox controllerToolbox;
    private final RobotQuadrant robotQuadrant;
@@ -145,11 +150,22 @@ public class QuadrupedSwingState extends QuadrupedFootState
                                                           QuadrupedFootControlModuleParameters.getDefaultTouchdownTriggerWindow());
 
       RigidBody foot = controllerToolbox.getFullRobotModel().getFoot(robotQuadrant);
-      FramePoint3D currentPosition = new FramePoint3D(soleFrame);
-      currentPosition.changeFrame(foot.getBodyFixedFrame());
+//      FramePoint3D currentPosition = new FramePoint3D(soleFrame);
+//      currentPosition.changeFrame(foot.getBodyFixedFrame());
+      
+      int sign = 1;
+      if(robotQuadrant == RobotQuadrant.FRONT_LEFT || robotQuadrant == RobotQuadrant.HIND_RIGHT)
+      {
+         sign = -1;
+      }
+      
+      FramePose3D controlPose = new FramePose3D(foot.getBodyFixedFrame());
+      controlPose.setOrientation(0.0, 0.0, sign * 0.501, 0.865);
 
       feedbackControlCommand.set(controllerToolbox.getFullRobotModel().getBody(), foot);
-      feedbackControlCommand.setBodyFixedPointToControl(currentPosition);
+      feedbackControlCommand.setControlFrameFixedInEndEffector(controlPose);
+      
+//      feedbackControlCommand.setPrimaryBase(controllerToolbox.getFullRobotModel().getLegJoint(robotQuadrant, LegJointName.HIP_YAW).getSuccessor());
 
       desiredSolePosition = new YoFramePoint3D(namePrefix + "DesiredSolePositionInWorld", worldFrame, registry);
       desiredSoleLinearVelocity = new YoFrameVector3D(namePrefix + "DesiredSoleLinearVelocityInWorld", worldFrame, registry);
@@ -238,8 +254,9 @@ public class QuadrupedSwingState extends QuadrupedFootState
       desiredSoleLinearVelocity.setMatchingFrame(desiredVelocity);
 
       feedbackControlCommand.set(desiredPosition, desiredVelocity);
-      feedbackControlCommand.setGains(parameters.getSolePositionGains());
-      feedbackControlCommand.setWeightsForSolver(parameters.getSolePositionWeights());
+      feedbackControlCommand.setPositionGains(parameters.getSolePositionGains());
+      feedbackControlCommand.setOrientationGains(parameters.getSolePositionGains());
+      feedbackControlCommand.setWeightsForSolver(parameters.getSolePositionWeights(), parameters.getSolePositionWeights());
 
       updateEndOfStateConditions(timeInState);
    }
@@ -352,7 +369,7 @@ public class QuadrupedSwingState extends QuadrupedFootState
    }
 
    @Override
-   public PointFeedbackControlCommand getFeedbackControlCommand()
+   public SpatialFeedbackControlCommand getFeedbackControlCommand()
    {
       return feedbackControlCommand;
    }

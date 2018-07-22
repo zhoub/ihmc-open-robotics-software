@@ -42,7 +42,7 @@ public class QuadrupedXBoxAdapter implements JoystickEventListener
    /**
     * Period at which to send control packets.
     */
-   private static final double DT = 0.01;
+   private static final double DT = 2;
 
    private final YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
    private final YoVariableServer server;
@@ -85,9 +85,9 @@ public class QuadrupedXBoxAdapter implements JoystickEventListener
       maxBodyYaw.set(0.15);
       maxBodyPitch.set(0.15);
       maxBodyHeightVelocity.set(0.1);
-      maxVelocityX.set(0.5);
-      maxVelocityY.set(0.25);
-      maxVelocityYaw.set(0.4);
+      maxVelocityX.set(0.1);
+      maxVelocityY.set(0.1);
+      maxVelocityYaw.set(0.1);
       bodyOrientationShiftTime.set(0.1);
       this.bodyHeight = new InputValueIntegrator(DT, physicalProperties.getNominalCoMHeight());
 

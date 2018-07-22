@@ -38,6 +38,7 @@ public class QuadrupedMomentumRateOfChangeModule
    private double desiredCoMHeightAcceleration;
 
    private final ParameterVector3D vmcLinearMomentumRateWeight = new ParameterVector3D("vmcLinearMomentumRateWeight", new Vector3D(5.0, 5.0, 2.5), registry);
+   private final ParameterVector3D idLinearMomentumRateWeight = new ParameterVector3D("idLinearMomentumRateWeight", new Vector3D(15.0, 15.0, 2.5), registry);
    private final ParameterVector3D kinematicsLinearMomentumWeight = new ParameterVector3D("ikLinearMomentumWeight", new Vector3D(100.0, 100.0, 50.0), registry);
 
    private final FrameVector3D linearMomentumRateOfChange = new FrameVector3D();
@@ -134,7 +135,6 @@ public class QuadrupedMomentumRateOfChangeModule
          throw new IllegalArgumentException("LinearMomentum rate contains NaN.");
 
       momentumRateCommand.setLinearMomentumRate(linearMomentumRateOfChange);
-      momentumRateCommand.setLinearWeights(vmcLinearMomentumRateWeight);
 
       yoLinearMomentumRateOfChange.set(linearMomentumRateOfChange);
 
@@ -142,6 +142,15 @@ public class QuadrupedMomentumRateOfChangeModule
 
       momentumCommand.setLinearMomentum(linearMomentum);
       momentumCommand.setLinearWeights(kinematicsLinearMomentumWeight);
+
+      switch(controllerToolbox.getControllerCoreMode())
+      {
+      case INVERSE_DYNAMICS:
+         momentumRateCommand.setLinearWeights(idLinearMomentumRateWeight);
+         break;
+      case VIRTUAL_MODEL:
+         momentumRateCommand.setLinearWeights(vmcLinearMomentumRateWeight);
+      }
    }
 
    private void integrateMomentum(FrameVector3D linearMomentumToPack)

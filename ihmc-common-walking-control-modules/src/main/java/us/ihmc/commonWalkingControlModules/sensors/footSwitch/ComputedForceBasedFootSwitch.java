@@ -22,6 +22,7 @@ import us.ihmc.yoVariables.providers.DoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoDouble;
+import us.ihmc.yoVariables.variable.YoFrameVector3D;
 
 /**
  * Computes the wrench at the sole frame using the Jacobian from Root to Sole and 
@@ -43,7 +44,7 @@ public class ComputedForceBasedFootSwitch<E extends Enum<E> & RobotSegment<E>> i
    
    private final DoubleProvider contactThresholdForce;
    private final YoBoolean pastThreshold;
-   private final YoDouble measuredZForce;
+   private final YoFrameVector3D measuredForce;
    private final FrameVector3D footForce = new FrameVector3D();
    private final Wrench wrench = new Wrench();
    
@@ -58,7 +59,7 @@ public class ComputedForceBasedFootSwitch<E extends Enum<E> & RobotSegment<E>> i
       
       int filterWindowSize = 3;
       
-      measuredZForce = new YoDouble(prefix + "measuredZForce", registry);
+      measuredForce = new YoFrameVector3D(prefix, ReferenceFrame.getWorldFrame(), registry);
       pastThreshold = new YoBoolean(prefix + "PastFootswitchThreshold", registry);
       
       this.contactThresholdForce = contactThresholdForce;
@@ -100,8 +101,8 @@ public class ComputedForceBasedFootSwitch<E extends Enum<E> & RobotSegment<E>> i
       wrench.getLinearPart(footForce);
       footForce.changeFrame(ReferenceFrame.getWorldFrame());
       
-      measuredZForce.set(footForce.getZ() * -1.0);
-      pastThreshold.set(measuredZForce.getDoubleValue() > contactThresholdForce.getValue());
+      measuredForce.set(footForce);
+      pastThreshold.set(measuredForce.getZ() > contactThresholdForce.getValue());
       isInContact.update();
    }
 
@@ -115,7 +116,7 @@ public class ComputedForceBasedFootSwitch<E extends Enum<E> & RobotSegment<E>> i
    @Override
    public double computeFootLoadPercentage()
    {
-      return Math.min(1.0, measuredZForce.getDoubleValue() / standingZForce);
+      return Math.min(1.0, measuredForce.getZ() / standingZForce);
    }
 
    @Override
@@ -157,12 +158,12 @@ public class ComputedForceBasedFootSwitch<E extends Enum<E> & RobotSegment<E>> i
    @Override
    public void setFootContactState(boolean hasFootHitGround)
    {
-      isInContact.set(hasFootHitGround);
+//      isInContact.set(hasFootHitGround);
    }
 
    @Override
    public void trustFootSwitch(boolean trustFootSwitch)
    {
-      isInContact.set(trustFootSwitch);
+//      isInContact.set(trustFootSwitch);
    }
 }

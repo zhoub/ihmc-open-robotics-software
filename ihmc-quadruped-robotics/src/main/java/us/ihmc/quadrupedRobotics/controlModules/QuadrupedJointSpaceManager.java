@@ -54,12 +54,16 @@ public class QuadrupedJointSpaceManager
    private final YoDouble ikVelocityIntegrationBreakFrequency = new YoDouble("ikVelocityIntegrationBreakFrequency", registry);
    private final YoDouble ikAccelerationDifferentiationBreakFrequency = new YoDouble("ikAccelerationDifferentiationBreakFrequency", registry);
    
+   private final QuadrupedWheelManager quadrupedWheelManager;
+   
 
    public QuadrupedJointSpaceManager(QuadrupedControllerToolbox controllerToolbox, YoVariableRegistry parentRegistry)
    {
       controlledJoints = controllerToolbox.getFullRobotModel().getControllableOneDoFJoints();
       QuadrupedRuntimeEnvironment runtimeEnvironment = controllerToolbox.getRuntimeEnvironment();
       privilegedConfigurationCalculator = runtimeEnvironment.getPrivilegedConfigurationCalculator();
+      
+      quadrupedWheelManager = new QuadrupedWheelManager(controllerToolbox, registry);
       
       vmcJointViscousDamping.set(VMC_VISCOUS_DAMPING);
       jointPositionLimitDamping.set(POSITION_LIMIT_DAMPING);
@@ -101,6 +105,7 @@ public class QuadrupedJointSpaceManager
    {
       vmcJointDampingCommand.clear();
       jointLimitEnforcementCommand.clear();
+      quadrupedWheelManager.update();
 
       for (int i = 0; i < controlledJoints.length; i++)
       {
@@ -126,7 +131,7 @@ public class QuadrupedJointSpaceManager
 
    public FeedbackControlCommand<?> getFeedbackControlCommand()
    {
-      return null;
+      return quadrupedWheelManager.getFeedbackControlCommand();
    }
 
    public VirtualModelControlCommand<?> getVirtualModelControlCommand()
