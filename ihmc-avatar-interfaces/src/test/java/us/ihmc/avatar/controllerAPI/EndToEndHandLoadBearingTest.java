@@ -4,13 +4,10 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import controller_msgs.msg.dds.*;
 import org.junit.After;
 import org.junit.Before;
 
-import controller_msgs.msg.dds.ChestTrajectoryMessage;
-import controller_msgs.msg.dds.HandLoadBearingMessage;
-import controller_msgs.msg.dds.HandTrajectoryMessage;
-import controller_msgs.msg.dds.SE3TrajectoryMessage;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -23,6 +20,7 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.graphicsDescription.appearance.YoAppearance;
 import us.ihmc.graphicsDescription.appearance.YoAppearanceTexture;
+import us.ihmc.humanoidRobotics.communication.controllerAPI.command.PelvisHeightTrajectoryCommand;
 import us.ihmc.humanoidRobotics.communication.packets.HumanoidMessageTools;
 import us.ihmc.humanoidRobotics.frames.HumanoidReferenceFrames;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
@@ -92,8 +90,15 @@ public abstract class EndToEndHandLoadBearingTest implements MultiRobotTestInter
       se3Trajectory1.getFrameInformation().setDataReferenceFrameId(MessageTools.toFrameId(worldFrame));
       se3Trajectory1.getTaskspaceTrajectoryPoints().add().set(HumanoidMessageTools.createSE3TrajectoryPointMessage(1.0, new Point3D(0.45, 0.3, 0.6), handOrientation, new Vector3D(), new Vector3D()));
       drcSimulationTestHelper.publishToController(handTrajectoryMessage1);
+
+      PelvisHeightTrajectoryMessage pelvisHeightTrajectoryMessage = HumanoidMessageTools.createPelvisHeightTrajectoryMessage(1.0, getDesiredPelvisHeight());
+      drcSimulationTestHelper.publishToController(pelvisHeightTrajectoryMessage);
+
       success = drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(2.0);
       assertTrue(success);
+
+
+
 
       HandTrajectoryMessage handTrajectoryMessage2 = new HandTrajectoryMessage();
       handTrajectoryMessage2.setRobotSide(RobotSide.LEFT.toByte());
@@ -171,6 +176,8 @@ public abstract class EndToEndHandLoadBearingTest implements MultiRobotTestInter
       {
       }
    }
+
+   public abstract double getDesiredPelvisHeight();
 
    @Before
    public void showMemoryUsageBeforeTest()

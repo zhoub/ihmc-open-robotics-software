@@ -23,6 +23,11 @@ public class AtlasEndToEndHandLoadBearingTest extends EndToEndHandLoadBearingTes
       super.testUsingHand();
    }
 
+   public double getDesiredPelvisHeight()
+   {
+      return 0.785;
+   }
+
    @Override
    public DRCRobotModel getRobotModel()
    {
