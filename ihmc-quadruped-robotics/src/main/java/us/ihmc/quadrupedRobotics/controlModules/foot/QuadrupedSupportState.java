@@ -4,7 +4,6 @@ import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactSt
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.FeedbackControlCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.SpatialFeedbackControlCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.InverseDynamicsCommand;
-import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.SpatialAccelerationCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.InverseKinematicsCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseKinematics.SpatialVelocityCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualModelControlCommand;
@@ -18,14 +17,13 @@ import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerToolbox;
 import us.ihmc.quadrupedRobotics.parameters.QuadrupedFootControlModuleParameters;
-import us.ihmc.robotics.dataStructures.parameters.ParameterVector3D;
+import us.ihmc.robotics.controllers.pidGains.implementations.SymmetricYoPIDSE3Gains;
 import us.ihmc.robotics.partNames.LegJointName;
 import us.ihmc.robotics.robotSide.RobotQuadrant;
 import us.ihmc.robotics.screwTheory.MovingReferenceFrame;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;
 import us.ihmc.robotics.screwTheory.RigidBody;
 import us.ihmc.robotics.screwTheory.SelectionMatrix6D;
-import us.ihmc.robotics.weightMatrices.SolverWeightLevels;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 
@@ -39,10 +37,6 @@ public class QuadrupedSupportState extends QuadrupedFootState
    private final YoPlaneContactState contactState;
    private final QuadrupedFootControlModuleParameters parameters;
 
-   private final SpatialAccelerationCommand spatialAccelerationCommand = new SpatialAccelerationCommand();
-   private final SelectionMatrix6D footAccelerationSelectionMatrix = new SelectionMatrix6D();
-   private final ParameterVector3D soleOrientationWeightsID;
-   
    private final SpatialVelocityCommand spatialVelocityCommand = new SpatialVelocityCommand();
    private final FrameVector3D footNormalContactVector = new FrameVector3D(worldFrame, 0.0, 0.0, 1.0);
    private final SpatialFeedbackControlCommand feedbackControlCommand = new SpatialFeedbackControlCommand();
@@ -51,7 +45,7 @@ public class QuadrupedSupportState extends QuadrupedFootState
    private final YoBoolean controlAngularX;
    private final YoBoolean controlAngularY;
    private final YoBoolean controlAngularZ;
-   
+
    private final ReferenceFrame frameToControl;
    private final FrameQuaternion desiredOrientation = new FrameQuaternion();
    private final FrameVector3D desiredAngularVelocity = new FrameVector3D(worldFrame);
@@ -69,27 +63,15 @@ public class QuadrupedSupportState extends QuadrupedFootState
       spatialVelocityCommand.setSelectionMatrixForLinearControl();
       spatialVelocityCommand.setWeight(10.0);
       
-      soleOrientationWeightsID = new ParameterVector3D("soleSupportOrientationWeightID_", new Vector3D(10.0, 10.0, 10.0), registry);
-      
       controlAngularX = new YoBoolean(prefix + "ControlAngularX", registry);
       controlAngularY = new YoBoolean(prefix + "ControlAngularY", registry);
       controlAngularZ = new YoBoolean(prefix + "ControlAngularZ", registry);
       
       controlAngularX.set(true);
       controlAngularY.set(true);
-      controlAngularZ.set(false);
+      controlAngularZ.set(true);
       
       frameToControl = grossHardcodedMethodToGetFrameToControlForRoboMantis(robotQuadrant, controllerToolbox);
-      
-      RigidBody foot = controllerToolbox.getFullRobotModel().getFoot(robotQuadrant);
-      
-      spatialAccelerationCommand.setWeight(SolverWeightLevels.VERY_HIGH);
-      spatialAccelerationCommand.set(controllerToolbox.getFullRobotModel().getElevator(), foot);
-      spatialAccelerationCommand.setPrimaryBase(controllerToolbox.getFullRobotModel().getBody());
-      
-      footAccelerationSelectionMatrix.setToLinearSelectionOnly();
-      footAccelerationSelectionMatrix.setSelectionFrame(worldFrame);
-      spatialAccelerationCommand.setSelectionMatrix(footAccelerationSelectionMatrix);
       
       desiredOrientation.setToZero(frameToControl);
       desiredOrientation.changeFrame(worldFrame);
@@ -99,16 +81,12 @@ public class QuadrupedSupportState extends QuadrupedFootState
    
    private ReferenceFrame grossHardcodedMethodToGetFrameToControlForRoboMantis(RobotQuadrant robotQuadrant, QuadrupedControllerToolbox controllerToolbox)
    {
-      OneDoFJoint joint = controllerToolbox.getFullRobotModel().getLegJoint(robotQuadrant, LegJointName.ANKLE_ROLL);
-      RigidBody endEffectorToControl = joint.getSuccessor();
-
-      String frameName = robotQuadrant.getCamelCaseName() + "ControlledLegFrame";
-      Vector3D distanceFromBodyFixedFrameToWheelCenter = new Vector3D();
-
+      RigidBody endEffectorToControl = controllerToolbox.getFullRobotModel().getFoot(robotQuadrant);
       MovingReferenceFrame bodyFixedFrame = endEffectorToControl.getBodyFixedFrame();
+      
+      Vector3D distanceFromBodyFixedFrameToWheelCenter = new Vector3D();
       FramePoint3D distanceFromBodyToWheelCenter = new FramePoint3D(controllerToolbox.getFullRobotModel().getSoleFrame(robotQuadrant));
       distanceFromBodyToWheelCenter.changeFrame(bodyFixedFrame);
-
       distanceFromBodyFixedFrameToWheelCenter.set(distanceFromBodyToWheelCenter);
 
       int sign = 1;
@@ -122,12 +100,12 @@ public class QuadrupedSupportState extends QuadrupedFootState
       controlPose.setOrientation(0.0, 0.0, sign * 0.501, 0.865);
       controlPose.setPosition(distanceFromBodyFixedFrameToWheelCenter);
       controlPose.get(transformToParent);
+      String frameName = robotQuadrant.getCamelCaseName() + "ControlledLegFrame";
       ReferenceFrame frameToControl = ReferenceFrame.constructFrameWithUnchangingTransformToParent(frameName, bodyFixedFrame, transformToParent);
       FramePose3D controlFrameFixedInEndEffector = new FramePose3D(frameToControl);
       controlFrameFixedInEndEffector.changeFrame(endEffectorToControl.getBodyFixedFrame());
 
       feedbackControlCommand.set(controllerToolbox.getFullRobotModel().getElevator(), endEffectorToControl);
-      feedbackControlCommand.setPrimaryBase(controllerToolbox.getFullRobotModel().getBody());
       feedbackControlCommand.setControlFrameFixedInEndEffector(controlFrameFixedInEndEffector);
 
       return frameToControl;
@@ -141,8 +119,6 @@ public class QuadrupedSupportState extends QuadrupedFootState
 
       if (waypointCallback != null)
          waypointCallback.isDoneMoving(robotQuadrant, true);
-      
-      spatialAccelerationCommand.setSpatialAccelerationToZero(frameToControl);
    }
 
    @Override
@@ -151,8 +127,8 @@ public class QuadrupedSupportState extends QuadrupedFootState
       spatialVelocityCommand.setSpatialVelocityToZero(frameToControl);
       contactState.setFullyConstrained();
       
-      feedbackControlCommand.setAngularWeightsForSolver(soleOrientationWeightsID);
-      feedbackControlCommand.setOrientationGains(parameters.getSupportOrientationGains());
+      feedbackControlCommand.setAngularWeightsForSolver(parameters.getSoleOrientationWeights());
+      feedbackControlCommand.setOrientationGains(parameters.getSoleOrientationGains());
       feedbackControlCommand.setSelectionMatrix(computeSpatialSelectionMatrix());
       feedbackControlCommand.changeFrameAndSet(desiredOrientation, desiredAngularVelocity);
    }
@@ -187,18 +163,19 @@ public class QuadrupedSupportState extends QuadrupedFootState
    @Override
    public InverseDynamicsCommand<?> getInverseDynamicsCommand()
    {
-      return spatialAccelerationCommand;
+      return null;
    }
 
    @Override
    public SpatialFeedbackControlCommand getFeedbackControlCommand()
    {
-      return feedbackControlCommand;
+      return null;//feedbackControlCommand;
    }
 
    @Override
    public InverseKinematicsCommand<?> getInverseKinematicsCommand()
    {
+      //      return null;
       return spatialVelocityCommand;
    }
 
