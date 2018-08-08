@@ -8,7 +8,9 @@ import java.util.ArrayList;
 
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple2D.Point2D;
+import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
+import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.modelFileLoaders.ModelFileLoaderConversionsHelper;
 import us.ihmc.modelFileLoaders.SdfLoader.GeneralizedSDFRobotModel;
 import us.ihmc.modelFileLoaders.SdfLoader.SDFJointHolder;
@@ -17,6 +19,7 @@ import us.ihmc.modelFileLoaders.SdfLoader.xmlDescription.Collision;
 import us.ihmc.modelFileLoaders.SdfLoader.xmlDescription.SDFGeometry.Sphere;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.robotics.robotSide.SideDependentList;
+import us.ihmc.valkyrie.ValkyrieRobotModel;
 import us.ihmc.wholeBodyController.DRCRobotJointMap;
 import us.ihmc.wholeBodyController.FootContactPoints;
 import us.ihmc.wholeBodyController.RobotContactPointParameters;
@@ -24,10 +27,16 @@ import us.ihmc.wholeBodyController.RobotContactPointParameters;
 public class ValkyrieContactPointParameters extends RobotContactPointParameters<RobotSide>
 {
    private final SideDependentList<ArrayList<Point2D>> footGroundContactPoints = new SideDependentList<>();
+   private final int numberOfContactableBodies;
 
    private final DRCRobotJointMap jointMap;
 
    public ValkyrieContactPointParameters(DRCRobotJointMap jointMap, FootContactPoints<RobotSide> footContactPoints)
+   {
+      this(jointMap, footContactPoints, false);
+   }
+
+   public ValkyrieContactPointParameters(DRCRobotJointMap jointMap, FootContactPoints<RobotSide> footContactPoints, boolean createAdditionalContactPoints)
    {
       super(jointMap, footWidth, footLength, soleToAnkleFrameTransforms);
       this.jointMap = jointMap;
@@ -36,6 +45,13 @@ public class ValkyrieContactPointParameters extends RobotContactPointParameters<
          createDefaultFootContactPoints();
       else
          createFootContactPoints(footContactPoints);
+
+      int numberOfContacts = 2;
+
+      if (createAdditionalContactPoints)
+         numberOfContacts += createAdditionalHandContactPoints();
+
+      numberOfContactableBodies = numberOfContacts;
    }
 
    private void checkJointChildren(SDFJointHolder joint)
@@ -140,5 +156,80 @@ public class ValkyrieContactPointParameters extends RobotContactPointParameters<
             setControllerFootContactPoint(robotSide, footGroundContactPoints.get(robotSide));
          }
       }
+   }
+
+   public int getNumberOfContactableBodies()
+   {
+      return numberOfContactableBodies;
+   }
+
+   public int createAdditionalHandContactPoints()
+   {
+      for (RobotSide robotSide : RobotSide.values)
+         createPalmContactPoints(robotSide, false);
+
+      return 2;
+   }
+
+   public void createPalmContactPoints(RobotSide robotSide, boolean areHandsFlipped)
+   {
+      String nameOfJointBeforeHand = jointMap.getNameOfJointBeforeHands().get(robotSide);
+
+
+      double offsetFromWristToPalmPlane = 0.08; // 0.24
+      double offset = -0.002;
+      Point3D palmCenter = new Point3D(offset, robotSide.negateIfRightSide(offsetFromWristToPalmPlane), 0.0); // [-0.002, 0.22, 0.0] (-0.002, 0.24, 0.015)
+      double palmWidth = 0.07;
+      double palmHeight = 0.075;
+
+      if (areHandsFlipped)
+         palmHeight = robotSide.negateIfLeftSide(palmHeight);
+
+      // Row of five contact points along center of palm
+      Vector3D palmContactPoint1 = new Vector3D(palmCenter.getX() - palmWidth / 2.0, palmCenter.getY(), palmCenter.getZ());
+      Vector3D palmContactPoint1b = new Vector3D(palmCenter.getX() - palmWidth / 4.0, palmCenter.getY(), palmCenter.getZ());
+      Vector3D palmContactPointCenter = new Vector3D(palmCenter.getX(), palmCenter.getY(), palmCenter.getZ());
+      Vector3D palmContactPoint2b = new Vector3D(palmCenter.getX() + palmWidth / 4.0, palmCenter.getY(), palmCenter.getZ());
+      Vector3D palmContactPoint3 = new Vector3D(palmCenter.getX() + palmWidth / 2.0, palmCenter.getY(), palmCenter.getZ());
+
+      // Pad that sits between the two outer fingers
+      Vector3D palmContactPoint4 = new Vector3D(palmCenter.getX(), palmCenter.getY(), palmCenter.getZ() - palmHeight / 2.0);
+      Vector3D palmContactPoint4b = new Vector3D(palmCenter.getX(), palmCenter.getY(), palmCenter.getZ() - palmHeight / 4.0);
+
+      // Two pads that sandwich the center thumb
+      Vector3D palmContactPoint5 = new Vector3D(palmContactPoint3.getX(), palmCenter.getY(), palmCenter.getZ() + palmHeight / 2.0);
+      Vector3D palmContactPoint5b = new Vector3D(palmContactPoint3.getX(), palmCenter.getY(), palmCenter.getZ() + palmHeight / 4.0);
+      Vector3D palmContactPoint6 = new Vector3D(palmContactPoint1.getX(), palmCenter.getY(), palmContactPoint5.getZ());
+      Vector3D palmContactPoint6b = new Vector3D(palmContactPoint1.getX(), palmCenter.getY(), palmContactPoint5b.getZ());
+
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPointCenter);
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint1);
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint3);
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint4);
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint5);
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint6);
+
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint1b);
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint2b);
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint4b);
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint5b);
+      addSimulationContactPoint(nameOfJointBeforeHand, palmContactPoint6b);
+
+      Point3D pointLocationInParentJoint = new Point3D(offset, robotSide.negateIfRightSide(offsetFromWristToPalmPlane), 0.0);
+
+      String bodyName = jointMap.getHandName(robotSide);
+      RigidBodyTransform transformToContactFrame = new RigidBodyTransform(new Quaternion(), pointLocationInParentJoint);
+      if (robotSide == RobotSide.LEFT)
+         transformToContactFrame.appendRollRotation(Math.PI);
+
+      addAdditionalContactPoint(bodyName, bodyName + "Contact", transformToContactFrame);
+
+   }
+
+   private void addAdditionalContactPoint(String bodyName, String contactName, RigidBodyTransform transformToContactFrame)
+   {
+      additionalContactRigidBodyNames.add(bodyName);
+      additionalContactNames.add(contactName);
+      additionalContactTransforms.add(transformToContactFrame);
    }
 }

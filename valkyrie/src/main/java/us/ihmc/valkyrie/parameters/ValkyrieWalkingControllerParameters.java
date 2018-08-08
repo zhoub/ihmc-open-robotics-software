@@ -50,16 +50,19 @@ public class ValkyrieWalkingControllerParameters extends WalkingControllerParame
    private final ToeOffParameters toeOffParameters;
    private final SwingTrajectoryParameters swingTrajectoryParameters;
    private final ValkyrieSteppingParameters steppingParameters;
+   private final ValkyrieMomentumOptimizationSettings momentumOptimizationSettings;
 
-   public ValkyrieWalkingControllerParameters(ValkyrieJointMap jointMap)
+   public ValkyrieWalkingControllerParameters(ValkyrieJointMap jointMap, ValkyrieContactPointParameters contactPointParameters)
    {
-      this(jointMap, RobotTarget.SCS);
+      this(jointMap, RobotTarget.SCS, contactPointParameters);
    }
 
-   public ValkyrieWalkingControllerParameters(ValkyrieJointMap jointMap, RobotTarget target)
+   public ValkyrieWalkingControllerParameters(ValkyrieJointMap jointMap, RobotTarget target, ValkyrieContactPointParameters contactPointParameters)
    {
       this.jointMap = jointMap;
       this.target = target;
+
+      momentumOptimizationSettings = new ValkyrieMomentumOptimizationSettings(jointMap, contactPointParameters.getNumberOfContactableBodies());
 
       boolean runningOnRealRobot = target == RobotTarget.REAL_ROBOT;
       legConfigurationParameters = new ValkyrieLegConfigurationParameters(runningOnRealRobot);
@@ -633,7 +636,7 @@ public class ValkyrieWalkingControllerParameters extends WalkingControllerParame
    @Override
    public MomentumOptimizationSettings getMomentumOptimizationSettings()
    {
-      return new ValkyrieMomentumOptimizationSettings(jointMap);
+      return momentumOptimizationSettings;
    }
 
    @Override

@@ -12,7 +12,7 @@ import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 public class ValkyrieEndToEndHandLoadBearingTest extends EndToEndHandLoadBearingTest
 {
-   private final ValkyrieRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);
+   private final ValkyrieRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false, true);
 
    @Override
    public DRCRobotModel getRobotModel()

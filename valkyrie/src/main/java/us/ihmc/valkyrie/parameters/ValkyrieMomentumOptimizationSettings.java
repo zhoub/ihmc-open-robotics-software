@@ -30,7 +30,7 @@ public class ValkyrieMomentumOptimizationSettings extends MomentumOptimizationSe
 
    private final int nBasisVectorsPerContactPoint = 4;
    private final int nContactPointsPerContactableBody = 4;
-   private final int nContactableBodies = 2;
+   private final int nContactableBodies;
 
    private final double jointAccelerationWeight = 0.005;
    private final double jointJerkWeight = 1.6E-6;
@@ -60,7 +60,7 @@ public class ValkyrieMomentumOptimizationSettings extends MomentumOptimizationSe
    private final Vector3D handLinearWeight = new Vector3D(5.0, 5.0, 5.0);
    private final List<GroupParameter<Vector3DReadOnly>> taskspaceLinearWeights = new ArrayList<>();
 
-   public ValkyrieMomentumOptimizationSettings(ValkyrieJointMap jointMap)
+   public ValkyrieMomentumOptimizationSettings(ValkyrieJointMap jointMap, int numberOfContactableBodies)
    {
       for (SpineJointName jointName : jointMap.getSpineJointNames())
       {
@@ -92,6 +92,8 @@ public class ValkyrieMomentumOptimizationSettings extends MomentumOptimizationSe
       taskspaceLinearWeights.add(new GroupParameter<>("Hand", handLinearWeight, handNames));
       taskspaceAngularWeights.add(new GroupParameter<>("Foot", footAngularWeight, footNames));
       taskspaceLinearWeights.add(new GroupParameter<>("Foot", footLinearWeight, footNames));
+
+      this.nContactableBodies = numberOfContactableBodies;
    }
 
    private static void configureSymmetricBehavior(List<GroupParameter<Double>> behaviors, DRCRobotJointMap jointMap, ArmJointName jointName, double weight)

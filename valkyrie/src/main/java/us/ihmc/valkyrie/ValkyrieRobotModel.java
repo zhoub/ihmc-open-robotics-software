@@ -106,41 +106,68 @@ public class ValkyrieRobotModel implements DRCRobotModel, SDFDescriptionMutator
 
    public ValkyrieRobotModel(RobotTarget target, boolean headless, FootContactPoints<RobotSide> simulationContactPoints)
    {
-      this(target, headless, "DEFAULT", simulationContactPoints, false);
+      this(target, headless, false, "DEFAULT", simulationContactPoints, false);
    }
 
    public ValkyrieRobotModel(RobotTarget target, boolean headless)
    {
-      this(target, headless, "DEFAULT", null, false);
+      this(target, headless, false, "DEFAULT", null, false);
    }
 
-   public ValkyrieRobotModel(RobotTarget target, boolean headless, boolean useShapeCollision)
+   public ValkyrieRobotModel(RobotTarget target, boolean headless, boolean createAdditionalContactPoints)
    {
-      this(target, headless, "DEFAULT", null, useShapeCollision);
+      this(target, headless, createAdditionalContactPoints, "DEFAULT", null, false);
+   }
+
+   public ValkyrieRobotModel(RobotTarget target, boolean headless, boolean createAdditionalContactPoints, boolean useShapeCollision)
+   {
+      this(target, headless, createAdditionalContactPoints, "DEFAULT", null, useShapeCollision);
    }
 
    public ValkyrieRobotModel(RobotTarget target, boolean headless, String model)
    {
-      this(target, headless, model, null, false);
+      this(target, headless, false, model, null, false);
+   }
+
+   public ValkyrieRobotModel(RobotTarget target, boolean headless, boolean createAdditionalContactPoints, String model)
+   {
+      this(target, headless, createAdditionalContactPoints, model, null, false);
    }
 
    public ValkyrieRobotModel(RobotTarget target, boolean headless, String model, FootContactPoints<RobotSide> simulationContactPoints)
    {
-      this(target, headless, model, simulationContactPoints, false);
+      this(target, headless, false, model, simulationContactPoints, false);
+   }
+
+   public ValkyrieRobotModel(RobotTarget target, boolean headless, boolean createAdditionalContactPoints, String model, FootContactPoints<RobotSide> simulationContactPoints)
+   {
+      this(target, headless, createAdditionalContactPoints, model, simulationContactPoints, false);
    }
 
    public ValkyrieRobotModel(RobotTarget target, boolean headless, String model, FootContactPoints<RobotSide> simulationContactPoints,
                              boolean useShapeCollision)
    {
-      this(target, headless, model, simulationContactPoints, useShapeCollision, true);
+      this(target, headless, false, model, simulationContactPoints, useShapeCollision, true);
    }
 
-   public ValkyrieRobotModel(RobotTarget target, boolean headless, String model, FootContactPoints<RobotSide> simulationContactPoints, boolean useShapeCollision, boolean useOBJGraphics)
+   public ValkyrieRobotModel(RobotTarget target, boolean headless, String model, FootContactPoints<RobotSide> simulationContactPoints,
+                             boolean useShapeCollision, boolean useOBJGraphics)
+   {
+      this(target, headless, false, model, simulationContactPoints, useShapeCollision, useOBJGraphics);
+   }
+
+   public ValkyrieRobotModel(RobotTarget target, boolean headless, boolean createAdditionalContactPoints, String model, FootContactPoints<RobotSide> simulationContactPoints,
+                             boolean useShapeCollision)
+   {
+      this(target, headless, createAdditionalContactPoints, model, simulationContactPoints, useShapeCollision, true);
+   }
+
+   public ValkyrieRobotModel(RobotTarget target, boolean headless, boolean createAdditionalContactPoints, String model, FootContactPoints<RobotSide> simulationContactPoints, boolean useShapeCollision, boolean useOBJGraphics)
    {
       this.target = target;
       this.useOBJGraphics = useOBJGraphics;
       jointMap = new ValkyrieJointMap();
-      contactPointParameters = new ValkyrieContactPointParameters(jointMap, simulationContactPoints);
+      contactPointParameters = new ValkyrieContactPointParameters(jointMap, simulationContactPoints, createAdditionalContactPoints);
       sensorInformation = new ValkyrieSensorInformation(target);
       highLevelControllerParameters = new ValkyrieHighLevelControllerParameters(target == RobotTarget.REAL_ROBOT, jointMap);
       calibrationParameters = new ValkyrieCalibrationParameters(jointMap);
@@ -201,7 +228,7 @@ public class ValkyrieRobotModel implements DRCRobotModel, SDFDescriptionMutator
       boolean runningOnRealRobot = target == RobotTarget.REAL_ROBOT;
       planarRegionFootstepPlanningParameters = new ValkyriePlanarRegionFootstepPlannerParameters();
       capturePointPlannerParameters = new ValkyrieCapturePointPlannerParameters(runningOnRealRobot);
-      walkingControllerParameters = new ValkyrieWalkingControllerParameters(jointMap, target);
+      walkingControllerParameters = new ValkyrieWalkingControllerParameters(jointMap, target, contactPointParameters);
       stateEstimatorParamaters = new ValkyrieStateEstimatorParameters(runningOnRealRobot, getEstimatorDT(), sensorInformation, jointMap);
       collisionMeshDefinitionDataHolder = new ValkyrieCollisionMeshDefinitionDataHolder(jointMap);
 
