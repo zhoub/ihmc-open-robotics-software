@@ -26,7 +26,6 @@ public class QuadrupedFootControlModuleParameters
    private final ParameterizedPID3DGains solePositionGainsIK;
    private final ParameterizedPID3DGains solePositionGainsID;
    private final ParameterizedPID3DGains soleOrientationGainsID;
-   private final ParameterizedPID3DGains supportOrientationGainsID;
 
    private final ParameterVector3D solePositionWeightsVMC = new ParameterVector3D("solePositionWeightVMC_", new Vector3D(), finalRegistry);
    private final ParameterVector3D solePositionWeightsIK = new ParameterVector3D("solePositionWeightIK_", new Vector3D(50.0, 50.0, 10.0), finalRegistry);
@@ -63,12 +62,6 @@ public class QuadrupedFootControlModuleParameters
       soleOrientationIDGains.setDerivativeGains(20.0, 20.0, 20.0);
       soleOrientationIDGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
       soleOrientationGainsID = new ParameterizedPID3DGains("_soleOrientationGainsID", GainCoupling.NONE, false, soleOrientationIDGains, finalRegistry);
-
-      DefaultPID3DGains supportOrientationIDGains = new DefaultPID3DGains();
-      supportOrientationIDGains.setProportionalGains(250.0, 250.0, 250.0);
-      supportOrientationIDGains.setDerivativeGains(20.0, 20.0, 20.0);
-      supportOrientationIDGains.setIntegralGains(0.0, 0.0, 0.0, 0.0);
-      supportOrientationGainsID = new ParameterizedPID3DGains("_supportOrientationGainsID", GainCoupling.NONE, false, supportOrientationIDGains, finalRegistry);
 
       DefaultPID3DGains solePositionIKGains = new DefaultPID3DGains();
       solePositionIKGains.setProportionalGains(50.0, 50.0, 10.0);
@@ -134,17 +127,6 @@ public class QuadrupedFootControlModuleParameters
       }
    }
 
-   public PID3DGainsReadOnly getSupportOrientationGains()
-   {
-      switch (controllerCoreMode.getEnumValue())
-      {
-      case INVERSE_DYNAMICS:
-         return supportOrientationGainsID;
-      default:
-         throw new RuntimeException("The controller core mode " + controllerCoreMode.getEnumValue() + " does not have foot control gains.");
-      }
-   }
-
    public double getTouchdownPressureLimitParameter()
    {
       return touchdownPressureLimitParameter.getValue();
@@ -177,6 +159,6 @@ public class QuadrupedFootControlModuleParameters
 
    public int getNLowestContactPoints()
    {
-      return 1;
+      return 2;
    }
 }
