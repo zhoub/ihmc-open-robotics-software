@@ -2,7 +2,6 @@ package us.ihmc.quadrupedRobotics.controlModules.foot;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.FeedbackControlCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.feedbackController.SpatialFeedbackControlCommand;
-import us.ihmc.commonWalkingControlModules.controllerCore.command.inverseDynamics.InverseDynamicsCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualForceCommand;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualModelControlCommand;
 import us.ihmc.commonWalkingControlModules.trajectories.TwoWaypointSwingGenerator;
@@ -41,8 +40,6 @@ public class QuadrupedSpatialSwingState extends QuadrupedFootState
    private final TwoWaypointSwingGenerator positionTrajectory;
    private final HermiteCurveBasedOrientationTrajectoryGenerator orientationTrajectory;
 
-   private final QuadrupedSupportState supportState;
-   
    // Feedback controller
    private final ReferenceFrame frameToControl;
 
@@ -59,8 +56,6 @@ public class QuadrupedSpatialSwingState extends QuadrupedFootState
    private final YoBoolean controlAngularX;
    private final YoBoolean controlAngularY;
    private final YoBoolean controlAngularZ;
-   
-   private final YoBoolean notInitialized;
 
    private final SpatialFeedbackControlCommand feedbackControlCommand = new SpatialFeedbackControlCommand();
 
@@ -86,19 +81,15 @@ public class QuadrupedSpatialSwingState extends QuadrupedFootState
    private final FrameQuaternion desiredFootOrientation = new FrameQuaternion();
    private final FrameVector3D desiredFootAngularVelocity = new FrameVector3D();
    private final FrameVector3D desiredFootAngularAcceleration = new FrameVector3D();
-   
-   private final YoQuadrupedTimedStep currentStepCommandSource;
 
 
    public QuadrupedSpatialSwingState(RobotQuadrant robotQuadrant, QuadrupedControllerToolbox controllerToolbox, YoQuadrupedTimedStep currentStepCommand,
                                      YoVariableRegistry parentRegistry, YoGraphicsListRegistry yoGraphicsListRegistry)
    {
-      this.currentStepCommand = new YoQuadrupedTimedStep("currentStepCommandCopy", registry);
+      this.currentStepCommand = currentStepCommand;
       String prefix = robotQuadrant.getCamelCaseName();
       this.robotQuadrant = robotQuadrant;
       this.controllerToolbox = controllerToolbox;
-      
-      supportState = new QuadrupedSupportState(robotQuadrant, controllerToolbox, registry);
 
       this.parameters = controllerToolbox.getFootControlModuleParameters();
 
@@ -115,16 +106,12 @@ public class QuadrupedSpatialSwingState extends QuadrupedFootState
       controlAngularY = new YoBoolean(prefix + "ControlAngularY", registry);
       controlAngularZ = new YoBoolean(prefix + "ControlAngularZ", registry);
       
-      notInitialized = new YoBoolean("notInitialized", registry);
-      
       controlLinearX.set(true);
       controlLinearY.set(true);
       controlLinearZ.set(true);
       controlAngularX.set(true);
       controlAngularY.set(true);
       controlAngularZ.set(true);
-      
-      currentStepCommandSource = currentStepCommand;
 
       this.frameToControl = grossHardcodedMethodToGetFrameToControlForRoboMantis(robotQuadrant, controllerToolbox);
       
@@ -175,9 +162,8 @@ public class QuadrupedSpatialSwingState extends QuadrupedFootState
    @Override
    public void onEntry()
    {
-      currentStepCommand.set(currentStepCommandSource);
-      supportState.onEntry();
-      notInitialized.set(true);
+      controllerToolbox.getFootContactState(robotQuadrant).clear();
+      updateTrajectory();
    }
 
    public void updateTrajectory()
@@ -191,7 +177,7 @@ public class QuadrupedSpatialSwingState extends QuadrupedFootState
       positionTrajectory.setInitialConditions(initialPosition, initialLinearVelocity);
       positionTrajectory.setFinalConditions(finalPosition, finalLinearVelocity);
       positionTrajectory.setSwingHeight(currentStepCommand.getGroundClearance());
-      positionTrajectory.setStepTime(timeInterval.getDuration() * 0.6);
+      positionTrajectory.setStepTime(timeInterval.getDuration());
       positionTrajectory.initialize();
       positionTrajectory.showVisualization();
 
@@ -208,34 +194,19 @@ public class QuadrupedSpatialSwingState extends QuadrupedFootState
    @Override
    public void doAction(double timeInState)
    {
-      if(timeInState < currentStepCommand.getTimeInterval().getDuration() * 0.2 || timeInState > currentStepCommand.getTimeInterval().getDuration() * 0.8)
-      {
-         supportState.doAction(timeInState);
-      }
-      
-      else
-      {
-         if(notInitialized.getBooleanValue())
-         {
-            updateTrajectory();
-            notInitialized.set(false);
-            controllerToolbox.getFootContactState(robotQuadrant).clear();
-         }
-         positionTrajectory.compute(timeInState);
-         positionTrajectory.getLinearData(desiredFootPosition, desiredFootLinearVelocity, desiredFootLinearAcceleration);
-         
-         orientationTrajectory.compute(timeInState);
-         orientationTrajectory.getAngularData(desiredFootOrientation, desiredFootAngularVelocity, desiredFootAngularAcceleration);
-         
-         feedbackControlCommand.setWeightsForSolver(parameters.getSoleOrientationWeights(), parameters.getSolePositionWeights());
-         feedbackControlCommand.setPositionGains(parameters.getSolePositionGains());
-         feedbackControlCommand.setOrientationGains(parameters.getSoleOrientationGains());
-         feedbackControlCommand.setSelectionMatrix(computeSpatialSelectionMatrix());
-         feedbackControlCommand.changeFrameAndSet(desiredFootPosition, desiredFootLinearVelocity);
-         feedbackControlCommand.changeFrameAndSet(desiredFootOrientation, desiredFootAngularVelocity);
-         feedbackControlCommand.changeFrameAndSetFeedForward(desiredFootAngularAcceleration, desiredFootLinearAcceleration);
-      }
-     
+      positionTrajectory.compute(timeInState);
+      positionTrajectory.getLinearData(desiredFootPosition, desiredFootLinearVelocity, desiredFootLinearAcceleration);
+
+      orientationTrajectory.compute(timeInState);
+      orientationTrajectory.getAngularData(desiredFootOrientation, desiredFootAngularVelocity, desiredFootAngularAcceleration);
+
+      feedbackControlCommand.setWeightsForSolver(parameters.getSoleOrientationWeights(), parameters.getSolePositionWeights());
+      feedbackControlCommand.setPositionGains(parameters.getSolePositionGains());
+      feedbackControlCommand.setOrientationGains(parameters.getSoleOrientationGains());
+      feedbackControlCommand.setSelectionMatrix(computeSpatialSelectionMatrix());
+      feedbackControlCommand.changeFrameAndSet(desiredFootPosition, desiredFootLinearVelocity);
+      feedbackControlCommand.changeFrameAndSet(desiredFootOrientation, desiredFootAngularVelocity);
+      feedbackControlCommand.changeFrameAndSetFeedForward(desiredFootAngularAcceleration, desiredFootLinearAcceleration);
    }
 
    private SelectionMatrix6D computeSpatialSelectionMatrix()
@@ -274,16 +245,6 @@ public class QuadrupedSpatialSwingState extends QuadrupedFootState
       positionTrajectory.hideVisualization();
       controllerToolbox.getFootContactState(robotQuadrant).setFullyConstrained();
    }
-   
-   @Override
-   public InverseDynamicsCommand<?> getInverseDynamicsCommand()
-   {
-      if(notInitialized.getBooleanValue() || positionTrajectory.isDone())
-      {
-         return supportState.getInverseDynamicsCommand();
-      }
-      return null;
-   }
 
    @Override
    public VirtualModelControlCommand<?> getVirtualModelControlCommand()
@@ -294,10 +255,6 @@ public class QuadrupedSpatialSwingState extends QuadrupedFootState
    @Override
    public FeedbackControlCommand<?> getFeedbackControlCommand()
    {
-      if(notInitialized.getBooleanValue() || positionTrajectory.isDone())
-      {
-         return supportState.getFeedbackControlCommand();
-      }
       return feedbackControlCommand;
    }
 
