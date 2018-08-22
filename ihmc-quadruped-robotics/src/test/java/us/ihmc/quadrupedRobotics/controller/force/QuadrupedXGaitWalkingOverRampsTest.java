@@ -1,22 +1,22 @@
 package us.ihmc.quadrupedRobotics.controller.force;
 
-import java.io.IOException;
-
+import junit.framework.AssertionFailedError;
 import org.junit.After;
 import org.junit.Before;
-
-import junit.framework.AssertionFailedError;
+import org.junit.Test;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCoreMode;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.quadrupedRobotics.*;
-import us.ihmc.quadrupedRobotics.controller.QuadrupedControlMode;
-import us.ihmc.quadrupedRobotics.model.QuadrupedInitialPositionParameters;
 import us.ihmc.quadrupedRobotics.input.managers.QuadrupedTeleopManager;
+import us.ihmc.quadrupedRobotics.model.QuadrupedInitialPositionParameters;
 import us.ihmc.robotics.testing.YoVariableTestGoal;
+import us.ihmc.simulationConstructionSetTools.util.simulationrunner.GoalOrientedTestConductor;
 import us.ihmc.simulationconstructionset.util.InclinedGroundProfile;
 import us.ihmc.simulationconstructionset.util.ground.RampsGroundProfile;
-import us.ihmc.simulationConstructionSetTools.util.simulationrunner.GoalOrientedTestConductor;
 import us.ihmc.tools.MemoryTools;
+
+import java.io.IOException;
 
 public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMultiRobotTestInterface
 {
@@ -31,7 +31,7 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
       quadrupedTestFactory = createQuadrupedTestFactory();
    }
-   
+
    @After
    public void tearDown()
    {
@@ -40,21 +40,25 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       conductor = null;
       variables = null;
       stepTeleopManager = null;
-      
+
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
-   
-   public void testWalkingOverShallowRamps(double comHeightForRoughTerrain) throws IOException
+
+   @ContinuousIntegrationTest(estimatedDuration = 80.0)
+   @Test(timeout = 2200000)
+   public void testWalkingOverShallowRamps() throws IOException
    {
       RampsGroundProfile groundProfile = new RampsGroundProfile(0.075, 0.75, 1.2);
-      
-      walkOverRamps(groundProfile, comHeightForRoughTerrain);
+
+      walkOverRamps(groundProfile, getComHeightForRoughTerrain());
    }
 
-   public void testWalkingOverAggressiveRamps(double comHeightForRoughTerrain) throws IOException
+   @ContinuousIntegrationTest(estimatedDuration = 80.0)
+   @Test(timeout = 2000000)
+   public void testWalkingOverAggressiveRamps() throws IOException
    {
       RampsGroundProfile groundProfile = new RampsGroundProfile(0.15, 0.75, 1.2);
-      walkOverRamps(groundProfile, comHeightForRoughTerrain);
+      walkOverRamps(groundProfile, getComHeightForRoughTerrain());
    }
 
    private void walkOverRamps(RampsGroundProfile groundProfile, double comHeightForRoughTerrain) throws IOException, AssertionFailedError
@@ -94,18 +98,22 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       conductor.addTimeLimit(variables.getYoTime(), 25.0);
       conductor.addTerminalGoal(YoVariableTestGoal.doubleLessThan(variables.getRobotBodyX(), 0.0));
       conductor.simulate();
-      
+
       conductor.concludeTesting();
    }
-   
-   public void testWalkingDownSlope(QuadrupedInitialPositionParameters initialPosition) throws IOException
+
+   @ContinuousIntegrationTest(estimatedDuration = 45.0)
+   @Test(timeout = 1200000)
+   public void testWalkingDownSlope() throws IOException
    {
-      walkSlope(0.2, initialPosition);
+      walkSlope(0.2, getWalkingDownSlopePosition());
    }
 
-   public void testWalkingUpSlope(QuadrupedInitialPositionParameters initialPosition) throws IOException
+   @ContinuousIntegrationTest(estimatedDuration = 50.0)
+   @Test(timeout = 980000)
+   public void testWalkingUpSlope() throws IOException
    {
-      walkSlope(-0.1, initialPosition);
+      walkSlope(-0.1, getWalkingUpSlopePosition());
    }
 
    private void walkSlope(double slope, QuadrupedInitialPositionParameters initialPosition) throws IOException, AssertionFailedError
@@ -142,9 +150,15 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       conductor.addTimeLimit(variables.getYoTime(), 9.0);
       conductor.addTerminalGoal(YoVariableTestGoal.doubleLessThan(variables.getRobotBodyX(), 0.0));
       conductor.simulate();
-      
+
       conductor.concludeTesting();
    }
 
    public abstract double getDesiredWalkingVelocity();
+
+   public abstract double getComHeightForRoughTerrain();
+
+   public abstract QuadrupedInitialPositionParameters getWalkingDownSlopePosition();
+
+   public abstract QuadrupedInitialPositionParameters getWalkingUpSlopePosition();
 }

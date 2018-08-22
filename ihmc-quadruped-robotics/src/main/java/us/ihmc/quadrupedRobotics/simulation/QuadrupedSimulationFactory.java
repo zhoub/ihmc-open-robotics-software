@@ -13,7 +13,6 @@ import us.ihmc.communication.util.NetworkPorts;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
-import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.graphicsDescription.yoGraphics.YoGraphicsListRegistry;
 import us.ihmc.humanoidRobotics.bipedSupportPolygons.ContactablePlaneBody;
 import us.ihmc.jMonkeyEngineToolkit.GroundProfile3D;
@@ -61,7 +60,7 @@ import us.ihmc.simulationconstructionset.gui.tools.SimulationOverheadPlotterFact
 import us.ihmc.simulationconstructionset.util.LinearGroundContactModel;
 import us.ihmc.simulationconstructionset.util.RobotController;
 import us.ihmc.simulationconstructionset.util.ground.*;
-import us.ihmc.stateEstimation.humanoid.kinematicsBasedStateEstimation.DRCKinematicsBasedStateEstimator;
+import us.ihmc.stateEstimation.humanoid.StateEstimatorController;
 import us.ihmc.tools.factories.FactoryTools;
 import us.ihmc.tools.factories.OptionalFactoryField;
 import us.ihmc.tools.factories.RequiredFactoryField;
@@ -128,7 +127,7 @@ public class QuadrupedSimulationFactory
    private QuadrantDependentList<ContactablePlaneBody> contactableFeet;
    private List<ContactablePlaneBody> contactablePlaneBodies;
    private QuadrantDependentList<FootSwitchInterface> footSwitches;
-   private DRCKinematicsBasedStateEstimator stateEstimator;
+   private StateEstimatorController stateEstimator;
    private CenterOfMassDataHolder centerOfMassDataHolder = null;
    private PacketCommunicator packetCommunicator;
    private GlobalDataProducer globalDataProducer;
@@ -464,9 +463,8 @@ public class QuadrupedSimulationFactory
 
       if (useStateEstimator.get())
       {
-         Quaternion initialEstimationLinkOrientation = new Quaternion();
-         sdfRobot.get().getRootJoint().getJointTransform3D().getRotation(initialEstimationLinkOrientation);
-         stateEstimator.initializeEstimatorToActual(initialCoMPosition, initialEstimationLinkOrientation);
+         RigidBodyTransform rootJointTransform = sdfRobot.get().getRootJoint().getJointTransform3D();
+         stateEstimator.initializeEstimator(rootJointTransform);
       }
 
       sdfRobot.get().setGravity(gravity.get());
