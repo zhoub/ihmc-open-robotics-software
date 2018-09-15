@@ -25,6 +25,26 @@ public abstract class AvatarPrivilegedConfigurationPushRecoveryTest extends Avat
 
 
       // push parameters:
+      Vector3D forceDirection = new Vector3D(-1.0, 0, 0.0);
+      double magnitude = percentWeight * totalMass * 9.81;
+      double duration = 0.05;
+      pushRobotController.applyForce(forceDirection, magnitude, duration);
+
+      validateTest(footsteps);
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @Test(timeout = 150000)
+   public void testPushBackStanding() throws Exception
+   {
+      FootstepDataListMessage footsteps = createStandingFootstepMessage();
+      footsteps.setAreFootstepsAdjustable(false);
+      FlatGroundEnvironment flatGround = new FlatGroundEnvironment();
+      setupAndRunTest(footsteps, flatGround);
+      drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(1.5);
+
+
+      // push parameters:
       Vector3D forceDirection = new Vector3D(1.0, 0, 0.0);
       double magnitude = percentWeight * totalMass * 9.81;
       double duration = 0.05;
