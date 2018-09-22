@@ -9,6 +9,7 @@ import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasStepInPlaceTest extends AvatarStepInPlaceTest
@@ -46,7 +47,7 @@ public class AtlasStepInPlaceTest extends AvatarStepInPlaceTest
 
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
+   @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testStepInPlace() throws SimulationExceededMaximumTimeException
    {
