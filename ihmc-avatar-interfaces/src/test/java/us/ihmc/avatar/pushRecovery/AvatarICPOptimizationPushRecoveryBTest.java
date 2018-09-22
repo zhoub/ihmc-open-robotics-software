@@ -3,6 +3,7 @@ package us.ihmc.avatar.pushRecovery;
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import org.junit.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.robotics.stateMachine.core.StateTransitionCondition;
@@ -42,7 +43,7 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testPushICPOptimizationOutwardPushInSlowSwing() throws Exception
    {
@@ -63,7 +64,7 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testPushICPOptimizationDiagonalOutwardPushInSwing() throws Exception
    {
@@ -84,7 +85,7 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testPushICPOptimizationDiagonalYawingOutwardPushInSwing() throws Exception
    {
@@ -182,7 +183,7 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testPushICPOptimizationLongBackwardPushInSwing() throws Exception
    {
