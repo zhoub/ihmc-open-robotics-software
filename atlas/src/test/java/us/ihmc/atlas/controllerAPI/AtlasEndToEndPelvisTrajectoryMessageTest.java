@@ -35,6 +35,65 @@ public class AtlasEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisTraj
       super.testSixDoFMovementsOfPelvis();
    }
 
+   @ContinuousIntegrationTest(estimatedDuration = 30.1)
+   @Test(timeout = 150000)
+   public void testSingleWaypoint() throws Exception
+   {
+      super.testSingleWaypoint();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 29.1)
+   @Test(timeout = 150000)
+   public void testSingleWaypointAndAbort() throws Exception
+   {
+      super.testSingleWaypointAndAbort();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 75.8)
+   @Test(timeout = 380000)
+   public void testSingleWaypointAndWalk() throws Exception
+   {
+      super.testSingleWaypointAndWalk();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 22.1, categoriesOverride = IntegrationCategory.SLOW)
+   @Test(timeout = 110000)
+   public void testMultipleWaypoints() throws Exception
+   {
+      super.testMultipleWaypoints();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 29.3)
+   @Test(timeout = 150000)
+   @SuppressWarnings("unchecked")
+   public void testStopAllTrajectory() throws Exception
+   {
+      super.testStopAllTrajectory();
+   }
+
+   @Override
+   @ContinuousIntegrationTest(estimatedDuration = 67.1, categoriesOverride = IntegrationCategory.SLOW)
+   @Test(timeout = 340000)
+   public void testHeightUsingMultipleWaypoints() throws Exception
+   {
+      super.testHeightUsingMultipleWaypoints();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 72.0)
+   @Test(timeout = 360000)
+   public void testHeightUsingMultipleWaypointsWhileWalking() throws Exception
+   {
+      super.testHeightUsingMultipleWaypointsWhileWalking();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 61.1, categoriesOverride = IntegrationCategory.SLOW)
+   @Test(timeout = 310000)
+   public void testHeightModeSwitchWhileWalking() throws Exception
+   {
+      super.testHeightModeSwitchWhileWalking();
+   }
+
+
    @ContinuousIntegrationTest(estimatedDuration = 91.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 460000)
    public void testSingleWaypointThenManualChange() throws Exception

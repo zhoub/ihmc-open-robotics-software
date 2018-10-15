@@ -8,6 +8,7 @@ import us.ihmc.avatar.controllerAPI.EndToEndWholeBodyTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 public class AtlasEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBodyTrajectoryMessageTest
@@ -28,7 +29,7 @@ public class AtlasEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 16.8)
+   @ContinuousIntegrationTest(estimatedDuration = 16.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 84000)
    public void testIssue47BadChestTrajectoryMessage() throws Exception
    {
@@ -36,7 +37,7 @@ public class AtlasEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 15.8)
+   @ContinuousIntegrationTest(estimatedDuration = 15.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 79000)
    public void testIssue47BadPelvisTrajectoryMessage() throws Exception
    {
@@ -60,7 +61,7 @@ public class AtlasEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 63.1)
+   @ContinuousIntegrationTest(estimatedDuration = 63.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 320000)
    public void testSingleWaypointUsingMessageOfMessagesWithDelays() throws Exception
    {

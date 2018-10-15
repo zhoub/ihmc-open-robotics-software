@@ -8,6 +8,7 @@ import us.ihmc.avatar.controllerAPI.EndToEndPelvisOrientationTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -40,7 +41,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 40.8)
+   @ContinuousIntegrationTest(estimatedDuration = 40.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 200000)
    public void testWalkingAfterTrajectory() throws SimulationExceededMaximumTimeException
    {
@@ -48,7 +49,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.4)
+   @ContinuousIntegrationTest(estimatedDuration = 33.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 170000)
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
    {
@@ -56,7 +57,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 34.9)
+   @ContinuousIntegrationTest(estimatedDuration = 34.9, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 170000)
    public void testWalkingWithUserControl() throws SimulationExceededMaximumTimeException
    {
@@ -64,7 +65,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 29.3)
+   @ContinuousIntegrationTest(estimatedDuration = 29.3, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testCustomControlFrame() throws SimulationExceededMaximumTimeException
    {

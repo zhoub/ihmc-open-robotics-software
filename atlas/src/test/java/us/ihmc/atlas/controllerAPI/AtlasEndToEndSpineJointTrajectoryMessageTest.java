@@ -43,7 +43,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 65.5)
+   @ContinuousIntegrationTest(estimatedDuration = 65.5, categoriesOverride = IntegrationCategory.SLOW)
    @Test (timeout = 330000)
    public void testMultipleWaypoints() throws SimulationExceededMaximumTimeException
    {
@@ -51,7 +51,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 68.9)
+   @ContinuousIntegrationTest(estimatedDuration = 68.9, categoriesOverride = IntegrationCategory.SLOW)
    @Test (timeout = 340000)
    public void testLongMessage() throws SimulationExceededMaximumTimeException
    {
@@ -67,7 +67,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 50.1)
+   @ContinuousIntegrationTest(estimatedDuration = 50.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test (timeout = 250000)
    public void testMessageWithDifferentTrajectoryLengthsPerJoint() throws SimulationExceededMaximumTimeException
    {
