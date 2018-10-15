@@ -12,6 +12,7 @@ import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimiza
 import us.ihmc.commonWalkingControlModules.configurations.ICPWithTimeFreezingPlannerParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.yoVariables.variable.YoBoolean;
 
@@ -60,7 +61,7 @@ public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkin
 
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.4)
+   @ContinuousIntegrationTest(estimatedDuration = 57.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 290000)
    public void testForwardWalk() throws SimulationExceededMaximumTimeException
    {
@@ -81,14 +82,14 @@ public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkin
       super.testForwardWalkTransferDelayedMomentum();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
+   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 300000)
    public void testForwardWalkTransferBigDelayedMomentum() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalkTransferBigDelayedMomentum();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
+   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 300000)
    public void testForwardWalkSwingDelayedMomentum() throws SimulationExceededMaximumTimeException
    {
@@ -102,7 +103,7 @@ public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkin
       super.testForwardWalkZeroMomentumFirstStep();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
+   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 300000)
    public void testForwardWalkNoMomentumFirstStep() throws SimulationExceededMaximumTimeException
    {
