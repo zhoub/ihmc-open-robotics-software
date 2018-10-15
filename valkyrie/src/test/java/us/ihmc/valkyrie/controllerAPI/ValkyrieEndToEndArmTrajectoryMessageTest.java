@@ -6,6 +6,7 @@ import us.ihmc.avatar.controllerAPI.EndToEndArmTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
@@ -42,7 +43,7 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 81.2)
+   @ContinuousIntegrationTest(estimatedDuration = 81.2, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 410000)
    public void testQueuedMessages() throws Exception
    {
@@ -58,7 +59,7 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 16.8)
+   @ContinuousIntegrationTest(estimatedDuration = 16.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 84000)
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -66,7 +67,7 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 31.6)
+   @ContinuousIntegrationTest(estimatedDuration = 31.6, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 160000)
    public void testSingleTrajectoryPoint() throws Exception
    {

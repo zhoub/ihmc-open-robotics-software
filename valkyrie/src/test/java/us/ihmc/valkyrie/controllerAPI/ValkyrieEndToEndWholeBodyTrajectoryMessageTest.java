@@ -6,10 +6,11 @@ import us.ihmc.avatar.controllerAPI.EndToEndWholeBodyTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
-public class ValkyrieEndToWholeBodyTrajectoryMessageTest extends EndToEndWholeBodyTrajectoryMessageTest
+public class ValkyrieEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBodyTrajectoryMessageTest
 {
    private final ValkyrieRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);
 
@@ -26,7 +27,7 @@ public class ValkyrieEndToWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 22.1)
+   @ContinuousIntegrationTest(estimatedDuration = 22.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 110000)
    public void testIssue47BadChestTrajectoryMessage() throws Exception
    {
@@ -34,7 +35,7 @@ public class ValkyrieEndToWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 17.1)
+   @ContinuousIntegrationTest(estimatedDuration = 17.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 86000)
    public void testIssue47BadPelvisTrajectoryMessage() throws Exception
    {
@@ -58,7 +59,7 @@ public class ValkyrieEndToWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 69.3)
+   @ContinuousIntegrationTest(estimatedDuration = 69.3, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 350000)
    public void testSingleWaypointUsingMessageOfMessagesWithDelays() throws Exception
    {

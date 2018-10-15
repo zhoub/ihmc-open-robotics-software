@@ -1,11 +1,11 @@
 package us.ihmc.valkyrie.controllerAPI;
 
 import org.junit.Test;
-
 import us.ihmc.avatar.controllerAPI.EndToEndPelvisTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
@@ -26,7 +26,7 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 68.6)
+   @ContinuousIntegrationTest(estimatedDuration = 68.6, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 340000)
    public void testHeightModeSwitchWhileWalking() throws Exception
    {
@@ -34,7 +34,7 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 67.1)
+   @ContinuousIntegrationTest(estimatedDuration = 67.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 340000)
    public void testHeightUsingMultipleWaypoints() throws Exception
    {
@@ -42,7 +42,7 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 73.9)
+   @ContinuousIntegrationTest(estimatedDuration = 73.9, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 370000)
    public void testHeightUsingMultipleWaypointsWhileWalking() throws Exception
    {
@@ -50,7 +50,7 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 24.1)
+   @ContinuousIntegrationTest(estimatedDuration = 24.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 120000)
    public void testMultipleWaypoints() throws Exception
    {

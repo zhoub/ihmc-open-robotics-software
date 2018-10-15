@@ -46,7 +46,7 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 100.0)
+   @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 500000)
    public void testWalkingUpRampWithShortSteps() throws SimulationExceededMaximumTimeException
    {
@@ -62,7 +62,7 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 100.9)
+   @ContinuousIntegrationTest(estimatedDuration = 100.9, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 500000)
    public void testWalkingUpRampWithShortStepsALittleTooLow() throws SimulationExceededMaximumTimeException
    {

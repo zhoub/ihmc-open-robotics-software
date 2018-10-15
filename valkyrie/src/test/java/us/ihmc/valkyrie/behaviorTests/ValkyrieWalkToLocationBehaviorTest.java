@@ -30,7 +30,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
+   @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testTurn361DegreesInPlace() throws SimulationExceededMaximumTimeException
    {
@@ -54,7 +54,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 63.3)
+   @ContinuousIntegrationTest(estimatedDuration = 63.3, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 320000)
    public void testWalkAtAngleAndFinishAlignedWithWalkingPath() throws SimulationExceededMaximumTimeException
    {
@@ -62,7 +62,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 71.6)
+   @ContinuousIntegrationTest(estimatedDuration = 71.6, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 360000)
    public void testWalkAtAngleUsingStartOrientation() throws SimulationExceededMaximumTimeException
    {
@@ -78,7 +78,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 108.6)
+   @ContinuousIntegrationTest(estimatedDuration = 108.6, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 540000)
    public void testWalkAtAngleUsingTargetOrientation() throws SimulationExceededMaximumTimeException
    {

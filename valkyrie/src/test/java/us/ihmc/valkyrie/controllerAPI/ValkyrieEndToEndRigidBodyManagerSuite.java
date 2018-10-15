@@ -13,7 +13,7 @@ import org.junit.runners.Suite;
    ValkyrieEndToEndHeadTrajectoryMessageTest.class,
    ValkyrieEndToEndNeckTrajectoryMessageTest.class,
    ValkyrieEndToEndNeckDesiredAccelerationsMessageTest.class,
-   ValkyrieEndToWholeBodyTrajectoryMessageTest.class
+   ValkyrieEndToEndWholeBodyTrajectoryMessageTest.class
 })
 
 public class ValkyrieEndToEndRigidBodyManagerSuite

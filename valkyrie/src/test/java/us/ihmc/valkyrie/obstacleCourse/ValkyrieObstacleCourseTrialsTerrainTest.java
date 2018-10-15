@@ -43,7 +43,7 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 81.4)
+   @ContinuousIntegrationTest(estimatedDuration = 81.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 410000)
    public void testTrialsTerrainZigzagHurdlesScript() throws SimulationExceededMaximumTimeException
    {
@@ -67,7 +67,7 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 177.6)
+   @ContinuousIntegrationTest(estimatedDuration = 177.6, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 890000)
    public void testTrialsTerrainSlopeScript() throws SimulationExceededMaximumTimeException
    {

@@ -6,6 +6,7 @@ import us.ihmc.avatar.controllerAPI.EndToEndHandTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
@@ -32,7 +33,7 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 36.8)
+   @ContinuousIntegrationTest(estimatedDuration = 36.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 180000)
    public void testMultipleTrajectoryPoints() throws Exception
    {
@@ -56,7 +57,7 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 17.1)
+   @ContinuousIntegrationTest(estimatedDuration = 17.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 86000)
    public void testQueueWithWrongPreviousId() throws Exception
    {
