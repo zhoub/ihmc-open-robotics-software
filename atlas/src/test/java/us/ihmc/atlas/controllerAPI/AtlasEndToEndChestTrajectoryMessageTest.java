@@ -8,6 +8,7 @@ import us.ihmc.avatar.controllerAPI.EndToEndChestTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajectoryMessageTest
@@ -36,7 +37,7 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.1)
+   @ContinuousIntegrationTest(estimatedDuration = 37.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 190000)
    public void testLookingLeftAndRightInVariousTrajectoryFrames() throws Exception
    {
@@ -44,7 +45,7 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 34.9)
+   @ContinuousIntegrationTest(estimatedDuration = 34.9, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 170000)
    public void testMessageWithALotOfTrajectoryPoints() throws Exception
    {
@@ -52,7 +53,7 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 35.4)
+   @ContinuousIntegrationTest(estimatedDuration = 35.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 180000)
    public void testMessageWithALotOfTrajectoryPointsExpressedInPelvisZUp() throws Exception
    {
@@ -76,7 +77,7 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 26.4)
+   @ContinuousIntegrationTest(estimatedDuration = 26.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 130000)
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
@@ -84,7 +85,7 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 41.2)
+   @ContinuousIntegrationTest(estimatedDuration = 41.2, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 210000)
    public void testQueueWithUsingDifferentTrajectoryFrameWithoutOverride() throws Exception
    {
@@ -92,7 +93,7 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 17.3)
+   @ContinuousIntegrationTest(estimatedDuration = 17.3, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 87000)
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -100,7 +101,7 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 25.5)
+   @ContinuousIntegrationTest(estimatedDuration = 25.5, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 130000)
    public void testSelectionMatrixDisableRandomAxisWithSingleTrajectoryPoint() throws Exception
    {
@@ -108,7 +109,7 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 26.7)
+   @ContinuousIntegrationTest(estimatedDuration = 26.7, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 130000)
    public void testSelectionMatrixWithAllAxisOffUsingSingleTrajectoryPoint() throws Exception
    {
@@ -116,7 +117,7 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 23.8)
+   @ContinuousIntegrationTest(estimatedDuration = 23.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 120000)
    public void testSettingWeightMatrixUsingSingleTrajectoryPoint() throws Exception
    {

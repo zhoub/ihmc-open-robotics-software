@@ -8,6 +8,7 @@ import us.ihmc.avatar.controllerAPI.EndToEndArmTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectoryMessageTest
@@ -44,7 +45,7 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.9)
+   @ContinuousIntegrationTest(estimatedDuration = 60.9, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 300000)
    public void testQueuedMessages() throws Exception
    {
@@ -60,7 +61,7 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 16.9)
+   @ContinuousIntegrationTest(estimatedDuration = 16.9, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 85000)
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -68,7 +69,7 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 27.8)
+   @ContinuousIntegrationTest(estimatedDuration = 27.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 140000)
    public void testSingleTrajectoryPoint() throws Exception
    {
