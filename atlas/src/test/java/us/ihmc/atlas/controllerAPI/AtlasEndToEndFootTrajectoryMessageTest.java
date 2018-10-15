@@ -8,6 +8,7 @@ import us.ihmc.avatar.controllerAPI.EndToEndFootTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -23,7 +24,7 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
       super.testCustomControlPoint();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 78.1)
+   @ContinuousIntegrationTest(estimatedDuration = 78.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 390000)
    @Override
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
@@ -39,7 +40,7 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
       super.testMultipleTrajectoryPoints();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 96.2)
+   @ContinuousIntegrationTest(estimatedDuration = 96.2, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 480000)
    @Override
    public void testQueuedMessages() throws SimulationExceededMaximumTimeException
@@ -55,7 +56,7 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
       super.testQueueStoppedWithOverrideMessage();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 58.5)
+   @ContinuousIntegrationTest(estimatedDuration = 58.5, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 290000)
    @Override
    public void testQueueWithWrongPreviousId() throws SimulationExceededMaximumTimeException

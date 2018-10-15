@@ -17,6 +17,7 @@ import us.ihmc.commonWalkingControlModules.controllerCore.FeedbackControllerTool
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.MessageTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -51,7 +52,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 31.8)
+   @ContinuousIntegrationTest(estimatedDuration = 31.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 160000)
    public void testMultipleTrajectoryPoints() throws Exception
    {
@@ -75,7 +76,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 19.3)
+   @ContinuousIntegrationTest(estimatedDuration = 19.3, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 97000)
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -102,7 +103,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
     * Test revealing a bug that was preventing the trajectory from flipping the sign of the final orientation (necessary to prevent an extra rotation).
     * This bug was due to limiting the angle described by a Quaternion to be in [-Pi; Pi].
     */
-   @ContinuousIntegrationTest(estimatedDuration = 30.6)
+   @ContinuousIntegrationTest(estimatedDuration = 30.6, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testBugFromActualSimDataWithTwoTrajectoryPoints() throws Exception
    {
