@@ -8,6 +8,7 @@ import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.DRCSwingTrajectoryTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -42,7 +43,7 @@ public class AtlasSwingTrajectoryTest extends DRCSwingTrajectoryTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 55.8)
+   @ContinuousIntegrationTest(estimatedDuration = 55.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 280000)
    public void testReallyHighFootstep() throws SimulationExceededMaximumTimeException
    {
@@ -50,7 +51,7 @@ public class AtlasSwingTrajectoryTest extends DRCSwingTrajectoryTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 126.9)
+   @ContinuousIntegrationTest(estimatedDuration = 126.9, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 630000)
    public void testSelfCollisionAvoidance() throws SimulationExceededMaximumTimeException
    {

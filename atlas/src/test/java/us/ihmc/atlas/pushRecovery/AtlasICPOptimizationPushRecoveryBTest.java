@@ -123,7 +123,7 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
       super.testPushICPOptimizationLongBackwardPushInSwing();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testPushICPOptimizationLongForwardPushInSwing() throws Exception
    {
@@ -132,7 +132,7 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testPushICPOptimizationNoPush() throws Exception
    {

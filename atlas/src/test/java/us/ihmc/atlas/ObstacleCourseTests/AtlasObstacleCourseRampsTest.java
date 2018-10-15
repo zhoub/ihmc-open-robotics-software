@@ -47,7 +47,7 @@ public class AtlasObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 88.8)
+   @ContinuousIntegrationTest(estimatedDuration = 88.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 470000)
    public void testWalkingUpRampWithShortSteps() throws SimulationExceededMaximumTimeException
    {
@@ -55,7 +55,7 @@ public class AtlasObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 88.8)
+   @ContinuousIntegrationTest(estimatedDuration = 88.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 470000)
    public void testWalkingUpRampWithShortStepsALittleTooHigh() throws SimulationExceededMaximumTimeException
    {

@@ -41,7 +41,7 @@ public class AtlasObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTrial
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 139.1)
+   @ContinuousIntegrationTest(estimatedDuration = 139.1, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 700000)
    public void testTrialsTerrainSlopeScript() throws SimulationExceededMaximumTimeException
    {
@@ -57,7 +57,7 @@ public class AtlasObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTrial
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 86.6)
+   @ContinuousIntegrationTest(estimatedDuration = 86.6, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 430000)
    public void testTrialsTerrainZigzagHurdlesScript() throws SimulationExceededMaximumTimeException
    {

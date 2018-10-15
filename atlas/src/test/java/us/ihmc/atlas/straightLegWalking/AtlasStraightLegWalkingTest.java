@@ -20,7 +20,7 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
    private final AtlasRobotModel atlasRobotModel = new MyAtlasRobotModel();
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 300000)
    public void testForwardWalking() throws SimulationExceededMaximumTimeException
    {
@@ -28,7 +28,7 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 400000)
    public void testSlowerWalking() throws SimulationExceededMaximumTimeException
    {
@@ -36,7 +36,7 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 167.7)
+   @ContinuousIntegrationTest(estimatedDuration = 167.7, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 200000000)
    public void testWalkingOverCinderBlockField() throws Exception
    {
@@ -44,7 +44,7 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 167.7)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 520000)
    public void testWalkingOverStairs() throws Exception
    {

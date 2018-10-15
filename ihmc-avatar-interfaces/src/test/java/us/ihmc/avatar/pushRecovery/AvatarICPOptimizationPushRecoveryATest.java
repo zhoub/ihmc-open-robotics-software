@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 public abstract class AvatarICPOptimizationPushRecoveryATest extends AvatarICPOptimizationPushRecoveryTestSetup
 {
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testPushICPOptimizationLongInwardPushInSwing() throws Exception
    {

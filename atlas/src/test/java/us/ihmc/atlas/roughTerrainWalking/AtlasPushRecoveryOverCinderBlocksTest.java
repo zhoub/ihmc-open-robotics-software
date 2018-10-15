@@ -21,7 +21,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
+@ContinuousIntegrationPlan(categories = {IntegrationCategory.SLOW})
 public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOverCinderBlocksTest
 {
    @Override

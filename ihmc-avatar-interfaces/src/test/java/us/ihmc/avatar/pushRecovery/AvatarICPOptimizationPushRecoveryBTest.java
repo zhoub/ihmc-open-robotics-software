@@ -14,7 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOptimizationPushRecoveryTestSetup
 {
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testPushICPOptimizationNoPush() throws Exception
    {
@@ -162,7 +162,7 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
+   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 150000)
    public void testPushICPOptimizationLongForwardPushInSwing() throws Exception
    {

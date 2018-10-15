@@ -64,7 +64,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 58.5)
+   @ContinuousIntegrationTest(estimatedDuration = 58.5, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 290000)
    public void testWalkingOffOfMediumPlatformSlowSteps() throws SimulationExceededMaximumTimeException
    {
@@ -72,7 +72,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 39.0)
+   @ContinuousIntegrationTest(estimatedDuration = 39.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 190000)
    public void testWalkingOntoMediumPlatformToesTouching() throws SimulationExceededMaximumTimeException
    {
@@ -88,7 +88,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 39.4)
+   @ContinuousIntegrationTest(estimatedDuration = 39.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 200000)
    public void testWalkingOverSmallPlatformQuickly() throws SimulationExceededMaximumTimeException
    {

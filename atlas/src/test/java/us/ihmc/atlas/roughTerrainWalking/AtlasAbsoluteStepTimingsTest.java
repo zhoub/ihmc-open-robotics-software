@@ -8,13 +8,14 @@ import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.AvatarAbsoluteStepTimingsTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasAbsoluteStepTimingsTest extends AvatarAbsoluteStepTimingsTest
 {
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 142.2)
+   @ContinuousIntegrationTest(estimatedDuration = 142.2, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 900000)
    public void testTakingStepsWithAbsoluteTimings() throws SimulationExceededMaximumTimeException
    {
