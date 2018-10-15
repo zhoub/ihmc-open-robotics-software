@@ -46,7 +46,7 @@ public class GenericQuadrupedXGaitRandomWalkingTest extends QuadrupedXGaitRandom
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 65.0)
+   @ContinuousIntegrationTest(estimatedDuration = 65.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 1200000)
    public void testWalkingRandomVelocitiesStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

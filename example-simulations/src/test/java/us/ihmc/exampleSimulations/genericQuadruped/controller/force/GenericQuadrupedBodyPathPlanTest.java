@@ -18,7 +18,7 @@ public class GenericQuadrupedBodyPathPlanTest extends QuadrupedBodyPathPlanTest
    }
 
    @Test(timeout = 200000)
-   @ContinuousIntegrationTest(estimatedDuration = 100)
+   @ContinuousIntegrationTest(estimatedDuration = 100, categoriesOverride = IntegrationCategory.SLOW)
    @Override
    public void testSimpleBodyPathPlan()
    {

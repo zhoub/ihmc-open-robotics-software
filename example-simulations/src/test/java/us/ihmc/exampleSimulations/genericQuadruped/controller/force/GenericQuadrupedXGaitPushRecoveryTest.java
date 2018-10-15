@@ -1,5 +1,7 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
+import org.junit.Test;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -26,4 +28,19 @@ public class GenericQuadrupedXGaitPushRecoveryTest extends QuadrupedXGaitPushRec
    {
       return 0.35;
    }
+
+   @ContinuousIntegrationTest(estimatedDuration = 30.0)
+   @Test(timeout = 630000)
+   public void testWalkingForwardFastWithPush()
+   {
+      super.testWalkingForwardFastWithPush();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Test(timeout = 630000)
+   public void testScriptedWalkingForwardFastWithPush()
+   {
+      super.testScriptedWalkingForwardFastWithPush();
+   }
+
 }

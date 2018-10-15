@@ -1,5 +1,7 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
+import org.junit.Test;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -9,6 +11,9 @@ import us.ihmc.exampleSimulations.genericQuadruped.parameters.GenericQuadrupedDe
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedXGaitWalkingOverRampsTest;
 import us.ihmc.quadrupedRobotics.model.QuadrupedInitialPositionParameters;
+import us.ihmc.simulationconstructionset.util.ground.RampsGroundProfile;
+
+import java.io.IOException;
 
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedXGaitWalkingOverRampsTest extends QuadrupedXGaitWalkingOverRampsTest
@@ -41,6 +46,34 @@ public class GenericQuadrupedXGaitWalkingOverRampsTest extends QuadrupedXGaitWal
    public QuadrupedTestFactory createQuadrupedTestFactory()
    {
       return new GenericQuadrupedTestFactory();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 80.0)
+   @Test(timeout = 2200000)
+   public void testWalkingOverShallowRamps() throws IOException
+   {
+      super.testWalkingOverShallowRamps();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 80.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Test(timeout = 2000000)
+   public void testWalkingOverAggressiveRamps() throws IOException
+   {
+      super.testWalkingOverAggressiveRamps();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 45.0)
+   @Test(timeout = 1200000)
+   public void testWalkingDownSlope() throws IOException
+   {
+      super.testWalkingDownSlope();
+   }
+
+   @ContinuousIntegrationTest(estimatedDuration = 50.0)
+   @Test(timeout = 980000)
+   public void testWalkingUpSlope() throws IOException
+   {
+      super.testWalkingUpSlope();
    }
 
 

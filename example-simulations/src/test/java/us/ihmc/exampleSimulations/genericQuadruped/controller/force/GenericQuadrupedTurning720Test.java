@@ -30,7 +30,7 @@ public class GenericQuadrupedTurning720Test extends QuadrupedXGaitTurning720Test
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 394.8)
+   @ContinuousIntegrationTest(estimatedDuration = 394.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 2000000)
    public void rotate720InPlaceLeft() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

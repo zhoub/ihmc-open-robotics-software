@@ -34,15 +34,15 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
       super.testWalkingOverTiledGround();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
-   @Test(timeout = 2000000)
+   @ContinuousIntegrationTest(estimatedDuration = 80.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Test(timeout = 200000)
    public void testWalkingOverSingleStepUp() throws IOException, AssertionFailedError
    {
       xGaitSettings = new GenericQuadrupedXGaitSettings();
       super.testWalkingOverSingleStepUp();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
+   @ContinuousIntegrationTest(estimatedDuration = 80.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 2000000)
    public void testWalkingOverConsecutiveRamps() throws IOException, AssertionFailedError
    {
