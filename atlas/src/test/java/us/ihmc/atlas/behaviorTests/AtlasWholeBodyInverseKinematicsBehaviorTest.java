@@ -40,7 +40,7 @@ public class AtlasWholeBodyInverseKinematicsBehaviorTest extends WholeBodyInvers
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 46.5)
+   @ContinuousIntegrationTest(estimatedDuration = 46.5, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 230000)
    public void testSolvingForBothHandPoses() throws SimulationExceededMaximumTimeException, IOException
    {
@@ -56,7 +56,7 @@ public class AtlasWholeBodyInverseKinematicsBehaviorTest extends WholeBodyInvers
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 48.8)
+   @ContinuousIntegrationTest(estimatedDuration = 48.8, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 240000)
    public void testSolvingForHandAngularLinearControl() throws SimulationExceededMaximumTimeException, IOException
    {
@@ -72,7 +72,7 @@ public class AtlasWholeBodyInverseKinematicsBehaviorTest extends WholeBodyInvers
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 47.0)
+   @ContinuousIntegrationTest(estimatedDuration = 47.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 230000)
    public void testSolvingForHandSelectionMatrix() throws SimulationExceededMaximumTimeException, IOException
    {
