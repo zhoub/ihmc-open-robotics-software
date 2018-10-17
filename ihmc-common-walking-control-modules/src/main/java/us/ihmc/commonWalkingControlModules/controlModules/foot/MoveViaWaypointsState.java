@@ -60,7 +60,7 @@ public class MoveViaWaypointsState extends AbstractFootControlState
       Collection<ReferenceFrame> trajectoryFrames = controllerToolbox.getTrajectoryFrames();
       ReferenceFrame pelvisFrame = pelvis.getBodyFixedFrame();
       ankleFrame = foot.getParentJoint().getFrameAfterJoint();
-      controlFrame = ankleFrame;
+      controlFrame = controllerToolbox.getFullRobotModel().getSoleFrame(robotSide);
 
       poseController = new RigidBodyPoseController(foot, pelvis, rootBody, trajectoryFrames, controlFrame, pelvisFrame, yoTime, null, graphicsListRegistry,
                                                    registry);
