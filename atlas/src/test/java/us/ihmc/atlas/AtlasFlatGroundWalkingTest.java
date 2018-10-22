@@ -1,9 +1,9 @@
 package us.ihmc.atlas;
 
 import org.junit.Assume;
+import org.junit.internal.AssumptionViolatedException;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.internal.AssumptionViolatedException;
 
 import us.ihmc.avatar.DRCFlatGroundWalkingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -35,7 +35,7 @@ public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
       super.testFlatGroundWalking();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 348.7, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testAtlasFlatGroundWalkingWithShapeCollision() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {

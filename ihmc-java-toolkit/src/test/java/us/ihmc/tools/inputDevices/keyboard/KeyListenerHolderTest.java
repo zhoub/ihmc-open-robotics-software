@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.graphicsDescription.input.keyboard.KeyListener;
 import us.ihmc.graphicsDescription.input.keyboard.KeyListenerHolder;
-import us.ihmc.tools.inputDevices.keyboard.Key;
 
 public class KeyListenerHolderTest
 {

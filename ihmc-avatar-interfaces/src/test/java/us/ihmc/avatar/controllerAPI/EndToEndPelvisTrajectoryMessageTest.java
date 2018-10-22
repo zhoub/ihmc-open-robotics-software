@@ -11,8 +11,8 @@ import static us.ihmc.avatar.controllerAPI.EndToEndHandTrajectoryMessageTest.fin
 import java.util.Random;
 
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

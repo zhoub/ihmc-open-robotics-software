@@ -3,10 +3,10 @@ package us.ihmc.robotics.testing;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import gnu.trove.list.array.TDoubleArrayList;
 import org.ejml.data.DenseMatrix64F;
 
 import Jama.Matrix;
+import gnu.trove.list.array.TDoubleArrayList;
 
 public class JUnitTools
 {

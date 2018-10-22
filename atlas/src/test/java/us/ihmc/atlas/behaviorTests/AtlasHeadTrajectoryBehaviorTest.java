@@ -45,7 +45,7 @@ public class AtlasHeadTrajectoryBehaviorTest extends DRCHeadTrajectoryBehaviorTe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.6, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testHeadRoll() throws SimulationExceededMaximumTimeException
    {
@@ -53,7 +53,7 @@ public class AtlasHeadTrajectoryBehaviorTest extends DRCHeadTrajectoryBehaviorTe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.6, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testHeadYaw() throws SimulationExceededMaximumTimeException
    {
@@ -61,7 +61,7 @@ public class AtlasHeadTrajectoryBehaviorTest extends DRCHeadTrajectoryBehaviorTe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.6, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testRandomOrientation() throws SimulationExceededMaximumTimeException
    {

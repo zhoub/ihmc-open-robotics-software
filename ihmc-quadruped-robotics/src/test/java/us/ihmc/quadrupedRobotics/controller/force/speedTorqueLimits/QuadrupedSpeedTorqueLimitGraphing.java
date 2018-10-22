@@ -2,9 +2,9 @@ package us.ihmc.quadrupedRobotics.controller.force.speedTorqueLimits;
 
 import java.io.IOException;
 
-import us.ihmc.euclid.tuple3D.Vector3D;
-
 import us.ihmc.commonWalkingControlModules.pushRecovery.PushRobotTestConductor;
+import us.ihmc.commons.thread.ThreadTools;
+import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
 import us.ihmc.quadrupedRobotics.QuadrupedTestBehaviors;
@@ -13,9 +13,8 @@ import us.ihmc.quadrupedRobotics.QuadrupedTestGoals;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControlMode;
 import us.ihmc.quadrupedRobotics.input.managers.QuadrupedTeleopManager;
 import us.ihmc.quadrupedRobotics.simulation.QuadrupedGroundContactModelType;
-import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationConstructionSetTools.util.simulationrunner.GoalOrientedTestConductor;
-import us.ihmc.commons.thread.ThreadTools;
+import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 
 public abstract class QuadrupedSpeedTorqueLimitGraphing implements QuadrupedMultiRobotTestInterface
 {

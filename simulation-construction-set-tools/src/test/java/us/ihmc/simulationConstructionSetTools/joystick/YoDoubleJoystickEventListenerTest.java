@@ -1,5 +1,7 @@
 package us.ihmc.simulationConstructionSetTools.joystick;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Random;
 
 import org.junit.jupiter.api.Test;
@@ -9,8 +11,6 @@ import net.java.games.input.Event;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
-
-import static org.junit.Assert.assertEquals;
 
 public class YoDoubleJoystickEventListenerTest
 {

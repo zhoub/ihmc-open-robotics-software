@@ -5,10 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.SimpleState;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.StateMachine;
 import us.ihmc.robotics.trajectories.providers.SettableDoubleProvider;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class SimpleStateTest
 {

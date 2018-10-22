@@ -1,5 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
@@ -16,7 +17,6 @@ import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimiza
 import us.ihmc.commonWalkingControlModules.configurations.ToeOffParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -48,7 +48,7 @@ public class AtlasPointyRocksEnvironmentContactsTest extends HumanoidPointyRocks
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 210.0, categoriesOverride = {IntegrationCategory.EXCLUDE}) // fix the contacts
+   @Disabled // fix the contacts
    @Test
    public void testWalkingOnLinesInEnvironment() throws SimulationExceededMaximumTimeException
    {
@@ -69,7 +69,7 @@ public class AtlasPointyRocksEnvironmentContactsTest extends HumanoidPointyRocks
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = {IntegrationCategory.EXCLUDE}) // fix the contacts
+   @Disabled // fix the contacts
    @Test
    public void testWalkingOnPointInEnvironment() throws SimulationExceededMaximumTimeException
    {

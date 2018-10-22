@@ -1,6 +1,6 @@
 package us.ihmc.robotics.linearAlgebra;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,6 @@ import us.ihmc.euclid.geometry.tools.EuclidGeometryTools;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
-import us.ihmc.robotics.geometry.GeometryTools;
 import us.ihmc.robotics.random.RandomGeometry;
 
 public class IncrementalCovariance3DTest

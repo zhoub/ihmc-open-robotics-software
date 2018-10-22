@@ -11,7 +11,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 
-@ContinuousIntegrationPlan(categories=IntegrationCategory.EXCLUDE)
+@Disabled
 public class AtlasIHMCROSAPIPacketTest extends IHMCROSAPIPacketTest
 {
 

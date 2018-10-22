@@ -1,11 +1,11 @@
 package us.ihmc.quadrupedRobotics.input;
 
+import java.util.Random;
+
 import us.ihmc.quadrupedRobotics.input.managers.QuadrupedTeleopManager;
 import us.ihmc.simulationconstructionset.scripts.Script;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoInteger;
-
-import java.util.Random;
 
 public class QuadrupedTestTeleopScript implements Script
 {

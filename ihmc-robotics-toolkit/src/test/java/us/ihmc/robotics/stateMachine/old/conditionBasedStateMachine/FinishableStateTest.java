@@ -7,8 +7,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.FinishableState;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.StateMachine;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 

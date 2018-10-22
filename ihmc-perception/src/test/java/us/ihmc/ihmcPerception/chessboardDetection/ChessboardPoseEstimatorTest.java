@@ -14,6 +14,7 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -21,7 +22,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
+@Disabled
 public class ChessboardPoseEstimatorTest
 {
    static final boolean DEBUG = false;
@@ -90,7 +91,7 @@ public class ChessboardPoseEstimatorTest
    }
 
    //boofCV can't find checker board
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testImage3() throws IOException
    {

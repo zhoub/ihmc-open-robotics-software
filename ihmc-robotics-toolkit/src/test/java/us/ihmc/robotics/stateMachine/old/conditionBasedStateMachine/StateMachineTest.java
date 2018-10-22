@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.State;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.StateMachine;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 

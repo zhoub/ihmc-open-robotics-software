@@ -7,8 +7,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class HyperCubeNodeTest
 {
    public static final double eps = 1.0e-6;

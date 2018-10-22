@@ -31,7 +31,6 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	}
 
 	@Disabled("Needs to be improved")
-	@ContinuousIntegrationTest(estimatedDuration = 53.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test
 	@Override
 	public void testDoublePushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException

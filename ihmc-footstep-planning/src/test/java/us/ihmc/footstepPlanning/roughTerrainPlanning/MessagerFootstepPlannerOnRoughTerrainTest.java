@@ -1,11 +1,37 @@
 package us.ihmc.footstepPlanning.roughTerrainPlanning;
 
-import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.stage.Stage;
+import static org.junit.Assert.assertTrue;
+import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.ComputePathTopic;
+import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.FootstepPlanTopic;
+import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.PlannerTypeTopic;
+import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.PlanningResultTopic;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.box;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.compareStepBeforeGap;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.getTestData;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.hole;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.overCinderBlockField;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.random;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.simpleGaps;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.simpleStepOnBox;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.simpleStepOnBoxTwo;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.staircase;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.stepAfterPitchDown;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.stepAfterPitchUp;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.stepUpsAndDownsScoringDifficult;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.steppingStones;
+import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.wall;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.stage.Stage;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -15,22 +41,14 @@ import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.footstepPlanning.FootstepPlan;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
 import us.ihmc.footstepPlanning.FootstepPlanningResult;
-import us.ihmc.footstepPlanning.tools.PlannerTools;
-import us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments;
 import us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI;
+import us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments;
+import us.ihmc.footstepPlanning.tools.PlannerTools;
 import us.ihmc.footstepPlanning.ui.ApplicationRunner;
 import us.ihmc.footstepPlanning.ui.FootstepPlannerUI;
 import us.ihmc.footstepPlanning.ui.components.FootstepPathCalculatorModule;
 import us.ihmc.javaFXToolkit.messager.SharedMemoryJavaFXMessager;
 import us.ihmc.javaFXToolkit.messager.SharedMemoryMessager;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-
-import static org.junit.Assert.assertTrue;
-import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.*;
-import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.*;
 
 public abstract class MessagerFootstepPlannerOnRoughTerrainTest
 {

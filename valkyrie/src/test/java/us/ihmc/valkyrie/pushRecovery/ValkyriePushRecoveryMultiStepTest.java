@@ -14,7 +14,7 @@ import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
+@Disabled
 public class ValkyriePushRecoveryMultiStepTest extends DRCPushRecoveryMultiStepTest
 {
    @Override

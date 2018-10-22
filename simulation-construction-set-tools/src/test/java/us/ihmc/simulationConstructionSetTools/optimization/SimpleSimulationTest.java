@@ -1,6 +1,6 @@
 package us.ihmc.simulationConstructionSetTools.optimization;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 

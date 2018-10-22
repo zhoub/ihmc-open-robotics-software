@@ -7,6 +7,7 @@ import java.util.Random;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -23,14 +24,14 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.humanoidRobotics.communication.subscribers.TimeStampedTransformBuffer;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
-import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.robotics.kinematics.TimeStampedTransform3D;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 import us.ihmc.tools.MemoryTools;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
+import us.ihmc.yoVariables.variable.YoDouble;
 
 @ContinuousIntegrationPlan(categories={IntegrationCategory.FAST})
 public class ClippedSpeedOffsetErrorInterpolatorTest
@@ -75,7 +76,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 6.6, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testRandomTranslationErrorInterpolation()
    {
@@ -151,7 +152,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
    }
 
    //TODO
-   @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testRandomRotationErrorInterpolation()
    {
@@ -238,7 +239,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
    }
 
    // TODO
-   @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testTranslationAndRotationErrorsInterpolation()
    {
@@ -397,7 +398,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
    }
 
    //TODO
-   @ContinuousIntegrationTest(estimatedDuration = 0.3, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testMaxRotationalCorrectionSpeedClip()
    {
@@ -480,7 +481,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
    }
 
    // TODO
-   @ContinuousIntegrationTest(estimatedDuration = 0.3, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testMaxCorrectionSpeedClipWorksWhenTranslationAndRotationOffsetsAreBig()
    {

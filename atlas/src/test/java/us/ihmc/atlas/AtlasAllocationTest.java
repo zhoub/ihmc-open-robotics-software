@@ -7,8 +7,8 @@ import org.ejml.alg.dense.decomposition.bidiagonal.BidiagonalDecompositionRow_D6
 import org.ejml.alg.dense.decomposition.chol.CholeskyDecompositionCommon_D64;
 import org.ejml.alg.dense.decomposition.lu.LUDecompositionBase_D64;
 import org.ejml.data.DenseMatrix64F;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

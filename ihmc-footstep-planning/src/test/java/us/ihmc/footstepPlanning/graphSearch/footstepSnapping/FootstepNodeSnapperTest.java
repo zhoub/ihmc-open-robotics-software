@@ -1,6 +1,11 @@
 package us.ihmc.footstepPlanning.graphSearch.footstepSnapping;
 
+import static junit.framework.TestCase.assertTrue;
+
+import java.util.Random;
+
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.transform.RigidBodyTransform;
@@ -8,10 +13,6 @@ import us.ihmc.footstepPlanning.graphSearch.graph.FootstepNode;
 import us.ihmc.robotics.geometry.PlanarRegion;
 import us.ihmc.robotics.geometry.PlanarRegionsList;
 import us.ihmc.robotics.robotSide.RobotSide;
-
-import java.util.Random;
-
-import static junit.framework.TestCase.assertTrue;
 
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class FootstepNodeSnapperTest

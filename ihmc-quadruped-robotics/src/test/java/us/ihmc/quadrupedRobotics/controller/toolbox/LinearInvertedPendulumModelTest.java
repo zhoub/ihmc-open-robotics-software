@@ -8,8 +8,8 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.referenceFrames.TranslationReferenceFrame;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class LinearInvertedPendulumModelTest
 {

@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.functionApproximation.DampedLeastSquaresSolver;
 import us.ihmc.robotics.testing.JUnitTools;
 

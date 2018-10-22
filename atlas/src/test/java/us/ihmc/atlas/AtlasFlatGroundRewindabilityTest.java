@@ -1,5 +1,6 @@
 package us.ihmc.atlas;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCFlatGroundRewindabilityTest;
@@ -38,7 +39,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testRewindabilityWithSimpleFastMethod() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
    {
@@ -47,7 +48,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
 
    @Override
    // This takes a long time. Use it for debugging where the broken changes were made when the tests above fail.
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testRewindabilityWithSlowerMoreExtensiveMethod() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
    {

@@ -1,5 +1,6 @@
 package us.ihmc.valkyrie.pushRecovery;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCPushRecoveryWalkingTest;
@@ -92,7 +93,7 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 29.3, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testPushTowardsTheBack() throws SimulationExceededMaximumTimeException
    {

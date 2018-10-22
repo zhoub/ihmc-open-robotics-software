@@ -12,13 +12,12 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
+import us.ihmc.robotics.math.trajectories.YoPolynomial;
+import us.ihmc.robotics.math.trajectories.YoPolynomial3D;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.yoVariables.variable.YoFramePose3D;
 import us.ihmc.yoVariables.variable.YoVariable;
-import us.ihmc.robotics.graphics.YoGraphicPolynomial3D;
-import us.ihmc.robotics.math.trajectories.YoPolynomial;
-import us.ihmc.robotics.math.trajectories.YoPolynomial3D;
 
 public class YoGraphicPolynomial3DTest
 {

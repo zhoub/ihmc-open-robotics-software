@@ -1,16 +1,17 @@
 package us.ihmc.quadrupedRobotics.controller.force;
 
-import java.io.IOException;
+import static junit.framework.TestCase.assertTrue;
 
-import org.junit.jupiter.api.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.euclid.tuple3D.Vector3D;
+import java.io.IOException;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import junit.framework.AssertionFailedError;
 import us.ihmc.commonWalkingControlModules.pushRecovery.PushRobotTestConductor;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
 import us.ihmc.quadrupedRobotics.QuadrupedTestBehaviors;
@@ -24,8 +25,6 @@ import us.ihmc.robotics.partNames.QuadrupedJointName;
 import us.ihmc.robotics.testing.YoVariableTestGoal;
 import us.ihmc.simulationConstructionSetTools.util.simulationrunner.GoalOrientedTestConductor;
 import us.ihmc.tools.MemoryTools;
-
-import static junit.framework.TestCase.assertTrue;
 
 public abstract class QuadrupedForceBasedStandControllerTest implements QuadrupedMultiRobotTestInterface
 {

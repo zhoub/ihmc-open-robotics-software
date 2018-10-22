@@ -1,11 +1,13 @@
 package us.ihmc.convexOptimization.quadraticProgram;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
-import static org.junit.Assert.*;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public abstract class AbstractSimpleActiveSetQPSolverWithInactiveVariablesTest extends AbstractSimpleActiveSetQPSolverTest
 {

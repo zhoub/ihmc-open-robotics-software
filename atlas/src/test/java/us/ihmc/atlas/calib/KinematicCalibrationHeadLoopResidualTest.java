@@ -17,6 +17,7 @@ import org.ddogleg.optimization.FactoryOptimization;
 import org.ddogleg.optimization.UnconstrainedLeastSquares;
 import org.ddogleg.optimization.UtilOptimize;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import boofcv.abst.fiducial.calib.CalibrationDetectorChessboard;
@@ -30,8 +31,6 @@ import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.matrix.RotationMatrix;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -113,7 +112,7 @@ public class KinematicCalibrationHeadLoopResidualTest
     * 
     * @throws IOException
     */
-	@ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void perfect() throws IOException
    {
@@ -163,7 +162,7 @@ public class KinematicCalibrationHeadLoopResidualTest
     * 
     * @throws IOException
     */
-	@ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void smallError() throws IOException
    {
@@ -217,7 +216,7 @@ public class KinematicCalibrationHeadLoopResidualTest
     * 
     * @throws IOException
     */
-	@ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void optimize() throws IOException
    {

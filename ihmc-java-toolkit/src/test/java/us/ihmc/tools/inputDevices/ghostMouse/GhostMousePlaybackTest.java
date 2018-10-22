@@ -3,10 +3,10 @@ package us.ihmc.tools.inputDevices.ghostMouse;
 
 import java.awt.AWTException;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.UI})
@@ -403,7 +403,7 @@ public class GhostMousePlaybackTest
          playback.playback();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testLoad() throws AWTException
    {

@@ -1,6 +1,7 @@
 package us.ihmc.atlas;
 
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
 import us.ihmc.atlas.parameters.AtlasWalkingControllerParameters;
 import us.ihmc.avatar.AvatarStepInPlaceTest;

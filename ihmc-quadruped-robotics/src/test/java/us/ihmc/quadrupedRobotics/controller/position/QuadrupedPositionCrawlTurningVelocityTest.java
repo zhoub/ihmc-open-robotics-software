@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -69,7 +70,7 @@ public abstract class QuadrupedPositionCrawlTurningVelocityTest implements Quadr
    }
 
    //"Turn in place slowly still fails due to CoM shifting outside support polygon. Need to fix it..."
-   @ContinuousIntegrationTest(estimatedDuration = 150.0, categoriesOverride = {IntegrationCategory.EXCLUDE, IntegrationCategory.VIDEO})
+   @Disabled
    @Test
    public void testTurnInPlaceSlowly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

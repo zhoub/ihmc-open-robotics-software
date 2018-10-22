@@ -1,9 +1,23 @@
 package us.ihmc.footstepPlanning.polygonWiggling;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.Random;
+
+import javax.swing.JFrame;
+
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
@@ -23,13 +37,6 @@ import us.ihmc.robotics.geometry.ConvexPolygon2dCalculator;
 import us.ihmc.robotics.geometry.PlanarRegion;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFrameConvexPolygon2D;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Random;
-
-import static org.junit.Assert.*;
 
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class PolygonWigglingTest
@@ -989,7 +996,7 @@ public class PolygonWigglingTest
    }
 
    // TODO: 05/10/2017 moved to development
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testConvexConstraintOfLine()
    {
@@ -1301,7 +1308,7 @@ public class PolygonWigglingTest
    }
 
    // TODO: 05/03/2017 moved to development
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testConvexConstraintOfQuadrangle()
    {

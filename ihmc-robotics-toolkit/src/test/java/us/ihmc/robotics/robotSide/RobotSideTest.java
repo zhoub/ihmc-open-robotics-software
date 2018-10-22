@@ -5,8 +5,6 @@ import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class RobotSideTest
 {
 

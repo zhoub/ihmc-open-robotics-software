@@ -1,16 +1,16 @@
 package us.ihmc.robotics.screwTheory;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class PassiveRevoluteJointTest

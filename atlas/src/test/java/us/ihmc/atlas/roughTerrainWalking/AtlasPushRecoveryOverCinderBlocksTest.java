@@ -2,6 +2,7 @@ package us.ihmc.atlas.roughTerrainWalking;
 
 import java.io.InputStream;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
@@ -57,7 +58,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testPushOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -65,7 +66,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testForwardPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -73,7 +74,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testLeftSidewaysPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -81,7 +82,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testRightSidewaysPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -89,7 +90,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testPushOverTiltedBlocks() throws SimulationExceededMaximumTimeException
    {

@@ -7,7 +7,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import us.ihmc.commons.MathTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.Plane3D;
@@ -17,7 +17,6 @@ import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
-import us.ihmc.commons.MathTools;
 import us.ihmc.robotics.dataStructures.DataGridTools;
 import us.ihmc.robotics.dataStructures.DoubleHashHeightMap;
 import us.ihmc.robotics.dataStructures.HeightMapWithPoints;

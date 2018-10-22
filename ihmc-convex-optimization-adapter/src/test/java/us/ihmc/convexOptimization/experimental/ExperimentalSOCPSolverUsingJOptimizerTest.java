@@ -6,20 +6,18 @@ import java.util.ArrayList;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.joptimizer.functions.ConvexMultivariateRealFunction;
 import com.joptimizer.functions.LinearMultivariateRealFunction;
-
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 
 public class ExperimentalSOCPSolverUsingJOptimizerTest
 {
    public static final boolean VERBOSE = false;
 
    // At time of test writing JOptimizer wasn't working for SOCPs...
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testASimpleSecondOrderConeProblem()
    {
@@ -52,7 +50,7 @@ public class ExperimentalSOCPSolverUsingJOptimizerTest
    }
    
    //At time of test writing JOptimizer wasn't working for SOCPs...
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testARotatedSecondOrderConeProblem()
    {

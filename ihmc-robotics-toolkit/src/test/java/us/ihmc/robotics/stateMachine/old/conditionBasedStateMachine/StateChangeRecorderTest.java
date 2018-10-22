@@ -10,10 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.State;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.StateChangeRecorder;
-
 public class StateChangeRecorderTest
 {
    private ArrayList<State<TestEnum>> listOfStates;

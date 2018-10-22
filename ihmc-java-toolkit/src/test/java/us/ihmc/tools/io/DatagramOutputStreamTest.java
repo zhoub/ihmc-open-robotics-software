@@ -7,10 +7,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 
 public class DatagramOutputStreamTest
 {
@@ -18,7 +18,7 @@ public class DatagramOutputStreamTest
    private static final boolean VERBOSE = false;
    
    //works half of the time.
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    public void testDatagramOutputStreamThrowOutStalePackets() throws IOException
    {
       boolean throwOutStalePackets = true;

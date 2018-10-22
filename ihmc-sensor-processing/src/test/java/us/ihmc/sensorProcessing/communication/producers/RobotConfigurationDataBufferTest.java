@@ -7,8 +7,9 @@ import static org.junit.Assert.fail;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import controller_msgs.msg.dds.RobotConfigurationData;
 import org.junit.jupiter.api.Test;
+
+import controller_msgs.msg.dds.RobotConfigurationData;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.robotModels.FullHumanoidRobotModel;

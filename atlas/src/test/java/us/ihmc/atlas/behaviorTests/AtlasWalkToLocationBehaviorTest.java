@@ -1,5 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
@@ -108,7 +109,7 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.8, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testWalkPauseAndResumeBehavior() throws SimulationExceededMaximumTimeException
    {
@@ -116,7 +117,7 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 45.7, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testWalkPauseAndResumeOnLastStepBehavior() throws SimulationExceededMaximumTimeException
    {
@@ -124,7 +125,7 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 67.6, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testWalkStopAndWalkToDifferentLocation() throws SimulationExceededMaximumTimeException
    {

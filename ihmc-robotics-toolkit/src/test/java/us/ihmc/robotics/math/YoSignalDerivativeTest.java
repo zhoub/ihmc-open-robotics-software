@@ -5,9 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.math.YoSignalDerivative.DifferentiationMode;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 
 public class YoSignalDerivativeTest

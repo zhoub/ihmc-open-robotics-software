@@ -7,8 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.math.trajectories.NDoFTrapezoidalVelocityTrajectory.AlphaToAlphaType;
 
 
@@ -143,8 +141,7 @@ public class NDoFTrapezoidalVelocityTrajectoryTest
       plot(time, positions, "Position for multiple trajectories (simple)");
    }
 
-   @Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testVelocityAndAcceleration()
    {

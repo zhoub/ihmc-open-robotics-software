@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.tools.inputDevices.keyboard.Key;
 
 public class KeyTest
 {

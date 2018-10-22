@@ -1,20 +1,32 @@
 package us.ihmc.quadrupedRobotics.geometry.supportPolygon;
 
-import com.google.caliper.Benchmark;
-import com.google.caliper.api.VmOptions;
-import com.google.caliper.runner.CaliperMain;
-import com.jme3.scene.shape.Quad;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Random;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
+import com.google.caliper.Benchmark;
+import com.google.caliper.api.VmOptions;
+import com.google.caliper.runner.CaliperMain;
+
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RunnableThatThrows;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
-import us.ihmc.euclid.referenceFrame.*;
+import us.ihmc.euclid.referenceFrame.FrameConvexPolygon2D;
+import us.ihmc.euclid.referenceFrame.FramePoint2D;
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.FrameVector2D;
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DReadOnly;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tuple2D.Point2D;
@@ -31,10 +43,6 @@ import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFrameConvexPolygon2D;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
-
-import java.util.Random;
-
-import static org.junit.Assert.*;
 
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 @VmOptions("-XX:-TieredCompilation")

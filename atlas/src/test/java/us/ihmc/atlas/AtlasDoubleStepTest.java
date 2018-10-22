@@ -1,6 +1,7 @@
 package us.ihmc.atlas;
 
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.avatar.AvatarDoubleStepTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;

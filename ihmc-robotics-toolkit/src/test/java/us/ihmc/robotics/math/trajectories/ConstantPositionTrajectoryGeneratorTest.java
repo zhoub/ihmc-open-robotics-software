@@ -15,9 +15,9 @@ import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.trajectories.providers.ConstantPositionProvider;
 import us.ihmc.robotics.trajectories.providers.PositionProvider;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class ConstantPositionTrajectoryGeneratorTest
 {

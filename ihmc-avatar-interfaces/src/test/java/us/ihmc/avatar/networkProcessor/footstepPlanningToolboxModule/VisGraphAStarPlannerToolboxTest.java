@@ -1,8 +1,8 @@
 package us.ihmc.avatar.networkProcessor.footstepPlanningToolboxModule;
 
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commons.PrintTools;
-import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.footstepPlanning.FootstepPlannerType;

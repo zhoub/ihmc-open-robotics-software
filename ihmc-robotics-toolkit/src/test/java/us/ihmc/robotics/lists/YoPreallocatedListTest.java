@@ -1,10 +1,8 @@
 package us.ihmc.robotics.lists;
 
-import org.apache.commons.lang3.math.NumberUtils;
-import org.junit.jupiter.api.Test;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
-import us.ihmc.yoVariables.variable.YoDouble;
-import us.ihmc.yoVariables.variable.YoInteger;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,7 +10,12 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.function.UnaryOperator;
 
-import static org.junit.Assert.*;
+import org.apache.commons.lang3.math.NumberUtils;
+import org.junit.jupiter.api.Test;
+
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
+import us.ihmc.yoVariables.variable.YoDouble;
+import us.ihmc.yoVariables.variable.YoInteger;
 
 public class YoPreallocatedListTest
 {

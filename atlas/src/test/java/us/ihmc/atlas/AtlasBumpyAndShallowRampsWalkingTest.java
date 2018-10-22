@@ -1,5 +1,6 @@
 package us.ihmc.atlas;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCBumpyAndShallowRampsWalkingTest;
@@ -36,7 +37,7 @@ public class AtlasBumpyAndShallowRampsWalkingTest extends DRCBumpyAndShallowRamp
    }
    
    // This has never worked. Would be nice if we can get it to work.")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    @Override
    public void testDRCOverRandomBlocks() throws SimulationExceededMaximumTimeException, ControllerFailureException

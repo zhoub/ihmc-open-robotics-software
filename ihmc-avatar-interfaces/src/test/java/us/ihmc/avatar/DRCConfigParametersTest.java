@@ -1,11 +1,10 @@
 package us.ihmc.avatar;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.networkProcessor.modules.uiConnector.PacketsForwardedToTheUi;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class DRCConfigParametersTest
 {

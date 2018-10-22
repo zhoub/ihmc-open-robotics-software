@@ -11,11 +11,6 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.State;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.StateMachine;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.StateTransition;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.StateTransitionAction;
-import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.StateTransitionCondition;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoDouble;

@@ -11,7 +11,6 @@ import java.io.PrintStream;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.commons.thread.ThreadTools;
 
 public class StreamGobblerTest

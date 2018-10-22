@@ -1,6 +1,8 @@
 package us.ihmc.atlas.controllerAPI;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.controllerAPI.EndToEndPelvisTrajectoryMessageTest;
@@ -94,7 +96,7 @@ public class AtlasEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisTraj
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 91.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testSingleWaypointThenManualChange() throws Exception
    {

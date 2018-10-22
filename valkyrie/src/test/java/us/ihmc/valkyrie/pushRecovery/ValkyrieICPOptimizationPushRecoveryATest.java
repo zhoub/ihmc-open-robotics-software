@@ -1,6 +1,7 @@
 package us.ihmc.valkyrie.pushRecovery;
 
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.pushRecovery.AvatarICPOptimizationPushRecoveryATest;

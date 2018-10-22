@@ -2,12 +2,9 @@ package us.ihmc.robotics.math.trajectories;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Arrays;
-
 import org.ejml.data.DenseMatrix64F;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 

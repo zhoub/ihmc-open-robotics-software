@@ -1,5 +1,7 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
+import static us.ihmc.continuousIntegration.IntegrationCategory.SLOW;
+
 import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
@@ -12,11 +14,8 @@ import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseFlatTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
-import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
-
-import static us.ihmc.continuousIntegration.IntegrationCategory.SLOW;
 
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest

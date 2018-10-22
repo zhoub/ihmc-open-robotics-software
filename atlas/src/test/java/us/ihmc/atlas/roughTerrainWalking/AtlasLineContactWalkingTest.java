@@ -1,5 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
@@ -15,8 +16,6 @@ import us.ihmc.avatar.roughTerrainWalking.HumanoidLineContactWalkingTest;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
 import us.ihmc.commonWalkingControlModules.configurations.ToeOffParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -37,7 +36,7 @@ public class AtlasLineContactWalkingTest extends HumanoidLineContactWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testWalkingOnLines() throws SimulationExceededMaximumTimeException
    {
@@ -45,7 +44,7 @@ public class AtlasLineContactWalkingTest extends HumanoidLineContactWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testWalkingOnStraightForwardLines() throws SimulationExceededMaximumTimeException
    {
@@ -53,7 +52,7 @@ public class AtlasLineContactWalkingTest extends HumanoidLineContactWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testWalkingOnStraightSidewayLines() throws SimulationExceededMaximumTimeException
    {

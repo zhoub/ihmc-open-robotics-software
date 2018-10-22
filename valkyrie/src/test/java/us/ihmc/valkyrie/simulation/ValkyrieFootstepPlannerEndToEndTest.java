@@ -1,6 +1,7 @@
 package us.ihmc.valkyrie.simulation;
 
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.AvatarBipedalFootstepPlannerEndToEndTest;
@@ -23,7 +24,7 @@ import us.ihmc.simulationconstructionset.physics.collision.simple.SimpleCollisio
 import us.ihmc.simulationconstructionset.physics.collision.simple.SimpleCollisionShapeFactory;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
+@Disabled
 public class ValkyrieFootstepPlannerEndToEndTest extends AvatarBipedalFootstepPlannerEndToEndTest
 {
    private DRCRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);

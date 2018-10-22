@@ -1,7 +1,12 @@
 package us.ihmc.footstepPlanning.flatGroundPlanning;
 
+import static org.junit.Assert.assertTrue;
+
+import java.util.Random;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePose2D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -9,15 +14,11 @@ import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.footstepPlanning.FootstepPlan;
-import us.ihmc.footstepPlanning.tools.PlannerTools;
 import us.ihmc.footstepPlanning.simplePlanners.FlatGroundPlanningUtils;
 import us.ihmc.footstepPlanning.testTools.PlanningTest;
 import us.ihmc.footstepPlanning.testTools.PlanningTestTools;
+import us.ihmc.footstepPlanning.tools.PlannerTools;
 import us.ihmc.robotics.robotSide.RobotSide;
-
-import java.util.Random;
-
-import static org.junit.Assert.assertTrue;
 
 public abstract class FootstepPlannerOnFlatGroundTest implements PlanningTest
 {

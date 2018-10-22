@@ -1,5 +1,6 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -80,7 +81,7 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
     * fail because the foot contact points are on the edge of a cinder block.
     */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 56.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testTrialsTerrainZigzagHurdlesScriptRandomFootSlip() throws SimulationExceededMaximumTimeException
    {

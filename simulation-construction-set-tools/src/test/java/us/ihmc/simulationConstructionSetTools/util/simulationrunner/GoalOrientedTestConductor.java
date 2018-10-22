@@ -1,22 +1,22 @@
 package us.ihmc.simulationConstructionSetTools.util.simulationrunner;
 
+import static org.junit.Assert.fail;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import junit.framework.AssertionFailedError;
 import us.ihmc.commons.PrintTools;
-import us.ihmc.simulationconstructionset.util.ground.TerrainObject3D;
-import us.ihmc.yoVariables.variable.YoDouble;
-import us.ihmc.yoVariables.variable.YoVariable;
+import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.robotics.testing.YoVariableTestGoal;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.SimulationDoneListener;
+import us.ihmc.simulationconstructionset.util.ground.TerrainObject3D;
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
-import us.ihmc.commons.thread.ThreadTools;
-
-import static org.junit.Assert.fail;
+import us.ihmc.yoVariables.variable.YoDouble;
+import us.ihmc.yoVariables.variable.YoVariable;
 
 public class GoalOrientedTestConductor implements SimulationDoneListener
 {

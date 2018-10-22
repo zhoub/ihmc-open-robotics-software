@@ -12,7 +12,7 @@ import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
+@Disabled
 public class ValkyriePointCloudDataReceiverTest extends HumanoidPointCloudDataReceiverTest
 {
    private final DRCRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);

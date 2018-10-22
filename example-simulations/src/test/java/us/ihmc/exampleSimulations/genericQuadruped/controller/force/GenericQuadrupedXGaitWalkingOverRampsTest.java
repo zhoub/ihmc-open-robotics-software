@@ -1,8 +1,11 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
@@ -11,9 +14,6 @@ import us.ihmc.exampleSimulations.genericQuadruped.parameters.GenericQuadrupedDe
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedXGaitWalkingOverRampsTest;
 import us.ihmc.quadrupedRobotics.model.QuadrupedInitialPositionParameters;
-import us.ihmc.simulationconstructionset.util.ground.RampsGroundProfile;
-
-import java.io.IOException;
 
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedXGaitWalkingOverRampsTest extends QuadrupedXGaitWalkingOverRampsTest

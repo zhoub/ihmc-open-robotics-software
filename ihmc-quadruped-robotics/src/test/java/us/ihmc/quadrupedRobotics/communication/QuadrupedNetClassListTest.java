@@ -1,13 +1,14 @@
 package us.ihmc.quadrupedRobotics.communication;
 
+import java.util.Set;
+
 import org.junit.jupiter.api.Test;
 import org.reflections.Reflections;
+
 import us.ihmc.communication.kryo.KryoNetClassListTestHelper;
 import us.ihmc.communication.net.NetClassList;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.pubsub.TopicDataType;
-
-import java.util.Set;
 
 public class QuadrupedNetClassListTest
 {

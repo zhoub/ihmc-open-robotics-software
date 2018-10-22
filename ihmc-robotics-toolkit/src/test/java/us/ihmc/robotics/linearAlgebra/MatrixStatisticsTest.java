@@ -6,11 +6,10 @@ import static org.junit.Assert.fail;
 import java.util.Random;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.MathTools;
 
 public class MatrixStatisticsTest
@@ -362,14 +361,14 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testGetRowNumber()
    {
       fail("Not yet implemented");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testGetColumnNumber()
    {

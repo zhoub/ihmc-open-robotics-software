@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class OneDimensionalBoundsTest
 {
    private static final double eps = 1e-14;

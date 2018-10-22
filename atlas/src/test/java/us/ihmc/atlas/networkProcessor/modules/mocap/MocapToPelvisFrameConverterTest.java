@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import optiTrack.MocapMarker;
 import optiTrack.MocapRigidBody;
 import us.ihmc.avatar.networkProcessor.modules.mocap.MocapToPelvisFrameConverter;
+import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -24,9 +25,8 @@ import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 import us.ihmc.tools.MemoryTools;
-import us.ihmc.commons.thread.ThreadTools;
 
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
+@Disabled
 public class MocapToPelvisFrameConverterTest
 {
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();

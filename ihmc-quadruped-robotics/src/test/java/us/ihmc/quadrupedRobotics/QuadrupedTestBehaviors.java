@@ -4,18 +4,15 @@ import controller_msgs.msg.dds.EuclideanTrajectoryPointMessage;
 import controller_msgs.msg.dds.EuclideanTrajectoryPointMessagePubSubType;
 import controller_msgs.msg.dds.QuadrupedBodyPathPlanMessage;
 import junit.framework.AssertionFailedError;
-import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.idl.IDLSequence.Object;
-import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerRequestedEvent;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerEnum;
-import us.ihmc.quadrupedRobotics.controller.QuadrupedSteppingStateEnum;
+import us.ihmc.quadrupedRobotics.controller.QuadrupedControllerRequestedEvent;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedPositionControllerRequestedEvent;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedPositionControllerState;
+import us.ihmc.quadrupedRobotics.controller.QuadrupedSteppingStateEnum;
 import us.ihmc.quadrupedRobotics.input.managers.QuadrupedTeleopManager;
 import us.ihmc.robotics.testing.YoVariableTestGoal;
 import us.ihmc.simulationConstructionSetTools.util.simulationrunner.GoalOrientedTestConductor;
-
-import java.util.List;
 
 public class QuadrupedTestBehaviors
 {

@@ -1,5 +1,8 @@
 package us.ihmc.footstepPlanning.testTools;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -20,9 +23,6 @@ import us.ihmc.robotics.geometry.RigidBodyTransformGenerator;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.simulationConstructionSetTools.util.planarRegions.PlanarRegionsListExamples;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class PlannerTestEnvironments
 {

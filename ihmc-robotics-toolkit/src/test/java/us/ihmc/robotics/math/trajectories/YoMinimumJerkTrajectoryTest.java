@@ -1,15 +1,14 @@
 package us.ihmc.robotics.math.trajectories;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.MathTools;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class YoMinimumJerkTrajectoryTest
@@ -114,8 +113,7 @@ public class YoMinimumJerkTrajectoryTest
    }
 
 	// FIXME That test is stuck in an infinite loop of some sort.
-	@Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testTimeExtension()
    {

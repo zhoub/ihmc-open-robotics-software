@@ -1,6 +1,6 @@
 package us.ihmc.robotics.screwTheory;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -13,11 +13,8 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
-import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Vector3D;
-import us.ihmc.robotics.geometry.RigidBodyTransformGeneratorTest;
 import us.ihmc.robotics.random.RandomGeometry;
-import us.ihmc.robotics.random.RandomGeometryTest;
 import us.ihmc.robotics.testing.JUnitTools;
 
 public class CompositeRigidBodyMassMatrixCalculatorTest extends MassMatrixCalculatorTest

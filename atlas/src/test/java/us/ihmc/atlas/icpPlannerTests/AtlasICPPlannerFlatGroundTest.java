@@ -1,6 +1,8 @@
 package us.ihmc.atlas.icpPlannerTests;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -21,7 +23,7 @@ public class AtlasICPPlannerFlatGroundTest extends AvatarICPPlannerFlatGroundTes
 
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 74.3, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    /** {@inheritDoc} */
    public void testChangeOfSupport() throws SimulationExceededMaximumTimeException, RuntimeException

@@ -7,10 +7,10 @@ import java.util.Random;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 
 public class TrapezoidalVelocityTrajectoryTest
 {
@@ -395,7 +395,7 @@ public class TrapezoidalVelocityTrajectoryTest
 	/**
 	 * Never really worked yet. Some day maybe.
 	 */
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void DONTtestRandomSamples()
    {

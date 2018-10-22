@@ -1,13 +1,14 @@
 package us.ihmc.robotics.math;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
+import org.junit.jupiter.api.Test;
+
+import us.ihmc.commons.Epsilons;
+import us.ihmc.commons.MathTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.dataStructures.ComplexNumber;
-import us.ihmc.commons.Epsilons;
-import us.ihmc.commons.MathTools;
 
 public class FastFourierTransformTest
 {

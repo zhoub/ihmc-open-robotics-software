@@ -1,13 +1,21 @@
 package us.ihmc.quadrupedRobotics.controller.force;
 
-import controller_msgs.msg.dds.QuadrupedTimedStepListMessage;
-import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
+import java.io.IOException;
+import java.util.List;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import controller_msgs.msg.dds.QuadrupedTimedStepListMessage;
+import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Point3D;
-import us.ihmc.quadrupedRobotics.*;
+import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
+import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
+import us.ihmc.quadrupedRobotics.QuadrupedTestBehaviors;
+import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
+import us.ihmc.quadrupedRobotics.QuadrupedTestGoals;
 import us.ihmc.quadrupedRobotics.communication.QuadrupedMessageTools;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControlMode;
 import us.ihmc.quadrupedRobotics.input.managers.QuadrupedTeleopManager;
@@ -16,9 +24,6 @@ import us.ihmc.robotics.testing.YoVariableTestGoal;
 import us.ihmc.simulationConstructionSetTools.util.simulationrunner.GoalOrientedTestConductor;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner;
 import us.ihmc.tools.MemoryTools;
-
-import java.io.IOException;
-import java.util.List;
 
 public abstract class QuadrupedScriptedFlatGroundWalkingTest implements QuadrupedMultiRobotTestInterface
 {

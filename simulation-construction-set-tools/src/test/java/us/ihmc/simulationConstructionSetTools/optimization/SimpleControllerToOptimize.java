@@ -1,10 +1,10 @@
 package us.ihmc.simulationConstructionSetTools.optimization;
 
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
-import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.simulationconstructionset.util.RobotController;
 import us.ihmc.utilities.parameterOptimization.DoubleYoVariableParameterToOptimize;
 import us.ihmc.utilities.parameterOptimization.ListOfParametersToOptimize;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
+import us.ihmc.yoVariables.variable.YoDouble;
 
 public class SimpleControllerToOptimize implements RobotController
 {

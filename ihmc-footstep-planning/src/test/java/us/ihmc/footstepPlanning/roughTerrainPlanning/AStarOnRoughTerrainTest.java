@@ -3,6 +3,7 @@ package us.ihmc.footstepPlanning.roughTerrainPlanning;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -43,7 +44,6 @@ public class AStarOnRoughTerrainTest extends FootstepPlannerOnRoughTerrainTest
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 10.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test
    public void testPartialGaps()
    {
@@ -52,7 +52,6 @@ public class AStarOnRoughTerrainTest extends FootstepPlannerOnRoughTerrainTest
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 10.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test
    public void testSpiralStaircase()
    {

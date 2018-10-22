@@ -1,11 +1,12 @@
 package us.ihmc.robotics.linearAlgebra;
 
+import static org.junit.Assert.assertEquals;
+
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 
-import static org.junit.Assert.assertEquals;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 
 public class DampedQRNullspaceCalculatorTest extends DampedNullspaceCalculatorTest
 {

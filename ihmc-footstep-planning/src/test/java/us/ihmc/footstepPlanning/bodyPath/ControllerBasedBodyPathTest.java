@@ -1,9 +1,14 @@
 package us.ihmc.footstepPlanning.bodyPath;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.lang3.mutable.MutableInt;
+
 import com.google.common.util.concurrent.AtomicDouble;
+
 import net.java.games.input.Component;
 import net.java.games.input.Event;
-import org.apache.commons.lang3.mutable.MutableInt;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.euclid.geometry.Pose2D;
@@ -11,7 +16,11 @@ import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple3D.Point3D;
-import us.ihmc.footstepPlanning.*;
+import us.ihmc.footstepPlanning.FootstepPlan;
+import us.ihmc.footstepPlanning.FootstepPlannerGoal;
+import us.ihmc.footstepPlanning.FootstepPlannerGoalType;
+import us.ihmc.footstepPlanning.FootstepPlanningResult;
+import us.ihmc.footstepPlanning.SimpleFootstep;
 import us.ihmc.footstepPlanning.graphSearch.footstepSnapping.FlatGroundFootstepNodeSnapper;
 import us.ihmc.footstepPlanning.graphSearch.heuristics.BodyPathHeuristics;
 import us.ihmc.footstepPlanning.graphSearch.heuristics.CostToGoHeuristics;
@@ -49,9 +58,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.yoVariables.variable.YoFrameConvexPolygon2D;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
 import us.ihmc.yoVariables.variable.YoFramePoseUsingYawPitchRoll;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ControllerBasedBodyPathTest
 {

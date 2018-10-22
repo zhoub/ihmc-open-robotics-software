@@ -7,12 +7,12 @@ import org.ejml.ops.CommonOps;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import us.ihmc.commons.MathTools;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.commons.MathTools;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.testing.JUnitTools;
 import us.ihmc.tools.exceptions.NoConvergenceException;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class ConstrainedQPSolverTest
 {

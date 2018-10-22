@@ -1,12 +1,12 @@
 package us.ihmc.simulationConstructionSetTools.util.globalParameters;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
-import static org.junit.Assert.assertEquals;
 
 public class DoubleGlobalParameterTest
 {

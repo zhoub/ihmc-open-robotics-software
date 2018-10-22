@@ -1,6 +1,6 @@
 package us.ihmc.simulationConstructionSetTools.simulationTesting;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.lang.reflect.Field;
 import java.util.AbstractList;
@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedHashSet;
 
+import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
+import us.ihmc.simulationconstructionset.SimulationConstructionSet;
+import us.ihmc.simulationconstructionset.UnreasonableAccelerationException;
+import us.ihmc.tools.reflect.RecursiveObjectComparer;
+import us.ihmc.tools.reflect.StringFieldMatcher;
+import us.ihmc.yoVariables.dataBuffer.DataBuffer;
 import us.ihmc.yoVariables.listener.YoVariableRegistryChangedListener;
 import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.yoVariables.variable.YoInteger;
 import us.ihmc.yoVariables.variable.YoVariable;
 import us.ihmc.yoVariables.variable.YoVariableList;
-import us.ihmc.robotics.math.filters.AlphaFilteredYoVariable;
-import us.ihmc.yoVariables.dataBuffer.DataBuffer;
-import us.ihmc.simulationconstructionset.SimulationConstructionSet;
-import us.ihmc.simulationconstructionset.UnreasonableAccelerationException;
-import us.ihmc.tools.reflect.RecursiveObjectComparer;
-import us.ihmc.tools.reflect.StringFieldMatcher;
 
 /**
  * SimulationComparer wrapper around RecursiveObjectComparer

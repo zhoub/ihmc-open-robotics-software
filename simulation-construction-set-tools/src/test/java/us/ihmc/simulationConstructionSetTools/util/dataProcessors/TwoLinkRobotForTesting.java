@@ -4,10 +4,10 @@ import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.graphicsDescription.Graphics3DObject;
 import us.ihmc.graphicsDescription.appearance.YoAppearance;
-import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.simulationconstructionset.Link;
 import us.ihmc.simulationconstructionset.PinJoint;
 import us.ihmc.simulationconstructionset.Robot;
+import us.ihmc.yoVariables.variable.YoDouble;
 
 public class TwoLinkRobotForTesting extends Robot
 {

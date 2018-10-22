@@ -19,12 +19,12 @@ import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 
 import us.ihmc.graphicsDescription.graphInterfaces.SelectedVariableHolder;
-import us.ihmc.yoVariables.listener.VariableChangedListener;
-import us.ihmc.yoVariables.variable.YoVariable;
 import us.ihmc.simulationconstructionset.gui.EntryBoxArrayPanel;
 import us.ihmc.simulationconstructionset.gui.ForcedRepaintPopupMenu;
 import us.ihmc.simulationconstructionset.gui.YoEntryBoxTransferHandler;
 import us.ihmc.simulationconstructionset.gui.YoGraph;
+import us.ihmc.yoVariables.listener.VariableChangedListener;
+import us.ihmc.yoVariables.variable.YoVariable;
 
 public class YoEntryBoxNew extends JPanel implements MouseListener, ActionListener, FocusListener
 {

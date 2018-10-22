@@ -1,18 +1,18 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
+import static us.ihmc.continuousIntegration.IntegrationCategory.SLOW;
+
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
 import us.ihmc.exampleSimulations.genericQuadruped.parameters.GenericQuadrupedSquaredUpInitialPosition;
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedForceBasedStandControllerTest;
-import us.ihmc.robotics.partNames.QuadrupedJointName;
-
-import java.io.IOException;
-
-import static us.ihmc.continuousIntegration.IntegrationCategory.SLOW;
 
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedForceBasedStandControllerTest extends QuadrupedForceBasedStandControllerTest

@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class DifferentialIDMassMatrixCalculatorTest extends MassMatrixCalculatorTest
 {
 

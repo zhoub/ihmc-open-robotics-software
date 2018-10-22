@@ -8,10 +8,10 @@ import java.util.Random;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -93,7 +93,7 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
    /**
     * This test will drop the floor out from underneath the sim randomly while standing. Tests if detection and hold position are working well.
     */
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 74.3, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testChangeOfSupport() throws SimulationExceededMaximumTimeException, RuntimeException
    {

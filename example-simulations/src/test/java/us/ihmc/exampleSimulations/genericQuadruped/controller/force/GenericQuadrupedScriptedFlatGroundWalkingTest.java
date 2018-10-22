@@ -1,7 +1,11 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
-import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+
+import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -11,10 +15,6 @@ import us.ihmc.quadrupedRobotics.controller.force.QuadrupedScriptedFlatGroundWal
 import us.ihmc.quadrupedRobotics.util.TimeInterval;
 import us.ihmc.robotics.robotSide.RobotQuadrant;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GenericQuadrupedScriptedFlatGroundWalkingTest extends QuadrupedScriptedFlatGroundWalkingTest
 {

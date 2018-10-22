@@ -1,15 +1,14 @@
 package us.ihmc.tools;
 
-import org.junit.jupiter.api.Test;
-
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.tools.FloatArrayCollector;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class FloatArrayCollectorTest
 {

@@ -1,5 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
@@ -8,7 +9,6 @@ import us.ihmc.avatar.behaviorTests.HumanoidBehaviorDispatcherTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -42,7 +42,7 @@ public class AtlasBehaviorDispatcherTest extends HumanoidBehaviorDispatcherTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 315.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testDispatchWalkToLocationBehavior() throws SimulationExceededMaximumTimeException
    {

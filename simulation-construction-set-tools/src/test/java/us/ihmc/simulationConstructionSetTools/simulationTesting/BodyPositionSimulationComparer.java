@@ -1,10 +1,10 @@
 package us.ihmc.simulationConstructionSetTools.simulationTesting;
 
 import us.ihmc.commons.MathTools;
-import us.ihmc.yoVariables.variable.YoVariable;
 import us.ihmc.simulationconstructionset.FloatingJoint;
 import us.ihmc.simulationconstructionset.Joint;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
+import us.ihmc.yoVariables.variable.YoVariable;
 
 public class BodyPositionSimulationComparer implements SimulationComparer
 {

@@ -1,8 +1,11 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
-import junit.framework.AssertionFailedError;
+import java.io.IOException;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
+
+import junit.framework.AssertionFailedError;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -10,8 +13,6 @@ import us.ihmc.exampleSimulations.genericQuadruped.parameters.GenericQuadrupedXG
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedXGaitWalkOverRoughTerrainTest;
 import us.ihmc.quadrupedRobotics.planning.QuadrupedXGaitSettingsReadOnly;
-
-import java.io.IOException;
 
 public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGaitWalkOverRoughTerrainTest
 {
@@ -50,7 +51,7 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
       super.testWalkingOverConsecutiveRamps();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testWalkingOverCinderBlockField() throws IOException, AssertionFailedError
    {

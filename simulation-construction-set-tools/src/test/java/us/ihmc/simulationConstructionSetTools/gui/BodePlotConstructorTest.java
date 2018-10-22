@@ -1,10 +1,9 @@
 package us.ihmc.simulationConstructionSetTools.gui;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.commons.Conversions;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.linearDynamicSystems.TransferFunction;
 import us.ihmc.simulationconstructionset.gui.BodePlotConstructor;
 import us.ihmc.simulationconstructionset.gui.FFTPlotter;
@@ -15,7 +14,7 @@ import us.ihmc.simulationconstructionset.gui.HumanAssistedTestFrame;
  */
 public class BodePlotConstructorTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testSimpleFilter()
    {
@@ -45,7 +44,7 @@ public class BodePlotConstructorTest
       humanAssistedTestFrame.setVisible(false);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testSingleFreqPhaseShift()
    {
@@ -75,7 +74,7 @@ public class BodePlotConstructorTest
       humanAssistedTestFrame.setVisible(false);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testSecondOrderResponse()
    {

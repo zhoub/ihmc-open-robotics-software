@@ -7,6 +7,7 @@ import java.io.StringReader;
 import java.util.Random;
 
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;

@@ -8,10 +8,8 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.ejml.ops.RandomMatrices;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 
 /**
  * @author twan
@@ -81,7 +79,7 @@ public class ActiveSearchQuadraticProgramOptimizerTest
 	/**
 	 * Not working, but probably not critical right now. Get this to work some day TODO
 	 */
-	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testFullyConstrained()
    {	   

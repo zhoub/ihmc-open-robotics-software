@@ -1,6 +1,7 @@
 package us.ihmc.valkyrie.controllerAPI;
 
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.avatar.controllerAPI.EndToEndPelvisTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;

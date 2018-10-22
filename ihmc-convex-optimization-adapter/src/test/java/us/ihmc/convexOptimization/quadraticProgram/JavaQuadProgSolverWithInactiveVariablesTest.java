@@ -1,11 +1,12 @@
 package us.ihmc.convexOptimization.quadraticProgram;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.tools.exceptions.NoConvergenceException;
-
-import static org.junit.Assert.assertEquals;
 
 public class JavaQuadProgSolverWithInactiveVariablesTest extends AbstractSimpleActiveSetQPSolverWithInactiveVariablesTest
 {

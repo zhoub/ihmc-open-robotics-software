@@ -1,6 +1,12 @@
 package us.ihmc.footstepPlanning.flatGroundPlanning;
 
+import static org.junit.Assert.assertTrue;
+
+import java.util.Random;
+
 import org.junit.jupiter.api.Test;
+
+import us.ihmc.commons.MathTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -11,12 +17,7 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.footstepPlanning.graphSearch.graph.FootstepNode;
 import us.ihmc.footstepPlanning.graphSearch.graph.FootstepNodeTools;
-import us.ihmc.commons.MathTools;
 import us.ihmc.robotics.robotSide.RobotSide;
-
-import java.util.Random;
-
-import static org.junit.Assert.assertTrue;
 
 public class FootstepNodeTest
 {

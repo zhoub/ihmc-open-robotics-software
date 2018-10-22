@@ -1,20 +1,17 @@
 package us.ihmc.robotics.linearAlgebra;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.Random;
+
 import org.ejml.data.DenseMatrix64F;
-import org.ejml.factory.DecompositionFactory;
-import org.ejml.interfaces.decomposition.QRDecomposition;
-import org.ejml.interfaces.decomposition.QRPDecomposition;
-import org.ejml.interfaces.decomposition.SingularValueDecomposition;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.robotics.time.ExecutionTimer;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
-
-import java.util.Random;
-
-import static org.junit.Assert.assertEquals;
 
 public class NullspaceCalculatorTimingTest
 {

@@ -1,6 +1,10 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
+import java.io.IOException;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -9,8 +13,6 @@ import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedXGaitRandomWalkingTest;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
-
-import java.io.IOException;
 
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedXGaitRandomWalkingTest extends QuadrupedXGaitRandomWalkingTest
@@ -22,7 +24,7 @@ public class GenericQuadrupedXGaitRandomWalkingTest extends QuadrupedXGaitRandom
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 45.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testExtremeRandomWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

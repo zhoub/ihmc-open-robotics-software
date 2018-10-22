@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.joptimizer.functions.ConvexMultivariateRealFunction;
@@ -20,7 +21,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE}) // Revisit JOptimzer some day and see if they ever got their act in gear...
+@Disabled // Revisit JOptimzer some day and see if they ever got their act in gear...
 public class SimpleJOptimizerTest
 {
    private static final boolean VERBOSE = true;
@@ -30,7 +31,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testReallyReallySimpleOptimizationProblem() throws Exception
    {
@@ -57,7 +58,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testASimpleRedundantEqualityCase() throws Exception
    {
@@ -82,7 +83,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testAnotherReallySimpleOptimizationProblem() throws Exception
    {
@@ -150,7 +151,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testLinearCostFullyLinearConstrainedEqualityOptimizationProblem() throws Exception
    {
@@ -220,7 +221,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testQuadraticCostLinearEqualityQuadraticInequalityOptimizationProblem() throws Exception
    {
@@ -303,7 +304,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testASecondOrderLorenzConeProblemUsingSquaring() throws Exception
    {
@@ -379,7 +380,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testASecondOrderLorenzConeProblemUsingSOCP() throws Exception
    {

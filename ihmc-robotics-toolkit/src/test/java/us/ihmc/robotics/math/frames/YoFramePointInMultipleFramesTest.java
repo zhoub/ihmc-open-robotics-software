@@ -15,8 +15,8 @@ import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.EuclidFrameRandomTools;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
 import us.ihmc.euclid.tuple3D.Point3D;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.random.RandomGeometry;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class YoFramePointInMultipleFramesTest
 {

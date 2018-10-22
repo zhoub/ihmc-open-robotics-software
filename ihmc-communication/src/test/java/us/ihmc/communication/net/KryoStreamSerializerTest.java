@@ -9,8 +9,6 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class KryoStreamSerializerTest
 {
 

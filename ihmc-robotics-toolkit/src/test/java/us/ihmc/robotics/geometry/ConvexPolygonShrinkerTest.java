@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
@@ -169,7 +170,7 @@ public class ConvexPolygonShrinkerTest
    }
 
    // Use manually when making sure no garbage is generated or doing timing tests.
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testMemoryGarbageGeneration()
    {

@@ -4,14 +4,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.commonWalkingControlModules.configurations.FootstepParameters;
+import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.BoundingBox2D;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.graphicsDescription.Graphics3DObject;
@@ -25,7 +26,6 @@ import us.ihmc.humanoidRobotics.footstep.footstepSnapper.SimpleFootstepValueFunc
 import us.ihmc.robotics.geometry.InsufficientDataException;
 import us.ihmc.robotics.quadTree.Box;
 import us.ihmc.sensorProcessing.pointClouds.combinationQuadTreeOctTree.QuadTreeForGroundReaderAndWriter;
-import us.ihmc.commons.thread.ThreadTools;
 
 /**
  * Created by agrabertilton on 3/4/15.
@@ -73,7 +73,7 @@ public class AtlasFootstepSnapperTest extends FootstepSnapperSimulationTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testSimpleFootstepSnapperOnListOfPoints() throws InsufficientDataException, IOException
    {

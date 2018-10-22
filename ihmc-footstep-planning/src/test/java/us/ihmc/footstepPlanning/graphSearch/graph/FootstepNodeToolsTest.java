@@ -1,18 +1,18 @@
 package us.ihmc.footstepPlanning.graphSearch.graph;
 
-import org.junit.jupiter.api.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-import us.ihmc.euclid.tools.EuclidCoreRandomTools;
-import us.ihmc.euclid.tools.EuclidCoreTestTools;
-import us.ihmc.euclid.transform.RigidBodyTransform;
-import us.ihmc.robotics.geometry.AngleTools;
-import us.ihmc.robotics.robotSide.RobotSide;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
+import us.ihmc.continuousIntegration.IntegrationCategory;
+import us.ihmc.euclid.tools.EuclidCoreRandomTools;
+import us.ihmc.euclid.transform.RigidBodyTransform;
+import us.ihmc.robotics.geometry.AngleTools;
+import us.ihmc.robotics.robotSide.RobotSide;
 
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class FootstepNodeToolsTest

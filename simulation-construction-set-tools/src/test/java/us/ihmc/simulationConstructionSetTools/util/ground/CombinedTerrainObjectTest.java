@@ -8,8 +8,6 @@ import us.ihmc.euclid.geometry.interfaces.Vertex2DSupplier;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
-import us.ihmc.simulationConstructionSetTools.util.ground.CombinedTerrainObject3D;
-import us.ihmc.simulationConstructionSetTools.util.ground.RotatableConvexPolygonTerrainObject;
 
 public class CombinedTerrainObjectTest
 {

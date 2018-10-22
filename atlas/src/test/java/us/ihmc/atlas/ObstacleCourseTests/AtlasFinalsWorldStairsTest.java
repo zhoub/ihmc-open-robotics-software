@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
@@ -118,7 +119,7 @@ public class AtlasFinalsWorldStairsTest
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
+	@Disabled
    @Test
    public void testFastWalkingUpStairs() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {

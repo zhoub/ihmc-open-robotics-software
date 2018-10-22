@@ -6,13 +6,13 @@ import java.util.Random;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.LocalizationPacket;
 import controller_msgs.msg.dds.PelvisPoseErrorPacket;
 import controller_msgs.msg.dds.StampedPosePacket;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -23,10 +23,6 @@ import us.ihmc.graphicsDescription.yoGraphics.YoGraphicsListRegistry;
 import us.ihmc.humanoidRobotics.communication.packets.HumanoidMessageTools;
 import us.ihmc.humanoidRobotics.communication.subscribers.PelvisPoseCorrectionCommunicatorInterface;
 import us.ihmc.humanoidRobotics.communication.subscribers.TimeStampedTransformBuffer;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
-import us.ihmc.yoVariables.variable.YoBoolean;
-import us.ihmc.yoVariables.variable.YoDouble;
-import us.ihmc.yoVariables.variable.YoFramePoseUsingYawPitchRoll;
 import us.ihmc.robotics.kinematics.TimeStampedTransform3D;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.screwTheory.RigidBody;
@@ -36,6 +32,10 @@ import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 import us.ihmc.tools.MemoryTools;
+import us.ihmc.yoVariables.registry.YoVariableRegistry;
+import us.ihmc.yoVariables.variable.YoBoolean;
+import us.ihmc.yoVariables.variable.YoDouble;
+import us.ihmc.yoVariables.variable.YoFramePoseUsingYawPitchRoll;
 
 @ContinuousIntegrationPlan(categories={IntegrationCategory.FAST})
 public class NewPelvisPoseHistoryCorrectionTest
@@ -244,7 +244,7 @@ public class NewPelvisPoseHistoryCorrectionTest
    private YoDouble maximumErrorTranslation;
    private YoDouble maximumErrorAngleInDegrees;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.8, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testTranslationCorrectionOnlyWithPelvisFollowingAKnownPathAndRandomLocalizationOffsets()
    {
@@ -320,7 +320,7 @@ public class NewPelvisPoseHistoryCorrectionTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0, categoriesOverride = {IntegrationCategory.EXCLUDE}) // This test used to hack the rootBody and 6-DoF joint in a way that is not possible since the feature 'feature/moving-reference-frame'.
+   @Disabled // This test used to hack the rootBody and 6-DoF joint in a way that is not possible since the feature 'feature/moving-reference-frame'.
    @Test
    public void testTooBigAngleErrorAreDetectedAndPacketIsSent()
    {

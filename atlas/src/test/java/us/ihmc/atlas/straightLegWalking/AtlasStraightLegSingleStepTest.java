@@ -1,22 +1,30 @@
 package us.ihmc.atlas.straightLegWalking;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
-import us.ihmc.atlas.parameters.*;
+import us.ihmc.atlas.parameters.AtlasContactPointParameters;
+import us.ihmc.atlas.parameters.AtlasLegConfigurationParameters;
+import us.ihmc.atlas.parameters.AtlasMomentumOptimizationSettings;
+import us.ihmc.atlas.parameters.AtlasPhysicalProperties;
+import us.ihmc.atlas.parameters.AtlasSmoothCMPPlannerParameters;
+import us.ihmc.atlas.parameters.AtlasSwingTrajectoryParameters;
+import us.ihmc.atlas.parameters.AtlasToeOffParameters;
+import us.ihmc.atlas.parameters.AtlasWalkingControllerParameters;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.straightLegWalking.AvatarStraightLegSingleStepTest;
-import us.ihmc.avatar.straightLegWalking.AvatarStraightLegWalkingTest;
-import us.ihmc.commonWalkingControlModules.configurations.*;
+import us.ihmc.commonWalkingControlModules.configurations.ICPWithTimeFreezingPlannerParameters;
+import us.ihmc.commonWalkingControlModules.configurations.LeapOfFaithParameters;
+import us.ihmc.commonWalkingControlModules.configurations.LegConfigurationParameters;
+import us.ihmc.commonWalkingControlModules.configurations.SwingTrajectoryParameters;
+import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.MomentumOptimizationSettings;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-import us.ihmc.euclid.tuple2D.Vector2D;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
-
-import java.util.EnumMap;
 
 public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepTest
 {
@@ -48,7 +56,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
       super.testForwardStepWithPause();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testForwardSteps() throws SimulationExceededMaximumTimeException
    {
@@ -82,7 +90,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
       super.testSteppingDown();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void testSteppingDownWithClosing() throws SimulationExceededMaximumTimeException
    {

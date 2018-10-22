@@ -14,10 +14,10 @@ import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.tuple4D.Quaternion;
+import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.yoVariables.providers.DoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFrameQuaternion;
-import us.ihmc.robotics.random.RandomGeometry;
 
 public class AlphaFilteredYoFrameQuaternionTest
 {

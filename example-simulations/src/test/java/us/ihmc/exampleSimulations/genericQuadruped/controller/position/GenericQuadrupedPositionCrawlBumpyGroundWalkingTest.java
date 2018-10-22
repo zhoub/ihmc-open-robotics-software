@@ -1,6 +1,9 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
+import java.io.IOException;
+
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -10,9 +13,7 @@ import us.ihmc.quadrupedRobotics.controller.position.QuadrupedPositionCrawlBumpy
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-import java.io.IOException;
-
-@ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
+@Disabled
 public class GenericQuadrupedPositionCrawlBumpyGroundWalkingTest extends QuadrupedPositionCrawlBumpyGroundWalkingTest
 {
    @Override

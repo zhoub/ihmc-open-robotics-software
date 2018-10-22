@@ -1,5 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
@@ -52,7 +53,7 @@ public class AtlasHighLevelStateBehaviorTest extends DRCHighLevelStateBehaviorTe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 20.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
+   @Disabled
    @Test
    public void testDiagnosticsState() throws SimulationExceededMaximumTimeException
    {

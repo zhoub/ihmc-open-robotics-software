@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.util.Map;
 
 import org.ejml.data.DenseMatrix64F;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.yaml.snakeyaml.Yaml;
 
@@ -18,7 +19,6 @@ import com.joptimizer.optimizers.JOptimizer;
 import com.joptimizer.optimizers.OptimizationRequest;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 
 public abstract class ConvexOptimizationAdapterTest
@@ -27,7 +27,7 @@ public abstract class ConvexOptimizationAdapterTest
    public abstract double getTestErrorEpsilon();
    
    @SuppressWarnings("unchecked")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+   @Disabled
    @Test
    public void qpsFileTest() throws IOException
    {
@@ -174,7 +174,7 @@ public abstract class ConvexOptimizationAdapterTest
    }
    
    // Need to implement addQuadraticInequalities
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testLinearCostQuadraticInequalityOptimizationProblem()
    {
@@ -242,7 +242,7 @@ public abstract class ConvexOptimizationAdapterTest
    }
    
    //Not implemented yet!
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testLinearCostLinearEqualityQuadraticInequalityOptimizationProblem() throws Exception
    {
@@ -272,7 +272,7 @@ public abstract class ConvexOptimizationAdapterTest
    }
 
    //Not implemented yet!
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testASecondOrderLorenzConeProblemUsingSOCP() throws Exception
    {

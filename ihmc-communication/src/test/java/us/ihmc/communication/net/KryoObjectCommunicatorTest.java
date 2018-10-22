@@ -10,25 +10,25 @@ import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import geometry_msgs.msg.dds.PointStamped;
-import geometry_msgs.msg.dds.Vector3Stamped;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import com.esotericsoftware.minlog.Log;
 
+import geometry_msgs.msg.dds.Vector3Stamped;
+import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.Packet;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Vector3D;
-import us.ihmc.commons.thread.ThreadTools;
 
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FLAKY})
 public class KryoObjectCommunicatorTest
 {
 
    // This test causes problems on Linux due to a bug in the way Java does its epoll wrapper
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testAutomaticReconnect() throws IOException, InterruptedException
    {

@@ -1,13 +1,20 @@
 package us.ihmc.quadrupedRobotics.controller.force;
 
+import java.io.IOException;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commonWalkingControlModules.pushRecovery.PushRobotTestConductor;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.euclid.tuple3D.Vector3D;
-import us.ihmc.quadrupedRobotics.*;
+import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
+import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
+import us.ihmc.quadrupedRobotics.QuadrupedTestBehaviors;
+import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
+import us.ihmc.quadrupedRobotics.QuadrupedTestGoals;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControlMode;
 import us.ihmc.quadrupedRobotics.input.managers.QuadrupedTeleopManager;
 import us.ihmc.quadrupedRobotics.model.QuadrupedInitialOffsetAndYaw;
@@ -26,8 +33,6 @@ import us.ihmc.simulationConstructionSetTools.util.simulationrunner.GoalOriented
 import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
 import us.ihmc.simulationconstructionset.util.ground.BumpyGroundProfile;
 import us.ihmc.tools.MemoryTools;
-
-import java.io.IOException;
 
 public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTestInterface
 {

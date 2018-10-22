@@ -2,10 +2,8 @@ package us.ihmc.robotics.numericalMethods;
 
 import static org.junit.Assert.fail;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 
 public class QuarticEquationSolverTest
 {
@@ -69,7 +67,7 @@ public class QuarticEquationSolverTest
 
    }
    
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
+	@Disabled
 	@Test
    public void testQuarticEquationSolver()
    {

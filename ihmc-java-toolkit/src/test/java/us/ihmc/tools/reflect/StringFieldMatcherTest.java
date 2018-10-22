@@ -7,8 +7,6 @@ import java.lang.reflect.Field;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class StringFieldMatcherTest
 {
 

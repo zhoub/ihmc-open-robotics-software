@@ -1,16 +1,17 @@
 package us.ihmc.robotics.linearAlgebra;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.Random;
+
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.factory.LinearSolverFactory;
 import org.ejml.interfaces.linsol.LinearSolver;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
-import java.util.Random;
-
-import static org.junit.Assert.assertEquals;
 
 public abstract class DampedNullspaceCalculatorTest extends NullspaceCalculatorTest
 {

@@ -1,7 +1,12 @@
 package us.ihmc.footstepPlanning.remoteStandaloneDataSet;
 
-import controller_msgs.msg.dds.*;
+import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.FootstepPlanTopic;
+import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.PlanningResultTopic;
+
 import org.junit.jupiter.api.AfterEach;
+
+import controller_msgs.msg.dds.FootstepPlanningRequestPacket;
+import controller_msgs.msg.dds.FootstepPlanningToolboxOutputStatus;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.IHMCRealtimeROS2Publisher;
@@ -16,11 +21,6 @@ import us.ihmc.footstepPlanning.ui.RemotePlannerMessageConverter;
 import us.ihmc.footstepPlanning.ui.components.FootstepPathCalculatorModule;
 import us.ihmc.pubsub.DomainFactory;
 import us.ihmc.ros2.RealtimeRos2Node;
-
-import java.util.concurrent.atomic.AtomicReference;
-
-import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.FootstepPlanTopic;
-import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.PlanningResultTopic;
 
 public abstract class RemoteStandalonePlannerDataSetTest extends FootstepPlannerDataSetTest
 {
