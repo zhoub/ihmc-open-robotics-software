@@ -5,10 +5,10 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.factory.AvatarSimulation;
 import us.ihmc.avatar.initialSetup.DRCGuiInitialSetup;
@@ -56,13 +56,13 @@ public abstract class DRCFlatGroundWalkingTest implements MultiRobotTestInterfac
    private static final boolean cheatWithGroundHeightAtForFootstep = false;
    private static final boolean drawGroundProfile = false;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -91,7 +91,7 @@ public abstract class DRCFlatGroundWalkingTest implements MultiRobotTestInterfac
    public abstract boolean doPelvisWarmup();
 
    @ContinuousIntegrationTest(estimatedDuration = 348.7)
-   @Test(timeout = 1700000)
+   @Test
    public void testFlatGroundWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       runFlatGroundWalking();
@@ -194,7 +194,7 @@ public abstract class DRCFlatGroundWalkingTest implements MultiRobotTestInterfac
 
    //TODO: Get rid of the stuff below and use a test helper.....
 
-   @After
+   @AfterEach
    public void destroyOtherStuff()
    {
       if (avatarSimulation != null)

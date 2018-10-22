@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -15,7 +15,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 public class Gaussian2D_F64Test {
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void chisq() {
       Gaussian2D_F64 g = new Gaussian2D_F64();
       g.x = 5;
@@ -32,7 +32,7 @@ public class Gaussian2D_F64Test {
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void invertCovariance() {
       Gaussian2D_F64 g = new Gaussian2D_F64();
       g.cxx = 2;
@@ -50,7 +50,7 @@ public class Gaussian2D_F64Test {
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void zero() {
       Gaussian2D_F64 g = new Gaussian2D_F64();
       g.x = 5;
@@ -73,7 +73,7 @@ public class Gaussian2D_F64Test {
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void set() {
       Gaussian2D_F64 g = new Gaussian2D_F64();
       g.x = 5;
@@ -97,7 +97,7 @@ public class Gaussian2D_F64Test {
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void copy() {
       Gaussian2D_F64 g = new Gaussian2D_F64();
       g.x = 5;

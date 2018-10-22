@@ -1,7 +1,7 @@
 package us.ihmc.quadrupedRobotics.planning;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -23,14 +23,14 @@ import static org.junit.Assert.assertTrue;
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class QuadrupedXGaitPlannerTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 300000)
+   @Test
    public void testInitialForwardVelocityPlan()
    {
       ForwardMotionBodyPathProvider bodyPathProvider = new ForwardMotionBodyPathProvider();
@@ -96,7 +96,7 @@ public class QuadrupedXGaitPlannerTest
    }
 
       @ContinuousIntegrationTest(estimatedDuration = 0.0)
-      @Test(timeout=300000)
+      @Test
       public void testOnlineForwardVelocityPlan()
       {
          ForwardMotionBodyPathProvider bodyPathProvider = new ForwardMotionBodyPathProvider();

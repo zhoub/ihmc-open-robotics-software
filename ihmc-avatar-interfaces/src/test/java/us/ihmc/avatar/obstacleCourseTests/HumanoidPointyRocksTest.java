@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.FootTrajectoryMessage;
@@ -16,7 +16,7 @@ import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
 import controller_msgs.msg.dds.OneDoFJointTrajectoryMessage;
 import controller_msgs.msg.dds.TrajectoryPoint1DMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -85,14 +85,14 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
       simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -153,7 +153,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 61.2)
-   @Test(timeout = 310000)
+   @Test
    public void testSidePushDuringSwing() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -225,7 +225,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 300000)
+   @Test
    public void testBalanceOnLine() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -305,7 +305,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 58.3)
-   @Test(timeout = 290000)
+   @Test
    public void testWalkingWithLinePredictedSupportPolygonButFullActualPolygon() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -362,7 +362,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 184.5)
-   @Test(timeout = 920000)
+   @Test
    public void testTakingStepsWithActualAndPredictedFootPolygonsChanging() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -433,7 +433,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
     * push, the robot will over-rotate the foot if hold position isn't working well.
     */
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 45.9)
-   @Test(timeout = 400000)
+   @Test
    public void testHoldPositionByStandingOnOneLegAndGettingPushedSideways() throws SimulationExceededMaximumTimeException
    {
       simulationTestingParameters.setUsePefectSensors(false);
@@ -495,7 +495,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 77.5)
-   @Test(timeout = 390000)
+   @Test
    public void testStandingAndStepsInPlaceWithHalfFootContactsChanges() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -569,7 +569,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 190.5)
-   @Test(timeout = 950000)
+   @Test
    public void testWalkingForwardWithPartialFootholdsAndStopBetweenSteps() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -658,7 +658,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 115.0)
-   @Test(timeout = 230000)
+   @Test
    public void testWalkingForwardWithHalfFootContactChangesStopBetweenSteps() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -746,7 +746,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 113.7)
-   @Test(timeout = 570000)
+   @Test
    public void testWalkingForwardWithHalfFootContactChangesContinuousSteps() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -811,7 +811,7 @@ public abstract class HumanoidPointyRocksTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 118.6)
-   @Test(timeout = 590000)
+   @Test
    public void testStandingWithGCPointsChangingOnTheFly() throws SimulationExceededMaximumTimeException, RuntimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

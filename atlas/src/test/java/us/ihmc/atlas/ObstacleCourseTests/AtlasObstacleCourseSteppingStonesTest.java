@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -31,7 +31,7 @@ public class AtlasObstacleCourseSteppingStonesTest extends DRCObstacleCourseStep
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 84.4)
-   @Test(timeout = 420000)
+   @Test
    public void testWalkingOverEasySteppingStones() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOverEasySteppingStones();

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -15,7 +15,7 @@ public class AlphaFilteredYoVariableTest
    private final Random rng = new Random();
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testNoisyFixedPosition()
    {
       // Use a reasonably large alpha for a reasonably large amount of noise
@@ -43,7 +43,7 @@ public class AlphaFilteredYoVariableTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testAlphaAndBreakFrequencyComputations()
    {
       for (int i = 0; i < 1000; i++)

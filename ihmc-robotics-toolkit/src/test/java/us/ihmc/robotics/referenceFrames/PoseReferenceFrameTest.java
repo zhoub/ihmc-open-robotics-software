@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -19,14 +19,13 @@ import us.ihmc.euclid.tuple3D.Point3D;
 
 public class PoseReferenceFrameTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testAsynchronousUpdatesOne()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -62,7 +61,7 @@ public class PoseReferenceFrameTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.4)
-	@Test(timeout = 30000)
+	@Test
    public void testLongChainEfficiency()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -97,8 +96,7 @@ public class PoseReferenceFrameTest
       finalPosition3.changeFrame(worldFrame);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testAsynchronousUpdatesTwo()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

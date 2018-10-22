@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -32,7 +32,7 @@ public class AtlasObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 72.0)
-   @Test(timeout = 500000)
+   @Test
    public void testWalkingDownRampWithMediumSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingDownRampWithMediumSteps();
@@ -40,7 +40,7 @@ public class AtlasObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 84.3)
-   @Test(timeout = 480000)
+   @Test
    public void testWalkingUpRampWithMediumSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampWithMediumSteps();
@@ -48,7 +48,7 @@ public class AtlasObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 88.8, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 470000)
+   @Test
    public void testWalkingUpRampWithShortSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampWithShortSteps();
@@ -56,7 +56,7 @@ public class AtlasObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 88.8, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 470000)
+   @Test
    public void testWalkingUpRampWithShortStepsALittleTooHigh() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampWithShortStepsALittleTooHigh();
@@ -64,7 +64,7 @@ public class AtlasObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 88.8)
-   @Test(timeout = 470000)
+   @Test
    public void testWalkingUpRampWithShortStepsALittleTooLow() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampWithShortStepsALittleTooLow();

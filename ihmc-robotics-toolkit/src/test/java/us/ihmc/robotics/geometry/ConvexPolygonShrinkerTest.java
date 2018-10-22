@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -25,7 +25,7 @@ import us.ihmc.euclid.tuple2D.Point2D;
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ConvexPolygonShrinkerTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -33,7 +33,7 @@ public class ConvexPolygonShrinkerTest
 
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleSquareConvexPolygonShrinking()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();
@@ -63,7 +63,7 @@ public class ConvexPolygonShrinkerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleTriangleConvexPolygonShrinking()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();
@@ -92,7 +92,7 @@ public class ConvexPolygonShrinkerTest
 
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleLineConvexPolygonShrinking()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();
@@ -118,7 +118,7 @@ public class ConvexPolygonShrinkerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimplePointConvexPolygonShrinking()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();
@@ -135,7 +135,7 @@ public class ConvexPolygonShrinkerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testShrinkingRandomPolygonsAreCompletelyInsideOriginalPolygons()
    {
       Random random = new Random(1984L);
@@ -170,7 +170,7 @@ public class ConvexPolygonShrinkerTest
 
    // Use manually when making sure no garbage is generated or doing timing tests.
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 30000)
+   @Test
    public void testMemoryGarbageGeneration()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();

@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.graphSearch.footstepSnapping;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
@@ -41,7 +41,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
    private boolean visualize = true;
    private PolygonSnapperVisualizer visualizer;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       visualize = visualize && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
@@ -59,7 +59,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testIdentity()
    {
       FootstepNode nodeToSnap = new FootstepNode(-0.3, 2.2);
@@ -72,7 +72,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testVerticalTranslation()
    {
       FootstepNode nodeToSnap = new FootstepNode(2.5, -0.5);
@@ -86,7 +86,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleRotation()
    {
       FootstepNode nodeToSnap = new FootstepNode(0.0, 0.0);
@@ -100,7 +100,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleTranslationAndRotation()
    {
       FootstepNode nodeToSnap = new FootstepNode(1.1, 0.0);
@@ -115,7 +115,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimplePartialFoothold()
    {
       FootstepNode nodeToSnap = new FootstepNode(1.0, 0.0);
@@ -147,7 +147,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomFullFootholds()
    {
       int numTests = 100;

@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.controllerAPI.EndToEndAdjustFootstepMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -27,7 +27,7 @@ public class ValkyrieEndToEndAdjustFootstepMessageTest extends EndToEndAdjustFoo
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 59.2)
-   @Test(timeout = 300000)
+   @Test
    public void testAdjustFootstepOnce() throws Exception
    {
       super.testAdjustFootstepOnce();

@@ -2,12 +2,12 @@ package us.ihmc.quadrupedRobotics.controller.force;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import junit.framework.AssertionFailedError;
 import us.ihmc.commonWalkingControlModules.pushRecovery.PushRobotTestConductor;
@@ -35,7 +35,7 @@ public abstract class QuadrupedForceBasedStandControllerTest implements Quadrupe
    private PushRobotTestConductor pusher;
    private QuadrupedTestFactory quadrupedTestFactory;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -46,7 +46,7 @@ public abstract class QuadrupedForceBasedStandControllerTest implements Quadrupe
       quadrupedTestFactory.setUseNetworking(true);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       quadrupedTestFactory.close();
@@ -66,28 +66,28 @@ public abstract class QuadrupedForceBasedStandControllerTest implements Quadrupe
 
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 320000)
+   @Test
    public void testStandingAndResistingPushesOnFrontRightHipRoll() throws IOException
    {
       pushOnShoulder(quadrupedTestFactory, QuadrupedJointName.FRONT_RIGHT_HIP_ROLL.getUnderBarName());
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 320000)
+   @Test
    public void testStandingAndResistingPushesOnHindLeftHipRoll() throws IOException
    {
       pushOnShoulder(quadrupedTestFactory, QuadrupedJointName.HIND_LEFT_HIP_ROLL.getUnderBarName());
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 320000)
+   @Test
    public void testStandingAndResistingPushesOnHindRightHipRoll() throws IOException
    {
       pushOnShoulder(quadrupedTestFactory, QuadrupedJointName.HIND_RIGHT_HIP_ROLL.getUnderBarName());
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 320000)
+   @Test
    public void testStandingAndResistingPushesOnFrontLeftHipRoll() throws IOException
    {
       pushOnShoulder(quadrupedTestFactory, QuadrupedJointName.FRONT_LEFT_HIP_ROLL.getUnderBarName());
@@ -174,7 +174,7 @@ public abstract class QuadrupedForceBasedStandControllerTest implements Quadrupe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 35.0)
-   @Test(timeout = 550000)
+   @Test
    public void testStandingAndResistingPushesOnBody() throws IOException
    {
       conductor = quadrupedTestFactory.createTestConductor();
@@ -217,7 +217,7 @@ public abstract class QuadrupedForceBasedStandControllerTest implements Quadrupe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 30.0)
-   @Test(timeout = 390000)
+   @Test
    public void testStandingUpAndAdjustingCoM()
          throws IOException
    {

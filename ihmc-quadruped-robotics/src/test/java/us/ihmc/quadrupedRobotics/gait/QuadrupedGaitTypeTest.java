@@ -2,7 +2,7 @@ package us.ihmc.quadrupedRobotics.gait;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RunnableThatThrows;
@@ -14,7 +14,7 @@ import us.ihmc.robotics.robotSide.RobotQuadrant;
 public class QuadrupedGaitTypeTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGaitStateTimes()
    {
       assertEquals("not ALL_FOURS", QuadrupedSupportConfiguration.ALL_FOURS, QuadrupedGaitCycle.STAND.getGaitPhase(0.0));
@@ -29,7 +29,7 @@ public class QuadrupedGaitTypeTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSwingDurations()
    {
       assertEquals("not correct", 0.05, QuadrupedGaitCycle.SAFE_WALK.getRemainingPhaseDuration(0.0), 1e-7);

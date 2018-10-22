@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -17,7 +17,7 @@ public class AtlasEndToEndHeadTrajectoryMessageTest extends EndToEndHeadTrajecto
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 29.0)
-   @Test(timeout = 140000)
+   @Test
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
       super.testSingleWaypoint();

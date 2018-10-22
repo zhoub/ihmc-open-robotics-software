@@ -4,7 +4,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.factory.LinearSolverFactory;
 import org.ejml.interfaces.linsol.LinearSolver;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -17,7 +17,7 @@ public abstract class DampedNullspaceCalculatorTest extends NullspaceCalculatorT
    public abstract DampedNullspaceCalculator getDampedNullspaceProjectorCalculator();
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleNullspaceProjectorWithDamping()
    {
       DampedNullspaceCalculator nullspaceCalculator = getDampedNullspaceProjectorCalculator();
@@ -187,7 +187,7 @@ public abstract class DampedNullspaceCalculatorTest extends NullspaceCalculatorT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleProjectOntoNullspaceWithDamping()
    {
       DampedNullspaceCalculator nullspaceCalculator = getDampedNullspaceProjectorCalculator();
@@ -249,7 +249,7 @@ public abstract class DampedNullspaceCalculatorTest extends NullspaceCalculatorT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 6.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomProblemsAgainstTrueDampedLeastSquaresProjection()
    {
       Random random = new Random(12345L);

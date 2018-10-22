@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.groundContactForce.FlatGroundContactForceOptimizer;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -28,14 +28,14 @@ public class FlatGroundContactForceOptimizerTest
 
    private static final boolean showSCS = false;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void simpleTest()
    {
       YoGraphicsListRegistry graphicsListRegistry = new YoGraphicsListRegistry();

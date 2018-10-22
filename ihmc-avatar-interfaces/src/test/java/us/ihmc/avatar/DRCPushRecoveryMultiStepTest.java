@@ -1,10 +1,10 @@
 package us.ihmc.avatar;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.initialSetup.DRCGuiInitialSetup;
 import us.ihmc.avatar.initialSetup.DRCRobotInitialSetup;
@@ -59,13 +59,13 @@ public abstract class DRCPushRecoveryMultiStepTest implements MultiRobotTestInte
       return 0.5;
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -93,8 +93,8 @@ public abstract class DRCPushRecoveryMultiStepTest implements MultiRobotTestInte
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 67.1)
-   @Test(timeout = 30000)
-   @Ignore("Needs to be improved")
+   @Test
+   @Disabled("Needs to be improved")
    public void testMultiStepForwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -129,7 +129,7 @@ public abstract class DRCPushRecoveryMultiStepTest implements MultiRobotTestInte
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 53.2)
-   @Test(timeout = 30000)
+   @Test
    public void testMultiStepBackwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

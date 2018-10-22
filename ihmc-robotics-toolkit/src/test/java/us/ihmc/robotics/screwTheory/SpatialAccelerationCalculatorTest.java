@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -28,14 +28,14 @@ public class SpatialAccelerationCalculatorTest
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
    private static final int ITERATIONS = 1000;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testWithChainComposedOfPrismaticJoints() throws Exception
    {
       Random random = new Random(234234L);
@@ -100,7 +100,7 @@ public class SpatialAccelerationCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testWithChainComposedOfRevoluteJointsAssertAngularAccelerationOnly() throws Exception
    {
       Random random = new Random(234234L);
@@ -217,7 +217,7 @@ public class SpatialAccelerationCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testWithChainRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(234234L);
@@ -280,7 +280,7 @@ public class SpatialAccelerationCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 4.2)
-   @Test(timeout = 30000)
+   @Test
    public void testWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(435345L);
@@ -371,7 +371,7 @@ public class SpatialAccelerationCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 8.6)
-   @Test(timeout = 43000)
+   @Test
    public void testRelativeAccelerationWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(435345L);
@@ -478,7 +478,7 @@ public class SpatialAccelerationCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 7.3)
-   @Test(timeout = 37000)
+   @Test
    public void testWithDoVelocityTermsSetToFalse() throws Exception
    {
       Random random = new Random(435345L);

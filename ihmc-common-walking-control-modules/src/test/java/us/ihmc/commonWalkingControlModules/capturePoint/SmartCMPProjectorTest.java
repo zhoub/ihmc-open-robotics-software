@@ -21,8 +21,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.SmartCMPProjector.ProjectionMethod;
 import us.ihmc.commons.MutationTestFacilitator;
@@ -61,14 +61,14 @@ public class SmartCMPProjectorTest
 
    private final Random random = new Random(727434726273L);
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testNoProjection1()
    {
       Point2D capturePoint = new Point2D(0.0, 0.0);
@@ -78,7 +78,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testNoProjection2()
    {
       Point2D capturePoint = new Point2D(0.0, 0.0);
@@ -88,7 +88,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleProjection1()
    {
       Point2D capturePoint = new Point2D(-0.05, 0.0);
@@ -98,7 +98,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleProjection2()
    {
       Point2D capturePoint = new Point2D(0.05, 0.0);
@@ -108,7 +108,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDiffcultProjection1()
    {
       Point2D capturePoint = new Point2D(-0.06, 0.1);
@@ -118,7 +118,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDiffcultProjection2()
    {
       Point2D capturePoint = new Point2D(-0.03, 0.15);
@@ -128,7 +128,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDiffcultProjection3()
    {
       Point2D capturePoint = new Point2D(-0.03, 0.15);
@@ -138,7 +138,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase1()
    {
       Point2D capturePoint = new Point2D(0.0, -0.05);
@@ -148,7 +148,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase1WithFinalDesired1()
    {
       Point2D capturePoint = new Point2D(0.0, -0.05);
@@ -159,7 +159,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase1WithFinalDesired2()
    {
       Point2D capturePoint = new Point2D(0.0, -0.05);
@@ -176,7 +176,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase2()
    {
       Point2D capturePoint = new Point2D(0.11, 0.06);
@@ -191,7 +191,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase2WithFinalDesired1()
    {
       Point2D capturePoint = new Point2D(0.11, 0.06);
@@ -208,7 +208,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase2WithFinalDesired2()
    {
       Point2D capturePoint = new Point2D(0.11, 0.06);
@@ -224,7 +224,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase2WithFinalDesired3()
    {
       Point2D capturePoint = new Point2D(0.11, 0.06);
@@ -240,7 +240,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase3()
    {
       Point2D capturePoint = new Point2D(0.0, 0.1);
@@ -255,7 +255,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase3WithFinalDesired1()
    {
       Point2D capturePoint = new Point2D(0.0, 0.1);
@@ -271,7 +271,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase3WithFinalDesired2()
    {
       Point2D capturePoint = new Point2D(0.0, 0.1);
@@ -287,7 +287,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase3WithFinalDesired3()
    {
       Point2D capturePoint = new Point2D(0.0, 0.1);
@@ -303,7 +303,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase4()
    {
       Point2D capturePoint = new Point2D(0.03, 0.06);
@@ -318,7 +318,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase4WithFinalDesired1()
    {
       Point2D capturePoint = new Point2D(0.03, 0.06);
@@ -334,7 +334,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuestionableCase5()
    {
       Point2D capturePoint = new Point2D(0.0, -0.06);
@@ -349,7 +349,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSmallPolygon1()
    {
       Point2D capturePoint = new Point2D(0.0, -0.06);
@@ -363,7 +363,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSmallPolygon2()
    {
       Point2D capturePoint = new Point2D(0.0, -0.06);
@@ -377,7 +377,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testNoProjectionGenerated()
    {
       if (showPlotter)
@@ -400,7 +400,7 @@ public class SmartCMPProjectorTest
 
    // tests for manual debugging - will always pass but plots can be generated
    @ContinuousIntegrationTest(estimatedDuration = 0.4)
-   @Test(timeout = 30000)
+   @Test
    public void testRandoms()
    {
       if (showPlotter)
@@ -431,7 +431,7 @@ public class SmartCMPProjectorTest
 
    // old tests from previous SmartCMPProjector implementation: these serve as regression tests
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegression1()
    {
       double[][] pointList = new double[][] {{-4.979747892521815, 0.5541117019274466}, {-0.42026607108138236, 1.9379654867165463},
@@ -445,7 +445,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegression2()
    {
       double[][] pointList = new double[][] {{-8.200433598264752, 4.736778327900604}, {-7.473324755152609, 8.139207651739621},
@@ -460,7 +460,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegression3()
    {
       double[][] pointList = new double[][] {{-9.866922926359909, 3.620889108752019}, {-6.106666508735787, 9.488161702372114},
@@ -475,7 +475,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegression4()
    {
       double[][] pointList = new double[][] {{-6.6364442778312505, 5.081037775538617}, {-5.809348495016624, 5.2896472244805715},
@@ -489,7 +489,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegression5()
    {
       double[][] pointList = new double[][] {{-0.8598263783206956, 8.812003858355197}, {2.9111689851050997, -2.8275592421317626},
@@ -503,7 +503,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegression6()
    {
       double[][] pointList = new double[][] {{-7.2707688418724015, -3.012174173134758}, {-6.841964402209621, -1.954448299069142},
@@ -518,7 +518,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegression7()
    {
       double[][] pointList = new double[][] {{-7.803067400320895, 5.2833847867746755}, {1.8456007994090697, 7.299950918772748},
@@ -532,7 +532,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegression8()
    {
       double[][] pointList = new double[][] {{-9.515882456803075, -0.7165753982559391}, {-0.36081135780595197, -1.8177034363630717},
@@ -546,7 +546,7 @@ public class SmartCMPProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegression9()
    {
       double[][] pointList = new double[][] {{-8.135927687065115, -2.235069333986268}, {4.626495043779892, -9.594908447084016}};

@@ -2,12 +2,12 @@ package us.ihmc.avatar.roughTerrainWalking;
 
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.DRCStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -44,7 +44,7 @@ public abstract class AvatarSwingWithWaypointsTest implements MultiRobotTestInte
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
    @ContinuousIntegrationTest(estimatedDuration = 137.9)
-   @Test(timeout = 690000)
+   @Test
    public void testRegularSwingWithWaypoints() throws SimulationExceededMaximumTimeException
    {
       String className = getClass().getSimpleName();
@@ -182,7 +182,7 @@ public abstract class AvatarSwingWithWaypointsTest implements MultiRobotTestInte
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 33.9)
-   @Test(timeout = 170000)
+   @Test
    public void testSwingWithWaypointsRotated() throws SimulationExceededMaximumTimeException
    {
       String className = getClass().getSimpleName();
@@ -231,13 +231,13 @@ public abstract class AvatarSwingWithWaypointsTest implements MultiRobotTestInte
       drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(simulationTime);
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

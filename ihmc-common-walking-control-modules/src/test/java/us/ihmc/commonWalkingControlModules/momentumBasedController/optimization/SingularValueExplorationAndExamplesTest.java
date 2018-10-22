@@ -6,8 +6,8 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.factory.DecompositionFactory;
 import org.ejml.interfaces.decomposition.SingularValueDecomposition;
 import org.ejml.ops.CommonOps;
-import org.junit.AfterClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.testing.JUnitTools;
@@ -15,13 +15,12 @@ import us.ihmc.robotics.testing.JUnitTools;
 public class SingularValueExplorationAndExamplesTest
 {
 
-   @AfterClass
+   @AfterAll
    public static void tearDownAfterClass() throws Exception
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testSimpleCase()
    {
       DenseMatrix64F matrixJ = new DenseMatrix64F(new double[][]{{1.0, 0.0, 0.0}, {1.0, 0.0, 0.0}});
@@ -57,8 +56,7 @@ public class SingularValueExplorationAndExamplesTest
       JUnitTools.assertMatrixEquals(matrixJ, matrixJReconstructed, 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void showIMinusNNTransposeJDoesntMakeSense()
    {
       
@@ -149,8 +147,7 @@ public class SingularValueExplorationAndExamplesTest
       return ret;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void foo2()
    {
       

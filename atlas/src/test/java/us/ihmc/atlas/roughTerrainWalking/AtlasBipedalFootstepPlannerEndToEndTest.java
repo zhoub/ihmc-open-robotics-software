@@ -2,7 +2,7 @@ package us.ihmc.atlas.roughTerrainWalking;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -34,7 +34,7 @@ public class AtlasBipedalFootstepPlannerEndToEndTest extends AvatarBipedalFootst
 
    @Override
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testShortCinderBlockFieldWithPlanarRegionBipedalPlanner()
    {
       super.testShortCinderBlockFieldWithPlanarRegionBipedalPlanner();
@@ -42,7 +42,7 @@ public class AtlasBipedalFootstepPlannerEndToEndTest extends AvatarBipedalFootst
 
    @Override
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testShortCinderBlockFieldWithAStar()
    {
       super.testShortCinderBlockFieldWithAStar();
@@ -50,7 +50,7 @@ public class AtlasBipedalFootstepPlannerEndToEndTest extends AvatarBipedalFootst
 
    @Override
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testSteppingStonesWithAStar()
    {
       super.testSteppingStonesWithAStar();
@@ -58,7 +58,7 @@ public class AtlasBipedalFootstepPlannerEndToEndTest extends AvatarBipedalFootst
 
    @Override
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testSteppingStonesWithPlanarRegionBipedalPlanner()
    {
       super.testSteppingStonesWithPlanarRegionBipedalPlanner();

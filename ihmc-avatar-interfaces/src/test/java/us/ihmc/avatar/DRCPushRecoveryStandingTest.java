@@ -1,9 +1,9 @@
 package us.ihmc.avatar;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.initialSetup.DRCGuiInitialSetup;
 import us.ihmc.avatar.initialSetup.DRCRobotInitialSetup;
@@ -42,13 +42,13 @@ public abstract class DRCPushRecoveryStandingTest implements MultiRobotTestInter
    private PushRobotController pushRobotController;
    private RobotVisualizer robotVisualizer;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -82,7 +82,7 @@ public abstract class DRCPushRecoveryStandingTest implements MultiRobotTestInter
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 42.1)
-   @Test(timeout = 210000)
+   @Test
    public void testPushForwardInDoubleSupport() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -114,7 +114,7 @@ public abstract class DRCPushRecoveryStandingTest implements MultiRobotTestInter
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 65.0)
-   @Test(timeout = 320000)
+   @Test
    public void testPushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -152,7 +152,7 @@ public abstract class DRCPushRecoveryStandingTest implements MultiRobotTestInter
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 53.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 270000)
+   @Test
    public void testDoublePushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -197,7 +197,7 @@ public abstract class DRCPushRecoveryStandingTest implements MultiRobotTestInter
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 58.8)
-   @Test(timeout = 290000)
+   @Test
    public void testPushBackwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -235,7 +235,7 @@ public abstract class DRCPushRecoveryStandingTest implements MultiRobotTestInter
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 68.2)
-   @Test(timeout = 340000)
+   @Test
    public void testPushBackwardForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

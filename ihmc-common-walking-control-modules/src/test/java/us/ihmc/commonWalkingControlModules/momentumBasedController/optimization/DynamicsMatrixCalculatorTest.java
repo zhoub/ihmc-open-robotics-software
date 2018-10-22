@@ -6,9 +6,9 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.ContactablePlaneBodyTools;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControlCoreToolbox;
@@ -65,14 +65,14 @@ public class DynamicsMatrixCalculatorTest
    int floatingBaseDoFs;
    int bodyDoFs;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testEquivalence() throws Exception
    {
       setupTest();
@@ -101,7 +101,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testMassMatrixOnly() throws Exception
    {
       setupTest();
@@ -130,7 +130,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testNoLoad() throws Exception
    {
       setupTest();
@@ -154,7 +154,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGravityOnly() throws Exception
    {
       setupTest();
@@ -178,7 +178,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGravityAndCoriolisOnly() throws Exception
    {
       setupTest();
@@ -203,7 +203,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMassMatrixAndGravityOnly() throws Exception
    {
       setupTest();
@@ -230,7 +230,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testMassMatrixAndCoriolisOnly() throws Exception
    {
       setupTest();
@@ -258,7 +258,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMassMatrixGravityAndCoriolisOnly() throws Exception
    {
       setupTest();
@@ -286,7 +286,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testForceAndGravityOnly() throws Exception
    {
       setupTest();
@@ -310,7 +310,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testForceGravityAndCoriolisOnly() throws Exception
    {
       setupTest();
@@ -335,7 +335,7 @@ public class DynamicsMatrixCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testOther() throws Exception
    {
    }

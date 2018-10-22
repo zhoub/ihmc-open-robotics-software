@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -18,7 +18,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 26.9)
-   @Test(timeout = 130000)
+   @Test
    public void testGoHome() throws SimulationExceededMaximumTimeException
    {
       super.testGoHome();
@@ -26,7 +26,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 25.5)
-   @Test(timeout = 130000)
+   @Test
    public void testSingleTrajectoryPoint() throws SimulationExceededMaximumTimeException
    {
       super.testSingleTrajectoryPoint();
@@ -34,7 +34,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 42.5)
-   @Test(timeout = 210000)
+   @Test
    public void testWalking() throws SimulationExceededMaximumTimeException
    {
       super.testWalking();
@@ -42,7 +42,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 40.8, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 200000)
+   @Test
    public void testWalkingAfterTrajectory() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingAfterTrajectory();
@@ -50,7 +50,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 33.4, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 170000)
+   @Test
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
    {
       super.testMultipleTrajectoryPoints();
@@ -58,7 +58,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 34.9, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 170000)
+   @Test
    public void testWalkingWithUserControl() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingWithUserControl();
@@ -66,7 +66,7 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 29.3, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testCustomControlFrame() throws SimulationExceededMaximumTimeException
    {
       super.testCustomControlFrame();

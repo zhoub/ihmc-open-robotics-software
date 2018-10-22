@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -30,7 +30,7 @@ public class ValkyrieObstacleCourseDoNothingTest extends DRCObstacleCourseDoNoth
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.3)
-   @Test(timeout = 100000)
+   @Test
    public void testDoNothingGroundContactPoints() throws SimulationExceededMaximumTimeException
    {
       robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);
@@ -38,7 +38,7 @@ public class ValkyrieObstacleCourseDoNothingTest extends DRCObstacleCourseDoNoth
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.3)
-   @Test(timeout = 100000)
+   @Test
    public void testDoNothingShapeCollision() throws SimulationExceededMaximumTimeException
    {
       robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false, true);

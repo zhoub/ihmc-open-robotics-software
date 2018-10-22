@@ -8,8 +8,8 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -19,14 +19,14 @@ import us.ihmc.robotics.referenceFrames.TranslationReferenceFrame;
 
 public class YoMultipleFramesHelperTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testCommonUsageOfYoMultipleFramesHelper()
    {
       String namePrefix = "framesHelper";
@@ -57,7 +57,7 @@ public class YoMultipleFramesHelperTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testRepeatFrames()
    {
       YoVariableRegistry registry = new YoVariableRegistry("framesHelper");
@@ -72,7 +72,7 @@ public class YoMultipleFramesHelperTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testExceptions()
    {
       YoVariableRegistry registry = new YoVariableRegistry("framesHelper");

@@ -1,7 +1,7 @@
 package us.ihmc.pathPlanning.visibilityGraphs;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
@@ -25,7 +25,7 @@ public class VisibilityGraphOcclusionTest
    private PlanarRegionsList occludedEnvironmentWithAGoalPlane;
    private PlanarRegionsList occludedEnvironmentWithoutAGoalPlane;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       visualize = visualize && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
@@ -33,14 +33,14 @@ public class VisibilityGraphOcclusionTest
       occludedEnvironmentWithoutAGoalPlane = simpleOccludedEnvironment(false);
    }
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testVisibilityGraphWithOcclusion()
    {
       runTest(occludedEnvironmentWithAGoalPlane);
    }
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
    public void testVisibilityGraphWithOcclusionAndNoGoalPlane()
    {

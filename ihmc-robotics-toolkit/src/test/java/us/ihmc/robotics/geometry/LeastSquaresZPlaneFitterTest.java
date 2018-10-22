@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -23,7 +23,7 @@ import us.ihmc.robotics.random.RandomGeometry;
 public class LeastSquaresZPlaneFitterTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testPointsWithSamePitchAndDifferentPositionGetSameAnswer()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();
@@ -52,8 +52,7 @@ public class LeastSquaresZPlaneFitterTest
       assertTrue(normalA.epsilonEquals(normalB, 1e-7));
    }
    
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testSimpleFlatCase()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();
@@ -71,7 +70,7 @@ public class LeastSquaresZPlaneFitterTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout = 30000)
+	@Test
    public void testRandomlyGeneratedPointsOnRandomPlanes()
    {
       int numberOfTests = 1000;
@@ -139,8 +138,7 @@ public class LeastSquaresZPlaneFitterTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testCornerCaseWithOnlyTwoPoints()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();
@@ -157,8 +155,7 @@ public class LeastSquaresZPlaneFitterTest
       assertTrue(isNaN(plane3d.getNormalCopy()));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testCornerCaseWithColinearPoints()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();
@@ -188,7 +185,7 @@ public class LeastSquaresZPlaneFitterTest
 
    // Straight up and down fails with LeastSquaresZPlaneFitter since it assumes equation Ax + By + z + C = 0
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout=300000)
+	@Test
    public void testStraightUpAndDownPlane()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();

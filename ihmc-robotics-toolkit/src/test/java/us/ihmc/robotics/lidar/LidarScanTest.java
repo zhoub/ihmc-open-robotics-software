@@ -8,7 +8,7 @@ import java.util.Random;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RandomNumbers;
@@ -22,8 +22,7 @@ import us.ihmc.euclid.tuple3D.Point3D;
 public class LidarScanTest
 {
 	
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testFlipNew()
    {
       float[] ranges = new float[720];
@@ -48,7 +47,7 @@ public class LidarScanTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAssertLidarScanRangesEqual()
    {
       Random random = new Random();
@@ -80,7 +79,7 @@ public class LidarScanTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAssertLidarScanTransformsEqual()
    {
       Random random = new Random();
@@ -111,7 +110,7 @@ public class LidarScanTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAssertLidarScanEquals()
    {
       Random random = new Random();
@@ -155,7 +154,7 @@ public class LidarScanTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConstructor()
    {
       Random random = new Random();
@@ -175,7 +174,7 @@ public class LidarScanTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConstructor2()
    {
       Random random = new Random();
@@ -192,7 +191,7 @@ public class LidarScanTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetRanges()
    {
       Random random = new Random();
@@ -213,7 +212,7 @@ public class LidarScanTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testGetCopy()
    {
       Random random = new Random();
@@ -234,7 +233,7 @@ public class LidarScanTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testScanParameters()
    {
       Random random = new Random();
@@ -273,7 +272,7 @@ public class LidarScanTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testGetAllPoints()
    {
       Random random = new Random();

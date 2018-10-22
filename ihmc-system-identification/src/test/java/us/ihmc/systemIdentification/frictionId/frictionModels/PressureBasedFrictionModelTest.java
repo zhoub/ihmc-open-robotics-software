@@ -2,7 +2,7 @@ package us.ihmc.systemIdentification.frictionId.frictionModels;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -22,8 +22,7 @@ public class PressureBasedFrictionModelTest
    private double posPressure = 123;
    private double negPressure = 105;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testConstructorAndFormula()
    {
       PressureBasedFrictionModel model = new PressureBasedFrictionModel(x1, x2, x3, x4, x5);

@@ -1,8 +1,8 @@
 package us.ihmc.quadrupedRobotics.controller.force;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.quadrupedRobotics.*;
 import us.ihmc.quadrupedRobotics.controller.QuadrupedControlMode;
@@ -30,13 +30,13 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
 
    public abstract QuadrupedXGaitSettingsReadOnly getXGaitSettings();
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       quadrupedTestFactory.close();
@@ -48,7 +48,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.0)
-   @Test(timeout = 2000000)
+   @Test
    public void testWalkingOverTiledGround() throws IOException
    {
       VaryingHeightTiledGroundEnvironment environment = new VaryingHeightTiledGroundEnvironment(0.75, 10, 4, -0.1, 0.1);
@@ -60,7 +60,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.0)
-   @Test(timeout = 2000000)
+   @Test
    public void testWalkingOverSingleStepUp() throws IOException
    {
       SingleStepEnvironment environment = new SingleStepEnvironment(0.1, 1.0);
@@ -72,7 +72,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.0)
-   @Test(timeout = 2000000)
+   @Test
    public void testWalkingOverConsecutiveRamps() throws IOException
    {
       ZigZagSlopeEnvironment environment = new ZigZagSlopeEnvironment(0.15, 0.5, 20, -0.1);
@@ -84,7 +84,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.0)
-   @Test(timeout = 2000000)
+   @Test
    public void testWalkingOverCinderBlockField() throws IOException
    {
       CinderBlockFieldPlanarRegionEnvironment environment = new CinderBlockFieldPlanarRegionEnvironment();
@@ -96,7 +96,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.0)
-   @Test(timeout = 2000000)
+   @Test
    public void testWalkingUpStaircase() throws IOException
    {
       double stepHeight = 0.13;

@@ -2,9 +2,9 @@ package us.ihmc.robotics.math.filters;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -17,14 +17,14 @@ public class DelayedYoBooleanTest
    private static Boolean DEBUG = false;
    private int ticksToDelay;
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       registry = new YoVariableRegistry("registry");
       variableToDelay = new YoBoolean("variableToDelay", registry);
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       registry = null;
@@ -32,7 +32,7 @@ public class DelayedYoBooleanTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testDelayedYoVariableMultipleTickDelays()
    {
       for (ticksToDelay = 0; ticksToDelay < 10; ticksToDelay++)
@@ -73,7 +73,7 @@ public class DelayedYoBooleanTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testDelayedYoVariableOneTickDelay()
    {
       ticksToDelay = 1;
@@ -105,7 +105,7 @@ public class DelayedYoBooleanTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testDelayedYoVariableZeroTickDelay()
    {
       ticksToDelay = 0;
@@ -137,7 +137,7 @@ public class DelayedYoBooleanTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testUpdateWithZero()
    {
       ticksToDelay = 0;
@@ -155,7 +155,7 @@ public class DelayedYoBooleanTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testReset()
    {  
       ticksToDelay = 10;

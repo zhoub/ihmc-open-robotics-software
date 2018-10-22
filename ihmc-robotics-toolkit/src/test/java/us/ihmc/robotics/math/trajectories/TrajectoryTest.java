@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RandomNumbers;
@@ -24,7 +24,7 @@ public class TrajectoryTest
    private final Random random = new Random(3294508L);
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLinearSet()
    {
       Trajectory traj = new Trajectory(2);
@@ -41,7 +41,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetConstant() throws Exception
    {
       Random random = new Random(3453);
@@ -73,7 +73,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetLinear() throws Exception
    {
       Random random = new Random(3453);
@@ -124,7 +124,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetQuadratic() throws Exception
    {
       Random random = new Random(3453);
@@ -178,7 +178,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetCubic() throws Exception
    {
       Random random = new Random(3453);
@@ -233,7 +233,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLinearDerivativePointManual()
    {
       //linear polynomial: y(x) = a0 + a1*x
@@ -263,7 +263,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLinearDerivativePointAutomated()
    {
       //linear polynomial: y(x) = a0 + a1*x
@@ -281,7 +281,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCubicDerivativePointAutomated()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -300,7 +300,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTimeScaling()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -472,7 +472,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testXPowersDerivativeVectorCubic()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -499,7 +499,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testEvaluateGeometricSequenceDerivativeForRandomInputs()
    {
       int maxNumberOfCoefficients = 8;
@@ -538,7 +538,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDerivativeCoefficients()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -585,7 +585,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDerivativeVersionsCubic()
    {
       Random random = new Random(2358724);
@@ -677,7 +677,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetDerivative()
    {
       Random random = new Random(23567);
@@ -706,7 +706,7 @@ public class TrajectoryTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuinticTrajectory()
    {
       Trajectory quinticTrajectory = new Trajectory(-10.0, 10.0, new double[] {1.0, 1.0, 1.0, 1.0, 1.0, 1.0});

@@ -3,7 +3,7 @@ package us.ihmc.simulationConstructionSetTools.simulationDispatcher.client;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -25,7 +25,7 @@ public class SimulationDispatcherClientTest
 // private static final String serverURL = "//10.100.0.74/RemoteSimulationRunner0";
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout=300000)
+	@Test
    public void test()
    {
 //    YoVariable foo = new YoVariable("foo", null);

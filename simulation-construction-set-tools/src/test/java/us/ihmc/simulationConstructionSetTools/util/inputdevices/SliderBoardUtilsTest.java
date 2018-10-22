@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -13,7 +13,7 @@ public class SliderBoardUtilsTest
 {
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testSimpleConversion()
    {
       int sliderBoardMax = 128;
@@ -47,7 +47,7 @@ public class SliderBoardUtilsTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testSimpleSquareConversion()
    {
       int sliderBoardMax = 128;
@@ -98,7 +98,7 @@ public class SliderBoardUtilsTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testRandomConversions()
    {
       Random random = new Random(1776L);
@@ -118,7 +118,7 @@ public class SliderBoardUtilsTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testRandomConversionsWithHires()
    {
       Random random = new Random(1776L);

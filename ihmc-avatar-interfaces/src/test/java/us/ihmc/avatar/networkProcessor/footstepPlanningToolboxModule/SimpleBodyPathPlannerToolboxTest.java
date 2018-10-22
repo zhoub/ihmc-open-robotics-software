@@ -1,6 +1,6 @@
 package us.ihmc.avatar.networkProcessor.footstepPlanningToolboxModule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
@@ -15,7 +15,7 @@ public class SimpleBodyPathPlannerToolboxTest extends FootstepPlannerToolboxTest
       return FootstepPlannerType.SIMPLE_BODY_PATH;
    }
 
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 46.8)
    public void testDatasetsWithoutOcclusion()
    {
@@ -24,7 +24,7 @@ public class SimpleBodyPathPlannerToolboxTest extends FootstepPlannerToolboxTest
       runAssertionsOnAllDatasetsWithoutOcclusions(dataset -> runAssertions(dataset));
    }
 
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 13.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
@@ -33,7 +33,7 @@ public class SimpleBodyPathPlannerToolboxTest extends FootstepPlannerToolboxTest
       runAssertionsOnAllDatasetsWithoutOcclusionsInDevelopment(dataset -> runAssertions(dataset));
    }
 
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 13.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionRTPS()
    {

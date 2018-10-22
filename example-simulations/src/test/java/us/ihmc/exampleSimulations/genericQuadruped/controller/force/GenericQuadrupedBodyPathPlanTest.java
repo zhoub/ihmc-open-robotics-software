@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -17,7 +17,7 @@ public class GenericQuadrupedBodyPathPlanTest extends QuadrupedBodyPathPlanTest
       return new GenericQuadrupedTestFactory();
    }
 
-   @Test(timeout = 200000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 100, categoriesOverride = IntegrationCategory.SLOW)
    @Override
    public void testSimpleBodyPathPlan()
@@ -25,7 +25,7 @@ public class GenericQuadrupedBodyPathPlanTest extends QuadrupedBodyPathPlanTest
       super.testSimpleBodyPathPlan();
    }
 
-   @Test(timeout = 200000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 120)
    @Override
    public void testBodyPathAroundASimpleMaze()

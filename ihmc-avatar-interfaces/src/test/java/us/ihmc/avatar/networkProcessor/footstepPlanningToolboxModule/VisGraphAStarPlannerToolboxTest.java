@@ -1,6 +1,6 @@
 package us.ihmc.avatar.networkProcessor.footstepPlanningToolboxModule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
@@ -18,7 +18,7 @@ public class VisGraphAStarPlannerToolboxTest extends FootstepPlannerToolboxTest
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 85.0)
    public void testDatasetsWithoutOcclusion()
    {
@@ -28,7 +28,7 @@ public class VisGraphAStarPlannerToolboxTest extends FootstepPlannerToolboxTest
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 13.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
@@ -38,7 +38,7 @@ public class VisGraphAStarPlannerToolboxTest extends FootstepPlannerToolboxTest
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 4.2, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionRTPS()
    {

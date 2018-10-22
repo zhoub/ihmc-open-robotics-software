@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.DisableOnDebug;
 import org.junit.rules.Timeout;
 import org.reflections.Reflections;
@@ -43,7 +43,7 @@ public class IHMCROSTranslationRuntimeToolsTest
 
    @SuppressWarnings({"rawtypes", "unchecked"})
    @ContinuousIntegrationTest(estimatedDuration = 0.9)
-   @Test(timeout = 30000)
+   @Test
    public void testBidirectionalConversionWithRandomConstructors()
    {
       Reflections reflections = new Reflections("us.ihmc");

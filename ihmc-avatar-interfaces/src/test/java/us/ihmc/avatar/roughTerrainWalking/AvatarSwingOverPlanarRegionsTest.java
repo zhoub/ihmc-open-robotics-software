@@ -1,11 +1,11 @@
 package us.ihmc.avatar.roughTerrainWalking;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -43,7 +43,7 @@ public abstract class AvatarSwingOverPlanarRegionsTest implements MultiRobotTest
    private static final boolean LOCAL_MODE = false;
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 72.5)
-   @Test(timeout = 360000)
+   @Test
    public void testSwingOverPlanarRegions() throws SimulationExceededMaximumTimeException
    {
       String className = getClass().getSimpleName();
@@ -169,13 +169,13 @@ public abstract class AvatarSwingOverPlanarRegionsTest implements MultiRobotTest
       }
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

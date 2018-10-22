@@ -2,8 +2,8 @@ package us.ihmc.avatar.behaviorTests;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -31,14 +31,14 @@ public abstract class AvatarCollaborativeBehaviorTest implements MultiRobotTestI
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    DRCBehaviorTestHelper drcBehaviorTestHelper;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testBehavior() throws SimulationExceededMaximumTimeException
    {
       DRCRobotModel robotModel = getRobotModel();

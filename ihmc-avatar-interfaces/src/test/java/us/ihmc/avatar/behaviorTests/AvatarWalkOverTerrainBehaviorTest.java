@@ -11,9 +11,9 @@ import static us.ihmc.avatar.roughTerrainWalking.AvatarBipedalFootstepPlannerEnd
 
 import java.io.IOException;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.networkProcessor.DRCNetworkModuleParameters;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -43,7 +43,7 @@ public abstract class AvatarWalkOverTerrainBehaviorTest implements MultiRobotTes
    private DRCSimulationTestHelper simulationTestHelper;
    private PlanarRegionsList cinderBlockField;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       PlanarRegionsListGenerator generator = new PlanarRegionsListGenerator();
@@ -66,7 +66,7 @@ public abstract class AvatarWalkOverTerrainBehaviorTest implements MultiRobotTes
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 63.6)
-   @Test(timeout = 400000)
+   @Test
    public void testWalkOverCinderBlocks() throws IOException, BlockingSimulationRunner.SimulationExceededMaximumTimeException, ControllerFailureException
    {
       DRCNetworkModuleParameters networkModuleParameters = new DRCNetworkModuleParameters();

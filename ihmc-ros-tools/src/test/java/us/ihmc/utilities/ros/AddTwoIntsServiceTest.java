@@ -6,8 +6,8 @@ import java.net.URISyntaxException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.ros.exception.RemoteException;
 import org.ros.exception.RosRuntimeException;
 import org.ros.node.service.ServiceResponseListener;
@@ -27,14 +27,14 @@ public class AddTwoIntsServiceTest extends IHMCRosTestWithRosCore
    final static boolean USE_JAVA_ROSCORE = true;
 
    @Override
-   @Before
+   @BeforeEach
    public void setUp()
    {
       super.setUp(USE_JAVA_ROSCORE);
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.2)
-   @Test(timeout = 30000)
+   @Test
    public void lowlevelRosServiceClientTest() throws URISyntaxException, InterruptedException
    {
       RosMainNode rosMainNode = new RosMainNode(rosMasterURI, "serviceClientTestNode");
@@ -79,7 +79,7 @@ public class AddTwoIntsServiceTest extends IHMCRosTestWithRosCore
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.8)
-   @Test(timeout = 30000)
+   @Test
    public void highLevelRosServiceClientTest() throws InterruptedException
    {
       RosMainNode rosMainNode = new RosMainNode(rosMasterURI, "serviceClientTestNode");

@@ -1,7 +1,7 @@
 package us.ihmc.convexOptimization.quadraticProgram;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 
@@ -21,7 +21,7 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testChallengingCasesWithPolygonConstraintsCheckFailsWithSimpleSolverWithWarmStart()
    {
       SimpleActiveSetQPSolverInterface solver = createSolverToTest();
@@ -60,7 +60,7 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
     *  Test with dataset from sim that revealed a bug with the variable lower/upper bounds handling.
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFindValidSolutionForDataset20160319WithWarmStart()
    {
       ActualDatasetFrom20160319 dataset = new ActualDatasetFrom20160319();
@@ -79,7 +79,7 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFindValidSolutionForKiwiDataset20170712WithWarmStart()
    {
       ActualDatasetFromKiwi20170712 dataset = new ActualDatasetFromKiwi20170712();
@@ -103,7 +103,7 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
     * The solver still fails when increasing the max number of iterations.
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFindValidSolutionForKiwiDataset20171013WithWarmStart()
    {
       ActualDatasetFromKiwi20171013 dataset = new ActualDatasetFromKiwi20171013();
@@ -122,7 +122,7 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFindValidSolutionForKiwiDatasetProblemWithWarmStart()
    {
       ActualDatasetFromKiwi20171015A datasetA = new ActualDatasetFromKiwi20171015A();

@@ -2,14 +2,14 @@ package us.ihmc.tools.exceptions;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class NoConvergenceExceptionTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCreateAndThrowSomeNoConvergenceExceptions()
    {
       int iter = 0;

@@ -2,7 +2,7 @@ package us.ihmc.robotiq.communication;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import net.wimpi.modbus.procimg.Register;
 import net.wimpi.modbus.procimg.SimpleRegister;
@@ -13,7 +13,7 @@ import us.ihmc.robotiq.RobotiqGraspMode;
 public class RobotiqWriteRequestFactoryTest
 {
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testOpenMessage()
    {
       Register[] request = new Register[8];

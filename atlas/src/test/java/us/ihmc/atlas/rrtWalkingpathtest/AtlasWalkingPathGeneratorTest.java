@@ -1,6 +1,6 @@
 package us.ihmc.atlas.rrtWalkingpathtest;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -25,7 +25,7 @@ public class AtlasWalkingPathGeneratorTest extends AvatarWalkingPathGeneratorTes
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 37.0)
-   @Test(timeout = 190000)
+   @Test
    public void testOne() throws SimulationExceededMaximumTimeException
    {
       super.testOne();

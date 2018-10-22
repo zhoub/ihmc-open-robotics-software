@@ -2,7 +2,7 @@ package us.ihmc.ihmcPerception.objectDetector;
 
 import java.awt.image.BufferedImage;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import boofcv.struct.calib.IntrinsicParameters;
 import us.ihmc.communication.net.AtomicSettableTimestampProvider;
@@ -42,7 +42,7 @@ public class ObjectDetectorFromCameraImagesTest
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
 
    @ContinuousIntegrationTest(estimatedDuration = 5.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 300000)
+   @Test
    public void testUsingSimulationConstructionSet() throws Exception
    {
       double fieldOfView = 0.81;

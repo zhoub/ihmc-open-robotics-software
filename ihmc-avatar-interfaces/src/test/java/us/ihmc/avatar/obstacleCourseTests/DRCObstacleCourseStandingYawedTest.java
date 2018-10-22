@@ -2,10 +2,10 @@ package us.ihmc.avatar.obstacleCourseTests;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -27,13 +27,13 @@ import us.ihmc.commons.thread.ThreadTools;
 
       private DRCSimulationTestHelper drcSimulationTestHelper;
 
-      @Before
+      @BeforeEach
       public void showMemoryUsageBeforeTest()
       {
          MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
       }
 
-      @After
+      @AfterEach
       public void destroySimulationAndRecycleMemory()
       {
          if (simulationTestingParameters.getKeepSCSUp())
@@ -53,7 +53,7 @@ import us.ihmc.commons.thread.ThreadTools;
 
 
       @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 22.2)
-      @Test(timeout = 110000)
+      @Test
       public void testStandingYawed() throws SimulationExceededMaximumTimeException
       {
          BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

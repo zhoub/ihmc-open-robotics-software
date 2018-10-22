@@ -3,7 +3,7 @@ package us.ihmc.parameterTuner;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -13,7 +13,7 @@ import us.ihmc.parameterTuner.guiElements.GuiRegistry;
 public class ParameterSavingToolsTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMerge()
    {
       /**

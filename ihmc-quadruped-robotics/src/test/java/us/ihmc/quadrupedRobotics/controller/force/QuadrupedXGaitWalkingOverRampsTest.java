@@ -2,11 +2,11 @@ package us.ihmc.quadrupedRobotics.controller.force;
 
 import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import junit.framework.AssertionFailedError;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.quadrupedRobotics.*;
@@ -26,14 +26,14 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
    private QuadrupedTeleopManager stepTeleopManager;
    private QuadrupedTestFactory quadrupedTestFactory;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
       quadrupedTestFactory = createQuadrupedTestFactory();
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       quadrupedTestFactory.close();
@@ -46,7 +46,7 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.0)
-   @Test(timeout = 2200000)
+   @Test
    public void testWalkingOverShallowRamps() throws IOException
    {
       RampsGroundProfile groundProfile = new RampsGroundProfile(0.075, 0.75, 1.2);
@@ -55,7 +55,7 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.0)
-   @Test(timeout = 2000000)
+   @Test
    public void testWalkingOverAggressiveRamps() throws IOException
    {
       RampsGroundProfile groundProfile = new RampsGroundProfile(0.15, 0.75, 1.2);
@@ -104,14 +104,14 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 1200000)
+   @Test
    public void testWalkingDownSlope() throws IOException
    {
       walkSlope(0.2, getWalkingDownSlopePosition());
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 980000)
+   @Test
    public void testWalkingUpSlope() throws IOException
    {
       walkSlope(-0.1, getWalkingUpSlopePosition());

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.ContactablePlaneBodyTools;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControlCoreToolbox;
@@ -53,7 +53,7 @@ public class GravityCoriolisExternalWrenchMatrixCalculatorTest
    int floatingBaseDoFs;
    int bodyDoFs;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -64,7 +64,7 @@ public class GravityCoriolisExternalWrenchMatrixCalculatorTest
     * @throws Exception
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testWithAndWithoutAcceleration() throws Exception
    {
       setupTest();

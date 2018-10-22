@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
@@ -78,7 +78,7 @@ public class AtlasFlatGroundSideSteppingTest extends AvatarFlatGroundSideSteppin
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 63.0)
-   @Test(timeout = 310000)
+   @Test
    public void testSideStepping() throws SimulationExceededMaximumTimeException
    {
       super.testSideStepping();
@@ -86,7 +86,7 @@ public class AtlasFlatGroundSideSteppingTest extends AvatarFlatGroundSideSteppin
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 60.4)
-   @Test(timeout = 300000)
+   @Test
    public void testSideSteppingWithForceDisturbances() throws SimulationExceededMaximumTimeException
    {
       super.testSideSteppingWithForceDisturbances();

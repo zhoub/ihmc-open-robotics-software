@@ -5,8 +5,8 @@ import java.nio.ByteOrder;
 import java.util.BitSet;
 import java.util.Random;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -19,7 +19,7 @@ public class GenericCRC32Test
    private final ByteBuffer CRC_32_BYTE_BUFFER = ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN);
    private BitSet CRC_32_BITSET;
 
-   @Before
+   @BeforeEach
    public void initialize()
    {
       CRC_32_BYTE_BUFFER.putInt(CRC_32_POLYNOMIAL);
@@ -28,7 +28,7 @@ public class GenericCRC32Test
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testUpdateLong()
    {
       Random random = new Random(4271L);

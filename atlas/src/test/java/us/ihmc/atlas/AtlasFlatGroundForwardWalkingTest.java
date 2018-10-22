@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
@@ -80,7 +80,7 @@ public class AtlasFlatGroundForwardWalkingTest extends AvatarFlatGroundForwardWa
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 57.4)
-   @Test(timeout = 290000)
+   @Test
    public void testForwardWalk() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalk();
@@ -88,7 +88,7 @@ public class AtlasFlatGroundForwardWalkingTest extends AvatarFlatGroundForwardWa
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 59.7)
-   @Test(timeout = 300000)
+   @Test
    public void testForwardWalkWithForceDisturbances() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalkWithForceDisturbances();

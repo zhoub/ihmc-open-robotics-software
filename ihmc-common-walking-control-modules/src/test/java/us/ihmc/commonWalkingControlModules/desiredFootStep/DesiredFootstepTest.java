@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -57,13 +57,13 @@ public class DesiredFootstepTest
    //TODO: Make listeners or something blocking so we don't have to do arbitrary sleep times...
    private static final long SLEEP_TIME = 500;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void showMemoryUsageAfterTest()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -76,7 +76,7 @@ public class DesiredFootstepTest
     */
 
    @ContinuousIntegrationTest(estimatedDuration = 1.6)
-   @Test(timeout = 30000)
+   @Test
    public void testPassingFootstepData() throws IOException
    {
       Random random = new Random(5642769L);
@@ -111,7 +111,7 @@ public class DesiredFootstepTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.6)
-   @Test(timeout = 30000)
+   @Test
    public void testPassingFootstepPath() throws IOException
    {
       Random random = new Random(1582l);
@@ -141,7 +141,7 @@ public class DesiredFootstepTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.6)
-   @Test(timeout = 30000)
+   @Test
    public void testPassingPauseCommand() throws IOException
    {
       Random random = new Random(5642568L);
@@ -182,7 +182,7 @@ public class DesiredFootstepTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.5)
-   @Test(timeout = 30000)
+   @Test
    public void testPassingFootstepPathAndPauseCommands() throws IOException
    {
       Random random = new Random(5632469L);
@@ -253,7 +253,7 @@ public class DesiredFootstepTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.4)
-   @Test(timeout = 30000)
+   @Test
    public void testPassingFootstepStatus() throws IOException
    {
       Random random = new Random(3642569L);

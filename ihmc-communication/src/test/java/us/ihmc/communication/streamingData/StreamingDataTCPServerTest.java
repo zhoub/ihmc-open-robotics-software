@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -17,7 +17,7 @@ public class StreamingDataTCPServerTest
 {
 
 	@ContinuousIntegrationTest(estimatedDuration = 1.0)
-	@Test(timeout=90000)
+	@Test
    public void testTypicalUsage()
    {
       String hostname = "localhost";
@@ -51,7 +51,7 @@ public class StreamingDataTCPServerTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 2.2)
-	@Test(timeout=90000)
+	@Test
    public void testMultipleProducersAndConsumersRobustly()
    {
       String hostname = "localhost";
@@ -104,7 +104,7 @@ public class StreamingDataTCPServerTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 3.1)
-	@Test(timeout=90000)
+	@Test
    public void testPersistentConsumerToServerRestart()
    {
       String hostname = "localhost";

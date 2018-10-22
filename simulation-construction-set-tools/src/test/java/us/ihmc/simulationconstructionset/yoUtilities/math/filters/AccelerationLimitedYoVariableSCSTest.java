@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -50,7 +50,7 @@ public class AccelerationLimitedYoVariableSCSTest
    private Random random = new Random(4546556L);
 
    /*
-    * Can't use @Before because not every test uses the GUI.
+    * Can't use @BeforeEach because not every test uses the GUI.
     */
    private void setupSCSStuff()
    {
@@ -87,14 +87,14 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
          public void makeSureGUIIsNotUpWhenRunning()
          {
             if ( VISUALIZE) throw new RuntimeException(this.getClass() + "was checked in with the GUI enabled. Better fix that."); 
          }
 
    /*
-    * Can't use @After because not every test uses the GUI.
+    * Can't use @AfterEach because not every test uses the GUI.
     */
    private void shutdownSCSStuff(SimulationConstructionSet scs)
    {
@@ -115,7 +115,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void test_ZeroVelocity()
    {
       setupSCSStuff();
@@ -164,7 +164,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void test_ConstantVelocity()
    {
       setupSCSStuff();
@@ -202,7 +202,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void test_ConstantAcceleration_PlusInitialize()
    {
       setupSCSStuff();
@@ -251,7 +251,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void test_Sine_Plus_Reset_Plus_Update()
    {
       setupSCSStuff();
@@ -304,7 +304,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void test_RiseTimeSquareWave()
    {
       setupSCSStuff();
@@ -358,7 +358,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void test_SquareWaves()
    {
       setupSCSStuff();
@@ -401,7 +401,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void test_Chirp_Plus_UpdateWithoutNoArguments()
    {
       setupSCSStuff();
@@ -457,7 +457,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testSetAndGetGainsByPolePlacement()
    {
       setupSCSStuff();
@@ -480,7 +480,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testUpdate()
    {
       setupSCSStuff();
@@ -504,7 +504,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testGetAndSetMaximumRateaAndAcceleration()
    {
       setupSCSStuff();
@@ -531,7 +531,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout=300000)
+	@Test
    public void testDump()
    {
       double dt = 0.006;
@@ -595,7 +595,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testErrorTooHigh()
    {
       assertFalse(isValueWithinMarginOfError(1.0, 0.0, 0.1));

@@ -12,8 +12,8 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.ejml.ops.RandomMatrices;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -30,14 +30,14 @@ public class WeightMatrix3DTest
 {
    private static final int ITERATIONS = 1000;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSettersGetters() throws Exception
    {
       Random random = new Random(123423L);
@@ -93,7 +93,7 @@ public class WeightMatrix3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.8)
-   @Test(timeout = 30000)
+   @Test
    public void testGetFullSelectionMatrixInFrame() throws Exception
    {
       Random random = new Random(456465L);
@@ -171,7 +171,7 @@ public class WeightMatrix3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.1)
-   @Test(timeout = 30000)
+   @Test
    public void testGetEfficientSelectionMatrixInFrame() throws Exception
    {
       Random random = new Random(456465L);

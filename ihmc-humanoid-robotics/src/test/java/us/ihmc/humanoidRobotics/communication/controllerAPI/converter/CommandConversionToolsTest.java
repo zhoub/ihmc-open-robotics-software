@@ -3,7 +3,7 @@ package us.ihmc.humanoidRobotics.communication.controllerAPI.converter;
 import java.util.Random;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.humanoidRobotics.communication.controllerAPI.command.EuclideanTrajectoryControllerCommand;
@@ -13,7 +13,7 @@ import us.ihmc.humanoidRobotics.communication.controllerAPI.command.SO3Trajector
 public class CommandConversionToolsTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSO3()
    {
       Random random = new Random(4219L);
@@ -32,7 +32,7 @@ public class CommandConversionToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testEuclidean()
    {
       Random random = new Random(5204L);

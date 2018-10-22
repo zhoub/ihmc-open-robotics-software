@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.utilities.parameterOptimization.IndividualToEvaluate;
@@ -16,7 +16,7 @@ public class SimpleSimulationTest
 {
 
 	@ContinuousIntegrationTest(estimatedDuration = 1.6)
-	@Test(timeout=300000)
+	@Test
    public void testSimpleSimulation()
    {
       SimpleRobotToOptimize robot = new SimpleRobotToOptimize();

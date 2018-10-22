@@ -6,7 +6,7 @@ import static us.ihmc.humanoidRobotics.communication.packets.manipulation.wholeB
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ReachingManifoldMessage;
 import controller_msgs.msg.dds.RigidBodyExplorationConfigurationMessage;
@@ -61,7 +61,7 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
 
    @Override
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 10.6)
-   @Test(timeout = 53000)
+   @Test
    public void testOneBigCircle() throws Exception, UnreasonableAccelerationException
    {
       super.testOneBigCircle();
@@ -69,7 +69,7 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
 
    @Override
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testHandCirclePositionAndYaw() throws Exception, UnreasonableAccelerationException
    {
       super.testHandCirclePositionAndYaw();
@@ -77,14 +77,14 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
 
    @Override
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testHandCirclePositionAndYawPitchRoll() throws Exception, UnreasonableAccelerationException
    {
       super.testHandCirclePositionAndYawPitchRoll();
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testDoorMotion() throws Exception, UnreasonableAccelerationException
    {
       // trajectory parameter
@@ -146,7 +146,7 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testDrillMotion() throws Exception, UnreasonableAccelerationException
    {
       // trajectory parameter
@@ -214,7 +214,7 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testValveMotion() throws Exception, UnreasonableAccelerationException
    {
       // trajectory parameter
@@ -268,7 +268,7 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testReaching() throws Exception, UnreasonableAccelerationException
    {
       FullHumanoidRobotModel fullRobotModel = createFullRobotModelAtInitialConfiguration();

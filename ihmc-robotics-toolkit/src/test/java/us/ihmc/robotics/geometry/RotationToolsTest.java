@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -28,7 +28,7 @@ public class RotationToolsTest
    private static final double EPSILON = 1e-10;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAxisAngleEpsilonEqualsIgnoreCompleteRotations()
    {
       AxisAngleComparisonMode mode = AxisAngleComparisonMode.IGNORE_FLIPPED_AXES_ROTATION_DIRECTION_AND_COMPLETE_ROTATIONS;
@@ -59,7 +59,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAxisAngleEpsilonEqualsIgnoreFlippedAxes()
    {
       for (int i = 0; i < 100; i++)
@@ -91,7 +91,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAxisAngleEpsilonEqualsAnglesAreZero()
    {
       int numberOfTests = 100;
@@ -110,7 +110,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAxisAngleEpsilonEqualsAnglesDivisibleByTwoPi()
    {
       int numberOfTests = 100;
@@ -150,7 +150,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAxisAngleEpsilonEqualsMinusPI()
    {
       int numberOfTests = 100;
@@ -180,7 +180,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAxisAngleEpsilonEqualsPlusPI()
    {
       int numberOfTests = 100;
@@ -210,7 +210,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetQuaternionFromYawAndZNormal()
    {
       double yaw = 1.0;
@@ -244,7 +244,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomGetQuaternionFromYawAndZNormal()
    {
       int numTests = 100;
@@ -268,7 +268,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuaternionStuff()
    {
       Quaternion q = new Quaternion();
@@ -332,7 +332,7 @@ public class RotationToolsTest
    //standard identity matrix
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetQuaternionBasedOnMatrix_Case0()
    {
       Quaternion[] testCases = new Quaternion[] {new Quaternion(0, 0, 0, 1), new Quaternion(1, 0, 0, 0), new Quaternion(0, 1, 0, 0), new Quaternion(0, 0, 1, 0), new Quaternion(0.559509264745704, 0.035077807528218076, -0.8227912676126732, -0.09345298295434751),
@@ -348,7 +348,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testSetQuaternionBasedOnMatrix3d()
    {
       Random random = new Random(1776L);
@@ -376,7 +376,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.4)
-   @Test(timeout = 30000)
+   @Test
    public void testIntegrateToQuaternion() throws Exception
    {
       for (int i = 0; i < 100; i++)
@@ -415,7 +415,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeAngularVelocityInBodyFrameFromYawPitchRollAnglesRate() throws Exception
    {
       double dt = 1.0e-8;
@@ -453,7 +453,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeAngularVelocityInWorldFrameFromYawPitchRollAnglesRate() throws Exception
    {
       for (int i = 0; i < 1000; i++)
@@ -481,7 +481,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void computeYawPitchRollAngleRatesFromAngularVelocityInBodyFrame() throws Exception
    {
       for (int i = 0; i < 1000; i++)
@@ -507,7 +507,7 @@ public class RotationToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void computeYawPitchRollAngleRatesFromAngularVelocityInWorldFrame() throws Exception
    {
       for (int i = 0; i < 1000; i++)
@@ -536,7 +536,7 @@ public class RotationToolsTest
     * Test that has for only purpose to highlight a bug in Java3d.
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 10000)
+   @Test
    public void testJava3dAxisAngleSetMatrixBug()
    {
       RotationMatrix m = new RotationMatrix(-0.9945629970516978, -0.10063678160888465, -0.02677093728187517, -0.10063683459913739, 0.8627481429886237, 0.49551777898633176, -0.026770738081164314, 0.4955177897483468, -0.8681851459369152);
@@ -554,7 +554,7 @@ public class RotationToolsTest
     * Test that has for only purpose to highlight a bug in Java3d
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 10000)
+   @Test
    public void testJava3dQuat4dSetMatrixBug()
    {
       RotationMatrix m = new RotationMatrix(-0.9945629970516978, -0.10063678160888465, -0.02677093728187517, -0.10063683459913739, 0.8627481429886237, 0.49551777898633176, -0.026770738081164314, 0.4955177897483468, -0.8681851459369152);

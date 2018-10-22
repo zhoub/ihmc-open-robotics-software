@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -20,7 +20,7 @@ public class PointToLineUnProjectorTest
    private static final double eps = 1e-7;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testsimpleCase()
    {
       double x0 = 1.0;
@@ -36,7 +36,7 @@ public class PointToLineUnProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testGeneralCase()
    {
       Random gen = new Random(124L);
@@ -56,7 +56,7 @@ public class PointToLineUnProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testDegenerateCase()
    {
       Random gen = new Random(124L);
@@ -76,7 +76,7 @@ public class PointToLineUnProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testYCase()
    {
       Random gen = new Random(124L);
@@ -97,7 +97,7 @@ public class PointToLineUnProjectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testXCase()
    {
       Random gen = new Random(124L);

@@ -1,6 +1,6 @@
 package us.ihmc.avatar.networkProcessor.footstepPlanningToolboxModule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -17,7 +17,7 @@ public class AStarPlannerToolboxTest extends FootstepPlannerToolboxTest
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 142)
    public void testDatasetsWithoutOcclusion()
    {
@@ -27,7 +27,7 @@ public class AStarPlannerToolboxTest extends FootstepPlannerToolboxTest
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 13.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
@@ -37,7 +37,7 @@ public class AStarPlannerToolboxTest extends FootstepPlannerToolboxTest
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionRTPS()
    {

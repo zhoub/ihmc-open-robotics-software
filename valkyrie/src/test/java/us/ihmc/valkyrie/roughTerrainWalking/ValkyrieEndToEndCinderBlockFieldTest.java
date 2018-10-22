@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -42,7 +42,7 @@ public class ValkyrieEndToEndCinderBlockFieldTest extends EndToEndCinderBlockFie
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 227.5)
-   @Test(timeout = 1100000)
+   @Test
    public void testWalkingOverCinderBlockField() throws Exception
    {
       super.testWalkingOverCinderBlockField();

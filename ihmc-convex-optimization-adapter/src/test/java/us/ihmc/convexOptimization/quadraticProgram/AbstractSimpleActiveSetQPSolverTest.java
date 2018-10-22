@@ -9,8 +9,8 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.RandomNumbers;
@@ -27,7 +27,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    public abstract SimpleActiveSetQPSolverInterface createSolverToTest();
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleCasesWithNoInequalityConstraints()
    {
       SimpleActiveSetQPSolverInterface solver = createSolverToTest();
@@ -138,7 +138,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleCasesWithInequalityConstraints()
    {
       testSimpleCasesWithInequalityConstraints(1);
@@ -314,7 +314,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleCasesWithBoundsConstraints()
    {
       testSimpleCasesWithBoundsConstraints(1, 3, 3, 3, false);
@@ -562,7 +562,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
 
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testClear()
    {
       testClear(3, 2, false);
@@ -843,7 +843,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSolutionMethodsAreAllConsistent() throws NoConvergenceException
    {
       testSolutionMethodsAreAllConsistent(2);
@@ -961,7 +961,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void test2DCasesWithPolygonConstraints()
    {
       test2DCasesWithPolygonConstraints(2, 3);
@@ -1020,9 +1020,9 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertEquals(0.0, lagrangeInequalityMultipliers[1], 1e-7);
    }
 
-   @Ignore // This should pass with a good solver. But a simple one has trouble on it.  
+   @Disabled // This should pass with a good solver. But a simple one has trouble on it.  
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testChallengingCasesWithPolygonConstraints()
    {
       testChallengingCasesWithPolygonConstraints(3, 3);
@@ -1088,7 +1088,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
 
    // This should pass with a good solver. But a simple one has trouble on it.  
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testChallengingCasesWithPolygonConstraintsCheckFailsWithSimpleSolver()
    {
       SimpleActiveSetQPSolverInterface solver = createSolverToTest();
@@ -1119,10 +1119,10 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertTrue(Double.isInfinite(lagrangeInequalityMultipliers[2]) || Double.isNaN(lagrangeInequalityMultipliers[2]));
    }
 
-   @Ignore /** we can set this to be valid, via {@link JavaQuadProgSolver.setRequireInequalityConstraintsSatisfied(boolean)} to true. But this does not, by default
+   @Disabled /** we can set this to be valid, via {@link JavaQuadProgSolver.setRequireInequalityConstraintsSatisfied(boolean)} to true. But this does not, by default
     require that */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCaseWithNoSolution()
    {
       SimpleActiveSetQPSolverInterface solver = createSolverToTest();
@@ -1156,7 +1156,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testLargeRandomProblemWithInequalityConstraints()
    {
       Random random = new Random(1776L);
@@ -1287,7 +1287,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testLargeRandomProblemWithInequalityAndBoundsConstraints()
    {
       Random random = new Random(1776L);
@@ -1511,7 +1511,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
     *  Test with dataset from sim that revealed a bug with the variable lower/upper bounds handling.
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFindValidSolutionForDataset20160319()
    {
       ActualDatasetFrom20160319 dataset = new ActualDatasetFrom20160319();
@@ -1531,7 +1531,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
     * The solver still fails when increasing the max number of iterations.
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFindValidSolutionForKiwiDataset20170712()
    {
       ActualDatasetFromKiwi20170712 dataset = new ActualDatasetFromKiwi20170712();
@@ -1551,7 +1551,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
     * The solver still fails when increasing the max number of iterations.
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFindValidSolutionForKiwiDataset20171013()
    {
       ActualDatasetFromKiwi20171013 dataset = new ActualDatasetFromKiwi20171013();
@@ -1566,7 +1566,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMaxIterations()
    {
       testMaxIterations(3, true);
@@ -1638,7 +1638,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSomeExceptions()
    {
       SimpleActiveSetQPSolverInterface solver = createSolverToTest();

@@ -4,8 +4,8 @@ import controller_msgs.msg.dds.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.thread.ThreadTools;
@@ -69,7 +69,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    private final AtomicReference<FootstepPlanningRequestPacket> planningRequestReference = new AtomicReference<>(null);
    private final AtomicReference<FootstepPlannerParametersPacket> footstepPlannerParametersReference = new AtomicReference<>(null);
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       for (int i = 0; i < 100; i++)
@@ -137,7 +137,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.2)
-   @Test(timeout = 30000)
+   @Test
    public void testSendingFootstepPlanningRequestPacketFromUIIntraprocess()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -146,7 +146,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.2, categoriesOverride = IntegrationCategory.FLAKY)
-   @Test(timeout = 30000)
+   @Test
    public void testSendingFootstepPlanningRequestPacketFromUIFastRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;
@@ -155,7 +155,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.5)
-   @Test(timeout = 30000)
+   @Test
    public void testSendingFootstepPlannerRequestPacketToUIIntraprocess()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -164,7 +164,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.4, categoriesOverride = IntegrationCategory.FLAKY)
-   @Test(timeout = 30000)
+   @Test
    public void testSendingFootstepPlannerRequestPacketToUIFastRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;
@@ -173,7 +173,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 4.5)
-   @Test(timeout = 30000)
+   @Test
    public void testSendingFootstepPlannerParametersPacketIntraprocess()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -182,7 +182,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.3, categoriesOverride = IntegrationCategory.FLAKY)
-   @Test(timeout = 30000)
+   @Test
    public void testSendingFootstepPlannerParametersPacketFastRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;
@@ -191,7 +191,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.3)
-   @Test(timeout = 30000)
+   @Test
    public void testSendingFootstepPlannerOutputStatusToUIIntraprocess()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -200,7 +200,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 4.0, categoriesOverride = IntegrationCategory.FLAKY)
-   @Test(timeout = 30000)
+   @Test
    public void testSendingFootstepPlannerOutputStatusToUIFastRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;

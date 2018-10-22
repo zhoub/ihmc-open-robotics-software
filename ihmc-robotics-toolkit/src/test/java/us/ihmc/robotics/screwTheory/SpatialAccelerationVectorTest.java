@@ -6,9 +6,9 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.After;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -26,14 +26,14 @@ import us.ihmc.robotics.testing.JUnitTools;
 
 public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 2.6)
-	@Test(timeout = 30000)
+	@Test
    public void testChangeFrameUsingNumericalDifferentiationVersusAnalytical()
    {
       double epsilon = 1e-3;    // needs to be pretty high, but if you decrease deltaT, you can go lower
@@ -84,8 +84,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * Tests centripetal acceleration
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testAccelerationOfPointFixedInBodyFrame()
    {
       Random random = new Random(1456L);
@@ -107,7 +106,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
 	 * This test is used to prove that the reference frame in which the linear acceleration of a body fixed point in computed in does not matter.
 	 */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetAccelerationOfPointFixedInBodyFrameComputedInDifferentFrames() throws Exception
    {
       Random random = new Random(345345L);
@@ -148,9 +147,9 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
    }
 
    // TODO: Figure out this test and get it to pass if it should.
-	@Ignore
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout=300000)
+	@Test
    public void testAccelerationOfPointFixedInBodyFrameAlternative()
    {
       Random random = new Random();
@@ -187,7 +186,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     */
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = ReferenceFrameMismatchException.class)
+	@Test
    public void testAddExpressedInDifferentFrames()
    {
       SpatialAccelerationVector acceleration1 = createSpatialMotionVector(frameB, frameA, frameC, new Vector3D(), new Vector3D());
@@ -201,7 +200,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     */
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = ReferenceFrameMismatchException.class)
+	@Test
    public void testAddNotRelative()
    {
       SpatialAccelerationVector acceleration1 = createSpatialMotionVector(frameB, frameA, frameC, new Vector3D(), new Vector3D());
@@ -215,8 +214,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * (which is allowed)
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testAdd()
    {
       Vector3D angularVelocity1 = new Vector3D(random.nextDouble(), random.nextDouble(), random.nextDouble());
@@ -271,8 +269,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testSub()
    {
       Random random = new Random(3454L);
@@ -295,7 +292,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testSubWrongExpressedInFrame()
    {
       SpatialAccelerationVector vector1 = new SpatialAccelerationVector(frameB, frameA, frameD);
@@ -304,7 +301,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testSubFramesDontMatchUp()
    {
       SpatialAccelerationVector vector1 = new SpatialAccelerationVector(frameD, frameA, frameC);
@@ -316,8 +313,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * Compares setScrew method in SpatialAccelerationVector to numerical derivative based method
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testSetScrew()
    {
       ReferenceFrame bodyFrame = frameA;
@@ -360,8 +356,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       JUnitTools.assertMatrixEquals(numericalDerivative, acceleration.toMatrix(), 1e-4);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testSetBasedOnOriginAcceleration()
    {
       SpatialAccelerationVector acceleration = new SpatialAccelerationVector(frameA, frameB, frameA);
@@ -388,8 +383,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       EuclidCoreTestTools.assertTuple3DEquals(originAccelerationBack, originAcceleration, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testChangeFrameNoRelativeMotion()
    {
       ReferenceFrame bodyFrame = frameA;

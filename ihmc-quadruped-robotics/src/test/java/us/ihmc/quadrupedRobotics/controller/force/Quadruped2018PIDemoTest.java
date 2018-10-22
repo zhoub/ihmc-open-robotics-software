@@ -1,8 +1,8 @@
 package us.ihmc.quadrupedRobotics.controller.force;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.pushRecovery.PushRobotTestConductor;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
@@ -37,7 +37,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    private QuadrupedTestFactory quadrupedTestFactory;
    private QuadrupedTeleopManager stepTeleopManager;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -65,7 +65,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    }
 
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       quadrupedTestFactory.close();
@@ -80,7 +80,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
-   @Test(timeout = 5000000)
+   @Test
    public void testTrottingFast()
    {
       double endPhaseShift = 180.0;
@@ -131,7 +131,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
-   @Test(timeout = 5000000)
+   @Test
    public void testTrottingWithPush()
    {
       double endPhaseShift = 180.0;
@@ -192,7 +192,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
-   @Test(timeout = 5000000)
+   @Test
    public void testMultiGait()
    {
       createTest();
@@ -299,7 +299,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
-   @Test(timeout = 5000000)
+   @Test
    public void testWalkingUpStaircase() throws IOException
    {
       double stepHeight = 0.13;
@@ -354,7 +354,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
-   @Test(timeout = 5000000)
+   @Test
    public void testWalkingDownStaircase() throws IOException
    {
       double stepHeight = 0.13;
@@ -421,7 +421,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
-   @Test(timeout = 5000000)
+   @Test
    public void testWalkingOverCinderBlocks() throws IOException
    {
       PlanarRegionsListGenerator generator = new PlanarRegionsListGenerator();
@@ -466,7 +466,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
-   @Test(timeout = 5000000)
+   @Test
    public void testTrottingOverAggressiveBumpyTerrain() throws IOException
    {
       double xAmp1 = 0.03, xFreq1 = 0.5, xAmp2 = 0.02, xFreq2 = 0.5;

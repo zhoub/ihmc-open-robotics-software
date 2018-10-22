@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -17,7 +17,7 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
    private final DRCRobotModel robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false);
 
    @ContinuousIntegrationTest(estimatedDuration = 24.4)
-   @Test(timeout = 120000)
+   @Test
    @Override
    public void testCustomControlPoint() throws SimulationExceededMaximumTimeException
    {
@@ -25,7 +25,7 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 78.1, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 390000)
+   @Test
    @Override
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
@@ -33,7 +33,7 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 85.4)
-   @Test(timeout = 430000)
+   @Test
    @Override
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
    {
@@ -41,7 +41,7 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 96.2, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 480000)
+   @Test
    @Override
    public void testQueuedMessages() throws SimulationExceededMaximumTimeException
    {
@@ -49,7 +49,7 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 72.6)
-   @Test(timeout = 360000)
+   @Test
    @Override
    public void testQueueStoppedWithOverrideMessage() throws SimulationExceededMaximumTimeException
    {
@@ -57,7 +57,7 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 58.5, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 290000)
+   @Test
    @Override
    public void testQueueWithWrongPreviousId() throws SimulationExceededMaximumTimeException
    {

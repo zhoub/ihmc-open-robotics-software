@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -120,14 +120,14 @@ public abstract class FootstepPlannerDataSetTest
       actualResult.set(null);
    }
 
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 13.0)
    public void testDatasetsWithoutOcclusion()
    {
       runAssertionsOnAllDatasetsWithoutOcclusions(dataset -> runAssertions(dataset));
    }
 
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 13.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {

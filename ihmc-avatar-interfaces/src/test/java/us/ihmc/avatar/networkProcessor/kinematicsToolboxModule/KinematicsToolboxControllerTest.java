@@ -10,9 +10,9 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.tuple.Pair;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.KinematicsToolboxRigidBodyMessage;
 import controller_msgs.msg.dds.RobotConfigurationData;
@@ -84,7 +84,7 @@ public class KinematicsToolboxControllerTest
    private Robot ghost;
    private RobotController toolboxUpdater;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       mainRegistry = new YoVariableRegistry("main");
@@ -132,7 +132,7 @@ public class KinematicsToolboxControllerTest
       new JointAnglesWriter(ghost, fullHumanoidRobotModel.getLeft(), fullHumanoidRobotModel.getRight()).updateRobotConfigurationBasedOnFullRobotModel();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -166,7 +166,7 @@ public class KinematicsToolboxControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.4)
-   @Test(timeout = 30000)
+   @Test
    public void testHoldBodyPose() throws Exception
    {
       Pair<FloatingInverseDynamicsJoint, OneDoFJoint[]> initialFullRobotModel = createFullRobotModelAtInitialConfiguration();
@@ -188,7 +188,7 @@ public class KinematicsToolboxControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.5)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomHandPositions() throws Exception
    {
       if (VERBOSE)
@@ -226,7 +226,7 @@ public class KinematicsToolboxControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.3)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomHandPoses() throws Exception
    {
       if (VERBOSE)

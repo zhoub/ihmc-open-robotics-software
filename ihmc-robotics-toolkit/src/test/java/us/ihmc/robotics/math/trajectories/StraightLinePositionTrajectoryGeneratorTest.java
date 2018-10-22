@@ -6,9 +6,9 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -40,7 +40,7 @@ public class StraightLinePositionTrajectoryGeneratorTest
    private double zValue = Math.random();
 
    private static double finalTime = 10.0;
-   @Before
+   @BeforeEach
    public void setUp()
    {
       parentRegistry = new YoVariableRegistry("parentRegistryTEST");
@@ -51,14 +51,13 @@ public class StraightLinePositionTrajectoryGeneratorTest
       trajectoryTimeProvider = new ConstantDoubleProvider(10.0);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testConstructor()
    {
       try
@@ -74,13 +73,13 @@ public class StraightLinePositionTrajectoryGeneratorTest
    }
 
    //TODO: Implement this test
-   //   @Test(timeout=300000)
+   //   @Test
    //   public void testComputeGains()
    //   {
    //      smoother = new PositionTrajectorySmoother(namePrefix, positionTrajectoryInput, dt, parentRegistry);
    //   }
    
-//   @Test(timeout=300000)
+//   @Test
 //   public void testSetMaxAccelerationAndJerk()
 //   {
 //      smoother = new PositionTrajectorySmoother(namePrefix, positionTrajectoryInput, dt, parentRegistry);
@@ -90,8 +89,7 @@ public class StraightLinePositionTrajectoryGeneratorTest
 //      smoother.setMaxAccelerationAndJerk(maxAbsoluteAcceleration, maxAbsoluteJerk);
 //   }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testIsDone()
    {
       generator = new StraightLinePositionTrajectoryGenerator(namePrefix, referenceFrame, trajectoryTimeProvider, initialPositionProvider, finalPositionProvider, parentRegistry);
@@ -103,8 +101,7 @@ public class StraightLinePositionTrajectoryGeneratorTest
       assertTrue(generator.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGet()
    {
       generator = new StraightLinePositionTrajectoryGenerator(namePrefix, referenceFrame, trajectoryTimeProvider, initialPositionProvider, finalPositionProvider, parentRegistry);
@@ -115,8 +112,7 @@ public class StraightLinePositionTrajectoryGeneratorTest
       assertEquals(referenceFrame, positionToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testPackVelocity()
    {
       generator = new StraightLinePositionTrajectoryGenerator(namePrefix, referenceFrame, trajectoryTimeProvider, initialPositionProvider, finalPositionProvider, parentRegistry);
@@ -132,8 +128,7 @@ public class StraightLinePositionTrajectoryGeneratorTest
       assertSame(referenceFrame, velocityToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testPackAcceleration()
    {
       generator = new StraightLinePositionTrajectoryGenerator(namePrefix, referenceFrame, trajectoryTimeProvider, initialPositionProvider, finalPositionProvider, parentRegistry);
@@ -149,8 +144,7 @@ public class StraightLinePositionTrajectoryGeneratorTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testPackLinearData()
    {
       FramePoint3D positionToPack = new FramePoint3D(referenceFrame);

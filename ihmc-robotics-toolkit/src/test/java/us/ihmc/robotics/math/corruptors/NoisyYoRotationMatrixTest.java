@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.corruptors;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.matrix.RotationMatrix;
@@ -13,7 +13,7 @@ public class NoisyYoRotationMatrixTest
 {
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testNoNoise()
    {
       Random random = new Random(176L);

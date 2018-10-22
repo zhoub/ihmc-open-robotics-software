@@ -1,6 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -38,7 +38,7 @@ public class AtlasChestTrajectoryBehaviorTest extends DRCChestTrajectoryBehavior
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 32.5)
-   @Test(timeout = 420000)
+   @Test
    public void testSingleRandomChestOrientationMove() throws SimulationExceededMaximumTimeException
    {
       super.testSingleRandomChestOrientationMove();

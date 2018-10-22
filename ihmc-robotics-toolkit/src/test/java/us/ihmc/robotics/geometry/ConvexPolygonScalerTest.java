@@ -1,6 +1,6 @@
 package us.ihmc.robotics.geometry;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -14,7 +14,7 @@ import static junit.framework.TestCase.assertTrue;
 public class ConvexPolygonScalerTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testScaleSquareExteriorPolygonToContainSquareInteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -214,7 +214,7 @@ public class ConvexPolygonScalerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testScaleSquareExteriorPolygonToContainQuadrulateralInteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -277,7 +277,7 @@ public class ConvexPolygonScalerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testScaleHexagonExteriorPolygonToContainSquareInteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -332,7 +332,7 @@ public class ConvexPolygonScalerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithPointScaleExteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -418,7 +418,7 @@ public class ConvexPolygonScalerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithLineScaleExteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -581,7 +581,7 @@ public class ConvexPolygonScalerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
-   @Test(timeout = 30000)
+   @Test
    public void testTroublingCollapseExteriorRectangleToLine()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();

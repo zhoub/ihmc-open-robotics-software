@@ -3,9 +3,9 @@ package us.ihmc.footstepPlanning.roughTerrainPlanning;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -42,7 +42,7 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
 
    private boolean checkForBodyBoxCollision = false;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       visualize = visualize && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
@@ -86,7 +86,7 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
       setupInternal();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -114,7 +114,7 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
    public abstract boolean assertPlannerReturnedResult();
 
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
-   @Test(timeout = 50000)
+   @Test
    public void testOnStaircase()
    {
       // run the test
@@ -122,7 +122,7 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.5)
-   @Test(timeout = 30000)
+   @Test
    public void testWithWall()
    {
       // run the test
@@ -135,7 +135,7 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testOverCinderBlockField()
    {
       // run the test
@@ -143,7 +143,7 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 3000000)
+   @Test
    public void testSteppingStones()
    {
       // run the test
@@ -151,70 +151,70 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testStepUpsAndDownsScoringDifficult()
    {
       runTestAndAssert(getTestData(stepUpsAndDownsScoringDifficult));
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
-   @Test(timeout = 50000)
+   @Test
    public void testStepAfterPitchedUp()
    {
       runTestAndAssert(getTestData(stepAfterPitchUp));
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
-   @Test(timeout = 50000)
+   @Test
    public void testStepAfterPitchedDown()
    {
       runTestAndAssert(getTestData(stepAfterPitchDown));
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
-   @Test(timeout = 50000)
+   @Test
    public void testCompareStepBeforeGap()
    {
       runTestAndAssert(getTestData(compareStepBeforeGap));
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
-   @Test(timeout = 50000)
+   @Test
    public void testSimpleStepOnBox()
    {
       runTestAndAssert(getTestData(simpleStepOnBox));
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
-   @Test(timeout = 50000)
+   @Test
    public void testSimpleStepOnBoxTwo()
    {
       runTestAndAssert(getTestData(simpleStepOnBoxTwo));
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomEnvironment()
    {
       runTestAndAssert(getTestData(random));
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleGaps()
    {
       runTestAndAssert(getTestData(simpleGaps));
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testPartialGaps()
    {
       runTestAndAssert(getTestData(partialGaps));
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testWalkingAroundBox()
    {
       // run the test
@@ -222,7 +222,7 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testSpiralStaircase()
    {
       // run the test
@@ -230,7 +230,7 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testWalkingAroundHole()
    {
       // run the test

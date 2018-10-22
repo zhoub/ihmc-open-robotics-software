@@ -1,6 +1,6 @@
 package us.ihmc.atlas.communication.producers;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -23,7 +23,7 @@ public class AtlasRobotConfigurationDataBufferTest extends RobotConfigurationDat
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testAddingStuff()
    {
       super.testAddingStuff();
@@ -31,7 +31,7 @@ public class AtlasRobotConfigurationDataBufferTest extends RobotConfigurationDat
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 100.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWaitForTimestamp()
    {
       super.testWaitForTimestamp();

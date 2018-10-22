@@ -1,7 +1,7 @@
 package us.ihmc.robotbuilder.util;
 
 import javaslang.Function2;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 import java.util.*;
@@ -57,7 +57,7 @@ public class TreeTest {
     private static final SimpleTree TWO_LAYERS = new SimpleTree(new SimpleTree(), TWO_CHILDREN);
 
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
-    @Test(timeout = 30000)
+    @Test
     public void testFlattenReturnsAllNodes() {
         assertStreamEquals(flatten(SINGLE_NODE), Stream.of(SINGLE_NODE));
         assertStreamEquals(flatten(ONE_CHILD), Stream.of(ONE_CHILD, ONE_CHILD.children.get(0)));
@@ -65,13 +65,13 @@ public class TreeTest {
     }
 
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
-    @Test(timeout = 30000)
+    @Test
     public void testMapMapsAllNodes() {
         testMapFunctionMapsAllNodes(Tree::map);
     }
 
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
-    @Test(timeout = 30000)
+    @Test
     public void testCachedMapMapsAllNodes() {
         testMapFunctionMapsAllNodes((Function2<SimpleTree, TreeNodeMapper<SimpleTree, MappedTree>, MappedTree>) (simpleTree, mapper) -> {
             CachedMapper<SimpleTree, MappedTree> cached = cachedMap(mapper);
@@ -96,7 +96,7 @@ public class TreeTest {
     }
 
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
-    @Test(timeout = 30000)
+    @Test
     public void testTrueFilterKeepsAllNodes() {
         Optional<SimpleTree> filtered = filter(TWO_LAYERS, node -> true, (node, children) -> new SimpleTree(children));
         assertTrue(filtered.isPresent());
@@ -106,14 +106,14 @@ public class TreeTest {
     }
 
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
-    @Test(timeout = 30000)
+    @Test
     public void testFalseFilterRemovesEverything() {
         Optional<SimpleTree> filtered = filter(TWO_LAYERS, node -> false, (node, children) -> new SimpleTree(children));
         assertFalse(filtered.isPresent());
     }
 
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
-    @Test(timeout = 30000)
+    @Test
     public void testFilterRemovesSpecificNode() {
         Optional<SimpleTree> filtered = filter(TWO_LAYERS, node -> node != TWO_CHILDREN, (node, children) -> new SimpleTree(children));
         assertTrue(filtered.isPresent());
@@ -122,7 +122,7 @@ public class TreeTest {
     }
 
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
-    @Test(timeout = 30000)
+    @Test
     public void testCachedMapCachesResults() {
         AtomicInteger mapCalls = new AtomicInteger(0);
         int expectedMapCalls = (int)flatten(TWO_LAYERS).count();
@@ -140,7 +140,7 @@ public class TreeTest {
     }
 
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
-    @Test(timeout = 30000)
+    @Test
     public void testTreeOfCreatesAProperWrapper() {
         TreeAdapter<Integer> root = of(1, node -> IntStream.iterate(1, i -> i + 1)
                 .limit(node >= 3 ? 0 : 3)

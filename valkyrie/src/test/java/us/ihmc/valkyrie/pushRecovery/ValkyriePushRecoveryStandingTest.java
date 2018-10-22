@@ -1,7 +1,7 @@
 package us.ihmc.valkyrie.pushRecovery;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCPushRecoveryStandingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -29,9 +29,9 @@ public class ValkyriePushRecoveryStandingTest extends DRCPushRecoveryStandingTes
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.VALKYRIE);
    }
 
-   @Ignore("Needs to be improved")
+   @Disabled("Needs to be improved")
    @ContinuousIntegrationTest(estimatedDuration = 53.2)
-   @Test(timeout = 270000)
+   @Test
    @Override
    public void testDoublePushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
@@ -39,7 +39,7 @@ public class ValkyriePushRecoveryStandingTest extends DRCPushRecoveryStandingTes
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.2)
-   @Test(timeout = 270000)
+   @Test
    @Override
    public void testPushBackwardForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
@@ -47,7 +47,7 @@ public class ValkyriePushRecoveryStandingTest extends DRCPushRecoveryStandingTes
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 70.2)
-   @Test(timeout = 270000)
+   @Test
    @Override
    public void testPushBackwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
@@ -55,7 +55,7 @@ public class ValkyriePushRecoveryStandingTest extends DRCPushRecoveryStandingTes
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 53.2)
-   @Test(timeout = 270000)
+   @Test
    @Override
    public void testPushForwardInDoubleSupport() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
@@ -63,7 +63,7 @@ public class ValkyriePushRecoveryStandingTest extends DRCPushRecoveryStandingTes
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 75.0)
-   @Test(timeout = 270000)
+   @Test
    @Override
    public void testPushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {

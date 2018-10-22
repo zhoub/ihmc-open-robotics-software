@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import controller_msgs.msg.dds.*;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.DisableOnDebug;
 import org.junit.rules.Timeout;
 
@@ -24,7 +24,7 @@ public class MessageTransformerTest
    public DisableOnDebug disableOnDebug = new DisableOnDebug(new Timeout(30, TimeUnit.SECONDS));
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testHandTrajectoryMessage()
    {
       Random random = new Random(6543);
@@ -51,7 +51,7 @@ public class MessageTransformerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testPelvisHeightTrajectoryMessage()
    {
       Random random = new Random(6543);
@@ -76,7 +76,7 @@ public class MessageTransformerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQuadrupedBodyHeightMessage()
    {
       Random random = new Random(6543);
@@ -101,7 +101,7 @@ public class MessageTransformerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAdjustFootstepMessage()
    {
       Random random = new Random(6543);
@@ -121,7 +121,7 @@ public class MessageTransformerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFootstepDataMessage()
    {
       Random random = new Random(6543);
@@ -147,7 +147,7 @@ public class MessageTransformerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFootstepDataListMessage()
    {
       Random random = new Random(6543);
@@ -174,7 +174,7 @@ public class MessageTransformerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testVehiclePosePacket()
    {
       Random random = new Random(6543);
@@ -194,7 +194,7 @@ public class MessageTransformerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testVideoPacket()
    {
       Random random = new Random(6543);

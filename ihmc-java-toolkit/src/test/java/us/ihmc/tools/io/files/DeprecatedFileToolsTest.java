@@ -19,9 +19,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.exception.DefaultExceptionHandler;
 import us.ihmc.commons.nio.FileTools;
@@ -53,7 +53,7 @@ public class DeprecatedFileToolsTest
    private static final Path FILE_TOOLS_EXAMPLE_FILE2_PATH = TEXT_DIRECTORY_PATH.resolve(FILE_TOOLS_EXAMPLE_FILE2_TXT);
    private static final Path READ_ALL_LINES_PATH = FILE_TOOLS_TEST_PATH.resolve(TEST_READ_ALL_LINES_TXT);
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       FileTools.ensureDirectoryExists(FILE_TOOLS_TEST_PATH, DefaultExceptionHandler.PRINT_STACKTRACE);
@@ -68,7 +68,7 @@ public class DeprecatedFileToolsTest
       createReadAllLinesFile();
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       FileTools.deleteQuietly(EXAMPLE_JAVA_FILE1_PATH);
@@ -148,7 +148,7 @@ public class DeprecatedFileToolsTest
    
    @SuppressWarnings("deprecation")
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetBufferedReader()
    {
       File testFile1 = FILE_TOOLS_EXAMPLE_FILE1_PATH.toFile();
@@ -175,7 +175,7 @@ public class DeprecatedFileToolsTest
 
    @SuppressWarnings("deprecation")
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000, expected = FileNotFoundException.class)
+   @Test
    public void testGetBufferedReaderWithFileNotFoundException() throws FileNotFoundException
    {
       DeprecatedFileTools.getFileReader(TEST_FILE_BAD_TXT);
@@ -183,7 +183,7 @@ public class DeprecatedFileToolsTest
 
    @SuppressWarnings("deprecation")
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetFileWriter()
    {
       File testFile1 = FILE_TOOLS_EXAMPLE_FILE1_PATH.toFile();
@@ -213,7 +213,7 @@ public class DeprecatedFileToolsTest
 
    @SuppressWarnings("deprecation")
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetFileWriterWithAppend()
    {
       File testFile1 = FILE_TOOLS_EXAMPLE_FILE1_PATH.toFile();
@@ -243,7 +243,7 @@ public class DeprecatedFileToolsTest
 
    @SuppressWarnings("deprecation")
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetFileDataOutputStream()
    {
       File testFile1 = FILE_TOOLS_EXAMPLE_FILE1_PATH.toFile();
@@ -273,7 +273,7 @@ public class DeprecatedFileToolsTest
 
    @SuppressWarnings("deprecation")
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetFileDataInputStream()
    {
       File testFile1 = FILE_TOOLS_EXAMPLE_FILE1_PATH.toFile();
@@ -300,7 +300,7 @@ public class DeprecatedFileToolsTest
 
    @SuppressWarnings("deprecation")
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000, expected = FileNotFoundException.class)
+   @Test
    public void testGetFileDataInputStreamWithFileNotFoundException() throws FileNotFoundException, IOException
    {
       DataInputStream inStream = DeprecatedFileTools.getFileDataInputStream(TEST_FILE_BAD_TXT);
@@ -309,7 +309,7 @@ public class DeprecatedFileToolsTest
 
    @SuppressWarnings("deprecation")
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetAllFilesInDirectoryRecursive()
    {
       File directory = FILE_TOOLS_TEST_PATH.toFile();
@@ -344,7 +344,7 @@ public class DeprecatedFileToolsTest
 
    @SuppressWarnings("deprecation")
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetAllFilesInDirectoryWithSuffix()
    {
       File textFileDirectory = TEXT_DIRECTORY_PATH.toFile();

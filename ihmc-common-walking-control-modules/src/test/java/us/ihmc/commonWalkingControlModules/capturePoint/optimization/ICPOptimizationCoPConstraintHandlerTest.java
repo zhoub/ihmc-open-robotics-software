@@ -10,8 +10,8 @@ import java.util.List;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
@@ -46,14 +46,14 @@ public class ICPOptimizationCoPConstraintHandlerTest
    private final SideDependentList<FramePose3D> footPosesAtTouchdown = new SideDependentList<>(new FramePose3D(), new FramePose3D());
    private final SideDependentList<ReferenceFrame> ankleFrames = new SideDependentList<>();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDoubleSupportWithBipedSupportPolygonsAndAngularMomentum()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -110,7 +110,7 @@ public class ICPOptimizationCoPConstraintHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSingleSupportWithBipedSupportPolygonsAndAngularMomentum()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -212,7 +212,7 @@ public class ICPOptimizationCoPConstraintHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDoubleSupportWithBipedSupportPolygonsNoAngularMomentum()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -263,7 +263,7 @@ public class ICPOptimizationCoPConstraintHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSingleSupportWithBipedSupportPolygonsNoAngularMomentum()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");

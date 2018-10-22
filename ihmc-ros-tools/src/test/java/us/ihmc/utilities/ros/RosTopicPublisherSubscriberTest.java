@@ -6,7 +6,7 @@ import java.net.URISyntaxException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import std_msgs.String;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -21,7 +21,7 @@ import us.ihmc.utilities.ros.subscriber.RosTopicSubscriberInterface;
 public class RosTopicPublisherSubscriberTest extends IHMCRosTestWithRosCore
 {
 	@ContinuousIntegrationTest(estimatedDuration = 0.2)
-	@Test(timeout = 30000)
+	@Test
    public void testPubSubMultipleMessages() throws URISyntaxException, InterruptedException
    {
       int nPacket=10;

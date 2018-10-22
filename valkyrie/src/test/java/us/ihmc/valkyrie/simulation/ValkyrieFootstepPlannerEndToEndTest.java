@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.simulation;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.AvatarBipedalFootstepPlannerEndToEndTest;
@@ -42,7 +42,7 @@ public class ValkyrieFootstepPlannerEndToEndTest extends AvatarBipedalFootstepPl
 
    @Override
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 120000)
+   @Test
    public void testWalkingBetweenBollardsAStarPlanner()
    {
       super.testWalkingBetweenBollardsAStarPlanner();

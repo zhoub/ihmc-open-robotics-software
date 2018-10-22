@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -32,14 +32,13 @@ import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 public class FramePoseTest
 {
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetOrientationDistanceTrivial()
    {
       RigidBodyTransform transform1 = new RigidBodyTransform();
@@ -54,8 +53,7 @@ public class FramePoseTest
       assertEquals(0.0, distance, 1e-9);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetTransform()
    {
       Random random = new Random(1179L);
@@ -69,7 +67,7 @@ public class FramePoseTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRotatePoseAboutOffsetAxisAndCheckTranslation()
    {
       Random random = new Random(1179L);
@@ -99,7 +97,7 @@ public class FramePoseTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRotatePoseAboutCollinearAxisAndCheckTranslation()
    {
       Random random = new Random(1179L);
@@ -127,7 +125,7 @@ public class FramePoseTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRotatePoseAboutZAxisAndCheckOrientation()
    {
       Random random = new Random(1179L);
@@ -161,7 +159,7 @@ public class FramePoseTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRotatePoseAboutCollinearAxisIncrementally()
    {
       Random random = new Random(1179L);
@@ -187,7 +185,7 @@ public class FramePoseTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRotateAndUnrotatePoseAboutCollinearAxis()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -210,7 +208,7 @@ public class FramePoseTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testRotatePoseLockOrientation()
    {
       boolean lockPosition = false;
@@ -253,7 +251,7 @@ public class FramePoseTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRotatePoseLockPosition()
    {
       boolean lockPosition = true;

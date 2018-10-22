@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
 import us.ihmc.commonWalkingControlModules.capturePoint.ICPControlGains;
@@ -48,7 +48,7 @@ public class WrapperForMultipleToeOffCalculatorsTest
    private final SideDependentList<FootSpoof> contactableFeet = new SideDependentList<>();
    private final SideDependentList<YoPlaneContactState> contactStates = new SideDependentList<>();
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       parentRegistry = new YoVariableRegistry("parentRegistryTEST");
@@ -85,7 +85,7 @@ public class WrapperForMultipleToeOffCalculatorsTest
       toeOffCalculators.put(toeOffCalculator.getEnum(), toeOffCalculator);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -93,8 +93,7 @@ public class WrapperForMultipleToeOffCalculatorsTest
 
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testConstructor()
    {
       generator = new WrapperForMultipleToeOffCalculators(toeOffCalculators, parentRegistry);
@@ -102,7 +101,7 @@ public class WrapperForMultipleToeOffCalculatorsTest
 
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testClear()
    {
       generator = new WrapperForMultipleToeOffCalculators(toeOffCalculators, parentRegistry);
@@ -110,7 +109,7 @@ public class WrapperForMultipleToeOffCalculatorsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetExitCMP()
    {
       RobotSide trailingSide = RobotSide.LEFT;
@@ -124,7 +123,7 @@ public class WrapperForMultipleToeOffCalculatorsTest
 
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeToeOffContactPoint()
    {
       RobotSide trailingSide = RobotSide.LEFT;
@@ -144,7 +143,7 @@ public class WrapperForMultipleToeOffCalculatorsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetToeOffContactPoint()
    {
       RobotSide trailingSide = RobotSide.LEFT;

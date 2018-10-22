@@ -4,9 +4,9 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -27,7 +27,7 @@ public class SpringFlamingoSimulationTest
    private SimulationGUITestFixture testFixture;
    private SimulationConstructionSet scs;
 
-   @Before
+   @BeforeEach
    public void setUp() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       SpringFlamingoSimulation springFlamingoSimulation = new SpringFlamingoSimulation();
@@ -37,7 +37,7 @@ public class SpringFlamingoSimulationTest
       testFixture = new SimulationGUITestFixture(scs);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       testFixture.closeAndDispose();
@@ -47,7 +47,7 @@ public class SpringFlamingoSimulationTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 8.5)
-	@Test(timeout = 42000)
+	@Test
    public void testSpringFlamingoSimulationAndGUI() throws SimulationExceededMaximumTimeException
    {
       testFixture.showWindow();
@@ -118,7 +118,7 @@ public class SpringFlamingoSimulationTest
 
 
 	@ContinuousIntegrationTest(estimatedDuration = 3.6)
-	@Test(timeout = 30000)
+	@Test
 	public void testRewindability() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
 	{
       int numTicksToTest = 1000;

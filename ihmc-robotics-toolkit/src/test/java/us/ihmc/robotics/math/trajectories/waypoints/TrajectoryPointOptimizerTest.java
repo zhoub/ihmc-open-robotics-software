@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import gnu.trove.list.array.TDoubleArrayList;
 import us.ihmc.commons.MutationTestFacilitator;
@@ -21,7 +21,7 @@ public class TrajectoryPointOptimizerTest
    private static final double epsilon = 10E-7;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test
    public void testEndPointSetters()
    {
       int dimensions = 3;
@@ -39,7 +39,7 @@ public class TrajectoryPointOptimizerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test
    public void testWaypointSetters()
    {
       int dimensions = 1;
@@ -66,7 +66,7 @@ public class TrajectoryPointOptimizerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testYoVariables()
    {
       int dimensions = 3;
@@ -79,7 +79,7 @@ public class TrajectoryPointOptimizerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleSymmetricProblem()
    {
       int dimensions = 1;
@@ -147,7 +147,7 @@ public class TrajectoryPointOptimizerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleProblem()
    {
       int dimensions = 1;
@@ -176,7 +176,7 @@ public class TrajectoryPointOptimizerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTrivialProblem()
    {
       int dimensions = 1;
@@ -205,7 +205,7 @@ public class TrajectoryPointOptimizerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTimeDescent()
    {
       int dimensions = 2;

@@ -5,7 +5,7 @@ import org.ejml.factory.LinearSolverFactory;
 import org.ejml.interfaces.linsol.LinearSolver;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.RandomMatrices;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.testing.JUnitTools;
@@ -15,7 +15,7 @@ import java.util.Random;
 public class DDPSolverTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeUpdatedControl()
    {
       TestDynamics dynamics = new TestDynamics();
@@ -111,7 +111,7 @@ public class DDPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testUpdateHamiltonianApproximations()
    {
       Random random = new Random(1738);
@@ -181,7 +181,7 @@ public class DDPSolverTest
 
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputePreviousValueApproximation()
    {
       TestDynamics dynamics = new TestDynamics();
@@ -311,7 +311,7 @@ public class DDPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeFeedbackGainAndFeedForwardTerm()
    {
       TestDynamics dynamics = new TestDynamics();
@@ -431,7 +431,7 @@ public class DDPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAddMultQuad()
    {
       Random random = new Random(1738);

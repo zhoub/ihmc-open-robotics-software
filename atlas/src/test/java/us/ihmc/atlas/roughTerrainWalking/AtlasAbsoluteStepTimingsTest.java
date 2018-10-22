@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -16,7 +16,7 @@ public class AtlasAbsoluteStepTimingsTest extends AvatarAbsoluteStepTimingsTest
 {
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 142.2, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 900000)
+   @Test
    public void testTakingStepsWithAbsoluteTimings() throws SimulationExceededMaximumTimeException
    {
       super.testTakingStepsWithAbsoluteTimings();
@@ -24,7 +24,7 @@ public class AtlasAbsoluteStepTimingsTest extends AvatarAbsoluteStepTimingsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 22.0)
-   @Test(timeout = 110000)
+   @Test
    public void testMinimumTransferTimeIsRespected() throws SimulationExceededMaximumTimeException
    {
       super.testMinimumTransferTimeIsRespected();
@@ -32,7 +32,7 @@ public class AtlasAbsoluteStepTimingsTest extends AvatarAbsoluteStepTimingsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 200000)
+   @Test
    public void testPausingWalkDuringLongTransfers() throws SimulationExceededMaximumTimeException
    {
       super.testPausingWalkDuringLongTransfers();

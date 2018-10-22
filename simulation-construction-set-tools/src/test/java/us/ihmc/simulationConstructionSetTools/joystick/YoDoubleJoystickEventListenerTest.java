@@ -2,7 +2,7 @@ package us.ihmc.simulationConstructionSetTools.joystick;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import net.java.games.input.Component;
 import net.java.games.input.Event;
@@ -16,7 +16,7 @@ public class YoDoubleJoystickEventListenerTest
 {
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testMinMaxAverage()
    {
       YoVariableRegistry registry = new YoVariableRegistry("test");

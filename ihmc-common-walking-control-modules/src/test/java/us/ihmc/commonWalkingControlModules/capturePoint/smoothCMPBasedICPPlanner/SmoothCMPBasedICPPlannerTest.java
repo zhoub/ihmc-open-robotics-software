@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
@@ -185,7 +185,7 @@ public class SmoothCMPBasedICPPlannerTest
 
    private int numberOfFootstepsForTest;
 
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       this.newTestStartDiscontinuity = true;
@@ -354,7 +354,7 @@ public class SmoothCMPBasedICPPlannerTest
       copTrack = new BagOfBalls(numberOfTrackBalls, trackBallSize, "CoPTrack", new YoAppearanceRGBColor(copPointsColor, 0.0), registry, graphicsListRegistry);
    }
 
-   @After
+   @AfterEach
    public void cleanUpTest()
    {
       if (keepSCSUp)
@@ -368,7 +368,7 @@ public class SmoothCMPBasedICPPlannerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.9)
-   @Test(timeout = 30000)
+   @Test
    public void testForDiscontinuitiesWithoutAngularMomentum()
    {
       numberOfFootstepsForTest = 10;
@@ -378,7 +378,7 @@ public class SmoothCMPBasedICPPlannerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.8)
-   @Test(timeout = 30000)
+   @Test
    public void testForDiscontinuitiesWithAngularMomentum()
    {
       numberOfFootstepsForTest = 10;
@@ -388,7 +388,7 @@ public class SmoothCMPBasedICPPlannerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.0)
-   @Test(timeout = 3000000)
+   @Test
    public void testForPlanningConsistencyWithoutAngularMomentum()
    {
       numberOfFootstepsForTest = 10;
@@ -398,7 +398,7 @@ public class SmoothCMPBasedICPPlannerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.5)
-   @Test(timeout = 30000)
+   @Test
    public void testForPlanningConsistencyWithAngularMomentum()
    {
       numberOfFootstepsForTest = 10;
@@ -409,7 +409,7 @@ public class SmoothCMPBasedICPPlannerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.5)
-   @Test(timeout = 30000)
+   @Test
    public void testForPlanningConsistencyWithAndWithoutContinuousReplanning()
    {
       numberOfFootstepsForTest = 10;

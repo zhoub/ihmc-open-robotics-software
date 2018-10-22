@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Output;
@@ -15,7 +15,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 
 public class KryoAnnotationTest
 {
-   @Test(timeout = 30000)
+   @Test
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    public void testOptionalAnnotation()
    {

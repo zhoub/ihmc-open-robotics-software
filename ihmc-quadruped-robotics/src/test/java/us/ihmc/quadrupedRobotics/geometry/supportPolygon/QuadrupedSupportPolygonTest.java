@@ -5,9 +5,9 @@ import com.google.caliper.api.VmOptions;
 import com.google.caliper.runner.CaliperMain;
 import com.jme3.scene.shape.Quad;
 
-import org.junit.After;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RunnableThatThrows;
@@ -42,14 +42,14 @@ public class QuadrupedSupportPolygonTest
 {
    private static final ReferenceFrame WORLD = ReferenceFrame.getWorldFrame();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConstructorsGettersAndSetters()
    {
       QuadrupedSupportPolygon quadrupedSupportPolygon = new QuadrupedSupportPolygon();
@@ -97,7 +97,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testVariousMethodsForCodeCoverage()
    {
       final QuadrupedSupportPolygon emptyPolygon = createEmptyPolygon();
@@ -144,7 +144,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetLegPairs()
    {
       final QuadrupedSupportPolygon quadrupedSupportPolygon = createSimplePolygon();
@@ -181,7 +181,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDistanceInside()
    {
       QuadrupedSupportPolygon simplePolygon = createSimplePolygon();
@@ -209,7 +209,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetInCircleRadius()
    {
       final QuadrupedSupportPolygon poly = createSimplePolygon();
@@ -237,7 +237,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSizeMethods()
    {
       QuadrupedSupportPolygon variableSizedPolygon = create3LegPolygon();
@@ -268,7 +268,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testPolygonOrdering()
    {
       QuadrupedSupportPolygon outOfOrderPolygon = createOutOfOrderPolygon();
@@ -289,7 +289,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCentroid()
    {
       QuadrupedSupportPolygon simplePolygon = createSimplePolygon();
@@ -302,7 +302,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testInCircle()
    {
       QuadrupedSupportPolygon simplePolygon = createSimplePolygon();
@@ -314,7 +314,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMatchingFootsteps()
    {
       QuadrupedSupportPolygon match1 = create3LegPolygon();
@@ -344,7 +344,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetNextCounterClockwiseSupportingQuadrant()
    {
       QuadrupedSupportPolygon fourFootPoly = createSimplePolygon();
@@ -382,7 +382,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetOrCreateFootstep()
    {
       QuadrupedSupportPolygon noFL = createPolygonWithoutLeg(RobotQuadrant.FRONT_LEFT);
@@ -393,7 +393,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetWhichFootstepHasMoved()
    {
       RobotQuadrant swingLegFromHereToNextPolygon;
@@ -450,7 +450,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testContainsSameQuadrants()
    {
       QuadrupedSupportPolygon poly1 = createSimplePolygon();
@@ -469,7 +469,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetAndReplaceFootstep()
    {
       QuadrupedSupportPolygon poly = createSimplePolygon();
@@ -480,7 +480,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetAndRemoveFootstep()
    {
       QuadrupedSupportPolygon poly = createSimplePolygon();
@@ -491,7 +491,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetAndSwapSameSideFootsteps()
    {
       QuadrupedSupportPolygon poly = createSimplePolygon();
@@ -504,7 +504,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTranslatePolygon()
    {
       QuadrupedSupportPolygon poly = createZeroedPolygon();
@@ -518,7 +518,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testYawAboutCentroid()
    {
       QuadrantDependentList<Tuple3DBasics> footPoints = new QuadrantDependentList<>();
@@ -562,7 +562,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetLowestAndHighestFootstep()
    {
       for (RobotQuadrant robotQuadrant : RobotQuadrant.values)
@@ -579,7 +579,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetClosestFootstep()
    {
       QuadrupedSupportPolygon poly = createSimplePolygon();
@@ -592,7 +592,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetCentroid()
    {
       QuadrupedSupportPolygon poly = createSimplePolygon();
@@ -611,7 +611,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetShrunkenPolygon()
    {
       QuadrupedSupportPolygon poly = createSimplePolygon();
@@ -673,7 +673,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetShrunkenCommonPolygon2d()
    {
       QuadrupedSupportPolygon poly1 = createPolygonWithoutLeg(RobotQuadrant.FRONT_RIGHT);
@@ -792,7 +792,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDistanceFromP1ToTrotLine()
    {
       QuadrupedSupportPolygon poly = createDiamondPolygon();
@@ -806,7 +806,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetBounds()
    {
       QuadrupedSupportPolygon poly = createSimplePolygon();
@@ -829,7 +829,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testIsInside()
    {
       QuadrupedSupportPolygon poly = createSimplePolygon();
@@ -842,7 +842,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 9000000)
+   @Test
    public void testGetNominalYawPitchRoll()
    {
       QuadrantDependentList<Tuple3DBasics> footPoints = new QuadrantDependentList<>();
@@ -948,7 +948,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testStanceLength()
    {
       QuadrupedSupportPolygon create3LegPolygon;
@@ -973,7 +973,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testEpsilonEquals()
    {
       QuadrupedSupportPolygon createSimplePolygon = createSimplePolygon();
@@ -984,7 +984,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAreLegsCrossing()
    {
       QuadrupedSupportPolygon simple = createSimplePolygon();
@@ -1002,7 +1002,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testValidTrotPolygon()
    {
       final QuadrupedSupportPolygon createPitchedDownPolygon = createPitchedDownPolygon();
@@ -1039,9 +1039,9 @@ public class QuadrupedSupportPolygonTest
       assertFalse("trot", QuadrupedSupportPolygonTools.isValidTrotPolygon(side));
    }
 
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetCenterOfCircleOfRadiusInCornerOfPolygon()
    {
       final QuadrupedSupportPolygon poly = createPolygonWithoutLeg(RobotQuadrant.FRONT_LEFT);
@@ -1099,7 +1099,7 @@ public class QuadrupedSupportPolygonTest
    private Random random = new Random(9123090L);
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testPackPointIntoMultipleStructuresAndCompare()
    {
       QuadrantDependentList<ReferenceFrame> frames = new QuadrantDependentList<>();
@@ -1146,7 +1146,7 @@ public class QuadrupedSupportPolygonTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testPackYoFrameConvexPolygon2d()
    {
       QuadrupedSupportPolygon poly = createSimplePolygon();

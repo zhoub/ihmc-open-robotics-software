@@ -6,9 +6,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPPointName;
 import us.ihmc.commons.Epsilons;
@@ -50,13 +50,13 @@ public class CoPPointsInFootTest
    private final ReferenceFrame[] framesToRegister = {worldFrame, footSpoof.getSoleFrame()};
    private CoPPointsInFoot copPointsInFoot;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       copPointsInFoot = new CoPPointsInFoot(testClassName, 0, framesToRegister, registry);
    }
 
-   @After
+   @AfterEach
    public void clean()
    {
       copPointsInFoot.reset();
@@ -65,7 +65,7 @@ public class CoPPointsInFootTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testAddCoPPointToList()
    {
       assertTrue(copPointsInFoot.isEmpty());
@@ -79,7 +79,7 @@ public class CoPPointsInFootTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testAddAndSetIncludingFrameWithFramePoint()
    {
       FramePoint3D testLocation = new FramePoint3D(footSpoof.getSoleFrame(), Math.random(), Math.random(), Math.random());
@@ -93,7 +93,7 @@ public class CoPPointsInFootTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testAddAndSetIncludingFrameWithYoFramePoint()
    {
       YoFramePoint3D testLocation1 = new YoFramePoint3D("TestLocation1", footSpoof.getSoleFrame(), null);
@@ -115,7 +115,7 @@ public class CoPPointsInFootTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAddAndSetIncludingFrameWithCoPTrajectoryPoint()
    {
       CoPTrajectoryPoint testLocation1 = new CoPTrajectoryPoint("TestLocation1", "", null, framesToRegister);
@@ -138,7 +138,7 @@ public class CoPPointsInFootTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testSetFeetLocations()
    {
       copPointsInFoot.setFeetLocation(new FramePoint3D(worldFrame, 0.2, 1.35, 2.1), new FramePoint3D(worldFrame, 1.3, 2.4, 6.6));
@@ -155,7 +155,7 @@ public class CoPPointsInFootTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testChangeFrame()
    {
       copPointsInFoot.setFeetLocation(new FramePoint3D(worldFrame, 0.2, 0.1, 0.1), new FramePoint3D(worldFrame, 0.2, -0.1, 0.1));
@@ -181,7 +181,7 @@ public class CoPPointsInFootTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testRegisterFrame()
    {
       double newFrameOriginX = 1;
@@ -218,7 +218,7 @@ public class CoPPointsInFootTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testVisualization()
    {
       YoGraphicsList dummyGraphicsList = new YoGraphicsList("DummyGraphics");

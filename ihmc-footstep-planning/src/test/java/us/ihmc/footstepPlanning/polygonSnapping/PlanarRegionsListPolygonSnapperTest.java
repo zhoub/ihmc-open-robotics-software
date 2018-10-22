@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.commons.RandomNumbers;
@@ -28,7 +28,7 @@ import us.ihmc.simulationConstructionSetTools.util.planarRegions.PlanarRegionsLi
 public class PlanarRegionsListPolygonSnapperTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleVerticalSnap()
    {
       boolean visualize = false;
@@ -66,7 +66,7 @@ public class PlanarRegionsListPolygonSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleVerticalAndRotatedSnap()
    {
       boolean visualize = false;
@@ -106,7 +106,7 @@ public class PlanarRegionsListPolygonSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMovingAcrossStaircase()
    {
       boolean visualize = false;
@@ -121,7 +121,7 @@ public class PlanarRegionsListPolygonSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.7)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomPlanarRegions()
    {
       Random random = new Random(1776L);
@@ -149,7 +149,7 @@ public class PlanarRegionsListPolygonSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testBumpyGround()
    {
       Random random = new Random(1776L);

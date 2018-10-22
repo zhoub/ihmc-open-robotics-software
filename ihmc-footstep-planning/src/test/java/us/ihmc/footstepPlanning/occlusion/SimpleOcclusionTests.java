@@ -1,9 +1,9 @@
 package us.ihmc.footstepPlanning.occlusion;
 
 import org.junit.Assert;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -68,7 +68,7 @@ public class SimpleOcclusionTests
    @Rule
    public TestName name = new TestName();
 
-   @Test(timeout = 300000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 2.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    public void testSimpleOcclusions()
    {
@@ -79,8 +79,8 @@ public class SimpleOcclusionTests
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 300000)
-   @Ignore // Resource file does not seem to exist.
+   @Test
+   @Disabled // Resource file does not seem to exist.
    public void testOcclusionsFromData()
    {
       FramePose3D startPose = new FramePose3D(worldFrame);
@@ -112,8 +112,8 @@ public class SimpleOcclusionTests
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 300000)
-   @Ignore
+   @Test
+   @Disabled
    public void testMazeWithOcclusions()
    {
       FramePose3D startPose = new FramePose3D();

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.RandomNumbers;
@@ -36,7 +36,7 @@ public class NumericalInverseKinematicsCalculatorTest
     */
 
 	@ContinuousIntegrationTest(estimatedDuration = 2.8)
-	@Test(timeout = 30000)
+	@Test
    public void testInfeasible()
    {
       Random random = new Random(1235125L);
@@ -78,7 +78,7 @@ public class NumericalInverseKinematicsCalculatorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 1.1)
-	@Test(timeout = 30000)
+	@Test
    public void testForwardThenInverse()
    {
       Random random = new Random(125125L);

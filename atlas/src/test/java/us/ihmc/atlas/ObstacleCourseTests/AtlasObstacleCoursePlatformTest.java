@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -33,7 +33,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
    @Override
    // "This test is flaky. Sometimes it works, sometimes it doesn't due to threading of the various globalDataProducer and communicators. We need to be able to shut those off or make them not screw up the robot run.")
    @ContinuousIntegrationTest(estimatedDuration = 48.6, categoriesOverride = IntegrationCategory.FLAKY)
-   @Test(timeout = 180000)
+   @Test
    public void testRunsTheSameWayTwiceJustStanding() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
    {
       super.testRunsTheSameWayTwiceJustStanding();
@@ -41,7 +41,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 67.5)
-   @Test(timeout = 340000)
+   @Test
    public void testSidestepOverSmallPlatform() throws SimulationExceededMaximumTimeException
    {
       super.testSidestepOverSmallPlatform();
@@ -49,7 +49,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 65.5)
-   @Test(timeout = 330000)
+   @Test
    public void testSidestepOverSmallWall() throws SimulationExceededMaximumTimeException
    {
       super.testSidestepOverSmallWall();
@@ -57,7 +57,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 38.5)
-   @Test(timeout = 190000)
+   @Test
    public void testWalkingOffOfMediumPlatform() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOffOfMediumPlatform();
@@ -65,7 +65,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 58.5, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 290000)
+   @Test
    public void testWalkingOffOfMediumPlatformSlowSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOffOfMediumPlatformSlowSteps();
@@ -73,7 +73,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 39.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 190000)
+   @Test
    public void testWalkingOntoMediumPlatformToesTouching() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOntoMediumPlatformToesTouching();
@@ -81,7 +81,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 59.6)
-   @Test(timeout = 300000)
+   @Test
    public void testWalkingOverSmallPlatform() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOverSmallPlatform();
@@ -89,7 +89,7 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 39.4, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 200000)
+   @Test
    public void testWalkingOverSmallPlatformQuickly() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOverSmallPlatformQuickly();

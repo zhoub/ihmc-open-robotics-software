@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -23,7 +23,7 @@ public class GenericQuadrupedPositionCrawlWalkingForwardStoppingAndTurningTest e
    
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 700.0)
-   @Test(timeout = 2000000)
+   @Test
    public void testWalkingForwardStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingForwardStoppingAndTurning();

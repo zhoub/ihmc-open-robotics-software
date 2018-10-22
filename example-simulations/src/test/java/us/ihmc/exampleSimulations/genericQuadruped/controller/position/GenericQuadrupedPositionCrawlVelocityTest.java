@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -23,7 +23,7 @@ public class GenericQuadrupedPositionCrawlVelocityTest extends QuadrupedPosition
    
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 90.0)
-   @Test(timeout = 600000)
+   @Test
    public void testWalkingForward() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingForward();
@@ -31,7 +31,7 @@ public class GenericQuadrupedPositionCrawlVelocityTest extends QuadrupedPosition
    
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 30.0)
-   @Test(timeout = 600000)
+   @Test
    public void testWalkingBackward() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingBackward();

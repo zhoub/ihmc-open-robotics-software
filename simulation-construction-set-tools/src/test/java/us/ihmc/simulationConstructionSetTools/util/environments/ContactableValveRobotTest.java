@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.RandomNumbers;
@@ -47,14 +47,14 @@ public class ContactableValveRobotTest
 
    private YoVariableRegistry valveTestRegistry;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 2.9)
-   @Test(timeout = 30000)
+   @Test
    public void testValveIsClosing()
    {
       boolean isValveClosed = false;
@@ -97,7 +97,7 @@ public class ContactableValveRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testGetValveTransformToWorld()
    {
       Random random = new Random(1235125L);

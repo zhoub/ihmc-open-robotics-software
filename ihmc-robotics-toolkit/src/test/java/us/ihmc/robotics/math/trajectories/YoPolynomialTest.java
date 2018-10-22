@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -18,7 +18,7 @@ public class YoPolynomialTest
    String namePrefix = "YoPolynomialTest";
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLinearDerivativePointManual()
    {
       //linear polynomial: y(x) = a0 + a1*x
@@ -49,7 +49,7 @@ public class YoPolynomialTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLinearDerivativePointAutomated()
    {
       //linear polynomial: y(x) = a0 + a1*x
@@ -68,7 +68,7 @@ public class YoPolynomialTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCubicDerivativePointAutomated()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -88,7 +88,7 @@ public class YoPolynomialTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testXPowersDerivativeVectorCubic()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -116,7 +116,7 @@ public class YoPolynomialTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDerivativeCoefficients()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -164,7 +164,7 @@ public class YoPolynomialTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDerivativeVersionsCubic()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3

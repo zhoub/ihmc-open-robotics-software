@@ -6,9 +6,9 @@ import static org.junit.Assert.assertNotNull;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import gnu.trove.map.hash.TLongObjectHashMap;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -27,13 +27,13 @@ import us.ihmc.tools.MemoryTools;
 public abstract class ReferenceFrameHashTest
 {
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void showMemoryUsageAfterTest()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -41,7 +41,7 @@ public abstract class ReferenceFrameHashTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetReferenceFrameFromHashCodeReturnsSameNamedFrames()
    {
       DRCRobotModel robotModelA = getRobotModel();
@@ -61,7 +61,7 @@ public abstract class ReferenceFrameHashTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode()
    {
       DRCRobotModel robotModelA = getRobotModel();
@@ -95,7 +95,7 @@ public abstract class ReferenceFrameHashTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAllFramesGottenFromHumanoidReferenceFrameMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -137,7 +137,7 @@ public abstract class ReferenceFrameHashTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -179,7 +179,7 @@ public abstract class ReferenceFrameHashTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.0)
-   @Test(timeout = 30000, expected = IllegalArgumentException.class)
+   @Test
    public void testAddingTwoFramesWithTheSameNameThrowsException()
    {
       DRCRobotModel robotModelA = getRobotModel();

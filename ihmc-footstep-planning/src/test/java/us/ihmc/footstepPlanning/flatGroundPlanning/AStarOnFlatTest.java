@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.flatGroundPlanning;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
@@ -32,7 +32,7 @@ public class AStarOnFlatTest extends FootstepPlannerOnFlatGroundTest
       return true;
    }
 
-   @Before
+   @BeforeEach
    public void createPlanner()
    {
       if (visualizePlanner)
@@ -43,7 +43,7 @@ public class AStarOnFlatTest extends FootstepPlannerOnFlatGroundTest
       planner = AStarFootstepPlanner.createFlatGroundPlanner(parameters, visualization, footPolygons, expansion, new YoVariableRegistry("TestRegistry"));
    }
 
-   @After
+   @AfterEach
    public void destroyPlanner()
    {
       planner = null;

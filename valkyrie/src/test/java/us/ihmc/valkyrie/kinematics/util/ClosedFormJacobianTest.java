@@ -4,8 +4,8 @@ package us.ihmc.valkyrie.kinematics.util;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -35,7 +35,7 @@ public class ClosedFormJacobianTest
    private double[] m22_matlab_waist = new double[] { 0.045200359335076, 0.040960816370066, 0.049961508736648, 0.042531256340934, 0.039979762559698, 0.051849035209403, 0.044875400766635 };
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testJacobianMatchesMATLABAnkle()
    {
       for (int i = 0; i < 7; i++)
@@ -53,7 +53,7 @@ public class ClosedFormJacobianTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 30000)
+   @Test
    public void testJacobianMatchesMATLABWaist()
    {
       for (int i = 0; i < 7; i++)
@@ -71,7 +71,7 @@ public class ClosedFormJacobianTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testEfficientMatchesInefficientJacobianAnkle()
    {
       InefficientPushrodTransmissionJacobian inefficientButReadablePushrodTransmission = new InefficientPushrodTransmissionJacobian(PushRodTransmissionJoint.ANKLE, null, null);
@@ -92,10 +92,10 @@ public class ClosedFormJacobianTest
    }
 
    // The following test is just for achieving proper renishaw jacobian matrix signs/element indices. It should never be used in Bamboo.
-   @Ignore
+   @Disabled
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 9000)
+   @Test
    public void testEfficientKindaMatchesInefficientJacobianAnkle()
    {
       closedFormJacobianAnkleRenishaws.useFuteks(false);
@@ -118,7 +118,7 @@ public class ClosedFormJacobianTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 30000)
+   @Test
    public void testEfficientMatchesInefficientJacobianWaist()
    {
       InefficientPushrodTransmissionJacobian inefficientButReadablePushrodTransmission = new InefficientPushrodTransmissionJacobian(PushRodTransmissionJoint.WAIST, null, null);
@@ -139,7 +139,7 @@ public class ClosedFormJacobianTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void cosineTestAnkles()
    {
       //      A Test to ensure Renishaw and Futek Jacobians are in agreement with each other
@@ -176,7 +176,7 @@ public class ClosedFormJacobianTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void consineTestWaist()
    {
       //      A Test to ensure Renishaw and Futek Jacobians are in agreement with each other

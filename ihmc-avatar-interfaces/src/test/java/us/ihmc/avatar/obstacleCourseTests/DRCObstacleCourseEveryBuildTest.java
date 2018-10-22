@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -33,14 +33,14 @@ public abstract class DRCObstacleCourseEveryBuildTest implements MultiRobotTestI
    
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -62,7 +62,7 @@ public abstract class DRCObstacleCourseEveryBuildTest implements MultiRobotTestI
 
 
 	@ContinuousIntegrationTest(estimatedDuration = 52.7)
-	@Test(timeout = 260000)
+	@Test
    public void testSimpleFlatGroundScript() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -102,7 +102,7 @@ public abstract class DRCObstacleCourseEveryBuildTest implements MultiRobotTestI
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 53.8)
-	@Test(timeout = 270000)
+	@Test
    public void testWalkingUpToRampWithLongSteps() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

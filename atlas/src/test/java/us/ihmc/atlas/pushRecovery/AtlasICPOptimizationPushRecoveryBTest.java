@@ -1,6 +1,6 @@
 package us.ihmc.atlas.pushRecovery;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
@@ -100,7 +100,7 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationDiagonalOutwardPushInSwing() throws Exception
    {
       percentWeight = 0.2;
@@ -108,7 +108,7 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationDiagonalYawingOutwardPushInSwing() throws Exception
    {
       percentWeight = 0.13;
@@ -116,7 +116,7 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationLongBackwardPushInSwing() throws Exception
    {
       percentWeight = 0.15;
@@ -124,7 +124,7 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationLongForwardPushInSwing() throws Exception
    {
       percentWeight = 0.07;
@@ -133,14 +133,14 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationNoPush() throws Exception
    {
       super.testPushICPOptimizationNoPush();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationOutwardPushInSlowSwing() throws Exception
    {
       percentWeight = 0.11;
@@ -148,7 +148,7 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationOutwardPushInSwing() throws Exception
    {
       percentWeight = 0.25;
@@ -156,7 +156,7 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationRandomPushInSwing() throws Exception
    {
       percentWeight = 0.18;

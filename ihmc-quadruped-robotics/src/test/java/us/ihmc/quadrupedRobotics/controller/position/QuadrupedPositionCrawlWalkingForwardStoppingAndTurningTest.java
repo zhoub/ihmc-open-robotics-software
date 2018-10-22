@@ -3,9 +3,9 @@ package us.ihmc.quadrupedRobotics.controller.position;
 import java.io.IOException;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
@@ -26,7 +26,7 @@ public abstract class QuadrupedPositionCrawlWalkingForwardStoppingAndTurningTest
    private GoalOrientedTestConductor conductor;
    private QuadrupedPositionTestYoVariables variables;
    
-   @Before
+   @BeforeEach
    public void setup()
    {
       try
@@ -44,7 +44,7 @@ public abstract class QuadrupedPositionCrawlWalkingForwardStoppingAndTurningTest
       }
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       conductor.concludeTesting();
@@ -55,7 +55,7 @@ public abstract class QuadrupedPositionCrawlWalkingForwardStoppingAndTurningTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 700.0)
-   @Test(timeout = 2000000)
+   @Test
    public void testWalkingForwardStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       Random random = new Random(1776L);

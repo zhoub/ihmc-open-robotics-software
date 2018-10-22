@@ -5,8 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.trajectories.providers.ConstantDoubleProvider;
@@ -31,7 +31,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
 
    private ConstantAccelerationTrajectoryGenerator generator;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       initialPositionProvider = new ConstantDoubleProvider(0.0);
@@ -40,7 +40,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testConstructor()
    {
       finalPositionProvider = new ConstantDoubleProvider(CONSTANT * timeRequired * timeRequired + INITIALVELOCITY * timeRequired);
@@ -59,7 +59,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testIsDone()
    {
       finalPositionProvider = new ConstantDoubleProvider(CONSTANT * timeRequired * timeRequired + INITIALVELOCITY * timeRequired);
@@ -76,7 +76,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    //s = c * t ^ 2 + v0 * t
    public void testIncreasing()
    {
@@ -97,7 +97,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    //s = -c * t ^ 2 + v0 * t
    public void testDecreasing()
    {

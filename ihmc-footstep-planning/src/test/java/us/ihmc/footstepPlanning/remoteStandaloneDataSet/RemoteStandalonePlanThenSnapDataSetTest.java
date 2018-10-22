@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.remoteStandaloneDataSet;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -17,7 +17,7 @@ public class RemoteStandalonePlanThenSnapDataSetTest extends RemoteStandalonePla
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 22.3)
    public void testDatasetsWithoutOcclusion()
    {
@@ -27,7 +27,7 @@ public class RemoteStandalonePlanThenSnapDataSetTest extends RemoteStandalonePla
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 125.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
@@ -36,7 +36,7 @@ public class RemoteStandalonePlanThenSnapDataSetTest extends RemoteStandalonePla
       runAssertionsOnAllDatasetsWithoutOcclusionsInDevelopment(dataset -> runAssertions(dataset));
    }
 
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 22.3, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionRTPS()
    {

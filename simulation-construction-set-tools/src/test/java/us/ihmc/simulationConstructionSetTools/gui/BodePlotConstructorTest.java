@@ -1,6 +1,6 @@
 package us.ihmc.simulationConstructionSetTools.gui;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.commons.Conversions;
@@ -16,7 +16,7 @@ import us.ihmc.simulationconstructionset.gui.HumanAssistedTestFrame;
 public class BodePlotConstructorTest
 {
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout=300000)
+	@Test
    public void testSimpleFilter()
    {
       // int n = 1000;
@@ -46,7 +46,7 @@ public class BodePlotConstructorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout=300000)
+	@Test
    public void testSingleFreqPhaseShift()
    {
       // int n = 1000;
@@ -76,7 +76,7 @@ public class BodePlotConstructorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout=300000)
+	@Test
    public void testSecondOrderResponse()
    {
       double T = 5.0;

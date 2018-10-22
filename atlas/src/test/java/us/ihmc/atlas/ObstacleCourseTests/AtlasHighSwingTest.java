@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -30,7 +30,7 @@ public class AtlasHighSwingTest extends DRCHighSwingTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 144.5)
-   @Test(timeout = 720000)
+   @Test
    public void testWalkingWithHighSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingWithHighSteps();

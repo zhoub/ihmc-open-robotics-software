@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -29,14 +29,13 @@ public class BestFitPlaneCalculatorTest
 {
    private static final double eps = 1e-7;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void basicBestFitPlaneCalculatorTest() throws InsufficientDataException
    {
       double gridResolution = 1;
@@ -66,8 +65,7 @@ public class BestFitPlaneCalculatorTest
 
    }  
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void basicBestFitPlaneCalculatorNaNTest() throws InsufficientDataException
    {
       double gridResolution = 1;

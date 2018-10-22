@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.joptimizer.functions.ConvexMultivariateRealFunction;
 import com.joptimizer.functions.LinearMultivariateRealFunction;
@@ -31,7 +31,7 @@ public class SimpleJOptimizerTest
     * @throws Exception
     */
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout = 300000)
+	@Test
    public void testReallyReallySimpleOptimizationProblem() throws Exception
    {
       // Minimize x subject to x = 2
@@ -58,7 +58,7 @@ public class SimpleJOptimizerTest
     * @throws Exception
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 300000)
+   @Test
    public void testASimpleRedundantEqualityCase() throws Exception
    {
       // Minimize x subject to x = 2 and x = 2;
@@ -83,7 +83,7 @@ public class SimpleJOptimizerTest
     * @throws Exception
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 300000)
+   @Test
    public void testAnotherReallySimpleOptimizationProblem() throws Exception
    {
       // Minimize x subject to -x <= -2  (x >= 2);
@@ -101,7 +101,7 @@ public class SimpleJOptimizerTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 3000)
+	@Test
    public void testReallySimpleOptimizationProblem() throws Exception
    {
       // Minimize -x subject to x <= 5
@@ -121,7 +121,7 @@ public class SimpleJOptimizerTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 3000)
+	@Test
    public void testLinearCostQuadraticInequalityOptimizationProblem() throws Exception
    {
       // Minimize -x-y subject to x^2 + y^2 <= 4  (1/2 [x y] [I] [x y]^T - 2 <= 0)
@@ -151,7 +151,7 @@ public class SimpleJOptimizerTest
     * @throws Exception
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 300000)
+   @Test
    public void testLinearCostFullyLinearConstrainedEqualityOptimizationProblem() throws Exception
    {
       // Minimize x subject to x+y=4 and x-y=2. Should return (3,1).
@@ -170,7 +170,7 @@ public class SimpleJOptimizerTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 3000)
+	@Test
    public void testZeroCostLinearEqualityOptimizationProblem() throws Exception
    {
       // Minimize 0 subject to x+y=4. Should return any feasible solution.
@@ -188,7 +188,7 @@ public class SimpleJOptimizerTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 3000)
+	@Test
    public void testLinearCostLinearEqualityQuadraticInequalityOptimizationProblem() throws Exception
    {
       // Minimize x subject to x+y=4 and y >= x^2. Answer should be ((-1-sqrt(17))/2, (9+sqrt(17))/2))
@@ -221,7 +221,7 @@ public class SimpleJOptimizerTest
     * @throws Exception
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 300000)
+   @Test
    public void testQuadraticCostLinearEqualityQuadraticInequalityOptimizationProblem() throws Exception
    {
       // Minimize -x^2 subject to x+y=4 and y >= x^2. Answer should be ((-1-sqrt(17))/2, (9+sqrt(17))/2))
@@ -304,7 +304,7 @@ public class SimpleJOptimizerTest
     * @throws Exception
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 300000)
+   @Test
    public void testASecondOrderLorenzConeProblemUsingSquaring() throws Exception
    {
       // Minimize -(x + y) subject to z <= sqrt(18) and sqrt(x^2 + y^2) <= z. Answer should be (3, 3, sqrt(18))
@@ -380,7 +380,7 @@ public class SimpleJOptimizerTest
     * @throws Exception
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 300000)
+   @Test
    public void testASecondOrderLorenzConeProblemUsingSOCP() throws Exception
    {
       // Minimize -(x + y) subject to z <= sqrt(18) and sqrt(x^2 + y^2) <= z. Answer should be (3, 3, sqrt(18))

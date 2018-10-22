@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.controllerAPI.EndToEndNeckDesiredAccelerationsMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -27,7 +27,7 @@ public class ValkyrieEndToEndNeckDesiredAccelerationsMessageTest extends EndToEn
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 20.6)
-   @Test(timeout = 100000)
+   @Test
    public void testSimpleCommands() throws Exception
    {
       super.testSimpleCommands();

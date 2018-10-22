@@ -2,7 +2,7 @@ package us.ihmc.robotics.trajectories;
 
 import static junit.framework.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -19,7 +19,7 @@ public class MinimumJerkTrajectoryTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.4)
-	@Test(timeout = 30000)
+	@Test
    public void testRandomInitialFinalConditions()
    {
       MinimumJerkTrajectory minimumJerkTrajectory = new MinimumJerkTrajectory();
@@ -55,8 +55,7 @@ public class MinimumJerkTrajectoryTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testCheckVelocityAndAcceleration()
    {
       double x0 = 0.0;

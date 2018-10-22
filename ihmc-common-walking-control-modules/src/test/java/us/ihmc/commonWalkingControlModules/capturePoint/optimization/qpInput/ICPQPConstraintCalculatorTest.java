@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.capturePoint.optimization.qpInput;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -20,7 +20,7 @@ public class ICPQPConstraintCalculatorTest
    private final static double epsilon = 1e-7;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFeedbackMaxValueConstraint()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -43,7 +43,7 @@ public class ICPQPConstraintCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFeedbackMaxValueConstraintWithCMP()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -67,7 +67,7 @@ public class ICPQPConstraintCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFeedbackMaxValueConstraintWithInfiniteLimits()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -180,7 +180,7 @@ public class ICPQPConstraintCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFeedbackMaxRateConstraint()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -211,7 +211,7 @@ public class ICPQPConstraintCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFeedbackMaxRateConstraintWithCMP()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -243,7 +243,7 @@ public class ICPQPConstraintCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFeedbackMaxRateConstraintWithInfiniteLimits()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();

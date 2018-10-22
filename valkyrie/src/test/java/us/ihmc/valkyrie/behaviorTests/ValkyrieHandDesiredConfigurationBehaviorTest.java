@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.behaviorTests.HumanoidHandDesiredConfigurationBehaviorTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -29,7 +29,7 @@ public class ValkyrieHandDesiredConfigurationBehaviorTest extends HumanoidHandDe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 40.0)
-   @Test(timeout = 230000)
+   @Test
    public void testCloseHand() throws SimulationExceededMaximumTimeException
    {
       super.testCloseHand();
@@ -37,7 +37,7 @@ public class ValkyrieHandDesiredConfigurationBehaviorTest extends HumanoidHandDe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 260000)
+   @Test
    public void testPauseAndResumeCloseHand() throws SimulationExceededMaximumTimeException
    {
       super.testPauseAndResumeCloseHand();
@@ -45,7 +45,7 @@ public class ValkyrieHandDesiredConfigurationBehaviorTest extends HumanoidHandDe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 35.0)
-   @Test(timeout = 200000)
+   @Test
    public void testStopCloseHand() throws SimulationExceededMaximumTimeException
    {
       super.testStopCloseHand();

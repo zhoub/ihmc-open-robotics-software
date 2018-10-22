@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.trajectories.providers.ConstantDoubleProvider;
@@ -19,7 +19,7 @@ public class ConstantVelocityTrajectoryGeneratorTest
    private ConstantVelocityTrajectoryGenerator constantVelocityTrajectoryGenerator;
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testSimpleTrajectory()
    {
       DoubleProvider initialPosition = new ConstantDoubleProvider(0.0);
@@ -36,7 +36,7 @@ public class ConstantVelocityTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testRandomTrajectories()
    {
       final double numberOfIterations = 100;

@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.pushRecovery;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.pushRecovery.AvatarICPOptimizationPushRecoveryBTest;
@@ -83,7 +83,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationDiagonalOutwardPushInSwing() throws Exception
    {
       percentWeight = 0.2;
@@ -91,7 +91,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationDiagonalYawingOutwardPushInSwing() throws Exception
    {
       percentWeight = 0.13;
@@ -99,7 +99,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationLongBackwardPushInSwing() throws Exception
    {
       percentWeight = 0.15;
@@ -107,7 +107,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationLongForwardPushInSwing() throws Exception
    {
       percentWeight = 0.07;
@@ -116,14 +116,14 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 60.0)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationNoPush() throws Exception
    {
       super.testPushICPOptimizationNoPush();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationOutwardPushInSlowSwing() throws Exception
    {
       percentWeight = 0.11;
@@ -131,7 +131,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationOutwardPushInSwing() throws Exception
    {
       percentWeight = 0.25;
@@ -139,7 +139,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0)
-   @Test(timeout = 150000)
+   @Test
    public void testPushICPOptimizationRandomPushInSwing() throws Exception
    {
       percentWeight = 0.18;

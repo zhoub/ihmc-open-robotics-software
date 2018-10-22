@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.FootstepDataListMessage;
@@ -65,7 +65,7 @@ public class AtlasUpperBodyTrajectoriesWhileWalkingTest
    protected DRCSimulationTestHelper drcSimulationTestHelper;
 
    @ContinuousIntegrationTest(categoriesOverride = IntegrationCategory.FAST, estimatedDuration = 157.4)
-   @Test(timeout = 790000)
+   @Test
    public void testWalkingWithRandomArmTrajectoryMovements() throws Exception
    {
       Random random = new Random(564654L);
@@ -90,7 +90,7 @@ public class AtlasUpperBodyTrajectoriesWhileWalkingTest
    }
 
    @ContinuousIntegrationTest(categoriesOverride = IntegrationCategory.FAST, estimatedDuration = 168.3)
-   @Test(timeout = 840000)
+   @Test
    public void testWalkingWithArmsHoldingInFeetFrame() throws Exception
    {
       Random random = new Random(564654L);
@@ -225,13 +225,13 @@ public class AtlasUpperBodyTrajectoriesWhileWalkingTest
       return timeToCompleteWalking;
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

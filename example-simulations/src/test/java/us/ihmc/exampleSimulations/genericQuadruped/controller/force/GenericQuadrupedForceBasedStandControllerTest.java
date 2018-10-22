@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -47,42 +47,42 @@ public class GenericQuadrupedForceBasedStandControllerTest extends QuadrupedForc
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0, categoriesOverride = SLOW)
-   @Test(timeout = 320000)
+   @Test
    public void testStandingAndResistingPushesOnFrontRightHipRoll() throws IOException
    {
       super.testStandingAndResistingPushesOnFrontRightHipRoll();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0, categoriesOverride = SLOW)
-   @Test(timeout = 320000)
+   @Test
    public void testStandingAndResistingPushesOnHindLeftHipRoll() throws IOException
    {
       super.testStandingAndResistingPushesOnHindLeftHipRoll();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0, categoriesOverride = SLOW)
-   @Test(timeout = 320000)
+   @Test
    public void testStandingAndResistingPushesOnHindRightHipRoll() throws IOException
    {
       super.testStandingAndResistingPushesOnHindRightHipRoll();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0, categoriesOverride = SLOW)
-   @Test(timeout = 320000)
+   @Test
    public void testStandingAndResistingPushesOnFrontLeftHipRoll() throws IOException
    {
       super.testStandingAndResistingPushesOnFrontLeftHipRoll();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 35.0)
-   @Test(timeout = 550000)
+   @Test
    public void testStandingAndResistingPushesOnBody() throws IOException
    {
       super.testStandingAndResistingPushesOnBody();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 30.0)
-   @Test(timeout = 390000)
+   @Test
    public void testStandingUpAndAdjustingCoM() throws IOException
    {
       super.testStandingUpAndAdjustingCoM();

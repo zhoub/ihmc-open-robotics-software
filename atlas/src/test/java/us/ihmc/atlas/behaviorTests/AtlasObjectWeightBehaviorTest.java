@@ -1,7 +1,7 @@
 package us.ihmc.atlas.behaviorTests;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -29,16 +29,16 @@ public class AtlasObjectWeightBehaviorTest extends DRCObjectWeightBehaviorTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 21.2)
-   @Test(timeout = 110000)
+   @Test
    public void testConstructorAndSetInput()
    {
       super.testConstructorAndSetInput();
    }
 
    @Override
-   @Ignore("Needs to be reimplemented")
+   @Disabled("Needs to be reimplemented")
    @ContinuousIntegrationTest(estimatedDuration = 19.6)
-   @Test(timeout = 98000)
+   @Test
    public void testSettingWeight() throws SimulationExceededMaximumTimeException
    {
       super.testSettingWeight();

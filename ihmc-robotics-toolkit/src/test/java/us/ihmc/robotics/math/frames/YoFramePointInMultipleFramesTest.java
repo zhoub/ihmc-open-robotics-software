@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -33,7 +33,7 @@ public class YoFramePointInMultipleFramesTest
    private static final ReferenceFrame[] allFrames = new ReferenceFrame[] { worldFrame, frameA, frameB, frameC };
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testConstructor()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youhou");
@@ -68,7 +68,7 @@ public class YoFramePointInMultipleFramesTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testRegisterFrame()
    {
       ArrayList<ReferenceFrame> referenceFrames = new ArrayList<ReferenceFrame>();
@@ -106,7 +106,7 @@ public class YoFramePointInMultipleFramesTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testSetToZero()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youhou");
@@ -120,7 +120,7 @@ public class YoFramePointInMultipleFramesTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testChangeToRegisteredFrame()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youhou");
@@ -151,7 +151,7 @@ public class YoFramePointInMultipleFramesTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testSetIncludingFrame()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youhou");

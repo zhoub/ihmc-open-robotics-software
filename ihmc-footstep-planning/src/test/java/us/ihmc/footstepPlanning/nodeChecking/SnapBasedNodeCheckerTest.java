@@ -2,7 +2,7 @@ package us.ihmc.footstepPlanning.nodeChecking;
 
 import org.junit.Assert;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -44,7 +44,7 @@ public class SnapBasedNodeCheckerTest
    public TestName name = new TestName();
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSwingingThroughObstacle0()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters();
@@ -121,7 +121,7 @@ public class SnapBasedNodeCheckerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSwingingThroughObstacle1()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters();
@@ -198,7 +198,7 @@ public class SnapBasedNodeCheckerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testValidNode()
    {
       FootstepNodeSnapper snapper = new TestSnapper();
@@ -214,7 +214,7 @@ public class SnapBasedNodeCheckerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testStartNodeValid()
    {
       FootstepNodeSnapper snapper = new TestSnapper();
@@ -229,7 +229,7 @@ public class SnapBasedNodeCheckerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000, expected = RuntimeException.class)
+   @Test
    public void testSameNodes()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters();
@@ -242,7 +242,7 @@ public class SnapBasedNodeCheckerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTooHighNode()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters()
@@ -284,7 +284,7 @@ public class SnapBasedNodeCheckerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTooSmallFoothold()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters();

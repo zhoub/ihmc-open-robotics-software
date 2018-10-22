@@ -4,8 +4,8 @@ import static junit.framework.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -26,14 +26,13 @@ public class WaypointMotionGeneratorTest
    {
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testStraightLineMotion()
    {
       ArrayList<FramePoint3D> listOfPoints = new ArrayList<FramePoint3D>();
@@ -90,8 +89,7 @@ public class WaypointMotionGeneratorTest
       assertEquals(0.0, acceleration.length(), 1e-2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testThreePointMotion()
    {
       ArrayList<FramePoint3D> listOfPoints = new ArrayList<FramePoint3D>();

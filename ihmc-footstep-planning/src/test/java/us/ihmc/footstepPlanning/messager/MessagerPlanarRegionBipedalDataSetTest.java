@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.messager;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -17,7 +17,7 @@ public class MessagerPlanarRegionBipedalDataSetTest extends MessagerPlannerDataS
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 122.8)
    public void testDatasetsWithoutOcclusion()
    {
@@ -25,7 +25,7 @@ public class MessagerPlanarRegionBipedalDataSetTest extends MessagerPlannerDataS
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 90.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {

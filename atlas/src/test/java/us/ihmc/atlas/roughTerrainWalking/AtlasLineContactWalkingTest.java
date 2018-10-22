@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
@@ -38,7 +38,7 @@ public class AtlasLineContactWalkingTest extends HumanoidLineContactWalkingTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 300000)
+   @Test
    public void testWalkingOnLines() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOnLines();
@@ -46,7 +46,7 @@ public class AtlasLineContactWalkingTest extends HumanoidLineContactWalkingTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 300000)
+   @Test
    public void testWalkingOnStraightForwardLines() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOnStraightForwardLines();
@@ -54,7 +54,7 @@ public class AtlasLineContactWalkingTest extends HumanoidLineContactWalkingTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 300000)
+   @Test
    public void testWalkingOnStraightSidewayLines() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOnStraightSidewayLines();

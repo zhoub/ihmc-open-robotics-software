@@ -6,11 +6,11 @@ import java.io.InputStream;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.PelvisHeightTrajectoryMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -44,13 +44,13 @@ public abstract class DRCObstacleCourseTrialsWalkingTaskTest implements MultiRob
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -69,7 +69,7 @@ public abstract class DRCObstacleCourseTrialsWalkingTaskTest implements MultiRob
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 64.7)
-   @Test(timeout = 320000)
+   @Test
    public void testStepOnCinderBlocks() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -115,7 +115,7 @@ public abstract class DRCObstacleCourseTrialsWalkingTaskTest implements MultiRob
    // We don't need step on/off two layer CinderBlocks anymore
    //Note: this test will fail because of bounding box that needs to be "tuned"
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 100.6)
-   @Test(timeout = 500000)
+   @Test
    public void testStepOnAndOffCinderBlocks() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -204,7 +204,7 @@ public abstract class DRCObstacleCourseTrialsWalkingTaskTest implements MultiRob
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 100.6)
-   @Test(timeout = 500000)
+   @Test
    public void testStepOnCinderBlocksSlowlyWithDisturbance() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

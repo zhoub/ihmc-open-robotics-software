@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -18,7 +18,7 @@ public class ValkyrieInverseDynamicsCalculatorTest extends DRCInverseDynamicsCal
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testInverseDynamicsStartingWithRandomAccelerationsInInverseDynamics() throws UnreasonableAccelerationException
    {
       super.testInverseDynamicsStartingWithRandomAccelerationsInInverseDynamics();
@@ -26,7 +26,7 @@ public class ValkyrieInverseDynamicsCalculatorTest extends DRCInverseDynamicsCal
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testInverseDynamicsStartingWithRandomTorquesInSCS() throws UnreasonableAccelerationException
    {
       super.testInverseDynamicsStartingWithRandomTorquesInSCS();

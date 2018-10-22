@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -18,7 +18,7 @@ public class AtlasSwingWithWaypointsTest extends AvatarSwingWithWaypointsTest
 {
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 137.9)
-   @Test(timeout = 690000)
+   @Test
    public void testRegularSwingWithWaypoints() throws SimulationExceededMaximumTimeException
    {
       super.testRegularSwingWithWaypoints();
@@ -26,7 +26,7 @@ public class AtlasSwingWithWaypointsTest extends AvatarSwingWithWaypointsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 33.9)
-   @Test(timeout = 170000)
+   @Test
    public void testSwingWithWaypointsRotated() throws SimulationExceededMaximumTimeException
    {
       super.testSwingWithWaypointsRotated();

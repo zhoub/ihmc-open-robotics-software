@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -31,7 +31,7 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 100.6)
-   @Test(timeout = 500000)
+   @Test
    public void testWalkingDownRampWithMediumSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingDownRampWithMediumSteps();
@@ -39,7 +39,7 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 99.7)
-   @Test(timeout = 500000)
+   @Test
    public void testWalkingUpRampWithMediumSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampWithMediumSteps();
@@ -47,7 +47,7 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 500000)
+   @Test
    public void testWalkingUpRampWithShortSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampWithShortSteps();
@@ -55,7 +55,7 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 104.2)
-   @Test(timeout = 520000)
+   @Test
    public void testWalkingUpRampWithShortStepsALittleTooHigh() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampWithShortStepsALittleTooHigh();
@@ -63,7 +63,7 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 100.9, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 500000)
+   @Test
    public void testWalkingUpRampWithShortStepsALittleTooLow() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampWithShortStepsALittleTooLow();

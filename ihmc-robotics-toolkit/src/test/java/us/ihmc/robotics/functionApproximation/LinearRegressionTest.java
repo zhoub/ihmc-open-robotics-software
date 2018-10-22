@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -17,8 +17,7 @@ public class LinearRegressionTest
 {
    private static final boolean VERBOSE = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testTypicalExampleOne()
    {
       Random random = new Random(1984L);
@@ -54,8 +53,7 @@ public class LinearRegressionTest
                                  expectedCoefficients);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testTypicalExampleTwo()
    {
       Random random = new Random(1776L);
@@ -104,8 +102,7 @@ public class LinearRegressionTest
                                  expectedCoefficients);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testPerfectMatch()
    {
       Random random = new Random(2000L);
@@ -152,8 +149,7 @@ public class LinearRegressionTest
                                  expectedCoefficients);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testRandomness()
    {
       Random random = new Random(1776L);
@@ -181,7 +177,7 @@ public class LinearRegressionTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testNotEnoughPoints()
    {
       ArrayList<double[]> inputs = new ArrayList<double[]>();
@@ -196,7 +192,7 @@ public class LinearRegressionTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testAskingForAnswerBeforeDone()
    {
       double[][] inputs = new double[][]
@@ -211,7 +207,7 @@ public class LinearRegressionTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testAskingForSquaredErrorBeforeDone()
    {
       double[][] inputs = new double[][]
@@ -225,7 +221,7 @@ public class LinearRegressionTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testAskingForCoefficientVectorAsMatrixBeforeDone()
    {
       double[][] inputs = new double[][]

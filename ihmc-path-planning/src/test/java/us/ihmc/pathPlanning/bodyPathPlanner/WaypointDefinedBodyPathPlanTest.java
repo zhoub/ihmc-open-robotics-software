@@ -8,10 +8,10 @@ import java.util.List;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
 
 import us.ihmc.commons.MutationTestFacilitator;
@@ -45,14 +45,14 @@ public class WaypointDefinedBodyPathPlanTest
    @Rule
    public TestName name = new TestName();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleBodyPath()
    {
       WaypointDefinedBodyPathPlanner plan = new WaypointDefinedBodyPathPlanner();

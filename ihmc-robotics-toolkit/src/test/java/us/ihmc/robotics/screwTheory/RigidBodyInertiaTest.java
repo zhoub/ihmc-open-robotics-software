@@ -12,9 +12,9 @@ import org.ejml.factory.DecompositionFactory;
 import org.ejml.interfaces.decomposition.EigenDecomposition;
 import org.ejml.ops.CommonOps;
 import org.ejml.simple.SimpleMatrix;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.matrix.Matrix3D;
@@ -38,7 +38,7 @@ public class RigidBodyInertiaTest
    private RigidBodyInertia inertia;
 
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       worldFrame = ReferenceFrame.constructARootFrame("worldFrame");
@@ -82,22 +82,20 @@ public class RigidBodyInertiaTest
       inertia = new RigidBodyInertia(frameB, getRandomSymmetricPositiveDefiniteMatrix(), getRandomPositiveNumber());
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testComputeKineticCoEnergyNoFrameChange()
    {
       Twist twist = new Twist(frameB, worldFrame, frameB, getRandomVector(), getRandomVector());
       assertKineticCoEnergyFrameIndependent(twist, inertia);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testComputeKineticCoEnergyWithFrameChange()
    {
       Twist twist = new Twist(frameB, worldFrame, frameB, getRandomVector(), getRandomVector());
@@ -107,8 +105,7 @@ public class RigidBodyInertiaTest
       assertKineticCoEnergyFrameIndependent(twist, inertia);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testChangeFrame()
    {
       ReferenceFrame oldFrame = inertia.getExpressedInFrame();
@@ -128,8 +125,7 @@ public class RigidBodyInertiaTest
       JUnitTools.assertMatrixEquals(inertiaCheap, inertiaExpensive.getMatrix(), epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testChangeFrameKineticCoEnergyConsistency()
    {
       // compute kinetic co-energy in frame B
@@ -146,8 +142,7 @@ public class RigidBodyInertiaTest
       assertEquals(kineticCoEnergyFrameB, kineticCoEnergyFrameC, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testSantiyIfChangeFramePurelyRotational()
    {
       inertia = new RigidBodyInertia(rotatedOnlyFrame, getRandomSymmetricPositiveDefiniteMatrix(), getRandomPositiveNumber());

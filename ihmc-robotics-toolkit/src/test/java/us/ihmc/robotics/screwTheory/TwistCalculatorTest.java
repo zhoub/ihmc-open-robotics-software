@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -29,14 +29,14 @@ public class TwistCalculatorTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithChainComposedOfPrismaticJoints() throws Exception
    {
       Random random = new Random(234234L);
@@ -73,7 +73,7 @@ public class TwistCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithChainComposedOfRevoluteJointsAssertAngularVelocityOnly() throws Exception
    {
       Random random = new Random(234234L);
@@ -112,7 +112,7 @@ public class TwistCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testWithTreeComposedOfPrismaticJoints() throws Exception
    {
       Random random = new Random(234234L);
@@ -156,7 +156,7 @@ public class TwistCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testWithTreeComposedOfRevoluteJointsAssertAngularVelocity() throws Exception
    {
       Random random = new Random(234234L);
@@ -202,7 +202,7 @@ public class TwistCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithChainRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(234234L);
@@ -248,7 +248,7 @@ public class TwistCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testWithTreeRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(234234L);
@@ -294,7 +294,7 @@ public class TwistCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(435345L);
@@ -371,7 +371,7 @@ public class TwistCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 6.4)
-   @Test(timeout = 32000)
+   @Test
    public void testRelativeTwistWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(435345L);

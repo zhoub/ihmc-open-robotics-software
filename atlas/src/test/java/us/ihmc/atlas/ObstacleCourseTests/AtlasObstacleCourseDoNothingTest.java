@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -31,7 +31,7 @@ public class AtlasObstacleCourseDoNothingTest extends DRCObstacleCourseDoNothing
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.3)
-   @Test(timeout = 100000)
+   @Test
    public void testDoNothing() throws SimulationExceededMaximumTimeException
    {
       robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false);
@@ -39,7 +39,7 @@ public class AtlasObstacleCourseDoNothingTest extends DRCObstacleCourseDoNothing
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.3)
-   @Test(timeout = 100000)
+   @Test
    public void testDoNothingShapeCollision() throws SimulationExceededMaximumTimeException
    {
       robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false, false, true);

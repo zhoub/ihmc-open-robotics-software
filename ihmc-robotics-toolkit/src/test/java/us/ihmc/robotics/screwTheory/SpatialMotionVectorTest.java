@@ -7,9 +7,9 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.RandomMatrices;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -31,7 +31,7 @@ public class SpatialMotionVectorTest
    protected ReferenceFrame frameD;
 
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       frameA = ReferenceFrame.constructARootFrame("A");
@@ -65,7 +65,7 @@ public class SpatialMotionVectorTest
       frameC.update();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -75,8 +75,7 @@ public class SpatialMotionVectorTest
     * Test inverting a twist
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testInvert()
    {
       Vector3D linearPart = RandomGeometry.nextVector3D(random);
@@ -111,8 +110,7 @@ public class SpatialMotionVectorTest
     * Constructing using a matrix
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testConstructUsingMatrix()
    {
       DenseMatrix64F matrix = RandomMatrices.createRandom(SpatialMotionVector.SIZE, 1, random);
@@ -123,7 +121,7 @@ public class SpatialMotionVectorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testConstructUsingMatrixTooSmall()
    {
       DenseMatrix64F matrix = new DenseMatrix64F(SpatialMotionVector.SIZE - 1, 1);
@@ -131,7 +129,7 @@ public class SpatialMotionVectorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testConstructUsingMatrixTooBig()
    {
       DenseMatrix64F matrix = new DenseMatrix64F(SpatialMotionVector.SIZE + 1, 1);
@@ -139,15 +137,14 @@ public class SpatialMotionVectorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testConstructUsingMatrixTooBig2()
    {
       DenseMatrix64F matrix = new DenseMatrix64F(SpatialMotionVector.SIZE, 2);
       createSpatialMotionVector(frameC, frameD, frameA, matrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testLimitLinearAndAngularParts()
    {
       double linearLength = 10.0;

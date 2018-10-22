@@ -2,9 +2,9 @@ package us.ihmc.quadrupedRobotics.controller.position;
 
 import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
@@ -25,7 +25,7 @@ public abstract class QuadrupedPositionCrawlBumpyGroundWalkingTest implements Qu
    private GoalOrientedTestConductor conductor;
    private QuadrupedPositionTestYoVariables variables;
    
-   @Before
+   @BeforeEach
    public void setup()
    {
       try
@@ -44,7 +44,7 @@ public abstract class QuadrupedPositionCrawlBumpyGroundWalkingTest implements Qu
       }
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       conductor.concludeTesting();
@@ -55,7 +55,7 @@ public abstract class QuadrupedPositionCrawlBumpyGroundWalkingTest implements Qu
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 200000)
+   @Test
    public void testWalkingOverBumpyTerrain() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);

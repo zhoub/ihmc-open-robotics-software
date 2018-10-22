@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.lists.RecyclingArrayList;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -38,14 +38,14 @@ public class SmoothCapturePointToolboxTest
    
    private final SmoothCapturePointToolbox icpToolbox = new SmoothCapturePointToolbox();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeDesiredCornerPointsFromCMPPolynomials()
    {
       double omega0 = 3.4;
@@ -144,7 +144,7 @@ public class SmoothCapturePointToolboxTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMatricesPrime3DLinear()
    {
       // Linear polynomial: y(x) = a0 + a1*x
@@ -211,7 +211,7 @@ public class SmoothCapturePointToolboxTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMatricesPrime3DCubic()
    {
       // Cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -281,7 +281,7 @@ public class SmoothCapturePointToolboxTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCalculateICPPositionAndVelocityOnSegment3DLinear()
    {
    // Linear polynomial: y(x) = a0 + a1*x
@@ -340,7 +340,7 @@ public class SmoothCapturePointToolboxTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCalculateICPPositionAndVelocityOnSegment3DCubic()
    {
       // Cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3

@@ -3,7 +3,7 @@ package us.ihmc.robotics.testing;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -11,7 +11,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 public class JUnitToolsTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testAssertJamaMatrixEquals()
    {
       final int ITERATIONS = 1000;
@@ -38,7 +38,7 @@ public class JUnitToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testAssertDenseMatrix64FEquals()
    {
       final int ITERATIONS = 1000;
@@ -65,7 +65,7 @@ public class JUnitToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testAssertMatrixEqualsZero()
    {
       final int ITERATIONS = 1000;
@@ -84,7 +84,7 @@ public class JUnitToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testAssertDoubleArrayEquals()
    {
       final int ITERATIONS = 1000;

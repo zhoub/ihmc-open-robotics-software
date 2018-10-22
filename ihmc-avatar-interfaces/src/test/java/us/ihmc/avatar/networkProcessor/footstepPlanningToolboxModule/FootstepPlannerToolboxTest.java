@@ -4,8 +4,8 @@ import com.jme3.math.Transform;
 import controller_msgs.msg.dds.FootstepPlanningRequestPacket;
 import controller_msgs.msg.dds.FootstepPlanningToolboxOutputStatus;
 import controller_msgs.msg.dds.ToolboxStateMessage;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.handControl.packetsAndConsumers.HandModel;
 import us.ihmc.avatar.initialSetup.DRCRobotInitialSetup;
@@ -111,7 +111,7 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 125.0)
    public void testDatasetsWithoutOcclusion()
    {
@@ -121,7 +121,7 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 125.0)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
@@ -130,7 +130,7 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
       runAssertionsOnAllDatasetsWithoutOcclusionsInDevelopment(dataset -> runAssertions(dataset));
    }
 
-   @Test(timeout = 500000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 13.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionRTPS()
    {
@@ -139,7 +139,7 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
       runAssertionsOnAllDatasetsWithoutOcclusions(dataset -> runAssertions(dataset));
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       ros2Node.destroy();

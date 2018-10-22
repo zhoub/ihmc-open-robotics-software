@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
@@ -23,7 +23,7 @@ public class PlanarRegionPolygonSnapperTest
 {
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSnapPolygonToFlatPlanarRegion()
    {
       ConvexPolygon2D polygonToSnap = new ConvexPolygon2D();
@@ -63,7 +63,7 @@ public class PlanarRegionPolygonSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSnapPolygonToLargeRotatedRegion()
    {
       ConvexPolygon2D polygonToSnap = new ConvexPolygon2D();
@@ -112,7 +112,7 @@ public class PlanarRegionPolygonSnapperTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testYawOfRegionDoesNotYawSnappedPolygon()
    {
       ConvexPolygon2D polygonToSnap = new ConvexPolygon2D();

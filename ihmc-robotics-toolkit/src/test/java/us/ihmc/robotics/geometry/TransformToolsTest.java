@@ -6,8 +6,8 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -27,14 +27,14 @@ import us.ihmc.robotics.testing.JUnitTools;
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class TransformToolsTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRotate()
    {
       RigidBodyTransform transform = new RigidBodyTransform();
@@ -69,7 +69,7 @@ public class TransformToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetTransformFromA1toA2Simple()
    {
       Vector3D vectorA1 = new Vector3D(-1.0, -2.0, -3.0);
@@ -101,7 +101,7 @@ public class TransformToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetTransformFromA1toA2Random()
    {
       DenseMatrix64F matrix = new DenseMatrix64F(4, 4);
@@ -134,7 +134,7 @@ public class TransformToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testgetTransformDifference()
    {
       RigidBodyTransform rigidBodyTransform = new RigidBodyTransform();
@@ -170,7 +170,7 @@ public class TransformToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testgetTransformDifferenceBetweenTwoTransforms()
    {
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ComPositionPacket;
 import controller_msgs.msg.dds.ComVelocityPacket;
@@ -37,7 +37,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 public class QuadrupedControllerInputProviderTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testNoVariablesAreMixedUpWhenSendingTeleOpPacket() throws IOException
    {
       double epsilon = 0.01;
@@ -113,7 +113,7 @@ public class QuadrupedControllerInputProviderTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testYoVariableNamesAreCorrectAndUpdateInputs() throws IOException
    {
       double epsilon = 0.001;

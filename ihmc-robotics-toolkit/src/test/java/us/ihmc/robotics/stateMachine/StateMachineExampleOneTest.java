@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -19,7 +19,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 public class StateMachineExampleOneTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConstructionOfSimpleTimeBasedStateMachine()
    {
       // This shows a quick and easy way to make a simple state machine without using the complex machinery for a more complex state machine.
@@ -104,7 +104,7 @@ public class StateMachineExampleOneTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConstructionOfSimpleEventBasedStateMachine()
    {
       // This shows a quick and easy way to make a simple state machine without using the complex machinery for a more complex state machine.

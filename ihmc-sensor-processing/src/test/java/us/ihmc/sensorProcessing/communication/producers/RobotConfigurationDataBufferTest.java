@@ -8,7 +8,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import controller_msgs.msg.dds.RobotConfigurationData;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
@@ -21,7 +21,7 @@ import us.ihmc.sensorProcessing.communication.packets.dataobjects.RobotConfigura
 public abstract class RobotConfigurationDataBufferTest
 {
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testAddingStuff()
    {
       RobotConfigurationDataBuffer buffer = new RobotConfigurationDataBuffer();
@@ -57,7 +57,7 @@ public abstract class RobotConfigurationDataBufferTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 100.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWaitForTimestamp()
    {
 	   for (int numberOfTestIterations = 0; numberOfTestIterations < 100; numberOfTestIterations++)

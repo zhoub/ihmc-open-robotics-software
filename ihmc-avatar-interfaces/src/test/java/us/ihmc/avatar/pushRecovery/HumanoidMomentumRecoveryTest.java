@@ -3,9 +3,9 @@ package us.ihmc.avatar.pushRecovery;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -73,7 +73,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 30.6)
-   @Test(timeout = 150000)
+   @Test
    /**
     * End to end test that makes sure the robot can recover from a push using upper body momentum
     *
@@ -89,7 +89,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 21.5)
-   @Test(timeout = 110000)
+   @Test
    /**
     * End to end test that makes sure the robot falls during test if momentum is disabled
     *
@@ -105,7 +105,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 34.3)
-   @Test(timeout = 170000)
+   @Test
    /**
     * End to end test that makes sure the robot can recover from a push using upper body momentum
     *
@@ -121,7 +121,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 23.2)
-   @Test(timeout = 120000)
+   @Test
    /**
     * End to end test that makes sure the robot falls during test if momentum is disabled
     *
@@ -137,7 +137,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 37.9)
-   @Test(timeout = 190000)
+   @Test
    /**
     * End to end test that makes sure the momentum recovery does not get triggered during
     * some normal steps
@@ -259,13 +259,13 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       drcSimulationTestHelper.setupCameraForUnitTest(cameraFix, cameraPosition);
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

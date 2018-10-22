@@ -4,7 +4,7 @@ import static org.junit.Assert.fail;
 
 import java.util.Set;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.communication.ros.generators.RosMessagePacket;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -26,7 +26,7 @@ import us.ihmc.utilities.ros.msgToPacket.converter.GenericROSTranslationTools;
 public class ROSMessageFileCreatorTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.4)
-   @Test(timeout = 30000)
+   @Test
    public void testAllExportedPacketsWithTopicsAreFormattedCorrectly()
    {
       Set<Class<?>> rosMessagePacketAnnotatedClasses = GenericROSTranslationTools.getIHMCCoreRosMessagePacketAnnotatedClasses();

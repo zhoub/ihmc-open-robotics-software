@@ -2,7 +2,7 @@ package us.ihmc.atlas.controllerAPI;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.HandTrajectoryMessage;
 import controller_msgs.msg.dds.SE3TrajectoryMessage;
@@ -37,7 +37,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 37.0)
-   @Test(timeout = 180000)
+   @Test
    public void testCustomControlFrame() throws SimulationExceededMaximumTimeException
    {
       super.testCustomControlFrame();
@@ -45,7 +45,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 15.8)
-   @Test(timeout = 79000)
+   @Test
    public void testMessageWithTooManyTrajectoryPoints() throws Exception
    {
       super.testMessageWithTooManyTrajectoryPoints();
@@ -53,7 +53,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 31.8, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 160000)
+   @Test
    public void testMultipleTrajectoryPoints() throws Exception
    {
       super.testMultipleTrajectoryPoints();
@@ -61,7 +61,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 51.8)
-   @Test(timeout = 260000)
+   @Test
    public void testQueuedMessages() throws Exception
    {
       super.testQueuedMessages();
@@ -69,7 +69,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 26.3)
-   @Test(timeout = 130000)
+   @Test
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
       super.testQueueStoppedWithOverrideMessage();
@@ -77,7 +77,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 19.3, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 97000)
+   @Test
    public void testQueueWithWrongPreviousId() throws Exception
    {
       super.testQueueWithWrongPreviousId();
@@ -85,7 +85,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 32.6)
-   @Test(timeout = 160000)
+   @Test
    public void testSingleTrajectoryPoint() throws Exception
    {
       super.testSingleTrajectoryPoint();
@@ -93,7 +93,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 37.7)
-   @Test(timeout = 190000)
+   @Test
    public void testStopAllTrajectory() throws Exception
    {
       super.testStopAllTrajectory();
@@ -104,7 +104,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
     * This bug was due to limiting the angle described by a Quaternion to be in [-Pi; Pi].
     */
    @ContinuousIntegrationTest(estimatedDuration = 30.6, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 150000)
+   @Test
    public void testBugFromActualSimDataWithTwoTrajectoryPoints() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

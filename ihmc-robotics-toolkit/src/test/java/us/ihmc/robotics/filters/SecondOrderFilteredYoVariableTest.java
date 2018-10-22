@@ -1,6 +1,6 @@
 package us.ihmc.robotics.filters;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -15,7 +15,7 @@ public class SecondOrderFilteredYoVariableTest
    YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLowPassFilterCoefficients()
    {
       double dt = 0.001;
@@ -35,7 +35,7 @@ public class SecondOrderFilteredYoVariableTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testNotchFilterCoefficients()
    {
       double dt = 0.001;
@@ -55,7 +55,7 @@ public class SecondOrderFilteredYoVariableTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testHighPassFilterCoefficients()
    {
       double dt = 0.001;

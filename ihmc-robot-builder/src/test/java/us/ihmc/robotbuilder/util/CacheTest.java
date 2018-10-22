@@ -1,6 +1,6 @@
 package us.ihmc.robotbuilder.util;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 import static org.junit.Assert.assertEquals;
@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 
 public class CacheTest {
 
-    @Test(timeout = 30000)
+    @Test
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
     public void testItemsGetStoredInTheCache() {
         Cache<Integer, String> stringCache = new Cache<>(Integer.MAX_VALUE);
@@ -23,7 +23,7 @@ public class CacheTest {
         }
     }
 
-    @Test(timeout = 30000)
+    @Test
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
     public void testCacheSizeLimit() {
         final int numItems = 200;
@@ -42,7 +42,7 @@ public class CacheTest {
         }
     }
 
-    @Test(timeout = 30000)
+    @Test
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
     public void testLeastRecentlyUsedGetsRemoved() {
         Cache<Integer, String> stringCache = new Cache<>(3);
@@ -59,7 +59,7 @@ public class CacheTest {
         assertFalse(stringCache.getItem(2).isPresent());
     }
 
-    @Test(timeout = 30000)
+    @Test
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
     public void testItemsDoNotGetRemovedEarly() {
         Cache<Integer, String> stringCache = new Cache<>(3);
@@ -73,7 +73,7 @@ public class CacheTest {
         assertTrue(stringCache.getItem(3).isPresent());
     }
 
-    @Test(timeout = 30000)
+    @Test
     @ContinuousIntegrationTest(estimatedDuration = 0.0)
     public void testCacheHitsAndMissesAreCountedCorrectly() {
         Cache<Integer, String> stringCache = new Cache<>(3);

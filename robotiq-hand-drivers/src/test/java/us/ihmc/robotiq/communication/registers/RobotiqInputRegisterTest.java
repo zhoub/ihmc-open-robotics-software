@@ -3,7 +3,7 @@ package us.ihmc.robotiq.communication.registers;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -13,7 +13,7 @@ public abstract class RobotiqInputRegisterTest
    protected abstract RobotiqInputRegister getExpectedRegister();
    protected abstract byte getValueToSet();
    
-   @Test(timeout = 30000)
+   @Test
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testSetRegister()
    {
@@ -23,7 +23,7 @@ public abstract class RobotiqInputRegisterTest
       assertTrue(getExpectedRegister().equals(inputRegister));
    }
 
-   @Test(timeout = 30000)
+   @Test
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testGetRegister()
    {

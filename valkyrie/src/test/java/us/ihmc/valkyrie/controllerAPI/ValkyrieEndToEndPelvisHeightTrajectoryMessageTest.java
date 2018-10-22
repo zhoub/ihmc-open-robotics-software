@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.controllerAPI.EndToEndPelvisHeightTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -27,7 +27,7 @@ public class ValkyrieEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndP
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 42.4)
-   @Test(timeout = 210000)
+   @Test
    public void testSingleWaypoint() throws Exception
    {
       super.testSingleWaypoint();
@@ -35,7 +35,7 @@ public class ValkyrieEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndP
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 27.3)
-   @Test(timeout = 140000)
+   @Test
    public void testSingleWaypointInUserMode() throws Exception
    {
       super.testSingleWaypointInUserMode();
@@ -43,7 +43,7 @@ public class ValkyrieEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndP
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 99.8)
-   @Test(timeout = 500000)
+   @Test
    public void testSingleWaypointThenManualChange() throws Exception
    {
       super.testSingleWaypointThenManualChange();
@@ -51,7 +51,7 @@ public class ValkyrieEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndP
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 42.4)
-   @Test(timeout = 210000)
+   @Test
    public void testStopAllTrajectory() throws Exception
    {
       super.testStopAllTrajectory();

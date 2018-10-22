@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.pushRecovery;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -28,7 +28,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 26.0)
-   @Test(timeout = 130000)
+   @Test
    public void testControllerFailureKicksIn() throws SimulationExceededMaximumTimeException
    {
       super.testControllerFailureKicksIn();
@@ -36,7 +36,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 40.1)
-   @Test(timeout = 200000)
+   @Test
    public void testLongBackwardPushWhileStanding() throws SimulationExceededMaximumTimeException
    {
       super.testLongBackwardPushWhileStanding();
@@ -44,7 +44,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 33.7)
-   @Test(timeout = 170000)
+   @Test
    public void testLongBackwardPushWhileStandingAfterControllerFailureKickedIn() throws SimulationExceededMaximumTimeException
    {
       super.testLongBackwardPushWhileStandingAfterControllerFailureKickedIn();
@@ -52,7 +52,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 33.4)
-   @Test(timeout = 170000)
+   @Test
    public void testLongForwardPushWhileStanding() throws SimulationExceededMaximumTimeException
    {
       super.testLongForwardPushWhileStanding();
@@ -60,7 +60,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 34.6)
-   @Test(timeout = 170000)
+   @Test
    public void testLongForwardPushWhileStandingAfterControllerFailureKickedIn() throws SimulationExceededMaximumTimeException
    {
       super.testLongForwardPushWhileStandingAfterControllerFailureKickedIn();
@@ -68,7 +68,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 52.1)
-   @Test(timeout = 260000)
+   @Test
    public void testPushWhileInSwing() throws SimulationExceededMaximumTimeException
    {
       super.testPushWhileInSwing();
@@ -76,7 +76,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 48.6)
-   @Test(timeout = 240000)
+   @Test
    public void testPushWhileInTransfer() throws SimulationExceededMaximumTimeException
    {
       super.testPushWhileInTransfer();
@@ -84,7 +84,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 48.7)
-   @Test(timeout = 240000)
+   @Test
    public void testPushWhileStanding() throws SimulationExceededMaximumTimeException
    {
       super.testPushWhileStanding();
@@ -92,7 +92,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 49.2)
-   @Test(timeout = 250000)
+   @Test
    public void testPushWhileStandingRecoveringAfterControllerFailureKickedIn() throws SimulationExceededMaximumTimeException
    {
       super.testPushWhileStandingRecoveringAfterControllerFailureKickedIn();
@@ -100,7 +100,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 50.7)
-   @Test(timeout = 250000)
+   @Test
    public void testRecoveringWithSwingSpeedUpWhileInSwing() throws SimulationExceededMaximumTimeException
    {
       super.testRecoveringWithSwingSpeedUpWhileInSwing();
@@ -108,7 +108,7 @@ public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 34.7)
-   @Test(timeout = 170000)
+   @Test
    public void testRecoveryWhileInFlamingoStance() throws SimulationExceededMaximumTimeException
    {
       super.testRecoveryWhileInFlamingoStance();

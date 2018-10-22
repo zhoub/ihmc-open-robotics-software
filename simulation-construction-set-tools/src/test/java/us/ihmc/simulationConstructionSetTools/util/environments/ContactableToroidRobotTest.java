@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.transform.RigidBodyTransform;
@@ -17,7 +17,7 @@ public class ContactableToroidRobotTest
 {
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testIsPointOnOrInsideAtOrigin()
    {
       double majorRadius = ContactableToroidRobot.DEFAULT_RADIUS;
@@ -51,7 +51,7 @@ public class ContactableToroidRobotTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testIsPointOnOrInsideNotAtOriginUsingTransform()
    {
       Random random = new Random(1972L);
@@ -91,7 +91,7 @@ public class ContactableToroidRobotTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testPointIsntInsideWhenUsingComOffset()
    {
       Random random = new Random(1972L);

@@ -2,9 +2,9 @@ package us.ihmc.commonWalkingControlModules.virtualModelControl;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualWrenchCommand;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.JointIndexHandler;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.virtualModelControl.VirtualModelMomentumController;
@@ -46,7 +46,7 @@ public class VirtualModelMomentumControllerTest
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    private Random random;
 
-   @Before
+   @BeforeEach
    public void setupSimulation()
    {
       random = new Random(1000L);
@@ -56,7 +56,7 @@ public class VirtualModelMomentumControllerTest
    }
 
 
-   @After
+   @AfterEach
    public void destroySimulation()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -70,7 +70,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMC()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -87,7 +87,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectAll()
    {
          RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -105,7 +105,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectForce()
    {
       double gravity = -9.81;
@@ -130,7 +130,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectTorque()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -152,7 +152,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectForceX()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -173,7 +173,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectForceY()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -194,7 +194,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectForceZ()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -215,7 +215,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectTorqueX()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -236,7 +236,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectTorqueY()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -258,7 +258,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectTorqueZ()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -279,7 +279,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectForceXTorqueY()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -301,7 +301,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectForceYZTorqueX()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -323,7 +323,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCSelectForceXTorqueXZ()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -345,7 +345,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCWrongExpressedInFrame()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -367,7 +367,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCWrongExpressedOnFrame()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -399,7 +399,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCWrongExpressedInAndOnFrame()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -431,7 +431,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCVirtualWrenchCommand()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -480,7 +480,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 6.6)
-   @Test(timeout = 33000)
+   @Test
    public void testVMCWithArm() throws Exception
    {
       RobotArm robotArm = VirtualModelMomentumControllerTestHelper.createRobotArm();
@@ -506,7 +506,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 4.7)
-   @Test(timeout = 30000)
+   @Test
    public void testVMCWithPlanarArm() throws Exception
    {
       PlanarRobotArm robotArm = VirtualModelMomentumControllerTestHelper.createPlanarArm();
@@ -536,7 +536,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 7.0)
-   @Test(timeout = 35000)
+   @Test
    public void testPlanarHydra() throws Exception
    {
       PlanarForkedRobotArm robotArm = VirtualModelMomentumControllerTestHelper.createPlanarForkedRobotArm();
@@ -575,7 +575,7 @@ public class VirtualModelMomentumControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
-   @Test(timeout = 50000)
+   @Test
    public void testHydra() throws Exception
    {
       ForkedRobotArm robotArm = VirtualModelMomentumControllerTestHelper.createForkedRobotArm();

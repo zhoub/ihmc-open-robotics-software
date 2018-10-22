@@ -1,7 +1,7 @@
 package us.ihmc.convexOptimization.quadraticProgram;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.tools.exceptions.NoConvergenceException;
 
@@ -21,7 +21,7 @@ public class JavaQuadProgSolverWithInactiveVariablesTest extends AbstractSimpleA
 
    @Override /** have to override because quad prog uses fewer iterations */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSolutionMethodsAreAllConsistent() throws NoConvergenceException
    {
       testSolutionMethodsAreAllConsistent(1);
@@ -29,7 +29,7 @@ public class JavaQuadProgSolverWithInactiveVariablesTest extends AbstractSimpleA
 
    @Override /** have to override because quad prog uses fewer iterations */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleCasesWithInequalityConstraints()
    {
       testSimpleCasesWithInequalityConstraints(0);
@@ -37,7 +37,7 @@ public class JavaQuadProgSolverWithInactiveVariablesTest extends AbstractSimpleA
 
    @Override /** have to override because quad prog uses fewer iterations */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleCasesWithBoundsConstraints()
    {
       testSimpleCasesWithBoundsConstraints(0, 1, 2, 6, true);
@@ -45,43 +45,43 @@ public class JavaQuadProgSolverWithInactiveVariablesTest extends AbstractSimpleA
 
    @Override /** have to override because quad prog uses different iterations */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testClear()
    {
       testClear(6, 1, true);
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMaxIterations()
    {
       testMaxIterations(6, false);
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void test2DCasesWithPolygonConstraints()
    {
       test2DCasesWithPolygonConstraints(2, 1);
    }
 
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testChallengingCasesWithPolygonConstraints()
    {
       testChallengingCasesWithPolygonConstraints(1, 5);
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleCasesWithInequalityConstraintsAndInactiveVariables()
    {
       testSimpleCasesWithInequalityConstraintsAndInactiveVariables(0);
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleCasesWithBoundsConstraintsAndInactiveVariables()
    {
       testSimpleCasesWithBoundsConstraintsAndInactiveVariables(0, 1, 2, 0, false);
@@ -89,7 +89,7 @@ public class JavaQuadProgSolverWithInactiveVariablesTest extends AbstractSimpleA
 
    @Override /** This IS a good solver **/
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testChallengingCasesWithPolygonConstraintsCheckFailsWithSimpleSolver()
    {
       SimpleActiveSetQPSolverInterface solver = createSolverToTest();

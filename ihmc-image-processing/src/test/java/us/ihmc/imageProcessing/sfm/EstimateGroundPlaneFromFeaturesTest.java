@@ -9,7 +9,7 @@ import org.ddogleg.struct.FastQueue;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import boofcv.alg.geo.PerspectiveOps;
 import boofcv.struct.calib.IntrinsicParameters;
@@ -34,7 +34,7 @@ public class EstimateGroundPlaneFromFeaturesTest
     */
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout=300000)
+	@Test
    public void perfect()
    {
       StereoParameters param = new StereoParameters();

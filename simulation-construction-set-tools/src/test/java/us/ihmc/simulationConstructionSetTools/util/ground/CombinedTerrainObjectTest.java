@@ -1,6 +1,6 @@
 package us.ihmc.simulationConstructionSetTools.util.ground;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
@@ -17,7 +17,7 @@ public class CombinedTerrainObjectTest
    //TODO: Flesh out this test case to be a really good one.
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testTwoIntersectingBoxes()
    {
       CombinedTerrainObject3D combinedTerrainObject = new CombinedTerrainObject3D("Combined Terrain Object to Test");

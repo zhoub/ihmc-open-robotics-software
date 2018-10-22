@@ -11,8 +11,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.CapturabilityBasedStatus;
 import us.ihmc.commons.Conversions;
@@ -31,14 +31,14 @@ public class CapturabilityBasedStatusTest
 {
    private static final Path TEST_FILE_PATH = Paths.get("TestSerialize" + CapturabilityBasedStatus.class.getSimpleName() + ".ibag");
 
-   @After
+   @AfterEach
    public void cleanUp()
    {
       FileTools.deleteQuietly(TEST_FILE_PATH);
    }
    
 	@ContinuousIntegrationTest(estimatedDuration = 0.4)
-   @Test(timeout = 30000)
+   @Test
    public void testSerializeAndDeserialize() throws IOException
    {
       KryoStreamSerializer kryoStreamSerializer = new KryoStreamSerializer(Conversions.megabytesToBytes(10));
@@ -59,7 +59,7 @@ public class CapturabilityBasedStatusTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSerializeToFileAndDeserialize() throws IOException
    {
       Random random = new Random();

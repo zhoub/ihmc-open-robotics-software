@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import geometry_msgs.msg.dds.PointStamped;
 import geometry_msgs.msg.dds.Vector3Stamped;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.esotericsoftware.minlog.Log;
 
@@ -29,7 +29,7 @@ public class KryoObjectCommunicatorTest
 
    // This test causes problems on Linux due to a bug in the way Java does its epoll wrapper
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout=300000)
+	@Test
    public void testAutomaticReconnect() throws IOException, InterruptedException
    {
       int TCP_PORT = 49152 + (int)(Math.random() * (65535 - 49152));
@@ -102,7 +102,7 @@ public class KryoObjectCommunicatorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000) 
+	@Test
    public void testStateListener() throws IOException, InterruptedException
    {
       int TCP_PORT = 49152 + (int)(Math.random() * (65535 - 49152));
@@ -157,7 +157,7 @@ public class KryoObjectCommunicatorTest
 
 	@SuppressWarnings("unused")
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-	@Test(timeout=300000)
+	@Test
    public void testConnectionLimiter() throws IOException, InterruptedException
    {
       int TCP_PORT = 49152 + (int)(Math.random() * (65535 - 49152));
@@ -232,7 +232,7 @@ public class KryoObjectCommunicatorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.4)
-	@Test(timeout=300000)
+	@Test
    public void testSendAndReceive() throws IOException, InterruptedException
    {
       int TCP_PORT = 49152 + (int)(Math.random() * (65535 - 49152));

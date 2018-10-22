@@ -2,11 +2,11 @@ package us.ihmc.avatar.behaviorTests;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCBehaviorTestHelper;
@@ -29,7 +29,7 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
    private static final double epsilon = 10e-8;
    private DRCBehaviorTestHelper drcBehaviorTestHelper;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -40,7 +40,7 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
                                                         simulationTestingParameters, getRobotModel());
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -59,7 +59,7 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 21.2)
-   @Test(timeout = 110000)
+   @Test
    public void testConstructorAndSetInput()
    {
       ObjectWeightBehavior behavior = new ObjectWeightBehavior(drcBehaviorTestHelper.getRobotName(), drcBehaviorTestHelper.getRos2Node());
@@ -67,9 +67,9 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
       assertTrue(behavior.hasInputBeenSet());
    }
 
-   @Ignore("Needs to be reimplemented")
+   @Disabled("Needs to be reimplemented")
    @ContinuousIntegrationTest(estimatedDuration = 19.6)
-   @Test(timeout = 98000)
+   @Test
    public void testSettingWeight() throws SimulationExceededMaximumTimeException
    {
       boolean success = drcBehaviorTestHelper.simulateAndBlockAndCatchExceptions(1.0);

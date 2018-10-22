@@ -9,7 +9,7 @@ import java.net.URISyntaxException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import sensor_msgs.PointCloud2;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -25,14 +25,14 @@ import us.ihmc.utilities.ros.types.PointType;
 public class RosPointCloudPublisherSubscriberTest extends IHMCRosTestWithRosCore
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testPubSubSinglePointXYZICloud() throws URISyntaxException, InterruptedException
    {
       testPubSubSingleCloud(PointType.XYZI);
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 2000)
+   @Test
    public void testPubSubSinglePointXYZRGBCloud() throws URISyntaxException, InterruptedException
    {
       testPubSubSingleCloud(PointType.XYZRGB);

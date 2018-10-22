@@ -5,8 +5,8 @@ import static org.junit.Assert.assertFalse;
 
 import java.util.Random;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -29,7 +29,7 @@ public class ComparePushRodTransmissionsTest
    private static final boolean VISUALIZE = false;
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.2)
-	@Test(timeout = 30000)
+	@Test
    public void testCompareInefficientToEfficientAnkle()
    {
       Random random = new Random(1255L);
@@ -50,9 +50,9 @@ public class ComparePushRodTransmissionsTest
       compareTwoPushRodTransmissionForce(random, epsilon, inefficientPushrodTransmission, efficientPushrodTransmission, registry, yoGraphicsListRegistry);
    }
 
-	@Ignore
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout=300000)
+	@Test
    public void testTiming()
    {
       Random random = new Random(1255L);
@@ -74,7 +74,7 @@ public class ComparePushRodTransmissionsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 30000)
+   @Test
    public void testCompareInefficientToEfficientWaist()
    {
       Random random = new Random(1255L);
@@ -96,7 +96,7 @@ public class ComparePushRodTransmissionsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 30000)
+   @Test
    public void testCompareInefficientToJSCWaist()
    {
       Random random = new Random(1255L);
@@ -119,7 +119,7 @@ public class ComparePushRodTransmissionsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 30000)
+   @Test
    public void testCompareInefficientToEfficientWaistOverRenishaw()
    {
       Random random = new Random(1255L);
@@ -143,7 +143,7 @@ public class ComparePushRodTransmissionsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 30000)
+   @Test
    public void testCompareEfficientToJSCWaist()
    {
       Random random = new Random(1255L);

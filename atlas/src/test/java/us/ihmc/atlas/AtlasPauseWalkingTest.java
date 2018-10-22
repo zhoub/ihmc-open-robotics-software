@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.parameters.AtlasWalkingControllerParameters;
 import us.ihmc.avatar.AvatarPauseWalkingTest;
@@ -98,7 +98,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 380000)
+   @Test
    @Override
    public void testPauseWalking() throws SimulationExceededMaximumTimeException
    {
@@ -106,7 +106,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 380000)
+   @Test
    @Override
    public void testTwoIndependentSteps()throws SimulationExceededMaximumTimeException
    {
@@ -114,7 +114,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 380000)
+   @Test
    @Override
    public void testStartSecondStepWhileTransitioningToStand()throws SimulationExceededMaximumTimeException
    {
@@ -122,7 +122,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 77.3)
-   @Test(timeout = 390000)
+   @Test
    @Override
    public void testPauseWalkingForward() throws SimulationExceededMaximumTimeException
    {
@@ -130,7 +130,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 78.9)
-   @Test(timeout = 390000)
+   @Test
    @Override
    public void testPauseWalkingInitialTransfer() throws SimulationExceededMaximumTimeException
    {
@@ -138,7 +138,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 73.9, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 370000)
+   @Test
    @Override
    public void testPauseWalkingForwardInitialTransfer() throws SimulationExceededMaximumTimeException
    {
@@ -146,7 +146,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0)
-   @Test(timeout = 100000)
+   @Test
    public void testPauseWalkingInitialTransferOneStep() throws SimulationExceededMaximumTimeException
    {
       super.testPauseWalkingInitialTransferOneStep();

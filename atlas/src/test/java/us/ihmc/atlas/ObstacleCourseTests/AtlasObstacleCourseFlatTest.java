@@ -2,7 +2,7 @@ package us.ihmc.atlas.ObstacleCourseTests;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -37,7 +37,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 76.7, categoriesOverride = SLOW)
-   @Test(timeout = 380000)
+   @Test
    public void testACoupleMoreQueuedControllerCommands() throws SimulationExceededMaximumTimeException
    {
       super.testACoupleMoreQueuedControllerCommands();
@@ -45,7 +45,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 78.7)
-   @Test(timeout = 390000)
+   @Test
    public void testACoupleQueuedControllerCommands() throws SimulationExceededMaximumTimeException
    {
       super.testACoupleQueuedControllerCommands();
@@ -53,7 +53,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 59.7)
-   @Test(timeout = 300000)
+   @Test
    public void testACoupleStepsUsingQueuedControllerCommands() throws SimulationExceededMaximumTimeException
    {
       super.testACoupleStepsUsingQueuedControllerCommands();
@@ -62,7 +62,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    @Override
    // Invoked manually to test memory & thread leaks
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.MANUAL)
-   @Test(timeout = 160000)
+   @Test
    public void testForMemoryLeaks() throws Exception
    {
       super.testForMemoryLeaks();
@@ -70,7 +70,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 113.3)
-   @Test(timeout = 570000)
+   @Test
    public void testLongStepsMaxHeightPauseAndResume() throws SimulationExceededMaximumTimeException
    {
       super.testLongStepsMaxHeightPauseAndResume();
@@ -78,7 +78,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 54.2)
-   @Test(timeout = 270000)
+   @Test
    public void testRotatedStepInTheAir() throws SimulationExceededMaximumTimeException
    {
       super.testRotatedStepInTheAir();
@@ -86,7 +86,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 85.5, categoriesOverride = SLOW)
-   @Test(timeout = 430000)
+   @Test
    public void testSimpleScripts() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSimpleScripts();
@@ -94,7 +94,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 26.1, categoriesOverride = SLOW)
-   @Test(timeout = 130000)
+   @Test
    public void testStandingForACoupleSeconds() throws SimulationExceededMaximumTimeException
    {
       super.testStandingForACoupleSeconds();
@@ -103,7 +103,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    @Override
    // TODO re-enable that test when we have polygon to polygon contact model for SCS
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
-   @Test(timeout = 160000)
+   @Test
    public void testStandingOnUnevenTerrainForACoupleSeconds() throws SimulationExceededMaximumTimeException
    {
       super.testStandingOnUnevenTerrainForACoupleSeconds();
@@ -111,7 +111,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 34.0)
-   @Test(timeout = 170000)
+   @Test
    public void testStandingTooHighToCheckIfSingularityStuffIsWorkingProperly() throws SimulationExceededMaximumTimeException
    {
       super.testStandingTooHighToCheckIfSingularityStuffIsWorkingProperly();
@@ -119,7 +119,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 96.1)
-   @Test(timeout = 480000)
+   @Test
    public void testTurningInPlaceAndPassingPI() throws SimulationExceededMaximumTimeException
    {
       super.testTurningInPlaceAndPassingPI();
@@ -127,7 +127,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 68.6)
-   @Test(timeout = 340000)
+   @Test
    public void testWalkingUpToRampWithLongStepsAndOccasionallyStraightKnees() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpToRampWithLongStepsAndOccasionallyStraightKnees();
@@ -135,7 +135,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 83.3)
-   @Test(timeout = 420000)
+   @Test
    public void testWalkingUpToRampWithShortSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpToRampWithShortSteps();

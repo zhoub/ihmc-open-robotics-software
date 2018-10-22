@@ -2,7 +2,7 @@ package us.ihmc.robotics.geometry;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -20,8 +20,7 @@ import us.ihmc.robotics.random.RandomGeometry;
 public class SmallAngleRotationDerivativeTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void test()
    {
       Random random = new Random(125123412L);

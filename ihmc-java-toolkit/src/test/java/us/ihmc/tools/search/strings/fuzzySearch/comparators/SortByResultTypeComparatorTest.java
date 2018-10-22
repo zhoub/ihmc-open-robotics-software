@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.tools.search.strings.fuzzySearch.CombinedFuzzySearchResult;
@@ -16,7 +16,7 @@ import us.ihmc.tools.search.strings.fuzzySearch.CombinedFuzzySearchResult.Combin
 public class SortByResultTypeComparatorTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCompare()
    {
       Random random = new Random(1976L);

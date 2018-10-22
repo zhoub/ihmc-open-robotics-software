@@ -3,8 +3,8 @@ package us.ihmc.robotics.robotSide;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -16,14 +16,14 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class RecyclingQuadrantDependentListTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testBasicMethods()
    {
       RecyclingQuadrantDependentList<FramePoint3D> recyclingQuadrantDependentList = new RecyclingQuadrantDependentList<>(FramePoint3D.class);

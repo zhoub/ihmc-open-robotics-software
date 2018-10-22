@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -15,7 +15,7 @@ public class AtlasInverseDynamicsCalculatorTest extends DRCInverseDynamicsCalcul
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.4)
-   @Test(timeout = 30000)
+   @Test
    public void testInverseDynamicsStartingWithRandomAccelerationsInInverseDynamics() throws UnreasonableAccelerationException
    {
       super.testInverseDynamicsStartingWithRandomAccelerationsInInverseDynamics();
@@ -23,7 +23,7 @@ public class AtlasInverseDynamicsCalculatorTest extends DRCInverseDynamicsCalcul
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testInverseDynamicsStartingWithRandomTorquesInSCS() throws UnreasonableAccelerationException
    {
       super.testInverseDynamicsStartingWithRandomTorquesInSCS();

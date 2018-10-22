@@ -2,8 +2,8 @@ package us.ihmc.robotics.math;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -15,23 +15,21 @@ public class YoSignalDerivativeTest
    private static double epsilon = 1e-10;
    private YoSignalDerivative yoSignalDerivative;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("testRegistry");
       yoSignalDerivative = new YoSignalDerivative("test", registry);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void checkConstructor()
    {
       String name = yoSignalDerivative.getName();
       assertEquals("test", name);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void checkSetDifferentiationMode()
    {
       yoSignalDerivative.setDifferentiationMode(DifferentiationMode.ON_SIGNAL_CHANGE);
@@ -43,8 +41,7 @@ public class YoSignalDerivativeTest
       assertEquals(DifferentiationMode.USING_DT, differentiationMode2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void checkDTMode()
    {
       yoSignalDerivative.initialize(DifferentiationMode.USING_DT, 0.5, 0.0, 0.0);
@@ -64,8 +61,7 @@ public class YoSignalDerivativeTest
       assertEquals(0.0, derivative4, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void checkSignalChangeModeWithDefaultTolerance()
    {
       yoSignalDerivative.initialize(DifferentiationMode.ON_SIGNAL_CHANGE, 0.0, 0.1, 4.0);
@@ -88,8 +84,7 @@ public class YoSignalDerivativeTest
       assertEquals(3.5, derivative5, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void checkSignalChangeModeWithUserTolerance()
    {
       yoSignalDerivative.initialize(DifferentiationMode.ON_SIGNAL_CHANGE, 0.1, 0.0, 0.0, 0.0);
@@ -115,8 +110,7 @@ public class YoSignalDerivativeTest
       assertEquals(0.036, derivative6, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void checkResetToZero()
    {
       yoSignalDerivative.initialize(DifferentiationMode.ON_SIGNAL_CHANGE, 1.0, 0.5, 3.0);

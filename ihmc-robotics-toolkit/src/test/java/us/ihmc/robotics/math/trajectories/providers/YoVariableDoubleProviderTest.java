@@ -2,8 +2,8 @@ package us.ihmc.robotics.math.trajectories.providers;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -17,7 +17,7 @@ public class YoVariableDoubleProviderTest
    private static double value2 = Math.random();
    private static final double EPSILON = 1e-14;
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       registry = new YoVariableRegistry("registry");
@@ -25,8 +25,7 @@ public class YoVariableDoubleProviderTest
       yoValue.set(value1);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testConstructor1()
    {
       YoVariableDoubleProvider provider1 = new YoVariableDoubleProvider("provider1", registry);
@@ -36,8 +35,7 @@ public class YoVariableDoubleProviderTest
       assertEquals(value2, provider1.getValue(), EPSILON);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testConstructor2()
    {
       YoVariableDoubleProvider provider2 = new YoVariableDoubleProvider(yoValue);

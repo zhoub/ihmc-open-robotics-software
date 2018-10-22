@@ -1,6 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -37,7 +37,7 @@ public class AtlasHighLevelStateBehaviorTest extends DRCHighLevelStateBehaviorTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 44.9)
-   @Test(timeout = 220000)
+   @Test
    public void testWalkingState() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingState();
@@ -45,7 +45,7 @@ public class AtlasHighLevelStateBehaviorTest extends DRCHighLevelStateBehaviorTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 43.9)
-   @Test(timeout = 220000)
+   @Test
    public void testDoNothingBahviourState() throws SimulationExceededMaximumTimeException
    {
       super.testDoNothingBahviourState();
@@ -53,7 +53,7 @@ public class AtlasHighLevelStateBehaviorTest extends DRCHighLevelStateBehaviorTe
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 20.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 300000)
+   @Test
    public void testDiagnosticsState() throws SimulationExceededMaximumTimeException
    {
       super.testDiagnosticsState();

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -17,7 +17,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 public class DoubleSupportICPEquationsTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSingleSupportICPDerivatives()
    {
       Random random = new Random(8723L);
@@ -39,7 +39,7 @@ public class DoubleSupportICPEquationsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCoefficientCalculations()
    {
       Random random = new Random(8723L);
@@ -65,7 +65,7 @@ public class DoubleSupportICPEquationsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testZMPICPDerivatives()
    {
       Random random = new Random(8723L);
@@ -95,7 +95,7 @@ public class DoubleSupportICPEquationsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSingleCoefficientDetermination()
    {
       Random random = new Random(4575L);
@@ -122,7 +122,7 @@ public class DoubleSupportICPEquationsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testICPSumFormula()
    {
       Random random = new Random(4575L);
@@ -151,7 +151,7 @@ public class DoubleSupportICPEquationsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testICPICalculation()
    {
       Random random = new Random(8723L);

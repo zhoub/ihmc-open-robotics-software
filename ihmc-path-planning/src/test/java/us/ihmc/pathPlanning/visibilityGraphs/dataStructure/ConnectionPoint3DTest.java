@@ -1,7 +1,7 @@
 package us.ihmc.pathPlanning.visibilityGraphs.dataStructure;
 
 import org.apache.commons.math3.util.Precision;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
 
@@ -15,7 +15,7 @@ public class ConnectionPoint3DTest
    private static final double EPSILON = 1.0e-12;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRound() throws Exception
    {
       Random random = new Random(43566787);

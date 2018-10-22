@@ -2,9 +2,9 @@ package us.ihmc.humanoidRobotics.footstep.footstepGenerator.overheadPath;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameOrientation2D;
@@ -21,13 +21,13 @@ public class OverheadPathTest
    private boolean VERBOSE = false;
    private static final ReferenceFrame WORLD_FRAME = ReferenceFrame.getWorldFrame();
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void showMemoryUsageAfterTest()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -35,7 +35,7 @@ public class OverheadPathTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.3)
-	@Test(timeout = 30000)
+	@Test
    public void turningOverheadPath_UsageTest()
    {
       double eps = 1e-15;
@@ -65,7 +65,7 @@ public class OverheadPathTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.3)
-	@Test(timeout = 30000)
+	@Test
    public void turningOverheadPath_PassingPiTest()
    {
       double eps = 1e-15;
@@ -97,7 +97,7 @@ public class OverheadPathTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.3)
-	@Test(timeout = 30000)
+	@Test
    public void straightLineOverheadPath_UsageTest()
    {
       double eps = 1e-15;
@@ -137,7 +137,7 @@ public class OverheadPathTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.3)
-	@Test(timeout = 30000)
+	@Test
    public void turnThenStraightOverheadPath_UsageAndHeadingOffsetTest()
    {
       double eps = 1e-14;
@@ -203,7 +203,7 @@ public class OverheadPathTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.3)
-	@Test(timeout = 30000)
+	@Test
    public void turnStraightTurnOverheadPath_UsageAndHeadingOffsetTest()
    {
       double eps = 1e-14;
@@ -265,7 +265,7 @@ public class OverheadPathTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.4)
-	@Test(timeout = 30000)
+	@Test
    public void turnStraightTurnOverheadPath_turnInPlaceTest()
    {
       // Turn in place would try to go to zero yaw for the intermediate case which could cause it to start to turn away from
@@ -340,7 +340,7 @@ public class OverheadPathTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.3)
-	@Test(timeout = 30000)
+	@Test
    public void turningPathInterpolationExtrapolationTest()
    {
       double eps = 1e-14;
@@ -363,7 +363,7 @@ public class OverheadPathTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.3)
-	@Test(timeout = 30000)
+	@Test
    public void straightPathInterpolationExtrapolationTest()
    {
       double eps = 1e-14;

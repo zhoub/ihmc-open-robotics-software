@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -25,7 +25,7 @@ public class LinearInterpolatorTest
    private double yTest = slope * xTest + yIntercept;
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLinearInterpolationSimple()
    {
       double xPointValue, yPointValue, yPointValueExpected;
@@ -52,7 +52,7 @@ public class LinearInterpolatorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLinearInterpolationSimpleWithArrayListConstructor()
    {
       double xPointValue, yPointValue, yPointValueExpected;
@@ -88,7 +88,7 @@ public class LinearInterpolatorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLinearInterpolationSimpleWithInteroplatedIndexConstructor()
    {
       double xPointValue, yPointValue, yPointValueExpected;
@@ -136,7 +136,7 @@ public class LinearInterpolatorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLinearInterpolationBetweenTwoRandomPoints()
    {
       double xPointValue, yPointValue, yPointValueExpected, xIncrement;

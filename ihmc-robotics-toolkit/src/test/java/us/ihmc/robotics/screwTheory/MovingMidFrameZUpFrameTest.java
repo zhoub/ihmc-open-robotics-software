@@ -7,8 +7,8 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -19,14 +19,14 @@ import us.ihmc.robotics.referenceFrames.MidFrameZUpFrame;
 
 public class MovingMidFrameZUpFrameTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAgainstFiniteDifferenceWithChainRobot()
    {
       Random random = new Random(3452345L);
@@ -82,7 +82,7 @@ public class MovingMidFrameZUpFrameTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConsistencyWithMidFrameZUpFrameWithChainRobot()
    {
       Random random = new Random(3452345L);

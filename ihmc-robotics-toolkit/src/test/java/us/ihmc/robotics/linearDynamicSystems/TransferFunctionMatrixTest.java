@@ -3,9 +3,9 @@ package us.ihmc.robotics.linearDynamicSystems;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -17,7 +17,7 @@ public class TransferFunctionMatrixTest
    private TransferFunction simpleDecayTwo, secondOrderResponseTwo;
    private TransferFunctionMatrix transferFunctionMatrix;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       secondOrderResponseOne = TransferFunction.constructSecondOrderTransferFunction(1.0, 10.0, 0.3);
@@ -33,7 +33,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix = new TransferFunctionMatrix(transferFunctions);
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       simpleDecayOne = null;
@@ -44,8 +44,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix = null;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGet()
    {
       verifyEpsilonEqual(simpleDecayOne, transferFunctionMatrix.get(0, 0), 1e-7);
@@ -70,8 +69,7 @@ public class TransferFunctionMatrixTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testPremultiply()
    {
       Matrix matrixC = new Matrix(new double[][]
@@ -97,7 +95,7 @@ public class TransferFunctionMatrixTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testPreMultiplyException()
    {
       int rows = transferFunctionMatrix.getRows();
@@ -107,8 +105,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix.preMultiply(testMatrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testTimes()
    {
       Matrix matrixC = new Matrix(new double[][]
@@ -134,7 +131,7 @@ public class TransferFunctionMatrixTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testTimesException()
    {
       int rows = transferFunctionMatrix.getRows();
@@ -144,8 +141,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix.times(testMatrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testPlusDouble()
    {
       Matrix testMatrix = Matrix.random(transferFunctionMatrix.getRows(), transferFunctionMatrix.getRows());
@@ -187,7 +183,7 @@ public class TransferFunctionMatrixTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testPlusDoubleException()
    {
       Matrix testMatrix = new Matrix(new double[][]
@@ -197,8 +193,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix.plus(testMatrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testPlusTransferFunctionDouble()
    {
       TransferFunction[][] transferFunctions = new TransferFunction[][]
@@ -247,7 +242,7 @@ public class TransferFunctionMatrixTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test
    public void testPlusTransferFunctionException()
    {
       TransferFunctionMatrix testMatrix = new TransferFunctionMatrix(new TransferFunction[][]

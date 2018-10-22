@@ -9,7 +9,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.PlanarRegionMessage;
 import controller_msgs.msg.dds.PlanarRegionsListMessage;
@@ -31,7 +31,7 @@ public class PlanarRegionMessageConverterTest
    private static final int ITERATIONS = 30;
    private static final double EPSILON = 1.0e-12;
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
    public void testPlanarRegionConversion()
    {
@@ -49,7 +49,7 @@ public class PlanarRegionMessageConverterTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
    public void testPlanarRegionsListConversion()
    {

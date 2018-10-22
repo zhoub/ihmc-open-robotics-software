@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -36,14 +36,14 @@ import us.ihmc.yoVariables.variable.YoFrameVector3D;
 
 public class YoFrameSE3TrajectoryPointTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCommonUsageExample()
    {
       String namePrefix = "point";
@@ -99,7 +99,7 @@ public class YoFrameSE3TrajectoryPointTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConstructor()
    {
       double epsilon = 1.0e-20;
@@ -122,7 +122,7 @@ public class YoFrameSE3TrajectoryPointTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetters()
    {
       double epsilon = 1.0e-14;
@@ -189,7 +189,7 @@ public class YoFrameSE3TrajectoryPointTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testChangeFrame() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -232,7 +232,7 @@ public class YoFrameSE3TrajectoryPointTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetToZero() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -285,7 +285,7 @@ public class YoFrameSE3TrajectoryPointTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetToNaN() throws Exception
    {
       Random random = new Random(21651016L);
@@ -405,7 +405,7 @@ public class YoFrameSE3TrajectoryPointTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSomeSetsAngGets()
    {
       String namePrefix = "point";
@@ -539,7 +539,7 @@ public class YoFrameSE3TrajectoryPointTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSomeMoreSettersAndGetters()
    {
       String namePrefix = "point";

@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -44,7 +44,7 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 81.4, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 410000)
+   @Test
    public void testTrialsTerrainZigzagHurdlesScript() throws SimulationExceededMaximumTimeException
    {
       super.testTrialsTerrainZigzagHurdlesScript();
@@ -52,7 +52,7 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 125.6)
-   @Test(timeout = 630000)
+   @Test
    public void testWalkingOntoAndOverSlopesSideways() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOntoAndOverSlopesSideways();
@@ -60,7 +60,7 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 176.1)
-   @Test(timeout = 880000)
+   @Test
    public void testTrialsTerrainSlopeScriptRandomFootSlip() throws SimulationExceededMaximumTimeException
    {
       super.testTrialsTerrainSlopeScriptRandomFootSlip();
@@ -68,7 +68,7 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 177.6, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 890000)
+   @Test
    public void testTrialsTerrainSlopeScript() throws SimulationExceededMaximumTimeException
    {
       super.testTrialsTerrainSlopeScript();
@@ -81,7 +81,7 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 56.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 280000)
+   @Test
    public void testTrialsTerrainZigzagHurdlesScriptRandomFootSlip() throws SimulationExceededMaximumTimeException
    {
       super.testTrialsTerrainZigzagHurdlesScriptRandomFootSlip();

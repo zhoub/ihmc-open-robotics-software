@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
 import us.ihmc.atlas.parameters.AtlasPhysicalProperties;
 import us.ihmc.atlas.parameters.AtlasSmoothCMPPlannerParameters;
@@ -69,35 +69,35 @@ public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkin
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 57.4)
-   @Test(timeout = 290000)
+   @Test
    public void testForwardWalkWithAngularMomentumReference() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalkWithAngularMomentumReference();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 300000)
+   @Test
    public void testForwardWalkWithCorruptedMomentum() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalkWithCorruptedMomentum();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 300000)
+   @Test
    public void testWalkingWithDelayedMomentum() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingWithDelayedMomentum();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 300000)
+   @Test
    public void testForwardWalkZeroMomentumFirstStep() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalkZeroMomentumFirstStep();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 300000)
+   @Test
    public void testWalkingWithRandomSinusoidalMomentum() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingWithRandomSinusoidalMomentum();

@@ -1,6 +1,6 @@
 package us.ihmc.atlas.stateEstimation;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -32,7 +32,7 @@ public class AtlasPelvisPoseHistoryCorrectorTest extends PelvisPoseHistoryCorrec
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 7.7)
-   @Test(timeout = 30000)
+   @Test
    public void testBigYawInDoubleSupport() throws SimulationExceededMaximumTimeException
    {
       super.testBigYawInDoubleSupport();
@@ -40,7 +40,7 @@ public class AtlasPelvisPoseHistoryCorrectorTest extends PelvisPoseHistoryCorrec
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 9.4)
-   @Test(timeout = 30000)
+   @Test
    public void testBigYawInSingleSupport() throws SimulationExceededMaximumTimeException
    {
       super.testBigYawInSingleSupport();
@@ -48,7 +48,7 @@ public class AtlasPelvisPoseHistoryCorrectorTest extends PelvisPoseHistoryCorrec
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 8.1)
-   @Test(timeout = 30000)
+   @Test
    public void testLocalizationOffsetOutsideOfFootInSingleSupport() throws SimulationExceededMaximumTimeException
    {
       super.testLocalizationOffsetOutsideOfFootInSingleSupport();
@@ -56,7 +56,7 @@ public class AtlasPelvisPoseHistoryCorrectorTest extends PelvisPoseHistoryCorrec
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 7.8)
-   @Test(timeout = 30000)
+   @Test
    public void testPelvisCorrectionControllerOutOfTheLoop() throws SimulationExceededMaximumTimeException
    {
       super.testPelvisCorrectionControllerOutOfTheLoop();
@@ -64,7 +64,7 @@ public class AtlasPelvisPoseHistoryCorrectorTest extends PelvisPoseHistoryCorrec
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 12.1)
-   @Test(timeout = 30000)
+   @Test
    public void testPelvisCorrectionDuringSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       super.testPelvisCorrectionDuringSimpleFlatGroundScriptWithOscillatingFeet();
@@ -72,7 +72,7 @@ public class AtlasPelvisPoseHistoryCorrectorTest extends PelvisPoseHistoryCorrec
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 5.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWalkingDuringBigPelvisCorrection() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       super.testWalkingDuringBigPelvisCorrection();

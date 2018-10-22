@@ -1,7 +1,7 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
@@ -30,7 +30,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 115.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 230000)
+   @Test
    public void testWalkingForwardWithHalfFootContactChangesStopBetweenSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingForwardWithHalfFootContactChangesStopBetweenSteps();
@@ -41,7 +41,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 118.6)
-   @Test(timeout = 590000)
+   @Test
    public void testStandingWithGCPointsChangingOnTheFly() throws SimulationExceededMaximumTimeException, RuntimeException
    {
       super.testStandingWithGCPointsChangingOnTheFly();
@@ -52,7 +52,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 113.7, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
-   @Test(timeout = 570000)
+   @Test
    public void testWalkingForwardWithHalfFootContactChangesContinuousSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingForwardWithHalfFootContactChangesContinuousSteps();
@@ -63,7 +63,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 190.5)
-   @Test(timeout = 950000)
+   @Test
    public void testWalkingForwardWithPartialFootholdsAndStopBetweenSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingForwardWithPartialFootholdsAndStopBetweenSteps();
@@ -74,7 +74,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 184.5)
-   @Test(timeout = 920000)
+   @Test
    public void testTakingStepsWithActualAndPredictedFootPolygonsChanging() throws SimulationExceededMaximumTimeException
    {
       super.testTakingStepsWithActualAndPredictedFootPolygonsChanging();
@@ -85,7 +85,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 61.2)
-   @Test(timeout = 310000)
+   @Test
    public void testSidePushDuringSwing() throws SimulationExceededMaximumTimeException
    {
       super.testSidePushDuringSwing();
@@ -97,8 +97,8 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 77.5)
-   @Test(timeout = 390000)
-   @Ignore // is a duplicate of other tests with less asserts.
+   @Test
+   @Disabled // is a duplicate of other tests with less asserts.
    public void testStandingAndStepsInPlaceWithHalfFootContactsChanges() throws SimulationExceededMaximumTimeException
    {
       super.testStandingAndStepsInPlaceWithHalfFootContactsChanges();
@@ -109,8 +109,8 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 58.3)
-   @Test(timeout = 290000)
-   @Ignore // does only test stuff that is already covered by other tests in a easier setup
+   @Test
+   @Disabled // does only test stuff that is already covered by other tests in a easier setup
    public void testWalkingWithLinePredictedSupportPolygonButFullActualPolygon() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingWithLinePredictedSupportPolygonButFullActualPolygon();
@@ -118,8 +118,8 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 45.9)
-   @Test(timeout = 400000)
-   @Ignore // not very interesting test the push does not do much
+   @Test
+   @Disabled // not very interesting test the push does not do much
    public void testHoldPositionByStandingOnOneLegAndGettingPushedSideways() throws SimulationExceededMaximumTimeException
    {
       super.testHoldPositionByStandingOnOneLegAndGettingPushedSideways();
@@ -130,7 +130,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 45.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 300000)
+   @Test
    public void testBalanceOnLine() throws SimulationExceededMaximumTimeException
    {
       super.testBalanceOnLine();

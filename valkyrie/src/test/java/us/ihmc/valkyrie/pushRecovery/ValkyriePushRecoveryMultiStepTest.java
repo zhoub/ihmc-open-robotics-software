@@ -1,7 +1,7 @@
 package us.ihmc.valkyrie.pushRecovery;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCPushRecoveryMultiStepTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -45,7 +45,7 @@ public class ValkyriePushRecoveryMultiStepTest extends DRCPushRecoveryMultiStepT
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 53.2)
-   @Test(timeout = 30000)
+   @Test
    public void testMultiStepBackwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       super.testMultiStepBackwardAndContinueWalking();
@@ -53,8 +53,8 @@ public class ValkyriePushRecoveryMultiStepTest extends DRCPushRecoveryMultiStepT
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 67.1)
-   @Test(timeout = 30000)
-   @Ignore("Needs to be improved")
+   @Test
+   @Disabled("Needs to be improved")
    public void testMultiStepForwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       super.testMultiStepForwardAndContinueWalking();

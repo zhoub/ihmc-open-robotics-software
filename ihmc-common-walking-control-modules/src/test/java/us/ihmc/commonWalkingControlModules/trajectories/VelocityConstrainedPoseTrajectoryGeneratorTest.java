@@ -5,8 +5,8 @@ import static org.junit.Assert.fail;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -36,14 +36,14 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
 
    private static final double EPSILON = 1e-10;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRuntimeExceptions()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -92,7 +92,7 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCompareWithStraightLinePoseTrajectoryGeneratorPositionOnly()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -152,7 +152,7 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testPositionAndVelocityConsistencyWithInitialVelocity()
    {
       YoVariableRegistry registry = new YoVariableRegistry("PositionAndVelocityConsistency");
@@ -260,7 +260,7 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
     **/
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testPositionAndVelocityConsistencyWithInitialAndFinalVelocity()
    {
       YoVariableRegistry registry = new YoVariableRegistry("PositionAndVelocityConsistency");
@@ -385,7 +385,7 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTooBigTime()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");

@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -30,7 +30,7 @@ public class BlendedPoseTrajectoryGeneratorTest
 {
    private final double EPSILON = 1e-3;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -134,7 +134,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testNoConstraints()
    {
       Random random = new Random();
@@ -160,7 +160,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testInitialPoseConstraint()
    {
       Random random = new Random();
@@ -199,7 +199,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testInitialPoseAndTwistConstraint()
    {
       Random random = new Random();
@@ -237,7 +237,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testFinalPoseConstraint()
    {
       Random random = new Random(1738L);
@@ -289,7 +289,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testSameFinalPoseConstraint()
    {
       Random random = new Random(1738L);
@@ -338,7 +338,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testFinalPoseAndTwistConstraint()
    {
       Random random = new Random();
@@ -376,7 +376,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testInitialAndFinalConstraint()
    {
       Random random = new Random();
@@ -424,7 +424,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 1.3)
-   @Test(timeout = 30000)
+   @Test
    public void testDerivativesConsistency() throws Exception
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -508,7 +508,7 @@ public class BlendedPoseTrajectoryGeneratorTest
 
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTroublingDataSet1WithBlending()
    {
       double trajectoryDuration = 0.6;
@@ -572,7 +572,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTroublingDataSet1WithoutBlending()
    {
       int numberOfSamples = 100;
@@ -625,7 +625,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTroublingDataSet2WithBlending()
    {
       double dt = 0.01;

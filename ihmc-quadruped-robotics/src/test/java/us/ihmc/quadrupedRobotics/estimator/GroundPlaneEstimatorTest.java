@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -33,13 +33,13 @@ import us.ihmc.tools.MemoryTools;
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GroundPlaneEstimatorTest
 {
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -47,7 +47,7 @@ public class GroundPlaneEstimatorTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testPointsWithSamePitchAndDifferentPositionGetSameAnswer()
    {
       GroundPlaneEstimator groundPlaneEstimator = new GroundPlaneEstimator();
@@ -78,7 +78,7 @@ public class GroundPlaneEstimatorTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testPointsWithSamePitchAndDifferentPositionGetSameAnswer2()
    {
       double epsilon = 0.001;
@@ -116,7 +116,7 @@ public class GroundPlaneEstimatorTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.4, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 30000)
+   @Test
    public void testGetPitchWithFeetOnPlane()
    {
       double epsilon = 0.00001;

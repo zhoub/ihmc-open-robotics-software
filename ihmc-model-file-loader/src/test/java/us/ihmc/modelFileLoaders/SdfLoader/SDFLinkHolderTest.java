@@ -2,7 +2,7 @@ package us.ihmc.modelFileLoaders.SdfLoader;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.matrix.Matrix3D;
@@ -14,7 +14,7 @@ public class SDFLinkHolderTest
 {
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void noInertialPose()
    {
       // Setup
@@ -53,7 +53,7 @@ public class SDFLinkHolderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void inertialPoseTranslationOnly()
    {
       // Setup
@@ -92,7 +92,7 @@ public class SDFLinkHolderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void inertialPoseWithRotationOnly()//This one should have right COM, but inertia will have to change.
    {
       // Setup
@@ -150,7 +150,7 @@ public class SDFLinkHolderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void inertialPoseProximaliRobotWithRotationAndTranslation()
    {
       // Setup
@@ -214,7 +214,7 @@ public class SDFLinkHolderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void inertialPoseDistaliRobotWithRotationAndTranslation()
    {
       // Setup

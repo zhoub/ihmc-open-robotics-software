@@ -1,9 +1,9 @@
 package us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.CoPGeneration;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.ListOfPointsContactableFoot;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
@@ -74,7 +74,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
    private final ArrayList<YoDouble> transferSplitFractions = new ArrayList<>();
    private final ArrayList<FootstepData> upcomingFootstepsData = new ArrayList<>();
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       for (RobotSide side : RobotSide.values)
@@ -145,7 +145,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
       assertTrue("Object not initialized", testCoPGenerator != null);
    }
 
-   @After
+   @AfterEach
    public void clearAllVariables()
    {
       parentRegistry.clear();
@@ -181,7 +181,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testDoubleSupportFootstepPlanFromRest()
    {
       int numberOfFootsteps = 3;
@@ -273,7 +273,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testDoubleSupportFootstepPlanMoving()
    {
       sendFootStepMessages(10);
@@ -359,7 +359,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.4)
-   @Test(timeout = 30000)
+   @Test
    public void testSingleSupportFootstepPlan()
    {
       int numberOfFootsteps = 10;

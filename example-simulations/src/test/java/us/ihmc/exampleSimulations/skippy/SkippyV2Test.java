@@ -2,9 +2,9 @@ package us.ihmc.exampleSimulations.skippy;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -22,7 +22,7 @@ public class SkippyV2Test
    private SkippyRobotV2 skippy;
 
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
-   @Test(timeout = 100000)
+   @Test
    public void testStanding() throws SimulationExceededMaximumTimeException
    {
       skippy.setQ_hip(0.1);
@@ -32,7 +32,7 @@ public class SkippyV2Test
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
-   @Test(timeout = 100000)
+   @Test
    public void testRecoveringFromPush() throws SimulationExceededMaximumTimeException
    {
       double pushDuration = 0.03;
@@ -53,14 +53,14 @@ public class SkippyV2Test
       System.out.println("pushRobot");
    }
 
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       skippySimulationV2 = new SkippySimulationV2();
       skippy = skippySimulationV2.getSkippy();
    }
 
-   @After
+   @AfterEach
    public void afterTest()
    {
       if (sleepAfterTest)

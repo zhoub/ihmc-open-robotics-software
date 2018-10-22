@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -18,7 +18,7 @@ public class TimeStampedTransform3DTest
    private static final double EPSILON = 1.0e-15;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testEmptyConstructor()
    {
       TimeStampedTransform3D toBeTested = new TimeStampedTransform3D();
@@ -31,7 +31,7 @@ public class TimeStampedTransform3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConstructor()
    {
       Random random = new Random(3213620L);
@@ -48,7 +48,7 @@ public class TimeStampedTransform3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetters()
    {
       TimeStampedTransform3D toBeTested = new TimeStampedTransform3D();
@@ -83,7 +83,7 @@ public class TimeStampedTransform3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetTransform()
    {
       TimeStampedTransform3D toBeTested = new TimeStampedTransform3D();

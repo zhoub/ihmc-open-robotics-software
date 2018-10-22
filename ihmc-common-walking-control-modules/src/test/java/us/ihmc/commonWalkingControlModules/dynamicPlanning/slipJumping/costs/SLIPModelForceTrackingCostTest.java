@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.costs;
 
 import org.ejml.data.DenseMatrix64F;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.CostFunctionTest;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState;
 import us.ihmc.commons.RandomNumbers;
@@ -58,7 +58,7 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCost()
    {
       LQCostFunction<SLIPState> costFunction = getCostFunction();
@@ -119,7 +119,7 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostStateGradientNumerically()
    {
       super.testCostStateGradientNumerically();
@@ -127,7 +127,7 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostControlGradientNumerically()
    {
       super.testCostControlGradientNumerically();
@@ -135,7 +135,7 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostStateHessianNumerically()
    {
       super.testCostStateHessianNumerically();
@@ -143,7 +143,7 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostControlHessianNumerically()
    {
       super.testCostControlHessianNumerically();
@@ -151,7 +151,7 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostStateControlHessianNumerically()
    {
       super.testCostStateControlHessianNumerically();
@@ -163,7 +163,7 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
 
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostStateGradient()
    {
       double mass = 15.0;
@@ -270,7 +270,7 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostControlGradient()
    {
       double mass = 15.0;

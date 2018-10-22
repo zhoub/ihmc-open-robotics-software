@@ -10,7 +10,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.robotics.random.RandomGeometry;
 
@@ -20,7 +20,7 @@ public class IntersectionPlaneBoxCalculatorTest
    private static final double EPS = 1.0e-7;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomNormals() throws Exception
    {
       Random random = new Random(3424L);
@@ -58,7 +58,7 @@ public class IntersectionPlaneBoxCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomNormalsAndPointOnPlane() throws Exception
    {
       Random random = new Random(34424L);
@@ -96,7 +96,7 @@ public class IntersectionPlaneBoxCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomNormalsPointOnPlaneAndCubeCenters() throws Exception
    {
       Random random = new Random(3424L);
@@ -141,7 +141,7 @@ public class IntersectionPlaneBoxCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testBug1() throws Exception
    {
       double cubeSize = 0.1;
@@ -175,7 +175,7 @@ public class IntersectionPlaneBoxCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testBug2() throws Exception
    {
       double cubeSize = 0.1;
@@ -209,7 +209,7 @@ public class IntersectionPlaneBoxCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testBug3() throws Exception
    {
       double cubeSize = 0.1;

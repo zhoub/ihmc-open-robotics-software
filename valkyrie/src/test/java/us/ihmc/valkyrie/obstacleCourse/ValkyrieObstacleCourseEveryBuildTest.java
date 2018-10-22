@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -31,7 +31,7 @@ public class ValkyrieObstacleCourseEveryBuildTest extends DRCObstacleCourseEvery
    
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 113.1)
-   @Test(timeout = 570000)
+   @Test
    public void testSimpleFlatGroundScript() throws SimulationExceededMaximumTimeException
    {
       super.testSimpleFlatGroundScript();
@@ -39,7 +39,7 @@ public class ValkyrieObstacleCourseEveryBuildTest extends DRCObstacleCourseEvery
    
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 76.5)
-   @Test(timeout = 380000)
+   @Test
    public void testWalkingUpToRampWithLongSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpToRampWithLongSteps();

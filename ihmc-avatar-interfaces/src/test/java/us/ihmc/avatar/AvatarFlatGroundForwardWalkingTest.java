@@ -5,9 +5,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -135,7 +135,7 @@ public abstract class AvatarFlatGroundForwardWalkingTest implements MultiRobotTe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testForwardWalk() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -179,7 +179,7 @@ public abstract class AvatarFlatGroundForwardWalkingTest implements MultiRobotTe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testForwardWalkWithForceDisturbances() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -253,13 +253,13 @@ public abstract class AvatarFlatGroundForwardWalkingTest implements MultiRobotTe
       drcSimulationTestHelper.setupCameraForUnitTest(cameraFix, cameraPosition);
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

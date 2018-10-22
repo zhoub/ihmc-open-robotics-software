@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -47,14 +47,14 @@ public class PelvisRotationalStateUpdaterTest
 
    private final List<IMUSensorReadOnly> imuSensors = new ArrayList<>();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testConstructorWithOneIMU()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");
@@ -82,7 +82,7 @@ public class PelvisRotationalStateUpdaterTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testConstructorWithZeroIMUSensor()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");
@@ -111,7 +111,7 @@ public class PelvisRotationalStateUpdaterTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout=300000)
+	@Test
    public void testInitializeAndReadWithOneIMU()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");

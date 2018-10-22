@@ -1,8 +1,8 @@
 package us.ihmc.footstepPlanning.roughTerrainPlanning;
 
-import org.junit.After;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -34,7 +34,7 @@ public class AStarOnRoughTerrainTest extends FootstepPlannerOnRoughTerrainTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 2.5)
-   @Test(timeout = 100000)
+   @Test
    public void testDownCorridor()
    {
       setCheckForBodyBoxCollision(true);
@@ -42,24 +42,24 @@ public class AStarOnRoughTerrainTest extends FootstepPlannerOnRoughTerrainTest
    }
 
    @Override
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 10.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 51000)
+   @Test
    public void testPartialGaps()
    {
       super.testPartialGaps();
    }
 
    @Override
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 10.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 51000)
+   @Test
    public void testSpiralStaircase()
    {
       super.testSpiralStaircase();
    }
 
-   @After
+   @AfterEach
    public void destroyPlanner()
    {
       planner = null;

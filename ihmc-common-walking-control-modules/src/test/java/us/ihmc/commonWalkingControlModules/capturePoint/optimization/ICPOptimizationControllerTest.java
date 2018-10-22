@@ -3,9 +3,9 @@ package us.ihmc.commonWalkingControlModules.capturePoint.optimization;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
@@ -49,14 +49,14 @@ public class ICPOptimizationControllerTest
    private final SideDependentList<FramePose3D> footPosesAtTouchdown = new SideDependentList<>(new FramePose3D(), new FramePose3D());
    private final SideDependentList<ReferenceFrame> ankleFrames = new SideDependentList<>();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testStandingWithPerfectTracking() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -127,7 +127,7 @@ public class ICPOptimizationControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTransferWithPerfectTracking() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -198,7 +198,7 @@ public class ICPOptimizationControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testStandingConstrained() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -280,7 +280,7 @@ public class ICPOptimizationControllerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testStandingConstrainedWithAngularMomentum() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");

@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.commons.thread.ThreadTools;
@@ -19,7 +19,7 @@ public class PersistentTCPClientTest
 {
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.4)
-	@Test(timeout = 30000)
+	@Test
    public void test() throws IOException
    {
       String serverIPAddress = "localHost";

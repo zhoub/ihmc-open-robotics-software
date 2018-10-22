@@ -11,10 +11,10 @@ import static us.ihmc.avatar.controllerAPI.EndToEndHandTrajectoryMessageTest.fin
 import java.util.Random;
 
 import org.apache.commons.lang3.mutable.MutableObject;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FrameInformation;
@@ -90,7 +90,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
    @ContinuousIntegrationTest(estimatedDuration = 30.1)
-   @Test(timeout = 150000)
+   @Test
    public void testSingleWaypoint() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -168,7 +168,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 29.1)
-   @Test(timeout = 150000)
+   @Test
    public void testSingleWaypointAndAbort() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -184,7 +184,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 75.8)
-   @Test(timeout = 380000)
+   @Test
    public void testSingleWaypointAndWalk() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -467,7 +467,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 72.0)
-   @Test(timeout = 360000)
+   @Test
    public void testHeightUsingMultipleWaypointsWhileWalking() throws Exception
    {
 
@@ -597,7 +597,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 61.1)
-   @Test(timeout = 310000)
+   @Test
    public void testHeightModeSwitchWhileWalking() throws Exception
    {
 
@@ -810,7 +810,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0)
-   @Test(timeout = 200000)
+   @Test
    public void testSixDoFMovementsOfPelvis() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -910,7 +910,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 22.1)
-   @Test(timeout = 110000)
+   @Test
    public void testMultipleWaypoints() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -1047,7 +1047,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 29.3)
-   @Test(timeout = 150000)
+   @Test
    @SuppressWarnings("unchecked")
    public void testStopAllTrajectory() throws Exception
    {
@@ -1133,7 +1133,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 91.2)
-   @Test(timeout = 460000)
+   @Test
    public void testSingleWaypointThenManualChange() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -1392,13 +1392,13 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
       //      assertEquals(expectedNumberOfWaypoints, findControllerNumberOfWaypointsForHeight(scs));
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

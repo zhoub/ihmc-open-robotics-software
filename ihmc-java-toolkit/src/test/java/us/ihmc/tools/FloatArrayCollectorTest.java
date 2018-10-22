@@ -1,6 +1,6 @@
 package us.ihmc.tools;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.tools.FloatArrayCollector;
@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 public class FloatArrayCollectorTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCollectZeroItemsToAZeroLengthArray()
    {
       float[] collectedArrayOfFloats = Collections.<Double> emptyList().stream().collect(FloatArrayCollector.create());
@@ -22,7 +22,7 @@ public class FloatArrayCollectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCollectOneItem()
    {
       float[] collectedArrayOfFloats = Collections.singletonList(1.0).stream().collect(FloatArrayCollector.create());
@@ -31,7 +31,7 @@ public class FloatArrayCollectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCollectManyItems()
    {
       float[] collectedArrayOfFloats = Arrays.stream(new double[8192]).mapToObj(Double::new).collect(FloatArrayCollector.create());
@@ -43,7 +43,7 @@ public class FloatArrayCollectorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCollectParallel()
    {
       final int n = 8192;

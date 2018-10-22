@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -27,14 +27,14 @@ public class QuaternionCalculusTest
 {
    private static final double EPSILON = 1.0e-10;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testLogAndExpAlgebra() throws Exception
    {
       Random random = new Random(651651961L);
@@ -62,7 +62,7 @@ public class QuaternionCalculusTest
    
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConversionQDotToAngularVelocityBackAndForth() throws Exception
    {
       Random random = new Random(651651961L);
@@ -86,7 +86,7 @@ public class QuaternionCalculusTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConversionQDDotToAngularAccelerationBackAndForth() throws Exception
    {
       Random random = new Random(651651961L);
@@ -127,7 +127,7 @@ public class QuaternionCalculusTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testVelocityFromFDAgainstTrajectory() throws Exception
    {
       QuaternionCalculus quaternionCalculus = new QuaternionCalculus();
@@ -173,7 +173,7 @@ public class QuaternionCalculusTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFDSimpleCase() throws Exception
    {
       QuaternionCalculus quaternionCalculus = new QuaternionCalculus();
@@ -222,7 +222,7 @@ public class QuaternionCalculusTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testAccelerationFromFDAgainstTrajectory() throws Exception
    {
       QuaternionCalculus quaternionCalculus = new QuaternionCalculus();
@@ -270,7 +270,7 @@ public class QuaternionCalculusTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testInterpolateAgainstQuat4d() throws Exception
    {
       QuaternionCalculus quaternionCalculus = new QuaternionCalculus();

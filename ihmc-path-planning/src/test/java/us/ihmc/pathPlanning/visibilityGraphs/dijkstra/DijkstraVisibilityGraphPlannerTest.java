@@ -1,6 +1,6 @@
 package us.ihmc.pathPlanning.visibilityGraphs.dijkstra;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
@@ -18,7 +18,7 @@ import static junit.framework.TestCase.assertTrue;
 public class DijkstraVisibilityGraphPlannerTest
 {
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimplePlanarGraph()
    {
       DijkstraVisibilityGraphPlanner planner = new DijkstraVisibilityGraphPlanner();

@@ -3,9 +3,9 @@ package us.ihmc.footstepPlanning.roughTerrainPlanning;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -45,7 +45,7 @@ public abstract class MessagerFootstepPlannerOnRoughTerrainTest
 
    private static boolean visualize = false;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       visualize = visualize && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
@@ -103,7 +103,7 @@ public abstract class MessagerFootstepPlannerOnRoughTerrainTest
 
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       module.stop();
@@ -117,7 +117,7 @@ public abstract class MessagerFootstepPlannerOnRoughTerrainTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20)
-   @Test(timeout = 30000000)
+   @Test
    public void test()
    {
       List<String> testsToRun = getTestsToRun();

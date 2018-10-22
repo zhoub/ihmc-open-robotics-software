@@ -6,9 +6,9 @@ import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.MomentumTrajectoryMessage;
 import gnu.trove.list.array.TDoubleArrayList;
 import org.apache.commons.io.IOUtils;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -59,14 +59,14 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
 
    protected abstract double getStepWidth();
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
       simulationTestingParameters.setKeepSCSUp(keepSCSUp && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer());
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -100,7 +100,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testForwardWalkWithAngularMomentumReference() throws SimulationExceededMaximumTimeException
    {
       // only set to true when saving new angular momentum data. output file usually needs to be manually moved to resources folder
@@ -143,7 +143,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testForwardWalkWithCorruptedMomentum() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -174,7 +174,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWalkingWithDelayedMomentum() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -206,7 +206,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testForwardWalkZeroMomentumFirstStep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -237,7 +237,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWalkingWithRandomSinusoidalMomentum() throws SimulationExceededMaximumTimeException
    {
       setupTest();

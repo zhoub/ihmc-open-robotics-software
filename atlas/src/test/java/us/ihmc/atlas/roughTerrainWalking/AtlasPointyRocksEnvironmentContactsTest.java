@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
@@ -49,7 +49,7 @@ public class AtlasPointyRocksEnvironmentContactsTest extends HumanoidPointyRocks
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 210.0, categoriesOverride = {IntegrationCategory.EXCLUDE}) // fix the contacts
-   @Test(timeout = 690000)
+   @Test
    public void testWalkingOnLinesInEnvironment() throws SimulationExceededMaximumTimeException
    {
       try
@@ -70,7 +70,7 @@ public class AtlasPointyRocksEnvironmentContactsTest extends HumanoidPointyRocks
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = {IntegrationCategory.EXCLUDE}) // fix the contacts
-   @Test(timeout = 350000)
+   @Test
    public void testWalkingOnPointInEnvironment() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOnPointInEnvironment();

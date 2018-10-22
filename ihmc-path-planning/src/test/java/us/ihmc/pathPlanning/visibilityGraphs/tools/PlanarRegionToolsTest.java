@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -34,7 +34,7 @@ public class PlanarRegionToolsTest
    private static final int ITERATIONS = 1000;
    private static final double EPSILON = 1.0e-12;
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testTruncatePlanarRegionIfIntersectingWithPlane() throws Exception
    {
@@ -77,7 +77,7 @@ public class PlanarRegionToolsTest
       return inWorld;
    }
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
    public void testIsInsidePolygon() throws Exception
    {
@@ -115,7 +115,7 @@ public class PlanarRegionToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testIsInsidePolygonBug1() throws Exception
    {

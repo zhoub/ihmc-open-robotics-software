@@ -8,9 +8,9 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.CapturabilityBasedStatus;
 import controller_msgs.msg.dds.KinematicsToolboxCenterOfMassMessage;
@@ -94,7 +94,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
     */
    public abstract DRCRobotModel getGhostRobotModel();
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       mainRegistry = new YoVariableRegistry("main");
@@ -150,7 +150,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
       new JointAnglesWriter(ghost, fullHumanoidRobotModel).updateRobotConfigurationBasedOnFullRobotModel();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -184,7 +184,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testHoldBodyPose() throws Exception
    {
       FullHumanoidRobotModel initialFullRobotModel = createFullRobotModelAtInitialConfiguration();
@@ -209,7 +209,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomHandPositions() throws Exception
    {
       if (VERBOSE)
@@ -260,7 +260,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomHandPoses() throws Exception
    {
       if (VERBOSE)
@@ -321,7 +321,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 20.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSingleSupport() throws Exception
    {
       if (VERBOSE)

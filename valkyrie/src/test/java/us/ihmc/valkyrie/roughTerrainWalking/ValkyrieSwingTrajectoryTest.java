@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -28,7 +28,7 @@ public class ValkyrieSwingTrajectoryTest extends DRCSwingTrajectoryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 150.4)
-   @Test(timeout = 750000)
+   @Test
    public void testSelfCollisionAvoidance() throws SimulationExceededMaximumTimeException
    {
       super.testSelfCollisionAvoidance();

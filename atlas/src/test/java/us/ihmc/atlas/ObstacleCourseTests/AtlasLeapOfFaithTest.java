@@ -1,7 +1,7 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
@@ -28,8 +28,8 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 90.0)
-   @Ignore("Revisit when there are contact patches.")
-   @Test(timeout = 230000)
+   @Disabled("Revisit when there are contact patches.")
+   @Test
    public void testUnknownStepDownTwoFeetOnEachStep() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.08;
@@ -40,7 +40,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 74.2)
-   @Test(timeout = 370000)
+   @Test
    public void testUnknownStepDownOneFootOnEachStep() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.07;
@@ -55,7 +55,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 70.4)
-   @Test(timeout = 350000)
+   @Test
    public void testUnknownStepDownOneFootOnEachStepLong() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.08;
@@ -70,7 +70,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 68.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 340000)
+   @Test
    public void testUnknownStepDownOneFootOnEachStepWithUncertainty() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.07;
@@ -85,8 +85,8 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 110.0)
-   @Ignore("Re-enable when planar region constraints are used.")
-   @Test(timeout = 230000)
+   @Disabled("Re-enable when planar region constraints are used.")
+   @Test
    public void testRandomHeightField() throws SimulationExceededMaximumTimeException
    {
       super.testRandomHeightField();
@@ -95,7 +95,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 107.1)
-   @Test(timeout = 540000)
+   @Test
    public void testDropOffsWhileWalking() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.08;

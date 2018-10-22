@@ -2,7 +2,7 @@ package us.ihmc.robotics.geometry;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -18,8 +18,7 @@ import us.ihmc.euclid.tuple4D.Quaternion;
 public class QuaternionRotationRelationshipTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testQuaternionRotationRelationship()
    {
       Random random = new Random(1776L);

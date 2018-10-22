@@ -1,9 +1,9 @@
 package us.ihmc.avatar;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.initialSetup.OffsetAndYawRobotInitialSetup;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -39,14 +39,14 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
       return 0.02;
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       System.out.println("blah? " + simulationTestingParameters.getKeepSCSUp());
@@ -68,7 +68,7 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 100.0)
-   @Test(timeout = 100000)
+   @Test
    public void testTwoStepsInARowSameSide() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -90,7 +90,7 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 100000)
+   @Test
    public void testTwoStepsInARowSameSideAfterFirstSep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -124,7 +124,7 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
 
 
    @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 100000)
+   @Test
    public void testTwoStepsInARowLongTransferSameSide() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -146,7 +146,7 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 100.0)
-   @Test(timeout = 100000)
+   @Test
    public void testTwoStepsStandingInBetween() throws SimulationExceededMaximumTimeException
    {
       setupTest();

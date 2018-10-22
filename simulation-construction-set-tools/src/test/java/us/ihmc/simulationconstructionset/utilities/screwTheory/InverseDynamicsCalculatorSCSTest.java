@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Random;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.matrix.Matrix3D;
@@ -60,13 +60,13 @@ public class InverseDynamicsCalculatorSCSTest
    
    private final Random random = new Random(100L);
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testOneFreeRigidBody()
    {
       Robot robot = new Robot("robot");
@@ -130,7 +130,7 @@ public class InverseDynamicsCalculatorSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testChainNoGravity()
    {
       Robot robot = new Robot("robot");
@@ -149,7 +149,7 @@ public class InverseDynamicsCalculatorSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testTreeWithNoGravity()
    {
       Robot robot = new Robot("robot");
@@ -174,7 +174,7 @@ public class InverseDynamicsCalculatorSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout=300000)
+	@Test
    public void testTreeWithGravity()
    {
       Robot robot = new Robot("robot");
@@ -199,7 +199,7 @@ public class InverseDynamicsCalculatorSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout=300000)
+	@Test
    public void testDoingInverseDynamicsTermPerTerm()
    {
       Robot robot = new Robot("robot");
@@ -242,7 +242,7 @@ public class InverseDynamicsCalculatorSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testDoingNothing()
    {
       Robot robot = new Robot("robot");
@@ -271,7 +271,7 @@ public class InverseDynamicsCalculatorSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testGravityCompensationForChain()
    {
       Robot robot = new Robot("robot");
@@ -289,7 +289,7 @@ public class InverseDynamicsCalculatorSCSTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testChainWithGravity()
    {
       Robot robot = new Robot("robot");

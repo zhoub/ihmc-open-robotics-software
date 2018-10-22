@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCFlatGroundRewindabilityTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -31,7 +31,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 9.2)
-   @Test(timeout = 520000)
+   @Test
    public void testCanRewindAndGoForward() throws UnreasonableAccelerationException
    {
       super.testCanRewindAndGoForward();
@@ -39,7 +39,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 520000)
+   @Test
    public void testRewindabilityWithSimpleFastMethod() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
    {
       super.testRewindabilityWithSimpleFastMethod();
@@ -48,7 +48,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
    @Override
    // This takes a long time. Use it for debugging where the broken changes were made when the tests above fail.
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 520000)
+   @Test
    public void testRewindabilityWithSlowerMoreExtensiveMethod() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
    {
       super.testRewindabilityWithSlowerMoreExtensiveMethod();
@@ -56,7 +56,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 43.4)
-   @Test(timeout = 520000)
+   @Test
    public void testRunsTheSameWayTwice() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException, ControllerFailureException
    {
       super.testRunsTheSameWayTwice();

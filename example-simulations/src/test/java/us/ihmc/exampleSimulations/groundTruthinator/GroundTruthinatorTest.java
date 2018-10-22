@@ -5,9 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -20,14 +20,14 @@ import us.ihmc.robotics.random.RandomGeometry;
 
 public class GroundTruthinatorTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleTranslationGroundTruthinator()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -95,9 +95,9 @@ public class GroundTruthinatorTest
    }
 
 
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleRotationGroundTruthinator()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

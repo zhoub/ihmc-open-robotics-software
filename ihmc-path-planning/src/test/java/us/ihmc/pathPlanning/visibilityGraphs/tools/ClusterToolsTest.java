@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.geometry.Line2D;
@@ -18,7 +18,7 @@ public class ClusterToolsTest
 {
    private static final double EPSILON = 1.0e-12;
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testExtrudeLine() throws Exception
    {
@@ -39,7 +39,7 @@ public class ClusterToolsTest
       EuclidCoreTestTools.assertPoint2DGeometricallyEquals(new Point2D(0.0, -0.5), extrusions.get(index++), EPSILON);
    }
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testFilterVerticalPolygonForMultiLineExtrusion() throws Exception
    {
@@ -57,7 +57,7 @@ public class ClusterToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testExtrudeCorner()
    {

@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
 
+import junit.framework.Assert;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -81,22 +83,22 @@ public class VisibilityGraphsOcclusionTest
 
    private enum OcclusionMethod {OCCLUSION, OCCLUSION_PLUS_GROUND, NO_OCCLUSION};
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       visualize = visualize && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
    }
 
-   @Rule
+//   @Rule
    public TestName name = new TestName();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
    public void testFlatGround()
    {
@@ -106,7 +108,7 @@ public class VisibilityGraphsOcclusionTest
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION, defaultMaxAllowedSolveTime, 3.0);
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
    public void testFlatGroundWithWall()
    {
@@ -125,7 +127,7 @@ public class VisibilityGraphsOcclusionTest
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION, defaultMaxAllowedSolveTime);
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
    public void testSimpleOcclusions()
    {
@@ -135,7 +137,7 @@ public class VisibilityGraphsOcclusionTest
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION_PLUS_GROUND, defaultMaxAllowedSolveTime);
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
    public void testMazeWithOcclusions()
    {
@@ -145,7 +147,7 @@ public class VisibilityGraphsOcclusionTest
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION_PLUS_GROUND, defaultMaxAllowedSolveTime);
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
    public void testCrazyBridgeEnvironment()
    {

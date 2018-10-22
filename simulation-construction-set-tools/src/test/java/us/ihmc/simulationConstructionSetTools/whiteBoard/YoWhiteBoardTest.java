@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.NameSpace;
@@ -20,7 +20,7 @@ public class YoWhiteBoardTest
    private static final boolean VERBOSE = false;
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000,expected = RuntimeException.class)
+	@Test
    public void testWriteNotConnected() throws IOException
    {
       YoWhiteBoard whiteBoard = new DoNothingWhiteBoard();
@@ -28,7 +28,7 @@ public class YoWhiteBoardTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000,expected = RuntimeException.class)
+	@Test
    public void testReadNotConnected() throws IOException
    {
       YoWhiteBoard whiteBoard = new DoNothingWhiteBoard();

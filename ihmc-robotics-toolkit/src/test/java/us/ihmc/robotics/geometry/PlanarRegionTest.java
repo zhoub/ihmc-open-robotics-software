@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -40,14 +40,14 @@ import us.ihmc.robotics.random.RandomGeometry;
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class PlanarRegionTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testIntersections()
    {
       List<ConvexPolygon2D> polygonsRegion1 = new ArrayList<>();
@@ -122,7 +122,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testIsPointOnOrSlightlyAbove()
    {
       Random random = new Random(1776L);
@@ -157,7 +157,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.4)
-   @Test(timeout = 30000)
+   @Test
    public void testIsPointOnOrSlightlyBelow()
    {
       Random random = new Random(1776L);
@@ -192,7 +192,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCreationOfBoundingBoxWithAllPointsGreaterThanOrigin()
    {
       final double zLocationOfPlanarRegion = 2.0;
@@ -232,7 +232,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCreationOfBoundingBoxWithAllPointsLessThanOrigin()
    {
       final double zLocationOfPlanarRegion = -2.0;
@@ -272,7 +272,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCreationOfBoundingBoxWithMinimumLessThanOriginAndMaximumGreaterThanOrigin()
    {
       Point3D maxPoint = new Point3D(2.0, 2.0, 0.0);
@@ -310,7 +310,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testBoundingBoxForLShapedPlanarRegionWithIdentifyTransform()
    {
       List<ConvexPolygon2D> regionConvexPolygons = new ArrayList<>();
@@ -347,7 +347,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithLShapedPlanarRegionWithIdentityTransform()
    {
       // polygons forming a L-shaped region.
@@ -550,7 +550,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetPolygonIntersectionsWhenSnapped()
    {
       RigidBodyTransform transform = new RigidBodyTransform();
@@ -582,7 +582,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithLShapedPlanarRegionWithRandomTransform()
    {
       Random random = new Random(42L);
@@ -790,7 +790,7 @@ public class PlanarRegionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetPlaneZGivenXY()
    {
       ConvexPolygon2D convexPolygon2d = new ConvexPolygon2D();

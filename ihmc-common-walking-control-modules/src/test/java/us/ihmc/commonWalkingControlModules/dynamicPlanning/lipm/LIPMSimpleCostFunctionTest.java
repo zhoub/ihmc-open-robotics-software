@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.dynamicPlanning.lipm;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.TrackingCostFunctionTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.testing.JUnitTools;
@@ -49,7 +49,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCost()
    {
       LIPMSimpleCostFunction costFunction = new LIPMSimpleCostFunction();
@@ -92,7 +92,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeCostStateGradient()
    {
       LIPMSimpleCostFunction costFunction = new LIPMSimpleCostFunction();
@@ -141,7 +141,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeCostControlGradient()
    {
       LIPMSimpleCostFunction costFunction = new LIPMSimpleCostFunction();
@@ -187,7 +187,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeCostControlHessian()
    {
       DenseMatrix64F R = new DenseMatrix64F(3, 3);
@@ -221,7 +221,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeCostStateHessian()
    {
       DenseMatrix64F Q = new DenseMatrix64F(6, 6);
@@ -258,7 +258,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testComputeCostStateGradientOfControlGradient()
    {
       LIPMSimpleCostFunction costFunction = new LIPMSimpleCostFunction();
@@ -291,7 +291,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostStateGradientNumerically()
    {
       super.testCostStateGradientNumerically();
@@ -299,7 +299,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostControlGradientNumerically()
    {
       super.testCostControlGradientNumerically();
@@ -307,7 +307,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostStateHessianNumerically()
    {
       super.testCostStateHessianNumerically();
@@ -315,7 +315,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostControlHessianNumerically()
    {
       super.testCostControlHessianNumerically();
@@ -323,7 +323,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCostStateControlHessianNumerically()
    {
       super.testCostStateControlHessianNumerically();

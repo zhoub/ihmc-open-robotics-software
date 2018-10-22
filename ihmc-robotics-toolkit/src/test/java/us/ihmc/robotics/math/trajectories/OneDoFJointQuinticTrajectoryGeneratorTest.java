@@ -5,8 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -36,7 +36,7 @@ public class OneDoFJointQuinticTrajectoryGeneratorTest
 
    private OneDoFJointQuinticTrajectoryGenerator generator;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       joint.setQ(0.0);
@@ -46,7 +46,7 @@ public class OneDoFJointQuinticTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testConstructor()
    {
       try
@@ -60,7 +60,7 @@ public class OneDoFJointQuinticTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testIsDone()
    {
       generator = new OneDoFJointQuinticTrajectoryGenerator(namePrefix, joint, trajectoryTimeProvider, parentRegistry);
@@ -74,7 +74,7 @@ public class OneDoFJointQuinticTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void test()
    {
       generator = new OneDoFJointQuinticTrajectoryGenerator(namePrefix, joint, trajectoryTimeProvider, parentRegistry);

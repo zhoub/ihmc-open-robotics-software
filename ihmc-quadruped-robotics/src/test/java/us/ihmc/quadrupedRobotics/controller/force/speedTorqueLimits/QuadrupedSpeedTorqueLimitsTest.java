@@ -2,9 +2,9 @@ package us.ihmc.quadrupedRobotics.controller.force.speedTorqueLimits;
 
 import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import junit.framework.AssertionFailedError;
 import us.ihmc.commons.PrintTools;
@@ -30,7 +30,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
    private QuadrupedTeleopManager stepTeleopManager;
    private QuadrupedTestFactory quadrupedTestFactory;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -52,7 +52,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       }
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       quadrupedTestFactory.close();
@@ -65,7 +65,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 30.0)
-   @Test(timeout = 30000)
+   @Test
    public void testStandingLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);
@@ -75,7 +75,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 90.0)
-   @Test(timeout = 300000)
+   @Test
    public void testStandingOnThreeLegsLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);
@@ -95,7 +95,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 35.0)
-   @Test(timeout = 30000)
+   @Test
    public void testXGaitWalkingInPlaceLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);
@@ -110,7 +110,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 35.0)
-   @Test(timeout = 30000)
+   @Test
    public void testXGaitTrottingInPlaceLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);
@@ -126,7 +126,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 35.0)
-   @Test(timeout = 30000)
+   @Test
    public void testXGaitWalkingLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);

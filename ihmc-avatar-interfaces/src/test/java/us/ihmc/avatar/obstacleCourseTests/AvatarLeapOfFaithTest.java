@@ -5,14 +5,14 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
 import controller_msgs.msg.dds.PelvisHeightTrajectoryMessage;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.RandomNumbers;
@@ -48,7 +48,7 @@ public abstract class AvatarLeapOfFaithTest implements MultiRobotTestInterface
    private Double stepLength = null;
    private Double stairLength = null;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -57,7 +57,7 @@ public abstract class AvatarLeapOfFaithTest implements MultiRobotTestInterface
       stairLength = null;
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -95,7 +95,7 @@ public abstract class AvatarLeapOfFaithTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 90.0)
-   @Test(timeout = 230000)
+   @Test
    public void testUnknownStepDownTwoFeetOnEachStep() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -174,7 +174,7 @@ public abstract class AvatarLeapOfFaithTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 70.4)
-   @Test(timeout = 350000)
+   @Test
    public void testUnknownStepDownOneFootOnEachStepLong() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -246,7 +246,7 @@ public abstract class AvatarLeapOfFaithTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 74.2)
-   @Test(timeout = 370000)
+   @Test
    public void testUnknownStepDownOneFootOnEachStep() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -319,7 +319,7 @@ public abstract class AvatarLeapOfFaithTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 68.1)
-   @Test(timeout = 340000)
+   @Test
    public void testUnknownStepDownOneFootOnEachStepWithUncertainty() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -391,7 +391,7 @@ public abstract class AvatarLeapOfFaithTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 110.0)
-   @Test(timeout = 230000)
+   @Test
    public void testRandomHeightField() throws SimulationExceededMaximumTimeException
    {
       double maxStepIncrease = 0.07;
@@ -514,7 +514,7 @@ public abstract class AvatarLeapOfFaithTest implements MultiRobotTestInterface
 
 
    @ContinuousIntegrationTest(estimatedDuration = 107.1)
-   @Test(timeout = 540000)
+   @Test
    public void testDropOffsWhileWalking() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

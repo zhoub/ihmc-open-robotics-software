@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.OneDoFJointTrajectoryMessage;
@@ -56,7 +56,7 @@ public abstract class EndToEndArmTrajectoryMessageTest implements MultiRobotTest
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
    @ContinuousIntegrationTest(estimatedDuration = 27.8)
-   @Test(timeout = 140000)
+   @Test
    public void testSingleTrajectoryPoint() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -109,7 +109,7 @@ public abstract class EndToEndArmTrajectoryMessageTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 36.0)
-   @Test(timeout = 180000)
+   @Test
    public void testMultipleTrajectoryPoints() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -192,7 +192,7 @@ public abstract class EndToEndArmTrajectoryMessageTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 16.5)
-   @Test(timeout = 83000)
+   @Test
    public void testMessageWithTooManyTrajectoryPoints() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -262,7 +262,7 @@ public abstract class EndToEndArmTrajectoryMessageTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.9)
-   @Test(timeout = 300000)
+   @Test
    public void testQueuedMessages() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -387,7 +387,7 @@ public abstract class EndToEndArmTrajectoryMessageTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 16.9)
-   @Test(timeout = 85000)
+   @Test
    public void testQueueWithWrongPreviousId() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -501,7 +501,7 @@ public abstract class EndToEndArmTrajectoryMessageTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 19.0)
-   @Test(timeout = 95000)
+   @Test
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -634,7 +634,7 @@ public abstract class EndToEndArmTrajectoryMessageTest implements MultiRobotTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 34.7)
-   @Test(timeout = 170000)
+   @Test
    public void testStopAllTrajectory() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -867,13 +867,13 @@ public abstract class EndToEndArmTrajectoryMessageTest implements MultiRobotTest
       return desiredJointPositions;
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

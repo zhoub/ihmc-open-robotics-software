@@ -3,8 +3,8 @@ package us.ihmc.robotics.math;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -16,7 +16,7 @@ public class TimestampedVelocityYoVariableTest
    private YoDouble timestamp;
    private TimestampedVelocityYoVariable velocityYoVariable;
    
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("testRegistry");
@@ -26,7 +26,7 @@ public class TimestampedVelocityYoVariableTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testHasNotBeenUpdated()
    {
       double val = velocityYoVariable.getDoubleValue();
@@ -34,7 +34,7 @@ public class TimestampedVelocityYoVariableTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testHasBeenUpdatedOnce()
    {
       position.set(1.0);
@@ -45,7 +45,7 @@ public class TimestampedVelocityYoVariableTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testHasBeenUpdatedTwice()
    {
       velocityYoVariable.update();
@@ -57,7 +57,7 @@ public class TimestampedVelocityYoVariableTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testHasBeenUpdatedThreeTimes()
    {
       velocityYoVariable.update();
@@ -72,7 +72,7 @@ public class TimestampedVelocityYoVariableTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testHasBeenUpdatedThreeTimesNoChange()
    {
       velocityYoVariable.update();

@@ -6,11 +6,11 @@ import static us.ihmc.avatar.controllerAPI.EndToEndHandTrajectoryMessageTest.fin
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.HeadTrajectoryMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -51,7 +51,7 @@ public abstract class EndToEndHeadTrajectoryMessageTest implements MultiRobotTes
    private int numberOfJoints;
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 29.0)
-   @Test(timeout = 140000)
+   @Test
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -177,13 +177,13 @@ public abstract class EndToEndHeadTrajectoryMessageTest implements MultiRobotTes
       EuclidCoreTestTools.assertQuaternionEquals(desiredOrientation, controllerDesiredOrientation, EPSILON_FOR_DESIREDS);
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

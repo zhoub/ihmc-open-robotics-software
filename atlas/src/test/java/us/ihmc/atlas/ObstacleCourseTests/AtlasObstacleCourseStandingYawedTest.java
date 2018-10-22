@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -31,7 +31,7 @@ public class AtlasObstacleCourseStandingYawedTest extends DRCObstacleCourseStand
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 22.2)
-   @Test(timeout = 110000)
+   @Test
    public void testStandingYawed() throws SimulationExceededMaximumTimeException
    {
       super.testStandingYawed();

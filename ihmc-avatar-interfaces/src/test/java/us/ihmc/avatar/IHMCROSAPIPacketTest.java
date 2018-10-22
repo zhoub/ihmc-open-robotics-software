@@ -12,9 +12,9 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.ros.RosCore;
 import org.ros.internal.message.Message;
 
@@ -71,7 +71,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
    private BlockingSimulationRunner blockingSimulationRunner;
    private RealtimeRos2Node realtimeRos2Node;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -79,7 +79,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
       realtimeRos2Node = ROS2Tools.createRealtimeRos2Node(PubSubImplementation.INTRAPROCESS, "ihmc_ros_api_test");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (realtimeRos2Node != null)
@@ -105,7 +105,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
 
    //TODO: Get rid of the stuff below and use a test helper.....
 
-   @After
+   @AfterEach
    public void destroyOtherStuff()
    {
       if (avatarSimulation != null)
@@ -116,7 +116,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 8.7)
-   @Test(timeout = 420000)
+   @Test
    public void testFuzzyPacketsUsingRos()
    {
       RosCore rosCore = RosCore.newPrivate();
@@ -233,7 +233,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
    private AvatarSimulation avatarSimulation;
 
    @ContinuousIntegrationTest(estimatedDuration = 2.7)
-   @Test(timeout = 420000)
+   @Test
    public void testFuzzyPacketsWithoutRos()
    {
       DRCRobotModel robotModel = getRobotModel();

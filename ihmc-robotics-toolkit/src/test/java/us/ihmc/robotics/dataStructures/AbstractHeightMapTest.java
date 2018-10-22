@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -42,8 +42,7 @@ public abstract class AbstractHeightMapTest
       super();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testSinglePoint()
    {
       double x = 0.00001;
@@ -73,8 +72,7 @@ public abstract class AbstractHeightMapTest
       assertSinglePointGridHandlesPoint(x, y, xIndex, yIndex, z);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGettingAreas()
    {
       double gridResolution = 1;
@@ -124,7 +122,7 @@ public abstract class AbstractHeightMapTest
     * 
 
 	@DeployableTestMethod(estimatedDuration = 0.1)
-	@Test(timeout=300000)
+	@Test
    public void testUnhandledPoints()
    {
       super.testUnhandledPoints();
@@ -132,7 +130,7 @@ public abstract class AbstractHeightMapTest
    */
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testUnhandledPoints()
    {
       HeightMapWithPoints simpleMap = getHeightMap(-63.5*RESOLUTION,-63.5*RESOLUTION,64.5*RESOLUTION,64.5*RESOLUTION,RESOLUTION);
@@ -190,7 +188,7 @@ public abstract class AbstractHeightMapTest
    public abstract HeightMapWithPoints getHeightMap(double minX, double minY, double maxX, double maxY, double resolution);
 
 	@ContinuousIntegrationTest(estimatedDuration = 2.0)
-	@Test(timeout = 30000)
+	@Test
    public void rowModificationSynchronizationTest()
    {
    
@@ -287,8 +285,7 @@ public abstract class AbstractHeightMapTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testKernelMasking() throws InsufficientDataException
    {
       double b = 10000;    // borderOfExpectedFootPlacement

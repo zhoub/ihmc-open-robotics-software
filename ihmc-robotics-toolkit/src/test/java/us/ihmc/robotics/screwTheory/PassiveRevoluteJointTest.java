@@ -1,10 +1,10 @@
 package us.ihmc.robotics.screwTheory;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -26,18 +26,18 @@ public class PassiveRevoluteJointTest
    private double q, qd, qdd, qddDesired, tau;
    private boolean integrateQddDes;
    
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testPackTauMatrix()
    {
       try
@@ -52,7 +52,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetTorqueFromWrench()
    {
       try
@@ -67,7 +67,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetDesiredAcceleration()
    {
       try
@@ -82,7 +82,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetQ()
    {
       try
@@ -97,7 +97,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetQd()
    {
       try
@@ -112,7 +112,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetQdd()
    {
       try
@@ -127,7 +127,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetQddDesired()
    {
       try
@@ -142,7 +142,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetTau()
    {
       try
@@ -157,7 +157,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetConfiguration()
    {
       try
@@ -172,7 +172,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetVelocity()
    {
       try
@@ -187,7 +187,7 @@ public class PassiveRevoluteJointTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetJointPositionVelocityAndAcceleration()
    {
       try
@@ -202,7 +202,7 @@ public class PassiveRevoluteJointTest
    }
     
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetQddDesiredFromJoint()
    {
       try

@@ -2,7 +2,7 @@ package us.ihmc.valkyrie.referenceFrames;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -20,7 +20,7 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.4)
-   @Test(timeout = 30000, expected = IllegalArgumentException.class)
+   @Test
    public void testAddingTwoFramesWithTheSameNameThrowsException()
    {
       super.testAddingTwoFramesWithTheSameNameThrowsException();
@@ -28,7 +28,7 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
       super.testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList();
@@ -36,7 +36,7 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.7)
-   @Test(timeout = 30000)
+   @Test
    public void testAllFramesGottenFromHumanoidReferenceFrameMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -45,7 +45,7 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 1.2)
-   @Test(timeout = 30000)
+   @Test
    public void testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode()
    {
       super.testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode();
@@ -53,7 +53,7 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testGetReferenceFrameFromHashCodeReturnsSameNamedFrames()
    {
       super.testGetReferenceFrameFromHashCodeReturnsSameNamedFrames();

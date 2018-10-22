@@ -4,7 +4,7 @@ import static org.junit.Assert.fail;
 
 import java.lang.reflect.Method;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -15,7 +15,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 public class WalkingControllerParametersTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testNoParameters() throws ClassNotFoundException, InstantiationException, IllegalAccessException
    {
       Class<?> c = Class.forName("us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters");

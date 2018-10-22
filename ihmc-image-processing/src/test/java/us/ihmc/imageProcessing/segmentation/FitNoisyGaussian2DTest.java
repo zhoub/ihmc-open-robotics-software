@@ -7,7 +7,7 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.CovarianceRandomDraw;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -23,7 +23,7 @@ public class FitNoisyGaussian2DTest {
     */
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void perfectTest() {
       double meanX = 5;
       double meanY = 10;
@@ -59,7 +59,7 @@ public class FitNoisyGaussian2DTest {
     */
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout=300000)
+	@Test
    public void obviousOutliers() {
       double meanX = 5;
       double meanY = 10;

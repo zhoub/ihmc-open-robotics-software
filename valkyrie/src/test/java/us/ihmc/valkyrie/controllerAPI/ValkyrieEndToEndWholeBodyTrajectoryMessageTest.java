@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.controllerAPI.EndToEndWholeBodyTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -28,7 +28,7 @@ public class ValkyrieEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWhol
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 22.1, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 110000)
+   @Test
    public void testIssue47BadChestTrajectoryMessage() throws Exception
    {
       super.testIssue47BadChestTrajectoryMessage();
@@ -36,7 +36,7 @@ public class ValkyrieEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWhol
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 17.1, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 86000)
+   @Test
    public void testIssue47BadPelvisTrajectoryMessage() throws Exception
    {
       super.testIssue47BadPelvisTrajectoryMessage();
@@ -44,7 +44,7 @@ public class ValkyrieEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWhol
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 38.2)
-   @Test(timeout = 190000)
+   @Test
    public void testSingleWaypoint() throws Exception
    {
       super.testSingleWaypoint();
@@ -52,7 +52,7 @@ public class ValkyrieEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWhol
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 38.1)
-   @Test(timeout = 190000)
+   @Test
    public void testSingleWaypointUsingMessageOfMessages() throws Exception
    {
       super.testSingleWaypointUsingMessageOfMessages();
@@ -60,7 +60,7 @@ public class ValkyrieEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWhol
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 69.3, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 350000)
+   @Test
    public void testSingleWaypointUsingMessageOfMessagesWithDelays() throws Exception
    {
       super.testSingleWaypointUsingMessageOfMessagesWithDelays();

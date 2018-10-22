@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.trajectories;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -11,7 +11,7 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 public class IntermediateWaypointVelocityGeneratorTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void test()
    {
       final ArrayList<Vector3D> waypoints;

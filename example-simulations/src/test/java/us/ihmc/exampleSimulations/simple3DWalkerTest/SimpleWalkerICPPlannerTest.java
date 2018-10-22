@@ -1,9 +1,9 @@
 package us.ihmc.exampleSimulations.simple3DWalkerTest;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -29,14 +29,14 @@ public class SimpleWalkerICPPlannerTest
    ArrayList<Double> ICPs = icpPlanner.getICPKnotPoints();
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testIfICPListIsSameSize()
    {
       Assert.assertEquals("CoP knots not equal length ICP knots", CoPs.size(),ICPs.size());
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public  void testIfICPsAreInFrontICPExceptLast()
    {
       for(int i=0; i<CoPs.size();i++)
@@ -54,7 +54,7 @@ public class SimpleWalkerICPPlannerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testIfICPsAreBetweenAllCoPs()
    {
       for(int i =0; i<ICPs.size();i++)
@@ -64,7 +64,7 @@ public class SimpleWalkerICPPlannerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testIfICPReferenceLiesBetweenICPPoints()
    {
 

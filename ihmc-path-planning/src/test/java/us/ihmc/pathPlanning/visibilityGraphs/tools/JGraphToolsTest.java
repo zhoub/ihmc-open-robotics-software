@@ -9,7 +9,7 @@ import java.util.Random;
 import org.jgrapht.alg.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -23,7 +23,7 @@ public class JGraphToolsTest
    private static final int ITERATIONS = 1000;
    private static final double EPSILON = 1.0e-12;
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
    public void testRedundantPathBugTwoStages()
    {
@@ -74,7 +74,7 @@ public class JGraphToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 1.9)
    public void testRedundantPathBugRandomNumberOfStages()
    {

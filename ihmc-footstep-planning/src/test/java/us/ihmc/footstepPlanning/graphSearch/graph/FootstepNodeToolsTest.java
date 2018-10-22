@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.graphSearch.graph;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -21,7 +21,7 @@ public class FootstepNodeToolsTest
    private final double epsilon = 1e-8;
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetNodeTransform()
    {
       int numTests = 1000;
@@ -66,7 +66,7 @@ public class FootstepNodeToolsTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetSnappedNodeTransform()
    {
       int numTests = 10;

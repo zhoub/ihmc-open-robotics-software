@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -18,7 +18,7 @@ import us.ihmc.robotics.testing.JUnitTools;
 public class YoMatrixTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleYoMatrixExample()
    {
       int maxNumberOfRows = 4;
@@ -47,7 +47,7 @@ public class YoMatrixTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testYoMatrixDimensioning()
    {
       int maxNumberOfRows = 4;
@@ -106,7 +106,7 @@ public class YoMatrixTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testYoMatrixSetToZero()
    {
       int maxNumberOfRows = 4;
@@ -130,7 +130,7 @@ public class YoMatrixTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testYoMatrixSetTooBig()
    {
       int maxNumberOfRows = 4;

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -19,7 +19,7 @@ import us.ihmc.robotics.kinematics.TransformInterpolationCalculator;
 public class TimeStampedTransformBufferTest
 {
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testEmptyBuffer()
    {
       Random random = new Random(5616L);
@@ -34,7 +34,7 @@ public class TimeStampedTransformBufferTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testThatPosesAreProperlyStored()
    {
       int bufferSize = 100;
@@ -75,7 +75,7 @@ public class TimeStampedTransformBufferTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testThatPosesAreProperlyStoredEvenAfterFillingTheBuffer()
    {
       int bufferSize = 100;
@@ -117,7 +117,7 @@ public class TimeStampedTransformBufferTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testInterpolationBetweenPoses()
    {
       int bufferSize = 100;
@@ -165,7 +165,7 @@ public class TimeStampedTransformBufferTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.9)
-   @Test(timeout = 30000)
+   @Test
    public void testInterpolationBetweenPosesAfterFillingBuffer()
    {
       int bufferSize = 100;

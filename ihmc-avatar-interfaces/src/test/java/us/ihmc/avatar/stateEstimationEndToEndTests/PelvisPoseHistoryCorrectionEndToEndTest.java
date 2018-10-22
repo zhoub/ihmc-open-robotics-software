@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.LocalizationPacket;
 import controller_msgs.msg.dds.PelvisPoseErrorPacket;
@@ -79,13 +79,13 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
    private BlockingSimulationRunner blockingSimulationRunner;
    private DRCFlatGroundWalkingTrack flatGroundWalkingTrack;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -222,7 +222,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 
 //   private BlockingSimulationRunner blockingSimulationRunner;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       flatGroundEnvironment = new FlatGroundEnvironment();
@@ -324,7 +324,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 7.8)
-   @Test(timeout = 30000)
+   @Test
    public void testPelvisCorrectionControllerOutOfTheLoop() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -368,7 +368,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 12.1)
-   @Test(timeout = 30000)
+   @Test
    public void testPelvisCorrectionDuringSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -400,7 +400,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 	 * @throws SimulationExceededMaximumTimeException
 	 */
    @ContinuousIntegrationTest(estimatedDuration = 7.7)
-   @Test(timeout = 30000)
+   @Test
    public void testBigYawInDoubleSupport() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -430,7 +430,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 	 * @throws SimulationExceededMaximumTimeException
 	 */
    @ContinuousIntegrationTest(estimatedDuration = 9.4)
-   @Test(timeout = 30000)
+   @Test
    public void testBigYawInSingleSupport() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -462,7 +462,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 	 * @throws SimulationExceededMaximumTimeException
 	 */
    @ContinuousIntegrationTest(estimatedDuration = 8.1)
-   @Test(timeout = 30000)
+   @Test
    public void testLocalizationOffsetOutsideOfFootInSingleSupport() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -522,7 +522,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
     * @throws ControllerFailureException
     */
    @ContinuousIntegrationTest(estimatedDuration = 5.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWalkingDuringBigPelvisCorrection() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

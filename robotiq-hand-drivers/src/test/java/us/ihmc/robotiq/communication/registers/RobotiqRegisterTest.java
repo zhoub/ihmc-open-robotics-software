@@ -3,7 +3,7 @@ package us.ihmc.robotiq.communication.registers;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -17,7 +17,7 @@ import us.ihmc.robotiq.communication.registers.ActionRequestRegister.rMOD;
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class RobotiqRegisterTest
 {
-   @Test(timeout = 30000)
+   @Test
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testEquals()
    {

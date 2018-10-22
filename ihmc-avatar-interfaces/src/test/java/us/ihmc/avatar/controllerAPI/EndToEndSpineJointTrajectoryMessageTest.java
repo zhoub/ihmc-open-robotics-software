@@ -7,14 +7,14 @@ import java.util.Map;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
 import controller_msgs.msg.dds.OneDoFJointTrajectoryMessage;
 import controller_msgs.msg.dds.SpineTrajectoryMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commonWalkingControlModules.controlModules.rigidBody.RigidBodyJointControlHelper;
@@ -71,7 +71,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * @throws SimulationExceededMaximumTimeException
     */
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 22.8)
-   @Test(timeout = 110000)
+   @Test
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -91,7 +91,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * @throws SimulationExceededMaximumTimeException
     */
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 33.6)
-   @Test (timeout = 170000)
+   @Test
    public void testSwitchingBetweenControlModes() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -113,7 +113,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * @throws SimulationExceededMaximumTimeException
     */
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 66.9)
-   @Test (timeout = 330000)
+   @Test
    public void testDesiredsAreContinuous() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -134,7 +134,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * @throws SimulationExceededMaximumTimeException
     */
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 65.5)
-   @Test (timeout = 330000)
+   @Test
    public void testMultipleWaypoints() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -179,7 +179,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * @throws SimulationExceededMaximumTimeException
     */
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 68.9)
-   @Test (timeout = 340000)
+   @Test
    public void testLongMessage() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -207,7 +207,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * @throws SimulationExceededMaximumTimeException
     */
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 38.8)
-   @Test (timeout = 190000)
+   @Test
    public void testMessageQueuing() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -302,7 +302,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * @throws SimulationExceededMaximumTimeException
     */
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 50.1)
-   @Test (timeout = 250000)
+   @Test
    public void testMessageWithDifferentTrajectoryLengthsPerJoint() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -571,13 +571,13 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
       drcSimulationTestHelper.addRobotControllerOnControllerThread(controllerSpy);
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

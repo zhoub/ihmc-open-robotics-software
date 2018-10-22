@@ -2,34 +2,32 @@ package us.ihmc.sensorProcessing.encoder;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class SimulatedEncoderTest
 {
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testSimpleTest()
    {
       assertEquals(1, 1);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testConstructor()
    {
       double ticksPerPosition = 1.0;
@@ -37,8 +35,7 @@ public class SimulatedEncoderTest
       new SimulatedEncoder(ticksPerPosition, "simEncTest", parentRegistry);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetTicksOne()
    {
       double ticksPerPosition = 10.0;
@@ -53,8 +50,7 @@ public class SimulatedEncoderTest
       assertEquals(expecetedTicks, simulatedEncoder.getEncoderTicks());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetTicksTwo()
    {
       double ticksPerPosition = 0.5;
@@ -76,8 +72,7 @@ public class SimulatedEncoderTest
       assertEquals(expecetedTicks, simulatedEncoder.getEncoderTicks());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetTicksThree()
    {
       double ticksPerPosition = 0.5;
@@ -99,8 +94,7 @@ public class SimulatedEncoderTest
       assertEquals(expecetedTicks, simulatedEncoder.getEncoderTicks());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetTicksFour()
    {
       double ticksPerPosition = 10.0;
@@ -118,7 +112,7 @@ public class SimulatedEncoderTest
 
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetPositionFromEncoder()
    {
       double ticksPerPosition = 0.5;
@@ -142,8 +136,7 @@ public class SimulatedEncoderTest
       assertEquals(expectedPosition, simulatedEncoder.getPositionFromEncoder(), 0.01);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetPositionFromEncoderTwo()
    {
       double ticksPerPosition = 10;
@@ -160,8 +153,7 @@ public class SimulatedEncoderTest
       assertEquals(expectedPosition, simulatedEncoder.getPositionFromEncoder(), 0.01);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetPositionFromEncoderThree()
    {
       double ticksPerPosition = 100;
@@ -176,8 +168,7 @@ public class SimulatedEncoderTest
       assertEquals(expectedPosition, simulatedEncoder.getPositionFromEncoder(), 0.01);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetPositionFromEncoderFour()
    {
       double ticksPerPosition = 100;
@@ -192,8 +183,7 @@ public class SimulatedEncoderTest
       assertEquals(expectedPosition, simulatedEncoder.getPositionFromEncoder(), 0.01);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testConverTicksToDistance()
    {
       double ticksPerPosition = 100;

@@ -1,6 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -37,7 +37,7 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 57.1)
-   @Test(timeout = 290000)
+   @Test
    public void testSideStepping() throws SimulationExceededMaximumTimeException
    {
       super.testSideStepping();
@@ -45,7 +45,7 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 34.5)
-   @Test(timeout = 170000)
+   @Test
    public void testStepLongerThanMaxStepLength() throws SimulationExceededMaximumTimeException
    {
       super.testStepLongerThanMaxStepLength();
@@ -53,7 +53,7 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 71.3)
-   @Test(timeout = 360000)
+   @Test
    public void testStop() throws SimulationExceededMaximumTimeException
    {
       super.testStop();
@@ -61,7 +61,7 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 54.9)
-   @Test(timeout = 270000)
+   @Test
    public void testTwoStepsForwards() throws SimulationExceededMaximumTimeException
    {
       super.testTwoStepsForwards();

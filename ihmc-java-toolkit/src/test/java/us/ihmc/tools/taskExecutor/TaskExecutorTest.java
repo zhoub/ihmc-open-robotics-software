@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -13,7 +13,7 @@ public class TaskExecutorTest
 {
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testEmptyExecutor()
    {
       TaskExecutor taskExecutor = new TaskExecutor();
@@ -31,7 +31,7 @@ public class TaskExecutorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithOneNullTask()
    {
       TaskExecutor taskExecutor = new TaskExecutor();
@@ -58,7 +58,7 @@ public class TaskExecutorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithSeveralNullTasks()
    {
       TaskExecutor taskExecutor = new TaskExecutor();
@@ -119,7 +119,7 @@ public class TaskExecutorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSomeTasks()
    {
       int[] doActionsPerTask = new int[] { 1 };
@@ -140,7 +140,7 @@ public class TaskExecutorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAddingTasksOnTheFly()
    {
       TaskExecutor taskExecutor = new TaskExecutor();

@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Output;
@@ -39,7 +39,7 @@ public class AtlasRobotConfigurationDataTest
     * This allows sending data without fragmentation, reducing jitter and making UDP communication simpler.
     */
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSerializedSize()
    {
       ByteArrayOutputStream os = new ByteArrayOutputStream(1500);
@@ -75,7 +75,7 @@ public class AtlasRobotConfigurationDataTest
       assertTrue("RobotConfigurationData is to large " + length, length < 1460);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

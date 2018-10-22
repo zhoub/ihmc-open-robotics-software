@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -18,7 +18,7 @@ public class SimpleInefficientEqualityConstrainedQPSolverTest
    private static final boolean VERBOSE = false;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleCases()
    {
       SimpleInefficientEqualityConstrainedQPSolver solver = new SimpleInefficientEqualityConstrainedQPSolver();
@@ -123,7 +123,7 @@ public class SimpleInefficientEqualityConstrainedQPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testLargeRandomProblemWithNoEqualityConstraints()
    {
       Random random = new Random(1776L);
@@ -172,7 +172,7 @@ public class SimpleInefficientEqualityConstrainedQPSolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testLargeRandomProblemWithEqualityConstraints()
    {
       Random random = new Random(1776L);

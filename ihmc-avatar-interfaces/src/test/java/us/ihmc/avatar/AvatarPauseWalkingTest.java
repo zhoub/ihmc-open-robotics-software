@@ -2,9 +2,9 @@ package us.ihmc.avatar;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -57,14 +57,14 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
 
    public abstract double getMaxICPPlanError();
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -85,7 +85,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 100000)
+   @Test
    public void testPauseWalking() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -104,7 +104,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 100000)
+   @Test
    public void testTwoIndependentSteps() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -132,7 +132,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 100000)
+   @Test
    public void testStartSecondStepWhileTransitioningToStand() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -160,7 +160,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 100.0)
-   @Test(timeout = 100000)
+   @Test
    public void testPauseWalkingForward() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -179,7 +179,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 100.0)
-   @Test(timeout = 100000)
+   @Test
    public void testPauseWalkingInitialTransfer() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -202,7 +202,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 60.0)
-   @Test(timeout = 100000)
+   @Test
    public void testPauseWalkingInitialTransferOneStep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -235,7 +235,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 100000)
+   @Test
    public void testPauseWalkingForwardInitialTransfer() throws SimulationExceededMaximumTimeException
    {
       setupTest();

@@ -2,9 +2,9 @@ package us.ihmc.robotics.math.filters;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -17,18 +17,18 @@ public class HysteresisFilteredYoVariableTest
    private HysteresisFilteredYoVariable filteredYoVariable = new HysteresisFilteredYoVariable("test", registry, guideLineHysteresis);
    private double epsilon = 1e-7;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testNoHysteresis()
    {
       guideLineHysteresis.set(0.0);
@@ -51,7 +51,7 @@ public class HysteresisFilteredYoVariableTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSomeHysteresis()
    {
       guideLineHysteresis.set(0.2);

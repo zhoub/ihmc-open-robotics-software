@@ -6,9 +6,9 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -35,7 +35,7 @@ public class ConstantPositionTrajectoryGeneratorTest
    private double yValue = Math.random();
    private double zValue = Math.random();
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       referenceFrame = ReferenceFrame.constructARootFrame("rootNameTEST");
@@ -44,14 +44,14 @@ public class ConstantPositionTrajectoryGeneratorTest
       parentRegistry = new YoVariableRegistry("registry");
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testConstructor()
    {
       try
@@ -67,7 +67,7 @@ public class ConstantPositionTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testIsDone()
    {
       generator = new ConstantPositionTrajectoryGenerator(namePrefix, referenceFrame, positionProvider, finalTime, parentRegistry);
@@ -80,7 +80,7 @@ public class ConstantPositionTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testGet()
    {
       generator = new ConstantPositionTrajectoryGenerator(namePrefix, referenceFrame, positionProvider, finalTime, parentRegistry);
@@ -92,7 +92,7 @@ public class ConstantPositionTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testPackVelocity()
    {
       generator = new ConstantPositionTrajectoryGenerator(namePrefix, referenceFrame, positionProvider, finalTime, parentRegistry);
@@ -109,7 +109,7 @@ public class ConstantPositionTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testPackAcceleration()
    {
       generator = new ConstantPositionTrajectoryGenerator(namePrefix, referenceFrame, positionProvider, finalTime, parentRegistry);
@@ -126,7 +126,7 @@ public class ConstantPositionTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testPackLinearData()
    {
       FramePoint3D positionToPack = new FramePoint3D(referenceFrame);

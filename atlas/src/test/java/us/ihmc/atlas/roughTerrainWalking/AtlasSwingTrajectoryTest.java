@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -28,7 +28,7 @@ public class AtlasSwingTrajectoryTest extends DRCSwingTrajectoryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 130.4)
-   @Test(timeout = 650000)
+   @Test
    public void testMultipleHeightFootsteps() throws SimulationExceededMaximumTimeException
    {
       super.testMultipleHeightFootsteps();
@@ -36,7 +36,7 @@ public class AtlasSwingTrajectoryTest extends DRCSwingTrajectoryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 47.8)
-   @Test(timeout = 240000)
+   @Test
    public void testNegativeSwingHeight() throws SimulationExceededMaximumTimeException
    {
       super.testNegativeSwingHeight();
@@ -44,7 +44,7 @@ public class AtlasSwingTrajectoryTest extends DRCSwingTrajectoryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 55.8, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 280000)
+   @Test
    public void testReallyHighFootstep() throws SimulationExceededMaximumTimeException
    {
       super.testReallyHighFootstep();
@@ -52,7 +52,7 @@ public class AtlasSwingTrajectoryTest extends DRCSwingTrajectoryTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 126.9, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 630000)
+   @Test
    public void testSelfCollisionAvoidance() throws SimulationExceededMaximumTimeException
    {
       super.testSelfCollisionAvoidance();

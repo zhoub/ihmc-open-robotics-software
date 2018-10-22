@@ -3,9 +3,9 @@ package us.ihmc.simulationConstructionSetTools.util.globalParameters;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
@@ -13,20 +13,20 @@ public class AndBooleanGlobalParameterTest
 {
    private static final boolean VERBOSE = false;
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       GlobalParameter.clearGlobalRegistry();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       GlobalParameter.clearGlobalRegistry();
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testSetThrowsException()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -55,7 +55,7 @@ public class AndBooleanGlobalParameterTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testAndBooleanGlobalParameter()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -78,7 +78,7 @@ public class AndBooleanGlobalParameterTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testAndBooleanGlobalParameterUpdate()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -114,7 +114,7 @@ public class AndBooleanGlobalParameterTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testFamilyTree()
    {
 //    SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = new SystemOutGlobalParameterChangedListener();

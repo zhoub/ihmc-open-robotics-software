@@ -5,11 +5,11 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.NeckTrajectoryMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.RandomNumbers;
@@ -36,7 +36,7 @@ public abstract class EndToEndNeckTrajectoryMessageTest implements MultiRobotTes
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 27.7)
-   @Test(timeout = 140000)
+   @Test
    public void testSingleWaypoint() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -145,13 +145,13 @@ public abstract class EndToEndNeckTrajectoryMessageTest implements MultiRobotTes
       return controllerDesiredJointVelocities;
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

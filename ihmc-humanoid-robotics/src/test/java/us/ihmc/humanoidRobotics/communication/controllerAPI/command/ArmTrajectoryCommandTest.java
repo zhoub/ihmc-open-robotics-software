@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.TrajectoryPoint1DMessage;
@@ -24,7 +24,7 @@ public class ArmTrajectoryCommandTest
 {
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000, expected = IndexOutOfBoundsException.class)
+   @Test
    public void testClear()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand();
@@ -41,7 +41,7 @@ public class ArmTrajectoryCommandTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testIsCommandValid()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand(new Random());
@@ -51,14 +51,14 @@ public class ArmTrajectoryCommandTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testArmTrajectoryCommand()
    {
       new ArmTrajectoryCommand();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testClearRobotSide()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand();
@@ -76,7 +76,7 @@ public class ArmTrajectoryCommandTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetRobotSide()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand();
@@ -86,7 +86,7 @@ public class ArmTrajectoryCommandTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testSetArmTrajectoryMessage()
    {
       Random random = new Random();
@@ -117,7 +117,7 @@ public class ArmTrajectoryCommandTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetArmTrajectoryCommand()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand(new Random());
@@ -158,7 +158,7 @@ public class ArmTrajectoryCommandTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetMessageClass()
    {
       ArmTrajectoryCommand otherArmTrajectoryCommand = new ArmTrajectoryCommand();

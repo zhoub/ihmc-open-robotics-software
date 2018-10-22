@@ -1,8 +1,8 @@
 package us.ihmc.avatar;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commonWalkingControlModules.controlModules.foot.FootControlModule.ConstraintType;
@@ -41,14 +41,14 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
    private double swingTime, transferTime;
    private double totalMass;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -70,7 +70,7 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
    protected abstract DRCRobotModel getRobotModel();
 
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
-   @Test(timeout = 100000)
+   @Test
    public void testForwardWalkingShort() throws SimulationExceededMaximumTimeException
    {
       setupTest(shortScript);
@@ -81,7 +81,7 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
-   @Test(timeout = 100000)
+   @Test
    public void testForwardWalkingMedium() throws SimulationExceededMaximumTimeException
    {
       setupTest(mediumScript);
@@ -92,7 +92,7 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
-   @Test(timeout = 100000)
+   @Test
    public void testForwardWalkingLong() throws SimulationExceededMaximumTimeException
    {
       setupTest(longScript);

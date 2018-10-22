@@ -1,6 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -28,7 +28,7 @@ public class AtlasWalkToFiducialsBehaviorTest extends AvatarWalkToFiducialsBehav
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 63.6, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 320000)
+   @Test
    public void testWalkToFiducials() throws SimulationExceededMaximumTimeException
    {
       super.testWalkToFiducials();

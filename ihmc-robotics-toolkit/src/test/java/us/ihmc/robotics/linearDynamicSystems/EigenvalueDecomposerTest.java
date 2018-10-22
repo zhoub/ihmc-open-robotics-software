@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -20,8 +20,7 @@ public class EigenvalueDecomposerTest
    P1 = zeta * wn, P2 = Math.sqrt(1.0 - zeta * zeta) * wn, P3 = wn * wn;
    private double epsilon = 1e-7;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testGetEigenvalues()
    {
 
@@ -53,8 +52,7 @@ public class EigenvalueDecomposerTest
       verifyTwoComplexConjugateEigenvalue(decomposerMassSpringDamper.getEigenvalues(), -P1, P2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testDecompositions()
    {
       Matrix matrixAOneReal = new Matrix(new double[][]
@@ -142,8 +140,7 @@ public class EigenvalueDecomposerTest
       assertTrue(foundComplexPair);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testCircleGenerator()
    {
       Matrix matrixA = new Matrix(new double[][]
@@ -156,8 +153,7 @@ public class EigenvalueDecomposerTest
       verifyDecomposition(matrixA, circleDecomposer);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testZeroMatrix()
    {
       Matrix matrixA = new Matrix(new double[][]
@@ -168,8 +164,7 @@ public class EigenvalueDecomposerTest
       verifyDecomposition(matrixA, eigenvalueDecomposer);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testIdentityMatrix()
    {
       Matrix matrixA = new Matrix(new double[][]
@@ -181,8 +176,7 @@ public class EigenvalueDecomposerTest
       verifyDecomposition(matrixA, eigenvalueDecomposer);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testThreeByThreeIdentityMatrix()
    {
       Matrix matrixA = new Matrix(new double[][]
@@ -195,8 +189,7 @@ public class EigenvalueDecomposerTest
       verifyDecomposition(matrixA, eigenvalueDecomposer);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testRepeatedPoles()
    {
       Matrix matrixA = new Matrix(new double[][]
@@ -209,7 +202,7 @@ public class EigenvalueDecomposerTest
    }
    
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-	@Test(timeout=300000)
+	@Test
    public void testMCSExample()
    {
       // From JPratt MSC Notes PSET 5
@@ -223,8 +216,7 @@ public class EigenvalueDecomposerTest
       verifyDecomposition(matrixA, eigenvalueDecomposer);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testRandomExample()
    {
       // From JPratt MSC Notes PSET 5

@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -49,28 +49,28 @@ public class GenericQuadrupedXGaitWalkingOverRampsTest extends QuadrupedXGaitWal
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.0)
-   @Test(timeout = 2200000)
+   @Test
    public void testWalkingOverShallowRamps() throws IOException
    {
       super.testWalkingOverShallowRamps();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 80.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 2000000)
+   @Test
    public void testWalkingOverAggressiveRamps() throws IOException
    {
       super.testWalkingOverAggressiveRamps();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 1200000)
+   @Test
    public void testWalkingDownSlope() throws IOException
    {
       super.testWalkingDownSlope();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 980000)
+   @Test
    public void testWalkingUpSlope() throws IOException
    {
       super.testWalkingUpSlope();

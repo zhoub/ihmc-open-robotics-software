@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -20,7 +20,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 22.8)
-   @Test (timeout = 110000)
+   @Test
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
       super.testSingleWaypoint();
@@ -28,7 +28,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 33.6)
-   @Test (timeout = 170000)
+   @Test
    public void testSwitchingBetweenControlModes() throws SimulationExceededMaximumTimeException
    {
       super.testSwitchingBetweenControlModes();
@@ -36,7 +36,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 66.9)
-   @Test (timeout = 330000)
+   @Test
    public void testDesiredsAreContinuous() throws SimulationExceededMaximumTimeException
    {
       super.testDesiredsAreContinuous();
@@ -44,7 +44,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 65.5, categoriesOverride = IntegrationCategory.SLOW)
-   @Test (timeout = 330000)
+   @Test
    public void testMultipleWaypoints() throws SimulationExceededMaximumTimeException
    {
       super.testMultipleWaypoints();
@@ -52,7 +52,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 68.9, categoriesOverride = IntegrationCategory.SLOW)
-   @Test (timeout = 340000)
+   @Test
    public void testLongMessage() throws SimulationExceededMaximumTimeException
    {
       super.testLongMessage();
@@ -60,7 +60,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 38.8)
-   @Test (timeout = 190000)
+   @Test
    public void testMessageQueuing() throws SimulationExceededMaximumTimeException
    {
       super.testMessageQueuing();
@@ -68,7 +68,7 @@ public class AtlasEndToEndSpineJointTrajectoryMessageTest extends EndToEndSpineJ
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 50.1, categoriesOverride = IntegrationCategory.SLOW)
-   @Test (timeout = 250000)
+   @Test
    public void testMessageWithDifferentTrajectoryLengthsPerJoint() throws SimulationExceededMaximumTimeException
    {
       super.testMessageWithDifferentTrajectoryLengthsPerJoint();

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -28,7 +28,7 @@ public class VariableChangedMessageTest
    
    
       @ContinuousIntegrationTest(estimatedDuration = 11)
-      @Test(timeout = 100000)
+      @Test
       public void testSendingVariableChangedMessage() throws IOException
       {
          Domain domain = DomainFactory.getDomain(PubSubImplementation.FAST_RTPS);

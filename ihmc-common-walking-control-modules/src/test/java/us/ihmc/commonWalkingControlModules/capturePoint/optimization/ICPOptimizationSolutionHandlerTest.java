@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.ICPControlGains;
 import us.ihmc.commonWalkingControlModules.capturePoint.ICPControlGainsReadOnly;
@@ -39,7 +39,7 @@ public class ICPOptimizationSolutionHandlerTest
    private ICPOptimizationSolutionHandler solutionHandler;
    private ICPOptimizationQPSolver solver;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -86,7 +86,7 @@ public class ICPOptimizationSolutionHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWellWithinDeadband()
    {
       double scale = 0.2;
@@ -95,7 +95,7 @@ public class ICPOptimizationSolutionHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testALittleWithinDeadband()
    {
       double scale = 0.9;
@@ -104,7 +104,7 @@ public class ICPOptimizationSolutionHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testJustWithinDeadband()
    {
       double scale = 0.99;
@@ -113,7 +113,7 @@ public class ICPOptimizationSolutionHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRightOnDeadband()
    {
       double scale = 1.0;
@@ -122,7 +122,7 @@ public class ICPOptimizationSolutionHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testJustOutsideDeadband()
    {
       double scale = 1.01;
@@ -131,7 +131,7 @@ public class ICPOptimizationSolutionHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testALittleOutsideDeadband()
    {
       double scale = 1.05;
@@ -140,7 +140,7 @@ public class ICPOptimizationSolutionHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWellOutsideDeadband()
    {
       double scale = 1.5;
@@ -149,7 +149,7 @@ public class ICPOptimizationSolutionHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testWithinDeadbandResolution()
    {
       double scale = 1.1;
@@ -235,7 +235,7 @@ public class ICPOptimizationSolutionHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testOutsideDeadbandResolution()
    {
       double scale = 1.1;

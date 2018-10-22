@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -72,7 +72,7 @@ public class DataObjectTransponderTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout = 30000)
+	@Test
    public void testBidirectionalCommunication() throws InterruptedException
    {
       int port = 1341;
@@ -84,7 +84,7 @@ public class DataObjectTransponderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 8.3, categoriesOverride = IntegrationCategory.FLAKY)
-   @Test(timeout = 42000)
+   @Test
    public void testDoubleBidirectionalCommunication() throws InterruptedException
    {
       int numberOfPackets = 60000;
@@ -98,7 +98,7 @@ public class DataObjectTransponderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSerializabilityOfInteger() throws IOException
    {
       Integer integer = new Integer(2);
@@ -106,7 +106,7 @@ public class DataObjectTransponderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSerializabilityOfIntPacket() throws IOException
    {
       IntegerPacket intPacket = new IntegerPacket(2);
@@ -114,7 +114,7 @@ public class DataObjectTransponderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSerializabilityOfStringPacket() throws IOException
    {
       StringPacket packet = new StringPacket("Buzzap!");
@@ -122,7 +122,7 @@ public class DataObjectTransponderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testServerClientIntPacketCommunication() throws InterruptedException
    {
       int port = 1337;
@@ -133,7 +133,7 @@ public class DataObjectTransponderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testServerClientStringPacketCommunication() throws InterruptedException
    {
       int port = 1338;
@@ -144,7 +144,7 @@ public class DataObjectTransponderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testTwoPacketTypesAtTheSameTime() throws InterruptedException
    {
       int port = 1339;
@@ -156,7 +156,7 @@ public class DataObjectTransponderTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testUnhandledPackets() throws InterruptedException
    {
       int port = 1340;

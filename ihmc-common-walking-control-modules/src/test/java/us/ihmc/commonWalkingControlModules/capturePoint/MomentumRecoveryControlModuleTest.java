@@ -13,8 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -70,14 +70,14 @@ public class MomentumRecoveryControlModuleTest
    private YoBoolean usingUpperBodyMomentum;
    private YoBoolean usingHighMomentumWeight;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test (timeout = 30000)
+   @Test
    /**
     * This test passes a huge ICP error and a bad ICP to the control module and makes
     * sure recovery gets triggered.
@@ -118,7 +118,7 @@ public class MomentumRecoveryControlModuleTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test (timeout = 30000)
+   @Test
    /**
     * This test passes a huge ICP error and a bad ICP to the control module and makes
     * sure recovery gets triggered.
@@ -159,7 +159,7 @@ public class MomentumRecoveryControlModuleTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test (timeout = 30000)
+   @Test
    /**
     * This test passes a huge ICP error and a bad ICP to the control module but disables momentum
     * recovery. It makes sure the recovery does not get triggered.
@@ -203,7 +203,7 @@ public class MomentumRecoveryControlModuleTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test (timeout = 30000)
+   @Test
    /**
     * This test passes a huge ICP error and a bad ICP to the control module but disables momentum
     * recovery. It makes sure the recovery does not get triggered.
@@ -247,7 +247,7 @@ public class MomentumRecoveryControlModuleTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test (timeout = 30000)
+   @Test
    public void testLogicDoubleSupportSafe()
    {
       Vector3D leftFootPosition = new Vector3D(0.0, 0.1, 0.0);
@@ -282,7 +282,7 @@ public class MomentumRecoveryControlModuleTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test (timeout = 30000)
+   @Test
    public void testLogicDoubleSupportUnsafe()
    {
       Vector3D leftFootPosition = new Vector3D(0.0, 0.1, 0.0);
@@ -317,7 +317,7 @@ public class MomentumRecoveryControlModuleTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test (timeout = 30000)
+   @Test
    public void testLogicSingleSupportSafe()
    {
       Vector3D leftFootPosition = new Vector3D(0.0, 0.1, 0.0);
@@ -357,7 +357,7 @@ public class MomentumRecoveryControlModuleTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test (timeout = 30000)
+   @Test
    public void testLogicSingleSupportUnsafe()
    {
       Vector3D leftFootPosition = new Vector3D(0.0, 0.1, 0.0);
@@ -397,7 +397,7 @@ public class MomentumRecoveryControlModuleTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test (timeout = 30000)
+   @Test
    /**
     * This test passes a huge ICP error and a good ICP to the control module and makes
     * sure high weight recovery gets triggered but not upper body momentum.

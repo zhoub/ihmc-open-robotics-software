@@ -3,7 +3,7 @@ package us.ihmc.simulationConstructionSetTools.whiteBoard;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -15,7 +15,7 @@ public class TCPYoWhiteBoardTest extends YoWhiteBoardTest
 {
 
 	@ContinuousIntegrationTest(estimatedDuration = 3.9)
-	@Test(timeout = 30000)
+	@Test
    public void testTCPWhiteBoardOne() throws IOException
    {
       String IPAddress = "localHost";
@@ -32,7 +32,7 @@ public class TCPYoWhiteBoardTest extends YoWhiteBoardTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 5.6)
-	@Test(timeout = 30000)
+	@Test
    public void testTCPWhiteBoardTwo() throws IOException
    {
       String IPAddress = "localHost";

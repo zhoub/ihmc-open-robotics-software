@@ -8,9 +8,9 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.simple.SimpleMatrix;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -29,13 +29,13 @@ public abstract class MassMatrixCalculatorTest
    
    private final Random random = new Random(1776L);
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       elevator = new RigidBody("elevator", worldFrame);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
@@ -90,7 +90,7 @@ public abstract class MassMatrixCalculatorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 1.7)
-	@Test(timeout = 30000)
+	@Test
    public void compareMassMatrixCalculators()
    {
       double eps = 1e-10;

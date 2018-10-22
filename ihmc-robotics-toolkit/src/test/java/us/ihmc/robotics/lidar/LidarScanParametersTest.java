@@ -6,14 +6,14 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class LidarScanParametersTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_1()
    {
       LidarScanParameters lidarScanParameters = new LidarScanParameters();
@@ -30,7 +30,7 @@ public class LidarScanParametersTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_2()
    {
       long timeStamp = System.currentTimeMillis();
@@ -48,7 +48,7 @@ public class LidarScanParametersTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_3()
    {
       Random rand = new Random();
@@ -77,7 +77,7 @@ public class LidarScanParametersTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_4()
    {
       Random rand = new Random();
@@ -106,7 +106,7 @@ public class LidarScanParametersTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_5()
    {
       Random rand = new Random();
@@ -135,7 +135,7 @@ public class LidarScanParametersTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_6()
    {
       Random rand = new Random();
@@ -169,7 +169,7 @@ public class LidarScanParametersTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_7()
    {
       Random rand = new Random();
@@ -204,7 +204,7 @@ public class LidarScanParametersTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_8()
    {
       Random rand = new Random();
@@ -240,7 +240,7 @@ public class LidarScanParametersTest
    
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_9()
    {
       Random rand = new Random();
@@ -275,7 +275,7 @@ public class LidarScanParametersTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_10()
    {
       Random rand = new Random();
@@ -310,7 +310,7 @@ public class LidarScanParametersTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void LidarScanParameters_11()
    {
       Random rand = new Random();
@@ -345,7 +345,7 @@ public class LidarScanParametersTest
    
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testEquals()
    {
       Random rand = new Random();
@@ -368,7 +368,7 @@ public class LidarScanParametersTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testEquals_1()
    {
       Random rand = new Random();

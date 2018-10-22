@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.communication.PacketRouter;
 import us.ihmc.communication.packetCommunicator.ConcurrentPacketQueue;
@@ -125,7 +125,7 @@ public class NetworkProcessorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.3)
-   @Test (timeout = 30000)
+   @Test
    public void testSendPackets() throws IOException
    {
       connectCommunicators();
@@ -172,7 +172,7 @@ public class NetworkProcessorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.7)
-   @Test(timeout = 30000)
+   @Test
    public void testDetatchObjectCommunicator() throws IOException
    {
       connectCommunicators();
@@ -211,7 +211,7 @@ public class NetworkProcessorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.6)
-   @Test(timeout = 30000)
+   @Test
    public void testForwarder() throws IOException
    {
       connectCommunicators();
@@ -237,7 +237,7 @@ public class NetworkProcessorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
-   @Test(timeout = 30000)
+   @Test
    public void testDoubleForwarder() throws IOException
    {
       connectCommunicators();
@@ -256,7 +256,7 @@ public class NetworkProcessorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDisconnectDoesNotFail() throws IOException
    {
       connectCommunicators();

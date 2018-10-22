@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -35,7 +35,7 @@ public class JointStateUpdaterTest
    private static final double EPS = 1e-10;
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testConstructorNormalCase()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");
@@ -62,7 +62,7 @@ public class JointStateUpdaterTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout=300000)
+	@Test
    public void testInitializingAndReading()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");

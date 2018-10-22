@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.ejml.data.DenseMatrix64F;
 import org.jcodec.common.Assert;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
@@ -156,7 +156,7 @@ public class WalkingControllerTest
    private static final double maxDriftRate = 0.2;
 
    @ContinuousIntegrationTest(estimatedDuration = 17.4)
-   @Test(timeout = 87000)
+   @Test
    public void testForGarbage()
    {
       walkingController.initialize();
@@ -490,7 +490,7 @@ public class WalkingControllerTest
    }
 
    @SuppressWarnings("unchecked")
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -569,7 +569,7 @@ public class WalkingControllerTest
       referenceFrames.updateFrames();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       if (showSCS)

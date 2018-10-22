@@ -1,7 +1,7 @@
 package us.ihmc.atlas.pushRecovery;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -30,9 +30,9 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 		return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.ATLAS);
 	}
 
-	@Ignore("Needs to be improved")
+	@Disabled("Needs to be improved")
 	@ContinuousIntegrationTest(estimatedDuration = 53.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 270000)
+   @Test
 	@Override
 	public void testDoublePushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{
@@ -40,7 +40,7 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	}
 
 	@ContinuousIntegrationTest(estimatedDuration = 68.2)
-   @Test(timeout = 340000)
+   @Test
 	@Override
 	public void testPushBackwardForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{
@@ -48,7 +48,7 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	}
 
 	@ContinuousIntegrationTest(estimatedDuration = 58.8)
-   @Test(timeout = 290000)
+   @Test
 	@Override
 	public void testPushBackwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{
@@ -56,7 +56,7 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	}
 
 	@ContinuousIntegrationTest(estimatedDuration = 42.1)
-   @Test(timeout = 210000)
+   @Test
 	@Override
 	public void testPushForwardInDoubleSupport() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{
@@ -64,7 +64,7 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	}
 
 	@ContinuousIntegrationTest(estimatedDuration = 65.0)
-   @Test(timeout = 320000)
+   @Test
 	@Override
 	public void testPushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{

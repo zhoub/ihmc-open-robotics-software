@@ -6,13 +6,13 @@ import java.io.InputStream;
 import java.util.List;
 
 import junit.framework.TestCase;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -46,14 +46,14 @@ public abstract class DRCObstacleCourseTrialsTerrainTest implements MultiRobotTe
 
    protected abstract DRCRobotModel getRobotModelWithAdditionalFootContactPoints();
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       environment = new DarpaRoboticsChallengeTrialsWalkingEnvironment();
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -77,7 +77,7 @@ public abstract class DRCObstacleCourseTrialsTerrainTest implements MultiRobotTe
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 139.1)
-   @Test(timeout = 700000)
+   @Test
    public void testTrialsTerrainSlopeScript() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -111,7 +111,7 @@ public abstract class DRCObstacleCourseTrialsTerrainTest implements MultiRobotTe
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 157.5)
-   @Test(timeout = 790000)
+   @Test
    public void testTrialsTerrainSlopeScriptRandomFootSlip() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -155,7 +155,7 @@ public abstract class DRCObstacleCourseTrialsTerrainTest implements MultiRobotTe
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 86.6)
-   @Test(timeout = 430000)
+   @Test
    public void testTrialsTerrainZigzagHurdlesScript() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -184,7 +184,7 @@ public abstract class DRCObstacleCourseTrialsTerrainTest implements MultiRobotTe
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 47.1)
-   @Test(timeout = 240000)
+   @Test
    public void testTrialsTerrainZigzagHurdlesScriptRandomFootSlip() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -223,7 +223,7 @@ public abstract class DRCObstacleCourseTrialsTerrainTest implements MultiRobotTe
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 117.9)
-   @Test(timeout = 590000)
+   @Test
    public void testWalkingOntoAndOverSlopesSideways() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

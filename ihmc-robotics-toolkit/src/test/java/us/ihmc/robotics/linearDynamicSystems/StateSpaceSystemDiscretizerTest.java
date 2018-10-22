@@ -23,7 +23,7 @@ import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.commons.MathTools;
@@ -34,8 +34,7 @@ public class StateSpaceSystemDiscretizerTest
    private static final boolean DEBUG = false;
    private static final boolean DISPLAY_GRAPHS_AND_SLEEP_FOREVER = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testWithSimpleSpringDamperSystem()
    {
       int numberOfStates = 2;
@@ -193,7 +192,7 @@ public class StateSpaceSystemDiscretizerTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout = 30000)
+	@Test
    public void testCompareDifferentImplementations()
    {
       int numberOfStates = 30;

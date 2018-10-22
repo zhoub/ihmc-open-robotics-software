@@ -3,8 +3,8 @@ package us.ihmc.commonWalkingControlModules.momentumBasedController.optimization
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -24,14 +24,14 @@ public class CentroidalMomentumHandlerTest
    private static final int ITERATIONS = 1000;
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testCenterOfMassVelocityChainRobot() throws Exception
    {
       Random random = new Random(32342L);
@@ -65,7 +65,7 @@ public class CentroidalMomentumHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testCenterOfMassVelocityFloatingBaseRobot() throws Exception
    {
       Random random = new Random(32342L);

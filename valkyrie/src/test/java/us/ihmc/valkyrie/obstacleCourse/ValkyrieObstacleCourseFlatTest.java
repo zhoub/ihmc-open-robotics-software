@@ -1,7 +1,7 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -39,7 +39,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
     */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 40.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
-   @Test(timeout = 300000)
+   @Test
    public void testWalkingUpToRampWithLongStepsAndOccasionallyStraightKnees() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpToRampWithLongStepsAndOccasionallyStraightKnees();
@@ -47,35 +47,35 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 64.8)
-   @Test(timeout = 320000)
+   @Test
    public void testRotatedStepInTheAir() throws SimulationExceededMaximumTimeException
    {
       super.testRotatedStepInTheAir();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 85.5, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 430000)
+   @Test
    public void testSimpleScripts() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSimpleScripts();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 59.7, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 300000)
+   @Test
    public void testACoupleStepsUsingQueuedControllerCommands() throws SimulationExceededMaximumTimeException
    {
       super.testACoupleStepsUsingQueuedControllerCommands();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 78.7, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 390000)
+   @Test
    public void testACoupleQueuedControllerCommands() throws SimulationExceededMaximumTimeException
    {
       super.testACoupleQueuedControllerCommands();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 76.7, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 380000)
+   @Test
    public void testACoupleMoreQueuedControllerCommands() throws SimulationExceededMaximumTimeException
    {
       super.testACoupleMoreQueuedControllerCommands();
@@ -83,7 +83,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 91.2)
-   @Test(timeout = 460000)
+   @Test
    public void testWalkingUpToRampWithShortSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpToRampWithShortSteps();
@@ -91,7 +91,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 30.1)
-   @Test(timeout = 150000)
+   @Test
    public void testStandingTooHighToCheckIfSingularityStuffIsWorkingProperly() throws SimulationExceededMaximumTimeException
    {
       super.testStandingTooHighToCheckIfSingularityStuffIsWorkingProperly();
@@ -99,7 +99,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 25.4, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 130000)
+   @Test
    public void testStandingForACoupleSeconds() throws SimulationExceededMaximumTimeException
    {
       super.testStandingForACoupleSeconds();
@@ -107,7 +107,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 110.4)
-   @Test(timeout = 550000)
+   @Test
    public void testLongStepsMaxHeightPauseAndResume() throws SimulationExceededMaximumTimeException
    {
       super.testLongStepsMaxHeightPauseAndResume();
@@ -115,7 +115,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 92.3, categoriesOverride = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
-   @Test(timeout = 460000)
+   @Test
    public void testTurningInPlaceAndPassingPI() throws SimulationExceededMaximumTimeException
    {
       super.testTurningInPlaceAndPassingPI();
@@ -123,7 +123,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 59.0)
-   @Test(timeout = 300000)
+   @Test
    public void testStandingOnUnevenTerrainForACoupleSeconds() throws SimulationExceededMaximumTimeException
    {
       super.testStandingOnUnevenTerrainForACoupleSeconds();
@@ -131,7 +131,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 272.9, categoriesOverride = IntegrationCategory.MANUAL)
-   @Test(timeout = 1400000)
+   @Test
    public void testForMemoryLeaks() throws Exception
    {
       super.testForMemoryLeaks();

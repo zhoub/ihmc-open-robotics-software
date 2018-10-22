@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -23,7 +23,7 @@ public class GenericQuadrupedPositionCrawlRandomWalkingTest extends QuadrupedPos
    
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 300.0)
-   @Test(timeout = 1000000)
+   @Test
    public void testWalkingRandomly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingRandomly();
@@ -31,7 +31,7 @@ public class GenericQuadrupedPositionCrawlRandomWalkingTest extends QuadrupedPos
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 200.0)
-   @Test(timeout = 1000000)
+   @Test
    public void testWalkingAtRandomSpeedsWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingAtRandomSpeedsWithStops();
@@ -39,7 +39,7 @@ public class GenericQuadrupedPositionCrawlRandomWalkingTest extends QuadrupedPos
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 300.0)
-   @Test(timeout = 1000000)
+   @Test
    public void testWalkingRandomVelocitiesStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingRandomVelocitiesStoppingAndTurning();

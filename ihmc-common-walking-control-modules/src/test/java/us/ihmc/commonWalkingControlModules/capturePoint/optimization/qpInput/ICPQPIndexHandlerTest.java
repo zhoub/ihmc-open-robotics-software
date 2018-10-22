@@ -1,7 +1,7 @@
 package us.ihmc.commonWalkingControlModules.capturePoint.optimization.qpInput;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.qpInput.ICPQPIndexHandler;
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -12,7 +12,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 public class ICPQPIndexHandlerTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testRegisterFootstep()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -23,7 +23,7 @@ public class ICPQPIndexHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSizing()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();

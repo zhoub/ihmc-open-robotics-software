@@ -1,6 +1,6 @@
 package us.ihmc.atlas.straightLegWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -23,7 +23,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
    private final AtlasRobotModel atlasRobotModel = new MyAtlasRobotModel();
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 70000)
+   @Test
    public void testForwardStep() throws SimulationExceededMaximumTimeException
    {
       double stepLength = 1.3;
@@ -36,7 +36,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 70000)
+   @Test
    public void testForwardStepWithPause() throws SimulationExceededMaximumTimeException
    {
       double stepLength = 0.9;
@@ -49,14 +49,14 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 99990000)
+   @Test
    public void testForwardSteps() throws SimulationExceededMaximumTimeException
    {
       super.testForwardSteps();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 70000)
+   @Test
    public void testWideStep() throws SimulationExceededMaximumTimeException
    {
       double stepWidth = 0.6;
@@ -69,7 +69,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 100000)
+   @Test
    public void testSteppingDown() throws SimulationExceededMaximumTimeException
    {
       double stepHeight = 0.4;
@@ -83,7 +83,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 100000)
+   @Test
    public void testSteppingDownWithClosing() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.3;

@@ -3,8 +3,8 @@ package us.ihmc.commonWalkingControlModules.desiredFootStep;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.messageHandlers.CenterOfMassTrajectoryHandler;
 import us.ihmc.commons.MutationTestFacilitator;
@@ -22,14 +22,14 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 public class CenterOfMassTrajectoryHandlerTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleExample()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -81,7 +81,7 @@ public class CenterOfMassTrajectoryHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testNonZeroStartTime()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -136,7 +136,7 @@ public class CenterOfMassTrajectoryHandlerTest
 
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQueuing()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");

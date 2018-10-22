@@ -5,13 +5,13 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.initialSetup.OffsetAndYawRobotInitialSetup;
@@ -59,13 +59,13 @@ public abstract class DRCSwingTrajectoryTest implements MultiRobotTestInterface
    private SimulationTestingParameters simulationTestingParameters;
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -150,7 +150,7 @@ public abstract class DRCSwingTrajectoryTest implements MultiRobotTestInterface
 
 
    @ContinuousIntegrationTest(estimatedDuration = 130.4)
-   @Test(timeout = 650000)
+   @Test
    public void testMultipleHeightFootsteps() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {
       simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
@@ -203,7 +203,7 @@ public abstract class DRCSwingTrajectoryTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 55.8)
-   @Test(timeout = 280000)
+   @Test
    public void testReallyHighFootstep() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {
       simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
@@ -234,7 +234,7 @@ public abstract class DRCSwingTrajectoryTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 47.8)
-   @Test(timeout = 240000)
+   @Test
    public void testNegativeSwingHeight() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {
       simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
@@ -296,7 +296,7 @@ public abstract class DRCSwingTrajectoryTest implements MultiRobotTestInterface
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 126.9)
-   @Test(timeout = 630000)
+   @Test
    public void testSelfCollisionAvoidance() throws SimulationExceededMaximumTimeException
    {
       simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();

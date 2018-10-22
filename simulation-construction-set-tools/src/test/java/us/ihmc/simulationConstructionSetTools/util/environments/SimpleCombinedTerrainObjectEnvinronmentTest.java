@@ -2,7 +2,7 @@ package us.ihmc.simulationConstructionSetTools.util.environments;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
@@ -22,7 +22,7 @@ public class SimpleCombinedTerrainObjectEnvinronmentTest
    private static boolean SHOW_GUI = false;
 
 	@ContinuousIntegrationTest(estimatedDuration = 2.7)
-	@Test(timeout=300000)
+	@Test
    public void testSimpleCombinedTerrainObjectEnvironment()
    {
       SimpleCombinedTerrainObjectsEnvironment combinedEnvironment = new SimpleCombinedTerrainObjectsEnvironment();

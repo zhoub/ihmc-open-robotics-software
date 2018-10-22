@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.math.trajectories.YoTrajectory;
@@ -21,7 +21,7 @@ public class ReferenceICPTrajectoryGeneratorTest
    String namePrefix = "ReferenceICPTrajectoryGeneratorTest";
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testCalculateICPOnSegmentScalar()
    {
       //linear polynomial: y(x) = a0 + a1*x
@@ -71,7 +71,7 @@ public class ReferenceICPTrajectoryGeneratorTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMatricesPrimeLinear()
    {
       //linear polynomial: y(x) = a0 + a1*x

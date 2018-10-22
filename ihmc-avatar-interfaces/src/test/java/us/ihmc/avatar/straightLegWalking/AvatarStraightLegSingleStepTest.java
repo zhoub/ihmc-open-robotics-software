@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 import controller_msgs.msg.dds.FootstepDataMessage;
 import gnu.trove.list.array.TDoubleArrayList;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.InterpolationTools;
@@ -44,7 +44,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
    private Double stepDownHeight = null;
    private Double stepHeight = null;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -56,7 +56,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       stepHeight = null;
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -107,7 +107,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 70000)
+   @Test
    public void testForwardStep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -127,7 +127,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 70000)
+   @Test
    public void testForwardStepWithPause() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -153,7 +153,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 99990000)
+   @Test
    public void testForwardSteps() throws SimulationExceededMaximumTimeException
    {
       double startingLength = 0.4;
@@ -204,7 +204,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 45.0)
-   @Test(timeout = 70000)
+   @Test
    public void testWideStep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -229,7 +229,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 100000)
+   @Test
    public void testSteppingDown() throws SimulationExceededMaximumTimeException
    {
       runSteppingDown(stepDownHeight, stepDownHeight, stepLength, stanceWidth);
@@ -271,7 +271,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
-   @Test(timeout = 100000)
+   @Test
    public void testSteppingDownWithClosing() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

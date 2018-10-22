@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.desiredFootStep;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.messageHandlers.MomentumTrajectoryHandler;
 import us.ihmc.commons.MutationTestFacilitator;
@@ -26,7 +26,7 @@ import java.util.Random;
 public class MomentumTrajectoryHandlerTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleExample()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -65,7 +65,7 @@ public class MomentumTrajectoryHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSamplingDurations()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -141,7 +141,7 @@ public class MomentumTrajectoryHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testOutOfBounds()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -172,7 +172,7 @@ public class MomentumTrajectoryHandlerTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testQueuing()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");

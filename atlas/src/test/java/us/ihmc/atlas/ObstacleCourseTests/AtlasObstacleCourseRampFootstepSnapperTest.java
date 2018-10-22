@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -32,7 +32,7 @@ public class AtlasObstacleCourseRampFootstepSnapperTest extends DRCObstacleCours
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 89.2)
-   @Test(timeout = 450000)
+   @Test
    public void testWalkingUpRampUsingSnapFootsteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampUsingSnapFootsteps();

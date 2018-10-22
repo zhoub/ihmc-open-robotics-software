@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.awt.event.KeyEvent;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.tools.inputDevices.keyboard.Key;
@@ -12,7 +12,7 @@ import us.ihmc.tools.inputDevices.keyboard.Key;
 public class KeyTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testKey()
    {
       assertEquals("Key code not mapped", Key.fromKeyCode(KeyEvent.VK_LEFT), Key.LEFT);

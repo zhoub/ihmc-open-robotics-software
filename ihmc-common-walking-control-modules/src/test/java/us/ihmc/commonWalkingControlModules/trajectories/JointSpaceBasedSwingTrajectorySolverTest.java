@@ -12,7 +12,7 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -33,7 +33,7 @@ import us.ihmc.simulationConstructionSetTools.util.graphs.JFreePlot;
 public class JointSpaceBasedSwingTrajectorySolverTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 300000)
+   @Test
    public void testOneDoFTrajectory()
    {
       boolean VISUALIZE = false;
@@ -103,7 +103,7 @@ public class JointSpaceBasedSwingTrajectorySolverTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 300000)
+   @Test
    public void testPendulumTrajectory()
    {
       boolean VISUALIZE = false;

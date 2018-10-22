@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.awt.event.InputEvent;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.graphicsDescription.input.mouse.MouseButton;
@@ -12,7 +12,7 @@ import us.ihmc.graphicsDescription.input.mouse.MouseButton;
 public class MouseButtonTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMouseButton()
    {
       assertTrue("Valu not rite", MouseButton.LEFT.getInputEventMask() == InputEvent.BUTTON1_DOWN_MASK);

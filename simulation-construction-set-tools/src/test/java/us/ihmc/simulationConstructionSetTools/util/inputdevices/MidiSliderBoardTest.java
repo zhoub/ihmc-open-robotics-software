@@ -1,9 +1,9 @@
 package us.ihmc.simulationConstructionSetTools.util.inputdevices;
 
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -16,18 +16,18 @@ import us.ihmc.yoVariables.variable.YoVariable;
 @ContinuousIntegrationPlan(categories = IntegrationCategory.UI)
 public class MidiSliderBoardTest
 {
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testWeirdCase()
    {
       MidiSliderBoard midiSliderBoard = new MidiSliderBoard(null, true);

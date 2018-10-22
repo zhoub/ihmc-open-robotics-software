@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -20,7 +20,7 @@ public class LinearMappingTest
    private LinearMapping linearMappingOneD = null;
    private LinearMapping linearMappingTwoD = null;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       ArrayList<double[]> inputDimensions = new ArrayList<double[]>();
@@ -37,7 +37,7 @@ public class LinearMappingTest
       linearMappingTwoD = new LinearMapping(inputDimensions, outputDimensions);
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       linearMappingOneD = null;
@@ -45,7 +45,7 @@ public class LinearMappingTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMapFromInputSpaceToOutputSpace()
    {
       double[] input = new double[] { 1.0 / 9.0 };
@@ -69,7 +69,7 @@ public class LinearMappingTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testMapFromOutputSpaceToInputSpace()
    {
       double[] input = new double[] { 1.0 / 9.0 };

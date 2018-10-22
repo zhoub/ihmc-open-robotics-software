@@ -1,6 +1,6 @@
 package us.ihmc.tools.factories;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RunnableThatThrows;
@@ -9,7 +9,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 public class FactoryToolsTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFactoryDisposes()
    {
       final ExampleValidFactory exampleFactory = new ExampleValidFactory();
@@ -28,7 +28,7 @@ public class FactoryToolsTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFactoryRequiresFieldsSet()
    {
       final ExampleValidFactory exampleFactory = new ExampleValidFactory();
@@ -45,7 +45,7 @@ public class FactoryToolsTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testFactoryRequiresOptionalNotNull()
    {
       final ExampleInvalidFactory exampleFactory = new ExampleInvalidFactory();

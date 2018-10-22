@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -33,7 +33,7 @@ public class AtlasNumericalInverseKinematicsCalculatorWithRobotTest extends Nume
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 120000)
+   @Test
    public void testTroublesomeCaseOne()
    {
       Random random = new Random(1234L);
@@ -50,7 +50,7 @@ public class AtlasNumericalInverseKinematicsCalculatorWithRobotTest extends Nume
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 16.2)
-   @Test(timeout = 81000)
+   @Test
    public void testRandomFeasibleRobotPoses()
    {
       super.testRandomFeasibleRobotPoses();
@@ -58,7 +58,7 @@ public class AtlasNumericalInverseKinematicsCalculatorWithRobotTest extends Nume
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSimpleCase()
    {
       super.testSimpleCase();

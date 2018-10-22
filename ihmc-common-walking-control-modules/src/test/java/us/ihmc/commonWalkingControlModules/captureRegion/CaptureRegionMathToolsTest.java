@@ -2,8 +2,8 @@ package us.ihmc.commonWalkingControlModules.captureRegion;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -19,14 +19,14 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 
 public class CaptureRegionMathToolsTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetPointBetweenVectorsAtDistanceFromOriginCircular() throws Exception
    {
       Random random = new Random(33252L);

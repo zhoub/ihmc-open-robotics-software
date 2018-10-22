@@ -1,6 +1,6 @@
 package us.ihmc.quadrupedRobotics.planning.chooser.footstepChooser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -17,7 +17,7 @@ public class PlanarRegionBasedPointFootSnapperTest
 {
    private static final double epsilon = 1e-6;
 
-   @Test(timeout = 2000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 100)
    public void testSnappingToFlatSquare()
    {
@@ -59,7 +59,7 @@ public class PlanarRegionBasedPointFootSnapperTest
       assertTrue(snappedStep.epsilonEquals(new Point3D(1.4, 2.25, -0.5), epsilon));
    }
 
-   @Test(timeout = 2000)
+   @Test
    @ContinuousIntegrationTest(estimatedDuration = 100)
    public void testSnappingToRotatedSquare()
    {

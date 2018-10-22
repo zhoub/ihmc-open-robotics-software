@@ -1,9 +1,9 @@
 package us.ihmc.quadrupedRobotics.planning;
 
 import controller_msgs.msg.dds.EuclideanTrajectoryPointMessage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.quadrupedRobotics.*;
@@ -24,7 +24,7 @@ public abstract class QuadrupedBodyPathPlanTest implements QuadrupedMultiRobotTe
    private QuadrupedTeleopManager stepTeleopManager;
    private QuadrupedTestFactory quadrupedTestFactory;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -53,7 +53,7 @@ public abstract class QuadrupedBodyPathPlanTest implements QuadrupedMultiRobotTe
       }
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       quadrupedTestFactory.close();
@@ -66,7 +66,7 @@ public abstract class QuadrupedBodyPathPlanTest implements QuadrupedMultiRobotTe
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 120)
-   @Test(timeout = 200000)
+   @Test
    public void testSimpleBodyPathPlan()
    {
       setUpSimulation(null);

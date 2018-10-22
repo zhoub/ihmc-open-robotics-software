@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -18,7 +18,7 @@ public class AtlasSwingTimingsTest extends AvatarSwingTimingsTest
 {
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 30.0)
-   @Test(timeout = 500000)
+   @Test
    public void testSteppingWithChangingSwingTimes() throws SimulationExceededMaximumTimeException
    {
       super.testSteppingWithChangingSwingTimes();

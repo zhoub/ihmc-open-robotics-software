@@ -10,15 +10,14 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class SideDependentListTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testCommonUse()
    {
       double leftFavoriteNumber = Math.PI;
@@ -43,8 +42,7 @@ public class SideDependentListTest
       System.out.println(sideDependentList);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testWitGenericObjects()
    {
       ArrayList<Integer> leftObject = new ArrayList<Integer>();
@@ -57,8 +55,7 @@ public class SideDependentListTest
       assertTrue(rightObject == sideDependentList.get(RobotSide.RIGHT));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000) 
+	@Test 
    public void testCopyConstructor()
    {
       Object leftObject = new Object();
@@ -78,7 +75,7 @@ public class SideDependentListTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = IndexOutOfBoundsException.class)
+	@Test
    public void testIndexOutOfBoundsException()
    {
       Object leftObject = new Object();
@@ -97,7 +94,7 @@ public class SideDependentListTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000,expected = UnsupportedOperationException.class)
+	@Test
    public void testIteratorCannotRemove()
    {
       Object leftObject = new Object();
@@ -109,8 +106,7 @@ public class SideDependentListTest
       iterator.remove();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testSet()
    {
       Object leftObject = new Object();
@@ -129,8 +125,7 @@ public class SideDependentListTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testCreateListOfHashMaps()
    {
       SideDependentList<Map<Double,String>> sideDependentList = SideDependentList.createListOfHashMaps();
@@ -152,8 +147,7 @@ public class SideDependentListTest
       assertEquals(sideDependentList.get(RobotSide.RIGHT).get(4.0), "4.0");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testCreateListOfEnumMaps()
    {
       SideDependentList<EnumMap<IceCreamFlavor,String>> sideDependentList = SideDependentList.createListOfEnumMaps(IceCreamFlavor.class);

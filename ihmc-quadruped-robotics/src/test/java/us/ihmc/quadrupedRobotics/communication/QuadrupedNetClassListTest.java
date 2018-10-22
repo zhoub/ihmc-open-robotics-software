@@ -1,6 +1,6 @@
 package us.ihmc.quadrupedRobotics.communication;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.reflections.Reflections;
 import us.ihmc.communication.kryo.KryoNetClassListTestHelper;
 import us.ihmc.communication.net.NetClassList;
@@ -21,7 +21,7 @@ public class QuadrupedNetClassListTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testAllClassesRegisteredArePackets()
    {
       NetClassList netClassList = new QuadrupedNetClassList();
@@ -29,7 +29,7 @@ public class QuadrupedNetClassListTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.5)
-   @Test(timeout = 30000)
+   @Test
    public void testAllPacketFieldsAreRegistered()
          throws InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException, IllegalArgumentException
    {

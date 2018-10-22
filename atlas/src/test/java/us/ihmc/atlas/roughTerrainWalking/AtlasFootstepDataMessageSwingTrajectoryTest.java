@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -20,7 +20,7 @@ public class AtlasFootstepDataMessageSwingTrajectoryTest extends AvatarFootstepD
 {
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 33.7)
-   @Test(timeout = 170000)
+   @Test
    public void testSwingTrajectoryInWorld() throws SimulationExceededMaximumTimeException
    {
       super.testSwingTrajectoryInWorld();
@@ -28,7 +28,7 @@ public class AtlasFootstepDataMessageSwingTrajectoryTest extends AvatarFootstepD
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 33.7)
-   @Test(timeout = 170000)
+   @Test
    public void testSwingTrajectoryTouchdownSpeed() throws SimulationExceededMaximumTimeException
    {
       setPushAndAdjust(false);
@@ -37,7 +37,7 @@ public class AtlasFootstepDataMessageSwingTrajectoryTest extends AvatarFootstepD
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 33.7)
-   @Test(timeout = 170000)
+   @Test
    public void testSwingTrajectoryTouchdownWithAdjustment() throws SimulationExceededMaximumTimeException
    {
       setPushAndAdjust(true);

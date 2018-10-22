@@ -7,11 +7,11 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCBehaviorTestHelper;
@@ -67,14 +67,14 @@ public abstract class AvatarWalkingPathGeneratorTest implements MultiRobotTestIn
    Point3D goalState;
    Point3D initialState;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
       fullRobotModel = getRobotModel().createFullRobotModel();
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
 //      if (!ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer()) // set
@@ -171,7 +171,7 @@ public abstract class AvatarWalkingPathGeneratorTest implements MultiRobotTestIn
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 37.0)
-   @Test(timeout = 190000)
+   @Test
    public void testOne() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {
       // ******************************** //

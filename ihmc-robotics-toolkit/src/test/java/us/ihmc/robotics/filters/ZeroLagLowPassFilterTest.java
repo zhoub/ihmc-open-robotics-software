@@ -2,7 +2,7 @@ package us.ihmc.robotics.filters;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -12,8 +12,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 public class ZeroLagLowPassFilterTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testZeroFiltering()
    {
       double[] list = new double[10];
@@ -32,8 +31,7 @@ public class ZeroLagLowPassFilterTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testZeroNonZeroAlpha()
    {
       double[] list = new double[10];
@@ -56,8 +54,7 @@ public class ZeroLagLowPassFilterTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testZeroNonZeroAlpha2()
    {
       double[] list = new double[10];

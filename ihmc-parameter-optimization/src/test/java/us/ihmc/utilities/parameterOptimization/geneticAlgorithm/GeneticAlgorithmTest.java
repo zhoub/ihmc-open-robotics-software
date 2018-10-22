@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.utilities.parameterOptimization.IndividualToEvaluate;
@@ -15,7 +15,7 @@ public class GeneticAlgorithmTest
    private static final boolean SHOW_GUI = false;
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.3)
-	@Test(timeout = 30000)
+	@Test
    public void testOptimizeExampleIndividualOne()
    {
       int populationSize = 500;
@@ -52,7 +52,7 @@ public class GeneticAlgorithmTest
    }
    
    
-//   @Test(timeout=300000)
+//   @Test
    public void testOptimizeExampleIndividualTwo()
    {
       int populationSize = 50;

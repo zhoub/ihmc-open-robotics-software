@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.apache.commons.lang3.mutable.MutableDouble;
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -22,14 +22,14 @@ import us.ihmc.robotics.random.RandomGeometry;
 public class AlphaFilteredYoFrameQuaternionTest
 {
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testInitialValue()
    {
 	   MutableDouble alpha = new MutableDouble();
@@ -49,7 +49,7 @@ public class AlphaFilteredYoFrameQuaternionTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testAlpha1()
    {
       MutableDouble alpha = new MutableDouble();
@@ -73,7 +73,7 @@ public class AlphaFilteredYoFrameQuaternionTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testAlpha0()
    {
       MutableDouble alpha = new MutableDouble();
@@ -97,7 +97,7 @@ public class AlphaFilteredYoFrameQuaternionTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testStepChange()
    {
       MutableDouble alpha = new MutableDouble();

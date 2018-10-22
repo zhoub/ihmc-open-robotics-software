@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.simulation;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCFlatGroundWalkingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -27,7 +27,7 @@ public class ValkyrieFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
 
    @Override
 	@ContinuousIntegrationTest(estimatedDuration = 504.7)
-	@Test(timeout = 2500000)
+	@Test
    public void testFlatGroundWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);

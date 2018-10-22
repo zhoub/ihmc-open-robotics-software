@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -25,7 +25,7 @@ public class DataExporterGraphCreatorTest
 {
 
     @ContinuousIntegrationTest(estimatedDuration = 1.0)
-    @Test(timeout = 30000)
+    @Test
     public void testDataExporterGraphCreator() throws IOException
     {
         SimulationConstructionSet sim = createSimulation();

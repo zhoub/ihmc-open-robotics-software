@@ -5,9 +5,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import optiTrack.MocapMarker;
 import optiTrack.MocapRigidBody;
@@ -32,13 +32,13 @@ public class MocapToPelvisFrameConverterTest
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    private final Random random = new Random(456654321123L);
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before: ");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -51,7 +51,7 @@ public class MocapToPelvisFrameConverterTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 100.0)
-   @Test(timeout = 10000)
+   @Test
    public void testForFrameConversionNoPelvisMotion()
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -71,7 +71,7 @@ public class MocapToPelvisFrameConverterTest
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 100.0)
-   @Test(timeout = 10000)
+   @Test
    public void testFrameConversionForRandomPelvisMotion()
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

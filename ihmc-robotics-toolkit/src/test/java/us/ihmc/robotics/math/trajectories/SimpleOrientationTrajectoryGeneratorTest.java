@@ -5,7 +5,7 @@ import static org.junit.Assert.fail;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
@@ -29,8 +29,7 @@ public class SimpleOrientationTrajectoryGeneratorTest
 
    private static final double EPSILON = 1.0e-10;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testRuntimeExceptions()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -79,7 +78,7 @@ public class SimpleOrientationTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout = 30000)
+	@Test
    public void testCompareWithSingleFrameTrajectoryGenerator()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -126,8 +125,7 @@ public class SimpleOrientationTrajectoryGeneratorTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testNegativeTime()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -160,8 +158,7 @@ public class SimpleOrientationTrajectoryGeneratorTest
       assertTrue(angularAcceleration1.epsilonEquals(angularAcceleration2, EPSILON));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testTooBigTime()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -195,7 +192,7 @@ public class SimpleOrientationTrajectoryGeneratorTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.1)
-	@Test(timeout = 30000)
+	@Test
    public void testMultipleFramesWithSingleFrameTrajectoryGenerators()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");

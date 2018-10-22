@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -17,7 +17,7 @@ public class DoubleMassSpringOscillatorTest
    private static final boolean VERBOSE = true;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDecomposerGotEigenvaluesRight()
    {
       Matrix matrixA = new Matrix(new double[][] { { 0.0, 1.0, 0.0, 0.0 }, { -2.0, 0.0, 1.0, 0.0 }, { 0.0, 0.0, 0.0, 1.0 }, { 1.0, 0.0, -2.0, 0.0 } });

@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -33,7 +33,7 @@ public class FrameMatrix3DTest
                                                                                                              EuclidCoreRandomTools.nextRigidBodyTransform(random));
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConstructors()
    {
       Matrix3D matrixTested = new Matrix3D();
@@ -62,7 +62,7 @@ public class FrameMatrix3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetters()
    {
       Matrix3D matrixTested = new Matrix3D();
@@ -157,7 +157,7 @@ public class FrameMatrix3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testGetters()
    {
       FrameMatrix3D frameMatrix3D = new FrameMatrix3D();
@@ -202,7 +202,7 @@ public class FrameMatrix3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetToNaN()
    {
       FrameMatrix3D frameMatrix3D = new FrameMatrix3D();
@@ -231,7 +231,7 @@ public class FrameMatrix3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetToZero()
    {
       FrameMatrix3D frameMatrix3D = new FrameMatrix3D();
@@ -260,7 +260,7 @@ public class FrameMatrix3DTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetToIdentity()
    {
       FrameMatrix3D frameMatrix3D = new FrameMatrix3D();
@@ -295,7 +295,7 @@ public class FrameMatrix3DTest
    }
    
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSetMainDiagonal()
    {
       for (int testIndex = 0; testIndex < 1000; testIndex++)
@@ -333,7 +333,7 @@ public class FrameMatrix3DTest
     * FrameMatrix3D
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testChangeFrame()
    {
       for (int i = 0; i < 1000; i++)
@@ -363,7 +363,7 @@ public class FrameMatrix3DTest
     * using the FrameMatrix3D ends up being the same.
     */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testChangeFrameByTransformingAVectorInTwoDifferentFrames()
    {
       PoseReferenceFrame randomFrameA = new PoseReferenceFrame("randomFrameA", worldFrame);

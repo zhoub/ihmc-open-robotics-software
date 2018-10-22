@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -17,7 +17,7 @@ import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SL
 public class ContinuousSLIPDynamicsTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDynamics()
    {
       double mass = 10.0;
@@ -90,7 +90,7 @@ public class ContinuousSLIPDynamicsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDynamicsStateGradient()
    {
       double mass = 11.0;
@@ -191,7 +191,7 @@ public class ContinuousSLIPDynamicsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDynamicsStateGradientNumericalDifferentiationStance()
    {
       double mass = 11.0;
@@ -269,7 +269,7 @@ public class ContinuousSLIPDynamicsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDynamicsStateGradientNumericalDifferentiationFlight()
    {
       double mass = 11.0;
@@ -347,7 +347,7 @@ public class ContinuousSLIPDynamicsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDynamicsControlGradient()
    {
       double mass = 11.0;
@@ -441,7 +441,7 @@ public class ContinuousSLIPDynamicsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDynamicsControlGradientNumericalDifferentiationStance()
    {
       double mass = 11.0;
@@ -548,7 +548,7 @@ public class ContinuousSLIPDynamicsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDynamicsControlGradientNumericalDifferentiationFlight()
    {
       double mass = 11.0;

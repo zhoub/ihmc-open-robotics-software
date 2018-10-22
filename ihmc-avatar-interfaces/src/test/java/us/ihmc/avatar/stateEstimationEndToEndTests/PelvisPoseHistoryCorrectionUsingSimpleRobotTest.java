@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.LocalizationPacket;
 import controller_msgs.msg.dds.PelvisPoseErrorPacket;
@@ -299,7 +299,7 @@ public class PelvisPoseHistoryCorrectionUsingSimpleRobotTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 24.5)
-	@Test(timeout = 120000)
+	@Test
    public void testRandomInterpolationFinals() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -324,7 +324,7 @@ public class PelvisPoseHistoryCorrectionUsingSimpleRobotTest
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.polygonSnapping;
 
-import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
@@ -30,14 +30,14 @@ public class ConstructingGroundPlaneAroundFeetTest
 {
    private final boolean visualize = !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testConstructingGroundPlaneAroundFeet()
    {
       PlanarRegionsList planarRegionsList = new PlanarRegionsList();

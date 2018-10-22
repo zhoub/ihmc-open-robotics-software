@@ -4,7 +4,7 @@ import static org.junit.Assert.assertArrayEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -13,8 +13,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class OnlineLinearRegressionTest {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
 	   public void toyExample()
 	   {
 		   int testSize=100;

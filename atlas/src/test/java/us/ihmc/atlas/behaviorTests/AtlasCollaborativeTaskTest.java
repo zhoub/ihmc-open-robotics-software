@@ -1,6 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -18,7 +18,7 @@ public class AtlasCollaborativeTaskTest extends AvatarCollaborativeBehaviorTest{
 
 	@Override
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
-   @Test(timeout = 30000)
+   @Test
 	public void testBehavior() throws SimulationExceededMaximumTimeException
 	{
 		super.testBehavior();

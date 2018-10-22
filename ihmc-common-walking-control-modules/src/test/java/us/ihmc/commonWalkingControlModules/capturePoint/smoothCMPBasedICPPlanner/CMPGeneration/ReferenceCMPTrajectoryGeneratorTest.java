@@ -5,9 +5,9 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPSplineType;
 import us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.WalkingTrajectoryType;
@@ -48,7 +48,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
    private FrameTrajectory3D cmpSegmentTrajectory = new FrameTrajectory3D(numberOfCoefficients, worldFrame);
    private TorqueTrajectory torqueTrajectory = new TorqueTrajectory(Math.max(numberOfSwingSegments, numberOfTransferSegments), numberOfCoefficients);
 
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       clear();
@@ -111,14 +111,14 @@ public class ReferenceCMPTrajectoryGeneratorTest
       return new FrameVector3D(worldFrame, Math.random(), Math.random(), Math.random());
    }
 
-   @After
+   @AfterEach
    public void tearDownTest()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDoubleSupportWithoutAngularMomentum()
    {
       cmpTrajectoryGenerator.setNumberOfRegisteredSteps(numberOfFootsteps);
@@ -128,7 +128,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSingleSupportWithoutAngularMomentum()
    {
       cmpTrajectoryGenerator.setNumberOfRegisteredSteps(numberOfFootsteps);
@@ -138,7 +138,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testDoubleSupportWithAngularMomentum()
    {
       cmpTrajectoryGenerator.setNumberOfRegisteredSteps(numberOfFootsteps);
@@ -149,7 +149,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testSingleSupportWithAngularMomentum()
    {
       cmpTrajectoryGenerator.setNumberOfRegisteredSteps(numberOfFootsteps);

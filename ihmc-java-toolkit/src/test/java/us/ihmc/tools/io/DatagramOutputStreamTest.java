@@ -7,7 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -32,7 +32,7 @@ public class DatagramOutputStreamTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 8.6)
-	@Test(timeout = 43000)
+	@Test
    public void testDatagramOutputStreamDoNotThrowOutStalePackets() throws IOException
    {
       boolean throwOutStalePackets = false;

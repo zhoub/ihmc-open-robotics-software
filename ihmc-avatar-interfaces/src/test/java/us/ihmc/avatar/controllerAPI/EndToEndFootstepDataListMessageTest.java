@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.DRCStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -50,7 +50,7 @@ public abstract class EndToEndFootstepDataListMessageTest implements MultiRobotT
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 64.9)
-   @Test(timeout = 320000)
+   @Test
    public void testQueuing() throws SimulationExceededMaximumTimeException
    {
       DRCRobotModel robotModel = getRobotModel();
@@ -191,13 +191,13 @@ public abstract class EndToEndFootstepDataListMessageTest implements MultiRobotT
       drcSimulationTestHelper.setupCameraForUnitTest(cameraFocus, cameraPosition);
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

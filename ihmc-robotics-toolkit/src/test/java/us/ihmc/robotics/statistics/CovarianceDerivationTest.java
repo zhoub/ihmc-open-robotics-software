@@ -5,15 +5,14 @@ import static org.junit.Assert.assertEquals;
 import java.util.Random;
 
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class CovarianceDerivationTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testLawOfLargeNumbers()
    {
       Random random = new Random(12352351L);
@@ -32,7 +31,7 @@ public class CovarianceDerivationTest
    }
 
 	@ContinuousIntegrationTest(estimatedDuration = 7.6)
-	@Test(timeout = 38000)
+	@Test
    public void testRandomWalkDiscretization()
    {
       Random random = new Random(1252L);

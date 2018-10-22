@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.FinishableState;
@@ -16,7 +16,7 @@ public class FinishableStateTest
 {
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testExampleStateMachineWithFinishableStates()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");

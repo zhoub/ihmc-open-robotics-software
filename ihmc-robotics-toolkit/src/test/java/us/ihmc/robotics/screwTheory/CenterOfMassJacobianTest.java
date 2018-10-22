@@ -8,9 +8,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.matrix.Matrix3D;
@@ -34,53 +34,48 @@ public class CenterOfMassJacobianTest
    private RigidBody elevator;
    private Random random;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       elevator = new RigidBody("elevator", worldFrame);
       random = new Random(1986L);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testComputeJacobianSingleJoint()
    {
       ArrayList<RevoluteJoint> joints = setUpSingleJoint();
       testComputeJacobianRevoluteJoints(joints, ScrewTools.computeSupportAndSubtreeSuccessors(elevator), elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testComputeJacobianTwoJointsSimple()
    {
       ArrayList<RevoluteJoint> joints = setUpTwoJointsSimple();
       testComputeJacobianRevoluteJoints(joints, ScrewTools.computeSupportAndSubtreeSuccessors(elevator), elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testComputeJacobianRandomChain()
    {
       ArrayList<RevoluteJoint> joints = setUpRandomChain(elevator);
       testComputeJacobianRevoluteJoints(joints, ScrewTools.computeSupportAndSubtreeSuccessors(elevator), elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testTree()
    {
       ArrayList<RevoluteJoint> joints = setUpRandomTree(elevator);
       testComputeJacobianRevoluteJoints(joints, ScrewTools.computeSupportAndSubtreeSuccessors(elevator), elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testRigidBodyListSortInvariant()
    {
       ArrayList<RevoluteJoint> joints = setUpRandomTree(elevator);
@@ -107,8 +102,7 @@ public class CenterOfMassJacobianTest
       EuclidCoreTestTools.assertTuple3DEquals(velocityFromJacobianInOrder, velocityFromJacobianOutOrder, 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testComputeJacobianSixDoFPlusRandomChain()
    {
       SixDoFJoint sixDoFJoint = new SixDoFJoint("sixDoFJoint", elevator);
@@ -142,8 +136,7 @@ public class CenterOfMassJacobianTest
       EuclidCoreTestTools.assertTuple3DEquals(velocityNumerical, velocityFromJacobian, 4e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testComputeJacobianSkipLeafBody()
    {
       ArrayList<RevoluteJoint> joints = setUpTwoJointsSimple();
@@ -151,8 +144,7 @@ public class CenterOfMassJacobianTest
       testComputeJacobianRevoluteJoints(joints, rigidBodies, elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testComputeJacobianSkipIntermediateBody()
    {
       ArrayList<RevoluteJoint> joints = setUpTwoJointsSimple();
@@ -160,8 +152,7 @@ public class CenterOfMassJacobianTest
       testComputeJacobianRevoluteJoints(joints, rigidBodies, elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout = 30000)
+	@Test
    public void testComputeRootJointLinearVelocity()
    {
       Random random = new Random(44345L);

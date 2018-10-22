@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ReachingManifoldMessage;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
@@ -45,7 +45,7 @@ public class ReachingManifoldToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testFindingClosestPointOnSphere()
    {
       RigidBodyTransform expectedClosestTransform = new RigidBodyTransform();
@@ -79,7 +79,7 @@ public class ReachingManifoldToolsTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testFindingClosestPointOnCylinder()
    {
       RigidBodyTransform expectedClosestTransform = new RigidBodyTransform();

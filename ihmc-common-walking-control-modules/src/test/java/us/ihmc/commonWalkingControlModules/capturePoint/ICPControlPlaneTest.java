@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
@@ -31,14 +31,14 @@ public class ICPControlPlaneTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testProjectPointForwardAndLeftOntoPlane()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -243,9 +243,9 @@ public class ICPControlPlaneTest
     * filled up with NaNs, now the test fails as it should have always been.
     * </p>
     */
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testProjectPointForwardAndLeftOntoPlaneEdgeCase()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -283,7 +283,7 @@ public class ICPControlPlaneTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomProjectOntoPlane()
    {
       Random random = new Random(12345);
@@ -328,7 +328,7 @@ public class ICPControlPlaneTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testProjectPointForwardAndLeftFromPlaneOntoSurface()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -524,7 +524,7 @@ public class ICPControlPlaneTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
-   @Test(timeout = 30000)
+   @Test
    public void testRandomProjectOntoSurface()
    {
       Random random = new Random(12345);
@@ -570,7 +570,7 @@ public class ICPControlPlaneTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testProjectPlanarRegionMostBasic()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -625,7 +625,7 @@ public class ICPControlPlaneTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
-   @Test(timeout = 30000)
+   @Test
    public void testProjectPlanarRegion()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");

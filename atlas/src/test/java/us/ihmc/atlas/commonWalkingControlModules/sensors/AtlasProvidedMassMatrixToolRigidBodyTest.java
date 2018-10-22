@@ -3,7 +3,7 @@ package us.ihmc.atlas.commonWalkingControlModules.sensors;
 import java.util.Random;
 import java.util.stream.DoubleStream;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -37,7 +37,7 @@ public class AtlasProvidedMassMatrixToolRigidBodyTest extends ProvidedMassMatrix
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 0.1)
-   @Test(timeout = 30000)
+   @Test
    public void testprovidedMassMatrixToolRigidBody()
    {
       super.testprovidedMassMatrixToolRigidBody();

@@ -4,9 +4,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
 import controller_msgs.msg.dds.FootTrajectoryMessage;
@@ -50,7 +50,7 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 36.1)
-   @Test(timeout = 180000)
+   @Test
    public void testSingleWaypoint() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -185,7 +185,7 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 36.4)
-   @Test(timeout = 180000)
+   @Test
    public void testSingleWaypointUsingMessageOfMessages() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -309,7 +309,7 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 63.1)
-   @Test(timeout = 320000)
+   @Test
    public void testSingleWaypointUsingMessageOfMessagesWithDelays() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -436,7 +436,7 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 16.8)
-   @Test(timeout = 84000)
+   @Test
    public void testIssue47BadChestTrajectoryMessage() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -496,13 +496,13 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
       assertTrue(success);
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

@@ -4,9 +4,9 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.LocalizationPacket;
 import controller_msgs.msg.dds.PelvisPoseErrorPacket;
@@ -72,7 +72,7 @@ public class NewPelvisPoseHistoryCorrectionTest
 
    private boolean angleErrorTooBigDetectedAndPacketSent = false;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -84,7 +84,7 @@ public class NewPelvisPoseHistoryCorrectionTest
 
    }
 
-   @After
+   @AfterEach
    public void showMemoryAfterTests()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
@@ -245,7 +245,7 @@ public class NewPelvisPoseHistoryCorrectionTest
    private YoDouble maximumErrorAngleInDegrees;
 
    @ContinuousIntegrationTest(estimatedDuration = 0.8, categoriesOverride = {IntegrationCategory.EXCLUDE})
-   @Test(timeout = 30000)
+   @Test
    public void testTranslationCorrectionOnlyWithPelvisFollowingAKnownPathAndRandomLocalizationOffsets()
    {
       isRotationCorrectionEnabled = (YoBoolean) registry.getVariable("ClippedSpeedOffsetErrorInterpolator", "isRotationCorrectionEnabled");
@@ -321,7 +321,7 @@ public class NewPelvisPoseHistoryCorrectionTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 1.0, categoriesOverride = {IntegrationCategory.EXCLUDE}) // This test used to hack the rootBody and 6-DoF joint in a way that is not possible since the feature 'feature/moving-reference-frame'.
-   @Test(timeout = 30000)
+   @Test
    public void testTooBigAngleErrorAreDetectedAndPacketIsSent()
    {
       boolean checkPacketHasBeenSentNextLoopIteration = false;

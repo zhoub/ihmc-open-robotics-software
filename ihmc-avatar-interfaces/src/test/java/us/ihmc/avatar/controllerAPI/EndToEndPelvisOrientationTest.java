@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
 import controller_msgs.msg.dds.FootstepDataListMessage;
@@ -59,7 +59,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
    private SimulationConstructionSet scs;
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 26.9)
-   @Test(timeout = 130000)
+   @Test
    public void testGoHome() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 1.0e-5;
@@ -92,7 +92,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 25.5)
-   @Test(timeout = 130000)
+   @Test
    public void testSingleTrajectoryPoint() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 1.0e-10;
@@ -127,7 +127,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 42.5)
-   @Test(timeout = 210000)
+   @Test
    public void testWalking() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 1.0e-4;
@@ -150,7 +150,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 40.8)
-   @Test(timeout = 200000)
+   @Test
    public void testWalkingAfterTrajectory() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 3.0e-3;
@@ -188,7 +188,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 33.4)
-   @Test(timeout = 170000)
+   @Test
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 1.0e-10;
@@ -264,7 +264,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 34.9)
-   @Test(timeout = 170000)
+   @Test
    public void testWalkingWithUserControl() throws SimulationExceededMaximumTimeException
    {
       double trajectoryTime = 0.5;
@@ -287,7 +287,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
    }
 
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 29.3)
-   @Test(timeout = 150000)
+   @Test
    public void testCustomControlFrame() throws SimulationExceededMaximumTimeException
    {
       double pitch = Math.toRadians(20.0);
@@ -400,7 +400,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       return time;
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest() throws SimulationExceededMaximumTimeException
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -422,7 +422,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       humanoidReferenceFrames.updateFrames();
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

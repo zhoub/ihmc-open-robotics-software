@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.roughTerrainPlanning;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -43,7 +43,7 @@ public class PlanThenSnapPlannerTest extends FootstepPlannerOnRoughTerrainTest
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 0.2, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
-   @Test(timeout = 30000)
+   @Test
    public void testSteppingStones()
    {
       super.testSteppingStones();

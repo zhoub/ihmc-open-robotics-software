@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -16,7 +16,7 @@ public class AlphaFusedYoVariableTest
    private final Random rng = new Random();
 
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
-	@Test(timeout=300000)
+	@Test
    public void testAlphaFusedYoVariable()
    {
       double alpha = 0.3, slowSignalNoise = 0, fastSignalNoise = 0;

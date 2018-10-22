@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
@@ -23,7 +23,7 @@ public class GenericQuadrupedTurning720Test extends QuadrupedXGaitTurning720Test
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 370.6)
-   @Test(timeout = 1900000)
+   @Test
    public void rotate720InPlaceRight() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.rotate720InPlaceRight();
@@ -31,7 +31,7 @@ public class GenericQuadrupedTurning720Test extends QuadrupedXGaitTurning720Test
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 394.8, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 2000000)
+   @Test
    public void rotate720InPlaceLeft() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.rotate720InPlaceLeft();

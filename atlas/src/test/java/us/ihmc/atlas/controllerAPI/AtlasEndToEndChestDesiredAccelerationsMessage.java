@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -17,7 +17,7 @@ public class AtlasEndToEndChestDesiredAccelerationsMessage extends EndToEndChest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 18.1)
-   @Test(timeout = 90000)
+   @Test
    public void testSimpleCommands() throws Exception
    {
       super.testSimpleCommands();

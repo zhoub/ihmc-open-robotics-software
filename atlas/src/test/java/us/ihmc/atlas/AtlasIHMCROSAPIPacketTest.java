@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.IHMCROSAPIPacketTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -29,7 +29,7 @@ public class AtlasIHMCROSAPIPacketTest extends IHMCROSAPIPacketTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 8.7)
-   @Test(timeout = 420000)
+   @Test
    public void testFuzzyPacketsUsingRos()
    {
       super.testFuzzyPacketsUsingRos();
@@ -37,7 +37,7 @@ public class AtlasIHMCROSAPIPacketTest extends IHMCROSAPIPacketTest
 
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 2.7)
-   @Test(timeout = 420000)
+   @Test
    public void testFuzzyPacketsWithoutRos()
    {
       super.testFuzzyPacketsWithoutRos();
