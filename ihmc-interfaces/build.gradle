@@ -15,7 +15,7 @@ buildscript {
 
 plugins {
    id("us.ihmc.ihmc-build") version "0.15.1"
-   id("us.ihmc.ihmc-ci-plugin") version "0.18.0"
+   id("us.ihmc.ihmc-ci") version "1.2.0"
    id("us.ihmc.log-tools") version "0.2.2"
 }
 
@@ -30,11 +30,6 @@ ihmc {
    javaDirectory("main", "generated-java")
    resourceDirectory("generator", "docker")
    configurePublications()
-}
-
-testSuites {
-   def prefix = "LIBS-IHMCOPENROBOTICSSOFTWARE"
-   bambooPlanKeys = [prefix + "FAST", prefix + "INDEVELOPMENT", prefix + "UI", prefix + "VIDEO"]
 }
 
 mainDependencies {
