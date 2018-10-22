@@ -11,6 +11,10 @@ ihmc {
    configurePublications()
 }
 
+def network = categorties.create("network")
+network.includeTags += "network"
+network.maxParallelTests = 1
+
 mainDependencies {
    compile group: "org.apache.commons", name: "commons-lang3", version: "3.8.1"
    compile group: "commons-io", name: "commons-io", version: "2.6"

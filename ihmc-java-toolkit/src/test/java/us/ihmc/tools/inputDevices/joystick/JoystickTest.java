@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import net.java.games.input.Component.Identifier;
@@ -12,7 +13,6 @@ import net.java.games.input.test.ControllerReadTest;
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RunnableThatThrows;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.tools.inputDevices.joystick.exceptions.JoystickNotFoundException;
 import us.ihmc.tools.inputDevices.joystick.virtualJoystick.VirtualJoystick;
 
@@ -116,7 +116,7 @@ public class JoystickTest
    boolean madCatz5Status = false;
    boolean madCatz1Status = false;
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = IntegrationCategory.MANUAL)
+   @Tag("manual")
    @Test
    public void testCreateTwoJoysticks()
    {
