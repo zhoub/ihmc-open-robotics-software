@@ -31,11 +31,6 @@ ihmc {
    configurePublications()
 }
 
-testSuites {
-   def prefix = "LIBS-IHMCOPENROBOTICSSOFTWARE"
-   bambooPlanKeys = [prefix + "FAST", prefix + "INDEVELOPMENT", prefix + "UI", prefix + "VIDEO"]
-}
-
 mainDependencies {
    compile group: "us.ihmc", name: "euclid-core", version: "0.6.1"
    compile group: "us.ihmc", name: "euclid", version: "0.9.3"
@@ -80,7 +75,6 @@ task generateMessages {
       {
          throw new org.gradle.api.GradleException("Could not find ros2-common-interfaces in configurations.compile!")
       }
-
 
       generator.addPackageRootToIDLGenerator(file("build/tmp/generateMessages/ros2-common-interfaces/rcl_interfaces").toPath());
       generator.addPackageRootToIDLGenerator(file("build/tmp/generateMessages/ros2-common-interfaces/common_interfaces").toPath());
