@@ -11,8 +11,8 @@ ihmc {
    configurePublications()
 }
 
-def network = categorties.create("network")
-network.includeTags += "network"
+def network = categories.create("network")
+network.includeTags.add("network")
 network.maxParallelTests = 1
 
 mainDependencies {
