@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
@@ -31,6 +32,7 @@ public class DatagramOutputStreamTest
       runATest(1776, throwOutStalePackets, expectedMessagesToReceive);
    }
 
+   @Tag("network")
 	@ContinuousIntegrationTest(estimatedDuration = 8.6)
 	@Test
    public void testDatagramOutputStreamDoNotThrowOutStalePackets() throws IOException

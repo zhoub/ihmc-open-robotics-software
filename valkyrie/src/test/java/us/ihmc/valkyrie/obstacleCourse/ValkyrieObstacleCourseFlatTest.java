@@ -127,7 +127,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 272.9, categoriesOverride = IntegrationCategory.MANUAL)
+   @Tag("manual")
    @Test
    public void testForMemoryLeaks() throws Exception
    {
