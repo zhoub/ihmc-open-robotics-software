@@ -6,7 +6,6 @@ import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.sensorProcessing.communication.producers.RobotConfigurationDataBufferTest;
@@ -22,7 +21,6 @@ public class AtlasRobotConfigurationDataBufferTest extends RobotConfigurationDat
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testAddingStuff()
    {
@@ -30,7 +28,6 @@ public class AtlasRobotConfigurationDataBufferTest extends RobotConfigurationDat
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 100.0)
    @Test
    public void testWaitForTimestamp()
    {

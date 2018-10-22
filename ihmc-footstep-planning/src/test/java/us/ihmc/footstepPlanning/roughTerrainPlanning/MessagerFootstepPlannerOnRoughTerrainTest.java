@@ -35,7 +35,6 @@ import javafx.stage.Stage;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.footstepPlanning.FootstepPlan;
@@ -134,7 +133,6 @@ public abstract class MessagerFootstepPlannerOnRoughTerrainTest
       ui = null;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20)
    @Test
    public void test()
    {

@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.Robot;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
@@ -46,7 +45,6 @@ public class SpringFlamingoSimulationTest
       testFixture = null;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 8.5)
 	@Test
    public void testSpringFlamingoSimulationAndGUI() throws SimulationExceededMaximumTimeException
    {
@@ -117,7 +115,6 @@ public class SpringFlamingoSimulationTest
    }
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 3.6)
 	@Test
 	public void testRewindability() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
 	{

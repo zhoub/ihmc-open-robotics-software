@@ -7,13 +7,9 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.behaviorTests.DRCFootstepListBehaviorTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
 {
    private final AtlasRobotModel robotModel;
@@ -36,7 +32,6 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.1)
    @Test
    public void testSideStepping() throws SimulationExceededMaximumTimeException
    {
@@ -44,7 +39,6 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 34.5)
    @Test
    public void testStepLongerThanMaxStepLength() throws SimulationExceededMaximumTimeException
    {
@@ -52,7 +46,6 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 71.3)
    @Test
    public void testStop() throws SimulationExceededMaximumTimeException
    {
@@ -60,7 +53,6 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 54.9)
    @Test
    public void testTwoStepsForwards() throws SimulationExceededMaximumTimeException
    {

@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 
 import sensor_msgs.PointCloud2;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.graphicsDescription.color.MutableColor;
@@ -24,14 +23,12 @@ import us.ihmc.utilities.ros.types.PointType;
 @ContinuousIntegrationPlan(categories=IntegrationCategory.FLAKY)
 public class RosPointCloudPublisherSubscriberTest extends IHMCRosTestWithRosCore
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testPubSubSinglePointXYZICloud() throws URISyntaxException, InterruptedException
    {
       testPubSubSingleCloud(PointType.XYZI);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testPubSubSinglePointXYZRGBCloud() throws URISyntaxException, InterruptedException
    {

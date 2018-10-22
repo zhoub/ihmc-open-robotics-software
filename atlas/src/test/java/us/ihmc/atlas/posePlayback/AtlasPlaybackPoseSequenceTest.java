@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.posePlayback.PlaybackPoseSequenceDRCTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 public class AtlasPlaybackPoseSequenceTest extends PlaybackPoseSequenceDRCTest
@@ -26,7 +25,6 @@ public class AtlasPlaybackPoseSequenceTest extends PlaybackPoseSequenceDRCTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testReadAndWriteWithRandomSequence()
    {

@@ -8,8 +8,6 @@ import org.ejml.simple.SimpleMatrix;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.SelectionCalculator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -29,7 +27,6 @@ public class SelectionCalculatorTest
 
    private static final Random random = new Random(1971L);
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSelectionForSimpleObjective() throws Exception
    {

@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.matrix.RotationMatrix;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -387,7 +386,6 @@ public class TransformInterpolationCalculatorTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testInterpolationWithFramePoses()
    {
@@ -435,7 +433,6 @@ public class TransformInterpolationCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testInterpolationForTimeStampedTransform()
    {

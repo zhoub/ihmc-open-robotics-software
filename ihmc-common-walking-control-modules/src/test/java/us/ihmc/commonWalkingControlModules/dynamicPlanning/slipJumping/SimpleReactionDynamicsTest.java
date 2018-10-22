@@ -1,11 +1,32 @@
 package us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping;
 
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.FLIGHT;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.STANCE;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.constantVectorSize;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.controlVectorSize;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.nominalLength;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.stateVectorSize;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.thetaX;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.thetaXDot;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.thetaY;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.thetaYDot;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.thetaZ;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.thetaZDot;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.x;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.xDot;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.y;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.yDot;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.z;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.zDot;
+
+import java.util.Random;
+
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
@@ -13,10 +34,6 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.testing.JUnitTools;
-
-import java.util.Random;
-
-import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.*;
 
 public class SimpleReactionDynamicsTest
 {
@@ -26,7 +43,6 @@ public class SimpleReactionDynamicsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamics()
    {
@@ -99,7 +115,6 @@ public class SimpleReactionDynamicsTest
       JUnitTools.assertMatrixEquals(nextStateExpected, nextState, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsStateGradient()
    {
@@ -164,7 +179,6 @@ public class SimpleReactionDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsControlGradient()
    {

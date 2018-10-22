@@ -7,8 +7,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class IntGlobalParameterTest
 {
    private static final boolean VERBOSE = false;
@@ -26,7 +24,6 @@ public class IntGlobalParameterTest
       GlobalParameter.clearGlobalRegistry();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testGetValue()
    {
@@ -38,7 +35,6 @@ public class IntGlobalParameterTest
       assertEquals(DEFAULT_VALUE, intGlobalParameter.getValue());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSetValue()
    {
@@ -66,7 +62,6 @@ public class IntGlobalParameterTest
       assertEquals(newValue, intGlobalParameter.getValue());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testThatCantHaveParentsUnlessOverwriteUpdateMethodOne()
    {
@@ -77,7 +72,6 @@ public class IntGlobalParameterTest
       parent.set(1);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testCantSetChild()
    {

@@ -10,7 +10,6 @@ import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.matrix.Matrix3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -65,7 +64,6 @@ public class InverseDynamicsCalculatorSCSTest
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testOneFreeRigidBody()
    {
@@ -129,7 +127,6 @@ public class InverseDynamicsCalculatorSCSTest
       compareWrenches(inputWrench, outputWrench);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testChainNoGravity()
    {
@@ -148,7 +145,6 @@ public class InverseDynamicsCalculatorSCSTest
       assertAccelerationsEqual(jointMap);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testTreeWithNoGravity()
    {
@@ -173,7 +169,6 @@ public class InverseDynamicsCalculatorSCSTest
       assertAccelerationsEqual(jointMap);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testTreeWithGravity()
    {
@@ -198,7 +193,6 @@ public class InverseDynamicsCalculatorSCSTest
       assertAccelerationsEqual(jointMap);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testDoingInverseDynamicsTermPerTerm()
    {
@@ -241,7 +235,6 @@ public class InverseDynamicsCalculatorSCSTest
       assertAccelerationsEqual(jointMap);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testDoingNothing()
    {
@@ -270,7 +263,6 @@ public class InverseDynamicsCalculatorSCSTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testGravityCompensationForChain()
    {
@@ -288,7 +280,6 @@ public class InverseDynamicsCalculatorSCSTest
       assertZeroAccelerations(jointMap);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testChainWithGravity()
    {

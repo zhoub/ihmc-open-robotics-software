@@ -11,9 +11,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.lists.RecyclingArrayList;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -24,7 +21,6 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.math.trajectories.FrameTrajectory3D;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SmoothCapturePointToolboxTest
 {
    private static final int nTests = 20;
@@ -44,7 +40,6 @@ public class SmoothCapturePointToolboxTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDesiredCornerPointsFromCMPPolynomials()
    {
@@ -143,7 +138,6 @@ public class SmoothCapturePointToolboxTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMatricesPrime3DLinear()
    {
@@ -210,7 +204,6 @@ public class SmoothCapturePointToolboxTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMatricesPrime3DCubic()
    {
@@ -280,7 +273,6 @@ public class SmoothCapturePointToolboxTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCalculateICPPositionAndVelocityOnSegment3DLinear()
    {
@@ -339,7 +331,6 @@ public class SmoothCapturePointToolboxTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCalculateICPPositionAndVelocityOnSegment3DCubic()
    {

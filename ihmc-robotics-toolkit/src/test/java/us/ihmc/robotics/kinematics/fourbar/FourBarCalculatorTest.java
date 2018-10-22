@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class FourBarCalculatorTest
 {
    private static final double eps = 1e-7;
@@ -14,7 +12,6 @@ public class FourBarCalculatorTest
    private FourbarLink outputLink, groundLink, inputLink, floatingLink;
    private FourbarProperties fourBarProperties;
       
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSquare()
    {

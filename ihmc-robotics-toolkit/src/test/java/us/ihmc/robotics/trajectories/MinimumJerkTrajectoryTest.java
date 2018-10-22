@@ -4,8 +4,6 @@ import static junit.framework.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class MinimumJerkTrajectoryTest
 {
    public MinimumJerkTrajectoryTest()
@@ -18,7 +16,6 @@ public class MinimumJerkTrajectoryTest
       return min + Math.random() * (max - min);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test
    public void testRandomInitialFinalConditions()
    {

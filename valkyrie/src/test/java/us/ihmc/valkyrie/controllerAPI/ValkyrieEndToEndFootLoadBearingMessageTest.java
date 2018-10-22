@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.controllerAPI.EndToEndEndFootBearingMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
@@ -26,7 +25,6 @@ public class ValkyrieEndToEndFootLoadBearingMessageTest extends EndToEndEndFootB
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 53.7)
    @Test
    public void testSwitchFootToLoadBearing() throws Exception
    {

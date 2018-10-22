@@ -15,7 +15,6 @@ import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.InterpolationTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.geometry.BoundingBox3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -104,7 +103,6 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       this.stepHeight = stepHeight;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testForwardStep() throws SimulationExceededMaximumTimeException
    {
@@ -124,7 +122,6 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testForwardStepWithPause() throws SimulationExceededMaximumTimeException
    {
@@ -150,7 +147,6 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testForwardSteps() throws SimulationExceededMaximumTimeException
    {
@@ -201,7 +197,6 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testWideStep() throws SimulationExceededMaximumTimeException
    {
@@ -226,7 +221,6 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test
    public void testSteppingDown() throws SimulationExceededMaximumTimeException
    {
@@ -268,7 +262,6 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test
    public void testSteppingDownWithClosing() throws SimulationExceededMaximumTimeException
    {

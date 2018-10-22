@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.geometry.LineSegment3D;
 import us.ihmc.euclid.tuple3D.Point3D;
 
@@ -144,7 +143,6 @@ public class OctreeTest
       assertEquals(true, tree.get(new double[] { 0.375, 0.0, 0.0 }).getValue());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testShootOctreeIntoSphereWithLidarBullets()
    {

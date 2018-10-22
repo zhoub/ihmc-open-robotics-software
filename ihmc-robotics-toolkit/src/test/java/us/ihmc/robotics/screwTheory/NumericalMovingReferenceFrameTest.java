@@ -10,7 +10,6 @@ import java.util.Set;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 
 public class NumericalMovingReferenceFrameTest
@@ -21,7 +20,6 @@ public class NumericalMovingReferenceFrameTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithChainRobot()
    {

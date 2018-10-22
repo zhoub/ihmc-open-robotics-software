@@ -2,18 +2,15 @@ package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedXGaitTurning720Test;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedTurning720Test extends QuadrupedXGaitTurning720Test
 {
    @Override
@@ -23,7 +20,6 @@ public class GenericQuadrupedTurning720Test extends QuadrupedXGaitTurning720Test
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 370.6)
    @Test
    public void rotate720InPlaceRight() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -31,7 +27,7 @@ public class GenericQuadrupedTurning720Test extends QuadrupedXGaitTurning720Test
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 394.8, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void rotate720InPlaceLeft() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

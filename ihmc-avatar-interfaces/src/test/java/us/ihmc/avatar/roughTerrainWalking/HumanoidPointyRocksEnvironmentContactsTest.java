@@ -17,7 +17,6 @@ import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
@@ -52,8 +51,7 @@ public abstract class HumanoidPointyRocksEnvironmentContactsTest implements Mult
    private SideDependentList<YoBoolean> cropToConvexHullOfCoPs = new SideDependentList<>();
 
    protected abstract DRCRobotModel getRobotModel(int xContactPoints, int yContactPoints, boolean createOnlyEdgePoints);
-
-   @ContinuousIntegrationTest(estimatedDuration = 210.0) // fix the contacts
+ // fix the contacts
    @Test
    public void testWalkingOnLinesInEnvironment() throws SimulationExceededMaximumTimeException
    {
@@ -114,8 +112,7 @@ public abstract class HumanoidPointyRocksEnvironmentContactsTest implements Mult
       drcSimulationTestHelper.createVideo(getSimpleRobotName(), 1);
       drcSimulationTestHelper.checkNothingChanged();
    }
-
-   @ContinuousIntegrationTest(estimatedDuration = 100.0) // fix the contacts
+ // fix the contacts
    @Test
    public void testWalkingOnPointInEnvironment() throws SimulationExceededMaximumTimeException
    {

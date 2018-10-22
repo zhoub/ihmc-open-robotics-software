@@ -1,18 +1,17 @@
 package us.ihmc.footstepPlanning;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite.SuiteClasses;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationSuite;
-import us.ihmc.continuousIntegration.ContinuousIntegrationSuite.ContinuousIntegrationSuiteCategory;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.footstepPlanning.flatGroundPlanning.DepthFirstFootstepPlannerOnFlatTest;
 import us.ihmc.footstepPlanning.flatGroundPlanning.FootstepNodeTest;
 import us.ihmc.footstepPlanning.roughTerrainPlanning.DepthFirstFootstepPlannerTest;
 
 /** WARNING: AUTO-GENERATED FILE. DO NOT MAKE MANUAL CHANGES TO THIS FILE. **/
 @RunWith(ContinuousIntegrationSuite.class)
-@ContinuousIntegrationSuiteCategory(IntegrationCategory.FAST)
+@Tag("fast")
 @SuiteClasses
 ({
    FootstepNodeTest.class,

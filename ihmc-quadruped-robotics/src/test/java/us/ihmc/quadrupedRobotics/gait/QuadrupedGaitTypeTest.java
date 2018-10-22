@@ -6,14 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RunnableThatThrows;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.quadrupedRobotics.planning.gait.QuadrupedGaitCycle;
 import us.ihmc.quadrupedRobotics.planning.gait.QuadrupedSupportConfiguration;
 import us.ihmc.robotics.robotSide.RobotQuadrant;
 
 public class QuadrupedGaitTypeTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGaitStateTimes()
    {
@@ -28,7 +27,6 @@ public class QuadrupedGaitTypeTest
       assertEquals("not ALL_FOURS", QuadrupedSupportConfiguration.ALL_FOURS, QuadrupedGaitCycle.SAFE_WALK.getGaitPhase(1.01 % 1.0));
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSwingDurations()
    {

@@ -11,13 +11,11 @@ import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public abstract class NullspaceCalculatorTest
 {
    public abstract NullspaceCalculator getNullspaceProjectorCalculator();
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleNullspaceProjector()
    {
@@ -109,7 +107,6 @@ public abstract class NullspaceCalculatorTest
          assertEquals(nullspaceProjectorExpected.get(i), nullspaceProjector.get(i), 1e-5);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleProjectOntoNullspace()
    {
@@ -222,7 +219,6 @@ public abstract class NullspaceCalculatorTest
       assertEquals(0.0, projectedVector.get(1, 4), epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.7)
    @Test
    public void testRandomProblemsAgainstTrueLeastSquaresProjection()
    {

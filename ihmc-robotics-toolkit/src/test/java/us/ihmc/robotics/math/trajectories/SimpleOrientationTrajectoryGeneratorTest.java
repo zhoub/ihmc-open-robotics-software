@@ -7,7 +7,6 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -77,7 +76,6 @@ public class SimpleOrientationTrajectoryGeneratorTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testCompareWithSingleFrameTrajectoryGenerator()
    {
@@ -191,7 +189,6 @@ public class SimpleOrientationTrajectoryGeneratorTest
       assertTrue(angularAcceleration1.epsilonEquals(angularAcceleration2, EPSILON));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testMultipleFramesWithSingleFrameTrajectoryGenerators()
    {

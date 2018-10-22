@@ -18,7 +18,6 @@ import us.ihmc.avatar.testTools.DRCBehaviorTestHelper;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -170,7 +169,6 @@ public abstract class AvatarWalkingPathGeneratorTest implements MultiRobotTestIn
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 37.0)
    @Test
    public void testOne() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {

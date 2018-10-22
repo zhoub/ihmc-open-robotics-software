@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -35,7 +34,6 @@ public class SimpleSO3TrajectoryPointTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCommonUsageExample()
    {
@@ -76,7 +74,6 @@ public class SimpleSO3TrajectoryPointTest
       assertTrue(expectedSimpleSO3TrajectoryPoint.epsilonEquals(simpleSO3TrajectoryPoint, 1e-10));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstructors()
    {
@@ -138,7 +135,6 @@ public class SimpleSO3TrajectoryPointTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetters()
    {
@@ -220,7 +216,6 @@ public class SimpleSO3TrajectoryPointTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testChangeFrame() throws Exception
    {
@@ -248,7 +243,6 @@ public class SimpleSO3TrajectoryPointTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetToZero() throws Exception
    {
@@ -282,7 +276,6 @@ public class SimpleSO3TrajectoryPointTest
             expectedAngularVelocity, testedSimpleSO3TrajectoryPoint, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetToNaN() throws Exception
    {
@@ -345,7 +338,6 @@ public class SimpleSO3TrajectoryPointTest
       assertTrue(expectedAngularVelocity.epsilonEquals(actualFrameAngularVelocity, epsilon));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSomeSetsAngGets()
    {
@@ -432,7 +424,6 @@ public class SimpleSO3TrajectoryPointTest
       assertTrue(simpleSO3TrajectoryPoint.epsilonEquals(simpleSO3TrajectoryPointTwo, 1e-7));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSomeMoreSettersAndGetters()
    {

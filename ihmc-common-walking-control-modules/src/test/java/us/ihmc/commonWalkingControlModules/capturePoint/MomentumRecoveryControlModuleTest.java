@@ -17,9 +17,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.matrix.Matrix3D;
 import us.ihmc.euclid.referenceFrame.FrameConvexPolygon2D;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
@@ -46,7 +43,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoFrameConvexPolygon2D;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class MomentumRecoveryControlModuleTest
 {
    private static final boolean showPlotter = false;
@@ -76,7 +72,6 @@ public class MomentumRecoveryControlModuleTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    /**
     * This test passes a huge ICP error and a bad ICP to the control module and makes
@@ -117,7 +112,6 @@ public class MomentumRecoveryControlModuleTest
       assertTrue(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    /**
     * This test passes a huge ICP error and a bad ICP to the control module and makes
@@ -158,7 +152,6 @@ public class MomentumRecoveryControlModuleTest
       assertTrue(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    /**
     * This test passes a huge ICP error and a bad ICP to the control module but disables momentum
@@ -202,7 +195,6 @@ public class MomentumRecoveryControlModuleTest
       assertFalse(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    /**
     * This test passes a huge ICP error and a bad ICP to the control module but disables momentum
@@ -246,7 +238,6 @@ public class MomentumRecoveryControlModuleTest
       assertFalse(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLogicDoubleSupportSafe()
    {
@@ -281,7 +272,6 @@ public class MomentumRecoveryControlModuleTest
       assertFalse(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLogicDoubleSupportUnsafe()
    {
@@ -316,7 +306,6 @@ public class MomentumRecoveryControlModuleTest
       assertTrue(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testLogicSingleSupportSafe()
    {
@@ -356,7 +345,6 @@ public class MomentumRecoveryControlModuleTest
       assertFalse(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLogicSingleSupportUnsafe()
    {
@@ -396,7 +384,6 @@ public class MomentumRecoveryControlModuleTest
       assertTrue(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    /**
     * This test passes a huge ICP error and a good ICP to the control module and makes

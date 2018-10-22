@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.stateMachine.core.State;
 import us.ihmc.robotics.stateMachine.core.StateMachine;
 import us.ihmc.robotics.stateMachine.factories.StateMachineFactory;
@@ -14,7 +13,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class FinishableStateTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testExampleStateMachineWithFinishableStates()
    {

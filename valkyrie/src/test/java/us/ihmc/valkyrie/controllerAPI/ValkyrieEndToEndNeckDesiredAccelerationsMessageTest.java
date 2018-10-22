@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.controllerAPI.EndToEndNeckDesiredAccelerationsMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
@@ -26,7 +25,6 @@ public class ValkyrieEndToEndNeckDesiredAccelerationsMessageTest extends EndToEn
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 20.6)
    @Test
    public void testSimpleCommands() throws Exception
    {

@@ -6,7 +6,6 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @ContinuousIntegrationPlan(categories=IntegrationCategory.FLAKY)
@@ -14,7 +13,6 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 public class TCPYoWhiteBoardTest extends YoWhiteBoardTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 3.9)
 	@Test
    public void testTCPWhiteBoardOne() throws IOException
    {
@@ -31,7 +29,6 @@ public class TCPYoWhiteBoardTest extends YoWhiteBoardTest
       doASynchronizedWriteThenReadTest(leftWhiteBoard, rightWhiteBoard, numberOfTests, 501, 1001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 5.6)
 	@Test
    public void testTCPWhiteBoardTwo() throws IOException
    {

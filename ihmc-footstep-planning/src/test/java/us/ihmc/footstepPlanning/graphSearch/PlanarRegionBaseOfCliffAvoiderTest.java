@@ -5,13 +5,11 @@ import static junit.framework.TestCase.assertTrue;
 
 import java.util.Random;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
@@ -41,7 +39,6 @@ public class PlanarRegionBaseOfCliffAvoiderTest
    private final boolean doAsserts = true;
    private final Random random = new Random(4587L);
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testBaseOfCliffAvoiderWithSimpleQueriesOnABlock()
    {
@@ -115,7 +112,6 @@ public class PlanarRegionBaseOfCliffAvoiderTest
       assertTrue(avoider.isNodeValid(node, null));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAvoidingRotatedAndElevatedCliff()
    {

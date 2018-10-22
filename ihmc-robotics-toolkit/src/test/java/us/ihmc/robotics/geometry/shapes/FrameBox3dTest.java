@@ -11,9 +11,6 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Epsilons;
 import us.ihmc.commons.MathTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.Box3D;
 import us.ihmc.euclid.matrix.RotationMatrix;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -27,7 +24,6 @@ import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class FrameBox3dTest
 {
    @AfterEach
@@ -36,7 +32,6 @@ public class FrameBox3dTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDistance()
    {
@@ -74,7 +69,6 @@ public class FrameBox3dTest
       assertEquals(expectedDistance, box.distance(pointOnTheVertexBetweenXandYandZ), 1e-14);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testOrthogonalProjection()
    {
@@ -122,7 +116,6 @@ public class FrameBox3dTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testChangeFrame() throws Exception
    {
@@ -169,7 +162,6 @@ public class FrameBox3dTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testgetClosestPointAndNormalAt()
    {
@@ -198,7 +190,6 @@ public class FrameBox3dTest
       assertTrue(expectedNormal.epsilonEquals(returnedNormal, 1e-14));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testIsInsideOrOnSurface()
    {
@@ -222,7 +213,6 @@ public class FrameBox3dTest
       assertFalse(box.isInsideOrOnSurface(pointOutsideBox, 1e-7));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testApplyTransform()
    {
@@ -260,7 +250,6 @@ public class FrameBox3dTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetTransform3DAndGetters()
    {

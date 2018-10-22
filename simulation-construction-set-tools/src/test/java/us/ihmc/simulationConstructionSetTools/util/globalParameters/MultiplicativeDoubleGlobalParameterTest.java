@@ -7,8 +7,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class MultiplicativeDoubleGlobalParameterTest
 {
    private static final boolean VERBOSE = false;
@@ -26,7 +24,6 @@ public class MultiplicativeDoubleGlobalParameterTest
       GlobalParameter.clearGlobalRegistry();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSetThrowsException()
    {
@@ -56,7 +53,6 @@ public class MultiplicativeDoubleGlobalParameterTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testMultiplicativeDoubleGlobalParameter()
    {
@@ -80,7 +76,6 @@ public class MultiplicativeDoubleGlobalParameterTest
       assertEquals(valueA * valueB, multiplicativeDoubleGlobalParameter.getValue(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testMultiplicativeDoubleGlobalParameterUpdate()
    {
@@ -117,7 +112,6 @@ public class MultiplicativeDoubleGlobalParameterTest
       assertEquals(valueA * valueB, multiplicativeDoubleGlobalParameter.getValue(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testFamilyTree()
    {

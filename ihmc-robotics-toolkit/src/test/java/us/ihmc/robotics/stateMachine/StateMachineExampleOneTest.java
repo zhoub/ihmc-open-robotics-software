@@ -8,7 +8,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.stateMachine.core.State;
 import us.ihmc.robotics.stateMachine.core.StateChangedListener;
 import us.ihmc.robotics.stateMachine.core.StateMachine;
@@ -18,7 +17,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 public class StateMachineExampleOneTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstructionOfSimpleTimeBasedStateMachine()
    {
@@ -103,7 +101,6 @@ public class StateMachineExampleOneTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstructionOfSimpleEventBasedStateMachine()
    {

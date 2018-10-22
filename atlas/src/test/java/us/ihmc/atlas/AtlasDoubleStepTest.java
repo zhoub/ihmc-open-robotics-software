@@ -1,12 +1,11 @@
 package us.ihmc.atlas;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.AvatarDoubleStepTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasDoubleStepTest extends AvatarDoubleStepTest
@@ -27,7 +26,6 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
       return robotModel.getSimpleRobotName();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 76.4)
    @Test
    @Override
    public void testTwoStepsInARowSameSide() throws SimulationExceededMaximumTimeException
@@ -35,7 +33,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
       super.testTwoStepsInARowSameSide();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    @Override
    public void testTwoStepsInARowSameSideAfterFirstSep() throws SimulationExceededMaximumTimeException
@@ -43,7 +41,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
       super.testTwoStepsInARowSameSideAfterFirstSep();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    @Override
    public void testTwoStepsInARowLongTransferSameSide() throws SimulationExceededMaximumTimeException
@@ -51,7 +49,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
       super.testTwoStepsInARowLongTransferSameSide();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    @Override
    public void testTwoStepsStandingInBetween() throws SimulationExceededMaximumTimeException

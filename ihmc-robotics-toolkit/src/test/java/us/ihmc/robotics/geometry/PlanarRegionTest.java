@@ -13,9 +13,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.BoundingBox3D;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.LineSegment2D;
@@ -37,7 +34,6 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.robotics.random.RandomGeometry;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class PlanarRegionTest
 {
    @AfterEach
@@ -46,7 +42,6 @@ public class PlanarRegionTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testIntersections()
    {
@@ -121,7 +116,6 @@ public class PlanarRegionTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testIsPointOnOrSlightlyAbove()
    {
@@ -156,7 +150,6 @@ public class PlanarRegionTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test
    public void testIsPointOnOrSlightlyBelow()
    {
@@ -191,7 +184,6 @@ public class PlanarRegionTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCreationOfBoundingBoxWithAllPointsGreaterThanOrigin()
    {
@@ -231,7 +223,6 @@ public class PlanarRegionTest
       assertEquals(maxPoint, boundingBoxMaxPoint);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCreationOfBoundingBoxWithAllPointsLessThanOrigin()
    {
@@ -271,7 +262,6 @@ public class PlanarRegionTest
       assertEquals(maxPoint, boundingBoxMaxPoint);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCreationOfBoundingBoxWithMinimumLessThanOriginAndMaximumGreaterThanOrigin()
    {
@@ -309,7 +299,6 @@ public class PlanarRegionTest
       assertEquals(maxPoint, boundingBoxMaxPoint);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testBoundingBoxForLShapedPlanarRegionWithIdentifyTransform()
    {
@@ -346,7 +335,6 @@ public class PlanarRegionTest
       assertThatAllPolygonVerticesAreInBoundingBox(regionConvexPolygons, planarRegion, boundingBox3dInWorld);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithLShapedPlanarRegionWithIdentityTransform()
    {
@@ -549,7 +537,6 @@ public class PlanarRegionTest
       assertEquals(3, intersections.size());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetPolygonIntersectionsWhenSnapped()
    {
@@ -581,7 +568,6 @@ public class PlanarRegionTest
       assertEquals(0.04, intersectionArea, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithLShapedPlanarRegionWithRandomTransform()
    {
@@ -789,7 +775,6 @@ public class PlanarRegionTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetPlaneZGivenXY()
    {

@@ -6,7 +6,6 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.tools.search.strings.fuzzySearch.CombinedFuzzySearchResult;
 import us.ihmc.tools.search.strings.fuzzySearch.CombinedFuzzySearchResult.CombinedFuzzySearchResultType;
 
@@ -15,7 +14,6 @@ import us.ihmc.tools.search.strings.fuzzySearch.CombinedFuzzySearchResult.Combin
  */
 public class SortByResultTypeComparatorTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCompare()
    {

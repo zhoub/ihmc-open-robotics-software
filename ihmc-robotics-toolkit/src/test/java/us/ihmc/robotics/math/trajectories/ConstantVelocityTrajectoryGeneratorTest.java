@@ -8,7 +8,6 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.trajectories.providers.ConstantDoubleProvider;
 import us.ihmc.yoVariables.providers.DoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -18,7 +17,6 @@ public class ConstantVelocityTrajectoryGeneratorTest
    private final double epsilon = 1e-7;
    private ConstantVelocityTrajectoryGenerator constantVelocityTrajectoryGenerator;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSimpleTrajectory()
    {
@@ -35,7 +33,6 @@ public class ConstantVelocityTrajectoryGeneratorTest
       assertTrue(simpleLinearTrajectory.getAcceleration() == 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testRandomTrajectories()
    {

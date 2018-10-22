@@ -142,7 +142,6 @@ public class RemoteFootstepPlannerUIMessagingTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.2)
    @Test
    public void testSendingFootstepPlanningRequestPacketFromUIIntraprocess()
    {
@@ -160,7 +159,6 @@ public class RemoteFootstepPlannerUIMessagingTest
       runPlanningRequestTestFromUI();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.5)
    @Test
    public void testSendingFootstepPlannerRequestPacketToUIIntraprocess()
    {
@@ -178,7 +176,6 @@ public class RemoteFootstepPlannerUIMessagingTest
       runPlannerRequestToUI();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.5)
    @Test
    public void testSendingFootstepPlannerParametersPacketIntraprocess()
    {
@@ -196,7 +193,6 @@ public class RemoteFootstepPlannerUIMessagingTest
       runPlannerParametersPacket();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.3)
    @Test
    public void testSendingFootstepPlannerOutputStatusToUIIntraprocess()
    {

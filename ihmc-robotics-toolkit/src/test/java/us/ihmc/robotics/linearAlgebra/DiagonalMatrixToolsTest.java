@@ -11,14 +11,12 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.testing.JUnitTools;
 
 public class DiagonalMatrixToolsTest
 {
    private final double epsilon = 1e-6;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.7)
    @Test
    public void testSquareInvert()
    {
@@ -64,7 +62,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testPreMult()
    {
@@ -102,7 +99,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testPreMultVector()
    {
@@ -136,7 +132,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.7)
    @Test
    public void testPreMultAddBlock()
    {
@@ -196,7 +191,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testPostMult()
    {
@@ -234,7 +228,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testPostMultVector()
    {
@@ -268,7 +261,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testPostMultTransA()
    {
@@ -294,7 +286,6 @@ public class DiagonalMatrixToolsTest
       JUnitTools.assertMatrixEquals(solution, expectedSolution, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testRandomPostMultTransA()
    {
@@ -332,7 +323,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEasyMultInner()
    {
@@ -367,7 +357,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.56)
    @Test
    public void testRandomMultInner()
    {
@@ -415,7 +404,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEasyMultOuter()
    {
@@ -448,7 +436,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.4)
    @Test
    public void testRandomMultOuter()
    {
@@ -494,7 +481,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEasyMultAddInner()
    {
@@ -533,7 +519,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testRandomMultAddInner()
    {
@@ -583,7 +568,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.2)
    @Test
    public void testRandomMultAddBlockInner()
    {
@@ -631,7 +615,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEasyMultAddBlockInner()
    {
@@ -938,7 +921,6 @@ public class DiagonalMatrixToolsTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEasyInnerDiagonalMult()
    {
@@ -973,7 +955,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test
    public void testRandomInnerDiagonalMult()
    {
@@ -1015,7 +996,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testRandomInnerDiagonalMultVector()
    {
@@ -1053,7 +1033,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEasyInnerDiagonalMultTransA()
    {
@@ -1088,7 +1067,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test
    public void testRandomInnerDiagonalMultTransA()
    {
@@ -1130,7 +1108,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testRandomInnerDiagonalMultTransAVector()
    {
@@ -1168,7 +1145,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test
    public void testRandomInnerDiagonalMultAddTransA()
    {
@@ -1210,7 +1186,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.8)
    @Test
    public void testRandomInnerDiagonalMultAddTransAVector()
    {
@@ -1248,7 +1223,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.4)
    @Test
    public void testRandomInnerDiagonalMultAddBlockTransA()
    {
@@ -1309,7 +1283,6 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 8.5)
    @Test
    public void testRandomInnerDiagonalMultAddBlockTransAVector()
    {

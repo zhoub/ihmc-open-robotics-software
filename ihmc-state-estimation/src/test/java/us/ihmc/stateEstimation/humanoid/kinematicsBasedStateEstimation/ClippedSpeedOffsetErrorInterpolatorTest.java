@@ -10,9 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -33,7 +31,6 @@ import us.ihmc.tools.MemoryTools;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-@ContinuousIntegrationPlan(categories={IntegrationCategory.FAST})
 public class ClippedSpeedOffsetErrorInterpolatorTest
 {
    SimulationTestingParameters simulationTestingParameters = new SimulationTestingParameters();
@@ -315,7 +312,6 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testMaxTranslationalCorrectionSpeedClip()
    {
@@ -627,7 +623,6 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 12.0)
    @Test
    public void testRotationCorrectionIsActuallyDeactivatedWhenAskedTo()
    {
@@ -703,7 +698,6 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test
    public void testErrorRotationCheckIsBehavingProperly()
    {

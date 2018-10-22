@@ -7,12 +7,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class TaskExecutorTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEmptyExecutor()
    {
@@ -30,7 +27,6 @@ public class TaskExecutorTest
       assertNull(lastTask);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithOneNullTask()
    {
@@ -57,7 +53,6 @@ public class TaskExecutorTest
       assertTrue(taskExecutor.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithSeveralNullTasks()
    {
@@ -118,7 +113,6 @@ public class TaskExecutorTest
       assertTrue(taskExecutor.getCurrentTask() instanceof NullTask);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSomeTasks()
    {
@@ -139,7 +133,6 @@ public class TaskExecutorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAddingTasksOnTheFly()
    {

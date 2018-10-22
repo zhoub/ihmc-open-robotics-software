@@ -126,7 +126,6 @@ public abstract class FootstepPlannerDataSetTest
    }
 
    @Test
-   @ContinuousIntegrationTest(estimatedDuration = 13.0)
    public void testDatasetsWithoutOcclusion()
    {
       runAssertionsOnAllDatasetsWithoutOcclusions(dataset -> runAssertions(dataset));

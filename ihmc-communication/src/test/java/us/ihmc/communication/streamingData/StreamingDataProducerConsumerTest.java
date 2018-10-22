@@ -3,12 +3,10 @@ package us.ihmc.communication.streamingData;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class StreamingDataProducerConsumerTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.1)
 	@Test
    public void testTypicalUsage()
    {
@@ -24,7 +22,6 @@ public class StreamingDataProducerConsumerTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.1)
 	@Test
    public void testMultipleProducersAndConsumers()
    {

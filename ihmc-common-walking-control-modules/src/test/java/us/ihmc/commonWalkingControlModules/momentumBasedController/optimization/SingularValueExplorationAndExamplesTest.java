@@ -9,7 +9,6 @@ import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.testing.JUnitTools;
 
 public class SingularValueExplorationAndExamplesTest

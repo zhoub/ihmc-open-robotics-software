@@ -5,12 +5,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class ParallelTaskTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testOneSerialTask()
    {
@@ -48,7 +45,6 @@ public class ParallelTaskTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testTwoSerialTasks()
    {
@@ -104,7 +100,6 @@ public class ParallelTaskTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testTwoParallelTasks()
    {
@@ -154,7 +149,6 @@ public class ParallelTaskTest
       assertTrue(exampleTaskB0.checkNumberOfCalls(1, 3, 1));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testABunchOfParallelAndSeriesTasks()
    {

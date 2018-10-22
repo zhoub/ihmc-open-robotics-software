@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.math.trajectories.ConstantVelocityTrajectoryGenerator;
 import us.ihmc.robotics.math.trajectories.DoubleTrajectoryGenerator;
 import us.ihmc.robotics.trajectories.providers.ConstantDoubleProvider;
@@ -22,7 +21,6 @@ public class BacklashCompensatingVelocityYoVariableTest
 {
    private static final double EPSILON = 1e-8;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testWithoutBacklashOrFiltering1()
    {
@@ -50,7 +48,6 @@ public class BacklashCompensatingVelocityYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testWithoutBacklashOrFiltering2()
    {
@@ -80,7 +77,6 @@ public class BacklashCompensatingVelocityYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testWithoutBacklash1()
    {
@@ -109,7 +105,6 @@ public class BacklashCompensatingVelocityYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testWithoutBacklash2()
    {
@@ -139,7 +134,6 @@ public class BacklashCompensatingVelocityYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testVelocityPositiveWithoutCrossingZero2()
    {
@@ -170,7 +164,6 @@ public class BacklashCompensatingVelocityYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testVelocityNegativeWithoutCrossingZero2()
    {
@@ -201,7 +194,6 @@ public class BacklashCompensatingVelocityYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.5)
 	@Test
    public void testBacklashOnlyCrossingZeroConstantPositiveAcceleration2()
    {
@@ -266,7 +258,6 @@ public class BacklashCompensatingVelocityYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.5)
 	@Test
    public void testBacklashOnlyCrossingZeroConstantNegativeAcceleration2()
    {
@@ -332,7 +323,6 @@ public class BacklashCompensatingVelocityYoVariableTest
    }
 
 	
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNoisySignalAndMakeSureVelocityHasSignalContent()
    {
@@ -406,7 +396,6 @@ public class BacklashCompensatingVelocityYoVariableTest
       assertTrue(averageReconstructedPositionError2.getDoubleValue() < 0.25);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSignalWithBacklash()
    {
@@ -481,7 +470,6 @@ public class BacklashCompensatingVelocityYoVariableTest
    }
    
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRemoveSquareWaveBacklash()
    {

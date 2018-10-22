@@ -9,9 +9,6 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.Line2D;
 import us.ihmc.euclid.geometry.LineSegment2D;
@@ -22,19 +19,16 @@ import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.Vector2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ConvexPolygon2dCalculatorTest
 {
    private static final double epsilon = 1.0e-10;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstruction()
    {
       new ConvexPolygon2dCalculator();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testIsPolygonInside1()
    {
@@ -71,7 +65,6 @@ public class ConvexPolygon2dCalculatorTest
       assertFalse(ConvexPolygon2dCalculator.isPolygonInside(polygonToTest5, polygon));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testTranslatePolygon1()
    {
@@ -92,7 +85,6 @@ public class ConvexPolygon2dCalculatorTest
       assertTrue(polygon2.getVertex(0).epsilonEquals(new Point2D(1.0, 10.5), epsilon));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetMiddleIndexCounterClockwise1()
    {
@@ -165,7 +157,6 @@ public class ConvexPolygon2dCalculatorTest
       assertIndexCorrect(ConvexPolygon2dCalculator.getMiddleIndexCounterClockwise(0, 0, polygon), 0);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetLineOfSightVertices1()
    {
@@ -205,7 +196,6 @@ public class ConvexPolygon2dCalculatorTest
       assertPointsEqual(null, polygon.lineOfSightVertices(observer7), true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetLineOfSightVertices2()
    {
@@ -216,7 +206,6 @@ public class ConvexPolygon2dCalculatorTest
       assertPointsEqual(null, polygon.lineOfSightVertices(observer1), true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetLineOfSightVertexIndices1()
    {
@@ -236,7 +225,6 @@ public class ConvexPolygon2dCalculatorTest
       assertIndicesCorrect(new int[] {0, 0}, polygon.lineOfSightIndices(observer2));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetLineOfSightVertexIndices4()
    {
@@ -262,7 +250,6 @@ public class ConvexPolygon2dCalculatorTest
       assertIndicesCorrect(null, polygon.lineOfSightIndices(observer5));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDoesLineIntersectEdge1()
    {
@@ -304,7 +291,6 @@ public class ConvexPolygon2dCalculatorTest
       assertFalse(ConvexPolygon2dCalculator.doesLineIntersectEdge(line4, 4, polygon));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDoesLineIntersectEdge2()
    {
@@ -339,7 +325,6 @@ public class ConvexPolygon2dCalculatorTest
       assertFalse(ConvexPolygon2dCalculator.doesLineIntersectEdge(line6, 1, polygon));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDoesLineIntersectEdge3()
    {
@@ -349,7 +334,6 @@ public class ConvexPolygon2dCalculatorTest
       assertFalse(ConvexPolygon2dCalculator.doesLineIntersectEdge(line5, 0, polygon));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetIntersectingEdges1()
    {
@@ -428,7 +412,6 @@ public class ConvexPolygon2dCalculatorTest
       assertEdgesEqual(expected9, new LineSegment2D[] {result1, result2}, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetIntersectingEdges2()
    {
@@ -465,7 +448,6 @@ public class ConvexPolygon2dCalculatorTest
       assertEquals(0, ConvexPolygon2dCalculator.getIntersectingEdges(line3, result1, result2, polygon));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetIntersectingEdges3()
    {
@@ -490,7 +472,6 @@ public class ConvexPolygon2dCalculatorTest
       assertTrue(ConvexPolygon2dCalculator.getIntersectingEdgesCopy(line3, polygon) == null);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetIntersectingEdges4()
    {
@@ -505,7 +486,6 @@ public class ConvexPolygon2dCalculatorTest
       assertTrue(ConvexPolygon2dCalculator.getIntersectingEdgesCopy(line1, polygon) == null);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetEdgeNormal()
    {

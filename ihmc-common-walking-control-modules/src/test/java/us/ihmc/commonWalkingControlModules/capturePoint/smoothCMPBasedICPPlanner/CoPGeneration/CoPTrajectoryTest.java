@@ -5,18 +5,14 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.commonWalkingControlModules.configurations.CoPSplineType;
 import us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.WalkingTrajectoryType;
+import us.ihmc.commonWalkingControlModules.configurations.CoPSplineType;
 import us.ihmc.commons.Epsilons;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
+import us.ihmc.commons.MathTools;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
-import us.ihmc.commons.MathTools;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class CoPTrajectoryTest
 {
    private static int maxNumberOfSegments = 2;
@@ -29,7 +25,6 @@ public class CoPTrajectoryTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinear()
    {
@@ -64,7 +59,6 @@ public class CoPTrajectoryTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCubic()
    {

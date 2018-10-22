@@ -4,12 +4,10 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -21,7 +19,6 @@ public class SkippyV2Test
    private SkippySimulationV2 skippySimulationV2;
    private SkippyRobotV2 skippy;
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test
    public void testStanding() throws SimulationExceededMaximumTimeException
    {
@@ -31,7 +28,6 @@ public class SkippyV2Test
       System.out.println("testStanding");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test
    public void testRecoveringFromPush() throws SimulationExceededMaximumTimeException
    {

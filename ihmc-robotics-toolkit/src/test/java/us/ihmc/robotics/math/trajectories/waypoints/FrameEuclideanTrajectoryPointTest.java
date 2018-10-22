@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -37,7 +36,6 @@ public class FrameEuclideanTrajectoryPointTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCommonUsageExample()
    {
@@ -78,7 +76,6 @@ public class FrameEuclideanTrajectoryPointTest
       assertTrue(expectedFrameEuclideanTrajectoryPoint.epsilonEquals(frameEuclideanTrajectoryPoint, 1e-10));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstructors()
    {
@@ -143,7 +140,6 @@ public class FrameEuclideanTrajectoryPointTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetters()
    {
@@ -227,7 +223,6 @@ public class FrameEuclideanTrajectoryPointTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testChangeFrame() throws Exception
    {
@@ -253,7 +248,6 @@ public class FrameEuclideanTrajectoryPointTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetToZero() throws Exception
    {
@@ -288,7 +282,6 @@ public class FrameEuclideanTrajectoryPointTest
       assertTrajectoryPointContainsExpectedData(expectedFrame, expectedTime, expectedPosition, expectedLinearVelocity, testedFrameEuclideanTrajectoryPoint, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetToNaN() throws Exception
    {
@@ -354,7 +347,6 @@ public class FrameEuclideanTrajectoryPointTest
       assertTrue(expectedLinearVelocity.epsilonEquals(actualFrameLinearVelocity, epsilon));
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSomeSetsAngGets()
    {
@@ -446,7 +438,6 @@ public class FrameEuclideanTrajectoryPointTest
       assertTrue(FrameEuclideanTrajectoryPoint.epsilonEquals(FrameEuclideanTrajectoryPointTwo, 1e-7));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSomeMoreSettersAndGetters()
    {

@@ -7,13 +7,9 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseDoNothingTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasObstacleCourseDoNothingTest extends DRCObstacleCourseDoNothingTest
 {
    private DRCRobotModel robotModel;
@@ -30,7 +26,6 @@ public class AtlasObstacleCourseDoNothingTest extends DRCObstacleCourseDoNothing
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.ATLAS);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.3)
    @Test
    public void testDoNothing() throws SimulationExceededMaximumTimeException
    {
@@ -38,7 +33,6 @@ public class AtlasObstacleCourseDoNothingTest extends DRCObstacleCourseDoNothing
       super.testDoNothing1();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.3)
    @Test
    public void testDoNothingShapeCollision() throws SimulationExceededMaximumTimeException
    {

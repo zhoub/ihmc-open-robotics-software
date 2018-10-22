@@ -8,14 +8,12 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Point3D32;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
 public class RandomGeometryTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNextPoint3D32()
    {
@@ -35,7 +33,6 @@ public class RandomGeometryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNextPoint3D32Array()
    {
@@ -53,7 +50,6 @@ public class RandomGeometryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNextPoint3D()
    {
@@ -70,7 +66,6 @@ public class RandomGeometryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNextVector3D()
    {
@@ -87,7 +82,6 @@ public class RandomGeometryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNextOrthogonalVector3D()
    {

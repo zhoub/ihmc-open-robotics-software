@@ -1,11 +1,9 @@
 package us.ihmc.footstepPlanning.flatGroundPlanning;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.footstepPlanning.FootstepPlanner;
 import us.ihmc.footstepPlanning.graphSearch.footstepSnapping.FlatGroundFootstepNodeSnapper;
@@ -38,7 +36,6 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testJustStraightLine()
    {
@@ -48,7 +45,6 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testATightTurn()
    {
@@ -59,7 +55,6 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testStraightLineWithInitialTurn()
    {
@@ -70,7 +65,6 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testJustTurnInPlace()
    {
@@ -81,7 +75,7 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 2.0, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testRandomPoses()
    {

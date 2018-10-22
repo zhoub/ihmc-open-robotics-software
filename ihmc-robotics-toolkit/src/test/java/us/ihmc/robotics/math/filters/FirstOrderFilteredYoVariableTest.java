@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.math.filters.FirstOrderFilteredYoVariable.FirstOrderFilterType;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
@@ -16,7 +15,6 @@ public class FirstOrderFilteredYoVariableTest
 
    private final double DT = 0.001;
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.1)
 	@Test
    public void testHighPassAttenuationForSinusoidalInput()
    {
@@ -40,7 +38,6 @@ public class FirstOrderFilteredYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testLowPassAttenuationForSinusoidalInput()
    {
@@ -64,7 +61,6 @@ public class FirstOrderFilteredYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testBandPassAttenuationForSinusoidalInput()
    {

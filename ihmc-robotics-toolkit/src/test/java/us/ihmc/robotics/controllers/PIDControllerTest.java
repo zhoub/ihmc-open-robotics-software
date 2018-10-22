@@ -9,15 +9,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.controllers.pidGains.implementations.YoPIDGains;
 import us.ihmc.tools.MemoryTools;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class PIDControllerTest
 {
    private final Random random = new Random();
@@ -34,7 +30,6 @@ public class PIDControllerTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testPIDControllerConstructor()
    {
@@ -58,7 +53,6 @@ public class PIDControllerTest
       assertEquals(10.0, maxError.getDoubleValue(), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testPIDControllerConstructorFromGains()
    {
@@ -91,7 +85,6 @@ public class PIDControllerTest
       assertEquals(maxOutput, pid.getMaximumFeedback(), 1e-5);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testPIDControllerConstructorFromGains2()
    {
@@ -122,7 +115,6 @@ public class PIDControllerTest
       assertEquals(1.0, pid.getIntegralLeakRatio(), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testPIDControllerConstructorFromGains3()
    {
@@ -151,7 +143,6 @@ public class PIDControllerTest
       assertEquals(1.0, pid.getIntegralLeakRatio(), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testPIDControllerConstructorFromGains4()
    {
@@ -178,7 +169,6 @@ public class PIDControllerTest
       assertEquals(1.0, pid.getIntegralLeakRatio(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testGetProportionalGain()
    {
@@ -187,7 +177,6 @@ public class PIDControllerTest
       assertEquals(0.0, pid.getProportionalGain(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testGetIntegralGain()
    {
@@ -196,7 +185,6 @@ public class PIDControllerTest
       assertEquals(0.0, pid.getIntegralGain(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void testGetDerivativeGain()
    {
@@ -205,7 +193,6 @@ public class PIDControllerTest
       assertEquals(0.0, pid.getDerivativeGain(), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testGetDeadband()
    {
@@ -214,7 +201,6 @@ public class PIDControllerTest
       assertEquals(0.0, pid.getPositionDeadband(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void testGetMaxIntegralError()
    {
@@ -223,7 +209,6 @@ public class PIDControllerTest
       assertEquals(Double.POSITIVE_INFINITY, pid.getMaxIntegralError(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void testGetCumulativeError()
    {
@@ -232,7 +217,6 @@ public class PIDControllerTest
       assertEquals(0.0, pid.getCumulativeError(), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testGetLeakRate()
    {
@@ -241,7 +225,6 @@ public class PIDControllerTest
       assertEquals(1.0, pid.getIntegralLeakRatio(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testSetProportionalGain()
    {
@@ -251,7 +234,6 @@ public class PIDControllerTest
       assertEquals(5.0, pid.getProportionalGain(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testSetIntegralGain()
    {
@@ -261,7 +243,6 @@ public class PIDControllerTest
       assertEquals(5.0, pid.getIntegralGain(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testSetDerivativeGain()
    {
@@ -271,7 +252,6 @@ public class PIDControllerTest
       assertEquals(5.0, pid.getDerivativeGain(), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testSetDeadband()
    {
@@ -283,7 +263,6 @@ public class PIDControllerTest
       assertEquals(deadband, pid.getPositionDeadband(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void testSetMaxIntegralError()
    {
@@ -293,7 +272,6 @@ public class PIDControllerTest
       assertEquals(5.0, pid.getMaxIntegralError(), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testSetCumulativeError()
    {
@@ -303,7 +281,6 @@ public class PIDControllerTest
       assertEquals(5.0, pid.getCumulativeError(), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testSetIntegralLeakRatio()
    {
@@ -314,7 +291,6 @@ public class PIDControllerTest
       assertEquals(leakRatio, pid.getIntegralLeakRatio(), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testSetIntegralLeakRatio2()
    {
@@ -332,7 +308,6 @@ public class PIDControllerTest
       assertTrue(pid.getIntegralLeakRatio() >= 0.0);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testSetIntegralLeakRatio3()
    {
@@ -357,7 +332,6 @@ public class PIDControllerTest
       assertTrue(pid.getIntegralLeakRatio() >= 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void testCompute()
    {
@@ -384,7 +358,6 @@ public class PIDControllerTest
       assertEquals(17.0, pid.compute(currentPosition, desiredPosition, currentRate, desiredRate, 0.1), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testComputeFromYoPIDGains()
    {
@@ -411,7 +384,6 @@ public class PIDControllerTest
       assertEquals(17.0, pid.compute(currentPosition, desiredPosition, currentRate, desiredRate, 0.1), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void testCompute_proportional()
    {
@@ -429,7 +401,6 @@ public class PIDControllerTest
       assertEquals(30.0, pid.compute(currentPosition, desiredPosition, currentRate, desiredRate, 0.1), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testCompute_proportional_withDeadband()
    {
@@ -449,7 +420,6 @@ public class PIDControllerTest
       assertEquals(6.0, pid.compute(currentPosition, desiredPosition, currentRate, desiredRate, 0.1), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void testCompute_integral()
    {
@@ -467,7 +437,6 @@ public class PIDControllerTest
       assertEquals(8.0, pid.compute(currentPosition, desiredPosition, currentRate, desiredRate, 0.1), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testCompute_derivative()
    {
@@ -485,7 +454,6 @@ public class PIDControllerTest
       assertEquals(36.0, pid.compute(currentPosition, desiredPosition, currentRate, desiredRate, 0.1), 0.001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testCompute_all_PID()
    {
@@ -508,7 +476,6 @@ public class PIDControllerTest
       assertEquals((10.0 + 30.0 + 8.0), pid.compute(currentPosition, desiredPosition, currentRate, desiredRate, 1.01), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testCompute_all_PID_withDeadband()
    {
@@ -532,7 +499,6 @@ public class PIDControllerTest
       assertEquals((7.0 + 30.0 + 8.0), pid.compute(currentPosition, desiredPosition, currentRate, desiredRate, 3.0), 0.001);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testCompute_all_PID_From_YoPID()
    {

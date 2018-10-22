@@ -6,7 +6,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameOrientation2D;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.FramePose2D;
@@ -34,7 +33,6 @@ public class OverheadPathTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void turningOverheadPath_UsageTest()
    {
@@ -64,7 +62,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void turningOverheadPath_PassingPiTest()
    {
@@ -96,7 +93,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void straightLineOverheadPath_UsageTest()
    {
@@ -136,7 +132,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void turnThenStraightOverheadPath_UsageAndHeadingOffsetTest()
    {
@@ -202,7 +197,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void turnStraightTurnOverheadPath_UsageAndHeadingOffsetTest()
    {
@@ -264,7 +258,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test
    public void turnStraightTurnOverheadPath_turnInPlaceTest()
    {
@@ -339,7 +332,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void turningPathInterpolationExtrapolationTest()
    {
@@ -362,7 +354,6 @@ public class OverheadPathTest
       assertEquals("Should extrapolate to -1.0", -1.0,poseAtS.getYaw(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
    public void straightPathInterpolationExtrapolationTest()
    {

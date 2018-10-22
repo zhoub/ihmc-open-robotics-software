@@ -9,9 +9,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -28,7 +25,6 @@ import us.ihmc.robotics.geometry.RotationTools.AxisAngleComparisonMode;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class FramePoseTest
 {
 
@@ -66,7 +62,6 @@ public class FramePoseTest
       EuclidCoreTestTools.assertRigidBodyTransformEquals(transform, transformCheck, 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRotatePoseAboutOffsetAxisAndCheckTranslation()
    {
@@ -96,7 +91,6 @@ public class FramePoseTest
             + actualPosePositionAfterRotation, 0.0, positionError.length(), 1e-3);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRotatePoseAboutCollinearAxisAndCheckTranslation()
    {
@@ -124,7 +118,6 @@ public class FramePoseTest
             + actualPosePositionAfterRotation, 0.0, positionError.length(), 1e-3);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRotatePoseAboutZAxisAndCheckOrientation()
    {
@@ -158,7 +151,6 @@ public class FramePoseTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRotatePoseAboutCollinearAxisIncrementally()
    {
@@ -184,7 +176,6 @@ public class FramePoseTest
       assertEquals("Change in FramePose Orientation after rotation is wrong.", desiredOrientationDistance, orientationDistance, Math.toRadians(0.1));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRotateAndUnrotatePoseAboutCollinearAxis()
    {
@@ -207,7 +198,6 @@ public class FramePoseTest
       assertEquals("Change in FramePose Orientation after rotation is wrong.", 0.0, orientationDistance, Math.toRadians(0.1));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testRotatePoseLockOrientation()
    {
@@ -250,7 +240,6 @@ public class FramePoseTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRotatePoseLockPosition()
    {

@@ -24,8 +24,6 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class ArrayToolsTest
 {
 
@@ -200,7 +198,6 @@ public class ArrayToolsTest
 
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.9)
 	@Test
    public void testParseDoubleArrayFromString() throws IOException
    {
@@ -226,7 +223,6 @@ public class ArrayToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testParseDoubleArrayFromBufferedReader()
    {
@@ -263,7 +259,6 @@ public class ArrayToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testParseDoubleArrayFromBufferedReaderWithIOException() throws IOException
    {
@@ -342,7 +337,6 @@ public class ArrayToolsTest
       return array;
    }
 	
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetRearrangedArrayList()
    {

@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -61,7 +60,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructors()
    {
@@ -126,7 +124,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    //TODO: Find a way to test this.
    public void testRegisterNewTrajectoryFrame()
@@ -137,7 +134,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       //      System.out.println(generator2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    //TODO: Find a way to test this.
    public void testChangeFrame()
@@ -145,7 +141,6 @@ public class ConstantPoseTrajectoryGeneratorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    //TODO: Find a way to test this.
    public void testSwitchTrajectoryFrame()
@@ -153,7 +148,6 @@ public class ConstantPoseTrajectoryGeneratorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    //TODO: Find a way to test this.
    public void testRegisterAndSwitchFrame()
@@ -161,7 +155,6 @@ public class ConstantPoseTrajectoryGeneratorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    //TODO: Find a way to test this.
    public void testSetConstantPose()
@@ -169,7 +162,6 @@ public class ConstantPoseTrajectoryGeneratorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testIsDone()
    {
@@ -177,7 +169,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertTrue(generator1.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testGet()
    {
@@ -190,7 +181,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertEquals(referenceFrame, orientationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testPackVelocity()
    {
@@ -206,7 +196,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, velocityToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testPackAcceleration()
    {
@@ -222,7 +211,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testPackAngularVelocity()
    {
@@ -238,7 +226,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, angularVelocityToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testPackAngularAcceleration()
    {
@@ -254,7 +241,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testPackLinearData()
    {
@@ -296,7 +282,6 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testPackAngularData()
    {
@@ -338,21 +323,18 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testInitialize()
    {
       generator.initialize();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testCompute()
    {
       generator.compute(0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testToString()
    {

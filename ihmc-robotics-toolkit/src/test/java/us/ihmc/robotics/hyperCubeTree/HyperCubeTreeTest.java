@@ -8,8 +8,6 @@ import java.util.concurrent.locks.LockSupport;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class HyperCubeTreeTest
 {
 
@@ -285,7 +283,6 @@ public class HyperCubeTreeTest
    private final static int alpha = 9;
    private final static double DIVISOR = 1 / ((double) (1 << alpha));
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.1)
 	@Test
    public void testTimingMeasurement()
    {
@@ -325,7 +322,6 @@ public class HyperCubeTreeTest
       // 0.0010669192539062501
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testMinimumMeasurableTime()
    {

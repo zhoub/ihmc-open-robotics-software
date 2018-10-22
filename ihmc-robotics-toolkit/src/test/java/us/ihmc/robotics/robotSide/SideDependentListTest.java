@@ -12,8 +12,6 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class SideDependentListTest
 {
 
@@ -74,7 +72,6 @@ public class SideDependentListTest
       
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testIndexOutOfBoundsException()
    {
@@ -93,7 +90,6 @@ public class SideDependentListTest
       iterator.next();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testIteratorCannotRemove()
    {

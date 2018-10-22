@@ -9,7 +9,6 @@ import java.util.Random;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -35,7 +34,6 @@ public class TwistCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithChainComposedOfPrismaticJoints() throws Exception
    {
@@ -72,7 +70,6 @@ public class TwistCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithChainComposedOfRevoluteJointsAssertAngularVelocityOnly() throws Exception
    {
@@ -111,7 +108,6 @@ public class TwistCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testWithTreeComposedOfPrismaticJoints() throws Exception
    {
@@ -155,7 +151,6 @@ public class TwistCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testWithTreeComposedOfRevoluteJointsAssertAngularVelocity() throws Exception
    {
@@ -201,7 +196,6 @@ public class TwistCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithChainRobotAgainstFiniteDifference() throws Exception
    {
@@ -247,7 +241,6 @@ public class TwistCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testWithTreeRobotAgainstFiniteDifference() throws Exception
    {
@@ -293,7 +286,6 @@ public class TwistCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {
@@ -370,7 +362,6 @@ public class TwistCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 6.4)
    @Test
    public void testRelativeTwistWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {

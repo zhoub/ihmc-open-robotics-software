@@ -14,7 +14,6 @@ import org.ejml.ops.RandomMatrices;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.matrix.Matrix3D;
 import us.ihmc.euclid.matrix.RotationMatrix;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -101,7 +100,6 @@ public class TwistTest extends SpatialMotionVectorTest
       assertArrayEquals(array, arrayBack, 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructUsingArrayTooSmall()
    {
@@ -109,7 +107,6 @@ public class TwistTest extends SpatialMotionVectorTest
       new Twist(frameC, frameD, frameA, array);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructUsingArrayTooBig()
    {
@@ -167,14 +164,12 @@ public class TwistTest extends SpatialMotionVectorTest
       WrenchTest.testDotProduct(frameA, frameB, frameC);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testDotProductNotAllowed1()
    {
       WrenchTest.testDotProductNotAllowed1(frameA, frameB, frameC);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testDotProductNotAllowed2()
    {
@@ -186,7 +181,6 @@ public class TwistTest extends SpatialMotionVectorTest
     * You shouldn't be able to add two twists expressed in different frames
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testAddExpressedInDifferentFrames()
    {
@@ -200,7 +194,6 @@ public class TwistTest extends SpatialMotionVectorTest
     * You shouldn't be able to add two twists if the second is not relative to the first
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testAddNotRelative()
    {
@@ -290,7 +283,6 @@ public class TwistTest extends SpatialMotionVectorTest
       SpatialMotionVectorTest.assertSpatialMotionVectorEquals(twist1, twist1Back, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSubWrongExpressedInFrame()
    {
@@ -299,7 +291,6 @@ public class TwistTest extends SpatialMotionVectorTest
       twist1.sub(twist2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSubFramesDontMatchUp()
    {
@@ -417,7 +408,6 @@ public class TwistTest extends SpatialMotionVectorTest
    /**
     * This test is used to prove that the reference frame in which the linear velocity of a body fixed point in computed in does not matter.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testGetLinearVelocityOfPointFixedInBodyFrameComputedInDifferentFrames() throws Exception
    {

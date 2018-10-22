@@ -7,14 +7,13 @@ import org.ejml.ops.CommonOps;
 import org.ejml.ops.RandomMatrices;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.robotics.testing.JUnitTools;
 
 import java.util.Random;
 
 public class DDPSolverTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeUpdatedControl()
    {
@@ -110,7 +109,6 @@ public class DDPSolverTest
       JUnitTools.assertMatrixEquals(updatedControlExpected, updatedControl, 1e-12);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testUpdateHamiltonianApproximations()
    {
@@ -180,7 +178,6 @@ public class DDPSolverTest
 
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputePreviousValueApproximation()
    {
@@ -310,7 +307,6 @@ public class DDPSolverTest
       JUnitTools.assertMatrixEquals(V_XX_expected, V_XX, 1e-12);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeFeedbackGainAndFeedForwardTerm()
    {
@@ -430,7 +426,6 @@ public class DDPSolverTest
       JUnitTools.assertMatrixEquals(feedforwardExpected, feedforwardMatrix, 1e-6);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAddMultQuad()
    {

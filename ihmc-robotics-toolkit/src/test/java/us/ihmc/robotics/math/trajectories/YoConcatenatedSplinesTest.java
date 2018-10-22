@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -31,7 +30,6 @@ public class YoConcatenatedSplinesTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.7)
 	@Test
    public void testSimpleCubicQuinticCubic()
    {
@@ -103,7 +101,6 @@ public class YoConcatenatedSplinesTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 4.3)
 	@Test
    public void testQuinticsFromCubicQuinticCubic()
    {
@@ -142,7 +139,6 @@ public class YoConcatenatedSplinesTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.7)
 	@Test
    public void testTimeFromArcLength()
    {

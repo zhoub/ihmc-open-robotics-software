@@ -9,14 +9,12 @@ import static org.junit.Assert.fail;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.trajectories.providers.SettableDoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoEnum;
 
 public class StateMachineExampleOneTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstructionOfSimpleTimeBasedStateMachine()
    {
@@ -99,7 +97,6 @@ public class StateMachineExampleOneTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstructionOfSimpleEventBasedStateMachine()
    {
@@ -295,7 +292,6 @@ public class StateMachineExampleOneTest
       assertFalse(currentState.didTransitionOutOfAction);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSomeStateMachineExceptions()
    {

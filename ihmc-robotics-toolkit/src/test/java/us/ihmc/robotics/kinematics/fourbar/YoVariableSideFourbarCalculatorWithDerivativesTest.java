@@ -10,7 +10,6 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class YoVariableSideFourbarCalculatorWithDerivativesTest
@@ -19,7 +18,6 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
    private static final boolean PRINT = false;
    private final YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSquare()
    {
@@ -32,7 +30,6 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
       assertEquals(PI / 2, calculator.getAngleCDA(), eps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSquareDer()
    {
@@ -45,7 +42,6 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
       assertEquals(-1, calculator.getAngleDtCDA(), eps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testParallelogram()
    {
@@ -62,7 +58,6 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
       assertEquals(-1, calculator.getAngleDtCDA(), eps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRandomQuadrilatteral()
    {
@@ -108,7 +103,6 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
       assertEquals(D, calculator.getAngleCDA(), eps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testMasterAngleComputations()
    {

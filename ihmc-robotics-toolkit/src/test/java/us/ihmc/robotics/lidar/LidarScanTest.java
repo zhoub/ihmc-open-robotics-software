@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.RunnableThatThrows;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.transform.RigidBodyTransform;
@@ -46,7 +45,6 @@ public class LidarScanTest
       assertLidarScanEquals(lidarScan, lidarScan.flipNew().flipNew(), 1e-7, 1e-7f);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAssertLidarScanRangesEqual()
    {
@@ -78,7 +76,6 @@ public class LidarScanTest
       assertLidarScanRangesEqual(lidarScan1, lidarScan4, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAssertLidarScanTransformsEqual()
    {
@@ -109,7 +106,6 @@ public class LidarScanTest
       });
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAssertLidarScanEquals()
    {
@@ -153,7 +149,6 @@ public class LidarScanTest
       assertLidarScanRangesEqual(lidarScan1, lidarScan2, rangeTolerance);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstructor()
    {
@@ -173,7 +168,6 @@ public class LidarScanTest
       assertEquals(lidarScan1.size(), 720, 1e-7f);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstructor2()
    {
@@ -190,7 +184,6 @@ public class LidarScanTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetRanges()
    {
@@ -211,7 +204,6 @@ public class LidarScanTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testGetCopy()
    {
@@ -232,7 +224,6 @@ public class LidarScanTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testScanParameters()
    {
@@ -271,7 +262,6 @@ public class LidarScanTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testGetAllPoints()
    {

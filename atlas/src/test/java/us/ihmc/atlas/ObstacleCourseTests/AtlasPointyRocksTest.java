@@ -40,7 +40,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * Tests the foothold detection and makes sure the detected area matches the real one.
     */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 118.6)
    @Test
    public void testStandingWithGCPointsChangingOnTheFly() throws SimulationExceededMaximumTimeException, RuntimeException
    {
@@ -62,7 +61,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * The robot walks forward with partial footholds. The controller knows about the foothold beforehand.
     */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 190.5)
    @Test
    public void testWalkingForwardWithPartialFootholdsAndStopBetweenSteps() throws SimulationExceededMaximumTimeException
    {
@@ -73,7 +71,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * This test steps in place with partial footholds. The controller knows about the foothold beforehand.
     */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 184.5)
    @Test
    public void testTakingStepsWithActualAndPredictedFootPolygonsChanging() throws SimulationExceededMaximumTimeException
    {
@@ -84,7 +81,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * The robot takes a step while on a partial foothold and receives a push that requires the use of angular momentum to recover.
     */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 61.2)
    @Test
    public void testSidePushDuringSwing() throws SimulationExceededMaximumTimeException
    {
@@ -96,7 +92,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * and hold position. Then it takes some steps in place with the part of foot changing each step.
     */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 77.5)
    @Test
    @Disabled // is a duplicate of other tests with less asserts.
    public void testStandingAndStepsInPlaceWithHalfFootContactsChanges() throws SimulationExceededMaximumTimeException
@@ -108,7 +103,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * The robot walks thinking it has small footholds but actually has full footholds.
     */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 58.3)
    @Test
    @Disabled // does only test stuff that is already covered by other tests in a easier setup
    public void testWalkingWithLinePredictedSupportPolygonButFullActualPolygon() throws SimulationExceededMaximumTimeException
@@ -117,7 +111,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 45.9)
    @Test
    @Disabled // not very interesting test the push does not do much
    public void testHoldPositionByStandingOnOneLegAndGettingPushedSideways() throws SimulationExceededMaximumTimeException

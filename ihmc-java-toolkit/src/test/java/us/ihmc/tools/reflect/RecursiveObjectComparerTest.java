@@ -12,13 +12,11 @@ import java.util.Random;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
 public class RecursiveObjectComparerTest
 {
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testStringEqual() throws IllegalArgumentException, IllegalAccessException, SecurityException, NoSuchFieldException
    {
@@ -31,7 +29,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(string1, string2, true, fieldsToIgnore);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testStringNotEqual() throws IllegalArgumentException, IllegalAccessException
    {
@@ -41,7 +38,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(string1, string2, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDifferentTypesNotEqual() throws IllegalArgumentException, IllegalAccessException
    {
@@ -83,7 +79,6 @@ public class RecursiveObjectComparerTest
       // Empty ArrayLists of different types are the same! compareAndAssert(listOfDoubles, listOfIntegers, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDoubleArraysDifferentInObject() throws IllegalArgumentException, IllegalAccessException
    {
@@ -97,7 +92,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(objectThree, objectOne, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testBuriedDoubleArraysDifferentInObject() throws IllegalArgumentException, IllegalAccessException
    {
@@ -111,7 +105,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(objectThree, objectOne, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMapEqual() throws IllegalArgumentException, IllegalAccessException
    {
@@ -124,7 +117,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(map1, map2, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMapEqualDifferentOrder() throws IllegalArgumentException, IllegalAccessException
    {
@@ -139,7 +131,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(map1, map2, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMapKeysNotEqual() throws IllegalArgumentException, IllegalAccessException
    {
@@ -154,7 +145,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(map1, map2, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMapValuesNotEqual() throws IllegalArgumentException, IllegalAccessException
    {
@@ -169,7 +159,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(map1, map2, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testClearEqualInitially() throws IllegalArgumentException, IllegalAccessException
    {
@@ -188,7 +177,6 @@ public class RecursiveObjectComparerTest
       assertEquals(false, comparer.compare(array1, array2));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testClearNotEqualInitially() throws IllegalArgumentException, IllegalAccessException
    {
@@ -207,7 +195,6 @@ public class RecursiveObjectComparerTest
       assertEquals(true, comparer.compare(array1, array2));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLoopsEqual() throws IllegalArgumentException, IllegalAccessException
    {
@@ -217,7 +204,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(loopCloser1, loopCloser2, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLoopsNotEqual() throws IllegalArgumentException, IllegalAccessException
    {
@@ -228,7 +214,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(loopCloser1, loopCloser2, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLoopsNotEqual2() throws IllegalArgumentException, IllegalAccessException
    {
@@ -239,7 +224,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(loopCloser1, loopCloser2, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLoopsNotEqual3() throws IllegalArgumentException, IllegalAccessException
    {
@@ -250,7 +234,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(loopCloser1, loopCloser2, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testArrayOfPrimitives() throws IllegalArgumentException, IllegalAccessException
    {
@@ -262,7 +245,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(array1, array3, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testArrayOfStrings() throws IllegalArgumentException, IllegalAccessException
    {
@@ -278,7 +260,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(array1, array3, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSomePrimitives() throws IllegalArgumentException, IllegalAccessException, SecurityException, NoSuchFieldException
    {
@@ -292,7 +273,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(somePrimitives1, somePrimitives2, true, fieldsToIgnore);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testTree() throws IllegalArgumentException, IllegalAccessException, SecurityException, NoSuchFieldException
    {
@@ -305,7 +285,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(tree1, tree2, true, fieldsToIgnore);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNaN() throws IllegalArgumentException, IllegalAccessException
    {
@@ -314,7 +293,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(d1, d2, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNaNVector() throws IllegalArgumentException, IllegalAccessException
    {
@@ -323,7 +301,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(object1, object2, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testOneNull() throws IllegalArgumentException, IllegalAccessException
    {
@@ -340,7 +317,6 @@ public class RecursiveObjectComparerTest
       System.err.println("testOneNull: " + compareString);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testOneNullTwo() throws IllegalArgumentException, IllegalAccessException
    {
@@ -353,7 +329,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(pair1, pair2, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testIgnoreSomeFields() throws IllegalArgumentException, IllegalAccessException, SecurityException, NoSuchFieldException
    {
@@ -371,7 +346,6 @@ public class RecursiveObjectComparerTest
       compareAndAssert(firstObject, secondObject, true, fieldsToIgnore);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testIgnoreSomeNamedFields() throws IllegalArgumentException, IllegalAccessException, SecurityException, NoSuchFieldException
    {

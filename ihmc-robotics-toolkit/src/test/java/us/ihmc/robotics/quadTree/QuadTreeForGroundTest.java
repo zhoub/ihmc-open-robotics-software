@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.random.RandomGeometry;
@@ -47,7 +46,6 @@ public class QuadTreeForGroundTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCommonCaseWithNoFilteringOrPointAveraging()
    {
@@ -98,7 +96,6 @@ public class QuadTreeForGroundTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testPointLimiter()
    {
@@ -173,7 +170,6 @@ public class QuadTreeForGroundTest
       assertFalse(NE.hasChildren());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleCasesOne()
    {
@@ -241,7 +237,6 @@ public class QuadTreeForGroundTest
       assertEquals(1, quadTree.getNumberOfQuads());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithFilteringAndPointAveraging()
    {
@@ -326,7 +321,6 @@ public class QuadTreeForGroundTest
       assertEquals(16, quadTree.getNumberOfQuads()); // Still 16 here.
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetClosestPoint()
    {
@@ -373,7 +367,6 @@ public class QuadTreeForGroundTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetAllPointsWithinBounds()
    {
@@ -415,7 +408,6 @@ public class QuadTreeForGroundTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetAllPointsWithinDistance()
    {

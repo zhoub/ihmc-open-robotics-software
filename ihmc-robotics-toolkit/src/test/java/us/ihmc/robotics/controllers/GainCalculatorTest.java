@@ -7,15 +7,10 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.controllers.pidGains.GainCalculator;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class GainCalculatorTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDerivativeGain()
    {
@@ -30,7 +25,6 @@ public class GainCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDampingRatio()
    {
@@ -50,7 +44,6 @@ public class GainCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDampingForSecondOrderSystem()
    {

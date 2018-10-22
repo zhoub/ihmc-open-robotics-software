@@ -9,7 +9,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 
@@ -36,7 +35,6 @@ public class GlitchFilteredYoBooleanTest
       filteredVariable = null;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructors_Set_Get()
    {
@@ -63,7 +61,6 @@ public class GlitchFilteredYoBooleanTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testUpdate()
    {
@@ -119,7 +116,6 @@ public class GlitchFilteredYoBooleanTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testCounter()
    {
@@ -136,7 +132,6 @@ public class GlitchFilteredYoBooleanTest
       
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testFiltering()
    {

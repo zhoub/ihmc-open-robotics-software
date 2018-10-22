@@ -1,23 +1,22 @@
 package us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.factories;
 
-import org.apache.commons.lang3.NotImplementedException;
-import org.junit.jupiter.api.Test;
-import us.ihmc.communication.controllerAPI.command.Command;
-import us.ihmc.communication.controllerAPI.command.QueueableCommand;
-import us.ihmc.communication.packets.ExecutionMode;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.commons.lists.SupplierBuilder;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
 
-import static org.junit.Assert.assertEquals;
+import org.apache.commons.lang3.NotImplementedException;
+import org.junit.jupiter.api.Test;
+
+import us.ihmc.commons.lists.SupplierBuilder;
+import us.ihmc.communication.controllerAPI.command.Command;
+import us.ihmc.communication.controllerAPI.command.QueueableCommand;
+import us.ihmc.communication.packets.ExecutionMode;
 
 public class ControllerAPIDefinitionTest
 {
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCommandSetters()
    {

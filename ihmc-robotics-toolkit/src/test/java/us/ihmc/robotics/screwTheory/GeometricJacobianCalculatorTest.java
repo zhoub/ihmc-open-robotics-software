@@ -13,7 +13,6 @@ import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -31,7 +30,6 @@ public class GeometricJacobianCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testBasicFeatures() throws Exception
    {
@@ -161,7 +159,6 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testAgainstTwistCalculatorChainRobot() throws Exception
    {
@@ -236,7 +233,6 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.8)
    @Test
    public void testConvectiveTerm() throws Exception
    {
@@ -326,7 +322,6 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.1)
    @Test
    public void testAgainstSpatialAccelerationCalculatorChainRobot() throws Exception
    {
@@ -384,7 +379,6 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test
    public void testAgainstTwistCalculatorFloatingJointRobot() throws Exception
    {
@@ -428,7 +422,6 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.1)
    @Test
    public void testAgainstSpatialAccelerationCalculatorFloatingJointRobot() throws Exception
    {

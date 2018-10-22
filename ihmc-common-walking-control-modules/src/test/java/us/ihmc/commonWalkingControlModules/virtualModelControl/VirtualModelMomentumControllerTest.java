@@ -1,22 +1,26 @@
 package us.ihmc.commonWalkingControlModules.virtualModelControl;
 
+import static junit.framework.TestCase.assertTrue;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualWrenchCommand;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.JointIndexHandler;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.virtualModelControl.VirtualModelMomentumController;
-import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.RobotLegs;
-import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.RobotArm;
-import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.PlanarRobotArm;
-import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.PlanarForkedRobotArm;
 import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.ForkedRobotArm;
+import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.PlanarForkedRobotArm;
+import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.PlanarRobotArm;
+import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.RobotArm;
+import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.RobotLegs;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.exceptions.ReferenceFrameMismatchException;
 import us.ihmc.euclid.referenceFrame.tools.EuclidFrameRandomTools;
@@ -24,20 +28,19 @@ import us.ihmc.euclid.tools.EuclidCoreRandomTools;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.robotics.robotSide.SideDependentList;
-import us.ihmc.robotics.screwTheory.*;
+import us.ihmc.robotics.screwTheory.GeometricJacobian;
+import us.ihmc.robotics.screwTheory.InverseDynamicsJoint;
+import us.ihmc.robotics.screwTheory.OneDoFJoint;
+import us.ihmc.robotics.screwTheory.RigidBody;
+import us.ihmc.robotics.screwTheory.ScrewTools;
+import us.ihmc.robotics.screwTheory.SelectionMatrix6D;
+import us.ihmc.robotics.screwTheory.Wrench;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationConstructionSetTools.tools.RobotTools.SCSRobotFromInverseDynamicsRobotModel;
 import us.ihmc.simulationconstructionset.ExternalForcePoint;
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 import us.ihmc.tools.MemoryTools;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import static junit.framework.TestCase.assertTrue;
-
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class VirtualModelMomentumControllerTest
 {
    private final static double gravity = -9.81;
@@ -69,7 +72,6 @@ public class VirtualModelMomentumControllerTest
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMC()
    {
@@ -86,7 +88,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, null);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMCSelectAll()
    {
@@ -104,7 +105,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMCSelectForce()
    {
@@ -129,7 +129,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testVMCSelectTorque()
    {
@@ -151,7 +150,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMCSelectForceX()
    {
@@ -172,7 +170,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMCSelectForceY()
    {
@@ -193,7 +190,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMCSelectForceZ()
    {
@@ -214,7 +210,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testVMCSelectTorqueX()
    {
@@ -235,7 +230,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testVMCSelectTorqueY()
    {
@@ -257,7 +251,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testVMCSelectTorqueZ()
    {
@@ -278,7 +271,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testVMCSelectForceXTorqueY()
    {
@@ -300,7 +292,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMCSelectForceYZTorqueX()
    {
@@ -322,7 +313,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testVMCSelectForceXTorqueXZ()
    {
@@ -344,7 +334,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMCWrongExpressedInFrame()
    {
@@ -366,7 +355,6 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMCWrongExpressedOnFrame()
    {
@@ -398,7 +386,6 @@ public class VirtualModelMomentumControllerTest
       assertTrue("Wrong frame", caughtException);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testVMCWrongExpressedInAndOnFrame()
    {
@@ -430,7 +417,6 @@ public class VirtualModelMomentumControllerTest
       assertTrue("Wrong frame", caughtException);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testVMCVirtualWrenchCommand()
    {
@@ -479,7 +465,6 @@ public class VirtualModelMomentumControllerTest
       VirtualModelMomentumControllerTestHelper.compareWrenches(desiredWrench, appliedWrench);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 6.6)
    @Test
    public void testVMCWithArm() throws Exception
    {
@@ -505,7 +490,6 @@ public class VirtualModelMomentumControllerTest
             desiredTorques, externalForcePoints, new SelectionMatrix6D(), simulationTestingParameters);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.7)
    @Test
    public void testVMCWithPlanarArm() throws Exception
    {
@@ -535,7 +519,6 @@ public class VirtualModelMomentumControllerTest
                                                                                      desiredForces, desiredTorques, externalForcePoints, selectionMatrix, simulationTestingParameters);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 7.0)
    @Test
    public void testPlanarHydra() throws Exception
    {
@@ -574,7 +557,6 @@ public class VirtualModelMomentumControllerTest
             desiredTorques, externalForcePoints, selectionMatrix, simulationTestingParameters);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test
    public void testHydra() throws Exception
    {

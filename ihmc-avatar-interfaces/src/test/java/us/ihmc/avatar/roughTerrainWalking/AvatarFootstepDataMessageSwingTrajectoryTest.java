@@ -23,7 +23,6 @@ import us.ihmc.commonWalkingControlModules.desiredFootStep.FootstepListVisualize
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.ExecutionTiming;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -71,14 +70,12 @@ public abstract class AvatarFootstepDataMessageSwingTrajectoryTest implements Mu
     */
    public abstract double getLegLength();
 
-   @ContinuousIntegrationTest(estimatedDuration = 33.7)
    @Test
    public void testSwingTrajectoryTouchdownSpeed() throws SimulationExceededMaximumTimeException
    {
       runTestTouchdownSpeed();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 33.7)
    @Test
    public void testSwingTrajectoryTouchdownWithAdjustment() throws SimulationExceededMaximumTimeException
    {
@@ -166,7 +163,6 @@ public abstract class AvatarFootstepDataMessageSwingTrajectoryTest implements Mu
       Assert.assertEquals(touchdownVelocity, desiredVelocity.getValueAsDouble(), 1.0e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 33.7)
    @Test
    public void testSwingTrajectoryInWorld() throws SimulationExceededMaximumTimeException
    {

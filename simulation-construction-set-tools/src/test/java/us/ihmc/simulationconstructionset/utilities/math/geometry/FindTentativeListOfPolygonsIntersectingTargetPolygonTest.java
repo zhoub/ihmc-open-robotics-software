@@ -12,7 +12,6 @@ import javax.swing.JScrollPane;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.geometry.BoundingBox2D;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.interfaces.Vertex2DSupplier;
@@ -29,7 +28,6 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
    private static final boolean VERBOSE = false;
    private static final boolean SHOW_PLOTTER = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.5)
 	@Test
    public void testFindTentativeListOfPolygonsIntersectingTargetPolygon()
    {
@@ -128,7 +126,6 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.5)
 	@Test
    public void testFindTentativeListOfPolygonsIntersectingTargetPolygonTwo()
    {
@@ -186,7 +183,6 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.5)
 	@Test
    public void testFindTentativeListOfPolygonsIntersectingTargetPolygonThree()
    {
@@ -284,7 +280,6 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 2.0)
 	@Test
    public void testFindTentativeListOfPolygonsIntersectingTargetPolygonTiming()
    {
@@ -381,7 +376,6 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testBadCase()
    {

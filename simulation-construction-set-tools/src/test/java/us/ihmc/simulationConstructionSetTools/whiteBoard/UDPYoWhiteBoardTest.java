@@ -6,11 +6,9 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class UDPYoWhiteBoardTest extends YoWhiteBoardTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 2.6)
 	@Test
    public void testUDPWhiteBoardOne() throws IOException
    {
@@ -33,7 +31,6 @@ public class UDPYoWhiteBoardTest extends YoWhiteBoardTest
       doASynchronizedWriteThenReadTest(leftWhiteBoard, rightWhiteBoard, numberOfTests, 203, 207);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 3.9)
 	@Test
    public void testUDPWhiteBoardTwo() throws IOException
    {

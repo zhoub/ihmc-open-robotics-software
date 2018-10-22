@@ -25,8 +25,8 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.Rule;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.DisableOnDebug;
 import org.junit.rules.Timeout;
@@ -37,8 +37,6 @@ import com.google.common.base.CaseFormat;
 import controller_msgs.msg.dds.ExoskeletonBehaviorStatePacket;
 import controller_msgs.msg.dds.FrameInformation;
 import controller_msgs.msg.dds.QuadrupedSteppingStateChangeMessage;
-import controller_msgs.msg.dds.ReachingManifoldMessage;
-import controller_msgs.msg.dds.RigidBodyExplorationConfigurationMessage;
 import controller_msgs.msg.dds.SnapFootstepPacket;
 import controller_msgs.msg.dds.VideoPacket;
 import gnu.trove.map.hash.TIntObjectHashMap;
@@ -46,7 +44,6 @@ import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.Packet;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.Orientation2D;
 import us.ihmc.euclid.geometry.Pose2D;
@@ -77,7 +74,6 @@ public class PacketCodeQualityTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test
    public void testFrameInformationDefaultValues()
    {
@@ -88,7 +84,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.3, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testNoFieldsAreNullAfterPacketCreation()
    { // This test won't fail on Arrays or Lists
@@ -156,7 +152,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketsHaveNoConvenienceMethod()
    { // This test won't fail for setUniqueId(long) or validateMessage()
@@ -278,7 +274,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketsUseIDLSequenceObjectOnly()
    { // This test won't fail on Arrays or Lists
@@ -335,7 +331,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketOnlyExtendPacketClass()
    {
@@ -381,7 +377,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketDoNotDeclareTypes()
    {
@@ -423,7 +419,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketsHaveUniqueSimpleNameBasedHashCode()
    { // This test won't fail on Arrays or Lists
@@ -452,7 +448,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.4, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketsDeclarePrimitiveOrMessageTypeFields()
    { // This test won't fail on Arrays or Lists
@@ -532,7 +528,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketStaticFieldsAreFinal()
    {
@@ -576,7 +572,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketHaveNoEnum()
    {
@@ -624,7 +620,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.4, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketByteFieldNameRefersToEnumType() throws NoSuchFieldException, SecurityException
    {
@@ -702,7 +698,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.7, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testPacketWithByteFieldDeclareEnumValuesAsStaticByteFields() throws NoSuchFieldException, SecurityException
    {
@@ -847,7 +843,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testOnlyEmptyAndCopyConstructor()
    {
@@ -905,7 +901,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
+
    @Test
    public void testNoRandomConstructor()
    {

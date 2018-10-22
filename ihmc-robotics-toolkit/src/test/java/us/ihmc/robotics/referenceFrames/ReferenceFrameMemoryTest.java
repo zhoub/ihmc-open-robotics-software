@@ -7,14 +7,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.tools.MemoryTools;
 
 public class ReferenceFrameMemoryTest
 {
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testGarbageCollectionInBroadTrees()
    {

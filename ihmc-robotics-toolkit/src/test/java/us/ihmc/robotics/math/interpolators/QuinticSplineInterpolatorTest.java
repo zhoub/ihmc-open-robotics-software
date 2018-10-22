@@ -8,8 +8,6 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class QuinticSplineInterpolatorTest
 {
 
@@ -19,7 +17,6 @@ public class QuinticSplineInterpolatorTest
     * made in Matlab.
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testQuinticSplineInterpolator()
    {
@@ -77,7 +74,6 @@ public class QuinticSplineInterpolatorTest
     * timing parameters.
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.7)
 	@Test
    public void testQuinticSplineCalculationSpeed() throws IOException
    {
@@ -149,7 +145,6 @@ public class QuinticSplineInterpolatorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testTwoPointsQuinticSpline()
    {

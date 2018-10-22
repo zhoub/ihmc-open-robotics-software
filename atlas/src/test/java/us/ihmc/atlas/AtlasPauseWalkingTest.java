@@ -1,5 +1,6 @@
 package us.ihmc.atlas;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.parameters.AtlasWalkingControllerParameters;
@@ -7,8 +8,6 @@ import us.ihmc.avatar.AvatarPauseWalkingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
@@ -97,7 +96,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       return 5;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    @Override
    public void testPauseWalking() throws SimulationExceededMaximumTimeException
@@ -105,7 +104,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       super.testPauseWalking();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    @Override
    public void testTwoIndependentSteps()throws SimulationExceededMaximumTimeException
@@ -113,7 +112,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       super.testTwoIndependentSteps();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    @Override
    public void testStartSecondStepWhileTransitioningToStand()throws SimulationExceededMaximumTimeException
@@ -121,7 +120,6 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       super.testStartSecondStepWhileTransitioningToStand();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 77.3)
    @Test
    @Override
    public void testPauseWalkingForward() throws SimulationExceededMaximumTimeException
@@ -129,7 +127,6 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       super.testPauseWalkingForward();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 78.9)
    @Test
    @Override
    public void testPauseWalkingInitialTransfer() throws SimulationExceededMaximumTimeException
@@ -137,7 +134,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       super.testPauseWalkingInitialTransfer();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 73.9, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    @Override
    public void testPauseWalkingForwardInitialTransfer() throws SimulationExceededMaximumTimeException
@@ -145,7 +142,6 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       super.testPauseWalkingForwardInitialTransfer();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test
    public void testPauseWalkingInitialTransferOneStep() throws SimulationExceededMaximumTimeException
    {

@@ -12,13 +12,11 @@ import net.java.games.input.Event;
 import net.java.games.input.test.ControllerReadTest;
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RunnableThatThrows;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.tools.inputDevices.joystick.exceptions.JoystickNotFoundException;
 import us.ihmc.tools.inputDevices.joystick.virtualJoystick.VirtualJoystick;
 
 public class JoystickTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCreateJoystick()
    {
@@ -50,7 +48,6 @@ public class JoystickTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testCreateVirtualJoystick()
    {
@@ -99,7 +96,6 @@ public class JoystickTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFindNonExistentJoystick()
    {

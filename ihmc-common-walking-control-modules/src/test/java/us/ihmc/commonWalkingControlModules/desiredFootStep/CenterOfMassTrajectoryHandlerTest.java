@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.messageHandlers.CenterOfMassTrajectoryHandler;
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.communication.packets.ExecutionMode;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
@@ -28,7 +27,6 @@ public class CenterOfMassTrajectoryHandlerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleExample()
    {
@@ -80,7 +78,6 @@ public class CenterOfMassTrajectoryHandlerTest
       assertTrue(desiredICPVelocity.containsNaN());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNonZeroStartTime()
    {
@@ -135,7 +132,6 @@ public class CenterOfMassTrajectoryHandlerTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testQueuing()
    {

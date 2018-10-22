@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.behaviorTests.HumanoidHandDesiredConfigurationBehaviorTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
@@ -28,7 +27,6 @@ public class ValkyrieHandDesiredConfigurationBehaviorTest extends HumanoidHandDe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 40.0)
    @Test
    public void testCloseHand() throws SimulationExceededMaximumTimeException
    {
@@ -36,7 +34,6 @@ public class ValkyrieHandDesiredConfigurationBehaviorTest extends HumanoidHandDe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testPauseAndResumeCloseHand() throws SimulationExceededMaximumTimeException
    {
@@ -44,7 +41,6 @@ public class ValkyrieHandDesiredConfigurationBehaviorTest extends HumanoidHandDe
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 35.0)
    @Test
    public void testStopCloseHand() throws SimulationExceededMaximumTimeException
    {

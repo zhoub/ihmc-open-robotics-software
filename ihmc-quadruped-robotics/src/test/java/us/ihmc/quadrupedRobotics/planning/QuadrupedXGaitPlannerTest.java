@@ -8,9 +8,7 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose2D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -21,7 +19,6 @@ import us.ihmc.quadrupedRobotics.planning.stepStream.QuadrupedPlanarFootstepPlan
 import us.ihmc.robotics.robotSide.RobotEnd;
 import us.ihmc.robotics.robotSide.RobotQuadrant;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class QuadrupedXGaitPlannerTest
 {
    @AfterEach
@@ -30,7 +27,6 @@ public class QuadrupedXGaitPlannerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testInitialForwardVelocityPlan()
    {
@@ -96,7 +92,6 @@ public class QuadrupedXGaitPlannerTest
       }
    }
 
-      @ContinuousIntegrationTest(estimatedDuration = 0.0)
       @Test
       public void testOnlineForwardVelocityPlan()
       {

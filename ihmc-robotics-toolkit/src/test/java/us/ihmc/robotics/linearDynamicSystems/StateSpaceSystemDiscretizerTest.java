@@ -26,7 +26,6 @@ import org.jfree.data.xy.XYSeriesCollection;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MathTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.testing.JUnitTools;
 
 public class StateSpaceSystemDiscretizerTest
@@ -191,7 +190,6 @@ public class StateSpaceSystemDiscretizerTest
          }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testCompareDifferentImplementations()
    {

@@ -6,13 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import net.wimpi.modbus.procimg.Register;
 import net.wimpi.modbus.procimg.SimpleRegister;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.humanoidRobotics.communication.packets.dataobjects.HandConfiguration;
 import us.ihmc.robotiq.RobotiqGraspMode;
 
 public class RobotiqWriteRequestFactoryTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testOpenMessage()
    {

@@ -8,11 +8,8 @@ import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class FloatArrayCollectorTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCollectZeroItemsToAZeroLengthArray()
    {
@@ -20,7 +17,6 @@ public class FloatArrayCollectorTest
       assertEquals(0, collectedArrayOfFloats.length);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCollectOneItem()
    {
@@ -29,7 +25,6 @@ public class FloatArrayCollectorTest
       assertEquals(1.0f, collectedArrayOfFloats[0], 1e-5);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCollectManyItems()
    {
@@ -41,7 +36,6 @@ public class FloatArrayCollectorTest
       assertEquals(0, sum, 1e-5);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCollectParallel()
    {

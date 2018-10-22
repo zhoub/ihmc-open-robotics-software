@@ -7,14 +7,12 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple2D.Vector2D;
 import us.ihmc.euclid.tuple3D.Point3D;
 
 public class CollisionCylinderTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testInsideCylinderPoints()
    {
@@ -35,7 +33,6 @@ public class CollisionCylinderTest
          assertTrue(cylinder.contains(point));
       }
    }
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testOutideCylinderPoints()
    {

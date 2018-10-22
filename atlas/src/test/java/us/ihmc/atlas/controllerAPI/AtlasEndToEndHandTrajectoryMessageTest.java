@@ -2,6 +2,7 @@ package us.ihmc.atlas.controllerAPI;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.HandTrajectoryMessage;
@@ -16,8 +17,6 @@ import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commonWalkingControlModules.controllerCore.FeedbackControllerToolbox;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -36,7 +35,6 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    private final DRCRobotModel robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false);
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.0)
    @Test
    public void testCustomControlFrame() throws SimulationExceededMaximumTimeException
    {
@@ -44,7 +42,6 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 15.8)
    @Test
    public void testMessageWithTooManyTrajectoryPoints() throws Exception
    {
@@ -52,7 +49,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 31.8, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testMultipleTrajectoryPoints() throws Exception
    {
@@ -60,7 +57,6 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 51.8)
    @Test
    public void testQueuedMessages() throws Exception
    {
@@ -68,7 +64,6 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 26.3)
    @Test
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
@@ -76,7 +71,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 19.3, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -84,7 +79,6 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 32.6)
    @Test
    public void testSingleTrajectoryPoint() throws Exception
    {
@@ -92,7 +86,6 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.7)
    @Test
    public void testStopAllTrajectory() throws Exception
    {
@@ -103,7 +96,7 @@ public class AtlasEndToEndHandTrajectoryMessageTest extends EndToEndHandTrajecto
     * Test revealing a bug that was preventing the trajectory from flipping the sign of the final orientation (necessary to prevent an extra rotation).
     * This bug was due to limiting the angle described by a Quaternion to be in [-Pi; Pi].
     */
-   @ContinuousIntegrationTest(estimatedDuration = 30.6, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testBugFromActualSimDataWithTwoTrajectoryPoints() throws Exception
    {

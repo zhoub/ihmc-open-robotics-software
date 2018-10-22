@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.simulationConstructionSetTools.util.environments.environmentRobots.ContactableDoorRobot;
@@ -29,7 +28,6 @@ public class ContactableDoorRobotTest
    
    RigidBodyTransform doorToWorldTransform = new RigidBodyTransform();
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testPointIsClose()
    {      
@@ -50,7 +48,6 @@ public class ContactableDoorRobotTest
       assertTrue(door.isPointOnOrInside(diagonal));
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 1.9)
    @Test
    public void testDoorIsClosing()
    {

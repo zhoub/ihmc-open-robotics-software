@@ -9,18 +9,13 @@ import org.junit.jupiter.api.Test;
 
 import gnu.trove.list.array.TDoubleArrayList;
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class TrajectoryPointOptimizerTest
 {
    private static final double epsilon = 10E-7;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEndPointSetters()
    {
@@ -38,7 +33,6 @@ public class TrajectoryPointOptimizerTest
       optimizer.setEndPoints(rightSize, wrongSize, rightSize, rightSize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWaypointSetters()
    {
@@ -65,7 +59,6 @@ public class TrajectoryPointOptimizerTest
       optimizer.setWaypoints(waypoints);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testYoVariables()
    {
@@ -78,7 +71,6 @@ public class TrajectoryPointOptimizerTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleSymmetricProblem()
    {
@@ -146,7 +138,6 @@ public class TrajectoryPointOptimizerTest
       assertEquals(waypointVelocity.get(0), 1.5, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleProblem()
    {
@@ -175,7 +166,6 @@ public class TrajectoryPointOptimizerTest
          assertEquals(coefficients.get(0).get(i), expected[i], epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testTrivialProblem()
    {
@@ -204,7 +194,6 @@ public class TrajectoryPointOptimizerTest
          assertEquals(expected[i], coefficients.get(0).get(i), epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testTimeDescent()
    {

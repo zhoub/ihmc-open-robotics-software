@@ -1,16 +1,18 @@
 package us.ihmc.commonWalkingControlModules.dynamicReachability;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commonWalkingControlModules.configurations.DynamicReachabilityParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.tools.exceptions.NoConvergenceException;
-
-import static org.junit.Assert.*;
-
-import org.junit.jupiter.api.AfterEach;
 
 public class TimeAdjustmentSolverTest
 {
@@ -23,7 +25,6 @@ public class TimeAdjustmentSolverTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithoutHigherSteps()
    {
@@ -156,7 +157,6 @@ public class TimeAdjustmentSolverTest
    /**
     * We only have only told it to consider 3 steps, so none of the higher steps should be allowed.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithHigherStepsButOutOfBounds()
    {
@@ -281,7 +281,6 @@ public class TimeAdjustmentSolverTest
    /**
     * We are not submitting higher gradients, so there should be zero adjustment
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithHigherStepsButNotSubmitted()
    {
@@ -419,7 +418,6 @@ public class TimeAdjustmentSolverTest
    /**
     * The higher gradients are really small, so the adjustment should be really small.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithHigherSteps()
    {

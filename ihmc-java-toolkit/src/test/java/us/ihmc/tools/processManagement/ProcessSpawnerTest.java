@@ -21,11 +21,9 @@ import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.exception.DefaultExceptionHandler;
 import us.ihmc.commons.nio.FileTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ProcessSpawnerTest
 {
    private static final Path testFilePath = Paths.get(System.getProperty("java.io.tmpdir"), "ProcessSpawnerTest.tmp");
@@ -86,7 +84,6 @@ public class ProcessSpawnerTest
       validateFileContents(randomString);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testJavaProcessSpawnerWithClasspathAsArgument() throws Exception
    {
@@ -103,7 +100,6 @@ public class ProcessSpawnerTest
       validateFileContents(randomString);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testJavaProcessSpawnerWithClasspathAsEnvironmentVariable() throws Exception
    {

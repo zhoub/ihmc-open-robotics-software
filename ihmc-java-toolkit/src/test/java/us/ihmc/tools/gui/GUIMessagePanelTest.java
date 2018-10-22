@@ -5,13 +5,11 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.UI})
 public class GUIMessagePanelTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test
    public void testGetText()
    {

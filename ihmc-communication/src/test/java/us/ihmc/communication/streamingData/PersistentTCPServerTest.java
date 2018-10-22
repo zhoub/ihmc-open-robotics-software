@@ -14,12 +14,10 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class PersistentTCPServerTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testPersistentTCPServer() throws UnknownHostException, IOException
    {

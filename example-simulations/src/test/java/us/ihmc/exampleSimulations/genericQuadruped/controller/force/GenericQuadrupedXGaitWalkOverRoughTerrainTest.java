@@ -3,11 +3,10 @@ package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 import java.io.IOException;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import junit.framework.AssertionFailedError;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
 import us.ihmc.exampleSimulations.genericQuadruped.parameters.GenericQuadrupedXGaitSettings;
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
@@ -19,7 +18,6 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
    private QuadrupedXGaitSettingsReadOnly xGaitSettings;
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test
    public void testWalkingUpStaircase() throws IOException
    {
@@ -27,7 +25,6 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
       super.testWalkingUpStaircase();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test
    public void testWalkingOverTiledGround() throws IOException, AssertionFailedError
    {
@@ -35,7 +32,7 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
       super.testWalkingOverTiledGround();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testWalkingOverSingleStepUp() throws IOException, AssertionFailedError
    {
@@ -43,7 +40,7 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
       super.testWalkingOverSingleStepUp();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testWalkingOverConsecutiveRamps() throws IOException, AssertionFailedError
    {

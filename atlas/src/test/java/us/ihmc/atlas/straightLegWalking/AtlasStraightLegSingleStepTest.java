@@ -23,14 +23,12 @@ import us.ihmc.commonWalkingControlModules.configurations.LegConfigurationParame
 import us.ihmc.commonWalkingControlModules.configurations.SwingTrajectoryParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.MomentumOptimizationSettings;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepTest
 {
    private final AtlasRobotModel atlasRobotModel = new MyAtlasRobotModel();
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testForwardStep() throws SimulationExceededMaximumTimeException
    {
@@ -43,7 +41,6 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
       super.testForwardStep();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testForwardStepWithPause() throws SimulationExceededMaximumTimeException
    {
@@ -63,7 +60,6 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
       super.testForwardSteps();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testWideStep() throws SimulationExceededMaximumTimeException
    {
@@ -76,7 +72,6 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
       super.testWideStep();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test
    public void testSteppingDown() throws SimulationExceededMaximumTimeException
    {

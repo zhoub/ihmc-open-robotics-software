@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.exampleSimulations.simple3DWalker.SimpleWalkerICPPlanner;
 
 public class SimpleWalkerICPPlannerTest
@@ -18,14 +17,12 @@ public class SimpleWalkerICPPlannerTest
    SimpleWalkerICPPlanner icpPlanner = new SimpleWalkerICPPlanner(CoPs, stepTime, omega );
    ArrayList<Double> ICPs = icpPlanner.getICPKnotPoints();
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testIfICPListIsSameSize()
    {
       Assert.assertEquals("CoP knots not equal length ICP knots", CoPs.size(),ICPs.size());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public  void testIfICPsAreInFrontICPExceptLast()
    {
@@ -43,7 +40,6 @@ public class SimpleWalkerICPPlannerTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testIfICPsAreBetweenAllCoPs()
    {
@@ -53,7 +49,6 @@ public class SimpleWalkerICPPlannerTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testIfICPReferenceLiesBetweenICPPoints()
    {

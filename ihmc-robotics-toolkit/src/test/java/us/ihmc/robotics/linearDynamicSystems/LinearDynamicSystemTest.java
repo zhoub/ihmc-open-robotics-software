@@ -10,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.dataStructures.ComplexNumber;
 import us.ihmc.robotics.dataStructures.Polynomial;
 
@@ -44,7 +43,6 @@ public class LinearDynamicSystemTest
       massSpringDamperSystem = null;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testException()
    {
@@ -170,7 +168,6 @@ public class LinearDynamicSystemTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMCSExampleOne()
    {
@@ -274,7 +271,6 @@ public class LinearDynamicSystemTest
       // assertTrue(passed);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMCSExampleTwo()
    {
@@ -368,7 +364,6 @@ public class LinearDynamicSystemTest
       //      }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimulateInitialConditions()
    {
@@ -411,7 +406,6 @@ public class LinearDynamicSystemTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetTransferFunctionMatrix()
    {
@@ -426,21 +420,18 @@ public class LinearDynamicSystemTest
       assertTrue(transferFunction.epsilonEquals(expectedTransferFunction, 1e-7));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleDecaySystem()
    {
       verifyLinearDynamicSystem(simpleDecaySystem, simpleDecayMatrixA);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMassSpringDamperSystem()
    {
       verifyLinearDynamicSystem(massSpringDamperSystem, massSpringDamperMatrixA);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testRandomLinearDynamicSystems()
    {
@@ -500,7 +491,6 @@ public class LinearDynamicSystemTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testStateFeedbackMethods()
    {

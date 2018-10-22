@@ -17,7 +17,6 @@ import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelSta
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelStates.walkingController.states.WalkingStateEnum;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
@@ -132,7 +131,6 @@ public abstract class AvatarFlatGroundForwardWalkingTest implements MultiRobotTe
       return 0.08;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test
    public void testForwardWalk() throws SimulationExceededMaximumTimeException
    {
@@ -176,7 +174,6 @@ public abstract class AvatarFlatGroundForwardWalkingTest implements MultiRobotTe
       controllerSpy.assertCheckpointsReached();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test
    public void testForwardWalkWithForceDisturbances() throws SimulationExceededMaximumTimeException
    {

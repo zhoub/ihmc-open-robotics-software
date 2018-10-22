@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -30,7 +29,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 2.6)
 	@Test
    public void testChangeFrameUsingNumericalDifferentiationVersusAnalytical()
    {
@@ -103,7 +101,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
 	/**
 	 * This test is used to prove that the reference frame in which the linear acceleration of a body fixed point in computed in does not matter.
 	 */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testGetAccelerationOfPointFixedInBodyFrameComputedInDifferentFrames() throws Exception
    {
@@ -182,7 +179,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * You shouldn't be able to add two spatial acceleration vectors expressed in different frames
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testAddExpressedInDifferentFrames()
    {
@@ -196,7 +192,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * You shouldn't be able to add two spatial acceleration vectors if the second is not relative to the first
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testAddNotRelative()
    {
@@ -288,7 +283,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       SpatialMotionVectorTest.assertSpatialMotionVectorEquals(vector1, vector1Back, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSubWrongExpressedInFrame()
    {
@@ -297,7 +291,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       vector1.sub(vector2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSubFramesDontMatchUp()
    {

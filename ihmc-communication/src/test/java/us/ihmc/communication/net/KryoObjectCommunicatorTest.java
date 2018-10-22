@@ -19,7 +19,6 @@ import geometry_msgs.msg.dds.Vector3Stamped;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.Packet;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
@@ -101,7 +100,6 @@ public class KryoObjectCommunicatorTest
       server.disconnect();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testStateListener() throws IOException, InterruptedException
    {
@@ -156,7 +154,6 @@ public class KryoObjectCommunicatorTest
    }
 
 	@SuppressWarnings("unused")
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testConnectionLimiter() throws IOException, InterruptedException
    {
@@ -231,7 +228,6 @@ public class KryoObjectCommunicatorTest
       
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test
    public void testSendAndReceive() throws IOException, InterruptedException
    {

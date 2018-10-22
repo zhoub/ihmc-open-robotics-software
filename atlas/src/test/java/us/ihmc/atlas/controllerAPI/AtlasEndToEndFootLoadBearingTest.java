@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.controllerAPI.EndToEndEndFootBearingMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 public class AtlasEndToEndFootLoadBearingTest extends EndToEndEndFootBearingMessageTest
@@ -27,7 +26,6 @@ public class AtlasEndToEndFootLoadBearingTest extends EndToEndEndFootBearingMess
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 53.9)
    @Test
    public void testSwitchFootToLoadBearing() throws Exception
    {

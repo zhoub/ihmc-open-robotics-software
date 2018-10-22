@@ -1,9 +1,11 @@
 package us.ihmc.pathPlanning.visibilityGraphs;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -15,8 +17,6 @@ import us.ihmc.robotics.geometry.PlanarRegionsList;
 import us.ihmc.robotics.geometry.PlanarRegionsListGenerator;
 import us.ihmc.robotics.graphics.Graphics3DObjectTools;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
-
-import java.util.List;
 
 public class VisibilityGraphOcclusionTest
 {
@@ -34,14 +34,12 @@ public class VisibilityGraphOcclusionTest
    }
 
    @Test
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testVisibilityGraphWithOcclusion()
    {
       runTest(occludedEnvironmentWithAGoalPlane);
    }
 
    @Test
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    public void testVisibilityGraphWithOcclusionAndNoGoalPlane()
    {
       runTest(occludedEnvironmentWithoutAGoalPlane);

@@ -5,12 +5,10 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class ProcessToolsTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testGetAllSystemProcesses()
    {

@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.behaviorTests.HumanoidHandDesiredConfigurationBehaviorTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -33,7 +32,6 @@ public class AtlasHandDesiredConfigurationBehaviorTest extends HumanoidHandDesir
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 45.9)
    @Test
    public void testCloseHand() throws SimulationExceededMaximumTimeException
    {
@@ -41,7 +39,6 @@ public class AtlasHandDesiredConfigurationBehaviorTest extends HumanoidHandDesir
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 51.9)
    @Test
    public void testPauseAndResumeCloseHand() throws SimulationExceededMaximumTimeException
    {
@@ -49,7 +46,6 @@ public class AtlasHandDesiredConfigurationBehaviorTest extends HumanoidHandDesir
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 39.8)
    @Test
    public void testStopCloseHand() throws SimulationExceededMaximumTimeException
    {

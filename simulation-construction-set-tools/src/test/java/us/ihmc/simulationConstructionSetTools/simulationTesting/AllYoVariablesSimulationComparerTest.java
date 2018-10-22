@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.simulationconstructionset.Link;
@@ -121,7 +120,6 @@ public class AllYoVariablesSimulationComparerTest
 	      return ret;
 	   }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
 	public void testCompareWithZeroEpsilon() 
 	{
@@ -156,7 +154,6 @@ public class AllYoVariablesSimulationComparerTest
 		assertEquals(yoDouble4, differences.get(0)[1]);
 	}
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test
 	public void testWithLowEpsilon()
 	{
@@ -185,7 +182,6 @@ public class AllYoVariablesSimulationComparerTest
 		assertFalse(comparerWithLowEpsilon.compare(scs1, scs2)); 
 	}
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test
 	public void testWithHighEpsilon()
 	{

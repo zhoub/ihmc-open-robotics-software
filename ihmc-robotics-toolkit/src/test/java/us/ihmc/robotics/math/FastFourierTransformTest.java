@@ -6,13 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Epsilons;
 import us.ihmc.commons.MathTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.dataStructures.ComplexNumber;
 
 public class FastFourierTransformTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
+
    @Test
    public void testBitReverse()
    {
@@ -27,7 +25,6 @@ public class FastFourierTransformTest
       assertTrue (fft.bitReverse(7, 3) == 7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test
    public void testFourierTransform()
    {
@@ -45,7 +42,6 @@ public class FastFourierTransformTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test
    public void testFourierTransform2()
    {

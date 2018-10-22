@@ -20,16 +20,12 @@ import us.ihmc.commonWalkingControlModules.configurations.AngularMomentumEstimat
 import us.ihmc.commonWalkingControlModules.configurations.SmoothCMPPlannerParameters;
 import us.ihmc.commons.Epsilons;
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.referenceFrame.interfaces.FrameVector3DReadOnly;
-import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.transform.QuaternionBasedTransform;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple4D.Quaternion;
@@ -46,7 +42,6 @@ import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.yoVariables.variable.YoInteger;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class FootstepAngularMomentumPredictorTest
 {
    // Physical parameters used for testing
@@ -245,7 +240,6 @@ public class FootstepAngularMomentumPredictorTest
       clear();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.9)
    @Test
    public void testAngularMomentumInitialTransfer()
    {
@@ -329,7 +323,6 @@ public class FootstepAngularMomentumPredictorTest
       return comListCounter + 1;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.9)
    @Test
    public void testAngularMomentumNormalTransfer()
    {
@@ -480,7 +473,6 @@ public class FootstepAngularMomentumPredictorTest
       return comListCounter;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.2)
    @Test
    public void testAngularMomentumSwing()
    {

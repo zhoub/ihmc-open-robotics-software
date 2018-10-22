@@ -8,14 +8,10 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.DRCPushRecoveryStandingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 {
    @Override
@@ -38,7 +34,6 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	   super.testDoublePushForwardInDoubleSupportAndContinueWalking();
 	}
 
-	@ContinuousIntegrationTest(estimatedDuration = 68.2)
    @Test
 	@Override
 	public void testPushBackwardForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
@@ -46,7 +41,6 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	   super.testPushBackwardForwardInDoubleSupportAndContinueWalking();
 	}
 
-	@ContinuousIntegrationTest(estimatedDuration = 58.8)
    @Test
 	@Override
 	public void testPushBackwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
@@ -54,7 +48,6 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	   super.testPushBackwardInDoubleSupportAndContinueWalking();
 	}
 
-	@ContinuousIntegrationTest(estimatedDuration = 42.1)
    @Test
 	@Override
 	public void testPushForwardInDoubleSupport() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
@@ -62,7 +55,6 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	   super.testPushForwardInDoubleSupport();
 	}
 
-	@ContinuousIntegrationTest(estimatedDuration = 65.0)
    @Test
 	@Override
 	public void testPushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException

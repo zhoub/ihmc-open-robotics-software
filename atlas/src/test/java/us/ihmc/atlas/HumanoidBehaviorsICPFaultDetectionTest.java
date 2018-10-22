@@ -1,11 +1,11 @@
 package us.ihmc.atlas;
 
 
+import org.junit.jupiter.api.Disabled;
+
 import us.ihmc.avatar.DRCHumanoidBehaviorICPFaultDetectionTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
 import us.ihmc.quadrupedRobotics.QuadrupedPositionTestYoVariables;
 import us.ihmc.quadrupedRobotics.QuadrupedTestBehaviors;
@@ -69,7 +69,6 @@ public abstract class QuadrupedPositionCrawlRandomWalkingTest implements Quadrup
       return random.nextDouble() * 10.0 + 5.0;
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 300.0)
    @Test
    public void testWalkingRandomly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -96,7 +95,6 @@ public abstract class QuadrupedPositionCrawlRandomWalkingTest implements Quadrup
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 200.0)
    @Test
    public void testWalkingAtRandomSpeedsWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -124,7 +122,6 @@ public abstract class QuadrupedPositionCrawlRandomWalkingTest implements Quadrup
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 300.0)
    @Test
    public void testWalkingRandomVelocitiesStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

@@ -8,7 +8,6 @@ import controller_msgs.msg.dds.QueueableMessage;
 import us.ihmc.avatar.controllerAPI.EndToEndFootstepDataListMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
@@ -29,7 +28,6 @@ public class ValkyrieEndToEndFootstepDataListMessageTest extends EndToEndFootste
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.VALKYRIE);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 17.0)
    @Test
    public void testProblematicNasaMessage() throws SimulationExceededMaximumTimeException
    {

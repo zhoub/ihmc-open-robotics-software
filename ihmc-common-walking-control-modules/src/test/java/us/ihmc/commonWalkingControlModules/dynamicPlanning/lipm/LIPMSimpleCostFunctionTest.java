@@ -1,15 +1,15 @@
 package us.ihmc.commonWalkingControlModules.dynamicPlanning.lipm;
 
+import static org.junit.Assert.assertEquals;
+
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.TrackingCostFunctionTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.testing.JUnitTools;
 import us.ihmc.trajectoryOptimization.DefaultDiscreteState;
 import us.ihmc.trajectoryOptimization.LQTrackingCostFunction;
-
-import static org.junit.Assert.assertEquals;
 
 public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<DefaultDiscreteState>
 {
@@ -48,7 +48,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCost()
    {
@@ -91,7 +90,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       assertEquals(stateCost + controlCost, cost, 1e-5);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeCostStateGradient()
    {
@@ -140,7 +138,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeCostControlGradient()
    {
@@ -186,7 +183,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeCostControlHessian()
    {
@@ -220,7 +216,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       JUnitTools.assertMatrixEquals(R, hessian, 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeCostStateHessian()
    {
@@ -257,7 +252,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       JUnitTools.assertMatrixEquals(Q, hessian, 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeCostStateGradientOfControlGradient()
    {
@@ -290,7 +284,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
 
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostStateGradientNumerically()
    {
@@ -298,7 +291,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostControlGradientNumerically()
    {
@@ -306,7 +298,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostStateHessianNumerically()
    {
@@ -314,7 +305,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostControlHessianNumerically()
    {
@@ -322,7 +312,6 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostStateControlHessianNumerically()
    {

@@ -8,9 +8,6 @@ import java.util.Random;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FrameLine3D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
@@ -21,7 +18,6 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.referenceFrames.OrientationFrame;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class FrameLineTest
 {
 
@@ -31,7 +27,6 @@ public class FrameLineTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testChangeFrameCopy()
    {
@@ -91,7 +86,6 @@ public class FrameLineTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetFrameVector()
    {
@@ -121,7 +115,6 @@ public class FrameLineTest
       assertTrue(frameVector.epsilonEquals(vector, 1e-12));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetFramePoint()
    {
@@ -151,7 +144,6 @@ public class FrameLineTest
       assertTrue(frameNormalizedVectorCopy.epsilonEquals(vector, 1e-12));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstructorC()
    {

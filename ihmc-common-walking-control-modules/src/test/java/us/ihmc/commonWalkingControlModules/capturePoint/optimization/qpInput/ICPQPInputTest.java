@@ -8,14 +8,9 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ICPQPInputTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSize()
    {
@@ -35,7 +30,6 @@ public class ICPQPInputTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testReshape()
    {
@@ -65,7 +59,6 @@ public class ICPQPInputTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testReset()
    {
@@ -92,7 +85,6 @@ public class ICPQPInputTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEquals()
    {
@@ -140,7 +132,6 @@ public class ICPQPInputTest
       Assert.assertTrue(icpqpInput.equals(other));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeCost()
    {

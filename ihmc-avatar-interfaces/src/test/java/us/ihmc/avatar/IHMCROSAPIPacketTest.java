@@ -37,7 +37,6 @@ import us.ihmc.communication.packetCommunicator.PacketCommunicator;
 import us.ihmc.communication.packets.Packet;
 import us.ihmc.communication.packets.PacketDestination;
 import us.ihmc.communication.util.NetworkPorts;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.humanoidRobotics.communication.packets.HumanoidMessageTools;
 import us.ihmc.humanoidRobotics.communication.packets.dataobjects.HighLevelControllerName;
@@ -115,7 +114,6 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 8.7)
    @Test
    public void testFuzzyPacketsUsingRos()
    {
@@ -232,7 +230,6 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
 
    private AvatarSimulation avatarSimulation;
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.7)
    @Test
    public void testFuzzyPacketsWithoutRos()
    {

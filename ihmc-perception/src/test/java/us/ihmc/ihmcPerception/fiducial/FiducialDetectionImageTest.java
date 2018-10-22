@@ -25,13 +25,11 @@ import boofcv.struct.image.ImageType;
 import georegression.struct.se.Se3_F64;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
 import us.ihmc.tools.io.resources.ResourceTools;
 
 public class FiducialDetectionImageTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test
    public void testFiducialDetected() throws IOException
    {

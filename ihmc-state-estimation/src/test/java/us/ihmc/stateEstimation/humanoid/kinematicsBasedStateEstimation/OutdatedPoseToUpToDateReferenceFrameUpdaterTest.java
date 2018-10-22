@@ -8,9 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
@@ -23,7 +21,6 @@ import us.ihmc.robotics.kinematics.TimeStampedTransform3D;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 
-@ContinuousIntegrationPlan(categories={IntegrationCategory.FAST})
 public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -34,7 +31,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetUpToDateTimeStampedBufferNewestTimeStamp()
    {
@@ -57,7 +53,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetUpToDateTimeStampedBufferOldestTimeStamp()
    {
@@ -84,7 +79,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputedRotationError()
    {
@@ -143,7 +137,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputedTranslationError()
    {
@@ -208,7 +201,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputedError()
    {
@@ -267,7 +259,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleTranslationAtKnownLocation()
    {
@@ -296,7 +287,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
 
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNoDifferenceBetweenStateEstimatorAndLocalization()
    {
@@ -333,7 +323,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
    
    //this tests fails, I don't think OutdatedPoseToUpToDateReferenceFrameUpdater can support more than a single rotation at a time
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testKnownDifferenceBetweenStateEstimatorAndLocalization()
    {
@@ -376,7 +365,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       assertTrue(calculatedPose.epsilonEquals(expectedPose, 1e-4));
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testKnownTranslationAndYawDifferenceBetweenStateEstimatorAndLocalization()
    {
@@ -421,7 +409,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
    
    //this tests fails, I don't think OutdatedPoseToUpToDateReferenceFrameUpdater can support more than a single rotation at a time
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testKnownTranslationYawAndPitchDifferenceBetweenStateEstimatorAndLocalization()
    {
@@ -464,7 +451,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       assertTrue(calculatedPose.epsilonEquals(expectedPose, 1e-4));
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleRotationAtKnownLocation()
    {
@@ -497,7 +483,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
 
    //this tests fails, I don't think OutdatedPoseToUpToDateReferenceFrameUpdater can support more than a single rotation at a time
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testUpdateOutdatedTransformWithKnownOffsets()
    {

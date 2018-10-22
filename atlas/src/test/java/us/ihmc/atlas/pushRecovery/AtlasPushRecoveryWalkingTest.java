@@ -1,5 +1,6 @@
 package us.ihmc.atlas.pushRecovery;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
@@ -9,13 +10,10 @@ import us.ihmc.avatar.DRCPushRecoveryWalkingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.SLOW, IntegrationCategory.VIDEO})
+@Tag("slow")
 public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 {
    @Override
@@ -44,7 +42,6 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.ATLAS);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 38.9)
    @Test
    public void testPushLeftEarlySwing() throws SimulationExceededMaximumTimeException
    {
@@ -54,7 +51,7 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 
    // Moved one of the old push recovery tests to fast so it is checked from time to time.
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 81.2, categoriesOverride = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
+
    @Test
    public void testPushLeftInitialTransferState() throws SimulationExceededMaximumTimeException
    {
@@ -62,7 +59,6 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.1)
    @Test
    public void testPushRightInitialTransferState() throws SimulationExceededMaximumTimeException
    {
@@ -70,14 +66,12 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 36.6)
    @Test
    public void testPushRightLateSwing() throws SimulationExceededMaximumTimeException
    {
       super.testPushRightLateSwing();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 61.0)
    @Test
    public void testPushRightThenLeftMidSwing() throws SimulationExceededMaximumTimeException
    {
@@ -86,7 +80,6 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 42.7)
    @Test
    public void testPushRightTransferState() throws SimulationExceededMaximumTimeException
    {
@@ -94,7 +87,6 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 38.6)
    @Test
    public void testPushTowardsTheBack() throws SimulationExceededMaximumTimeException
    {
@@ -102,7 +94,6 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 36.6)
    @Test
    public void testPushTowardsTheFront() throws SimulationExceededMaximumTimeException
    {

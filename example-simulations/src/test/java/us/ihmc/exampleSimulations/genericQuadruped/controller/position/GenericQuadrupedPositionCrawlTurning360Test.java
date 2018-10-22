@@ -2,11 +2,9 @@ package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.position.QuadrupedPositionCrawlTurning360Test;
@@ -23,7 +21,6 @@ public class GenericQuadrupedPositionCrawlTurning360Test extends QuadrupedPositi
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test
    public void rotate360InPlaceRight() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -31,7 +28,6 @@ public class GenericQuadrupedPositionCrawlTurning360Test extends QuadrupedPositi
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test
    public void rotate360InPlaceLeft() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

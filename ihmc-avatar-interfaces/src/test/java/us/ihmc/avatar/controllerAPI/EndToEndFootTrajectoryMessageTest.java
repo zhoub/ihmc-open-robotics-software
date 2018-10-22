@@ -31,7 +31,6 @@ import us.ihmc.commons.lists.RecyclingArrayList;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.ExecutionMode;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
@@ -168,7 +167,6 @@ public abstract class EndToEndFootTrajectoryMessageTest implements MultiRobotTes
 
 
    //Picks up a foot, moves that foot to a position, and puts it down. Done using both sides
-   @ContinuousIntegrationTest(estimatedDuration = 41.5)
    @Test
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
@@ -207,7 +205,6 @@ public abstract class EndToEndFootTrajectoryMessageTest implements MultiRobotTes
    }
 
    //Picks up a foot and puts it down. Done using both sides
-   @ContinuousIntegrationTest(estimatedDuration = 56.6)
    @Test
    public void testPickUpAndPutDown() throws SimulationExceededMaximumTimeException
    {
@@ -241,7 +238,6 @@ public abstract class EndToEndFootTrajectoryMessageTest implements MultiRobotTes
 
 
    //picks up a foot, moves it around in a ribbon shape, then puts the foot down, Done using both sides
-   @ContinuousIntegrationTest(estimatedDuration = 85.4)
    @Test
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
    {
@@ -323,7 +319,6 @@ public abstract class EndToEndFootTrajectoryMessageTest implements MultiRobotTes
    }
 
    //moves each foot to a single position using a custom control point
-   @ContinuousIntegrationTest(estimatedDuration = 24.4)
    @Test
    public void testCustomControlPoint() throws SimulationExceededMaximumTimeException
    {
@@ -382,7 +377,6 @@ public abstract class EndToEndFootTrajectoryMessageTest implements MultiRobotTes
    }
 
    //picks up the left foot, moves the foot around a sphere (ribbons yawed around the circle center)
-   @ContinuousIntegrationTest(estimatedDuration = 72.6)
    @Test
    public void testQueuedMessages() throws SimulationExceededMaximumTimeException
    {
@@ -539,7 +533,6 @@ public abstract class EndToEndFootTrajectoryMessageTest implements MultiRobotTes
    }
 
    //picks the foot up, sends queued messages, the last with the wrong previous queued message ID. (Should see sysout about this) Checks that the number of waypoints is cleared, then puts the foot back on the ground. Done for both sides
-   @ContinuousIntegrationTest(estimatedDuration = 32.1)
    @Test
    public void testQueueWithWrongPreviousId() throws SimulationExceededMaximumTimeException
    {
@@ -647,7 +640,6 @@ public abstract class EndToEndFootTrajectoryMessageTest implements MultiRobotTes
    }
 
    //Picks a foot up, Sends queued messages, then sends a single point to test overriding the queue. Done for both feet
-   @ContinuousIntegrationTest(estimatedDuration = 72.6)
    @Test
    public void testQueueStoppedWithOverrideMessage() throws SimulationExceededMaximumTimeException
    {

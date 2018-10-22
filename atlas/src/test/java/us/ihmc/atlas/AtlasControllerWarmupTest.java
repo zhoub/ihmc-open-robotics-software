@@ -11,12 +11,10 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.warmup.HumanoidControllerWarumupTools;
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelStates.walkingController.states.WalkingStateEnum;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.variable.YoEnum;
 
 public class AtlasControllerWarmupTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test
    @SuppressWarnings("unchecked")
    public void testWarmup()

@@ -2,11 +2,9 @@ package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.position.QuadrupedPositionCrawlTurningVelocityTest;
@@ -23,7 +21,6 @@ public class GenericQuadrupedPositionCrawlTurningVelocityTest extends QuadrupedP
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 150.0)
    @Test
    public void testTurnInPlaceRegularSpeed() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -32,7 +29,6 @@ public class GenericQuadrupedPositionCrawlTurningVelocityTest extends QuadrupedP
    
    //"Turn in place slowly still fails due to CoM shifting outside support polygon. Need to fix it..."
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 150.0)
    @Test
    public void testTurnInPlaceSlowly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -40,7 +36,6 @@ public class GenericQuadrupedPositionCrawlTurningVelocityTest extends QuadrupedP
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 500.0)
    @Test
    public void testWalkingBackwardStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

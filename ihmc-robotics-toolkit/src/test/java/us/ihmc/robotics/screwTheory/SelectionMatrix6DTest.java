@@ -17,7 +17,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.EuclidFrameRandomTools;
@@ -36,7 +35,6 @@ public class SelectionMatrix6DTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGettersSetters()
    {
@@ -162,7 +160,6 @@ public class SelectionMatrix6DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.6)
    @Test
    public void testGetFullSelectionMatrixInFrame() throws Exception
    {
@@ -258,7 +255,6 @@ public class SelectionMatrix6DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test
    public void testGetEfficientSelectionMatrixInFrame() throws Exception
    {

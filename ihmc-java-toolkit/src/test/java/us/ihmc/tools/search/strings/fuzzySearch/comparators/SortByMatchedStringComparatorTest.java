@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.tools.search.strings.fuzzySearch.CombinedFuzzySearchResult;
 
 /**
@@ -13,7 +12,6 @@ import us.ihmc.tools.search.strings.fuzzySearch.CombinedFuzzySearchResult;
  */
 public class SortByMatchedStringComparatorTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCompare()
    {

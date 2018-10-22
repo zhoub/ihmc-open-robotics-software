@@ -4,19 +4,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.graphicsDescription.input.mouse.Mouse3DListener;
 import us.ihmc.graphicsDescription.input.mouse.Mouse3DListenerHolder;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class Mouse3DListenerHolderTest
 {
    int count1 = 0;
    int count2 = 0;
    
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testListenersGetNotified()
    {

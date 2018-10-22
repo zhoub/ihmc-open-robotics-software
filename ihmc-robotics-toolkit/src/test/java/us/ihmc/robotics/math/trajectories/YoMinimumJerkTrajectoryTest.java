@@ -8,12 +8,10 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MathTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class YoMinimumJerkTrajectoryTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test
    public void testRandomInitialFinalConditions()
    {
@@ -59,7 +57,6 @@ public class YoMinimumJerkTrajectoryTest
       return min + Math.random() * (max - min);
    }
    
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testTimeExtensionRuntime()
    {
@@ -86,7 +83,6 @@ public class YoMinimumJerkTrajectoryTest
       System.out.println("TestMinimumJerkTrajectory.testTimeExtensionRuntime: Execution Time = " + (runtime) + "ms per 6 calls");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFindMaxVals()
    {
@@ -132,7 +128,6 @@ public class YoMinimumJerkTrajectoryTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testZeroLength()
    {
@@ -164,7 +159,6 @@ public class YoMinimumJerkTrajectoryTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testBadInitialParams()
    {

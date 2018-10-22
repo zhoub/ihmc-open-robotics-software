@@ -7,8 +7,6 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class LinearInterpolatorTest
 {
    private double x0 = 0.0;
@@ -24,7 +22,6 @@ public class LinearInterpolatorTest
    private double xTest = 0.5;
    private double yTest = slope * xTest + yIntercept;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearInterpolationSimple()
    {
@@ -51,7 +48,6 @@ public class LinearInterpolatorTest
       assertEquals(yPointValueExpected, yPointValue, 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearInterpolationSimpleWithArrayListConstructor()
    {
@@ -87,7 +83,6 @@ public class LinearInterpolatorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearInterpolationSimpleWithInteroplatedIndexConstructor()
    {
@@ -135,7 +130,6 @@ public class LinearInterpolatorTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearInterpolationBetweenTwoRandomPoints()
    {

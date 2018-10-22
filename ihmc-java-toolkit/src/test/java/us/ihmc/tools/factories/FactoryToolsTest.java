@@ -4,11 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RunnableThatThrows;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class FactoryToolsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFactoryDisposes()
    {
@@ -27,7 +25,6 @@ public class FactoryToolsTest
       });
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFactoryRequiresFieldsSet()
    {
@@ -44,7 +41,6 @@ public class FactoryToolsTest
       });
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFactoryRequiresOptionalNotNull()
    {

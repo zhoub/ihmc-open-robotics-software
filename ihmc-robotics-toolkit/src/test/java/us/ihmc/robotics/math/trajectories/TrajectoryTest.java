@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
 import us.ihmc.euclid.tools.EuclidCoreTools;
 
@@ -23,7 +22,6 @@ public class TrajectoryTest
    String namePrefix = "TrajectoryTest";
    private final Random random = new Random(3294508L);
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearSet()
    {
@@ -40,7 +38,6 @@ public class TrajectoryTest
       assertEquals(1, traj.getCoefficient(0), SMALL_EPSILON);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetConstant() throws Exception
    {
@@ -72,7 +69,6 @@ public class TrajectoryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetLinear() throws Exception
    {
@@ -123,7 +119,6 @@ public class TrajectoryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetQuadratic() throws Exception
    {
@@ -177,7 +172,6 @@ public class TrajectoryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetCubic() throws Exception
    {
@@ -232,7 +226,6 @@ public class TrajectoryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearDerivativePointManual()
    {
@@ -262,7 +255,6 @@ public class TrajectoryTest
       assertEquals(ddyLinear, ddyManual, SMALL_EPSILON);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearDerivativePointAutomated()
    {
@@ -280,7 +272,6 @@ public class TrajectoryTest
       compareDerivativesPoint(linear, x);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCubicDerivativePointAutomated()
    {
@@ -299,7 +290,6 @@ public class TrajectoryTest
       compareDerivativesPoint(cubic, x);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testTimeScaling()
    {
@@ -471,7 +461,6 @@ public class TrajectoryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testXPowersDerivativeVectorCubic()
    {
@@ -498,7 +487,6 @@ public class TrajectoryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testEvaluateGeometricSequenceDerivativeForRandomInputs()
    {
@@ -537,7 +525,6 @@ public class TrajectoryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDerivativeCoefficients()
    {
@@ -584,7 +571,6 @@ public class TrajectoryTest
       assertEquals(order13Exponent8Func, order13Exponent8Hand, SMALL_EPSILON);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDerivativeVersionsCubic()
    {
@@ -676,7 +662,6 @@ public class TrajectoryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetDerivative()
    {
@@ -705,7 +690,6 @@ public class TrajectoryTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testQuinticTrajectory()
    {

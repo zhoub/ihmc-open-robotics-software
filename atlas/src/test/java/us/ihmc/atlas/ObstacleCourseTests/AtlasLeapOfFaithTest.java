@@ -15,7 +15,6 @@ import us.ihmc.avatar.obstacleCourseTests.AvatarLeapOfFaithTest;
 import us.ihmc.commonWalkingControlModules.configurations.LeapOfFaithParameters;
 import us.ihmc.commonWalkingControlModules.configurations.SteppingParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -25,7 +24,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 90.0)
    @Disabled("Revisit when there are contact patches.")
    @Test
    public void testUnknownStepDownTwoFeetOnEachStep() throws SimulationExceededMaximumTimeException
@@ -37,7 +35,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 74.2)
    @Test
    public void testUnknownStepDownOneFootOnEachStep() throws SimulationExceededMaximumTimeException
    {
@@ -52,7 +49,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 70.4)
    @Test
    public void testUnknownStepDownOneFootOnEachStepLong() throws SimulationExceededMaximumTimeException
    {
@@ -82,7 +78,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 110.0)
    @Disabled("Re-enable when planar region constraints are used.")
    @Test
    public void testRandomHeightField() throws SimulationExceededMaximumTimeException
@@ -92,7 +87,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 107.1)
    @Test
    public void testDropOffsWhileWalking() throws SimulationExceededMaximumTimeException
    {

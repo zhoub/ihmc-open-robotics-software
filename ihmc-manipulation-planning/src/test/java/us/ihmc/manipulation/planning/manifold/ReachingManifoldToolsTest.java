@@ -9,9 +9,6 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ReachingManifoldMessage;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.Cylinder3D;
 import us.ihmc.euclid.geometry.Sphere3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -20,7 +17,6 @@ import us.ihmc.humanoidRobotics.communication.wholeBodyTrajectoryToolboxAPI.Reac
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.robotics.screwTheory.RigidBody;
 
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class ReachingManifoldToolsTest
 {
    private Random random = new Random();
@@ -44,7 +40,6 @@ public class ReachingManifoldToolsTest
       transform.appendYawRotation(random.nextDouble());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testFindingClosestPointOnSphere()
    {
@@ -78,7 +73,6 @@ public class ReachingManifoldToolsTest
       assertTrue("expected transform is on the manifolds ", distance < errorThreshold);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testFindingClosestPointOnCylinder()
    {

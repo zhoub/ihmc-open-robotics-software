@@ -8,7 +8,6 @@ import java.util.Random;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -52,7 +51,6 @@ public class YoParabolicTrajectoryGeneratorTest
       EuclidCoreTestTools.assertTuple3DEquals(finalPosition, positionToPack, delta);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testIllegalParameter1()
    {
@@ -66,7 +64,6 @@ public class YoParabolicTrajectoryGeneratorTest
       trajectoryGenerator.initialize(initialPosition, intermediatePosition, finalPosition, intermediateParameter);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testIllegalParameter2()
    {
@@ -80,7 +77,6 @@ public class YoParabolicTrajectoryGeneratorTest
       trajectoryGenerator.initialize(initialPosition, intermediatePosition, finalPosition, intermediateParameter);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testIllegalParameter3()
    {

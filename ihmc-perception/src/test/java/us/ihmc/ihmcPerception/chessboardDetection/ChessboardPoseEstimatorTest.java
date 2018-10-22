@@ -17,9 +17,6 @@ import javax.imageio.ImageIO;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 
 @Disabled
@@ -27,7 +24,6 @@ public class ChessboardPoseEstimatorTest
 {
    static final boolean DEBUG = false;
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.6)
    @Test
    public void testOpenCVRegression4x7() throws IOException
    {
@@ -45,7 +41,6 @@ public class ChessboardPoseEstimatorTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testOpenCVRegression4x5() throws IOException
          {
@@ -66,7 +61,6 @@ public class ChessboardPoseEstimatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testSimpleAlmostFrontChessboard() throws IOException
    {
@@ -78,7 +72,6 @@ public class ChessboardPoseEstimatorTest
       testSingleImage(image, squareNumRow, squareNumCol, gridWidth, 1e-2);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.2)
    @Test
    public void testDrivingSimCheckerBoard() throws IOException
    {
@@ -104,7 +97,6 @@ public class ChessboardPoseEstimatorTest
    }
 
    //boofcv found checkerboard but pose estimated poorly
-   @ContinuousIntegrationTest(estimatedDuration = 1.6)
    @Test
    public void testImage1() throws IOException
    {

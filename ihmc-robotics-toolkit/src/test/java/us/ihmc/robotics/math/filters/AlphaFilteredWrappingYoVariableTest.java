@@ -9,19 +9,14 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class AlphaFilteredWrappingYoVariableTest
 {
    private static final boolean DEBUG = false;
    private final Random random = new Random();
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testInputModulo()
    {
@@ -69,7 +64,6 @@ public class AlphaFilteredWrappingYoVariableTest
    }
    
    
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testNoisyFixedPosition()
    {
@@ -98,7 +92,6 @@ public class AlphaFilteredWrappingYoVariableTest
       assertEquals(10.0, alphaFilteredWrappingYoVariable.getDoubleValue(), 1.0);
    }
 	
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
 	public void testErrorAlwaysDecreases()
 	{
@@ -166,7 +159,6 @@ public class AlphaFilteredWrappingYoVariableTest
 	   return wrappingError;
 	}
 	
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWrappingError()
    {
@@ -207,7 +199,6 @@ public class AlphaFilteredWrappingYoVariableTest
 	   
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testAlphaAndBreakFrequencyComputations()
    {

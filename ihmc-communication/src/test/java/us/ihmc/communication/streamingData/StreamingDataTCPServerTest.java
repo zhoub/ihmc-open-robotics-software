@@ -9,14 +9,12 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FLAKY})
 public class StreamingDataTCPServerTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.0)
 	@Test
    public void testTypicalUsage()
    {
@@ -50,7 +48,6 @@ public class StreamingDataTCPServerTest
       streamingDataTCPServer.closeAndBlockTillFullyClosed();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 2.2)
 	@Test
    public void testMultipleProducersAndConsumersRobustly()
    {
@@ -103,7 +100,6 @@ public class StreamingDataTCPServerTest
       
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 3.1)
 	@Test
    public void testPersistentConsumerToServerRestart()
    {

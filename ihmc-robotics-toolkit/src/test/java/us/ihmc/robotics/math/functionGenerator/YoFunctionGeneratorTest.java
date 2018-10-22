@@ -6,7 +6,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class YoFunctionGeneratorTest
@@ -24,7 +23,6 @@ public class YoFunctionGeneratorTest
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testZeroFrequencyDC()
    {
@@ -41,7 +39,6 @@ public class YoFunctionGeneratorTest
 	   }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testOutputContinuityDuringFrequencyChange()
    {
@@ -78,7 +75,6 @@ public class YoFunctionGeneratorTest
 	   assertEquals("|"+output0+"-"+output1+"|<" + tolerance,0,output1-output0, tolerance);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testZeroFrequencySine()
    {
@@ -96,7 +92,6 @@ public class YoFunctionGeneratorTest
 	   }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testTriangle()
    {

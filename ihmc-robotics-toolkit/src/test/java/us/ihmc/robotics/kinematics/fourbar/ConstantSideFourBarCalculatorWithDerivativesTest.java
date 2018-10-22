@@ -12,7 +12,6 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class ConstantSideFourBarCalculatorWithDerivativesTest
 {
@@ -30,7 +29,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(PI / 2, fourBar.getAngleCDA(), eps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testConstruction()
    {
@@ -77,7 +75,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(-1, fourBar.getAngleDtCDA(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testRandomQuadrilatteral()
    {
@@ -120,7 +117,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(D, fourBar.getAngleCDA(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test
    public void testRandomConvenientLinkageDerivatives()
    {
@@ -160,7 +156,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testVelocitiesWithRandomQuadrilateral()
    {
@@ -272,7 +267,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.1)
 	@Test
    public void testAccelerationsWithRandomQuadrilateral()
    {
@@ -361,7 +355,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       }
    }
 	
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testMasterAngleComputations()
    {

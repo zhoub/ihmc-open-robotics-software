@@ -11,8 +11,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class DatagramOutputStreamTest
 {
    private static final long messageSleepMillis = 200;
@@ -33,7 +31,6 @@ public class DatagramOutputStreamTest
    }
 
    @Tag("network")
-	@ContinuousIntegrationTest(estimatedDuration = 8.6)
 	@Test
    public void testDatagramOutputStreamDoNotThrowOutStalePackets() throws IOException
    {

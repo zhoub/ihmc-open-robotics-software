@@ -9,9 +9,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.CapturePointTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.Line2D;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -28,7 +25,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
 import us.ihmc.yoVariables.variable.YoFrameVector3D;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class CapturePointToolsTest
 {
    int nTests = 20;
@@ -43,7 +39,6 @@ public class CapturePointToolsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeConstantCMPPointsWithBeginningAndEndBetweenFeetWith2Steps()
    {
@@ -88,7 +83,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeConstantCMPPointsOnFeetAndEndBetweenFeetWith2Steps()
    {
@@ -135,7 +129,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeConstantCentersOfPressuresOnFeet()
    {
@@ -176,7 +169,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeConstantCentersOfPressureWithStartBetweenFeetAndRestOnFeet()
    {
@@ -225,7 +217,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeConstantCentersOfPressureWithEndBetweenFeetAndRestOnFeet()
    {
@@ -274,7 +265,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeConstantCentersOfPressureWithEndAndBeginningBetweenFeet()
    {
@@ -329,7 +319,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDesiredEndOfStepCapturePointLocations()
    {
@@ -395,7 +384,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDesiredCapturePointLocations()
    {
@@ -460,7 +448,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDesiredCapturePointVelocity()
    {
@@ -495,7 +482,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDesiredCapturePointAcceleration()
    {
@@ -527,7 +513,6 @@ public class CapturePointToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeConstantCenterOfPressureFromInitialAndFinalCapturePointLocations()
    {

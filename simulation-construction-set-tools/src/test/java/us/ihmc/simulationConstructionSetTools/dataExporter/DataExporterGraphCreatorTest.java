@@ -12,7 +12,6 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.simulationconstructionset.PinJoint;
@@ -24,7 +23,6 @@ import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
 public class DataExporterGraphCreatorTest
 {
 
-    @ContinuousIntegrationTest(estimatedDuration = 1.0)
     @Test
     public void testDataExporterGraphCreator() throws IOException
     {

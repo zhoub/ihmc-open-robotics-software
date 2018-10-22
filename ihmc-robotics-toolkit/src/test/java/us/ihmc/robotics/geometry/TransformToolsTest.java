@@ -8,9 +8,6 @@ import org.ejml.data.DenseMatrix64F;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.matrix.RotationMatrix;
@@ -22,7 +19,6 @@ import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class TransformToolsTest
 {
    @AfterEach
@@ -31,7 +27,6 @@ public class TransformToolsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRotate()
    {
@@ -66,7 +61,6 @@ public class TransformToolsTest
       EuclidCoreTestTools.assertRigidBodyTransformEquals(transform, transform2, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetTransformFromA1toA2Simple()
    {
@@ -98,7 +92,6 @@ public class TransformToolsTest
       a2Origin.epsilonEquals(a2OriginFramePoint, 1e-9);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetTransformFromA1toA2Random()
    {
@@ -131,7 +124,6 @@ public class TransformToolsTest
       a2Origin.epsilonEquals(a2OriginFramePoint, 1e-9);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testgetTransformDifference()
    {
@@ -167,7 +159,6 @@ public class TransformToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testgetTransformDifferenceBetweenTwoTransforms()
    {

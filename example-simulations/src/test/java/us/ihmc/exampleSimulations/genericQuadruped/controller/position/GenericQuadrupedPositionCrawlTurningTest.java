@@ -2,11 +2,9 @@ package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.position.QuadrupedPositionCrawlTurningTest;
@@ -23,7 +21,6 @@ public class GenericQuadrupedPositionCrawlTurningTest extends QuadrupedPositionC
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 42.0)
    @Test
    public void testYawingRightFastNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -31,7 +28,6 @@ public class GenericQuadrupedPositionCrawlTurningTest extends QuadrupedPositionC
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 42.0)
    @Test
    public void testYawingLeftFastNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -39,7 +35,6 @@ public class GenericQuadrupedPositionCrawlTurningTest extends QuadrupedPositionC
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test
    public void testYawingRightSlowNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -47,7 +42,6 @@ public class GenericQuadrupedPositionCrawlTurningTest extends QuadrupedPositionC
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test
    public void testYawingLeftSlowNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

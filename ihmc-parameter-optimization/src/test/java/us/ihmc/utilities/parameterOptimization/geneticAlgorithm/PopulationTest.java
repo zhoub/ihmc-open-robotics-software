@@ -9,12 +9,11 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 
 public class PopulationTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.8)
 	@Test
    public void testPopulation()
    {

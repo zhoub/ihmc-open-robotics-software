@@ -7,13 +7,11 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
 public class BacklashProcessingYoVariableTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testAgainstRevisedBacklash()
    {

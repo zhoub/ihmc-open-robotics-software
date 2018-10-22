@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.geometry.BoundingBox2D;
 import us.ihmc.euclid.geometry.Box3D;
 import us.ihmc.euclid.geometry.Plane3D;
@@ -63,7 +63,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       super.testUnhandledPoints();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testGetStoredPoints()
    {
@@ -115,7 +114,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleThings()
    {
@@ -134,14 +132,12 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       assertEquals(true, quadTree.getLeafNodeAtLocation(0.5f, 0.5f).getMetaData().getIsStuffAboveMe());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGettingAreas()
    {
       super.testGettingAreas();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSomethingAbove() throws Exception
    {
@@ -260,7 +256,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       return new GroundOnlyQuadTree(xMin, yMin, xMax, yMax, quadTreeResolution, heightThreshold, 100000);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testPuttingDifferentHeightPointsAtDifferentLocations() throws Exception
    {
@@ -287,7 +282,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       assertEquals(expected, actual, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testPuttingSimilarHeightPoints() throws Exception
    {
@@ -315,7 +309,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAll() throws Exception
    {
@@ -615,7 +608,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
        */
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMerging() throws Exception
    {
@@ -751,7 +743,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testClear() throws Exception
    {
@@ -813,7 +804,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       assertEquals(expected, actual, epsilon);
    }*/
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetMinX() throws Exception
    {
@@ -824,7 +814,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       assertEquals(expected, actual, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetMaxX() throws Exception
    {
@@ -835,7 +824,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       assertEquals(expected, actual, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetMinY() throws Exception
    {
@@ -846,7 +834,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
       assertEquals(expected, actual, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetMaxY() throws Exception
    {

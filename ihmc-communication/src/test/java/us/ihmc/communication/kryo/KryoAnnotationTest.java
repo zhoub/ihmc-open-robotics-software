@@ -11,12 +11,9 @@ import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Output;
 import com.esotericsoftware.kryo.serializers.FieldSerializer.Optional;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class KryoAnnotationTest
 {
    @Test
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    public void testOptionalAnnotation()
    {
       final int ITERATIONS = 1000;

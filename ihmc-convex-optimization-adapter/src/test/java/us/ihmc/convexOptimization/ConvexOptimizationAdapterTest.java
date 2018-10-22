@@ -18,7 +18,6 @@ import com.joptimizer.functions.LinearMultivariateRealFunction;
 import com.joptimizer.optimizers.JOptimizer;
 import com.joptimizer.optimizers.OptimizationRequest;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 
 public abstract class ConvexOptimizationAdapterTest
@@ -61,7 +60,6 @@ public abstract class ConvexOptimizationAdapterTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testASimpleRedundantEqualityCase()
    {
@@ -77,7 +75,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(2.0, solution[0], getTestErrorEpsilon());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testASimpleRedundantEqualityCase2d()
    {
@@ -94,7 +91,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(1.0, solution[1], getTestErrorEpsilon());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
   public void JOptimizerWebpageLPExample() throws Exception
   {
@@ -143,7 +139,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(0, sol2[1], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testASimpleInequalityCase() throws Exception
    {
@@ -158,7 +153,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(2.0, solution[0], 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testASimpleMaximizationInequalityCase()
    {
@@ -198,7 +192,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(Math.sqrt(2.0), solution[1], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearCostFullyLinearConstrainedEqualityOptimizationProblem()
    {
@@ -220,7 +213,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(1.0, solution[1], getTestErrorEpsilon());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testZeroCostLinearEqualityOptimizationProblem() throws Exception
    {

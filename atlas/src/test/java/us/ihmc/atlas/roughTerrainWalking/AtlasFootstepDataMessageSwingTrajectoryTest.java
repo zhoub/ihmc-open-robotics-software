@@ -12,14 +12,12 @@ import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.AvatarFootstepDataMessageSwingTrajectoryTest;
 import us.ihmc.commonWalkingControlModules.configurations.SwingTrajectoryParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasFootstepDataMessageSwingTrajectoryTest extends AvatarFootstepDataMessageSwingTrajectoryTest
 {
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.7)
    @Test
    public void testSwingTrajectoryInWorld() throws SimulationExceededMaximumTimeException
    {
@@ -27,7 +25,6 @@ public class AtlasFootstepDataMessageSwingTrajectoryTest extends AvatarFootstepD
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.7)
    @Test
    public void testSwingTrajectoryTouchdownSpeed() throws SimulationExceededMaximumTimeException
    {
@@ -36,7 +33,6 @@ public class AtlasFootstepDataMessageSwingTrajectoryTest extends AvatarFootstepD
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.7)
    @Test
    public void testSwingTrajectoryTouchdownWithAdjustment() throws SimulationExceededMaximumTimeException
    {

@@ -8,14 +8,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.graphicsDescription.input.mouse.MouseButton;
 import us.ihmc.graphicsDescription.input.mouse.MouseListener;
 import us.ihmc.graphicsDescription.input.mouse.MouseListenerHolder;
 
 public class MouseListenerHolderTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMouseListenerHolder()
    {

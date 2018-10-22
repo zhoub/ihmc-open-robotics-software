@@ -9,10 +9,9 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 
 import std_msgs.String;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.thread.ThreadTools;
+import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
+import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.utilities.ros.publisher.RosStringPublisher;
 import us.ihmc.utilities.ros.subscriber.AbstractRosTopicSubscriber;
 import us.ihmc.utilities.ros.subscriber.RosTopicSubscriberInterface;
@@ -20,7 +19,6 @@ import us.ihmc.utilities.ros.subscriber.RosTopicSubscriberInterface;
 @ContinuousIntegrationPlan(categories=IntegrationCategory.FLAKY)
 public class RosTopicPublisherSubscriberTest extends IHMCRosTestWithRosCore
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test
    public void testPubSubMultipleMessages() throws URISyntaxException, InterruptedException
    {

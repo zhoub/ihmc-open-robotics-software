@@ -9,12 +9,10 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class SimpleMovingAverageFilteredYoVariableTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testWithFixedSizeDoubleArrays() throws Exception
    {

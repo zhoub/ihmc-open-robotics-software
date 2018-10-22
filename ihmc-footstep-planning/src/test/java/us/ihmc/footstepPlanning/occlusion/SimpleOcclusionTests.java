@@ -14,7 +14,6 @@ import org.junit.rules.TestName;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -87,7 +86,6 @@ public class SimpleOcclusionTests
       runTest(startPose, goalPose, regions, defaultMaxAllowedSolveTime);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    @Disabled // Resource file does not seem to exist.
    public void testOcclusionsFromData()
@@ -120,7 +118,6 @@ public class SimpleOcclusionTests
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    @Disabled
    public void testMazeWithOcclusions()

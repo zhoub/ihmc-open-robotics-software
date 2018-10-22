@@ -7,7 +7,6 @@ import static org.junit.Assert.assertEquals;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 
 public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends AbstractSimpleActiveSetQPSolverWithInactiveVariablesTest
@@ -21,7 +20,6 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testChallengingCasesWithPolygonConstraintsCheckFailsWithSimpleSolverWithWarmStart()
    {
@@ -60,7 +58,6 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
    /**
     *  Test with dataset from sim that revealed a bug with the variable lower/upper bounds handling.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFindValidSolutionForDataset20160319WithWarmStart()
    {
@@ -79,7 +76,6 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
       assertEquals(numberOfIterations, 1);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFindValidSolutionForKiwiDataset20170712WithWarmStart()
    {
@@ -103,7 +99,6 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
     * It seems that the problem is related to the fact that the robot has 6 contact points per foot.
     * The solver still fails when increasing the max number of iterations.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFindValidSolutionForKiwiDataset20171013WithWarmStart()
    {
@@ -122,7 +117,6 @@ public class SimpleEfficientActiveSetQPSolverWithInactiveVariablesTest extends A
       assertEquals(1, numberOfIterations);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFindValidSolutionForKiwiDatasetProblemWithWarmStart()
    {

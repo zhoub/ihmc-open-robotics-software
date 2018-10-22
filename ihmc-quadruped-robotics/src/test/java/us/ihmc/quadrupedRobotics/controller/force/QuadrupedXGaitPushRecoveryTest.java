@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import controller_msgs.msg.dds.QuadrupedTimedStepListMessage;
 import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
 import us.ihmc.commonWalkingControlModules.pushRecovery.PushRobotTestConductor;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
@@ -77,14 +77,12 @@ public abstract class QuadrupedXGaitPushRecoveryTest implements QuadrupedMultiRo
    public abstract double getWalkingSpeed();
    public abstract double getStepDuration();
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test
    public void testWalkingForwardFastWithPush()
    {
       testWalkingWithPush(90.0, getWalkingSpeed());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test
    public void testScriptedWalkingForwardFastWithPush()
    {

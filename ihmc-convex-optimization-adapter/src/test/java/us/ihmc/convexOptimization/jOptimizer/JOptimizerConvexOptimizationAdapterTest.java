@@ -1,7 +1,7 @@
 package us.ihmc.convexOptimization.jOptimizer;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.IntegrationCategory;
+import org.junit.jupiter.api.Disabled;
+
 import us.ihmc.convexOptimization.ConvexOptimizationAdapter;
 import us.ihmc.convexOptimization.ConvexOptimizationAdapterTest;
 

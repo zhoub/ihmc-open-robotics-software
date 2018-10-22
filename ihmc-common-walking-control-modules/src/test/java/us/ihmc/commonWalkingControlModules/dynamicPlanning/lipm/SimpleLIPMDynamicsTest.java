@@ -1,19 +1,18 @@
 package us.ihmc.commonWalkingControlModules.dynamicPlanning.lipm;
 
-import org.ejml.data.DenseMatrix64F;
-import org.junit.jupiter.api.Test;
-import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.robotics.testing.JUnitTools;
-import us.ihmc.trajectoryOptimization.DefaultDiscreteState;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
+import org.ejml.data.DenseMatrix64F;
+import org.junit.jupiter.api.Test;
+
+import us.ihmc.commons.RandomNumbers;
+import us.ihmc.robotics.testing.JUnitTools;
+import us.ihmc.trajectoryOptimization.DefaultDiscreteState;
 
 public class SimpleLIPMDynamicsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNextStateComputation()
    {
@@ -120,7 +119,6 @@ public class SimpleLIPMDynamicsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsStateGradient()
    {
@@ -241,7 +239,6 @@ public class SimpleLIPMDynamicsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsControlGradient()
    {
@@ -351,7 +348,6 @@ public class SimpleLIPMDynamicsTest
 
 
    /*
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testDynamicsStateHessian()
    {
@@ -572,7 +568,6 @@ public class SimpleLIPMDynamicsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testDynamicsControlHessian()
    {
@@ -749,7 +744,6 @@ public class SimpleLIPMDynamicsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testDynamicsStateGradientOfControlGradient()
    {

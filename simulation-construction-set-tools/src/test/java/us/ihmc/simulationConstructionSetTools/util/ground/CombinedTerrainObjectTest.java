@@ -2,7 +2,6 @@ package us.ihmc.simulationConstructionSetTools.util.ground;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.interfaces.Vertex2DSupplier;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
@@ -14,7 +13,6 @@ public class CombinedTerrainObjectTest
 
    //TODO: Flesh out this test case to be a really good one.
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testTwoIntersectingBoxes()
    {

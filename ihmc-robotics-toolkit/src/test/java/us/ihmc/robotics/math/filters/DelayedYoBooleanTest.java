@@ -6,7 +6,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 
@@ -31,7 +30,6 @@ public class DelayedYoBooleanTest
       variableToDelay = null;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testDelayedYoVariableMultipleTickDelays()
    {
@@ -72,7 +70,6 @@ public class DelayedYoBooleanTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testDelayedYoVariableOneTickDelay()
    {
@@ -104,7 +101,6 @@ public class DelayedYoBooleanTest
       assertEquals(delayedYoVariable.getBooleanValue(), true);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testDelayedYoVariableZeroTickDelay()
    {
@@ -136,7 +132,6 @@ public class DelayedYoBooleanTest
       assertEquals(delayedYoVariable.getBooleanValue(), true);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testUpdateWithZero()
    {
@@ -154,7 +149,6 @@ public class DelayedYoBooleanTest
       assertEquals(delayedYoVariable.getBooleanValue(), true);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testReset()
    {  

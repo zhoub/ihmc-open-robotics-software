@@ -8,9 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.QuadrupedStepMessage;
 import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -18,7 +15,6 @@ import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedWalkOverSteppingStonesTest;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedWalkOverSteppingStonesTest extends QuadrupedWalkOverSteppingStonesTest
 {
    @Override
@@ -28,7 +24,6 @@ public class GenericQuadrupedWalkOverSteppingStonesTest extends QuadrupedWalkOve
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 103.5)
    @Test
    public void testWalkOverSteppingStones() throws SimulationExceededMaximumTimeException, IOException
    {

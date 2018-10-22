@@ -6,7 +6,6 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.matrix.Matrix3D;
 import us.ihmc.euclid.matrix.RotationMatrix;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -31,7 +30,6 @@ import us.ihmc.simulationconstructionset.Robot;
 
 public class CentroidalMomentumMatrixSCSTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testTree()
    {
@@ -64,7 +62,6 @@ public class CentroidalMomentumMatrixSCSTest
       EuclidCoreTestTools.assertTuple3DEquals(angularMomentum, comMomentum.getAngularPart(), 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testFloatingBody()
    {

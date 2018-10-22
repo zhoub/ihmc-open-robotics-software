@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.math.filters.AccelerationLimitedYoVariable;
 import us.ihmc.robotics.math.filters.FilteredVelocityYoVariable;
 import us.ihmc.robotics.math.functionGenerator.YoFunctionGenerator;
@@ -89,7 +88,6 @@ public class AccelerationLimitedYoVariableSCSTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
          public void makeSureGUIIsNotUpWhenRunning()
          {
@@ -117,7 +115,6 @@ public class AccelerationLimitedYoVariableSCSTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void test_ZeroVelocity()
    {
@@ -166,7 +163,6 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void test_ConstantVelocity()
    {
@@ -204,7 +200,6 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void test_ConstantAcceleration_PlusInitialize()
    {
@@ -253,7 +248,6 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void test_Sine_Plus_Reset_Plus_Update()
    {
@@ -306,7 +300,6 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void test_RiseTimeSquareWave()
    {
@@ -360,7 +353,6 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void test_SquareWaves()
    {
@@ -403,7 +395,6 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void test_Chirp_Plus_UpdateWithoutNoArguments()
    {
@@ -459,7 +450,6 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSetAndGetGainsByPolePlacement()
    {
@@ -482,7 +472,6 @@ public class AccelerationLimitedYoVariableSCSTest
       assertEquals(velocityGainResult, processed.getVelocityGain().getDoubleValue(), EPSILON);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testUpdate()
    {
@@ -506,7 +495,6 @@ public class AccelerationLimitedYoVariableSCSTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testGetAndSetMaximumRateaAndAcceleration()
    {
@@ -597,7 +585,6 @@ public class AccelerationLimitedYoVariableSCSTest
       ThreadTools.sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testErrorTooHigh()
    {

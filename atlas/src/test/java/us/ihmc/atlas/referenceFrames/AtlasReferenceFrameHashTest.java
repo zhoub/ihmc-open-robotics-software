@@ -9,7 +9,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.referenceFrames.ReferenceFrameHashTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
 {
@@ -19,7 +18,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 1.6)
    @Test
    public void testAddingTwoFramesWithTheSameNameThrowsException()
    {
@@ -27,7 +25,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.8)
    @Test
    public void testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -35,7 +32,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.9)
    @Test
    public void testAllFramesGottenFromHumanoidReferenceFrameMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
@@ -44,7 +40,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 1.4)
    @Test
    public void testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode()
    {
@@ -52,7 +47,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.7)
    @Test
    public void testGetReferenceFrameFromHashCodeReturnsSameNamedFrames()
    {

@@ -4,7 +4,6 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -19,7 +18,6 @@ public class RigidBodyControlHelperTest
 {
    private static final double epsilon = 1.0e-10;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testControlFrameChange()
    {

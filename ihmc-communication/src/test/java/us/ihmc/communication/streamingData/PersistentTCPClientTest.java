@@ -13,12 +13,10 @@ import java.net.Socket;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class PersistentTCPClientTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test
    public void test() throws IOException
    {

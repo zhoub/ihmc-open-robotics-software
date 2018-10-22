@@ -1,5 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
@@ -7,8 +8,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.controllerAPI.EndToEndArmTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectoryMessageTest
@@ -29,7 +28,6 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 16.5)
    @Test
    public void testMessageWithTooManyTrajectoryPoints() throws Exception
    {
@@ -37,7 +35,6 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 36.0)
    @Test
    public void testMultipleTrajectoryPoints() throws Exception
    {
@@ -45,7 +42,7 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.9, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testQueuedMessages() throws Exception
    {
@@ -53,7 +50,6 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 19.0)
    @Test
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
@@ -61,7 +57,7 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 16.9, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -69,7 +65,7 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 27.8, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testSingleTrajectoryPoint() throws Exception
    {
@@ -77,7 +73,6 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 34.7)
    @Test
    public void testStopAllTrajectory() throws Exception
    {

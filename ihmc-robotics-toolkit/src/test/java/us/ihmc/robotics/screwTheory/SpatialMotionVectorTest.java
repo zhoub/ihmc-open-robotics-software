@@ -11,7 +11,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
@@ -120,7 +119,6 @@ public class SpatialMotionVectorTest
       JUnitTools.assertMatrixEquals(matrix, matrixBack, 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructUsingMatrixTooSmall()
    {
@@ -128,7 +126,6 @@ public class SpatialMotionVectorTest
       createSpatialMotionVector(frameC, frameD, frameA, matrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructUsingMatrixTooBig()
    {
@@ -136,7 +133,6 @@ public class SpatialMotionVectorTest
       createSpatialMotionVector(frameC, frameD, frameA, matrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructUsingMatrixTooBig2()
    {

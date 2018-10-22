@@ -1,11 +1,12 @@
 package us.ihmc.commonWalkingControlModules.dynamicPlanning;
 
+import java.util.Random;
+
 import org.ejml.data.DenseMatrix64F;
+
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.testing.JUnitTools;
 import us.ihmc.trajectoryOptimization.LQCostFunction;
-
-import java.util.Random;
 
 public abstract class CostFunctionTest<E extends Enum>
 {

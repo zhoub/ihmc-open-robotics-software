@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.Axis;
 import us.ihmc.graphicsDescription.Graphics3DObject;
 import us.ihmc.graphicsDescription.appearance.YoAppearance;
@@ -163,7 +162,6 @@ public class InefficientPushrodTransmissionJacobianTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 //	@Test
    public void testInefficientPushrodTransmissionForWaist()
    {

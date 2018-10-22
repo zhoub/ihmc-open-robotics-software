@@ -14,9 +14,6 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.DenseMatrixVector3D;
 import us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.ICPGeneration.SmoothCapturePointToolbox;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -31,7 +28,6 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.math.trajectories.FrameTrajectory3D;
 import us.ihmc.robotics.math.trajectories.Trajectory;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SmoothCoMIntegrationToolboxTest
 {
    private static final int nTests = 20;
@@ -51,7 +47,6 @@ public class SmoothCoMIntegrationToolboxTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMatricesCoMPrime3DLinear()
    {
@@ -122,7 +117,6 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDMatricesCoMPrime3DLinear()
    {
@@ -196,7 +190,6 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCalculateCoMPositionAndVelocityOnSegment3DLinear()
    {
@@ -283,7 +276,6 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCalculateCoMQuantity3DWithDenseMatrixVector3D() throws Exception
    {
@@ -346,7 +338,6 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCalculateGeneralizedAlphaBetaCoMPrimeOnCMPSegment3D() throws Exception
    {
@@ -467,7 +458,6 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDesiredCenterOfMassPositionVelocityAcceleration() throws Exception
    {
@@ -505,7 +495,6 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testPower() throws Exception
    {
@@ -522,7 +511,6 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testBugWithDataset()
    {

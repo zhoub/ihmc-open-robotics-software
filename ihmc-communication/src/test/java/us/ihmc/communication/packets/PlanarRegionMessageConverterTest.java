@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.PlanarRegionMessage;
 import controller_msgs.msg.dds.PlanarRegionsListMessage;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryRandomTools;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryTools;
@@ -32,7 +31,6 @@ public class PlanarRegionMessageConverterTest
    private static final double EPSILON = 1.0e-12;
 
    @Test
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    public void testPlanarRegionConversion()
    {
       Random random = new Random(6342);
@@ -50,7 +48,6 @@ public class PlanarRegionMessageConverterTest
    }
 
    @Test
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    public void testPlanarRegionsListConversion()
    {
       Random random = new Random(6342);

@@ -17,10 +17,6 @@ import com.joptimizer.optimizers.JOptimizer;
 import com.joptimizer.optimizers.OptimizationRequest;
 import com.joptimizer.optimizers.OptimizationResponse;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Disabled // Revisit JOptimzer some day and see if they ever got their act in gear...
 public class SimpleJOptimizerTest
 {
@@ -101,7 +97,6 @@ public class SimpleJOptimizerTest
       assertEquals(2.0, solution[0], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testReallySimpleOptimizationProblem() throws Exception
    {
@@ -121,7 +116,6 @@ public class SimpleJOptimizerTest
       assertEquals(5.0, solution[0], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testLinearCostQuadraticInequalityOptimizationProblem() throws Exception
    {
@@ -170,7 +164,6 @@ public class SimpleJOptimizerTest
       assertEquals(1.0, solution[1], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testZeroCostLinearEqualityOptimizationProblem() throws Exception
    {
@@ -188,7 +181,6 @@ public class SimpleJOptimizerTest
       assertEquals(4.0, solution[0] + solution[1], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testLinearCostLinearEqualityQuadraticInequalityOptimizationProblem() throws Exception
    {

@@ -123,7 +123,6 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
 
    @Override
    @Test
-   @ContinuousIntegrationTest(estimatedDuration = 125.0)
    public void testDatasetsWithoutOcclusion()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -133,7 +132,6 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
 
    @Override
    @Test
-   @ContinuousIntegrationTest(estimatedDuration = 125.0)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;

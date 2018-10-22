@@ -16,7 +16,6 @@ import us.ihmc.commonWalkingControlModules.configurations.SwingTrajectoryParamet
 import us.ihmc.commonWalkingControlModules.configurations.ToeOffParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.MomentumOptimizationSettings;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -95,7 +94,6 @@ public class CentroidProjectionToeOffCalculatorTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testClear()
    {
@@ -103,7 +101,6 @@ public class CentroidProjectionToeOffCalculatorTest
       toeOffCalculator.clear();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetExitCMP()
    {
@@ -117,7 +114,6 @@ public class CentroidProjectionToeOffCalculatorTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeToeOffContactPoint()
    {
@@ -138,7 +134,6 @@ public class CentroidProjectionToeOffCalculatorTest
       toeOffCalculator.computeToeOffContactPoint(desiredCMP, trailingSide);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetToeOffContactPoint()
    {

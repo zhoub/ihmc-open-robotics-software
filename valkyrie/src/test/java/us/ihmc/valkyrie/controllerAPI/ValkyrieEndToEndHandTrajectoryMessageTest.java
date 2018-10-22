@@ -1,12 +1,11 @@
 package us.ihmc.valkyrie.controllerAPI;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.controllerAPI.EndToEndHandTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
@@ -17,7 +16,6 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    private final ValkyrieRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 46.3)
    @Test
    public void testCustomControlFrame() throws SimulationExceededMaximumTimeException
    {
@@ -25,7 +23,6 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 15.7)
    @Test
    public void testMessageWithTooManyTrajectoryPoints() throws Exception
    {
@@ -33,7 +30,7 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 36.8, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testMultipleTrajectoryPoints() throws Exception
    {
@@ -41,7 +38,6 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 65.8)
    @Test
    public void testQueuedMessages() throws Exception
    {
@@ -49,7 +45,6 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 31.2)
    @Test
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
@@ -57,7 +52,7 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 17.1, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -65,7 +60,6 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 42.0)
    @Test
    public void testSingleTrajectoryPoint() throws Exception
    {
@@ -73,7 +67,6 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 43.9)
    @Test
    public void testStopAllTrajectory() throws Exception
    {

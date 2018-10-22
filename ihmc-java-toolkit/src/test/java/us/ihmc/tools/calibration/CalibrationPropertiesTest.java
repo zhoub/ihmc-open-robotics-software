@@ -9,8 +9,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 
 public class CalibrationPropertiesTest
 {
@@ -51,7 +49,6 @@ public class CalibrationPropertiesTest
       assertEquals(0, calibrationProperties.getIntegerProperty("notAKey"));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetDoubleProperty()
    {

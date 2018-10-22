@@ -4,13 +4,11 @@ import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
 
 public class IntermediateWaypointVelocityGeneratorTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void test()
    {

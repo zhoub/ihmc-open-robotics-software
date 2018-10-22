@@ -1,5 +1,6 @@
 package us.ihmc.atlas.pushRecovery;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
@@ -13,11 +14,7 @@ import us.ihmc.avatar.pushRecovery.AvatarICPOptimizationPushRecoveryATest;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
 import us.ihmc.commonWalkingControlModules.configurations.SteppingParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class AtlasICPOptimizationPushRecoveryATest extends AvatarICPOptimizationPushRecoveryATest
 {
    @Override
@@ -105,7 +102,7 @@ public class AtlasICPOptimizationPushRecoveryATest extends AvatarICPOptimization
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testPushICPOptimizationBackwardPushInSwing() throws Exception
    {
@@ -114,7 +111,7 @@ public class AtlasICPOptimizationPushRecoveryATest extends AvatarICPOptimization
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testPushICPOptimizationForwardPushInSlowSwing() throws Exception
    {
@@ -123,7 +120,6 @@ public class AtlasICPOptimizationPushRecoveryATest extends AvatarICPOptimization
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test
    public void testPushICPOptimizationForwardPushInSwing() throws Exception
    {
@@ -132,7 +128,6 @@ public class AtlasICPOptimizationPushRecoveryATest extends AvatarICPOptimization
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test
    public void testPushICPOptimizationInwardPushInSwing() throws Exception
    {
@@ -141,7 +136,7 @@ public class AtlasICPOptimizationPushRecoveryATest extends AvatarICPOptimization
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testPushICPOptimizationLongInwardPushInSwing() throws Exception
    {
@@ -150,7 +145,7 @@ public class AtlasICPOptimizationPushRecoveryATest extends AvatarICPOptimization
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testPushICPOptimizationOutwardPushInTransfer() throws Exception
    {
@@ -158,7 +153,7 @@ public class AtlasICPOptimizationPushRecoveryATest extends AvatarICPOptimization
       super.testPushICPOptimizationOutwardPushInTransfer();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testPushICPOptimizationOutwardPushOnEachStep() throws Exception
    {

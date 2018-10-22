@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import junit.framework.AssertionFailedError;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
@@ -49,7 +49,6 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test
    public void testWalkingOverShallowRamps() throws IOException
    {
@@ -58,7 +57,6 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       walkOverRamps(groundProfile, getComHeightForRoughTerrain());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test
    public void testWalkingOverAggressiveRamps() throws IOException
    {
@@ -107,14 +105,12 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       conductor.concludeTesting();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testWalkingDownSlope() throws IOException
    {
       walkSlope(0.2, getWalkingDownSlopePosition());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test
    public void testWalkingUpSlope() throws IOException
    {

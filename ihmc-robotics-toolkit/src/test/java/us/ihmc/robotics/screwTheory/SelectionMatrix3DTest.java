@@ -16,7 +16,6 @@ import org.ejml.ops.RandomMatrices;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.EuclidFrameRandomTools;
@@ -37,7 +36,6 @@ public class SelectionMatrix3DTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSettersGetters() throws Exception
    {
@@ -98,7 +96,6 @@ public class SelectionMatrix3DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testApplySelection()
    {
@@ -153,7 +150,6 @@ public class SelectionMatrix3DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.5)
    @Test
    public void testGetFullSelectionMatrixInFrame() throws Exception
    {
@@ -227,7 +223,6 @@ public class SelectionMatrix3DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.8)
    @Test
    public void testGetEfficientSelectionMatrixInFrame() throws Exception
    {

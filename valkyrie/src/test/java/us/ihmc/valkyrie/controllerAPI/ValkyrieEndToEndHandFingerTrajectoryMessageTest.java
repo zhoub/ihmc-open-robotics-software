@@ -12,7 +12,6 @@ import controller_msgs.msg.dds.ValkyrieHandFingerTrajectoryMessage;
 import us.ihmc.avatar.controllerAPI.EndToEndHandFingerTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.humanoidRobotics.communication.packets.dataobjects.HandConfiguration;
 import us.ihmc.idl.IDLSequence.Object;
 import us.ihmc.robotics.robotSide.RobotSide;
@@ -43,7 +42,6 @@ public class ValkyrieEndToEndHandFingerTrajectoryMessageTest extends EndToEndHan
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test
    public void testCloseAndStopAndOpen() throws SimulationExceededMaximumTimeException
    {
@@ -51,7 +49,6 @@ public class ValkyrieEndToEndHandFingerTrajectoryMessageTest extends EndToEndHan
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test
    public void testCloseAndOpenFingers() throws SimulationExceededMaximumTimeException
    {
@@ -59,7 +56,6 @@ public class ValkyrieEndToEndHandFingerTrajectoryMessageTest extends EndToEndHan
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test
    public void testClose() throws SimulationExceededMaximumTimeException
    {

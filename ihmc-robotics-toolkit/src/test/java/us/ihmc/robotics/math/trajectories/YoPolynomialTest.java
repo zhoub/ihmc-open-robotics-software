@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class YoPolynomialTest
@@ -14,7 +13,6 @@ public class YoPolynomialTest
    
    String namePrefix = "YoPolynomialTest";
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearDerivativePointManual()
    {
@@ -45,7 +43,6 @@ public class YoPolynomialTest
       assertEquals(ddyLinear, ddyManual, EPSILON); 
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testLinearDerivativePointAutomated()
    {
@@ -64,7 +61,6 @@ public class YoPolynomialTest
       compareDerivativesPoint(linear, x);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCubicDerivativePointAutomated()
    {
@@ -84,7 +80,6 @@ public class YoPolynomialTest
       compareDerivativesPoint(cubic, x);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testXPowersDerivativeVectorCubic()
    {
@@ -112,7 +107,6 @@ public class YoPolynomialTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDerivativeCoefficients()
    {
@@ -160,7 +154,6 @@ public class YoPolynomialTest
       assertEquals(order13Exponent8Func, order13Exponent8Hand, EPSILON);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDerivativeVersionsCubic()
    {

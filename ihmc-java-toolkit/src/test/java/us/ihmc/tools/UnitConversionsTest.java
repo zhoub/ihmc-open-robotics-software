@@ -6,13 +6,10 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class UnitConversionsTest
 {
    private static final double EPS = 1e-12;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void inchToMeter()
    {
@@ -25,7 +22,6 @@ public class UnitConversionsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void squareInchToSquareMeter()
    {
@@ -41,7 +37,6 @@ public class UnitConversionsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void cubicInchToCubicMeter()
    {
@@ -60,7 +55,6 @@ public class UnitConversionsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void degreesToRadians()
    {
@@ -72,7 +66,6 @@ public class UnitConversionsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void psiToPascals()
    {

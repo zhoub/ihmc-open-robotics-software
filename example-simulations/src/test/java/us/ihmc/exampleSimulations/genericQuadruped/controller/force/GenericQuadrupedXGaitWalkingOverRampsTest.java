@@ -2,11 +2,9 @@ package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
 import java.io.IOException;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -15,7 +13,6 @@ import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedXGaitWalkingOverRampsTest;
 import us.ihmc.quadrupedRobotics.model.QuadrupedInitialPositionParameters;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedXGaitWalkingOverRampsTest extends QuadrupedXGaitWalkingOverRampsTest
 {
    @Override
@@ -48,28 +45,25 @@ public class GenericQuadrupedXGaitWalkingOverRampsTest extends QuadrupedXGaitWal
       return new GenericQuadrupedTestFactory();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test
    public void testWalkingOverShallowRamps() throws IOException
    {
       super.testWalkingOverShallowRamps();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testWalkingOverAggressiveRamps() throws IOException
    {
       super.testWalkingOverAggressiveRamps();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testWalkingDownSlope() throws IOException
    {
       super.testWalkingDownSlope();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test
    public void testWalkingUpSlope() throws IOException
    {

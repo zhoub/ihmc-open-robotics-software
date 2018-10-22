@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.Rule;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.DisableOnDebug;
 import org.junit.rules.Timeout;
@@ -21,9 +22,6 @@ import org.ros.internal.message.Message;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.communication.packets.Packet;
 import us.ihmc.communication.ros.generators.RosMessagePacket;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.humanoidRobotics.communication.packets.RandomHumanoidMessages;
 
 /**
@@ -35,14 +33,13 @@ import us.ihmc.humanoidRobotics.communication.packets.RandomHumanoidMessages;
  * 
  * @author Doug Stephen <a href="mailto:dstephen@ihmc.us">(dstephen@ihmc.us)</a>
  */
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
+@Tag("fast")
 public class IHMCROSTranslationRuntimeToolsTest
 {
    @Rule
    public DisableOnDebug disableOnDebug = new DisableOnDebug(new Timeout(5, TimeUnit.MINUTES));
 
    @SuppressWarnings({"rawtypes", "unchecked"})
-   @ContinuousIntegrationTest(estimatedDuration = 0.9)
    @Test
    public void testBidirectionalConversionWithRandomConstructors()
    {

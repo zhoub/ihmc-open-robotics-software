@@ -6,7 +6,6 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
@@ -15,7 +14,6 @@ public class AlphaFusedYoVariableTest
 
    private final Random rng = new Random();
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testAlphaFusedYoVariable()
    {

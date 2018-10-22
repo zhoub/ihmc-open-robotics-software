@@ -6,7 +6,6 @@ import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasWalkingPathGeneratorTest extends AvatarWalkingPathGeneratorTest
@@ -24,7 +23,6 @@ public class AtlasWalkingPathGeneratorTest extends AvatarWalkingPathGeneratorTes
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.0)
    @Test
    public void testOne() throws SimulationExceededMaximumTimeException
    {

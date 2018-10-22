@@ -1,19 +1,35 @@
 package us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.costs;
 
-import org.ejml.data.DenseMatrix64F;
-import org.junit.Assert;
-import org.junit.jupiter.api.Test;
-import us.ihmc.commonWalkingControlModules.dynamicPlanning.CostFunctionTest;
-import us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState;
-import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.robotics.random.RandomGeometry;
-import us.ihmc.robotics.testing.JUnitTools;
-import us.ihmc.trajectoryOptimization.LQCostFunction;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.constantVectorSize;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.controlVectorSize;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.fx;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.fy;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.fz;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.k;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.nominalLength;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.stateVectorSize;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.tauX;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.tauY;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.tauZ;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.x;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.xF;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.y;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.yF;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.z;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.zF;
 
 import java.util.Random;
 
-import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.*;
+import org.ejml.data.DenseMatrix64F;
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
+
+import us.ihmc.commonWalkingControlModules.dynamicPlanning.CostFunctionTest;
+import us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState;
+import us.ihmc.commons.RandomNumbers;
+import us.ihmc.robotics.random.RandomGeometry;
+import us.ihmc.robotics.testing.JUnitTools;
+import us.ihmc.trajectoryOptimization.LQCostFunction;
 
 public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
 {
@@ -57,7 +73,6 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCost()
    {
@@ -118,7 +133,6 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostStateGradientNumerically()
    {
@@ -126,7 +140,6 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostControlGradientNumerically()
    {
@@ -134,7 +147,6 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostStateHessianNumerically()
    {
@@ -142,7 +154,6 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostControlHessianNumerically()
    {
@@ -150,7 +161,6 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostStateControlHessianNumerically()
    {
@@ -162,7 +172,6 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
 
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostStateGradient()
    {
@@ -269,7 +278,6 @@ public class SLIPModelForceTrackingCostTest extends CostFunctionTest<SLIPState>
       JUnitTools.assertMatrixEquals(expectedGradient, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCostControlGradient()
    {

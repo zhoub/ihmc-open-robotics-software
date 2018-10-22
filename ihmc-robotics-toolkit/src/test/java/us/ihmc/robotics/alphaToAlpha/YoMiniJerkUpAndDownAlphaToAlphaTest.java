@@ -2,22 +2,19 @@ package us.ihmc.robotics.alphaToAlpha;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
 /**
  * Created by Peter on 9/11/2016.
  */
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
+@Tag("fast")
 public class YoMiniJerkUpAndDownAlphaToAlphaTest
 {
    private double EPSILON = 1e-6;
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testInvalidYoVariables()
    {
@@ -50,7 +47,6 @@ public class YoMiniJerkUpAndDownAlphaToAlphaTest
 
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testValidYoVariables()
    {
@@ -119,7 +115,6 @@ public class YoMiniJerkUpAndDownAlphaToAlphaTest
       assertEquals(value, 0.0, EPSILON);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testHalfWay()
    {
@@ -163,7 +158,6 @@ public class YoMiniJerkUpAndDownAlphaToAlphaTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSmallDifferences()
    {

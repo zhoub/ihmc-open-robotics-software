@@ -18,7 +18,6 @@ public class BambooToolsTest
 {
    private static final boolean SHOW_GUI = true;
    
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testGetClassAndMethodName()
    {

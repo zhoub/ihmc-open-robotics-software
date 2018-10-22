@@ -16,7 +16,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
@@ -125,7 +124,6 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(force, wrench.getLinearPartCopy(), 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructUsingMatrixTooSmall()
    {
@@ -134,7 +132,6 @@ public class WrenchTest
       new Wrench(frameA, frameB, matrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructUsingMatrixTooBig()
    {
@@ -167,21 +164,18 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(linearArray), wrench.getLinearPartCopy(), epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructUsingDoubleArrayTooSmall()
    {
       new Wrench(frameA, frameB, new double[Wrench.SIZE + 1]);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testConstructUsingDoubleArrayTooBig()
    {
       new Wrench(frameA, frameB, new double[Wrench.SIZE - 1]);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testAddNotAllowed()
    {
@@ -199,7 +193,6 @@ public class WrenchTest
       wrench1.add(wrench2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testAddNotAllowed2()
    {
@@ -236,7 +229,6 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(wrench3.getAngularPartCopy(), angularPart, 1e-24);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSubNotAllowed()
    {
@@ -254,7 +246,6 @@ public class WrenchTest
       wrench1.sub(wrench2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSubNotAllowed2()
    {
@@ -291,7 +282,6 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(wrench3.getAngularPartCopy(), angularPart, 1e-24);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testCheckAndSetNotAllowed1()
    {
@@ -309,7 +299,6 @@ public class WrenchTest
       wrench2.checkAndSet(wrench1);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testCheckAndSetNotAllowed2()
    {
@@ -333,14 +322,12 @@ public class WrenchTest
       testDotProduct(frameA, frameB, frameC);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testDotProductNotAllowed1()
    {
       testDotProductNotAllowed1(frameA, frameB, frameC);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testDotProductNotAllowed2()
    {

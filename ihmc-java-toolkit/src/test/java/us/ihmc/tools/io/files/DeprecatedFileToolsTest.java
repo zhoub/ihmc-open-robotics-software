@@ -26,7 +26,6 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.commons.exception.DefaultExceptionHandler;
 import us.ihmc.commons.nio.FileTools;
 import us.ihmc.commons.nio.WriteOption;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class DeprecatedFileToolsTest
 {
@@ -147,7 +146,6 @@ public class DeprecatedFileToolsTest
    }
    
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetBufferedReader()
    {
@@ -174,7 +172,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetBufferedReaderWithFileNotFoundException() throws FileNotFoundException
    {
@@ -182,7 +179,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetFileWriter()
    {
@@ -212,7 +208,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetFileWriterWithAppend()
    {
@@ -242,7 +237,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetFileDataOutputStream()
    {
@@ -272,7 +266,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetFileDataInputStream()
    {
@@ -299,7 +292,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetFileDataInputStreamWithFileNotFoundException() throws FileNotFoundException, IOException
    {
@@ -308,7 +300,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetAllFilesInDirectoryRecursive()
    {
@@ -343,7 +334,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetAllFilesInDirectoryWithSuffix()
    {

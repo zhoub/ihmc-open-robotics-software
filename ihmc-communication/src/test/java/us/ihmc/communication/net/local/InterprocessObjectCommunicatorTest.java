@@ -17,11 +17,9 @@ import std_msgs.msg.dds.Int32;
 import us.ihmc.communication.net.NetClassList;
 import us.ihmc.communication.net.ObjectConsumer;
 import us.ihmc.communication.packets.Packet;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class InterprocessObjectCommunicatorTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testOpeningAndClosingALotOfPorts() throws IOException
    {
@@ -45,7 +43,6 @@ public class InterprocessObjectCommunicatorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.4)
    @Test
    public void testSendingObjectsToClients() throws IOException
    {

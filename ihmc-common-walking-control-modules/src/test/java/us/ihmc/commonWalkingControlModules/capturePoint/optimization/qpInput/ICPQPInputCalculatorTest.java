@@ -1,27 +1,22 @@
 package us.ihmc.commonWalkingControlModules.capturePoint.optimization.qpInput;
 
+import java.util.Random;
+
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.RandomMatrices;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.linearAlgebra.DiagonalMatrixTools;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 import us.ihmc.robotics.testing.JUnitTools;
 
-import javax.print.attribute.standard.JobOriginatingUserName;
-import java.util.Random;
-
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ICPQPInputCalculatorTest
 {
    private static final double epsilon = 1e-7;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeQuadraticTask()
    {
@@ -112,7 +107,6 @@ public class ICPQPInputCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFeedbackTask()
    {
@@ -131,7 +125,6 @@ public class ICPQPInputCalculatorTest
       assertInputEquals(icpQPInputExpected, icpQPInputToTest, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCoPFeedbackRateTask()
    {
@@ -182,7 +175,6 @@ public class ICPQPInputCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCMPFeedbackRateTask()
    {
@@ -248,7 +240,6 @@ public class ICPQPInputCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFeedbackRateTask()
    {
@@ -374,7 +365,6 @@ public class ICPQPInputCalculatorTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFootstepTask()
    {
@@ -456,7 +446,6 @@ public class ICPQPInputCalculatorTest
       assertInputEquals(icpQPInputExpected, icpQPInputToTest, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testFootstepRateTask()
    {
@@ -539,7 +528,6 @@ public class ICPQPInputCalculatorTest
       assertInputEquals(icpQPInputExpected, icpQPInputToTest, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDynamicsTaskWithFeedbackAndAngularMomentum()
    {
@@ -757,7 +745,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(icpQPInputExpected.residualCost, icpQPInputToTest.residualCost, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDynamicsTaskWithFeedback()
    {
@@ -984,7 +971,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(icpQPInputExpected.residualCost, icpQPInputToTest.residualCost, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDynamicsTaskWithAngularMomentum()
    {
@@ -1214,7 +1200,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(icpQPInputExpected.residualCost, icpQPInputToTest.residualCost, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDynamicsTaskWithSeparateAdjustment()
    {
@@ -1446,7 +1431,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(icpQPInputExpected.residualCost, icpQPInputToTest.residualCost, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitCoPeedbackTask()
    {
@@ -1500,7 +1484,6 @@ public class ICPQPInputCalculatorTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitFeedbackRateTask()
    {
@@ -1565,7 +1548,6 @@ public class ICPQPInputCalculatorTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitDynamicsTask()
    {
@@ -1623,7 +1605,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(scalarExpected, scalar, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitCMPFeedbackTask()
    {
@@ -1660,7 +1641,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(scalarExpected, scalar, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitFootstepTask()
    {
@@ -1744,7 +1724,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(scalarExpected, scalar, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitCoPAndCMPOFeedbackTasks()
    {
@@ -1794,7 +1773,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(scalarExpected, scalar, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitFeedbackAndDynamicsTask()
    {
@@ -1865,7 +1843,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(scalarExpected, scalar, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitFeedbackAndFootstepTask()
    {
@@ -1936,7 +1913,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(scalarExpected, scalar, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitFeedbackAndFootstepAndDynamicsTask()
    {
@@ -2039,7 +2015,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(scalarExpected, scalar, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSubmitFeedbackAndFootstepAndDynamicsAndAngularMomentumTask()
    {
@@ -2156,7 +2131,6 @@ public class ICPQPInputCalculatorTest
       JUnitTools.assertMatrixEquals(scalarExpected, scalar, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeDynamicsConstraintError()
    {

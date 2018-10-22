@@ -10,14 +10,12 @@ import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.random.RandomGeometry;
 
 public class SimpleInefficientEqualityConstrainedQPSolverTest
 {
    private static final boolean VERBOSE = false;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleCases()
    {
@@ -122,7 +120,6 @@ public class SimpleInefficientEqualityConstrainedQPSolverTest
       assertEquals(2.0, objectiveCost, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testLargeRandomProblemWithNoEqualityConstraints()
    {
@@ -171,7 +168,6 @@ public class SimpleInefficientEqualityConstrainedQPSolverTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testLargeRandomProblemWithEqualityConstraints()
    {

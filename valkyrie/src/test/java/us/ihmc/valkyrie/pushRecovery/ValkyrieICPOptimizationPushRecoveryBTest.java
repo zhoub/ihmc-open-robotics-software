@@ -1,5 +1,6 @@
 package us.ihmc.valkyrie.pushRecovery;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -7,14 +8,10 @@ import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.pushRecovery.AvatarICPOptimizationPushRecoveryBTest;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 import us.ihmc.valkyrie.parameters.ValkyrieICPOptimizationParameters;
 import us.ihmc.valkyrie.parameters.ValkyrieWalkingControllerParameters;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizationPushRecoveryBTest
 {
    @Override
@@ -83,7 +80,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
       return 0.8;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testPushICPOptimizationDiagonalOutwardPushInSwing() throws Exception
    {
@@ -91,7 +88,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
       super.testPushICPOptimizationDiagonalOutwardPushInSwing();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testPushICPOptimizationDiagonalYawingOutwardPushInSwing() throws Exception
    {
@@ -99,7 +96,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
       super.testPushICPOptimizationDiagonalYawingOutwardPushInSwing();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testPushICPOptimizationLongBackwardPushInSwing() throws Exception
    {
@@ -107,7 +104,6 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
       super.testPushICPOptimizationLongBackwardPushInSwing();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test
    public void testPushICPOptimizationLongForwardPushInSwing() throws Exception
    {
@@ -116,14 +112,12 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test
    public void testPushICPOptimizationNoPush() throws Exception
    {
       super.testPushICPOptimizationNoPush();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test
    public void testPushICPOptimizationOutwardPushInSlowSwing() throws Exception
    {
@@ -131,7 +125,7 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
       super.testPushICPOptimizationOutwardPushInSlowSwing();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testPushICPOptimizationOutwardPushInSwing() throws Exception
    {
@@ -139,7 +133,6 @@ public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizat
       super.testPushICPOptimizationOutwardPushInSwing();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test
    public void testPushICPOptimizationRandomPushInSwing() throws Exception
    {

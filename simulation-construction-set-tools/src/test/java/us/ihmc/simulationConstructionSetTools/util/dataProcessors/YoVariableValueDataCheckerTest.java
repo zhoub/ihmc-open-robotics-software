@@ -9,9 +9,6 @@ import java.util.Random;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.Robot;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
@@ -19,7 +16,6 @@ import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestin
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class YoVariableValueDataCheckerTest
 {
    private double EPSILON = 1e-10;
@@ -37,7 +33,6 @@ public class YoVariableValueDataCheckerTest
       simulationTestingParameters = null;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleSmoothDerviativeNoExeeded()
    {
@@ -86,7 +81,6 @@ public class YoVariableValueDataCheckerTest
       assertTrue(!yoVariableValueDataChecker.isMinValueExeeded());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleSmoothDerviativeNoExeededWithSecondDerivateProvided()
    {
@@ -142,7 +136,6 @@ public class YoVariableValueDataCheckerTest
       assertTrue(!yoVariableValueDataChecker.isDerivativeCompErrorOccurred());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleSmoothDerviativeNoExeededWithSecondDerivateProvidedAndError()
    {
@@ -199,7 +192,6 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSimpleSmoothDerviativeExceed()
    {
@@ -246,7 +238,6 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMinGreaterThanMax()
    {
@@ -274,7 +265,6 @@ public class YoVariableValueDataCheckerTest
       yoVariableValueDataChecker.setMinimumValue(2.0);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMaxGreaterThanMin()
    {
@@ -300,7 +290,6 @@ public class YoVariableValueDataCheckerTest
       yoVariableValueDataChecker.setMaximumValue(1.0);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
       public void testErrorThresholdOnDerivativeComparison()
    {
@@ -327,7 +316,6 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
       public void testMaximumDerivative()
    {
@@ -354,7 +342,6 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMaximumSecondDerivative()
    {
@@ -369,7 +356,6 @@ public class YoVariableValueDataCheckerTest
       assertEquals(valueDataCheckerParametersOriginal.getMaximumSecondDerivative(), value, EPSILON);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
       public void testMaximumValue()
    {
@@ -396,7 +382,6 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMinimumValue()
    {
@@ -412,7 +397,6 @@ public class YoVariableValueDataCheckerTest
       assertFalse(valueDataCheckerParametersOriginal.getMinimumValue() == value);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetMinGreaterThanMax()
    {
@@ -434,7 +418,6 @@ public class YoVariableValueDataCheckerTest
       yoVariableValueDataChecker.setMinimumValue(value + 1.0);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetMaxLessThanMin()
    {

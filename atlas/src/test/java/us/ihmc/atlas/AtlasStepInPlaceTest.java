@@ -1,5 +1,6 @@
 package us.ihmc.atlas;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
@@ -9,8 +10,6 @@ import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasStepInPlaceTest extends AvatarStepInPlaceTest
@@ -48,14 +47,13 @@ public class AtlasStepInPlaceTest extends AvatarStepInPlaceTest
 
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testStepInPlace() throws SimulationExceededMaximumTimeException
    {
       super.testStepInPlace();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 49.0)
    @Test
    public void testStepInPlaceWithPush() throws SimulationExceededMaximumTimeException
    {

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.robotics.dataStructures.ComplexNumber;
 import us.ihmc.robotics.dataStructures.Polynomial;
 
@@ -16,7 +15,6 @@ public class DoubleMassSpringOscillatorTest
 {
    private static final boolean VERBOSE = true;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDecomposerGotEigenvaluesRight()
    {

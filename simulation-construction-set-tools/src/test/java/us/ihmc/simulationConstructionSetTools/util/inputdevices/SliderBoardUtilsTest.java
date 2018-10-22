@@ -7,12 +7,10 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class SliderBoardUtilsTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSimpleConversion()
    {
@@ -46,7 +44,6 @@ public class SliderBoardUtilsTest
       assertEquals(intValue, sliderValue);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testSimpleSquareConversion()
    {
@@ -97,7 +94,6 @@ public class SliderBoardUtilsTest
       assertEquals(intValue, sliderValue);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testRandomConversions()
    {
@@ -117,7 +113,6 @@ public class SliderBoardUtilsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testRandomConversionsWithHires()
    {

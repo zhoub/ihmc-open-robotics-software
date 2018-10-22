@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.controllerAPI.EndToEndArmDesiredAccelerationsMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 public class AtlasEndToEndArmDesiredAccelerationsMessageTest extends EndToEndArmDesiredAccelerationsMessageTest
@@ -28,7 +27,6 @@ public class AtlasEndToEndArmDesiredAccelerationsMessageTest extends EndToEndArm
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 21.0)
    @Test
    public void testSimpleCommands() throws Exception
    {

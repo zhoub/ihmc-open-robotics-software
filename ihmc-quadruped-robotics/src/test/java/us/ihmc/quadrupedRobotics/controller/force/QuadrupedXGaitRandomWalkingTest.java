@@ -7,7 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
 import us.ihmc.quadrupedRobotics.QuadrupedTestBehaviors;
@@ -78,7 +78,6 @@ public abstract class QuadrupedXGaitRandomWalkingTest implements QuadrupedMultiR
       return random.nextDouble() * 2.0 + 0.25;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testExtremeRandomWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -98,7 +97,6 @@ public abstract class QuadrupedXGaitRandomWalkingTest implements QuadrupedMultiR
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test
    public void testWalkingRandomly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -123,7 +121,6 @@ public abstract class QuadrupedXGaitRandomWalkingTest implements QuadrupedMultiR
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test
    public void testWalkingAtRandomSpeedsWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -152,7 +149,6 @@ public abstract class QuadrupedXGaitRandomWalkingTest implements QuadrupedMultiR
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 65.0)
    @Test
    public void testWalkingRandomVelocitiesStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

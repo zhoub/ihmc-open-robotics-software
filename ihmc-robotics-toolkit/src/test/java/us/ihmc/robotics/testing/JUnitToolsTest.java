@@ -6,11 +6,9 @@ import org.ejml.data.DenseMatrix64F;
 import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 public class JUnitToolsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testAssertJamaMatrixEquals()
    {
@@ -37,7 +35,6 @@ public class JUnitToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testAssertDenseMatrix64FEquals()
    {
@@ -64,7 +61,6 @@ public class JUnitToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testAssertMatrixEqualsZero()
    {
@@ -83,7 +79,6 @@ public class JUnitToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testAssertDoubleArrayEquals()
    {

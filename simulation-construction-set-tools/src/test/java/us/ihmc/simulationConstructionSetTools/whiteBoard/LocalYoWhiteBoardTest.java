@@ -5,13 +5,11 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class LocalYoWhiteBoardTest extends YoWhiteBoardTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.8)
 	@Test
    public void testLocalYoWhiteBoardOne() throws IOException
    {
@@ -24,7 +22,6 @@ public class LocalYoWhiteBoardTest extends YoWhiteBoardTest
       doASynchronizedWriteThenReadTest(leftWhiteBoard, rightWhiteBoard, numberOfTests, 1000, 2000);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 2.8)
 	@Test
    public void testLocalYoWhiteBoardTwo() throws IOException
    {

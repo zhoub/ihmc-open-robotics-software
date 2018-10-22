@@ -1,22 +1,42 @@
 package us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping;
 
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.FLIGHT;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.STANCE;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.constantVectorSize;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.controlVectorSize;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.fx;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.fy;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.fz;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.k;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.nominalLength;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.stateVectorSize;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.tauX;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.tauY;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.tauZ;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.thetaX;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.thetaY;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.thetaZ;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.x;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.xF;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.y;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.yF;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.z;
+import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.zF;
+
+import java.util.Random;
+
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.Test;
+
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.testing.JUnitTools;
 
-import java.util.Random;
-
-import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState.*;
-
 public class ContinuousSLIPDynamicsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamics()
    {
@@ -89,7 +109,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(functionExpected, function, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsStateGradient()
    {
@@ -190,7 +209,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsStateGradientNumericalDifferentiationStance()
    {
@@ -268,7 +286,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsStateGradientNumericalDifferentiationFlight()
    {
@@ -346,7 +363,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsControlGradient()
    {
@@ -440,7 +456,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsControlGradientNumericalDifferentiationStance()
    {
@@ -547,7 +562,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testDynamicsControlGradientNumericalDifferentiationFlight()
    {

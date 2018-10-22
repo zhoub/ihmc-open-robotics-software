@@ -13,9 +13,8 @@ import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.TrajectoryPoint1DMessage;
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.communication.controllerAPI.command.QueueableCommand;
-import us.ihmc.communication.packets.Packet;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.communication.packets.ExecutionMode;
+import us.ihmc.communication.packets.Packet;
 import us.ihmc.humanoidRobotics.communication.packets.RandomHumanoidMessages;
 import us.ihmc.robotics.math.trajectories.waypoints.SimpleTrajectoryPoint1D;
 import us.ihmc.robotics.robotSide.RobotSide;
@@ -23,7 +22,6 @@ import us.ihmc.robotics.robotSide.RobotSide;
 public class ArmTrajectoryCommandTest
 {
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testClear()
    {
@@ -40,7 +38,6 @@ public class ArmTrajectoryCommandTest
       armTrajectoryCommand.getJointspaceTrajectory().getJointTrajectoryPoint(0, 0);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testIsCommandValid()
    {
@@ -50,14 +47,12 @@ public class ArmTrajectoryCommandTest
       assertFalse(armTrajectoryCommand.isCommandValid());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testArmTrajectoryCommand()
    {
       new ArmTrajectoryCommand();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testClearRobotSide()
    {
@@ -75,7 +70,6 @@ public class ArmTrajectoryCommandTest
       assertEquals(0, armTrajectoryCommand.getJointspaceTrajectory().getTrajectoryPointLists().size());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetRobotSide()
    {
@@ -85,7 +79,6 @@ public class ArmTrajectoryCommandTest
       assertEquals(RobotSide.LEFT, armTrajectoryCommand.getRobotSide());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testSetArmTrajectoryMessage()
    {
@@ -116,7 +109,6 @@ public class ArmTrajectoryCommandTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetArmTrajectoryCommand()
    {
@@ -157,7 +149,6 @@ public class ArmTrajectoryCommandTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetMessageClass()
    {

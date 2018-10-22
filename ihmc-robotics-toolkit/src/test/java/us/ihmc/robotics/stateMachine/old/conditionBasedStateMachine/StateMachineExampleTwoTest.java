@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoDouble;
@@ -19,7 +18,6 @@ import us.ihmc.yoVariables.variable.YoInteger;
 public class StateMachineExampleTwoTest
 {
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComplexStateMachineExample()
    {

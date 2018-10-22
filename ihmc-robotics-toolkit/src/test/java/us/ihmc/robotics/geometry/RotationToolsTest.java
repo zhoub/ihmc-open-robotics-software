@@ -10,9 +10,6 @@ import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.matrix.RotationMatrix;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
@@ -23,13 +20,11 @@ import us.ihmc.robotics.geometry.RotationTools.AxisAngleComparisonMode;
 import us.ihmc.robotics.math.QuaternionCalculus;
 import us.ihmc.robotics.random.RandomGeometry;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class RotationToolsTest
 {
    private Random random = new Random(100L);
    private static final double EPSILON = 1e-10;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAxisAngleEpsilonEqualsIgnoreCompleteRotations()
    {
@@ -60,7 +55,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAxisAngleEpsilonEqualsIgnoreFlippedAxes()
    {
@@ -92,7 +86,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAxisAngleEpsilonEqualsAnglesAreZero()
    {
@@ -111,7 +104,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAxisAngleEpsilonEqualsAnglesDivisibleByTwoPi()
    {
@@ -151,7 +143,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAxisAngleEpsilonEqualsMinusPI()
    {
@@ -181,7 +172,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testAxisAngleEpsilonEqualsPlusPI()
    {
@@ -211,7 +201,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetQuaternionFromYawAndZNormal()
    {
@@ -245,7 +234,6 @@ public class RotationToolsTest
       assertTrue(RotationTools.quaternionEpsilonEquals(quatToPack, quatSolution, EPSILON));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testRandomGetQuaternionFromYawAndZNormal()
    {
@@ -269,7 +257,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testQuaternionStuff()
    {
@@ -333,7 +320,6 @@ public class RotationToolsTest
 
    //standard identity matrix
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testSetQuaternionBasedOnMatrix_Case0()
    {
@@ -349,7 +335,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test
    public void testSetQuaternionBasedOnMatrix3d()
    {
@@ -377,7 +362,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test
    public void testIntegrateToQuaternion() throws Exception
    {
@@ -416,7 +400,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeAngularVelocityInBodyFrameFromYawPitchRollAnglesRate() throws Exception
    {
@@ -454,7 +437,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testComputeAngularVelocityInWorldFrameFromYawPitchRollAnglesRate() throws Exception
    {
@@ -482,7 +464,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void computeYawPitchRollAngleRatesFromAngularVelocityInBodyFrame() throws Exception
    {
@@ -508,7 +489,6 @@ public class RotationToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void computeYawPitchRollAngleRatesFromAngularVelocityInWorldFrame() throws Exception
    {

@@ -12,16 +12,15 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
+import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.PacketRouter;
 import us.ihmc.communication.packetCommunicator.ConcurrentPacketQueue;
 import us.ihmc.communication.packetCommunicator.PacketCommunicator;
 import us.ihmc.communication.packets.Packet;
 import us.ihmc.communication.util.NetworkPorts;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.humanoidRobotics.kryo.IHMCCommunicationKryoNetClassList;
-import us.ihmc.commons.thread.ThreadTools;
 
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FLAKY})
 public class NetworkProcessorTest
@@ -124,7 +123,6 @@ public class NetworkProcessorTest
       
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.3)
    @Test
    public void testSendPackets() throws IOException
    {
@@ -171,7 +169,6 @@ public class NetworkProcessorTest
       disconnectCommunicators();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.7)
    @Test
    public void testDetatchObjectCommunicator() throws IOException
    {
@@ -210,7 +207,6 @@ public class NetworkProcessorTest
       disconnectCommunicators();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test
    public void testForwarder() throws IOException
    {
@@ -236,7 +232,6 @@ public class NetworkProcessorTest
       disconnectCommunicators();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test
    public void testDoubleForwarder() throws IOException
    {
@@ -255,7 +250,6 @@ public class NetworkProcessorTest
       assertTrue(threwException);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test
    public void testDisconnectDoesNotFail() throws IOException
    {

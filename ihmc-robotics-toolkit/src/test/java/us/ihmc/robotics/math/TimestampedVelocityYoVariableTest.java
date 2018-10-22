@@ -6,7 +6,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
@@ -25,7 +24,6 @@ public class TimestampedVelocityYoVariableTest
       velocityYoVariable = new TimestampedVelocityYoVariable("testVelVar", "", position, timestamp, registry, 1e-9);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testHasNotBeenUpdated()
    {
@@ -33,7 +31,6 @@ public class TimestampedVelocityYoVariableTest
       assertEquals(0.0, val, 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testHasBeenUpdatedOnce()
    {
@@ -44,7 +41,6 @@ public class TimestampedVelocityYoVariableTest
       assertEquals(0.0, val, 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testHasBeenUpdatedTwice()
    {
@@ -56,7 +52,6 @@ public class TimestampedVelocityYoVariableTest
       assertEquals(position.getDoubleValue() / timestamp.getDoubleValue(), val, 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testHasBeenUpdatedThreeTimes()
    {
@@ -71,7 +66,6 @@ public class TimestampedVelocityYoVariableTest
       assertEquals(1.0, val, 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testHasBeenUpdatedThreeTimesNoChange()
    {

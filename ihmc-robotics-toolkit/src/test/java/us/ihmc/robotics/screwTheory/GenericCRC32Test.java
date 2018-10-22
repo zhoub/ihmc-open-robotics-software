@@ -8,8 +8,6 @@ import java.util.Random;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 /**
  * Created by nathan on 8/12/15.
  */
@@ -27,7 +25,6 @@ public class GenericCRC32Test
       CRC_32_BITSET = BitSet.valueOf(CRC_32_BYTE_BUFFER);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testUpdateLong()
    {

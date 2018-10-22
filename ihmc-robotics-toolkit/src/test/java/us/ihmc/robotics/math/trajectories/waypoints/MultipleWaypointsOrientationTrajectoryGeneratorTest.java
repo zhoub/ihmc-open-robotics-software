@@ -5,9 +5,6 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -15,8 +12,6 @@ import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.robotics.math.trajectories.SimpleOrientationTrajectoryGenerator;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class MultipleWaypointsOrientationTrajectoryGeneratorTest
 {
    private final double EPSILON = 1e-3;
@@ -27,7 +22,6 @@ public class MultipleWaypointsOrientationTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test
    public void testCompareWithSimple()
    {

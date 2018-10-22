@@ -7,14 +7,12 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class ExecutionTimerTest
 {
    private static final long RANDOM_SEED = 1976L;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.8)
    @Test
    public void test()
    {

@@ -7,8 +7,6 @@ import java.util.Random;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class CovarianceDerivationTest
 {
 
@@ -30,7 +28,6 @@ public class CovarianceDerivationTest
       assertEquals(variance, statistics.getVariance(), epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 7.6)
 	@Test
    public void testRandomWalkDiscretization()
    {

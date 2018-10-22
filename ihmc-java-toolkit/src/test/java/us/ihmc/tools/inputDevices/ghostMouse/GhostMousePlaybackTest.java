@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
+
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.UI})
 public class GhostMousePlaybackTest
 {

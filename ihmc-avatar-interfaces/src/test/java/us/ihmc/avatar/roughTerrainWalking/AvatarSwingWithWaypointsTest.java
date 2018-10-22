@@ -15,7 +15,6 @@ import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.geometry.BoundingBox3D;
 import us.ihmc.euclid.transform.RigidBodyTransform;
@@ -43,7 +42,6 @@ public abstract class AvatarSwingWithWaypointsTest implements MultiRobotTestInte
    private SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @ContinuousIntegrationTest(estimatedDuration = 137.9)
    @Test
    public void testRegularSwingWithWaypoints() throws SimulationExceededMaximumTimeException
    {
@@ -181,7 +179,6 @@ public abstract class AvatarSwingWithWaypointsTest implements MultiRobotTestInte
       drcSimulationTestHelper.createVideo(getSimpleRobotName(), 2);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 33.9)
    @Test
    public void testSwingWithWaypointsRotated() throws SimulationExceededMaximumTimeException
    {

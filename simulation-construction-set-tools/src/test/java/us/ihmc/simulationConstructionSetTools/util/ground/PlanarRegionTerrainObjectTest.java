@@ -10,7 +10,6 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.euclid.geometry.BoundingBox3D;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.transform.RigidBodyTransform;
@@ -25,7 +24,6 @@ public class PlanarRegionTerrainObjectTest
 {
    private static final double DEFAULT_ALLOWABLE_PENETRATION_THICKNESS = 1e5;
 
-   @ContinuousIntegrationTest(estimatedDuration = 5.0)
    @Test
    public void testHeightAt() throws Exception
    {
@@ -57,7 +55,6 @@ public class PlanarRegionTerrainObjectTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.2)
    @Test
    public void testHeightAndNormalAt() throws Exception
    {
@@ -97,7 +94,6 @@ public class PlanarRegionTerrainObjectTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.5)
    @Test
    public void testGetBoundingBox() throws Exception
    {
@@ -140,7 +136,6 @@ public class PlanarRegionTerrainObjectTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.9)
    @Test
    public void testIsClose() throws Exception
    {
@@ -170,7 +165,6 @@ public class PlanarRegionTerrainObjectTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.4)
    @Test
    public void testCheckIfInside() throws Exception
    {

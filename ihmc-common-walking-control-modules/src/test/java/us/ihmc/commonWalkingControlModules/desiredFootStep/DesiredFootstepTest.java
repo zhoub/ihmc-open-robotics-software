@@ -31,7 +31,6 @@ import us.ihmc.communication.packets.Packet;
 import us.ihmc.communication.packets.PacketDestination;
 import us.ihmc.communication.util.NetworkPorts;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -75,7 +74,6 @@ public class DesiredFootstepTest
     * @throws IOException
     */
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.6)
    @Test
    public void testPassingFootstepData() throws IOException
    {
@@ -110,7 +108,6 @@ public class DesiredFootstepTest
       compareFootstepsSentWithReceived(sentFootsteps, receivedFootsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.6)
    @Test
    public void testPassingFootstepPath() throws IOException
    {
@@ -140,7 +137,6 @@ public class DesiredFootstepTest
       compareFootstepsSentWithReceived(sentFootsteps, receivedFootsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.6)
    @Test
    public void testPassingPauseCommand() throws IOException
    {
@@ -181,7 +177,6 @@ public class DesiredFootstepTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.5)
    @Test
    public void testPassingFootstepPathAndPauseCommands() throws IOException
    {
@@ -252,7 +247,6 @@ public class DesiredFootstepTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.4)
    @Test
    public void testPassingFootstepStatus() throws IOException
    {

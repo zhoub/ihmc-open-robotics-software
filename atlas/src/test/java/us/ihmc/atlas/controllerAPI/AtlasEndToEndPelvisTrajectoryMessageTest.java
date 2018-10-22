@@ -1,6 +1,7 @@
 package us.ihmc.atlas.controllerAPI;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
@@ -8,8 +9,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.controllerAPI.EndToEndPelvisTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner;
 
@@ -30,42 +29,37 @@ public class AtlasEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisTraj
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.ATLAS);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test
    public void testSixDoFMovementsOfPelvis() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {
       super.testSixDoFMovementsOfPelvis();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.1)
    @Test
    public void testSingleWaypoint() throws Exception
    {
       super.testSingleWaypoint();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 29.1)
    @Test
    public void testSingleWaypointAndAbort() throws Exception
    {
       super.testSingleWaypointAndAbort();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 75.8)
    @Test
    public void testSingleWaypointAndWalk() throws Exception
    {
       super.testSingleWaypointAndWalk();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 22.1, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testMultipleWaypoints() throws Exception
    {
       super.testMultipleWaypoints();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 29.3)
    @Test
    @SuppressWarnings("unchecked")
    public void testStopAllTrajectory() throws Exception
@@ -74,21 +68,20 @@ public class AtlasEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisTraj
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 67.1, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testHeightUsingMultipleWaypoints() throws Exception
    {
       super.testHeightUsingMultipleWaypoints();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 72.0)
    @Test
    public void testHeightUsingMultipleWaypointsWhileWalking() throws Exception
    {
       super.testHeightUsingMultipleWaypointsWhileWalking();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 61.1, categoriesOverride = IntegrationCategory.SLOW)
+   @Tag("slow")
    @Test
    public void testHeightModeSwitchWhileWalking() throws Exception
    {

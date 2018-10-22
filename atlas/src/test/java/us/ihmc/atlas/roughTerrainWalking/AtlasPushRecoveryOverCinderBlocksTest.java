@@ -3,6 +3,7 @@ package us.ihmc.atlas.roughTerrainWalking;
 import java.io.InputStream;
 
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
@@ -16,17 +17,13 @@ import us.ihmc.avatar.roughTerrainWalking.AvatarPushRecoveryOverCinderBlocksTest
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
 import us.ihmc.commonWalkingControlModules.configurations.SteppingParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.SLOW})
+@Tag("slow")
 public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOverCinderBlocksTest
 {
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 72.3)
    @Test
    public void testNoPushFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -34,7 +31,6 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 64.7)
    @Test
    public void testNoPushForwardWalkOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -42,7 +38,6 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 94.5)
    @Test
    public void testNoPushTiltedBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -50,7 +45,6 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 68.6)
    @Test
    public void testNoPushForwardTiltedBlocks() throws SimulationExceededMaximumTimeException
    {

@@ -10,8 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 public class TrapezoidalVelocityTrajectoryTest
 {
    private static final boolean VERBOSE = false;
@@ -26,7 +24,6 @@ public class TrapezoidalVelocityTrajectoryTest
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testGetState()
    {
@@ -91,7 +88,6 @@ public class TrapezoidalVelocityTrajectoryTest
 
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void DONTtestOne()
    {
@@ -119,7 +115,6 @@ public class TrapezoidalVelocityTrajectoryTest
 //    sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testTwo()
    {
@@ -149,7 +144,6 @@ public class TrapezoidalVelocityTrajectoryTest
 //    sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testWithoutEnforcingFinalVelocity()
    {
@@ -178,7 +172,6 @@ public class TrapezoidalVelocityTrajectoryTest
 //    sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testNotEnforcingFinalVelocityBadCase()
    {
@@ -214,7 +207,6 @@ public class TrapezoidalVelocityTrajectoryTest
       assertTrue("endSpeed=" + endSpeed + ", : " + errorMessage, endSpeed <= maxVelocity);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test
    public void testRandomStuff()
    {
@@ -262,7 +254,6 @@ public class TrapezoidalVelocityTrajectoryTest
          throw new RuntimeException("testRandomStuff Failed. Check output.");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testProblemOnDog()
    {
@@ -279,7 +270,6 @@ public class TrapezoidalVelocityTrajectoryTest
       performTests(trap, t0, x0, v0, xF, vF, vMax, aMax);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.2)
    @Test
    public void testNotEnforcingFinalVelocity()
    {
@@ -352,7 +342,6 @@ public class TrapezoidalVelocityTrajectoryTest
    }
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testProblemOne()
    {
@@ -371,7 +360,6 @@ public class TrapezoidalVelocityTrajectoryTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testProblemTwo()
    {

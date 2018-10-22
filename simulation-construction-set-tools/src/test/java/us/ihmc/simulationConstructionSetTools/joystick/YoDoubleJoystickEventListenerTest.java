@@ -8,14 +8,12 @@ import org.junit.jupiter.api.Test;
 
 import net.java.games.input.Component;
 import net.java.games.input.Event;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
 public class YoDoubleJoystickEventListenerTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test
    public void testMinMaxAverage()
    {

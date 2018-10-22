@@ -6,13 +6,9 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.Test;
 
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.math.trajectories.YoTrajectory;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ReferenceICPTrajectoryGeneratorTest
 {
    private static double EPSILON = 1e-6;
@@ -20,7 +16,6 @@ public class ReferenceICPTrajectoryGeneratorTest
    
    String namePrefix = "ReferenceICPTrajectoryGeneratorTest";
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testCalculateICPOnSegmentScalar()
    {
@@ -70,7 +65,6 @@ public class ReferenceICPTrajectoryGeneratorTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test
    public void testMatricesPrimeLinear()
    {

@@ -7,7 +7,6 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.communication.ros.generators.RosMessagePacket;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.utilities.ros.msgToPacket.converter.GenericROSTranslationTools;
 
 /**
@@ -25,7 +24,6 @@ import us.ihmc.utilities.ros.msgToPacket.converter.GenericROSTranslationTools;
  */
 public class ROSMessageFileCreatorTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test
    public void testAllExportedPacketsWithTopicsAreFormattedCorrectly()
    {
