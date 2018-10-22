@@ -5,7 +5,7 @@ import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
 import us.ihmc.atlas.parameters.AtlasPhysicalProperties;
 import us.ihmc.atlas.parameters.AtlasSmoothCMPPlannerParameters;
 import us.ihmc.atlas.parameters.AtlasWalkingControllerParameters;
-import us.ihmc.avatar.AvatarAngularMomentumWalkingTest;
+import us.ihmc.avatar.angularMomentumTest.AvatarAngularMomentumWalkingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
@@ -14,9 +14,6 @@ import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParam
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
-import us.ihmc.yoVariables.variable.YoBoolean;
-
-import static org.junit.Assert.assertTrue;
 
 public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkingTest
 {
@@ -56,16 +53,26 @@ public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkin
             }
          };
       }
-
    };
 
+   @Override
+   protected double getStepLength()
+   {
+      return 0.4;
+   }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.4, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 290000)
-   public void testForwardWalk() throws SimulationExceededMaximumTimeException
+   protected double getStepWidth()
    {
-      super.testForwardWalk();
+      return 0.25;
+   }
+
+   @Override
+   @ContinuousIntegrationTest(estimatedDuration = 57.4)
+   @Test(timeout = 290000)
+   public void testForwardWalkWithAngularMomentumReference() throws SimulationExceededMaximumTimeException
+   {
+      super.testForwardWalkWithAngularMomentumReference();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
@@ -77,23 +84,9 @@ public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkin
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test(timeout = 300000)
-   public void testForwardWalkTransferDelayedMomentum() throws SimulationExceededMaximumTimeException
+   public void testWalkingWithDelayedMomentum() throws SimulationExceededMaximumTimeException
    {
-      super.testForwardWalkTransferDelayedMomentum();
-   }
-
-   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 300000)
-   public void testForwardWalkTransferBigDelayedMomentum() throws SimulationExceededMaximumTimeException
-   {
-      super.testForwardWalkTransferBigDelayedMomentum();
-   }
-
-   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
-   @Test(timeout = 300000)
-   public void testForwardWalkSwingDelayedMomentum() throws SimulationExceededMaximumTimeException
-   {
-      super.testForwardWalkSwingDelayedMomentum();
+      super.testWalkingWithDelayedMomentum();
    }
 
    @ContinuousIntegrationTest(estimatedDuration = 50.0)
@@ -103,13 +96,12 @@ public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkin
       super.testForwardWalkZeroMomentumFirstStep();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
+   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test(timeout = 300000)
-   public void testForwardWalkNoMomentumFirstStep() throws SimulationExceededMaximumTimeException
+   public void testWalkingWithRandomSinusoidalMomentum() throws SimulationExceededMaximumTimeException
    {
-      super.testForwardWalkNoMomentumFirstStep();
+      super.testWalkingWithRandomSinusoidalMomentum();
    }
-
 
    @Override
    public DRCRobotModel getRobotModel()
@@ -122,5 +114,4 @@ public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkin
    {
       return robotModel.getSimpleRobotName();
    }
-
 }
