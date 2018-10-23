@@ -16,6 +16,8 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
+@Tag("fast")
+@Tag("video")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 {
@@ -55,6 +57,8 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 
    // Moved one of the old push recovery tests to fast so it is checked from time to time.
    @Override
+   @Tag("fast")
+   @Tag("video")
    @ContinuousIntegrationTest(estimatedDuration = 81.2, categoriesOverride = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
    @Test(timeout = 410000)
    public void testPushLeftInitialTransferState() throws SimulationExceededMaximumTimeException

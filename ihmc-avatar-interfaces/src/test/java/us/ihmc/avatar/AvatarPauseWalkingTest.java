@@ -85,6 +85,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testPauseWalking() throws SimulationExceededMaximumTimeException
@@ -104,6 +105,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(getNumberOfFootsteps() * (getSwingTime() + getTransferTime())));
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 50, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testTwoIndependentSteps() throws SimulationExceededMaximumTimeException
@@ -132,6 +134,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(3.0));
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 50, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testStartSecondStepWhileTransitioningToStand() throws SimulationExceededMaximumTimeException
@@ -235,6 +238,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(swingTime + getTransferTime() + getFinalTransferDuration()));
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testPauseWalkingForwardInitialTransfer() throws SimulationExceededMaximumTimeException

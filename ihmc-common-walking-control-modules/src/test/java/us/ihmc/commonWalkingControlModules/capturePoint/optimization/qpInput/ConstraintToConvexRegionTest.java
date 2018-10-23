@@ -21,6 +21,7 @@ import us.ihmc.footstepPlanning.polygonWiggling.PolygonWiggler;
 import java.util.ArrayList;
 import java.util.Random;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ConstraintToConvexRegionTest
 {

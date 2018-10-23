@@ -24,6 +24,7 @@ import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class TrajectoryMathToolsTest
 {
@@ -1239,6 +1240,7 @@ public class TrajectoryMathToolsTest
 
    }
 
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    @Test(timeout = 30000)
    public void testSegmentedAdditionWithLimitsC()
@@ -1266,6 +1268,7 @@ public class TrajectoryMathToolsTest
       assertEquals(1.0, traj3.getSegment(2).getFinalTime(), epsilon);
    }
 
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    @Test(timeout = 30000)
    public void testSegmentedAdditionWithLimitsD()

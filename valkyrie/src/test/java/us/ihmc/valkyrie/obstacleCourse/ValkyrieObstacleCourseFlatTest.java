@@ -18,6 +18,8 @@ import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 import java.io.IOException;
 
+@Tag("fast")
+@Tag("video")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 {
@@ -39,6 +41,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
     * Doesn't work with Valkyrie yet. Need to get it working some day.
     */
    @Override
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 40.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    @Test(timeout = 300000)
    public void testWalkingUpToRampWithLongStepsAndOccasionallyStraightKnees() throws SimulationExceededMaximumTimeException
@@ -54,6 +57,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
       super.testRotatedStepInTheAir();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 85.5, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 430000)
    public void testSimpleScripts() throws SimulationExceededMaximumTimeException, IOException
@@ -61,6 +65,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
       super.testSimpleScripts();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 59.7, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 300000)
    public void testACoupleStepsUsingQueuedControllerCommands() throws SimulationExceededMaximumTimeException
@@ -68,6 +73,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
       super.testACoupleStepsUsingQueuedControllerCommands();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 78.7, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 390000)
    public void testACoupleQueuedControllerCommands() throws SimulationExceededMaximumTimeException
@@ -75,6 +81,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
       super.testACoupleQueuedControllerCommands();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 76.7, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    public void testACoupleMoreQueuedControllerCommands() throws SimulationExceededMaximumTimeException
@@ -99,6 +106,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    }
 
    @Override
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 25.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 130000)
    public void testStandingForACoupleSeconds() throws SimulationExceededMaximumTimeException
@@ -115,6 +123,8 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    }
 
    @Override
+   @Tag("fast")
+   @Tag("video")
    @ContinuousIntegrationTest(estimatedDuration = 92.3, categoriesOverride = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
    @Test(timeout = 460000)
    public void testTurningInPlaceAndPassingPI() throws SimulationExceededMaximumTimeException

@@ -13,6 +13,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 import org.junit.jupiter.api.Tag;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ReferenceICPTrajectoryGeneratorTest
 {

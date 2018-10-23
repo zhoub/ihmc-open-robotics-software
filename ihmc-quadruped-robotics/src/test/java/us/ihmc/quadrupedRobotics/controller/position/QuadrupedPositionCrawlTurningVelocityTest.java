@@ -56,6 +56,8 @@ public abstract class QuadrupedPositionCrawlTurningVelocityTest implements Quadr
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
+   @Tag("fast")
+   @Tag("video")
    @ContinuousIntegrationTest(estimatedDuration = 150.0, categoriesOverride = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
    @Test(timeout = 600000)
    public void testTurnInPlaceRegularSpeed() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
@@ -70,6 +72,7 @@ public abstract class QuadrupedPositionCrawlTurningVelocityTest implements Quadr
    }
 
    //"Turn in place slowly still fails due to CoM shifting outside support polygon. Need to fix it..."
+   @Tag("video")
    @ContinuousIntegrationTest(estimatedDuration = 150.0, categoriesOverride = {IntegrationCategory.EXCLUDE, IntegrationCategory.VIDEO})
    @Test(timeout = 600000)
    public void testTurnInPlaceSlowly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException

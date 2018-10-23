@@ -196,6 +196,7 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
    /**
     * This test pauses walking after the first two steps to check that functionality, and then finishes the plan.
     */
+   @Tag("fast")
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 64.8, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 320000)
    public void testPauseWalkingInSwing() throws SimulationExceededMaximumTimeException, RuntimeException
@@ -266,6 +267,7 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
    /**
     * This test pauses walking on the first step to check that functionality, and then finishes the plan.
     */
+   @Tag("fast")
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 69.9, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 350000)
    public void testPauseWalkingInTransferFirstStep() throws SimulationExceededMaximumTimeException, RuntimeException
@@ -336,6 +338,7 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
    /**
     * This test pauses walking after the first two steps to check that functionality, and then finishes the plan.
     */
+   @Tag("fast")
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 68.1, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 340000)
    public void testPauseWalkingInTransfer() throws SimulationExceededMaximumTimeException, RuntimeException

@@ -14,6 +14,7 @@ import us.ihmc.commons.MathTools;
 import us.ihmc.commons.FormattingTools;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class Mouse3DJoystickTest
 {

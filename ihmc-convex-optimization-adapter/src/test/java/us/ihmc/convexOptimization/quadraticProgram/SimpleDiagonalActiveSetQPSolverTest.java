@@ -6,6 +6,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 import org.junit.jupiter.api.Tag;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SimpleDiagonalActiveSetQPSolverTest extends AbstractSimpleActiveSetQPSolverTest
 {

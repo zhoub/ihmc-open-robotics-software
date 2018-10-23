@@ -547,6 +547,7 @@ public class PrincipalComponentAnalysis3DTest
       }
    }
 
+	@Tag("fast")
 	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
 	@Test(timeout = 30000)
 	/**
@@ -560,6 +561,7 @@ public class PrincipalComponentAnalysis3DTest
 	   pca.compute();
 	}
 
+	@Tag("fast")
 	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
 	@Test(timeout = 30000)
 	/**
@@ -576,6 +578,7 @@ public class PrincipalComponentAnalysis3DTest
 	   pca.compute();
 	}
 
+	@Tag("fast")
 	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
 	@Test(timeout = 30000)
 	/**
@@ -593,6 +596,7 @@ public class PrincipalComponentAnalysis3DTest
 	   pca.compute();
 	}
 
+	@Tag("fast")
 	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
 	@Test(timeout = 30000)
 	/**

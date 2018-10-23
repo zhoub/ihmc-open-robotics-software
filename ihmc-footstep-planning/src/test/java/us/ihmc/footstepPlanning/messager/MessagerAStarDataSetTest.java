@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tag;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class MessagerAStarDataSetTest extends MessagerPlannerDataSetTest
 {
@@ -26,6 +27,7 @@ public class MessagerAStarDataSetTest extends MessagerPlannerDataSetTest
 
    @Override
    @Test(timeout = 500000)
+   @Tag("in-development")
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 90.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {

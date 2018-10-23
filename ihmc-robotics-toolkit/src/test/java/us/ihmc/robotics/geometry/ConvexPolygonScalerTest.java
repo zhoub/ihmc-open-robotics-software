@@ -11,6 +11,7 @@ import us.ihmc.euclid.tuple2D.Point2D;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ConvexPolygonScalerTest
 {
@@ -581,6 +582,7 @@ public class ConvexPolygonScalerTest
       assertFalse(success);
    }
 
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
    @Test(timeout = 30000)
    public void testTroublingCollapseExteriorRectangleToLine()

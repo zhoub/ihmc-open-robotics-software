@@ -30,6 +30,7 @@ public class BambooToolsTest
       assertEquals("BambooToolsTest.testGetClassAndMethodName", classAndMethodName);
    }
 
+	@Tag("ui")
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = { IntegrationCategory.UI })
 	@Test(timeout=300000)
    public void testLogMessagesToFile() throws IOException

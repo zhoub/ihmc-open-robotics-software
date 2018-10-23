@@ -8,6 +8,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
 import us.ihmc.pubsub.DomainFactory;
 
+@Tag("slow")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.SLOW)
 public class RemoteStandaloneSimpleBodyPathDataSetTest extends RemoteStandalonePlannerDataSetTest
 {
@@ -29,6 +30,7 @@ public class RemoteStandaloneSimpleBodyPathDataSetTest extends RemoteStandaloneP
 
    @Override
    @Test(timeout = 500000)
+   @Tag("in-development")
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 125.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
@@ -38,6 +40,7 @@ public class RemoteStandaloneSimpleBodyPathDataSetTest extends RemoteStandaloneP
    }
 
    @Test(timeout = 500000)
+   @Tag("in-development")
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 37.6, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionRTPS()
    {

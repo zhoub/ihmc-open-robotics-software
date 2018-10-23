@@ -12,6 +12,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 {

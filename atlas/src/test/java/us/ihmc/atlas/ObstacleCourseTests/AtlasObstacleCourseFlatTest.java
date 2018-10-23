@@ -19,6 +19,8 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 
 import static us.ihmc.continuousIntegration.IntegrationCategory.SLOW;
 
+@Tag("fast")
+@Tag("video")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 {
@@ -37,6 +39,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    }
 
    @Override
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 76.7, categoriesOverride = SLOW)
    @Test(timeout = 380000)
    public void testACoupleMoreQueuedControllerCommands() throws SimulationExceededMaximumTimeException
@@ -86,6 +89,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    }
 
    @Override
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 85.5, categoriesOverride = SLOW)
    @Test(timeout = 430000)
    public void testSimpleScripts() throws SimulationExceededMaximumTimeException, IOException
@@ -94,6 +98,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    }
 
    @Override
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 26.1, categoriesOverride = SLOW)
    @Test(timeout = 130000)
    public void testStandingForACoupleSeconds() throws SimulationExceededMaximumTimeException
@@ -103,6 +108,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    // TODO re-enable that test when we have polygon to polygon contact model for SCS
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    @Test(timeout = 160000)
    public void testStandingOnUnevenTerrainForACoupleSeconds() throws SimulationExceededMaximumTimeException

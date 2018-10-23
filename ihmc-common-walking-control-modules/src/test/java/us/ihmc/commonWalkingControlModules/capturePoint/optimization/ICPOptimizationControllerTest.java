@@ -38,6 +38,7 @@ import us.ihmc.robotics.screwTheory.RigidBody;
 import us.ihmc.yoVariables.parameters.DefaultParameterReader;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ICPOptimizationControllerTest
 {

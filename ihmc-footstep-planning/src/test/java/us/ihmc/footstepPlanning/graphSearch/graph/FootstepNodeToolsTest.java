@@ -15,6 +15,7 @@ import java.util.Random;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+@Tag("fast")
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class FootstepNodeToolsTest
 {

@@ -18,6 +18,7 @@ import us.ihmc.utilities.ros.publisher.RosStringPublisher;
 import us.ihmc.utilities.ros.subscriber.AbstractRosTopicSubscriber;
 import us.ihmc.utilities.ros.subscriber.RosTopicSubscriberInterface;
 
+@Tag("flaky")
 @ContinuousIntegrationPlan(categories=IntegrationCategory.FLAKY)
 public class RosTopicPublisherSubscriberTest extends IHMCRosTestWithRosCore
 {

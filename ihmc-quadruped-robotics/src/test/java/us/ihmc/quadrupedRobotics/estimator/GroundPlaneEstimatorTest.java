@@ -31,6 +31,7 @@ import us.ihmc.robotics.robotSide.RobotQuadrant;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.tools.MemoryTools;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GroundPlaneEstimatorTest
 {

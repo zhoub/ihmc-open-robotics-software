@@ -14,6 +14,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 /**
  * Created by Peter on 9/11/2016.
  */
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class YoMiniJerkUpAndDownAlphaToAlphaTest
 {

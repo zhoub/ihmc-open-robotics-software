@@ -31,6 +31,7 @@ import us.ihmc.humanoidRobotics.footstep.FootSpoof;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class CoPPointsInFootTest
 {

@@ -14,6 +14,8 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
+@Tag("video")
+@Tag("flaky")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FLAKY, IntegrationCategory.VIDEO})
 public class AtlasChestTrajectoryBehaviorTest extends DRCChestTrajectoryBehaviorTest
 {

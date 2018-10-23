@@ -132,6 +132,7 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
    }
 
    @Test(timeout = 500000)
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 13.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionRTPS()
    {

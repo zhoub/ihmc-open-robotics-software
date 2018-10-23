@@ -31,6 +31,7 @@ public class AtlasICPPlannerFlatGroundTest extends AvatarICPPlannerFlatGroundTes
    }
 
    @Override
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 64.8, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 320000)
    /** {@inheritDoc} */
@@ -40,6 +41,7 @@ public class AtlasICPPlannerFlatGroundTest extends AvatarICPPlannerFlatGroundTes
    }
 
    @Override
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 69.9, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 350000)
    /** {@inheritDoc} */
@@ -49,6 +51,7 @@ public class AtlasICPPlannerFlatGroundTest extends AvatarICPPlannerFlatGroundTes
    }
 
    @Override
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 68.1, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 340000)
    /** {@inheritDoc} */

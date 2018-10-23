@@ -8,6 +8,7 @@ import us.ihmc.robotiq.communication.registers.ActionRequestRegister.rATR;
 import us.ihmc.robotiq.communication.registers.ActionRequestRegister.rGTO;
 import us.ihmc.robotiq.communication.registers.ActionRequestRegister.rMOD;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class ActionRequestRegisterTest extends RobotiqOutputRegisterTest
 {

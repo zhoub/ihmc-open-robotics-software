@@ -25,6 +25,7 @@ import us.ihmc.robotics.dataStructures.HeightMapWithPoints;
 import us.ihmc.robotics.geometry.HeightMapBestFitPlaneCalculator;
 import us.ihmc.robotics.geometry.InsufficientDataException;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class BestFitPlaneCalculatorTest
 {

@@ -17,6 +17,8 @@ import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 // This test is slow but very important, let's keep it in the FAST build please. (Sylvain)
+@Tag("fast")
+@Tag("video")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
 {

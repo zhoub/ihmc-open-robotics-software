@@ -15,6 +15,7 @@ import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;
 
+@Tag("fast")
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class DijkstraVisibilityGraphPlannerTest
 {

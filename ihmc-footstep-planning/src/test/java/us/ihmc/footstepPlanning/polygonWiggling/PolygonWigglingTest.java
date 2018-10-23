@@ -32,6 +32,7 @@ import java.util.Random;
 
 import static org.junit.Assert.*;
 
+@Tag("fast")
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class PolygonWigglingTest
 {

@@ -14,6 +14,7 @@ import us.ihmc.simulationconstructionset.UnreasonableAccelerationException;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
+@Tag("flaky")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FLAKY)
 public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindabilityTest
 {

@@ -24,6 +24,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.humanoidRobotics.kryo.IHMCCommunicationKryoNetClassList;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Tag("flaky")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FLAKY})
 public class NetworkProcessorTest
 {

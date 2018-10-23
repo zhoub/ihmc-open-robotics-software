@@ -70,6 +70,7 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
 
    protected abstract DRCRobotModel getRobotModel();
 
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    @Test(timeout = 100000)
    public void testForwardWalkingShort() throws SimulationExceededMaximumTimeException
@@ -81,6 +82,7 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
       assertTrue(success);
    }
 
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    @Test(timeout = 100000)
    public void testForwardWalkingMedium() throws SimulationExceededMaximumTimeException
@@ -92,6 +94,7 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
       assertTrue(success);
    }
 
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    @Test(timeout = 100000)
    public void testForwardWalkingLong() throws SimulationExceededMaximumTimeException

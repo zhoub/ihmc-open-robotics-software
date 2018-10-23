@@ -14,6 +14,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.controllers.pidGains.implementations.YoPIDGains;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class YoPIDGainsTest
 {

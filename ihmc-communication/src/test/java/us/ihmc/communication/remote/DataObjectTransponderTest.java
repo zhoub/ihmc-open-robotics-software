@@ -14,6 +14,7 @@ import org.junit.jupiter.api.Tag;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class DataObjectTransponderTest
 {
@@ -84,6 +85,7 @@ public class DataObjectTransponderTest
       assertAllTestsPassed();
    }
 
+   @Tag("flaky")
    @ContinuousIntegrationTest(estimatedDuration = 8.3, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 42000)
    public void testDoubleBidirectionalCommunication() throws InterruptedException

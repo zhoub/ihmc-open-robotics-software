@@ -6,6 +6,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotiq.communication.registers.GripperOptionRegister.rICF;
 import us.ihmc.robotiq.communication.registers.GripperOptionRegister.rICS;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GripperOptionRegisterTest extends RobotiqOutputRegisterTest
 {

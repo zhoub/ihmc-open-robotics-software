@@ -139,6 +139,7 @@ public class VisibilityGraphsFrameworkTest extends Application
    }
 
    @Test(timeout = TIMEOUT)
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
    public void testDatasetsNoOcclusionSimulateDynamicReplanning() throws Exception
    {
@@ -150,6 +151,7 @@ public class VisibilityGraphsFrameworkTest extends Application
    }
 
    @Test(timeout = TIMEOUT)
+   @Tag("in-development")
    @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
    public void testDatasetsSimulateOcclusionAndDynamicReplanning() throws Exception
    {

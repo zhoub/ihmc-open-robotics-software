@@ -25,6 +25,7 @@ import us.ihmc.commons.nio.FileTools;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ProcessSpawnerTest
 {
@@ -120,6 +121,7 @@ public class ProcessSpawnerTest
       validateFileContents(randomString);
    }
 
+   @Tag("flaky")
    @ContinuousIntegrationTest(estimatedDuration = 2.1, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testExitListeners() throws Exception

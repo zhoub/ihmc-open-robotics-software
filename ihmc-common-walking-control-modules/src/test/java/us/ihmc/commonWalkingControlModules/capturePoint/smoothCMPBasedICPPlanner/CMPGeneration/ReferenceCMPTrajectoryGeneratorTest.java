@@ -28,6 +28,7 @@ import us.ihmc.robotics.math.trajectories.TrajectoryMathTools;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoInteger;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ReferenceCMPTrajectoryGeneratorTest
 {

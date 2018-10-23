@@ -34,6 +34,7 @@ import us.ihmc.tools.MemoryTools;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
+@Tag("fast")
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class JointPhysicsConservedQuantitiesTest
 {

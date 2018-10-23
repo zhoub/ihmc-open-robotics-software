@@ -14,6 +14,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
+@Tag("ui")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.UI)
 public class AtlasPointCloudDataReceiverTest extends HumanoidPointCloudDataReceiverTest
 {

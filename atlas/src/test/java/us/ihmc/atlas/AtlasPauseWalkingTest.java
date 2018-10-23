@@ -98,6 +98,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       return 5;
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    @Override
@@ -106,6 +107,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       super.testPauseWalking();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    @Override
@@ -114,6 +116,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       super.testTwoIndependentSteps();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    @Override
@@ -138,6 +141,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
       super.testPauseWalkingInitialTransfer();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 73.9, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 370000)
    @Override

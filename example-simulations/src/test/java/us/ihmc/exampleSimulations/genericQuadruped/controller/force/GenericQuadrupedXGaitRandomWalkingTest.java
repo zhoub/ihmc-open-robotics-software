@@ -13,6 +13,7 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 
 import java.io.IOException;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedXGaitRandomWalkingTest extends QuadrupedXGaitRandomWalkingTest
 {

@@ -35,6 +35,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
       super.testTwoStepsInARowSameSide();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    @Override
@@ -43,6 +44,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
       super.testTwoStepsInARowSameSideAfterFirstSep();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    @Override
@@ -51,6 +53,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
       super.testTwoStepsInARowLongTransferSameSide();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    @Override

@@ -78,6 +78,7 @@ public class PacketCodeQualityTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testFrameInformationDefaultValues()
@@ -89,6 +90,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.3, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testNoFieldsAreNullAfterPacketCreation()
@@ -157,6 +159,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketsHaveNoConvenienceMethod()
@@ -279,6 +282,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketsUseIDLSequenceObjectOnly()
@@ -336,6 +340,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketOnlyExtendPacketClass()
@@ -382,6 +387,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketDoNotDeclareTypes()
@@ -424,6 +430,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketsHaveUniqueSimpleNameBasedHashCode()
@@ -453,6 +460,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.4, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketsDeclarePrimitiveOrMessageTypeFields()
@@ -533,6 +541,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketStaticFieldsAreFinal()
@@ -577,6 +586,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketHaveNoEnum()
@@ -625,6 +635,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.4, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketByteFieldNameRefersToEnumType() throws NoSuchFieldException, SecurityException
@@ -703,6 +714,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.7, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketWithByteFieldDeclareEnumValuesAsStaticByteFields() throws NoSuchFieldException, SecurityException
@@ -848,6 +860,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testOnlyEmptyAndCopyConstructor()
@@ -906,6 +919,7 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testNoRandomConstructor()

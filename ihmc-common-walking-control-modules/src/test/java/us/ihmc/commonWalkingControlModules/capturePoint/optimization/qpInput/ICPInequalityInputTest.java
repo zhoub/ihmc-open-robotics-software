@@ -11,6 +11,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 
 import java.util.Random;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ICPInequalityInputTest
 {

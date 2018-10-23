@@ -17,10 +17,12 @@ import org.junit.jupiter.api.Tag;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.MathTools;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ComplexNumberTest
 {
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void testCommonUsage()
@@ -38,6 +40,7 @@ public class ComplexNumberTest
       assertEquals(Math.sqrt(real*real + imag*imag), complexNumber.magnitude(), epsilon);
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void testZero()
@@ -48,6 +51,7 @@ public class ComplexNumberTest
       assertTrue(0.0 == complexNumber.magnitudeSquared());
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void testALotOfRandomComplexNumbers()
@@ -68,6 +72,7 @@ public class ComplexNumberTest
       }
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void testEpsilonEquals()
@@ -101,6 +106,7 @@ public class ComplexNumberTest
       assertFalse(complexNumber.epsilonEquals(complexNumber.real() + 2.0 * epsilon, epsilon));
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void regressionTest()
@@ -141,6 +147,7 @@ public class ComplexNumberTest
       assertTrue(tan.epsilonEquals(new ComplexNumber(-2.5888999008384745E-7, 0.9999999988541863), epsilon));
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void regessionTestTwo()
@@ -159,6 +166,7 @@ public class ComplexNumberTest
 
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void regessionTestThree()
@@ -175,6 +183,7 @@ public class ComplexNumberTest
       assertTrue(minus.epsilonEquals(new ComplexNumber(3.7819999999999965, 92.345), epsilon));
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 30000)
    public void testToString()
@@ -202,6 +211,7 @@ public class ComplexNumberTest
    }
 
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 30000)
    public void testInitialization()
@@ -220,6 +230,7 @@ public class ComplexNumberTest
       assert (c1.imag() == 2);
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 30000)
    public void testMath()
@@ -248,6 +259,7 @@ public class ComplexNumberTest
       assert (Math.abs(c3.imag() + 1) < Epsilons.ONE_BILLIONTH);
    }
 
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 30000)
    public void tesNthRoots()

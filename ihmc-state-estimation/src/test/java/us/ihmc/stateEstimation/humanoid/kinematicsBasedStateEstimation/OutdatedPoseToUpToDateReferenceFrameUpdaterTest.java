@@ -24,6 +24,7 @@ import us.ihmc.robotics.kinematics.TimeStampedTransform3D;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories={IntegrationCategory.FAST})
 public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
 {

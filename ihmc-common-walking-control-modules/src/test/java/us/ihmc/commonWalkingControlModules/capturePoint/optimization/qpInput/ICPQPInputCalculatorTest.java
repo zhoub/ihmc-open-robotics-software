@@ -17,6 +17,7 @@ import us.ihmc.robotics.testing.JUnitTools;
 import javax.print.attribute.standard.JobOriginatingUserName;
 import java.util.Random;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ICPQPInputCalculatorTest
 {

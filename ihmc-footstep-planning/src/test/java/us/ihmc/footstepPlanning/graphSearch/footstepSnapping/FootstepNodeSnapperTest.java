@@ -14,6 +14,7 @@ import java.util.Random;
 
 import static junit.framework.TestCase.assertTrue;
 
+@Tag("fast")
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class FootstepNodeSnapperTest
 {

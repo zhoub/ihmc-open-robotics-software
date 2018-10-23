@@ -31,6 +31,7 @@ import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestin
 import us.ihmc.tools.MemoryTools;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Tag("ui")
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = {IntegrationCategory.UI})
 public class MocapToPelvisFrameConverterVisualTest
 {

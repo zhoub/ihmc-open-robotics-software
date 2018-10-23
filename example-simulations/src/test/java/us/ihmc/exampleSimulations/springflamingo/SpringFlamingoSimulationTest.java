@@ -22,6 +22,7 @@ import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.SimulationRewindabilityVerifier;
 import us.ihmc.simulationconstructionset.util.simulationRunner.VariableDifference;
 
+@Tag("ui")
 @ContinuousIntegrationPlan(categories={IntegrationCategory.UI})
 public class SpringFlamingoSimulationTest
 {

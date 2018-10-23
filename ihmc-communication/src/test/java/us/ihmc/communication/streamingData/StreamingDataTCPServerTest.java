@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Tag;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Tag("flaky")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FLAKY})
 public class StreamingDataTCPServerTest
 {

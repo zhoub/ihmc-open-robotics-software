@@ -146,6 +146,7 @@ public class RemoteFootstepPlannerUIMessagingTest
       runPlanningRequestTestFromUI();
    }
 
+   @Tag("flaky")
    @ContinuousIntegrationTest(estimatedDuration = 2.2, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testSendingFootstepPlanningRequestPacketFromUIFastRTPS()
@@ -164,6 +165,7 @@ public class RemoteFootstepPlannerUIMessagingTest
       runPlannerRequestToUI();
    }
 
+   @Tag("flaky")
    @ContinuousIntegrationTest(estimatedDuration = 2.4, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testSendingFootstepPlannerRequestPacketToUIFastRTPS()
@@ -182,6 +184,7 @@ public class RemoteFootstepPlannerUIMessagingTest
       runPlannerParametersPacket();
    }
 
+   @Tag("flaky")
    @ContinuousIntegrationTest(estimatedDuration = 2.3, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testSendingFootstepPlannerParametersPacketFastRTPS()
@@ -200,6 +203,7 @@ public class RemoteFootstepPlannerUIMessagingTest
       runOutputStatusToUI();
    }
 
+   @Tag("flaky")
    @ContinuousIntegrationTest(estimatedDuration = 4.0, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testSendingFootstepPlannerOutputStatusToUIFastRTPS()

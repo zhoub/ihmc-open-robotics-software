@@ -13,6 +13,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.controllers.pidGains.implementations.YoPDGains;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class YoPDGainsTest
 {

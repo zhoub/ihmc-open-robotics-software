@@ -82,6 +82,7 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
+   @Tag("fast")
    @ContinuousIntegrationTest(estimatedDuration = 2.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testRandomPoses()

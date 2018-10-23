@@ -112,6 +112,7 @@ public class GenericQuadrupedAllocationTest
       }
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
    @Test(timeout = 600000)
    public void testForAllocationStanding()
@@ -126,6 +127,7 @@ public class GenericQuadrupedAllocationTest
    }
 
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
    @Test(timeout = 600000)
    public void testForAllocationStepping()

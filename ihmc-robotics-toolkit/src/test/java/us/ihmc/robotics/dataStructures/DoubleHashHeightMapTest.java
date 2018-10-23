@@ -25,6 +25,7 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.geometry.InclusionFunction;
 import us.ihmc.robotics.geometry.InsufficientDataException;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class DoubleHashHeightMapTest extends AbstractHeightMapTest
 {

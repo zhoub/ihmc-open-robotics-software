@@ -15,6 +15,7 @@ import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.yoVariables.variable.YoVariable;
 
+@Tag("ui")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.UI)
 public class XTouchCompactMidiSliderBoardTest
 {

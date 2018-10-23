@@ -17,6 +17,7 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.math.trajectories.SimpleOrientationTrajectoryGenerator;
 
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class MultipleWaypointsOrientationTrajectoryGeneratorTest
 {

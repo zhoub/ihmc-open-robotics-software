@@ -19,6 +19,8 @@ import java.io.IOException;
 
 import static us.ihmc.continuousIntegration.IntegrationCategory.SLOW;
 
+@Tag("fast")
+@Tag("video")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlatWithErrorsTest
 {
@@ -45,6 +47,7 @@ public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlat
    }
 
    @Override
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 74.6, categoriesOverride = SLOW)
    @Test(timeout = 370000)
    public void testSideStepsWithSlipping() throws SimulationExceededMaximumTimeException

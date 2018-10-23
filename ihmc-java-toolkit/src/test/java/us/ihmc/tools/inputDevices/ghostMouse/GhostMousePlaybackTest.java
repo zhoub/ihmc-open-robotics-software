@@ -10,6 +10,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 import org.junit.jupiter.api.Tag;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
+@Tag("ui")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.UI})
 public class GhostMousePlaybackTest
 {

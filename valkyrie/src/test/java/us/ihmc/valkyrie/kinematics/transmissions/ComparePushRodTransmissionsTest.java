@@ -23,6 +23,7 @@ import us.ihmc.valkyrie.kinematics.LinearActuator;
 import us.ihmc.valkyrie.kinematics.ValkyrieJointInterface;
 import us.ihmc.valkyrie.kinematics.YoValkyrieJointWriter;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ComparePushRodTransmissionsTest
 {

@@ -108,6 +108,7 @@ public class AtlasAllocationTest
       setup();
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
    @Test(timeout = 600000)
    public void testForAllocationsStanding() throws SimulationExceededMaximumTimeException
@@ -124,6 +125,7 @@ public class AtlasAllocationTest
       });
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
    @Test(timeout = 900000)
    public void testForAllocationsWalking() throws SimulationExceededMaximumTimeException
@@ -153,6 +155,7 @@ public class AtlasAllocationTest
       testHelper.assertRobotsRootJointIsInBoundingBox(new BoundingBox3D(0.9, -0.1, 0.0, 1.1, 0.1, 5.0));
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
    @Test(timeout = 600000)
    public void testForAllocationsDuringPelvisMotion() throws SimulationExceededMaximumTimeException
@@ -176,6 +179,7 @@ public class AtlasAllocationTest
       });
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
    @Test(timeout = 600000)
    public void testForAllocationsWithPelvisUserControl() throws SimulationExceededMaximumTimeException
@@ -202,6 +206,7 @@ public class AtlasAllocationTest
       });
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
    @Test(timeout = 600000)
    public void testForAllocationsDuringArmMotion() throws SimulationExceededMaximumTimeException
@@ -223,6 +228,7 @@ public class AtlasAllocationTest
       });
    }
 
+   @Tag("slow")
    @ContinuousIntegrationTest(estimatedDuration = 300.0, categoriesOverride = {IntegrationCategory.SLOW})
    @Test(timeout = 600000)
    public void testForAllocationsDuringChestMotion() throws SimulationExceededMaximumTimeException
