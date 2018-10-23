@@ -31,6 +31,7 @@ import org.yaml.snakeyaml.Yaml;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 import us.ihmc.robotics.testing.JUnitTools;
 public class GenericActiveSetQPSolverTest

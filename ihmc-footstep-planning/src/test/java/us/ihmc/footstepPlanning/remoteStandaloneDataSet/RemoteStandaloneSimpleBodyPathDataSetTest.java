@@ -4,6 +4,7 @@ import org.junit.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
 import us.ihmc.pubsub.DomainFactory;

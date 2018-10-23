@@ -6,6 +6,7 @@ import org.junit.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import static org.junit.Assert.assertEquals;
 
 public class DampedQRNullspaceCalculatorTest extends DampedNullspaceCalculatorTest

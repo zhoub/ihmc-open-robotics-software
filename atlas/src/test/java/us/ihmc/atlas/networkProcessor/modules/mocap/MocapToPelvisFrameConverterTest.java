@@ -14,6 +14,7 @@ import optiTrack.MocapRigidBody;
 import us.ihmc.avatar.networkProcessor.modules.mocap.MocapToPelvisFrameConverter;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;

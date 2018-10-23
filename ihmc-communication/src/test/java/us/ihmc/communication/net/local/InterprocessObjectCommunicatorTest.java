@@ -20,6 +20,7 @@ import us.ihmc.communication.packets.Packet;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 public class InterprocessObjectCommunicatorTest
 {
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)

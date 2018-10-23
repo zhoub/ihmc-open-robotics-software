@@ -8,6 +8,7 @@ import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RunnableThatThrows;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.planning.gait.QuadrupedGaitCycle;
 import us.ihmc.quadrupedRobotics.planning.gait.QuadrupedSupportConfiguration;
 import us.ihmc.robotics.robotSide.RobotQuadrant;

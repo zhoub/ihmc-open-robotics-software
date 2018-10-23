@@ -10,6 +10,7 @@ import org.junit.Test;
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.State;
 import us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine.StateMachine;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;

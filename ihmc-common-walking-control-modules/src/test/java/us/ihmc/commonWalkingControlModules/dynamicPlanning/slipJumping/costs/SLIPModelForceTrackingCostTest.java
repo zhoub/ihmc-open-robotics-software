@@ -8,6 +8,7 @@ import us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.testing.JUnitTools;
 import us.ihmc.trajectoryOptimization.LQCostFunction;

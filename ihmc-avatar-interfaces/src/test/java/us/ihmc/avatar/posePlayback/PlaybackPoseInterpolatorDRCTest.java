@@ -10,6 +10,7 @@ import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.simulationConstructionSetTools.util.HumanoidFloatingRootJointRobot;
 

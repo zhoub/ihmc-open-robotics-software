@@ -13,6 +13,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 
 
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 public class CalibrationPropertiesTest
 {
    private String fileName = "testCalFile";

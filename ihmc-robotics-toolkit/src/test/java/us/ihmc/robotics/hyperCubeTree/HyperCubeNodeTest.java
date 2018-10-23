@@ -10,6 +10,7 @@ import org.junit.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 public class HyperCubeNodeTest
 {
    public static final double eps = 1.0e-6;

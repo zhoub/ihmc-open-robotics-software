@@ -11,6 +11,7 @@ import us.ihmc.robotics.math.trajectories.YoTrajectory;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 @Tag("fast")

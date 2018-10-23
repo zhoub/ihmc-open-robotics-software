@@ -13,6 +13,7 @@ import us.ihmc.commonWalkingControlModules.configurations.ICPWithTimeFreezingPla
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkingTest

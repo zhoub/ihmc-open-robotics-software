@@ -29,6 +29,7 @@ import us.ihmc.commons.nio.WriteOption;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Disabled;
 public class DeprecatedFileToolsTest
 {
    private static final Path FILE_TOOLS_TEST_PATH = getResourcesPathForTestClass(DeprecatedFileToolsTest.class);
