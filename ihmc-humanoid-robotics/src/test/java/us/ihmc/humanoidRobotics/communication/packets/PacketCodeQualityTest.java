@@ -66,7 +66,6 @@ import us.ihmc.euclid.tuple4D.Quaternion32;
 import us.ihmc.euclid.utils.NameBasedHashCodeTools;
 import us.ihmc.idl.IDLSequence;
 
-@ContinuousIntegrationPlan(categories = IntegrationCategory.HEALTH)
 public class PacketCodeQualityTest
 {
    private static final String PACKETS_LOCATION = "controller_msgs.msg.dds";
@@ -80,7 +79,6 @@ public class PacketCodeQualityTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testFrameInformationDefaultValues()
    {
@@ -92,7 +90,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.3, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testNoFieldsAreNullAfterPacketCreation()
    { // This test won't fail on Arrays or Lists
@@ -161,7 +158,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketsHaveNoConvenienceMethod()
    { // This test won't fail for setUniqueId(long) or validateMessage()
@@ -284,7 +280,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketsUseIDLSequenceObjectOnly()
    { // This test won't fail on Arrays or Lists
@@ -342,7 +337,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketOnlyExtendPacketClass()
    {
@@ -389,7 +383,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketDoNotDeclareTypes()
    {
@@ -432,7 +425,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketsHaveUniqueSimpleNameBasedHashCode()
    { // This test won't fail on Arrays or Lists
@@ -462,7 +454,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.4, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketsDeclarePrimitiveOrMessageTypeFields()
    { // This test won't fail on Arrays or Lists
@@ -543,7 +534,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketStaticFieldsAreFinal()
    {
@@ -588,7 +578,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketHaveNoEnum()
    {
@@ -637,7 +626,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.4, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketByteFieldNameRefersToEnumType() throws NoSuchFieldException, SecurityException
    {
@@ -716,7 +704,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.7, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testPacketWithByteFieldDeclareEnumValuesAsStaticByteFields() throws NoSuchFieldException, SecurityException
    {
@@ -862,7 +849,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testOnlyEmptyAndCopyConstructor()
    {
@@ -921,7 +907,6 @@ public class PacketCodeQualityTest
 
    @SuppressWarnings("rawtypes")
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testNoRandomConstructor()
    {

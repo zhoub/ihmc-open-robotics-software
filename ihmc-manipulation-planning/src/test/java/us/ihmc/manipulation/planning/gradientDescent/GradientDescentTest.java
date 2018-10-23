@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @Tag("fast")
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GradientDescentTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.1)

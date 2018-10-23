@@ -8,7 +8,6 @@ import us.ihmc.footstepPlanning.FootstepPlanner;
 import us.ihmc.footstepPlanning.simplePlanners.TurnWalkTurnPlanner;
 
 @Tag("fast")
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class TurnWalkTurnPlannerTest extends FootstepPlannerOnFlatGroundTest
 {
    private static final boolean visualize = false;

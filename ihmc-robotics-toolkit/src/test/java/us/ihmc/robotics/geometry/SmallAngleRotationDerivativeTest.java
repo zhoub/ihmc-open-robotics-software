@@ -19,7 +19,6 @@ import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.robotics.random.RandomGeometry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SmallAngleRotationDerivativeTest
 {
 

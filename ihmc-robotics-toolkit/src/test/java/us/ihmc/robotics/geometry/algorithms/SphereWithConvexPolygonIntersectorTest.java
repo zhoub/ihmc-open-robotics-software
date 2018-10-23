@@ -27,7 +27,6 @@ import us.ihmc.robotics.geometry.shapes.FrameSphere3d;
 import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SphereWithConvexPolygonIntersectorTest
 {
    private static final ReferenceFrame WORLD = ReferenceFrame.getWorldFrame();

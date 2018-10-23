@@ -36,7 +36,6 @@ import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestin
 import us.ihmc.commons.thread.ThreadTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class VirtualModelControllerTest
 {
    private final Random bigRandom = new Random(1000L);

@@ -9,7 +9,6 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
 
 @Tag("slow")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.SLOW)
 public class MessagerPlanThenSnapDataSetTest extends MessagerPlannerDataSetTest
 {
    @Override
@@ -29,7 +28,6 @@ public class MessagerPlanThenSnapDataSetTest extends MessagerPlannerDataSetTest
    @Override
    @Test(timeout = 500000)
    @Tag("in-development")
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 90.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
       runAssertionsOnAllDatasetsWithoutOcclusionsInDevelopment(dataset -> runAssertions(dataset));

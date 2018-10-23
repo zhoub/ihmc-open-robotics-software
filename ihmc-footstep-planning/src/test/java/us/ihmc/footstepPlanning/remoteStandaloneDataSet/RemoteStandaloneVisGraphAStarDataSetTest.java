@@ -10,7 +10,6 @@ import us.ihmc.footstepPlanning.FootstepPlannerType;
 import us.ihmc.pubsub.DomainFactory;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class RemoteStandaloneVisGraphAStarDataSetTest extends RemoteStandalonePlannerDataSetTest
 {
    @Override
@@ -32,7 +31,6 @@ public class RemoteStandaloneVisGraphAStarDataSetTest extends RemoteStandalonePl
    @Override
    @Test(timeout = 500000)
    @Tag("in-development")
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 125.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -42,7 +40,6 @@ public class RemoteStandaloneVisGraphAStarDataSetTest extends RemoteStandalonePl
 
    @Test(timeout = 500000)
    @Tag("in-development")
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 13.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;

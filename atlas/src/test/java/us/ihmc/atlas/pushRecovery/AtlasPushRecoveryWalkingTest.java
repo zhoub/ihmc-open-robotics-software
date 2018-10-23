@@ -19,7 +19,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 {
    @Override
@@ -60,7 +59,6 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    @Override
    @Tag("fast")
    @Tag("video")
-   @ContinuousIntegrationTest(estimatedDuration = 81.2, categoriesOverride = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
    @Test(timeout = 410000)
    public void testPushLeftInitialTransferState() throws SimulationExceededMaximumTimeException
    {

@@ -119,7 +119,6 @@ public class JoystickTest
    boolean madCatz1Status = false;
 
    @Tag("manual")
-   @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = IntegrationCategory.MANUAL)
    @Test(timeout = 300000)
    public void testCreateTwoJoysticks()
    {

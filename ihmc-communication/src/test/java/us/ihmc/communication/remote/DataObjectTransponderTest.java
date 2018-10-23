@@ -16,7 +16,6 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.thread.ThreadTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class DataObjectTransponderTest
 {
    private static final int MAXIMUM_INTER_PACKET_DELAY_MILLIS = 300;
@@ -87,7 +86,6 @@ public class DataObjectTransponderTest
    }
 
    @Tag("flaky")
-   @ContinuousIntegrationTest(estimatedDuration = 8.3, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 42000)
    public void testDoubleBidirectionalCommunication() throws InterruptedException
    {

@@ -21,7 +21,6 @@ import us.ihmc.robotics.robotSide.SideDependentList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrainTest
 {
    private YoFootstepPlannerParameters parameters;
@@ -162,7 +161,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 10.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 51000)
    public void testPartialGaps()
    {
@@ -171,7 +169,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 10.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 51000)
    public void testSpiralStaircase()
    {

@@ -25,7 +25,6 @@ import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.Vector2D;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class AngleToolsTest
 {
    @After

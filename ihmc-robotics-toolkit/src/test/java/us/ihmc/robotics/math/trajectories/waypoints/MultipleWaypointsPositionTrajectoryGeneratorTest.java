@@ -22,7 +22,6 @@ import us.ihmc.yoVariables.providers.DoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class MultipleWaypointsPositionTrajectoryGeneratorTest
 {
 

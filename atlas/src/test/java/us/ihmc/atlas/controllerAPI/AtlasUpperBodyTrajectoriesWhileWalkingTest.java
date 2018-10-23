@@ -67,7 +67,6 @@ public class AtlasUpperBodyTrajectoriesWhileWalkingTest
    protected DRCSimulationTestHelper drcSimulationTestHelper;
 
    @Tag("fast")
-   @ContinuousIntegrationTest(categoriesOverride = IntegrationCategory.FAST, estimatedDuration = 157.4)
    @Test(timeout = 790000)
    public void testWalkingWithRandomArmTrajectoryMovements() throws Exception
    {
@@ -93,7 +92,6 @@ public class AtlasUpperBodyTrajectoriesWhileWalkingTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(categoriesOverride = IntegrationCategory.FAST, estimatedDuration = 168.3)
    @Test(timeout = 840000)
    public void testWalkingWithArmsHoldingInFeetFrame() throws Exception
    {

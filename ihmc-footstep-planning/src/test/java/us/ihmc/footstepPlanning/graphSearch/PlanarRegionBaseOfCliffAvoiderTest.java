@@ -36,7 +36,6 @@ import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 @Disabled
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class PlanarRegionBaseOfCliffAvoiderTest
 {
    private final boolean visualize = false;

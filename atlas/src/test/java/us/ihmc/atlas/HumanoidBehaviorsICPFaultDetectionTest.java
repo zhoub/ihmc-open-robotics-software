@@ -12,7 +12,6 @@ import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 
 @Disabled
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class HumanoidBehaviorsICPFaultDetectionTest extends DRCHumanoidBehaviorICPFaultDetectionTest
 {  
    public DRCRobotModel getRobotModel()

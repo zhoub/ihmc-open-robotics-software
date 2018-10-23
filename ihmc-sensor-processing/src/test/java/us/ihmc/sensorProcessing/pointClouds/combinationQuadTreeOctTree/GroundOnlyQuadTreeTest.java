@@ -56,7 +56,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 30000)
    public void testUnhandledPoints()
    {
@@ -858,7 +857,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 150000)
    public void testOnALineOfPoints()
    {
@@ -878,7 +876,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 150000)
    public void testOnSomeSlopes()
    {
@@ -901,7 +898,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 150000)
    public void testOnSomeStairCases()
    {
@@ -928,7 +924,6 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 150000)
    public void testUsingStairGroundProfile()
    {

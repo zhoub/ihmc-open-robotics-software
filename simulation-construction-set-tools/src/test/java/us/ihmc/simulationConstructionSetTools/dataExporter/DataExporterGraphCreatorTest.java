@@ -23,7 +23,6 @@ import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
 
 @Tag("ui")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.UI})
 public class DataExporterGraphCreatorTest
 {
 

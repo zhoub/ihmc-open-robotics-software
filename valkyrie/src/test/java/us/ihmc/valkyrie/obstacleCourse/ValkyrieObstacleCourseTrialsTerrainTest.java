@@ -19,7 +19,6 @@ import us.ihmc.wholeBodyController.FootContactPoints;
 
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTrialsTerrainTest
 {
    private final AdditionalSimulationContactPoints<RobotSide> footContactPoints = new AdditionalSimulationContactPoints<RobotSide>(RobotSide.values, 3, 4, true,
@@ -85,7 +84,6 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
     */
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 56.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 280000)
    public void testTrialsTerrainZigzagHurdlesScriptRandomFootSlip() throws SimulationExceededMaximumTimeException
    {

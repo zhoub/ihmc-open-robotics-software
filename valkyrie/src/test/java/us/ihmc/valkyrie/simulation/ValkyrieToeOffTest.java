@@ -12,7 +12,6 @@ import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class ValkyrieToeOffTest extends AvatarToeOffTest
 {
    @Override

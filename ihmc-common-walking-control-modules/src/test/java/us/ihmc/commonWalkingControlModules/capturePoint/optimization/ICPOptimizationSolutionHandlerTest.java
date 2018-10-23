@@ -33,7 +33,6 @@ import us.ihmc.yoVariables.variable.YoFramePoint2D;
 import us.ihmc.yoVariables.variable.YoFramePose3D;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ICPOptimizationSolutionHandlerTest
 {
    private YoVariableRegistry registry = new YoVariableRegistry("robert");

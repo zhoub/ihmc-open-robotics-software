@@ -24,7 +24,6 @@ import us.ihmc.utilities.ros.subscriber.RosPointCloudSubscriber;
 import us.ihmc.utilities.ros.types.PointType;
 
 @Tag("flaky")
-@ContinuousIntegrationPlan(categories=IntegrationCategory.FLAKY)
 public class RosPointCloudPublisherSubscriberTest extends IHMCRosTestWithRosCore
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.2)

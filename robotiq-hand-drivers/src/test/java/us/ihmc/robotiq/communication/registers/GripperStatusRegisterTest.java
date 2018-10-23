@@ -11,7 +11,6 @@ import us.ihmc.robotiq.communication.registers.GripperStatusRegister.gMOD;
 import us.ihmc.robotiq.communication.registers.GripperStatusRegister.gSTA;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GripperStatusRegisterTest extends RobotiqInputRegisterTest
 {
    @Override

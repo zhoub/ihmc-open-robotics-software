@@ -17,7 +17,6 @@ import us.ihmc.euclid.matrix.Matrix3D;
 import us.ihmc.commons.MathTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class RotationalInertiaCalculatorTest
 {
    private static final double DELTA = 1e-3;

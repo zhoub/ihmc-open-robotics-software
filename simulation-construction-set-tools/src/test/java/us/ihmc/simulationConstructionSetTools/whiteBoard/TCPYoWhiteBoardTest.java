@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @Tag("flaky")
-@ContinuousIntegrationPlan(categories=IntegrationCategory.FLAKY)
 
 public class TCPYoWhiteBoardTest extends YoWhiteBoardTest
 {

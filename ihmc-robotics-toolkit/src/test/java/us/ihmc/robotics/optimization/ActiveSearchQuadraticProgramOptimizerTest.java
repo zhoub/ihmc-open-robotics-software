@@ -86,7 +86,6 @@ public class ActiveSearchQuadraticProgramOptimizerTest
 	 * Not working, but probably not critical right now. Get this to work some day TODO
 	 */
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout = 525)
    public void testFullyConstrained()
    {	   

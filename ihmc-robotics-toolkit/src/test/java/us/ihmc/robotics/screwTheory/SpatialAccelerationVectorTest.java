@@ -151,7 +151,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
 
    // TODO: Figure out this test and get it to pass if it should.
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testAccelerationOfPointFixedInBodyFrameAlternative()
    {

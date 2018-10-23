@@ -18,7 +18,6 @@ import us.ihmc.valkyrie.parameters.ValkyrieWalkingControllerParameters;
 
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 {
    @Override
@@ -97,7 +96,6 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 29.3, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 200000)
    public void testPushTowardsTheBack() throws SimulationExceededMaximumTimeException
    {

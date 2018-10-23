@@ -12,7 +12,6 @@ import us.ihmc.footstepPlanning.simplePlanners.TurnWalkTurnPlanner;
 import us.ihmc.footstepPlanning.tools.PlannerTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class PlanThenSnapPlannerTest extends FootstepPlannerOnRoughTerrainTest
 {
    private PlanThenSnapPlanner planner;
@@ -46,7 +45,6 @@ public class PlanThenSnapPlannerTest extends FootstepPlannerOnRoughTerrainTest
    }
 
    @Tag("in-development")
-   @ContinuousIntegrationTest(estimatedDuration = 0.2, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
    @Test(timeout = 30000)
    public void testSteppingStones()
    {

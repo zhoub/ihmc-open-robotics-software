@@ -18,7 +18,6 @@ import us.ihmc.simulationconstructionset.gui.HumanAssistedTestFrame;
 public class BodePlotConstructorTest
 {
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testSimpleFilter()
    {
@@ -49,7 +48,6 @@ public class BodePlotConstructorTest
    }
 
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testSingleFreqPhaseShift()
    {
@@ -80,7 +78,6 @@ public class BodePlotConstructorTest
    }
 
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testSecondOrderResponse()
    {

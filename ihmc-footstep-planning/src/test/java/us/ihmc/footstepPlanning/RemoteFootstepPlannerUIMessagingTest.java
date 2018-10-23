@@ -148,7 +148,6 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @Tag("flaky")
-   @ContinuousIntegrationTest(estimatedDuration = 2.2, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testSendingFootstepPlanningRequestPacketFromUIFastRTPS()
    {
@@ -167,7 +166,6 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @Tag("flaky")
-   @ContinuousIntegrationTest(estimatedDuration = 2.4, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testSendingFootstepPlannerRequestPacketToUIFastRTPS()
    {
@@ -186,7 +184,6 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @Tag("flaky")
-   @ContinuousIntegrationTest(estimatedDuration = 2.3, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testSendingFootstepPlannerParametersPacketFastRTPS()
    {
@@ -205,7 +202,6 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @Tag("flaky")
-   @ContinuousIntegrationTest(estimatedDuration = 4.0, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testSendingFootstepPlannerOutputStatusToUIFastRTPS()
    {

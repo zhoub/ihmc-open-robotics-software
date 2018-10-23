@@ -27,7 +27,6 @@ import us.ihmc.robotics.math.trajectories.FrameTrajectory3D;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SmoothCapturePointToolboxTest
 {
    private static final int nTests = 20;

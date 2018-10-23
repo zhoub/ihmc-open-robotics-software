@@ -22,7 +22,6 @@ public class ExperimentalSOCPSolverUsingJOptimizerTest
 
    // At time of test writing JOptimizer wasn't working for SOCPs...
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testASimpleSecondOrderConeProblem()
    {
@@ -56,7 +55,6 @@ public class ExperimentalSOCPSolverUsingJOptimizerTest
    
    //At time of test writing JOptimizer wasn't working for SOCPs...
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testARotatedSecondOrderConeProblem()
    {

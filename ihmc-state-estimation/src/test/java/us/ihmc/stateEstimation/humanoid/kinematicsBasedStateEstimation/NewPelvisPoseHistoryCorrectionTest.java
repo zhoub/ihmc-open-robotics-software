@@ -40,7 +40,6 @@ import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestin
 import us.ihmc.tools.MemoryTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories={IntegrationCategory.FAST})
 public class NewPelvisPoseHistoryCorrectionTest
 {
    private YoVariableRegistry registry;
@@ -248,7 +247,6 @@ public class NewPelvisPoseHistoryCorrectionTest
    private YoDouble maximumErrorAngleInDegrees;
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.8, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 30000)
    public void testTranslationCorrectionOnlyWithPelvisFollowingAKnownPathAndRandomLocalizationOffsets()
    {
@@ -325,7 +323,6 @@ public class NewPelvisPoseHistoryCorrectionTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 1.0, categoriesOverride = {IntegrationCategory.EXCLUDE}) // This test used to hack the rootBody and 6-DoF joint in a way that is not possible since the feature 'feature/moving-reference-frame'.
    @Test(timeout = 30000)
    public void testTooBigAngleErrorAreDetectedAndPacketIsSent()
    {

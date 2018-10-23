@@ -20,7 +20,6 @@ import us.ihmc.commons.MathTools;
 import us.ihmc.robotics.robotSide.RobotSide;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class FootstepDataTest
 {
    @After

@@ -25,7 +25,6 @@ import us.ihmc.robotics.geometry.HullFace;
 import us.ihmc.robotics.geometry.QuickHull3dWrapper;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class QuickHull3DWrapperTest
 {
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)

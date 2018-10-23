@@ -21,7 +21,6 @@ public class DatagramOutputStreamTest
    
    //works half of the time.
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    public void testDatagramOutputStreamThrowOutStalePackets() throws IOException
    {
       boolean throwOutStalePackets = true;

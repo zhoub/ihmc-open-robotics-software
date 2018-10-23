@@ -24,7 +24,6 @@ import us.ihmc.robotics.math.QuaternionCalculus;
 import us.ihmc.robotics.random.RandomGeometry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class RotationToolsTest
 {
    private Random random = new Random(100L);
@@ -539,7 +538,6 @@ public class RotationToolsTest
     * Test that has for only purpose to highlight a bug in Java3d.
     */
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 10000)
    public void testJava3dAxisAngleSetMatrixBug()
    {
@@ -558,7 +556,6 @@ public class RotationToolsTest
     * Test that has for only purpose to highlight a bug in Java3d
     */
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 10000)
    public void testJava3dQuat4dSetMatrixBug()
    {

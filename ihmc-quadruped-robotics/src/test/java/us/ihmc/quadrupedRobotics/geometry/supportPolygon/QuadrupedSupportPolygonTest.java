@@ -39,7 +39,6 @@ import java.util.Random;
 import static org.junit.Assert.*;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 @VmOptions("-XX:-TieredCompilation")
 public class QuadrupedSupportPolygonTest
 {

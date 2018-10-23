@@ -22,7 +22,6 @@ import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.robotics.random.RandomGeometry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class StringStretcher2dTest
 {
 

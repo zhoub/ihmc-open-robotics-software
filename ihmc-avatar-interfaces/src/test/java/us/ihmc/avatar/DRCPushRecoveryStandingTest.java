@@ -154,7 +154,6 @@ public abstract class DRCPushRecoveryStandingTest implements MultiRobotTestInter
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 53.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 270000)
    public void testDoublePushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {

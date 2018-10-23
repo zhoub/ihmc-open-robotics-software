@@ -30,7 +30,6 @@ public abstract class ConvexOptimizationAdapterTest
    
    @SuppressWarnings("unchecked")
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 300000)
    public void qpsFileTest() throws IOException
    {
@@ -178,7 +177,6 @@ public abstract class ConvexOptimizationAdapterTest
    
    // Need to implement addQuadraticInequalities
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testLinearCostQuadraticInequalityOptimizationProblem()
    {
@@ -247,7 +245,6 @@ public abstract class ConvexOptimizationAdapterTest
    
    //Not implemented yet!
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testLinearCostLinearEqualityQuadraticInequalityOptimizationProblem() throws Exception
    {
@@ -278,7 +275,6 @@ public abstract class ConvexOptimizationAdapterTest
 
    //Not implemented yet!
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testASecondOrderLorenzConeProblemUsingSOCP() throws Exception
    {

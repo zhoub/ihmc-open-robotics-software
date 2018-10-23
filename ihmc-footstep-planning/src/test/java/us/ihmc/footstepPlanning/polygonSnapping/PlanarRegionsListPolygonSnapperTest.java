@@ -27,7 +27,6 @@ import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.simulationConstructionSetTools.util.planarRegions.PlanarRegionsListExamples;
 
 @Tag("fast")
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class PlanarRegionsListPolygonSnapperTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)

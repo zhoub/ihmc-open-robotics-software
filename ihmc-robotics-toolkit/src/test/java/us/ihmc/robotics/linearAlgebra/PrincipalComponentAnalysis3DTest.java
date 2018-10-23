@@ -549,7 +549,6 @@ public class PrincipalComponentAnalysis3DTest
    }
 
 	@Tag("fast")
-	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
 	@Test(timeout = 30000)
 	/**
 	 * Make sure PCA does not crap out if it gets an empty list of data points.
@@ -563,7 +562,6 @@ public class PrincipalComponentAnalysis3DTest
 	}
 
 	@Tag("fast")
-	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
 	@Test(timeout = 30000)
 	/**
 	 * Make sure PCA does not crap out if a single data point is passed to it.
@@ -580,7 +578,6 @@ public class PrincipalComponentAnalysis3DTest
 	}
 
 	@Tag("fast")
-	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
 	@Test(timeout = 30000)
 	/**
 	 * Make sure PCA does not crap out if two data points are passed to it.
@@ -598,7 +595,6 @@ public class PrincipalComponentAnalysis3DTest
 	}
 
 	@Tag("fast")
-	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.FAST)
 	@Test(timeout = 30000)
 	/**
 	 * Edge case:

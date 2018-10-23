@@ -19,12 +19,10 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.MathTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ComplexNumberTest
 {
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void testCommonUsage()
    {
@@ -42,7 +40,6 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void testZero()
    {
@@ -53,7 +50,6 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void testALotOfRandomComplexNumbers()
    {
@@ -74,7 +70,6 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void testEpsilonEquals()
    {
@@ -108,7 +103,6 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void regressionTest()
    {
@@ -149,7 +143,6 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void regessionTestTwo()
    {
@@ -168,7 +161,6 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
 	@Test(timeout = 30000)
    public void regessionTestThree()
    {
@@ -185,7 +177,6 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 30000)
    public void testToString()
    {
@@ -213,7 +204,6 @@ public class ComplexNumberTest
 
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 30000)
    public void testInitialization()
    {
@@ -232,7 +222,6 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 30000)
    public void testMath()
    {
@@ -261,7 +250,6 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.FAST})
    @Test(timeout = 30000)
    public void tesNthRoots()
    {

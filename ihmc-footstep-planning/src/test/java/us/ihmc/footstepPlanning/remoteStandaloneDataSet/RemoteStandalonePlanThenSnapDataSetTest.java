@@ -10,7 +10,6 @@ import us.ihmc.footstepPlanning.FootstepPlannerType;
 import us.ihmc.pubsub.DomainFactory;
 
 @Tag("slow")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.SLOW)
 public class RemoteStandalonePlanThenSnapDataSetTest extends RemoteStandalonePlannerDataSetTest
 {
    @Override
@@ -32,7 +31,6 @@ public class RemoteStandalonePlanThenSnapDataSetTest extends RemoteStandalonePla
    @Override
    @Test(timeout = 500000)
    @Tag("in-development")
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 125.0, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -42,7 +40,6 @@ public class RemoteStandalonePlanThenSnapDataSetTest extends RemoteStandalonePla
 
    @Test(timeout = 500000)
    @Tag("in-development")
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 22.3, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    public void testDatasetsWithoutOcclusionRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;

@@ -16,7 +16,6 @@ import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
 {
    private final AtlasRobotModel robotModel;

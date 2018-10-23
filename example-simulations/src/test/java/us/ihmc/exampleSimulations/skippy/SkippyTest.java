@@ -17,7 +17,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 import us.ihmc.commons.thread.ThreadTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SkippyTest
 {
    private static final SkippyControllerMode controllerMode = SkippyControllerMode.ICP_BASED;
@@ -27,7 +26,6 @@ public class SkippyTest
 
    
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 100000)
    public void testStanding() throws SimulationExceededMaximumTimeException
    {

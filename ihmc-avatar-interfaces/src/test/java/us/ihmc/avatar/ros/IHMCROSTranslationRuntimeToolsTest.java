@@ -38,7 +38,6 @@ import us.ihmc.humanoidRobotics.communication.packets.RandomHumanoidMessages;
  * @author Doug Stephen <a href="mailto:dstephen@ihmc.us">(dstephen@ihmc.us)</a>
  */
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class IHMCROSTranslationRuntimeToolsTest
 {
    @Rule

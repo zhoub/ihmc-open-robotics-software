@@ -15,7 +15,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class ValkyrieObstacleCourseEveryBuildTest extends DRCObstacleCourseEveryBuildTest
 {
    private final DRCRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);

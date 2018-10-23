@@ -76,7 +76,6 @@ public class AtlasFootstepSnapperTest extends FootstepSnapperSimulationTest
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testSimpleFootstepSnapperOnListOfPoints() throws InsufficientDataException, IOException
    {

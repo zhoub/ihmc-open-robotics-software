@@ -30,7 +30,6 @@ public class AtlasWalkToFiducialsBehaviorTest extends AvatarWalkToFiducialsBehav
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 63.6, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 320000)
    public void testWalkToFiducials() throws SimulationExceededMaximumTimeException
    {

@@ -32,7 +32,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 115.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 230000)
    public void testWalkingForwardWithHalfFootContactChangesStopBetweenSteps() throws SimulationExceededMaximumTimeException
    {
@@ -55,7 +54,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @Tag("in-development")
-   @ContinuousIntegrationTest(estimatedDuration = 113.7, categoriesOverride = IntegrationCategory.IN_DEVELOPMENT)
    @Test(timeout = 570000)
    public void testWalkingForwardWithHalfFootContactChangesContinuousSteps() throws SimulationExceededMaximumTimeException
    {
@@ -134,7 +132,6 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 45.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 300000)
    public void testBalanceOnLine() throws SimulationExceededMaximumTimeException
    {

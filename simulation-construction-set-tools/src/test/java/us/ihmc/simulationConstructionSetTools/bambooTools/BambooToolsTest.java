@@ -32,7 +32,6 @@ public class BambooToolsTest
    }
 
 	@Tag("ui")
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = { IntegrationCategory.UI })
 	@Test(timeout=300000)
    public void testLogMessagesToFile() throws IOException
    {

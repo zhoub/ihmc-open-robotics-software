@@ -27,7 +27,6 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.testing.JUnitTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class TransformToolsTest
 {
    @After

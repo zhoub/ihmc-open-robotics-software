@@ -33,7 +33,6 @@ import us.ihmc.tools.MemoryTools;
 import us.ihmc.commons.thread.ThreadTools;
 
 @Tag("ui")
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = {IntegrationCategory.UI})
 public class MocapToPelvisFrameConverterVisualTest
 {
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();

@@ -18,7 +18,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class AlphaFilteredWrappingYoVariableTest
 {
    private static final boolean DEBUG = false;

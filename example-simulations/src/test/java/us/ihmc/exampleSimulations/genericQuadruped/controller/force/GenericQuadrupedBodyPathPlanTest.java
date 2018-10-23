@@ -11,7 +11,6 @@ import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.planning.QuadrupedBodyPathPlanTest;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedBodyPathPlanTest extends QuadrupedBodyPathPlanTest
 {
    @Override

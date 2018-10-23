@@ -25,7 +25,6 @@ import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.tuple2D.Point2D;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ConvexPolygonShrinkerTest
 {
    @After
@@ -173,7 +172,6 @@ public class ConvexPolygonShrinkerTest
 
    // Use manually when making sure no garbage is generated or doing timing tests.
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testMemoryGarbageGeneration()
    {

@@ -13,7 +13,6 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.simulationDispatcher.interfaces.RemoteSimulationRunnerInterface;
 
 @Tag("manual")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.MANUAL)
 public class SimulationDispatcherClientTest
 {
    private static final String pwd = "***REMOVED***";

@@ -28,7 +28,6 @@ import us.ihmc.wholeBodyController.FootContactPoints;
 
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasPointyRocksEnvironmentContactsTest extends HumanoidPointyRocksEnvironmentContactsTest
 {
    @Override
@@ -53,7 +52,6 @@ public class AtlasPointyRocksEnvironmentContactsTest extends HumanoidPointyRocks
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 210.0, categoriesOverride = {IntegrationCategory.EXCLUDE}) // fix the contacts
    @Test(timeout = 690000)
    public void testWalkingOnLinesInEnvironment() throws SimulationExceededMaximumTimeException
    {
@@ -75,7 +73,6 @@ public class AtlasPointyRocksEnvironmentContactsTest extends HumanoidPointyRocks
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = {IntegrationCategory.EXCLUDE}) // fix the contacts
    @Test(timeout = 350000)
    public void testWalkingOnPointInEnvironment() throws SimulationExceededMaximumTimeException
    {

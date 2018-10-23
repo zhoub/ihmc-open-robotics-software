@@ -24,7 +24,6 @@ import us.ihmc.robotics.math.trajectories.TrajectoryMathTools;
 import java.util.Random;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class TorqueTrajectoryTest
 {
    private final static ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

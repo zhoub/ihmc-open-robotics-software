@@ -25,7 +25,6 @@ import us.ihmc.valkyrie.kinematics.ValkyrieJointInterface;
 import us.ihmc.valkyrie.kinematics.YoValkyrieJointWriter;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ComparePushRodTransmissionsTest
 {
    private static final boolean DEBUG = true;
@@ -54,7 +53,6 @@ public class ComparePushRodTransmissionsTest
    }
 
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testTiming()
    {
@@ -77,7 +75,6 @@ public class ComparePushRodTransmissionsTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testCompareInefficientToEfficientWaist()
    {
@@ -100,7 +97,6 @@ public class ComparePushRodTransmissionsTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testCompareInefficientToJSCWaist()
    {
@@ -124,7 +120,6 @@ public class ComparePushRodTransmissionsTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testCompareInefficientToEfficientWaistOverRenishaw()
    {
@@ -149,7 +144,6 @@ public class ComparePushRodTransmissionsTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testCompareEfficientToJSCWaist()
    {

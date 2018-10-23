@@ -27,7 +27,6 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.thread.ThreadTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ProcessSpawnerTest
 {
    private static final Path testFilePath = Paths.get(System.getProperty("java.io.tmpdir"), "ProcessSpawnerTest.tmp");
@@ -43,7 +42,6 @@ public class ProcessSpawnerTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 1.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testForkedShellProcessSpawner() throws Exception
    {
@@ -63,7 +61,6 @@ public class ProcessSpawnerTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 1.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testShelloutProcessSpawnerOnShellScript() throws Exception
    {
@@ -125,7 +122,6 @@ public class ProcessSpawnerTest
    }
 
    @Tag("flaky")
-   @ContinuousIntegrationTest(estimatedDuration = 2.1, categoriesOverride = IntegrationCategory.FLAKY)
    @Test(timeout = 30000)
    public void testExitListeners() throws Exception
    {

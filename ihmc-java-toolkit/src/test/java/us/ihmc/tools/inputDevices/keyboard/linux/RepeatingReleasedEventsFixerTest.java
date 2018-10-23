@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class RepeatingReleasedEventsFixerTest
 {
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)

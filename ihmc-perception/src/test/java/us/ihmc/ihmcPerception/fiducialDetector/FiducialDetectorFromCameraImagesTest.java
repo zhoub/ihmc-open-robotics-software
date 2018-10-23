@@ -43,7 +43,6 @@ import us.ihmc.tools.TimestampProvider;
 import us.ihmc.commons.thread.ThreadTools;
 
 @Disabled
-@ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class FiducialDetectorFromCameraImagesTest
 {
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();

@@ -125,7 +125,6 @@ public abstract class QuadrupedPositionCrawlWalkingWithStopsTest implements Quad
    
    @Tag("video")
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 150.0, categoriesOverride = {IntegrationCategory.EXCLUDE, IntegrationCategory.VIDEO})
    @Test(timeout = 600000)
    public void testWalkingBackwardFastWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

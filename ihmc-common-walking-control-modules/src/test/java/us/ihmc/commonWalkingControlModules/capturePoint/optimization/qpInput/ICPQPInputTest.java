@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ICPQPInputTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)

@@ -14,7 +14,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 {
    @Override

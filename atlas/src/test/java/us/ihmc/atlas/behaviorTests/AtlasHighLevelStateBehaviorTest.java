@@ -16,7 +16,6 @@ import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class AtlasHighLevelStateBehaviorTest extends DRCHighLevelStateBehaviorTest
 {
    private final AtlasRobotModel robotModel;
@@ -56,7 +55,6 @@ public class AtlasHighLevelStateBehaviorTest extends DRCHighLevelStateBehaviorTe
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 20.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 300000)
    public void testDiagnosticsState() throws SimulationExceededMaximumTimeException
    {

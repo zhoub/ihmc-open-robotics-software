@@ -12,7 +12,6 @@ import us.ihmc.robotics.math.filters.SecondOrderFilteredYoVariable;
 import us.ihmc.robotics.testing.JUnitTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SecondOrderFilteredYoVariableTest
 {
    YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());

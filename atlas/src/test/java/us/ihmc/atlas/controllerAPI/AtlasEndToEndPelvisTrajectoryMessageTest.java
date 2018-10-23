@@ -38,7 +38,6 @@ public class AtlasEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisTraj
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 91.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 460000)
    public void testSingleWaypointThenManualChange() throws Exception
    {

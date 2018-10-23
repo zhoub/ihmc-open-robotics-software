@@ -29,7 +29,6 @@ import us.ihmc.humanoidRobotics.communication.packets.RandomHumanoidMessages;
 import us.ihmc.humanoidRobotics.kryo.IHMCCommunicationKryoNetClassList;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class CapturabilityBasedStatusTest
 {
    private static final Path TEST_FILE_PATH = Paths.get("TestSerialize" + CapturabilityBasedStatus.class.getSimpleName() + ".ibag");

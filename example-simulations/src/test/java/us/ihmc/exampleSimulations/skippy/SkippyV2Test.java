@@ -16,7 +16,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 import us.ihmc.commons.thread.ThreadTools;
 
 @Disabled
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class SkippyV2Test
 {
 

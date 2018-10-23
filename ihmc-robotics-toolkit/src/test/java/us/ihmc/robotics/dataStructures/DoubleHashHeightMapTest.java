@@ -27,7 +27,6 @@ import us.ihmc.robotics.geometry.InclusionFunction;
 import us.ihmc.robotics.geometry.InsufficientDataException;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class DoubleHashHeightMapTest extends AbstractHeightMapTest
 {
    private static final int MAX_X = 500;

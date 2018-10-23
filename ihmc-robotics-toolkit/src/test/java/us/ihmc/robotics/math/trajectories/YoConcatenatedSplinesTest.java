@@ -67,7 +67,6 @@ public class YoConcatenatedSplinesTest
    }
    
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testSimpleCubicQuinticCubicTroublesome()
    {

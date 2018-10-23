@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @Tag("ui")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.UI})
 public class GhostMousePlaybackTest
 {
    private final boolean PLAY_IT_BACK = false;    // Keep false in SVN so we don't mess up Bamboo. Set to true when manually testing...
@@ -408,7 +407,6 @@ public class GhostMousePlaybackTest
    }
 
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testLoad() throws AWTException
    {

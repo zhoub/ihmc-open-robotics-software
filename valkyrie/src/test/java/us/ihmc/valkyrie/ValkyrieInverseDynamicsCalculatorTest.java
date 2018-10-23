@@ -14,7 +14,6 @@ import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.UnreasonableAccelerationException;
 
 @Disabled
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class ValkyrieInverseDynamicsCalculatorTest extends DRCInverseDynamicsCalculatorTest
 {
    private final DRCRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);

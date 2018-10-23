@@ -15,7 +15,6 @@ import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class RigidBodyTransformGeneratorTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)

@@ -15,7 +15,6 @@ import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class ValkyrieEndToEndCinderBlockFieldTest extends EndToEndCinderBlockFieldTest
 {
    private final ValkyrieRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);

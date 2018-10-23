@@ -23,7 +23,6 @@ import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.robotics.screwTheory.RigidBody;
 
 @Tag("fast")
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class ReachingManifoldToolsTest
 {
    private Random random = new Random();

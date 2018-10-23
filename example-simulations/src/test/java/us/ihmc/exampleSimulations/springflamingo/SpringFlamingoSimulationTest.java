@@ -24,7 +24,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.SimulationRewinda
 import us.ihmc.simulationconstructionset.util.simulationRunner.VariableDifference;
 
 @Tag("ui")
-@ContinuousIntegrationPlan(categories={IntegrationCategory.UI})
 public class SpringFlamingoSimulationTest
 {
    private SimulationGUITestFixture testFixture;

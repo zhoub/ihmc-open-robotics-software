@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @Tag("fast")
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SimpleActiveSetQPSolverTest
 {
 
@@ -161,7 +160,6 @@ public class SimpleActiveSetQPSolverTest
 
    // Fails when conflicting constraints are active... Need to fix this case.
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testConflictingInequalityAndEqualityConstraintsIfActive()
    {

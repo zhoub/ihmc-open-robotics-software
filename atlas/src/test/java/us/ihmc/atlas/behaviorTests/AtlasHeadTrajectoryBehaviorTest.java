@@ -17,7 +17,6 @@ import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class AtlasHeadTrajectoryBehaviorTest extends DRCHeadTrajectoryBehaviorTest
 {
    private final AtlasRobotModel robotModel;
@@ -49,7 +48,6 @@ public class AtlasHeadTrajectoryBehaviorTest extends DRCHeadTrajectoryBehaviorTe
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 37.6, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 950000)
    public void testHeadRoll() throws SimulationExceededMaximumTimeException
    {
@@ -58,7 +56,6 @@ public class AtlasHeadTrajectoryBehaviorTest extends DRCHeadTrajectoryBehaviorTe
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 37.6, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 950000)
    public void testHeadYaw() throws SimulationExceededMaximumTimeException
    {
@@ -67,7 +64,6 @@ public class AtlasHeadTrajectoryBehaviorTest extends DRCHeadTrajectoryBehaviorTe
 
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 37.6, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 950000)
    public void testRandomOrientation() throws SimulationExceededMaximumTimeException
    {

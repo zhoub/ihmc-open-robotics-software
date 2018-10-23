@@ -34,7 +34,6 @@ import us.ihmc.robotics.math.trajectories.FrameTrajectory3D;
 import us.ihmc.robotics.math.trajectories.Trajectory;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SmoothCoMIntegrationToolboxTest
 {
    private static final int nTests = 20;

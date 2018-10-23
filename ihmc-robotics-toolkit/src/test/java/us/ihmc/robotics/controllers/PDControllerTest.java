@@ -14,7 +14,6 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class PDControllerTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)

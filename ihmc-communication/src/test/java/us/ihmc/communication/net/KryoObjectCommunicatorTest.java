@@ -26,13 +26,11 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.commons.thread.ThreadTools;
 
 @Tag("flaky")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FLAKY})
 public class KryoObjectCommunicatorTest
 {
 
    // This test causes problems on Linux due to a bug in the way Java does its epoll wrapper
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testAutomaticReconnect() throws IOException, InterruptedException
    {

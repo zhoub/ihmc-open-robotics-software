@@ -92,7 +92,6 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testTwoStepsInARowSameSideAfterFirstSep() throws SimulationExceededMaximumTimeException
    {
@@ -127,7 +126,6 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
 
 
    @Tag("slow")
-   @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testTwoStepsInARowLongTransferSameSide() throws SimulationExceededMaximumTimeException
    {

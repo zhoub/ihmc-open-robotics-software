@@ -18,7 +18,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 // this test is flaky because toe off is not triggered properly - the toe off condition needs to be fixed
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasObstacleCourseSteppingStonesTest extends DRCObstacleCourseSteppingStonesTest
 {
    @Override

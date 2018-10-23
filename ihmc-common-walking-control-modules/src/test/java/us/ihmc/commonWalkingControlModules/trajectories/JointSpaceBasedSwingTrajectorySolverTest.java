@@ -32,7 +32,6 @@ import us.ihmc.simulationConstructionSetTools.util.graphs.JFreePlot;
  * Created by agrabertilton on 2/5/15.
  */
 @Disabled
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class JointSpaceBasedSwingTrajectorySolverTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.1)

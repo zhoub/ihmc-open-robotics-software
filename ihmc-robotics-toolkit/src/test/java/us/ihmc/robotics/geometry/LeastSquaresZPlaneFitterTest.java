@@ -22,7 +22,6 @@ import us.ihmc.euclid.tuple3D.interfaces.Tuple3DBasics;
 import us.ihmc.robotics.random.RandomGeometry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class LeastSquaresZPlaneFitterTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
@@ -191,7 +190,6 @@ public class LeastSquaresZPlaneFitterTest
 
    // Straight up and down fails with LeastSquaresZPlaneFitter since it assumes equation Ax + By + z + C = 0
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testStraightUpAndDownPlane()
    {

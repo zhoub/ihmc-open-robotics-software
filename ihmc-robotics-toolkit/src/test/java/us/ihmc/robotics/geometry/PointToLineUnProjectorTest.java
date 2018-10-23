@@ -17,7 +17,6 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.random.RandomGeometry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class PointToLineUnProjectorTest
 {
    private static final double eps = 1e-7;

@@ -30,7 +30,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoInteger;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ReferenceCMPTrajectoryGeneratorTest
 {
    private final int numberOfFootsteps = 3;

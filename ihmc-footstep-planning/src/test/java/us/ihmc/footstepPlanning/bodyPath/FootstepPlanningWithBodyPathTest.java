@@ -95,7 +95,6 @@ public class FootstepPlanningWithBodyPathTest
 
    @Test(timeout = 30000)
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = {IntegrationCategory.EXCLUDE})
    public void testMaze()
    {
       WaypointDefinedBodyPathPlanner bodyPath = new WaypointDefinedBodyPathPlanner();

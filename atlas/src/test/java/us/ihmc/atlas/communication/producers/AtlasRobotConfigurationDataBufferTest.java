@@ -14,7 +14,6 @@ import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.sensorProcessing.communication.producers.RobotConfigurationDataBufferTest;
 
 @Tag("flaky")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FLAKY)
 public class AtlasRobotConfigurationDataBufferTest extends RobotConfigurationDataBufferTest
 {
 

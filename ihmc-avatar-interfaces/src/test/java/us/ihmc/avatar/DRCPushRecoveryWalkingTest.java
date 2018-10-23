@@ -211,7 +211,6 @@ public abstract class DRCPushRecoveryWalkingTest implements MultiRobotTestInterf
 
    @Tag("fast")
    @Tag("video")
-   @ContinuousIntegrationTest(estimatedDuration = 81.2, categoriesOverride = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
    @Test(timeout = 410000)
    public void testPushLeftInitialTransferState() throws SimulationExceededMaximumTimeException
    {

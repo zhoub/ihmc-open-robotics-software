@@ -149,7 +149,6 @@ public class VisibilityGraphsOcclusionTest
 
    @Test(timeout = TIMEOUT)
    @Tag("in-development")
-   @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
    public void testCrazyBridgeEnvironment()
    {
       Point3D startPose = new Point3D(0.4, 0.5, 0.001);

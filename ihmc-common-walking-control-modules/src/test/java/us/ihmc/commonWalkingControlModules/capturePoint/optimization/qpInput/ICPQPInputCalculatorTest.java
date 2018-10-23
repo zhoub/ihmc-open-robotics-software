@@ -19,7 +19,6 @@ import javax.print.attribute.standard.JobOriginatingUserName;
 import java.util.Random;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ICPQPInputCalculatorTest
 {
    private static final double epsilon = 1e-7;

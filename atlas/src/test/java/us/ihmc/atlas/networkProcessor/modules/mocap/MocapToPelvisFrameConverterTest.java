@@ -29,7 +29,6 @@ import us.ihmc.tools.MemoryTools;
 import us.ihmc.commons.thread.ThreadTools;
 
 @Disabled
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class MocapToPelvisFrameConverterTest
 {
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();

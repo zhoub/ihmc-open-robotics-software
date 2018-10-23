@@ -43,7 +43,6 @@ import us.ihmc.wholeBodyController.FootContactPoints;
 
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasFinalsWorldStairsTest
 {
    protected SimulationTestingParameters simulationTestingParameters;
@@ -123,7 +122,6 @@ public class AtlasFinalsWorldStairsTest
    }
 
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 180000)
    public void testFastWalkingUpStairs() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {

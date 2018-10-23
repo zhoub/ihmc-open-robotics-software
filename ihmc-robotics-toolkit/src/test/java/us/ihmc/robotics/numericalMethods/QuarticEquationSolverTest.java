@@ -73,7 +73,6 @@ public class QuarticEquationSolverTest
    }
    
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testQuarticEquationSolver()
    {

@@ -20,7 +20,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 // This test is slow but very important, let's keep it in the FAST build please. (Sylvain)
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
 {
    private DRCRobotModel robotModel;
@@ -40,7 +39,6 @@ public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 348.7, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 1700000)
    public void testAtlasFlatGroundWalkingWithShapeCollision() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {

@@ -17,7 +17,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 @Disabled
-@ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class ValkyriePushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 {
    @Override

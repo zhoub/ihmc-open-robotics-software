@@ -10,7 +10,6 @@ import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedForceBasedStandControllerTest;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GenericQuadrupedForceBasedStandControllerTest extends QuadrupedForceBasedStandControllerTest
 {
    public double getTranslationShift()

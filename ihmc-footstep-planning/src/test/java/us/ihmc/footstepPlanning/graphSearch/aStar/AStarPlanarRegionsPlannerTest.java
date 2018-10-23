@@ -53,7 +53,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFramePoseUsingYawPitchRoll;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class AStarPlanarRegionsPlannerTest
 {
 //   private static final boolean visualize = !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();

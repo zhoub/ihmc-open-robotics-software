@@ -13,7 +13,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 public class CallFrequencyCalculatorTest
 {
    @Tag("fast")
-   @ContinuousIntegrationTest(estimatedDuration = 5.0, categoriesOverride = IntegrationCategory.FAST)
    @Test(timeout = 30000)
    public void testDetermineCallFrequency()
    {

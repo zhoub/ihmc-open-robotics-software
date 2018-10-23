@@ -87,7 +87,6 @@ public class AtlasSDFVerificationTest
     * @throws ControllerFailureException
     */
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 10.4, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout = 41302)
    public void testSimpleLegSwing() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException, IOException, ControllerFailureException
    {

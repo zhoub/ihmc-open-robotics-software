@@ -26,7 +26,6 @@ import us.ihmc.simulationconstructionset.physics.collision.simple.SimpleCollisio
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 @Disabled
-@ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class ValkyrieFootstepPlannerEndToEndTest extends AvatarBipedalFootstepPlannerEndToEndTest
 {
    private DRCRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);

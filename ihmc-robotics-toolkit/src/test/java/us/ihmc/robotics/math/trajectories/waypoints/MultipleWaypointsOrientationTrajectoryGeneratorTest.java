@@ -19,7 +19,6 @@ import us.ihmc.robotics.math.trajectories.SimpleOrientationTrajectoryGenerator;
 
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class MultipleWaypointsOrientationTrajectoryGeneratorTest
 {
    private final double EPSILON = 1e-3;

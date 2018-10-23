@@ -16,7 +16,6 @@ import us.ihmc.valkyrie.parameters.ValkyrieICPOptimizationParameters;
 import us.ihmc.valkyrie.parameters.ValkyrieWalkingControllerParameters;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ValkyrieICPOptimizationPushRecoveryBTest extends AvatarICPOptimizationPushRecoveryBTest
 {
    @Override

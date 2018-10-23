@@ -116,7 +116,6 @@ public class KinematicCalibrationHeadLoopResidualTest
     * @throws IOException
     */
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void perfect() throws IOException
    {
@@ -167,7 +166,6 @@ public class KinematicCalibrationHeadLoopResidualTest
     * @throws IOException
     */
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void smallError() throws IOException
    {
@@ -222,7 +220,6 @@ public class KinematicCalibrationHeadLoopResidualTest
     * @throws IOException
     */
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void optimize() throws IOException
    {

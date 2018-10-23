@@ -53,7 +53,6 @@ import us.ihmc.robotics.trajectories.TrajectoryType;
 import us.ihmc.tools.MemoryTools;
 
 @Tag("flaky")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FLAKY)
 public class DesiredFootstepTest
 {
    private static final RobotSide robotSide = RobotSide.LEFT;

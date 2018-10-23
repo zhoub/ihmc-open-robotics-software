@@ -19,7 +19,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 
 @Tag("fast")
 @Tag("video")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 {
    @Override
@@ -35,7 +34,6 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	}
 
 	@Disabled
-	@ContinuousIntegrationTest(estimatedDuration = 53.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 270000)
 	@Override
 	public void testDoublePushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException

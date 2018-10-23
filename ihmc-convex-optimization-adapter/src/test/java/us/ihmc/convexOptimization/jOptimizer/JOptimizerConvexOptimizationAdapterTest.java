@@ -10,7 +10,6 @@ import us.ihmc.convexOptimization.ConvexOptimizationAdapterTest;
 
 //TODO: Get this working some day!!
 @Disabled
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class JOptimizerConvexOptimizationAdapterTest extends ConvexOptimizationAdapterTest
 {
    public ConvexOptimizationAdapter createConvexOptimizationAdapter()

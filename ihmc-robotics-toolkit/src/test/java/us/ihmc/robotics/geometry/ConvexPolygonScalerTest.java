@@ -13,7 +13,6 @@ import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ConvexPolygonScalerTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
@@ -584,7 +583,6 @@ public class ConvexPolygonScalerTest
    }
 
    @Tag("in-development")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
    @Test(timeout = 30000)
    public void testTroublingCollapseExteriorRectangleToLine()
    {

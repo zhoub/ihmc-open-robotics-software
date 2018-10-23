@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ReferenceICPTrajectoryGeneratorTest
 {
    private static double EPSILON = 1e-6;

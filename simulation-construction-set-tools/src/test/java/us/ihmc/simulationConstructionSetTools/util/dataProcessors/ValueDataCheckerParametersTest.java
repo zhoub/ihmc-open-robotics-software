@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ValueDataCheckerParametersTest
 {
    private double EPSILON = 1e-10;

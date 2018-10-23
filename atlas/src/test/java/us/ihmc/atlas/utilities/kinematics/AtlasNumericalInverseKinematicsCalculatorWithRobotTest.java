@@ -35,7 +35,6 @@ public class AtlasNumericalInverseKinematicsCalculatorWithRobotTest extends Nume
    }
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 120000)
    public void testTroublesomeCaseOne()
    {

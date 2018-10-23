@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 @Tag("ui")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.UI})
 public class GUIMessagePanelTest
 {
 	@ContinuousIntegrationTest(estimatedDuration = 0.4)

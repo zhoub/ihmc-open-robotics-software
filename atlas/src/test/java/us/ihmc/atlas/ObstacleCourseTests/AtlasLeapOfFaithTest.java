@@ -72,7 +72,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 68.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 340000)
    public void testUnknownStepDownOneFootOnEachStepWithUncertainty() throws SimulationExceededMaximumTimeException
    {

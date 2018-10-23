@@ -72,7 +72,6 @@ public class SimpleOcclusionTests
 
    @Test(timeout = 300000)
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 2.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    public void testSimpleOcclusions()
    {
       FramePose3D startPose = new FramePose3D();

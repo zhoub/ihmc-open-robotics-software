@@ -40,7 +40,6 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class ReferenceCoPTrajectoryGeneratorTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

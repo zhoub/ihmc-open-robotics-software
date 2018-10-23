@@ -24,7 +24,6 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.tools.UnitConversions;
 
 @Disabled
-@ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE) // Doesn't work right on all machines
 public class LineModDetectorTest
 {
 

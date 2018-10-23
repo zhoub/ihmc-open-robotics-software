@@ -37,7 +37,6 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
    }
 
    @Tag("slow")
-   @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    @Override
    public void testTwoStepsInARowSameSideAfterFirstSep() throws SimulationExceededMaximumTimeException
@@ -46,7 +45,6 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
    }
 
    @Tag("slow")
-   @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    @Override
    public void testTwoStepsInARowLongTransferSameSide() throws SimulationExceededMaximumTimeException
@@ -55,7 +53,6 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
    }
 
    @Tag("slow")
-   @ContinuousIntegrationTest(estimatedDuration = 76.4, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 380000)
    @Override
    public void testTwoStepsStandingInBetween() throws SimulationExceededMaximumTimeException

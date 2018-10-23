@@ -33,7 +33,6 @@ import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.tools.MemoryTools;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class GroundPlaneEstimatorTest
 {
    @Before
@@ -119,7 +118,6 @@ public class GroundPlaneEstimatorTest
    }
    
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.4, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testGetPitchWithFeetOnPlane()
    {

@@ -17,7 +17,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 
 @Tag("video")
 @Tag("flaky")
-@ContinuousIntegrationPlan(categories = {IntegrationCategory.FLAKY, IntegrationCategory.VIDEO})
 public class AtlasChestTrajectoryBehaviorTest extends DRCChestTrajectoryBehaviorTest
 {
    private final AtlasRobotModel robotModel;

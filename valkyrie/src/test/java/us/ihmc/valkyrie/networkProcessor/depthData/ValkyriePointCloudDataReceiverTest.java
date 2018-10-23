@@ -15,7 +15,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 @Disabled
-@ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class ValkyriePointCloudDataReceiverTest extends HumanoidPointCloudDataReceiverTest
 {
    private final DRCRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);

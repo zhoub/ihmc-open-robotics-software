@@ -10,7 +10,6 @@ import us.ihmc.robotiq.communication.registers.ObjectDetectionRegister.gDTC;
 import us.ihmc.robotiq.communication.registers.ObjectDetectionRegister.gDTS;
 
 @Tag("fast")
-@ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class ObjectDetectionRegisterTest extends RobotiqInputRegisterTest
 {
 

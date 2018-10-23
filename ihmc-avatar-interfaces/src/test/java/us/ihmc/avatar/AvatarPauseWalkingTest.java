@@ -87,7 +87,6 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testPauseWalking() throws SimulationExceededMaximumTimeException
    {
@@ -107,7 +106,6 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @ContinuousIntegrationTest(estimatedDuration = 50, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testTwoIndependentSteps() throws SimulationExceededMaximumTimeException
    {
@@ -136,7 +134,6 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @ContinuousIntegrationTest(estimatedDuration = 50, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testStartSecondStepWhileTransitioningToStand() throws SimulationExceededMaximumTimeException
    {
@@ -240,7 +237,6 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @ContinuousIntegrationTest(estimatedDuration = 100.0, categoriesOverride = IntegrationCategory.SLOW)
    @Test(timeout = 100000)
    public void testPauseWalkingForwardInitialTransfer() throws SimulationExceededMaximumTimeException
    {
