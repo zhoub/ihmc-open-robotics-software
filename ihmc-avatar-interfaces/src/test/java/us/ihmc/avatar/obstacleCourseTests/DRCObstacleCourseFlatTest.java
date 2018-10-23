@@ -87,6 +87,7 @@ public abstract class DRCObstacleCourseFlatTest implements MultiRobotTestInterfa
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
+   @Tag("manual")
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.MANUAL)
    @Test(timeout = 160000)
    public void testForMemoryLeaks() throws Exception

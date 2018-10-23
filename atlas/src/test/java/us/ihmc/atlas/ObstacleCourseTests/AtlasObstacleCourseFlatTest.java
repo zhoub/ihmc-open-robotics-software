@@ -65,6 +65,7 @@ public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    // Invoked manually to test memory & thread leaks
+   @Tag("manual")
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.MANUAL)
    @Test(timeout = 160000)
    public void testForMemoryLeaks() throws Exception
