@@ -11,7 +11,7 @@ ihmc {
    configurePublications()
 }
 
-def fast = categories.create("fast")
+def fast = categories.get("fast")
 fast.jvmProperties.putAll(fast.getScsDefaultJVMProps())
 fast.minHeapSizeGB = 6
 fast.maxHeapSizeGB = 8

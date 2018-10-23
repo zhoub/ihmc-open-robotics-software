@@ -11,6 +11,11 @@ ihmc {
    configurePublications()
 }
 
+def fast = categories.get("fast")
+fast.jvmProperties.putAll(fast.getScsDefaultJVMProps())
+fast.minHeapSizeGB = 6
+fast.maxHeapSizeGB = 8
+
 mainDependencies {
    compile group: "com.martiansoftware", name: "jsap", version: "2.1"
    compile group: "org.apache.commons", name: "commons-lang3", version: "3.8.1"

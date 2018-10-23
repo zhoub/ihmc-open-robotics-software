@@ -11,6 +11,11 @@ ihmc {
    configurePublications()
 }
 
+def fast = categories.get("fast")
+fast.jvmProperties.putAll(fast.getScsDefaultJVMProps())
+fast.minHeapSizeGB = 6
+fast.maxHeapSizeGB = 8
+
 mainDependencies {
    compile group: "us.ihmc", name: "euclid", version: "0.9.3"
    compile group: "us.ihmc", name: "ihmc-yovariables", version: "0.3.5"
