@@ -1,6 +1,6 @@
 plugins {
    id("us.ihmc.ihmc-build") version "0.15.1"
-   id("us.ihmc.ihmc-ci") version "1.2.0"
+   id("us.ihmc.ihmc-ci") version "1.2.1"
    id("us.ihmc.log-tools") version "0.2.2"
    id("org.hidetake.ssh") version "2.9.0"
    id "application"
@@ -12,6 +12,11 @@ ihmc {
    configureDependencyResolution()
    configurePublications()
 }
+
+def fast = categories.get("fast")
+fast.jvmProperties.putAll(fast.getScsDefaultJVMProps())
+fast.minHeapSizeGB = 6
+fast.maxHeapSizeGB = 8
 
 mainDependencies {
    compile group: "com.martiansoftware", name: "jsap", version: "2.1"

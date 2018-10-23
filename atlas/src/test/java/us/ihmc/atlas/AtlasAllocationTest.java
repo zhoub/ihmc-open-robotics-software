@@ -62,6 +62,7 @@ import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestin
 import us.ihmc.tools.MemoryTools;
 import us.ihmc.wholeBodyController.DRCControllerThread;
 
+@Tag("allocation")
 public class AtlasAllocationTest
 {
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
