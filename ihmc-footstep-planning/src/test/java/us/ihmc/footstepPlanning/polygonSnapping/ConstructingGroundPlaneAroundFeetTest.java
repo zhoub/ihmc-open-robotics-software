@@ -25,6 +25,7 @@ import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 
 import static junit.framework.TestCase.assertTrue;
 
+@Tag("fast")
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class ConstructingGroundPlaneAroundFeetTest
 {

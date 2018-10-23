@@ -29,6 +29,7 @@ import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 
+@Tag("fast")
 @ContinuousIntegrationAnnotations.ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class SimplePlanarRegionFootstepNodeSnapperTest
 {

@@ -33,6 +33,7 @@ import us.ihmc.simulationConstructionSetTools.tools.RobotTools.SCSRobotFromInver
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class VirtualModelControllerTest
 {

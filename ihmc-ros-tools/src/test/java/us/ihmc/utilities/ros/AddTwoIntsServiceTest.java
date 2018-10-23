@@ -21,6 +21,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.utilities.ros.service.AddTwoIntsClient;
 import us.ihmc.utilities.ros.service.AddTwoIntsServer;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class AddTwoIntsServiceTest extends IHMCRosTestWithRosCore
 {

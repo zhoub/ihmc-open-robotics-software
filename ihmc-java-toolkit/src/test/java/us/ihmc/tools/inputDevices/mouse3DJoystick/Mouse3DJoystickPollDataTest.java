@@ -9,6 +9,7 @@ import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.Continuous
 import us.ihmc.graphicsDescription.input.mouse.Mouse3DPollData;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class Mouse3DJoystickPollDataTest
 {

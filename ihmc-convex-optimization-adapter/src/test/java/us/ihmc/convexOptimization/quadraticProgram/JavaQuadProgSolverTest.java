@@ -17,6 +17,7 @@ import us.ihmc.tools.exceptions.NoConvergenceException;
 
 import static org.junit.Assert.assertEquals;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
 {

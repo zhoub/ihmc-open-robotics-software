@@ -37,6 +37,7 @@ import java.util.Random;
 
 import static junit.framework.TestCase.assertTrue;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class VirtualModelMomentumControllerTest
 {

@@ -17,6 +17,7 @@ import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 import java.io.IOException;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST, IntegrationCategory.VIDEO})
 public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 {

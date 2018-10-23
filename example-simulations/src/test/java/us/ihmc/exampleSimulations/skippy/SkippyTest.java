@@ -14,6 +14,7 @@ import us.ihmc.exampleSimulations.skippy.SkippySimulation.SkippyControllerMode;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class SkippyTest
 {

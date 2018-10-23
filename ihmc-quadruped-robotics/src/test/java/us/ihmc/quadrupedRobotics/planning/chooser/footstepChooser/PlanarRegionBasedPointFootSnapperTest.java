@@ -12,6 +12,7 @@ import us.ihmc.robotics.geometry.PlanarRegionsListGenerator;
 
 import static org.junit.Assert.assertTrue;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = IntegrationCategory.FAST)
 public class PlanarRegionBasedPointFootSnapperTest
 {

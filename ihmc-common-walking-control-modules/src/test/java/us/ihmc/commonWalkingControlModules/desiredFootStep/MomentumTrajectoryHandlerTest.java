@@ -22,6 +22,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 import java.util.Random;
 
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class MomentumTrajectoryHandlerTest
 {

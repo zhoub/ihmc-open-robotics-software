@@ -13,6 +13,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 /**
  * Created by agrabertilton on 3/4/15.
  */
+@Tag("fast")
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.FAST})
 public class DoubleSupportICPEquationsTest
 {
