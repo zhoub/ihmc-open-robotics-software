@@ -5,16 +5,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import gnu.trove.list.array.TDoubleArrayList;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Tag("fast")
 public class GradientDescentTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testGradientDescent()
    {

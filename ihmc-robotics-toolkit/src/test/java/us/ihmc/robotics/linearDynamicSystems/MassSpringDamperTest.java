@@ -7,7 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Jama.Matrix;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.dataStructures.ComplexNumber;
@@ -57,7 +56,6 @@ public class MassSpringDamperTest
       eigenvalueDecomposerA = null;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testVDotWEqualsOne()
    {
@@ -71,7 +69,6 @@ public class MassSpringDamperTest
       assertEquals(0.0, dotProduct.imag(), 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testVDotWCongEqualsZero()
    {
@@ -85,7 +82,6 @@ public class MassSpringDamperTest
       assertEquals(0.0, dotProduct.imag(), 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testDecomposerGotEigenvaluesRight()
    {

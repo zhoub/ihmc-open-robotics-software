@@ -2,10 +2,8 @@ package us.ihmc.avatar.networkProcessor.footstepPlanningToolboxModule;
 
 import org.junit.Test;
 import us.ihmc.commons.PrintTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
 import us.ihmc.pubsub.DomainFactory;
 
@@ -20,7 +18,6 @@ public class PlanarRegionBipedalPlannerToolboxTest extends FootstepPlannerToolbo
 
    @Override
    @Test(timeout = 500000)
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 106.1)
    public void testDatasetsWithoutOcclusion()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;

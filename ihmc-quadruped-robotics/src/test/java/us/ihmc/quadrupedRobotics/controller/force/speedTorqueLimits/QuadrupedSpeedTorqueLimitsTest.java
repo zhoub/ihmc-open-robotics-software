@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import junit.framework.AssertionFailedError;
 import us.ihmc.commons.PrintTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
@@ -66,7 +65,6 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 30000)
    public void testStandingLowerLimit(double nominalCoMHeight)
    {
@@ -76,7 +74,6 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       conductor.concludeTesting();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 90.0)
    @Test(timeout = 300000)
    public void testStandingOnThreeLegsLowerLimit(double nominalCoMHeight)
    {
@@ -96,7 +93,6 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       conductor.concludeTesting();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 35.0)
    @Test(timeout = 30000)
    public void testXGaitWalkingInPlaceLowerLimit(double nominalCoMHeight)
    {
@@ -111,7 +107,6 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       conductor.concludeTesting();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 35.0)
    @Test(timeout = 30000)
    public void testXGaitTrottingInPlaceLowerLimit(double nominalCoMHeight)
    {
@@ -127,7 +122,6 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       conductor.concludeTesting();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 35.0)
    @Test(timeout = 30000)
    public void testXGaitWalkingLowerLimit(double nominalCoMHeight)
    {

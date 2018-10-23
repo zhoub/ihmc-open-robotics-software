@@ -17,10 +17,8 @@ import us.ihmc.commonWalkingControlModules.controlModules.foot.FootControlModule
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelStates.walkingController.states.WalkingStateEnum;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.PlanarRegionMessageConverter;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.BoundingBox3D;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -116,7 +114,6 @@ public abstract class AvatarPushRecoveryOverGapTest implements MultiRobotTestInt
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 33.4)
    @Test(timeout = 170000)
    public void testNoPush() throws SimulationExceededMaximumTimeException
    {
@@ -131,7 +128,6 @@ public abstract class AvatarPushRecoveryOverGapTest implements MultiRobotTestInt
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 34.9)
    @Test(timeout = 170000)
    public void testForwardPush() throws SimulationExceededMaximumTimeException
    {
@@ -155,7 +151,6 @@ public abstract class AvatarPushRecoveryOverGapTest implements MultiRobotTestInt
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 70000)
    public void testSidePush() throws SimulationExceededMaximumTimeException
    {

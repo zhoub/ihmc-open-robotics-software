@@ -21,7 +21,6 @@ import org.junit.Test;
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.factories.ControllerAPIDefinition;
 import us.ihmc.communication.controllerAPI.CommandInputManager;
 import us.ihmc.communication.controllerAPI.command.Command;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.interfaces.Settable;
@@ -33,7 +32,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 public class CommandConsumerWithDelayBuffersTest
 {
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConstructor()
    {
@@ -51,7 +49,6 @@ public class CommandConsumerWithDelayBuffersTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public <C extends Command<C, ?>, M extends Settable<M>> void testIsNewCommandAvailableWithNoDelays() throws SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -103,7 +100,6 @@ public class CommandConsumerWithDelayBuffersTest
    }
 
    @SuppressWarnings("unchecked")
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public <C extends Command<C, ?>, M extends Settable<M>> void testIsNewCommandAvailableWithDelays() throws SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -174,7 +170,6 @@ public class CommandConsumerWithDelayBuffersTest
    }
 
    @SuppressWarnings({"unchecked", "rawtypes"})
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public <C extends Command<C, ?>, M extends Settable<M>> void testSendMultipleCommandWithDelays() throws SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -250,7 +245,6 @@ public class CommandConsumerWithDelayBuffersTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public <C extends Command<C, ?>, M extends Settable<M>> void testQueueingManually()
    {
@@ -306,7 +300,6 @@ public class CommandConsumerWithDelayBuffersTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public <C extends Command<C, ?>, M extends Settable<M>> void testClearAllQueues()
    {
@@ -352,7 +345,6 @@ public class CommandConsumerWithDelayBuffersTest
       assertEquals(0,commandConsumer.pollNewCommands(TestCommand.class).size());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public <C extends Command<C, ?>, M extends Settable<M>> void testClearSingleQueue()
    {
@@ -416,7 +408,6 @@ public class CommandConsumerWithDelayBuffersTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public <C extends Command<C, ?>, M extends Settable<M>> void testFlushCommands()
    {
@@ -457,7 +448,6 @@ public class CommandConsumerWithDelayBuffersTest
       assertEquals(0,commandConsumer.pollNewCommands(TestCommand.class).size());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public <C extends Command<C, ?>, M extends Settable<M>> void testAddingTooManyCommands()
    {

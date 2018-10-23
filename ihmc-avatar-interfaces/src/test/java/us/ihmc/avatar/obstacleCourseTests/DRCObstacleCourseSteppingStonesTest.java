@@ -11,7 +11,6 @@ import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.avatar.testTools.ScriptedFootstepGenerator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.BoundingBox3D;
@@ -56,7 +55,6 @@ public abstract class DRCObstacleCourseSteppingStonesTest implements MultiRobotT
    }
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 52.4)
 	@Test(timeout = 260000)
    public void testWalkingOverEasySteppingStones() throws SimulationExceededMaximumTimeException
    {

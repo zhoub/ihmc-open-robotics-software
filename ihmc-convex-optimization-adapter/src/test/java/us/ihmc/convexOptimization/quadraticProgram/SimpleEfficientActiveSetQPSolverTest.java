@@ -3,11 +3,8 @@ package us.ihmc.convexOptimization.quadraticProgram;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.Test;
 import us.ihmc.commons.PrintTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 
 import static junit.framework.TestCase.assertFalse;
@@ -25,7 +22,6 @@ public class SimpleEfficientActiveSetQPSolverTest extends AbstractSimpleActiveSe
       return simpleEfficientActiveSetQPSolver;
 
    }
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testChallengingCasesWithPolygonConstraintsCheckFailsWithSimpleSolverWithWarmStart()
    {
@@ -64,7 +60,6 @@ public class SimpleEfficientActiveSetQPSolverTest extends AbstractSimpleActiveSe
    /**
     *  Test with dataset from sim that revealed a bug with the variable lower/upper bounds handling.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFindValidSolutionForDataset20160319WithWarmStart()
    {
@@ -83,7 +78,6 @@ public class SimpleEfficientActiveSetQPSolverTest extends AbstractSimpleActiveSe
       assertEquals(numberOfIterations, 1);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFindValidSolutionForKiwiDataset20170712WithWarmStart()
    {
@@ -107,7 +101,6 @@ public class SimpleEfficientActiveSetQPSolverTest extends AbstractSimpleActiveSe
     * It seems that the problem is related to the fact that the robot has 6 contact points per foot.
     * The solver still fails when increasing the max number of iterations.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFindValidSolutionForKiwiDataset20171013WithWarmStart()
    {
@@ -126,7 +119,6 @@ public class SimpleEfficientActiveSetQPSolverTest extends AbstractSimpleActiveSe
       assertEquals(1, numberOfIterations);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFindValidSolutionForKiwiDatasetProblemWithWarmStart()
    {

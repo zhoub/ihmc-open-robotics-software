@@ -8,7 +8,6 @@ import org.junit.After;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -35,7 +34,6 @@ public class QuaternionCalculusTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testLogAndExpAlgebra() throws Exception
    {
@@ -63,7 +61,6 @@ public class QuaternionCalculusTest
    }
    
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConversionQDotToAngularVelocityBackAndForth() throws Exception
    {
@@ -87,7 +84,6 @@ public class QuaternionCalculusTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConversionQDDotToAngularAccelerationBackAndForth() throws Exception
    {
@@ -128,7 +124,6 @@ public class QuaternionCalculusTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testVelocityFromFDAgainstTrajectory() throws Exception
    {
@@ -174,7 +169,6 @@ public class QuaternionCalculusTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFDSimpleCase() throws Exception
    {
@@ -223,7 +217,6 @@ public class QuaternionCalculusTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testAccelerationFromFDAgainstTrajectory() throws Exception
    {
@@ -271,7 +264,6 @@ public class QuaternionCalculusTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test(timeout = 30000)
    public void testInterpolateAgainstQuat4d() throws Exception
    {

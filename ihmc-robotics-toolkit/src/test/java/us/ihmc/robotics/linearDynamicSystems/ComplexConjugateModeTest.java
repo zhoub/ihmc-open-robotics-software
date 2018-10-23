@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.dataStructures.ComplexNumber;
@@ -23,7 +22,6 @@ public class ComplexConjugateModeTest
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSecondOrderMassSpringDamper()
    {
@@ -64,7 +62,6 @@ public class ComplexConjugateModeTest
       assertTrue(expectedTransferFunction10.epsilonEquals(transferFunction10, 1e-7));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCircleGenerator()
    {

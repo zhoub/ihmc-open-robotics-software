@@ -12,7 +12,6 @@ import java.util.Set;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.matrix.RotationMatrix;
@@ -35,7 +34,6 @@ public class MovingZUpFrameTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 1000)
    public void testYawShortcut() throws Exception
    {
@@ -89,7 +87,6 @@ public class MovingZUpFrameTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 1000)
    public void testYawRateShortcut()
    {
@@ -162,7 +159,6 @@ public class MovingZUpFrameTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testAgainstFiniteDifferenceWithChainRobot()
    {
@@ -213,7 +209,6 @@ public class MovingZUpFrameTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConsistencyWithZUpFrameWithChainRobot()
    {

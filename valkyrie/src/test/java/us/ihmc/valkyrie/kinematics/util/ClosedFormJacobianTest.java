@@ -7,11 +7,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.valkyrie.kinematics.transmissions.InefficientPushrodTransmissionJacobian;
 import us.ihmc.valkyrie.kinematics.transmissions.PushRodTransmissionJoint;
 
@@ -36,7 +33,6 @@ public class ClosedFormJacobianTest
    private double[] m21_matlab_waist = new double[] { -0.045200359335076, -0.042531256340934, -0.047683204352025, -0.040960816370066, -0.039979762559698, -0.051849035209403, -0.043582905494040 };
    private double[] m22_matlab_waist = new double[] { 0.045200359335076, 0.040960816370066, 0.049961508736648, 0.042531256340934, 0.039979762559698, 0.051849035209403, 0.044875400766635 };
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testJacobianMatchesMATLABAnkle()
    {
@@ -72,7 +68,6 @@ public class ClosedFormJacobianTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testEfficientMatchesInefficientJacobianAnkle()
    {
@@ -139,7 +134,6 @@ public class ClosedFormJacobianTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void cosineTestAnkles()
    {
@@ -176,7 +170,6 @@ public class ClosedFormJacobianTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void consineTestWaist()
    {

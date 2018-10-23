@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.controllerAPI.EndToEndWholeBodyTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -30,7 +29,6 @@ public class AtlasEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 16.8)
    @Test(timeout = 84000)
    public void testIssue47BadChestTrajectoryMessage() throws Exception
    {
@@ -38,7 +36,6 @@ public class AtlasEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 15.8)
    @Test(timeout = 79000)
    public void testIssue47BadPelvisTrajectoryMessage() throws Exception
    {
@@ -46,7 +43,6 @@ public class AtlasEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 36.1)
    @Test(timeout = 180000)
    public void testSingleWaypoint() throws Exception
    {
@@ -54,7 +50,6 @@ public class AtlasEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 36.4)
    @Test(timeout = 180000)
    public void testSingleWaypointUsingMessageOfMessages() throws Exception
    {
@@ -62,7 +57,6 @@ public class AtlasEndToEndWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 63.1)
    @Test(timeout = 320000)
    public void testSingleWaypointUsingMessageOfMessagesWithDelays() throws Exception
    {

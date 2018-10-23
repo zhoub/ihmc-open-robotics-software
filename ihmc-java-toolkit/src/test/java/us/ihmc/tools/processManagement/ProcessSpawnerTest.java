@@ -16,14 +16,11 @@ import org.apache.commons.lang3.SystemUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.exception.DefaultExceptionHandler;
 import us.ihmc.commons.nio.FileTools;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.thread.ThreadTools;
 
 @Tag("fast")
@@ -87,7 +84,6 @@ public class ProcessSpawnerTest
       validateFileContents(randomString);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test(timeout = 30000)
    public void testJavaProcessSpawnerWithClasspathAsArgument() throws Exception
    {
@@ -104,7 +100,6 @@ public class ProcessSpawnerTest
       validateFileContents(randomString);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test(timeout = 30000)
    public void testJavaProcessSpawnerWithClasspathAsEnvironmentVariable() throws Exception
    {

@@ -5,7 +5,6 @@ import org.junit.Test;
 import us.ihmc.avatar.controllerAPI.EndToEndArmTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -28,7 +27,6 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 17.0)
    @Test(timeout = 85000)
    public void testMessageWithTooManyTrajectoryPoints() throws Exception
    {
@@ -36,7 +34,6 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 43.6)
    @Test(timeout = 220000)
    public void testMultipleTrajectoryPoints() throws Exception
    {
@@ -44,7 +41,6 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 81.2)
    @Test(timeout = 410000)
    public void testQueuedMessages() throws Exception
    {
@@ -52,7 +48,6 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 20.4)
    @Test(timeout = 100000)
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
@@ -60,7 +55,6 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 16.8)
    @Test(timeout = 84000)
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -68,7 +62,6 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 31.6)
    @Test(timeout = 160000)
    public void testSingleTrajectoryPoint() throws Exception
    {
@@ -76,7 +69,6 @@ public class ValkyrieEndToEndArmTrajectoryMessageTest extends EndToEndArmTraject
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 41.3)
    @Test(timeout = 210000)
    public void testStopAllTrajectory() throws Exception
    {

@@ -6,11 +6,8 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 import us.ihmc.commons.PrintTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.MathTools;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.robotics.testing.JUnitTools;
@@ -32,7 +29,6 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
       return solver;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test(timeout = 30000)
    public void testTimingAgainstStandardQuadProg() throws NoConvergenceException
    {
@@ -95,7 +91,6 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
       PrintTools.info("Java solve time : " + javaSolverTimer.getAverageTime());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 30000)
    public void testTimingAgainstSimpleSolver()
    {
@@ -159,7 +154,6 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
       PrintTools.info("Simple solve time : " + simpleTimer.getAverageTime());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testAgainstStandardQuadProg() throws NoConvergenceException
    {
@@ -231,7 +225,6 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSolveProblemWithParallelConstraints() throws NoConvergenceException
    {
@@ -276,7 +269,6 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
    }
 
    @Override /** have to override because quad prog uses fewer iterations */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSolutionMethodsAreAllConsistent() throws NoConvergenceException
    {
@@ -284,7 +276,6 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
    }
 
    @Override /** have to override because quad prog uses fewer iterations */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCasesWithInequalityConstraints()
    {
@@ -292,7 +283,6 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
    }
 
    @Override /** have to override because quad prog uses fewer iterations */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCasesWithBoundsConstraints()
    {
@@ -300,21 +290,18 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
    }
 
    @Override /** have to override because quad prog uses different iterations */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testClear()
    {
       testClear(6, 1, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testMaxIterations()
    {
       testMaxIterations(6, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void test2DCasesWithPolygonConstraints()
    {
@@ -323,7 +310,6 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
 
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testChallengingCasesWithPolygonConstraints()
    {
@@ -332,7 +318,6 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
 
 
    @Override /** This IS a good solver **/
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testChallengingCasesWithPolygonConstraintsCheckFailsWithSimpleSolver()
    {

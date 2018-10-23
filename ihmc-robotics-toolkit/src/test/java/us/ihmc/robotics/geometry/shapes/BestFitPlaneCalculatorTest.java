@@ -7,11 +7,8 @@ import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.Plane3D;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -37,7 +34,6 @@ public class BestFitPlaneCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void basicBestFitPlaneCalculatorTest() throws InsufficientDataException
    {
@@ -68,7 +64,6 @@ public class BestFitPlaneCalculatorTest
 
    }  
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void basicBestFitPlaneCalculatorNaNTest() throws InsufficientDataException
    {

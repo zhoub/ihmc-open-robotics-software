@@ -12,8 +12,6 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class ConstantSideFourBarCalculatorWithDerivativesTest
@@ -21,7 +19,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
    private static final double eps = 1e-7;
    private static final boolean PRINT = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSquare()
    {
@@ -33,7 +30,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(PI / 2, fourBar.getAngleCDA(), eps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConstruction()
    {
@@ -50,7 +46,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(DA, fourBar.getDA(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSquareDer()
    {
@@ -66,7 +61,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(-1, fourBar.getAngleDtCDA(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testParallelogram()
    {
@@ -82,7 +76,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(-1, fourBar.getAngleDtCDA(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test(timeout = 30000)
    public void testRandomQuadrilatteral()
    {
@@ -125,7 +118,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(D, fourBar.getAngleCDA(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test(timeout = 30000)
    public void testRandomConvenientLinkageDerivatives()
    {
@@ -165,7 +157,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test(timeout = 30000)
    public void testVelocitiesWithRandomQuadrilateral()
    {
@@ -277,7 +268,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.1)
 	@Test(timeout = 30000)
    public void testAccelerationsWithRandomQuadrilateral()
    {
@@ -366,7 +356,6 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       }
    }
 	
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testMasterAngleComputations()
    {

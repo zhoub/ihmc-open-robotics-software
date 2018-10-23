@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -13,7 +12,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 public class DelayedYoDoubleTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testDelayedYoVariableMultipleTickDelays()
    {
@@ -55,7 +53,6 @@ public class DelayedYoDoubleTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testDelayedYoVariableOneTickDelay()
    {
@@ -90,7 +87,6 @@ public class DelayedYoDoubleTest
       assertEquals(delayedYoVariable.getDoubleValue(), 3.0, 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testDelayedYoVariableZeroTickDelay()
    {

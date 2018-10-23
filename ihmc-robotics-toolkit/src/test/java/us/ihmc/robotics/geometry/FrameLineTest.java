@@ -8,11 +8,8 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FrameLine3D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
@@ -33,7 +30,6 @@ public class FrameLineTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testChangeFrameCopy()
    {
@@ -93,7 +89,6 @@ public class FrameLineTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetFrameVector()
    {
@@ -123,7 +118,6 @@ public class FrameLineTest
       assertTrue(frameVector.epsilonEquals(vector, 1e-12));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetFramePoint()
    {
@@ -153,7 +147,6 @@ public class FrameLineTest
       assertTrue(frameNormalizedVectorCopy.epsilonEquals(vector, 1e-12));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000, expected = RuntimeException.class)
    public void testConstructorC()
    {

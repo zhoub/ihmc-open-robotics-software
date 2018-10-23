@@ -19,10 +19,8 @@ import us.ihmc.commonWalkingControlModules.controlModules.foot.FootControlModule
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelStates.walkingController.states.WalkingStateEnum;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.PlanarRegionMessageConverter;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.BoundingBox3D;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -177,7 +175,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
 
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 72.3)
    @Test(timeout = 360000)
    public void testNoPushFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -192,7 +189,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 64.7)
    @Test(timeout = 320000)
    public void testNoPushForwardWalkOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -207,7 +203,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 94.5)
    @Test(timeout = 470000)
    public void testNoPushTiltedBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -222,7 +217,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 68.6)
    @Test(timeout = 340000)
    public void testNoPushForwardTiltedBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -237,7 +231,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 180000)
    public void testPushOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -337,7 +330,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 180000)
    public void testForwardPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -367,7 +359,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 180000)
    public void testLeftSidewaysPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -397,7 +388,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 180000)
    public void testRightSidewaysPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -427,7 +417,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 180000)
    public void testPushOverTiltedBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -527,7 +516,6 @@ public abstract class AvatarPushRecoveryOverCinderBlocksTest implements MultiRob
    }
 
    /*
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 180000)
    public void testSidePush() throws SimulationExceededMaximumTimeException
    {

@@ -10,10 +10,8 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.matrix.RotationMatrix;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.Vector2D;
@@ -28,7 +26,6 @@ public class PrincipalComponentAnalysis3DTest
    private static final double EPSILON_HIGH_PRECISION = 5.0e-7;
    private static final double EPSILON_LOW_PRECISION = 2.0e-3;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWith1DData()
    {
@@ -166,7 +163,6 @@ public class PrincipalComponentAnalysis3DTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testWith2DData()
    {
@@ -350,7 +346,6 @@ public class PrincipalComponentAnalysis3DTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWith3DData()
    {

@@ -12,10 +12,8 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.random.RandomGeometry;
@@ -49,7 +47,6 @@ public class QuadTreeForGroundTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCommonCaseWithNoFilteringOrPointAveraging()
    {
@@ -100,7 +97,6 @@ public class QuadTreeForGroundTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPointLimiter()
    {
@@ -175,7 +171,6 @@ public class QuadTreeForGroundTest
       assertFalse(NE.hasChildren());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCasesOne()
    {
@@ -243,7 +238,6 @@ public class QuadTreeForGroundTest
       assertEquals(1, quadTree.getNumberOfQuads());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithFilteringAndPointAveraging()
    {
@@ -328,7 +322,6 @@ public class QuadTreeForGroundTest
       assertEquals(16, quadTree.getNumberOfQuads()); // Still 16 here.
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetClosestPoint()
    {
@@ -375,7 +368,6 @@ public class QuadTreeForGroundTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetAllPointsWithinBounds()
    {
@@ -417,7 +409,6 @@ public class QuadTreeForGroundTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetAllPointsWithinDistance()
    {

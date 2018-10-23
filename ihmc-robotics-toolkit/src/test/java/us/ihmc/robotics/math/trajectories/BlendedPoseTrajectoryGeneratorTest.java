@@ -7,7 +7,6 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -135,7 +134,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       return referenceTrajectory;
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testNoConstraints()
    {
@@ -161,7 +159,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testInitialPoseConstraint()
    {
@@ -200,7 +197,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testInitialPoseAndTwistConstraint()
    {
@@ -238,7 +234,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testFinalPoseConstraint()
    {
@@ -290,7 +285,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testSameFinalPoseConstraint()
    {
@@ -339,7 +333,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testFinalPoseAndTwistConstraint()
    {
@@ -377,7 +370,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testInitialAndFinalConstraint()
    {
@@ -425,7 +417,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 1.3)
    @Test(timeout = 30000)
    public void testDerivativesConsistency() throws Exception
    {
@@ -509,7 +500,6 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testTroublingDataSet1WithBlending()
    {
@@ -573,7 +563,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testTroublingDataSet1WithoutBlending()
    {
@@ -626,7 +615,6 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testTroublingDataSet2WithBlending()
    {

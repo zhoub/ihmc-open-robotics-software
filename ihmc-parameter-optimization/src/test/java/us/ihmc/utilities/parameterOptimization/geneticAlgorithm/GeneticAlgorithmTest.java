@@ -6,7 +6,6 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.utilities.parameterOptimization.IndividualToEvaluate;
@@ -16,7 +15,6 @@ public class GeneticAlgorithmTest
 {
    private static final boolean SHOW_GUI = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test(timeout = 30000)
    public void testOptimizeExampleIndividualOne()
    {

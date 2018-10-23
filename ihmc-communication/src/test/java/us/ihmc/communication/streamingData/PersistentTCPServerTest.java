@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.commons.thread.ThreadTools;
@@ -21,7 +20,6 @@ import us.ihmc.commons.thread.ThreadTools;
 public class PersistentTCPServerTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test(timeout = 30000)
    public void testPersistentTCPServer() throws UnknownHostException, IOException
    {

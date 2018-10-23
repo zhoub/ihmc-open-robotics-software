@@ -8,11 +8,8 @@ import org.junit.internal.AssumptionViolatedException;
 import us.ihmc.avatar.DRCFlatGroundWalkingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
@@ -30,7 +27,6 @@ public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 348.7)
    @Test(timeout = 1700000)
    public void testFlatGroundWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
@@ -46,7 +42,6 @@ public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
       runFlatGroundWalking();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test(timeout = 30000)
    @Disabled // Not working because of multithreading. Should be switched over to use the DRCSimulationTestHelper.
    public void testFlatGroundWalkingRunsSameWayTwice() throws SimulationExceededMaximumTimeException, ControllerFailureException

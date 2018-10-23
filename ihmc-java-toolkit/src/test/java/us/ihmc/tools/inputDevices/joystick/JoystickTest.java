@@ -9,18 +9,15 @@ import org.junit.Test;
 import net.java.games.input.Component.Identifier;
 import net.java.games.input.Event;
 import net.java.games.input.test.ControllerReadTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RunnableThatThrows;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.tools.inputDevices.joystick.exceptions.JoystickNotFoundException;
 import us.ihmc.tools.inputDevices.joystick.virtualJoystick.VirtualJoystick;
 
 public class JoystickTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCreateJoystick()
    {
@@ -52,7 +49,6 @@ public class JoystickTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testCreateVirtualJoystick()
    {
@@ -101,7 +97,6 @@ public class JoystickTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFindNonExistentJoystick()
    {

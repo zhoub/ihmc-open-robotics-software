@@ -14,10 +14,8 @@ import org.junit.Test;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.tools.exceptions.NoConvergenceException;
@@ -28,7 +26,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
 
    public abstract SimpleActiveSetQPSolverInterface createSolverToTest();
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCasesWithNoInequalityConstraints()
    {
@@ -139,7 +136,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertEquals(2.0, objectiveCost, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCasesWithInequalityConstraints()
    {
@@ -315,7 +311,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertEquals(2.0, objectiveCost, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCasesWithBoundsConstraints()
    {
@@ -563,7 +558,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testClear()
    {
@@ -844,7 +838,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertEquals(248.0, objectiveCost, 1e-7);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSolutionMethodsAreAllConsistent() throws NoConvergenceException
    {
@@ -962,7 +955,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertEquals(10.0, objectiveCost, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void test2DCasesWithPolygonConstraints()
    {
@@ -1023,7 +1015,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
    @Disabled // This should pass with a good solver. But a simple one has trouble on it.  
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testChallengingCasesWithPolygonConstraints()
    {
@@ -1089,7 +1080,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    }
 
    // This should pass with a good solver. But a simple one has trouble on it.  
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testChallengingCasesWithPolygonConstraintsCheckFailsWithSimpleSolver()
    {
@@ -1123,7 +1113,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
 
    @Disabled /** we can set this to be valid, via {@link JavaQuadProgSolver.setRequireInequalityConstraintsSatisfied(boolean)} to true. But this does not, by default
     require that */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCaseWithNoSolution()
    {
@@ -1157,7 +1146,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertTrue(Double.isInfinite(lagrangeInequalityMultipliers[0]));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testLargeRandomProblemWithInequalityConstraints()
    {
@@ -1288,7 +1276,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test(timeout = 30000)
    public void testLargeRandomProblemWithInequalityAndBoundsConstraints()
    {
@@ -1512,7 +1499,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
    /**
     *  Test with dataset from sim that revealed a bug with the variable lower/upper bounds handling.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFindValidSolutionForDataset20160319()
    {
@@ -1532,7 +1518,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
     * It seems that the problem is related to the fact that the robot has 6 contact points per foot.
     * The solver still fails when increasing the max number of iterations.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFindValidSolutionForKiwiDataset20170712()
    {
@@ -1552,7 +1537,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
     * It seems that the problem is related to the fact that the robot has 6 contact points per foot.
     * The solver still fails when increasing the max number of iterations.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFindValidSolutionForKiwiDataset20171013()
    {
@@ -1567,7 +1551,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertFalse(MatrixTools.containsNaN(solution));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testMaxIterations()
    {
@@ -1639,7 +1622,6 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertEquals(248.0, objectiveCost, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSomeExceptions()
    {

@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.obstacleCourseTests.DRCHighSwingTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -31,7 +30,6 @@ public class AtlasHighSwingTest extends DRCHighSwingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 144.5)
    @Test(timeout = 720000)
    public void testWalkingWithHighSteps() throws SimulationExceededMaximumTimeException
    {

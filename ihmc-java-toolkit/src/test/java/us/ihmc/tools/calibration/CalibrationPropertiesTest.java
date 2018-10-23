@@ -9,9 +9,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class CalibrationPropertiesTest
@@ -35,7 +32,6 @@ public class CalibrationPropertiesTest
       currentPropertiesFile.delete();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSetIntegerProperty()
    {
@@ -54,7 +50,6 @@ public class CalibrationPropertiesTest
       assertEquals(0, calibrationProperties.getIntegerProperty("notAKey"));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetDoubleProperty()
    {
@@ -74,7 +69,6 @@ public class CalibrationPropertiesTest
       assertEquals(0.0, calibrationProperties.getDoubleProperty("notAKey"), EPSILON);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSaveAndLoad()
    {
@@ -87,7 +81,6 @@ public class CalibrationPropertiesTest
       assertEquals(value, calibrationProperties2.getIntegerProperty(key));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testArithmetic1()
    {
@@ -99,7 +92,6 @@ public class CalibrationPropertiesTest
       assertEquals(value1 + value2, calibrationProperties.getIntegerProperty(key));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testArithmetic2()
    {

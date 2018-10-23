@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -19,7 +18,6 @@ public class ElasticityCompensatorYoVariableTest
 {
    private static final double EPSILON = 1e-10;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testZeroJointTau1()
    {
@@ -54,7 +52,6 @@ public class ElasticityCompensatorYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testZeroJointTau2()
    {
@@ -89,7 +86,6 @@ public class ElasticityCompensatorYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testZeroJointTau3()
    {
@@ -114,7 +110,6 @@ public class ElasticityCompensatorYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testZeroJointTau4()
    {
@@ -139,7 +134,6 @@ public class ElasticityCompensatorYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testZeroStiffness4()
    {
@@ -172,7 +166,6 @@ public class ElasticityCompensatorYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testZeroMaximumDeflection4()
    {
@@ -198,7 +191,6 @@ public class ElasticityCompensatorYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testDefaultMaximumDeflection4()
    {
@@ -226,7 +218,6 @@ public class ElasticityCompensatorYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testInfiniteMaximumDeflection4()
    {
@@ -253,7 +244,6 @@ public class ElasticityCompensatorYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRandomMaximumDeflection4()
    {

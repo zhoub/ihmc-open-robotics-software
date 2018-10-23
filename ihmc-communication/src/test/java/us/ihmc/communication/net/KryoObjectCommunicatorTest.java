@@ -17,11 +17,8 @@ import org.junit.Test;
 import com.esotericsoftware.minlog.Log;
 
 import us.ihmc.communication.packets.Packet;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.commons.thread.ThreadTools;
 
@@ -103,7 +100,6 @@ public class KryoObjectCommunicatorTest
       server.disconnect();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000) 
    public void testStateListener() throws IOException, InterruptedException
    {
@@ -158,7 +154,6 @@ public class KryoObjectCommunicatorTest
    }
 
 	@SuppressWarnings("unused")
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test(timeout=300000)
    public void testConnectionLimiter() throws IOException, InterruptedException
    {
@@ -233,7 +228,6 @@ public class KryoObjectCommunicatorTest
       
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test(timeout=300000)
    public void testSendAndReceive() throws IOException, InterruptedException
    {

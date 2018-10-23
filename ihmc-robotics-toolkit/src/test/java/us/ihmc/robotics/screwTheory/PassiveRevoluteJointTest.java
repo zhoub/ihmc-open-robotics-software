@@ -6,14 +6,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Tag("fast")
 public class PassiveRevoluteJointTest
 {
@@ -38,7 +34,6 @@ public class PassiveRevoluteJointTest
    {
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPackTauMatrix()
    {
@@ -53,7 +48,6 @@ public class PassiveRevoluteJointTest
       Assert.fail(); // if it doesn't catch anything it will reach this line, which will make the test fail
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetTorqueFromWrench()
    {
@@ -68,7 +62,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetDesiredAcceleration()
    {
@@ -83,7 +76,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetQ()
    {
@@ -98,7 +90,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetQd()
    {
@@ -113,7 +104,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetQdd()
    {
@@ -128,7 +118,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetQddDesired()
    {
@@ -143,7 +132,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetTau()
    {
@@ -158,7 +146,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetConfiguration()
    {
@@ -173,7 +160,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetVelocity()
    {
@@ -188,7 +174,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetJointPositionVelocityAndAcceleration()
    {
@@ -203,7 +188,6 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
     
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetQddDesiredFromJoint()
    {

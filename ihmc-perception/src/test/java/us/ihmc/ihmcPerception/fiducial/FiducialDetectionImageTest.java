@@ -23,7 +23,6 @@ import boofcv.struct.calib.IntrinsicParameters;
 import boofcv.struct.image.GrayF32;
 import boofcv.struct.image.ImageType;
 import georegression.struct.se.Se3_F64;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.commons.PrintTools;
@@ -33,7 +32,6 @@ import us.ihmc.commons.thread.ThreadTools;
 
 public class FiducialDetectionImageTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test(timeout = 30000)
    public void testFiducialDetected() throws IOException
    {

@@ -16,7 +16,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -70,7 +69,6 @@ public class WrenchTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testChangeExpressedInWhatReferenceFrame()
    {
@@ -100,7 +98,6 @@ public class WrenchTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testDefaultConstructor()
    {
@@ -111,7 +108,6 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(), wrench.getLinearPart(), 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstructUsingMatrix()
    {
@@ -130,7 +126,6 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(force, wrench.getLinearPartCopy(), 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testConstructUsingMatrixTooSmall()
    {
@@ -139,7 +134,6 @@ public class WrenchTest
       new Wrench(frameA, frameB, matrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testConstructUsingMatrixTooBig()
    {
@@ -148,7 +142,6 @@ public class WrenchTest
       new Wrench(frameA, frameB, matrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstructUsingDoubleArray()
    {
@@ -173,21 +166,18 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(linearArray), wrench.getLinearPartCopy(), epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testConstructUsingDoubleArrayTooSmall()
    {
       new Wrench(frameA, frameB, new double[Wrench.SIZE + 1]);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testConstructUsingDoubleArrayTooBig()
    {
       new Wrench(frameA, frameB, new double[Wrench.SIZE - 1]);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testAddNotAllowed()
    {
@@ -205,7 +195,6 @@ public class WrenchTest
       wrench1.add(wrench2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testAddNotAllowed2()
    {
@@ -223,7 +212,6 @@ public class WrenchTest
       wrench1.add(wrench2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAdd()
    {
@@ -243,7 +231,6 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(wrench3.getAngularPartCopy(), angularPart, 1e-24);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testSubNotAllowed()
    {
@@ -261,7 +248,6 @@ public class WrenchTest
       wrench1.sub(wrench2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testSubNotAllowed2()
    {
@@ -279,7 +265,6 @@ public class WrenchTest
       wrench1.sub(wrench2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSub()
    {
@@ -299,7 +284,6 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(wrench3.getAngularPartCopy(), angularPart, 1e-24);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testCheckAndSetNotAllowed1()
    {
@@ -317,7 +301,6 @@ public class WrenchTest
       wrench2.checkAndSet(wrench1);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testCheckAndSetNotAllowed2()
    {
@@ -335,21 +318,18 @@ public class WrenchTest
       wrench2.checkAndSet(wrench1);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testDotProduct()
    {
       testDotProduct(frameA, frameB, frameC);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testDotProductNotAllowed1()
    {
       testDotProductNotAllowed1(frameA, frameB, frameC);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testDotProductNotAllowed2()
    {
@@ -404,7 +384,6 @@ public class WrenchTest
       wrench.dot(twist);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSetToZero()
    {

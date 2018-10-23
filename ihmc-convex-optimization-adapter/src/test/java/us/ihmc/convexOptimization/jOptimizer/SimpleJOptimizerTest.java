@@ -16,12 +16,8 @@ import com.joptimizer.optimizers.JOptimizer;
 import com.joptimizer.optimizers.OptimizationRequest;
 import com.joptimizer.optimizers.OptimizationResponse;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Disabled
 public class SimpleJOptimizerTest
 {
@@ -102,7 +98,6 @@ public class SimpleJOptimizerTest
       assertEquals(2.0, solution[0], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 3000)
    public void testReallySimpleOptimizationProblem() throws Exception
    {
@@ -122,7 +117,6 @@ public class SimpleJOptimizerTest
       assertEquals(5.0, solution[0], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 3000)
    public void testLinearCostQuadraticInequalityOptimizationProblem() throws Exception
    {
@@ -171,7 +165,6 @@ public class SimpleJOptimizerTest
       assertEquals(1.0, solution[1], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 3000)
    public void testZeroCostLinearEqualityOptimizationProblem() throws Exception
    {
@@ -189,7 +182,6 @@ public class SimpleJOptimizerTest
       assertEquals(4.0, solution[0] + solution[1], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 3000)
    public void testLinearCostLinearEqualityQuadraticInequalityOptimizationProblem() throws Exception
    {

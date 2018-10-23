@@ -15,7 +15,6 @@ import org.junit.After;
 import org.junit.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -38,7 +37,6 @@ public class WeightMatrix6DTest
 
    private static final int ITERATIONS = 500;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGettersSetters()
    {
@@ -172,7 +170,6 @@ public class WeightMatrix6DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.2)
    @Test(timeout = 30000)
    public void testGetFullSelectionMatrixInFrame() throws Exception
    {
@@ -268,7 +265,6 @@ public class WeightMatrix6DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.3)
    @Test(timeout = 30000)
    public void testGetEfficientSelectionMatrixInFrame() throws Exception
    {

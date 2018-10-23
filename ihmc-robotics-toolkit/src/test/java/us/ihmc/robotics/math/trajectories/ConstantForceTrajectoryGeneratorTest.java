@@ -7,7 +7,6 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -25,7 +24,6 @@ public class ConstantForceTrajectoryGeneratorTest
 
    private ConstantForceTrajectoryGenerator generator;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testConstructor()
    {
@@ -53,7 +51,6 @@ public class ConstantForceTrajectoryGeneratorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testIsDone()
    {
@@ -67,7 +64,6 @@ public class ConstantForceTrajectoryGeneratorTest
       assertTrue(generator.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testIncreasing()
    {

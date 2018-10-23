@@ -11,7 +11,6 @@ import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryTools;
@@ -25,7 +24,6 @@ public class IncrementalCovariance3DTest
 {
    private static final double EPSILON = 1.0e-12;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testEasyCase()
    {
@@ -51,7 +49,6 @@ public class IncrementalCovariance3DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testNonZeroMean()
    {

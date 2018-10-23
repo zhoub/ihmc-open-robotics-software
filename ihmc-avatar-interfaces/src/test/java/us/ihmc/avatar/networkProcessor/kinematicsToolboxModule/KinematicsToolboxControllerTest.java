@@ -23,7 +23,6 @@ import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.controllerAPI.CommandInputManager;
 import us.ihmc.communication.controllerAPI.StatusMessageOutputManager;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -167,7 +166,6 @@ public class KinematicsToolboxControllerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test(timeout = 30000)
    public void testHoldBodyPose() throws Exception
    {
@@ -189,7 +187,6 @@ public class KinematicsToolboxControllerTest
                  toolboxController.getSolution().getSolutionQuality() < 1.0e-4);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.5)
    @Test(timeout = 30000)
    public void testRandomHandPositions() throws Exception
    {
@@ -227,7 +224,6 @@ public class KinematicsToolboxControllerTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.3)
    @Test(timeout = 30000)
    public void testRandomHandPoses() throws Exception
    {

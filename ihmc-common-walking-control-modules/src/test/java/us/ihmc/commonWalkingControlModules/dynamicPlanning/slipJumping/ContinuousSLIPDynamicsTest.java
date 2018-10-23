@@ -4,7 +4,6 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.Test;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -18,7 +17,6 @@ import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SL
 
 public class ContinuousSLIPDynamicsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testDynamics()
    {
@@ -91,7 +89,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(functionExpected, function, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testDynamicsStateGradient()
    {
@@ -192,7 +189,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testDynamicsStateGradientNumericalDifferentiationStance()
    {
@@ -270,7 +266,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testDynamicsStateGradientNumericalDifferentiationFlight()
    {
@@ -348,7 +343,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testDynamicsControlGradient()
    {
@@ -442,7 +436,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testDynamicsControlGradientNumericalDifferentiationStance()
    {
@@ -549,7 +542,6 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testDynamicsControlGradientNumericalDifferentiationFlight()
    {

@@ -5,7 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotDataLogger.rtps.CustomLogDataPublisherType;
@@ -18,7 +17,6 @@ import us.ihmc.tools.compression.CompressionImplementationFactory;
 
 public class LogParticipantToolsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 8.2)
    @Test(timeout = 41000)
    public void testSegmentation()
    {

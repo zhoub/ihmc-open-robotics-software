@@ -7,11 +7,8 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.AvatarSwingWithWaypointsTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -20,7 +17,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 public class AtlasSwingWithWaypointsTest extends AvatarSwingWithWaypointsTest
 {
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 137.9)
    @Test(timeout = 690000)
    public void testRegularSwingWithWaypoints() throws SimulationExceededMaximumTimeException
    {
@@ -28,7 +24,6 @@ public class AtlasSwingWithWaypointsTest extends AvatarSwingWithWaypointsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.9)
    @Test(timeout = 170000)
    public void testSwingWithWaypointsRotated() throws SimulationExceededMaximumTimeException
    {

@@ -6,7 +6,6 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -22,7 +21,6 @@ public class MovingReferenceFrameTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testAgainstTwistCalculatorWithPrismaticChainRobot() throws Exception
    {
@@ -56,7 +54,6 @@ public class MovingReferenceFrameTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testAgainstTwistCalculatorWithChainRobot() throws Exception
    {
@@ -90,7 +87,6 @@ public class MovingReferenceFrameTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testAgainstTwistCalculatorWithTreeRobot() throws Exception
    {

@@ -25,7 +25,6 @@ import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.HumanoidHigh
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -325,7 +324,6 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 7.8)
    @Test(timeout = 30000)
    public void testPelvisCorrectionControllerOutOfTheLoop() throws SimulationExceededMaximumTimeException
    {
@@ -369,7 +367,6 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 12.1)
    @Test(timeout = 30000)
    public void testPelvisCorrectionDuringSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
@@ -401,7 +398,6 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 	 *
 	 * @throws SimulationExceededMaximumTimeException
 	 */
-   @ContinuousIntegrationTest(estimatedDuration = 7.7)
    @Test(timeout = 30000)
    public void testBigYawInDoubleSupport() throws SimulationExceededMaximumTimeException
    {
@@ -431,7 +427,6 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 	 *
 	 * @throws SimulationExceededMaximumTimeException
 	 */
-   @ContinuousIntegrationTest(estimatedDuration = 9.4)
    @Test(timeout = 30000)
    public void testBigYawInSingleSupport() throws SimulationExceededMaximumTimeException
    {
@@ -463,7 +458,6 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 	 *
 	 * @throws SimulationExceededMaximumTimeException
 	 */
-   @ContinuousIntegrationTest(estimatedDuration = 8.1)
    @Test(timeout = 30000)
    public void testLocalizationOffsetOutsideOfFootInSingleSupport() throws SimulationExceededMaximumTimeException
    {
@@ -523,7 +517,6 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
     * @throws SimulationExceededMaximumTimeException
     * @throws ControllerFailureException
     */
-   @ContinuousIntegrationTest(estimatedDuration = 5.0)
    @Test(timeout = 30000)
    public void testWalkingDuringBigPelvisCorrection() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {

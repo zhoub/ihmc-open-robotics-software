@@ -9,8 +9,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.referenceFrames.ReferenceFrameHashTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
@@ -21,7 +19,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 1.6)
    @Test(timeout = 30000, expected = IllegalArgumentException.class)
    public void testAddingTwoFramesWithTheSameNameThrowsException()
    {
@@ -29,7 +26,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.8)
    @Test(timeout = 30000)
    public void testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -37,7 +33,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.9)
    @Test(timeout = 30000)
    public void testAllFramesGottenFromHumanoidReferenceFrameMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
@@ -46,7 +41,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 1.4)
    @Test(timeout = 30000)
    public void testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode()
    {
@@ -54,7 +48,6 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.7)
    @Test(timeout = 30000)
    public void testGetReferenceFrameFromHashCodeReturnsSameNamedFrames()
    {

@@ -9,17 +9,13 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.testing.JUnitTools;
 
 @Tag("fast")
 public class GlitchFilterForDataSetTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testBasic0()
    {
@@ -49,7 +45,6 @@ public class GlitchFilterForDataSetTest
       JUnitTools.assertDoubleArrayEquals(filteredFata, answerFromMatlab, 1e-8);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testBasic1()
    {
@@ -78,7 +73,6 @@ public class GlitchFilterForDataSetTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testBasic2()
    {
@@ -207,7 +201,6 @@ public class GlitchFilterForDataSetTest
       return ret;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testNull()
    {
@@ -217,7 +210,6 @@ public class GlitchFilterForDataSetTest
       assertEquals(null, ret);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWindowSize()
    {
@@ -237,7 +229,6 @@ public class GlitchFilterForDataSetTest
    }
 
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testData()
    {

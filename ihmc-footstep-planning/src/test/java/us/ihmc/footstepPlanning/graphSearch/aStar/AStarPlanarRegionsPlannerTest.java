@@ -11,12 +11,9 @@ import com.google.common.util.concurrent.AtomicDouble;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
@@ -64,7 +61,6 @@ public class AStarPlanarRegionsPlannerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFootstepGraph()
    {
@@ -119,7 +115,6 @@ public class AStarPlanarRegionsPlannerTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFootstepNode()
    {
@@ -148,7 +143,6 @@ public class AStarPlanarRegionsPlannerTest
       assertEquals(-8.0 * gridY, node.getY(), 1.0e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testNodeExpansion()
    {
@@ -188,7 +182,6 @@ public class AStarPlanarRegionsPlannerTest
       ThreadTools.sleepForever();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleExpansion()
    {

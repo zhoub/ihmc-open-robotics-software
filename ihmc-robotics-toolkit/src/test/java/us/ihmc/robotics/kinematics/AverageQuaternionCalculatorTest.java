@@ -7,7 +7,6 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -18,7 +17,6 @@ import us.ihmc.robotics.random.RandomGeometry;
 
 public class AverageQuaternionCalculatorTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testAgainstInterpolation() throws Exception
    {
@@ -49,7 +47,6 @@ public class AverageQuaternionCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithRotationsAroundTheSameAxis() throws Exception
    {

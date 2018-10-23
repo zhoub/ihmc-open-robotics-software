@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Jama.Matrix;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.dataStructures.Polynomial;
@@ -46,7 +45,6 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix = null;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGet()
    {
@@ -72,7 +70,6 @@ public class TransferFunctionMatrixTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPremultiply()
    {
@@ -98,7 +95,6 @@ public class TransferFunctionMatrixTest
       assertTrue(newTransferFunctionMatrix.epsilonEquals(transferFunctionMatrix, 1e-7));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testPreMultiplyException()
    {
@@ -109,7 +105,6 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix.preMultiply(testMatrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testTimes()
    {
@@ -135,7 +130,6 @@ public class TransferFunctionMatrixTest
       assertTrue(newTransferFunctionMatrix.epsilonEquals(transferFunctionMatrix, 1e-7));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testTimesException()
    {
@@ -146,7 +140,6 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix.times(testMatrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPlusDouble()
    {
@@ -188,7 +181,6 @@ public class TransferFunctionMatrixTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testPlusDoubleException()
    {
@@ -199,7 +191,6 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix.plus(testMatrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPlusTransferFunctionDouble()
    {
@@ -248,7 +239,6 @@ public class TransferFunctionMatrixTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testPlusTransferFunctionException()
    {

@@ -1,10 +1,8 @@
 package us.ihmc.pathPlanning.visibilityGraphs.dijkstra;
 
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.Connection;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.ConnectionPoint3D;
@@ -19,7 +17,6 @@ import static junit.framework.TestCase.assertTrue;
 @Tag("fast")
 public class DijkstraVisibilityGraphPlannerTest
 {
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimplePlanarGraph()
    {

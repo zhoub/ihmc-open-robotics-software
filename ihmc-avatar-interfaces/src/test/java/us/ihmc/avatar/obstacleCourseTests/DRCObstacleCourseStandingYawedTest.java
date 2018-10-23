@@ -10,7 +10,6 @@ import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.avatar.testTools.ScriptedFootstepGenerator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.BoundingBox3D;
@@ -54,7 +53,6 @@ import us.ihmc.commons.thread.ThreadTools;
       }
 
 
-      @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 22.2)
       @Test(timeout = 110000)
       public void testStandingYawed() throws SimulationExceededMaximumTimeException
       {

@@ -3,7 +3,6 @@ package us.ihmc.quadrupedRobotics.controller.force;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.*;
@@ -49,7 +48,6 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test(timeout = 2000000)
    public void testWalkingOverTiledGround() throws IOException
    {
@@ -61,7 +59,6 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       runWalkingOverTerrain(environment, walkTime, walkingSpeed, minimumXPositionAfterWalking, getXGaitSettings());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test(timeout = 2000000)
    public void testWalkingOverSingleStepUp() throws IOException
    {
@@ -73,7 +70,6 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       runWalkingOverTerrain(environment, walkTime, walkingSpeed, minimumXPositionAfterWalking, getXGaitSettings());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test(timeout = 2000000)
    public void testWalkingOverConsecutiveRamps() throws IOException
    {
@@ -85,7 +81,6 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       runWalkingOverTerrain(environment, walkTime, walkingSpeed, minimumXPositionAfterWalking, getXGaitSettings());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test(timeout = 2000000)
    public void testWalkingOverCinderBlockField() throws IOException
    {
@@ -97,7 +92,6 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       runWalkingOverTerrain(environment, walkTime, walkingSpeed, minimumXPositionAfterWalking, getXGaitSettings());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test(timeout = 2000000)
    public void testWalkingUpStaircase() throws IOException
    {

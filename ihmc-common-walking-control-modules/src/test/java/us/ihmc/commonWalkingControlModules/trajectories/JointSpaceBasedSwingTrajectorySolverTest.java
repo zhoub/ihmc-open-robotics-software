@@ -14,11 +14,8 @@ import javax.swing.JFrame;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.Line2D;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.plotting.Plotter;
@@ -34,7 +31,6 @@ import us.ihmc.simulationConstructionSetTools.util.graphs.JFreePlot;
 @Disabled
 public class JointSpaceBasedSwingTrajectorySolverTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 300000)
    public void testOneDoFTrajectory()
    {
@@ -104,7 +100,6 @@ public class JointSpaceBasedSwingTrajectorySolverTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 300000)
    public void testPendulumTrajectory()
    {

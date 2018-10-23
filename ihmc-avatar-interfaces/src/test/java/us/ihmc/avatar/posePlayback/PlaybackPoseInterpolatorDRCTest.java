@@ -8,7 +8,6 @@ import org.junit.Test;
 
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
@@ -20,7 +19,6 @@ public abstract class PlaybackPoseInterpolatorDRCTest implements MultiRobotTestI
 {
    private static final boolean SHOW_GUI = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 4.0)
 	@Test(timeout = 30000)
    public void testMoveElbowExample()
    {
@@ -44,7 +42,6 @@ public abstract class PlaybackPoseInterpolatorDRCTest implements MultiRobotTestI
       });
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.2)
 	@Test(timeout = 30000)
    public void testRandomExample()
    {
@@ -84,7 +81,6 @@ public abstract class PlaybackPoseInterpolatorDRCTest implements MultiRobotTestI
 //      playASequence(sdfRobot, sequence);
 //   }
 
-	@ContinuousIntegrationTest(estimatedDuration = 3.8)
 	@Test(timeout = 30000)
    public void testLoadingAndPlayingASequence()
    {
@@ -105,7 +101,6 @@ public abstract class PlaybackPoseInterpolatorDRCTest implements MultiRobotTestI
       });
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 4.6)
 	@Test(timeout = 30000)
    public void testLoadingAndPlayingAnotherSequence()
    {

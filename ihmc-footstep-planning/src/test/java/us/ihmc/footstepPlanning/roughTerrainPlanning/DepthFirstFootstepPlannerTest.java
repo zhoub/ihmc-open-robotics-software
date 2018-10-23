@@ -2,11 +2,8 @@ package us.ihmc.footstepPlanning.roughTerrainPlanning;
 
 import org.junit.Test;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.footstepPlanning.graphSearch.parameters.DefaultFootstepPlanningParameters;
 import us.ihmc.footstepPlanning.FootstepPlanner;
@@ -37,7 +34,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testOnStaircase()
    {
@@ -51,7 +47,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testSimpleStepOnBox()
    {
@@ -61,7 +56,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
       super.testSimpleStepOnBox();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testSimpleStepOnBoxTwo()
    {
@@ -72,7 +66,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testRandomEnvironment()
    {
@@ -83,7 +76,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 10.2)
    @Test(timeout = 51000)
    public void testSimpleGaps()
    {
@@ -94,7 +86,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 10.1)
    @Test(timeout = 50000)
    public void testOverCinderBlockField()
    {
@@ -105,7 +96,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testStepAfterPitchedUp()
    {
@@ -116,7 +106,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testStepAfterPitchedDown()
    {
@@ -127,7 +116,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testCompareStepBeforeGap()
    {
@@ -138,7 +126,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 15.0)
    @Test(timeout = 75000)
    public void testWalkingAroundBox()
    {
@@ -149,7 +136,6 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 30000)
    public void testSteppingStones()
    {

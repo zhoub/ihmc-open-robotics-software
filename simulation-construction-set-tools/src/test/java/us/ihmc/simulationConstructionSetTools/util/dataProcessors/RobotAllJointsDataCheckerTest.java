@@ -3,11 +3,8 @@ package us.ihmc.simulationConstructionSetTools.util.dataProcessors;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 
@@ -26,7 +23,6 @@ public class RobotAllJointsDataCheckerTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 7.2)
    @Test(timeout = 36000)
    public void test()
    {

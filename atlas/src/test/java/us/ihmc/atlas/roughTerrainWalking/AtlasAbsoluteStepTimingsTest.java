@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.AvatarAbsoluteStepTimingsTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -16,7 +15,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 public class AtlasAbsoluteStepTimingsTest extends AvatarAbsoluteStepTimingsTest
 {
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 142.2)
    @Test(timeout = 900000)
    public void testTakingStepsWithAbsoluteTimings() throws SimulationExceededMaximumTimeException
    {
@@ -24,7 +22,6 @@ public class AtlasAbsoluteStepTimingsTest extends AvatarAbsoluteStepTimingsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 22.0)
    @Test(timeout = 110000)
    public void testMinimumTransferTimeIsRespected() throws SimulationExceededMaximumTimeException
    {
@@ -32,7 +29,6 @@ public class AtlasAbsoluteStepTimingsTest extends AvatarAbsoluteStepTimingsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 200000)
    public void testPausingWalkDuringLongTransfers() throws SimulationExceededMaximumTimeException
    {

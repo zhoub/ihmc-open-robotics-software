@@ -5,14 +5,11 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class RobotSideTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRobotSide()
    {
@@ -61,7 +58,6 @@ public class RobotSideTest
       assertEquals(numberToTest, leftRobotSide.negateIfRightSide(numberToTest), 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCheckRobotSideMatch()
    {

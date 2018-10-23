@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -24,7 +23,6 @@ public class YoSignalDerivativeTest
       yoSignalDerivative = new YoSignalDerivative("test", registry);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void checkConstructor()
    {
@@ -32,7 +30,6 @@ public class YoSignalDerivativeTest
       assertEquals("test", name);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void checkSetDifferentiationMode()
    {
@@ -45,7 +42,6 @@ public class YoSignalDerivativeTest
       assertEquals(DifferentiationMode.USING_DT, differentiationMode2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void checkDTMode()
    {
@@ -66,7 +62,6 @@ public class YoSignalDerivativeTest
       assertEquals(0.0, derivative4, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void checkSignalChangeModeWithDefaultTolerance()
    {
@@ -90,7 +85,6 @@ public class YoSignalDerivativeTest
       assertEquals(3.5, derivative5, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void checkSignalChangeModeWithUserTolerance()
    {
@@ -117,7 +111,6 @@ public class YoSignalDerivativeTest
       assertEquals(0.036, derivative6, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void checkResetToZero()
    {

@@ -9,10 +9,8 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.AvatarBipedalFootstepPlannerEndToEndTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.wholeBodyController.AdditionalSimulationContactPoints;
@@ -35,7 +33,6 @@ public class AtlasBipedalFootstepPlannerEndToEndTest extends AvatarBipedalFootst
    }
 
    @Override
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testShortCinderBlockFieldWithPlanarRegionBipedalPlanner()
    {
@@ -43,7 +40,6 @@ public class AtlasBipedalFootstepPlannerEndToEndTest extends AvatarBipedalFootst
    }
 
    @Override
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testShortCinderBlockFieldWithAStar()
    {
@@ -51,7 +47,6 @@ public class AtlasBipedalFootstepPlannerEndToEndTest extends AvatarBipedalFootst
    }
 
    @Override
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testSteppingStonesWithAStar()
    {
@@ -59,7 +54,6 @@ public class AtlasBipedalFootstepPlannerEndToEndTest extends AvatarBipedalFootst
    }
 
    @Override
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testSteppingStonesWithPlanarRegionBipedalPlanner()
    {

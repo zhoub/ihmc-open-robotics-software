@@ -14,7 +14,6 @@ import org.junit.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.BoundingBox3D;
@@ -70,7 +69,6 @@ public abstract class DRCObstacleCourseTrialsWalkingTaskTest implements MultiRob
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 64.7)
    @Test(timeout = 320000)
    public void testStepOnCinderBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -116,7 +114,6 @@ public abstract class DRCObstacleCourseTrialsWalkingTaskTest implements MultiRob
 
    // We don't need step on/off two layer CinderBlocks anymore
    //Note: this test will fail because of bounding box that needs to be "tuned"
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 100.6)
    @Test(timeout = 500000)
    public void testStepOnAndOffCinderBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -205,7 +202,6 @@ public abstract class DRCObstacleCourseTrialsWalkingTaskTest implements MultiRob
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 100.6)
    @Test(timeout = 500000)
    public void testStepOnCinderBlocksSlowlyWithDisturbance() throws SimulationExceededMaximumTimeException
    {

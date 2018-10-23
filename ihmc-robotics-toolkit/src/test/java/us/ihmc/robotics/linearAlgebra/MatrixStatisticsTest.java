@@ -9,10 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Jama.Matrix;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.MathTools;
 
 public class MatrixStatisticsTest
@@ -43,7 +41,6 @@ public class MatrixStatisticsTest
       return random.nextDouble() * MAXDOUBLE * 2.0 - MAXDOUBLE;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIndecesOfMaxElement()
    {
@@ -69,7 +66,6 @@ public class MatrixStatisticsTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetCovarianceMatrix()
    {
@@ -123,7 +119,6 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSubtractAverageColumnFromEachRow()
    {
@@ -159,7 +154,6 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSumAllElements()
    {
@@ -185,7 +179,6 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testDivideEachRowByStdDevOfRow()
    {
@@ -218,7 +211,6 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetVarianceOfEachRow()
    {
@@ -261,7 +253,6 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetAverageColumnVector()
    {
@@ -293,7 +284,6 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateColumnVectorIntDouble()
    {
@@ -314,7 +304,6 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateRowVectorIntDouble()
    {
@@ -335,7 +324,6 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateColumnVectorInt()
    {
@@ -355,7 +343,6 @@ public class MatrixStatisticsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateRowVectorInt()
    {

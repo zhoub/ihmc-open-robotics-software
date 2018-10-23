@@ -12,11 +12,9 @@ import org.junit.rules.TestName;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.LineSegment3D;
@@ -99,7 +97,6 @@ public class VisibilityGraphsOcclusionTest
    }
 
    @Test(timeout = TIMEOUT)
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    public void testFlatGround()
    {
       Point3D startPose = new Point3D();
@@ -109,7 +106,6 @@ public class VisibilityGraphsOcclusionTest
    }
 
    @Test(timeout = TIMEOUT)
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    public void testFlatGroundWithWall()
    {
       Point3D startPose = new Point3D(-4.805, 0.001, 0.0);
@@ -128,7 +124,6 @@ public class VisibilityGraphsOcclusionTest
    }
 
    @Test(timeout = TIMEOUT)
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    public void testSimpleOcclusions()
    {
       Point3D startPose = new Point3D();
@@ -138,7 +133,6 @@ public class VisibilityGraphsOcclusionTest
    }
 
    @Test(timeout = TIMEOUT)
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    public void testMazeWithOcclusions()
    {
       Point3D startPose = new Point3D();

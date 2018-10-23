@@ -10,7 +10,6 @@ import org.junit.After;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -39,7 +38,6 @@ public class YoFrameEuclideanTrajectoryPointTest
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCommonUsageExample()
    {
@@ -90,7 +88,6 @@ public class YoFrameEuclideanTrajectoryPointTest
       assertTrue(expectedYoFrameEuclideanTrajectoryPoint.epsilonEquals(yoFrameEuclideanTrajectoryPoint, 1e-10));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConstructor()
    {
@@ -112,7 +109,6 @@ public class YoFrameEuclideanTrajectoryPointTest
                                          testedYoFrameEuclideanTrajectoryPoint, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetters()
    {
@@ -171,7 +167,6 @@ public class YoFrameEuclideanTrajectoryPointTest
                                          testedYoFrameEuclideanTrajectoryPoint.getLinearVelocity(), testedYoFrameEuclideanTrajectoryPoint, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testChangeFrame() throws Exception
    {
@@ -211,7 +206,6 @@ public class YoFrameEuclideanTrajectoryPointTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetToZero() throws Exception
    {
@@ -257,7 +251,6 @@ public class YoFrameEuclideanTrajectoryPointTest
                                          testedYoFrameEuclideanTrajectoryPoint, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetToNaN() throws Exception
    {
@@ -345,7 +338,6 @@ public class YoFrameEuclideanTrajectoryPointTest
       assertTrue(expectedLinearVelocity.epsilonEquals(actualFrameLinearVelocity, epsilon));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSomeSetsAngGets()
    {
@@ -446,7 +438,6 @@ public class YoFrameEuclideanTrajectoryPointTest
       assertEquals(expectedString, string);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSomeMoreSettersAndGetters()
    {

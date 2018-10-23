@@ -10,11 +10,8 @@ import org.junit.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
@@ -29,7 +26,6 @@ import us.ihmc.simulationConstructionSetTools.util.planarRegions.PlanarRegionsLi
 @Tag("fast")
 public class PlanarRegionsListPolygonSnapperTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleVerticalSnap()
    {
@@ -67,7 +63,6 @@ public class PlanarRegionsListPolygonSnapperTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleVerticalAndRotatedSnap()
    {
@@ -107,7 +102,6 @@ public class PlanarRegionsListPolygonSnapperTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testMovingAcrossStaircase()
    {
@@ -122,7 +116,6 @@ public class PlanarRegionsListPolygonSnapperTest
       doATest(planarRegionsList, xyYawToTest, visualize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.7)
    @Test(timeout = 30000)
    public void testRandomPlanarRegions()
    {
@@ -150,7 +143,6 @@ public class PlanarRegionsListPolygonSnapperTest
       doATest(planarRegionsList, xyYawToTest, visualize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testBumpyGround()
    {

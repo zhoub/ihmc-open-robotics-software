@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.graphicsDescription.input.keyboard.KeyListener;
@@ -16,7 +15,6 @@ import us.ihmc.tools.inputDevices.keyboard.Key;
 
 public class KeyListenerHolderTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testKeyListenerHolder()
    {

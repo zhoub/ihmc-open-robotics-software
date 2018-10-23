@@ -28,7 +28,6 @@ import us.ihmc.commonWalkingControlModules.controllerCore.FeedbackControllerTool
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.ExecutionMode;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.matrix.RotationMatrix;
@@ -69,7 +68,6 @@ public abstract class EndToEndChestTrajectoryMessageTest implements MultiRobotTe
 
    private final String prefix = "Orientation";
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 35.8)
    @Test(timeout = 180000)
    public void testLookingLeftAndRight() throws Exception
    {

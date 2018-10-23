@@ -17,11 +17,8 @@ import us.ihmc.commons.Epsilons;
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.RunnableThatThrows;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.interfaces.Vertex2DSupplier;
@@ -58,7 +55,6 @@ public class GeometryToolsTest
 
    private static final double EPSILON = 1e-6;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetDistanceBetweenPointAndPlane1()
    {
@@ -112,7 +108,6 @@ public class GeometryToolsTest
       assertEquals("FAILED: Distance from point to plane", expected, actual, EPSILON);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testIsLineSegmentIntersectingPlane1()
    {
@@ -147,7 +142,6 @@ public class GeometryToolsTest
       assertFalse(GeometryTools.isLineSegmentIntersectingPlane(pointOnPlane, planeNormal, lineStart, lineEnd));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetPerpendicularVectorFromLineToPoint1()
    {
@@ -186,7 +180,6 @@ public class GeometryToolsTest
       assertTrue("Test Failed", expectedReturn1.epsilonEquals(actualReturn1, EPSILON));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetPlaneNormalGivenThreePoints()
    {
@@ -249,7 +242,6 @@ public class GeometryToolsTest
       assertTrue("Test Failed", expectedReturn3.epsilonEquals(actualReturn3, EPSILON));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testIsPointOnLeftSideOfLine()
    {
@@ -265,7 +257,6 @@ public class GeometryToolsTest
       /** @todo fill in the test code */
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testClipToBoundingBox()
    {
@@ -280,7 +271,6 @@ public class GeometryToolsTest
       EuclidCoreTestTools.assertTuple3DEquals("not equal", new Point3D(0.5, -0.5, 1.0), tuple3d, 0.0);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCombine()
    {
@@ -331,7 +321,6 @@ public class GeometryToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testNormalizeSafeZUp() throws Exception
    {
@@ -359,7 +348,6 @@ public class GeometryToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testIsZero() throws Exception
    {
@@ -403,7 +391,6 @@ public class GeometryToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test(timeout = 30000)
    public void testConstructFrameFromPointAndAxis()
    {
@@ -429,7 +416,6 @@ public class GeometryToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testYawAboutPointRegression()
    {
@@ -477,7 +463,6 @@ public class GeometryToolsTest
       assertEquals("not equal", -3096.5574256022164, result.getZ(), epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPitchAboutPointRegression()
    {
@@ -525,7 +510,6 @@ public class GeometryToolsTest
       assertEquals("not equal", 8214.605434738955, result.getZ(), epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testYawAboutPoint()
    {
@@ -571,7 +555,6 @@ public class GeometryToolsTest
       assertEquals("These should be equal", 1.0, result.getZ(), epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPitchAboutPoint()
    {
@@ -612,7 +595,6 @@ public class GeometryToolsTest
       return (random.nextDouble() - 0.5) * 2.0 * Math.PI;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testYawAboutPoint_FramePoint2d_double()
    {

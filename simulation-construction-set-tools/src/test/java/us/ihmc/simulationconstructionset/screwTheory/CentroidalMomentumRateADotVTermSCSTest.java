@@ -8,7 +8,6 @@ import org.ejml.ops.CommonOps;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -52,7 +51,6 @@ public class CentroidalMomentumRateADotVTermSCSTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void chainTest() throws UnreasonableAccelerationException
    {
@@ -71,7 +69,6 @@ public class CentroidalMomentumRateADotVTermSCSTest
       assertADotV(random, joints, elevator, robot,numberOfJoints);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void treeTest() throws UnreasonableAccelerationException
    {
@@ -90,7 +87,6 @@ public class CentroidalMomentumRateADotVTermSCSTest
       assertADotV(random, joints, elevator, robot, numberOfJoints);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void floatingChainTest() throws UnreasonableAccelerationException
    {

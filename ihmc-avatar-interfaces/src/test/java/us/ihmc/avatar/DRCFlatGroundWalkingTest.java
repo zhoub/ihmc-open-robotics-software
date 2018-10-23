@@ -17,7 +17,6 @@ import us.ihmc.avatar.initialSetup.DRCSCSInitialSetup;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commonWalkingControlModules.desiredFootStep.footstepGenerator.HeadingAndVelocityEvaluationScriptParameters;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.jMonkeyEngineToolkit.GroundProfile3D;
@@ -92,7 +91,6 @@ public abstract class DRCFlatGroundWalkingTest implements MultiRobotTestInterfac
 
    public abstract boolean doPelvisWarmup();
 
-   @ContinuousIntegrationTest(estimatedDuration = 348.7)
    @Test(timeout = 1700000)
    public void testFlatGroundWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {

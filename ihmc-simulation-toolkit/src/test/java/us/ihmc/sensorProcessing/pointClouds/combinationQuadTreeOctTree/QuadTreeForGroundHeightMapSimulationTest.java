@@ -9,10 +9,8 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.BoundingBox2D;
 import us.ihmc.euclid.geometry.Box3D;
 import us.ihmc.euclid.geometry.Plane3D;
@@ -111,7 +109,6 @@ public class QuadTreeForGroundHeightMapSimulationTest
          ThreadTools.sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testOnSomeSlopes()
    {
@@ -135,7 +132,6 @@ public class QuadTreeForGroundHeightMapSimulationTest
       if (visualizeAndKeepUp) ThreadTools.sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testOnSomeStairCases()
    {
@@ -163,7 +159,6 @@ public class QuadTreeForGroundHeightMapSimulationTest
       if (visualizeAndKeepUp) ThreadTools.sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testUsingStairGroundProfile()
    {

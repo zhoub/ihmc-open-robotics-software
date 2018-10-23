@@ -7,7 +7,6 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
@@ -32,7 +31,6 @@ public class HermiteCurveBasedOrientationTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.8)
    @Test(timeout = 30000)
    public void testDerivativesConsistency() throws Exception
    {
@@ -95,7 +93,6 @@ public class HermiteCurveBasedOrientationTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testLimitConditions() throws Exception
    {
@@ -195,7 +192,6 @@ public class HermiteCurveBasedOrientationTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test(timeout = 30000)
    public void testContinuityForSlowTrajectory() throws Exception
    {
@@ -302,7 +298,6 @@ public class HermiteCurveBasedOrientationTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test(timeout = 30000)
    public void testContinuityForFastishTrajectory() throws Exception
    {
@@ -416,7 +411,6 @@ public class HermiteCurveBasedOrientationTrajectoryGeneratorTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test(timeout = 30000)
    public void testMostBasicTrajectory() throws Exception
    {

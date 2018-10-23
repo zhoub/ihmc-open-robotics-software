@@ -18,11 +18,9 @@ import us.ihmc.communication.ROS2Tools;
 import us.ihmc.communication.packets.MessageTools;
 import us.ihmc.communication.packets.PlanarRegionMessageConverter;
 import us.ihmc.communication.packets.ToolboxState;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.geometry.Pose3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -172,7 +170,6 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = timeout)
    public void testShortCinderBlockFieldWithAStar()
    {
@@ -185,7 +182,6 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.A_STAR, cinderBlockField, goalPose);
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = timeout)
    public void testShortCinderBlockFieldWithVisibilityGraph()
    {
@@ -198,7 +194,6 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.VIS_GRAPH_WITH_A_STAR, cinderBlockField, goalPose);
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = timeout)
    public void testShortCinderBlockFieldWithPlanarRegionBipedalPlanner()
    {
@@ -211,7 +206,6 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.PLANAR_REGION_BIPEDAL, cinderBlockField, goalPose);
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = timeout)
    public void testSteppingStonesWithAStar()
    {
@@ -224,7 +218,6 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.A_STAR, steppingStoneField, goalPose);
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = timeout)
    public void testSteppingStonesWithPlanarRegionBipedalPlanner()
    {
@@ -237,7 +230,6 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.PLANAR_REGION_BIPEDAL, steppingStoneField, goalPose);
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = timeout)
    public void testWalkingOnFlatGround()
    {
@@ -249,7 +241,6 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.A_STAR, null, goalPose);
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = timeout)
    public void testWalkingBetweenBollardsAStarPlanner()
    {

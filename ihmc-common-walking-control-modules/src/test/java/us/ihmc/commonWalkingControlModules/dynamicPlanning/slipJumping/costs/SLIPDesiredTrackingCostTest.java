@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.TrackingCostFunctionTest;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.random.RandomGeometry;
@@ -54,7 +53,6 @@ public class SLIPDesiredTrackingCostTest extends TrackingCostFunctionTest<SLIPSt
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCost()
    {
@@ -138,7 +136,6 @@ public class SLIPDesiredTrackingCostTest extends TrackingCostFunctionTest<SLIPSt
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCostStateGradientNumerically()
    {
@@ -146,7 +143,6 @@ public class SLIPDesiredTrackingCostTest extends TrackingCostFunctionTest<SLIPSt
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCostControlGradientNumerically()
    {
@@ -154,7 +150,6 @@ public class SLIPDesiredTrackingCostTest extends TrackingCostFunctionTest<SLIPSt
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCostStateHessianNumerically()
    {
@@ -162,7 +157,6 @@ public class SLIPDesiredTrackingCostTest extends TrackingCostFunctionTest<SLIPSt
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCostControlHessianNumerically()
    {
@@ -170,7 +164,6 @@ public class SLIPDesiredTrackingCostTest extends TrackingCostFunctionTest<SLIPSt
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCostStateControlHessianNumerically()
    {

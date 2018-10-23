@@ -15,11 +15,8 @@ import org.ros.node.service.ServiceResponseListener;
 import test_rosmaster.AddTwoInts;
 import test_rosmaster.AddTwoIntsRequest;
 import test_rosmaster.AddTwoIntsResponse;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.utilities.ros.service.AddTwoIntsClient;
 import us.ihmc.utilities.ros.service.AddTwoIntsServer;
 
@@ -35,7 +32,6 @@ public class AddTwoIntsServiceTest extends IHMCRosTestWithRosCore
       super.setUp(USE_JAVA_ROSCORE);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.2)
    @Test(timeout = 30000)
    public void lowlevelRosServiceClientTest() throws URISyntaxException, InterruptedException
    {
@@ -80,7 +76,6 @@ public class AddTwoIntsServiceTest extends IHMCRosTestWithRosCore
       assertTrue(latch.await(1, TimeUnit.SECONDS));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.8)
    @Test(timeout = 30000)
    public void highLevelRosServiceClientTest() throws InterruptedException
    {

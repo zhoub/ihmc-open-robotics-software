@@ -7,7 +7,6 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -49,7 +48,6 @@ public class RateLimitedYoVariableTest
       rateLimitedYoVariable4 = new RateLimitedYoVariable("rateLimitedYoVariable4", registry, maxRate4, position4, dt4);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testUpdate()
    {
@@ -64,7 +62,6 @@ public class RateLimitedYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testUpdateWithNullPointerException()
    {
@@ -81,7 +78,6 @@ public class RateLimitedYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testUpdateWithCurrentPositionParameter()
    {
@@ -114,7 +110,6 @@ public class RateLimitedYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testUpdateWithCurrentPositionParameterExceedingMaxRate()
    {
@@ -175,7 +170,6 @@ public class RateLimitedYoVariableTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testUpdateWithMaxRateBeingNegative()
    {

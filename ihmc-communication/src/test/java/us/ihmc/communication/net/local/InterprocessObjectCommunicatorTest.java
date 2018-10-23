@@ -17,13 +17,10 @@ import std_msgs.msg.dds.Int32;
 import us.ihmc.communication.net.NetClassList;
 import us.ihmc.communication.net.ObjectConsumer;
 import us.ihmc.communication.packets.Packet;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class InterprocessObjectCommunicatorTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testOpeningAndClosingALotOfPorts() throws IOException
    {
@@ -47,7 +44,6 @@ public class InterprocessObjectCommunicatorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.4)
    @Test(timeout = 30000)
    public void testSendingObjectsToClients() throws IOException
    {

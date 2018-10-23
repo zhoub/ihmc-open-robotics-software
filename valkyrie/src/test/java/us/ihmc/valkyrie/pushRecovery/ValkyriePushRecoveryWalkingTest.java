@@ -6,11 +6,8 @@ import us.ihmc.avatar.DRCPushRecoveryWalkingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
@@ -46,7 +43,6 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.VALKYRIE);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 36.8)
    @Test(timeout = 180000)
    public void testPushLeftEarlySwing() throws SimulationExceededMaximumTimeException
    {
@@ -55,7 +51,6 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 70.4)
    @Test(timeout = 350000)
    public void testPushLeftInitialTransferState() throws SimulationExceededMaximumTimeException
    {
@@ -63,7 +58,6 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 62.6)
    @Test(timeout = 310000)
    public void testPushRightInitialTransferState() throws SimulationExceededMaximumTimeException
    {
@@ -71,14 +65,12 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 38.1)
    @Test(timeout = 190000)
    public void testPushRightLateSwing() throws SimulationExceededMaximumTimeException
    {
       super.testPushRightLateSwing();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 63.1)
    @Test(timeout = 320000)
    public void testPushRightThenLeftMidSwing() throws SimulationExceededMaximumTimeException
    {
@@ -87,7 +79,6 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.9)
    @Test(timeout = 190000)
    public void testPushRightTransferState() throws SimulationExceededMaximumTimeException
    {
@@ -103,7 +94,6 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.7)
    @Test(timeout = 190000)
    public void testPushTowardsTheFront() throws SimulationExceededMaximumTimeException
    {

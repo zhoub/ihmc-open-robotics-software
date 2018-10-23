@@ -5,18 +5,13 @@ import java.io.IOException;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Tag("flaky")
 
 public class TCPYoWhiteBoardTest extends YoWhiteBoardTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 3.9)
 	@Test(timeout = 30000)
    public void testTCPWhiteBoardOne() throws IOException
    {
@@ -33,7 +28,6 @@ public class TCPYoWhiteBoardTest extends YoWhiteBoardTest
       doASynchronizedWriteThenReadTest(leftWhiteBoard, rightWhiteBoard, numberOfTests, 501, 1001);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 5.6)
 	@Test(timeout = 30000)
    public void testTCPWhiteBoardTwo() throws IOException
    {

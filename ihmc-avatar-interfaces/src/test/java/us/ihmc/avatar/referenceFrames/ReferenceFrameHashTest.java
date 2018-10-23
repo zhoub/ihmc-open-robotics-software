@@ -12,7 +12,6 @@ import org.junit.Test;
 
 import gnu.trove.map.hash.TLongObjectHashMap;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -42,7 +41,6 @@ public abstract class ReferenceFrameHashTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test(timeout = 30000)
    public void testGetReferenceFrameFromHashCodeReturnsSameNamedFrames()
    {
@@ -62,7 +60,6 @@ public abstract class ReferenceFrameHashTest
       checkReferenceFramesMatch(midFeetZUpFrameA, midZUpFrameB);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test(timeout = 30000)
    public void testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode()
    {
@@ -96,7 +93,6 @@ public abstract class ReferenceFrameHashTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test(timeout = 30000)
    public void testAllFramesGottenFromHumanoidReferenceFrameMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
@@ -138,7 +134,6 @@ public abstract class ReferenceFrameHashTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test(timeout = 30000)
    public void testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
@@ -180,7 +175,6 @@ public abstract class ReferenceFrameHashTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test(timeout = 30000, expected = IllegalArgumentException.class)
    public void testAddingTwoFramesWithTheSameNameThrowsException()
    {

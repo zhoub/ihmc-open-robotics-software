@@ -7,11 +7,8 @@ import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseFlatTest;
 import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseFlatWithErrorsTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
@@ -39,7 +36,6 @@ public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlat
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 84.6)
    @Test(timeout = 420000)
    public void testSideStepsWithRandomSlipping() throws SimulationExceededMaximumTimeException
    {
@@ -55,7 +51,6 @@ public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlat
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 92.6)
    @Test(timeout = 460000)
    public void testSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
@@ -63,7 +58,6 @@ public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlat
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 82.6)
    @Test(timeout = 410000)
    public void testSimpleFlatGroundScriptWithRandomFootSlip() throws SimulationExceededMaximumTimeException
    {
@@ -71,7 +65,6 @@ public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlat
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 43.2)
    @Test(timeout = 220000)
    public void testStandingWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
@@ -79,7 +72,6 @@ public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlat
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 43.2)
    @Test(timeout = 220000)
    public void testStandingWithStateEstimatorDrift() throws SimulationExceededMaximumTimeException
    {

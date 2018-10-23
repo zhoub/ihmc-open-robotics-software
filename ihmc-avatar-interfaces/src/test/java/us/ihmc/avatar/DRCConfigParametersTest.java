@@ -5,13 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import us.ihmc.avatar.networkProcessor.modules.uiConnector.PacketsForwardedToTheUi;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class DRCConfigParametersTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void test()
    {

@@ -21,7 +21,6 @@ import georegression.struct.point.Point3D_F64;
 import georegression.struct.se.Se3_F64;
 import georegression.transform.se.SePointOps_F64;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -40,7 +39,6 @@ public class MatrixToolsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetToNaNDenseMatrix()
    {
@@ -56,7 +54,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetToZeroDenseMatrix()
    {
@@ -72,7 +69,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetMatrixColumnFromArrayDenseMatrix()
    {
@@ -87,7 +83,6 @@ public class MatrixToolsTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetMatrixFromOneBasedArrayDenseMatrix()
    {
@@ -102,7 +97,6 @@ public class MatrixToolsTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testDiffDenseMatrixIntIntDenseMatrix()
    {
@@ -118,7 +112,6 @@ public class MatrixToolsTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testDiffDoubleArrayDenseMatrix()
    {
@@ -134,7 +127,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void tranformSe3IntoTransform3D()
    {
@@ -157,7 +149,6 @@ public class MatrixToolsTest
       assertEquals(p0.z, p1.getZ(), 1e-8);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testRemoveRow()
    {
@@ -189,7 +180,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetRow()
    {
@@ -286,7 +276,6 @@ public class MatrixToolsTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testAddRow()
    {
@@ -382,7 +371,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testRemoveColumn()
    {
@@ -429,7 +417,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testRemoveZeroRows()
    {
@@ -473,7 +460,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testScaleTranspose() throws Exception
    {
@@ -497,7 +483,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testInsertFrameTupleIntoEJMLVector()
    {
@@ -516,7 +501,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testExtractFrameTupleFromEJMLVector()
    {
@@ -536,7 +520,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testCheckDenseMatrixDimensions()
    {
@@ -564,7 +547,6 @@ public class MatrixToolsTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 8.1) @Test(timeout = 40000)
    public void testMultAddBlockTransA()
    {
       Random random = new Random(124L);
@@ -604,7 +586,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 8.1) @Test(timeout = 40000)
    public void testMultAddBlock()
    {
       Random random = new Random(124L);
@@ -644,7 +625,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 5.3)
    @Test(timeout = 40000)
    public void testRandomMultAddBlockInnerWithScalar()
    {
@@ -686,7 +666,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 40000)
    public void testEasyMultAddInner()
    {
@@ -714,7 +693,6 @@ public class MatrixToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test(timeout = 40000)
    public void testRandomMultAddInner()
    {

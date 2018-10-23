@@ -8,7 +8,6 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -19,7 +18,6 @@ public class TimeStampedTransform3DTest
 
    private static final double EPSILON = 1.0e-15;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testEmptyConstructor()
    {
@@ -32,7 +30,6 @@ public class TimeStampedTransform3DTest
       assertTrue("Transform is different from what was expected", expectedTransform.epsilonEquals(toBeTested.getTransform3D(), EPSILON));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConstructor()
    {
@@ -49,7 +46,6 @@ public class TimeStampedTransform3DTest
       assertTrue("TimestampedTransform should only copy the given transform into an internal variable", expectedTransform != toBeTested.getTransform3D());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetters()
    {
@@ -84,7 +80,6 @@ public class TimeStampedTransform3DTest
       assertTrue("Transform is different from what was expected", expectedTimeStampedTransform.getTransform3D().epsilonEquals(toBeTested.getTransform3D(), EPSILON));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetTransform()
    {

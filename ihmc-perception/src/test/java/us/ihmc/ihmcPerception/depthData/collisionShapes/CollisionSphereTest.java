@@ -7,7 +7,6 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.transform.RigidBodyTransform;
@@ -16,7 +15,6 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 
 public class CollisionSphereTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 30000)
    public void testInsideSpherePoints()
    {
@@ -35,7 +33,6 @@ public class CollisionSphereTest
       }
    }
    
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 30000)
    public void testOutsideSpherePoints()
    {

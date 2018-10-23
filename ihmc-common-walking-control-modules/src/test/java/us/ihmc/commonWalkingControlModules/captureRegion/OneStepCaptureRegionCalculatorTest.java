@@ -13,7 +13,6 @@ import org.junit.After;
 import org.junit.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.CapturePointTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.interfaces.Vertex2DSupplier;
@@ -70,7 +69,6 @@ public class OneStepCaptureRegionCalculatorTest
 
    @SuppressWarnings("unused")
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConstructor()
    {
@@ -81,7 +79,6 @@ public class OneStepCaptureRegionCalculatorTest
             ankleZUpFrames, registry, null);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000000)
    public void testPointsInsideCaptureRegion()
    {
@@ -166,7 +163,6 @@ public class OneStepCaptureRegionCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProjectedFootCorners()
    {
@@ -242,7 +238,6 @@ public class OneStepCaptureRegionCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCalculationWithICPInFootPolygon()
    {
@@ -315,7 +310,6 @@ public class OneStepCaptureRegionCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCalculationWithHighSwingTime()
    {

@@ -17,7 +17,6 @@ import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelSta
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelStates.walkingController.states.WalkingStateEnum;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -133,7 +132,6 @@ public abstract class AvatarStepInPlaceTest implements MultiRobotTestInterface
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 100000)
    public void testStepInPlace() throws SimulationExceededMaximumTimeException
    {
@@ -168,7 +166,6 @@ public abstract class AvatarStepInPlaceTest implements MultiRobotTestInterface
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(simulationTime));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 49.0)
    @Test(timeout = 100000)
    public void testStepInPlaceWithPush() throws SimulationExceededMaximumTimeException
    {

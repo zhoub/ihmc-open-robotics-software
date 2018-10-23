@@ -5,11 +5,8 @@ import org.junit.Test;
 import us.ihmc.avatar.IHMCROSAPIPacketTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 
@@ -30,7 +27,6 @@ public class AtlasIHMCROSAPIPacketTest extends IHMCROSAPIPacketTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 8.7)
    @Test(timeout = 420000)
    public void testFuzzyPacketsUsingRos()
    {
@@ -38,7 +34,6 @@ public class AtlasIHMCROSAPIPacketTest extends IHMCROSAPIPacketTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 2.7)
    @Test(timeout = 420000)
    public void testFuzzyPacketsWithoutRos()
    {

@@ -8,11 +8,8 @@ import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
@@ -36,7 +33,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetUpToDateTimeStampedBufferNewestTimeStamp()
    {
@@ -59,7 +55,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetUpToDateTimeStampedBufferOldestTimeStamp()
    {
@@ -86,7 +81,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testComputedRotationError()
    {
@@ -145,7 +139,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testComputedTranslationError()
    {
@@ -210,7 +203,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testComputedError()
    {
@@ -269,7 +261,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleTranslationAtKnownLocation()
    {
@@ -298,7 +289,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
 
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testNoDifferenceBetweenStateEstimatorAndLocalization()
    {
@@ -335,7 +325,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
    
    //this tests fails, I don't think OutdatedPoseToUpToDateReferenceFrameUpdater can support more than a single rotation at a time
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testKnownDifferenceBetweenStateEstimatorAndLocalization()
    {
@@ -378,7 +367,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       assertTrue(calculatedPose.epsilonEquals(expectedPose, 1e-4));
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testKnownTranslationAndYawDifferenceBetweenStateEstimatorAndLocalization()
    {
@@ -423,7 +411,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
    
    //this tests fails, I don't think OutdatedPoseToUpToDateReferenceFrameUpdater can support more than a single rotation at a time
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testKnownTranslationYawAndPitchDifferenceBetweenStateEstimatorAndLocalization()
    {
@@ -466,7 +453,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
       assertTrue(calculatedPose.epsilonEquals(expectedPose, 1e-4));
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleRotationAtKnownLocation()
    {
@@ -499,7 +485,6 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
 
    //this tests fails, I don't think OutdatedPoseToUpToDateReferenceFrameUpdater can support more than a single rotation at a time
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testUpdateOutdatedTransformWithKnownOffsets()
    {

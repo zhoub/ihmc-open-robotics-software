@@ -2,7 +2,6 @@ package us.ihmc.footstepPlanning.flatGroundPlanning;
 
 import org.junit.After;
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePose2D;
@@ -29,7 +28,6 @@ public abstract class FootstepPlannerOnFlatGroundTest implements PlanningTest
 
    public abstract boolean assertPlannerReturnedResult();
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testJustStraightLine()
    {
@@ -68,7 +66,6 @@ public abstract class FootstepPlannerOnFlatGroundTest implements PlanningTest
       if (assertPlannerReturnedResult) assertTrue(PlannerTools.isGoalNextToLastStep(goalPose3d, footstepPlan));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 30000)
    public void testATightTurn()
    {
@@ -98,7 +95,6 @@ public abstract class FootstepPlannerOnFlatGroundTest implements PlanningTest
          PlanningTestTools.visualizeAndSleep(null, footstepPlan, goalPose3d);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testStraightLineWithInitialTurn()
    {
@@ -153,7 +149,6 @@ public abstract class FootstepPlannerOnFlatGroundTest implements PlanningTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.0)
    @Test(timeout = 30000)
    public void testRandomPoses()
    {

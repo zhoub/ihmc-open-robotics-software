@@ -15,8 +15,6 @@ import us.ihmc.avatar.obstacleCourseTests.AvatarLeapOfFaithTest;
 import us.ihmc.commonWalkingControlModules.configurations.LeapOfFaithParameters;
 import us.ihmc.commonWalkingControlModules.configurations.SteppingParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -29,7 +27,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 90.0)
    @Disabled("Revisit when there are contact patches.")
    @Test(timeout = 230000)
    public void testUnknownStepDownTwoFeetOnEachStep() throws SimulationExceededMaximumTimeException
@@ -41,7 +38,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 74.2)
    @Test(timeout = 370000)
    public void testUnknownStepDownOneFootOnEachStep() throws SimulationExceededMaximumTimeException
    {
@@ -56,7 +52,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 70.4)
    @Test(timeout = 350000)
    public void testUnknownStepDownOneFootOnEachStepLong() throws SimulationExceededMaximumTimeException
    {
@@ -86,7 +81,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 110.0)
    @Disabled("Re-enable when planar region constraints are used.")
    @Test(timeout = 230000)
    public void testRandomHeightField() throws SimulationExceededMaximumTimeException
@@ -96,7 +90,6 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 107.1)
    @Test(timeout = 540000)
    public void testDropOffsWhileWalking() throws SimulationExceededMaximumTimeException
    {

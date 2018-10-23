@@ -5,7 +5,6 @@ import org.junit.Test;
 import us.ihmc.avatar.controllerAPI.EndToEndPelvisHeightTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -28,7 +27,6 @@ public class ValkyrieEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndP
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 42.4)
    @Test(timeout = 210000)
    public void testSingleWaypoint() throws Exception
    {
@@ -36,7 +34,6 @@ public class ValkyrieEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndP
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 27.3)
    @Test(timeout = 140000)
    public void testSingleWaypointInUserMode() throws Exception
    {
@@ -44,7 +41,6 @@ public class ValkyrieEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndP
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 99.8)
    @Test(timeout = 500000)
    public void testSingleWaypointThenManualChange() throws Exception
    {
@@ -52,7 +48,6 @@ public class ValkyrieEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndP
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 42.4)
    @Test(timeout = 210000)
    public void testStopAllTrajectory() throws Exception
    {

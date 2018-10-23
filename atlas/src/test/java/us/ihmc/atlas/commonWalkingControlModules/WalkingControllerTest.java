@@ -42,7 +42,6 @@ import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.controllerAPI.CommandInputManager;
 import us.ihmc.communication.controllerAPI.StatusMessageOutputManager;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.communication.packets.MessageTools;
@@ -157,7 +156,6 @@ public class WalkingControllerTest
 
    private static final double maxDriftRate = 0.2;
 
-   @ContinuousIntegrationTest(estimatedDuration = 17.4)
    @Test(timeout = 87000)
    public void testForGarbage()
    {

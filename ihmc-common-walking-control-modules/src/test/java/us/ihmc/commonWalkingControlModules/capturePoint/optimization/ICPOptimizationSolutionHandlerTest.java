@@ -11,11 +11,8 @@ import org.junit.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.ICPControlGains;
 import us.ihmc.commonWalkingControlModules.capturePoint.ICPControlGainsReadOnly;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FrameConvexPolygon2D;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -87,7 +84,6 @@ public class ICPOptimizationSolutionHandlerTest
       return referenceLocation;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWellWithinDeadband()
    {
@@ -96,7 +92,6 @@ public class ICPOptimizationSolutionHandlerTest
       runDeadbandTest(scale, deadbandSize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testALittleWithinDeadband()
    {
@@ -105,7 +100,6 @@ public class ICPOptimizationSolutionHandlerTest
       runDeadbandTest(scale, deadbandSize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testJustWithinDeadband()
    {
@@ -114,7 +108,6 @@ public class ICPOptimizationSolutionHandlerTest
       runDeadbandTest(scale, deadbandSize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testRightOnDeadband()
    {
@@ -123,7 +116,6 @@ public class ICPOptimizationSolutionHandlerTest
       runDeadbandTest(scale, deadbandSize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testJustOutsideDeadband()
    {
@@ -132,7 +124,6 @@ public class ICPOptimizationSolutionHandlerTest
       runDeadbandTest(scale, deadbandSize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testALittleOutsideDeadband()
    {
@@ -141,7 +132,6 @@ public class ICPOptimizationSolutionHandlerTest
       runDeadbandTest(scale, deadbandSize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWellOutsideDeadband()
    {
@@ -150,7 +140,6 @@ public class ICPOptimizationSolutionHandlerTest
       runDeadbandTest(scale, deadbandSize);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithinDeadbandResolution()
    {
@@ -236,7 +225,6 @@ public class ICPOptimizationSolutionHandlerTest
       assertEquals(0.0, solutionHandler.getFootstepAdjustment().length(), 1e-3);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testOutsideDeadbandResolution()
    {

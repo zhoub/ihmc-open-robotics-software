@@ -9,11 +9,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -39,7 +36,6 @@ public class ICPControlPlaneTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProjectPointForwardAndLeftOntoPlane()
    {
@@ -246,7 +242,6 @@ public class ICPControlPlaneTest
     * </p>
     */
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProjectPointForwardAndLeftOntoPlaneEdgeCase()
    {
@@ -284,7 +279,6 @@ public class ICPControlPlaneTest
       expectedProjectedPoint.checkReferenceFrameMatch(projectedPoint);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test(timeout = 30000)
    public void testRandomProjectOntoPlane()
    {
@@ -329,7 +323,6 @@ public class ICPControlPlaneTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProjectPointForwardAndLeftFromPlaneOntoSurface()
    {
@@ -525,7 +518,6 @@ public class ICPControlPlaneTest
       EuclidCoreTestTools.assertTuple3DEquals(expectedProjectedPoint, projectedPoint, 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test(timeout = 30000)
    public void testRandomProjectOntoSurface()
    {
@@ -571,7 +563,6 @@ public class ICPControlPlaneTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProjectPlanarRegionMostBasic()
    {
@@ -626,7 +617,6 @@ public class ICPControlPlaneTest
       EuclidCoreTestTools.assertTuple2DEquals(predictedProjectPoint4, projectedConvexPolygon.getVertex(3), 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProjectPlanarRegion()
    {

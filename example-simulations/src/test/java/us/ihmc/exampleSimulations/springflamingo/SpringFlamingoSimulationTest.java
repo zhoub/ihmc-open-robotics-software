@@ -8,11 +8,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.Robot;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
@@ -48,7 +45,6 @@ public class SpringFlamingoSimulationTest
       testFixture = null;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 8.5)
 	@Test(timeout = 42000)
    public void testSpringFlamingoSimulationAndGUI() throws SimulationExceededMaximumTimeException
    {
@@ -119,7 +115,6 @@ public class SpringFlamingoSimulationTest
    }
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 3.6)
 	@Test(timeout = 30000)
 	public void testRewindability() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
 	{

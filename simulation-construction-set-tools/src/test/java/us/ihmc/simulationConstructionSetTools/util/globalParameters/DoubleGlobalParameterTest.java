@@ -4,8 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import static org.junit.Assert.assertEquals;
@@ -28,7 +26,6 @@ public class DoubleGlobalParameterTest
       GlobalParameter.clearGlobalRegistry();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testGetValue()
    {
@@ -40,7 +37,6 @@ public class DoubleGlobalParameterTest
       assertEquals(DEFAULT_VALUE, doubleGlobalParameter.getValue(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testSetValue()
    {
@@ -68,7 +64,6 @@ public class DoubleGlobalParameterTest
       assertEquals(newValue, doubleGlobalParameter.getValue(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000,expected = RuntimeException.class)
    public void testThatCantHaveParentsUnlessOverwriteUpdateMethodOne()
    {
@@ -78,7 +73,6 @@ public class DoubleGlobalParameterTest
       parent.set(1.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000,expected = RuntimeException.class)
    public void testCantSetChild()
    {

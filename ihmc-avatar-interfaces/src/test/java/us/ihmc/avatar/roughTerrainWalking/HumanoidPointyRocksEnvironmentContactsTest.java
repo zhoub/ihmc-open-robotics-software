@@ -17,10 +17,8 @@ import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
@@ -56,7 +54,6 @@ public abstract class HumanoidPointyRocksEnvironmentContactsTest implements Mult
 
    protected abstract DRCRobotModel getRobotModel(int xContactPoints, int yContactPoints, boolean createOnlyEdgePoints);
 
-   @ContinuousIntegrationTest(estimatedDuration = 210.0) // fix the contacts
    @Test(timeout = 690000)
    public void testWalkingOnLinesInEnvironment() throws SimulationExceededMaximumTimeException
    {
@@ -118,7 +115,6 @@ public abstract class HumanoidPointyRocksEnvironmentContactsTest implements Mult
       drcSimulationTestHelper.checkNothingChanged();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 100.0) // fix the contacts
    @Test(timeout = 350000)
    public void testWalkingOnPointInEnvironment() throws SimulationExceededMaximumTimeException
    {

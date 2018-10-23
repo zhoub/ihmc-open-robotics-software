@@ -12,11 +12,8 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.robotics.random.RandomGeometry;
@@ -25,7 +22,6 @@ import us.ihmc.robotics.random.RandomGeometry;
 public class StringStretcher2dTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleExampleWithNoWaypoints()
    {
@@ -61,7 +57,6 @@ public class StringStretcher2dTest
       EuclidCoreTestTools.assertTuple2DEquals(endPoint, solution.get(2), 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleExampleWithOneWaypointsNoInterpolation()
    {
@@ -86,7 +81,6 @@ public class StringStretcher2dTest
       assertTrue(maxPoint.epsilonEquals(waypoints.get(0), 1e-6));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleExampleWithAllWaypointsNoInterpolation()
    {
@@ -125,7 +119,6 @@ public class StringStretcher2dTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testStartAndEnd()
    {
@@ -144,7 +137,6 @@ public class StringStretcher2dTest
       EuclidCoreTestTools.assertTuple2DEquals(endPoint, waypoints.get(1), 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRandomExample()
    {

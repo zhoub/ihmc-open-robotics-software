@@ -26,8 +26,6 @@ import org.junit.Test;
 import us.ihmc.commons.exception.DefaultExceptionHandler;
 import us.ihmc.commons.nio.FileTools;
 import us.ihmc.commons.nio.WriteOption;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class DeprecatedFileToolsTest
@@ -149,7 +147,6 @@ public class DeprecatedFileToolsTest
    }
    
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetBufferedReader()
    {
@@ -176,7 +173,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000, expected = FileNotFoundException.class)
    public void testGetBufferedReaderWithFileNotFoundException() throws FileNotFoundException
    {
@@ -184,7 +180,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetFileWriter()
    {
@@ -214,7 +209,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetFileWriterWithAppend()
    {
@@ -244,7 +238,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetFileDataOutputStream()
    {
@@ -274,7 +267,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetFileDataInputStream()
    {
@@ -301,7 +293,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000, expected = FileNotFoundException.class)
    public void testGetFileDataInputStreamWithFileNotFoundException() throws FileNotFoundException, IOException
    {
@@ -310,7 +301,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetAllFilesInDirectoryRecursive()
    {
@@ -345,7 +335,6 @@ public class DeprecatedFileToolsTest
    }
 
    @SuppressWarnings("deprecation")
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetAllFilesInDirectoryWithSuffix()
    {

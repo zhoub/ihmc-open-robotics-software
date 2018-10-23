@@ -6,14 +6,11 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class PipeLineTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testEmptyPipeline()
    {
@@ -24,7 +21,6 @@ public class PipeLineTest
       assertTrue(pipeLine.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPipelineWithOneSingleTaskStage()
    {
@@ -45,7 +41,6 @@ public class PipeLineTest
       assertTrue(pipeLine.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPipelineWithTwoSingleTaskStages()
    {
@@ -87,7 +82,6 @@ public class PipeLineTest
       assertTrue(pipeLine.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPipelineOneStageTwoPipesThenOneSingleTaskStage()
    {
@@ -145,7 +139,6 @@ public class PipeLineTest
       assertTrue(pipeLine.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testTwoParallelPipes()
    {
@@ -200,7 +193,6 @@ public class PipeLineTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testThreePipesWithParallelAndSeriesTasks()
    {

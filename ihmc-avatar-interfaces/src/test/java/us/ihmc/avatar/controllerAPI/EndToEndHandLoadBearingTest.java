@@ -17,7 +17,6 @@ import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.Pose3D;
@@ -50,7 +49,6 @@ public abstract class EndToEndHandLoadBearingTest implements MultiRobotTestInter
 
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 61.5)
    @Test(timeout = 310000)
    public void testUsingHand() throws SimulationExceededMaximumTimeException
    {

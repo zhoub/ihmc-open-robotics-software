@@ -9,11 +9,8 @@ import org.ejml.ops.CommonOps;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.matrix.RotationMatrix;
@@ -35,7 +32,6 @@ public class TransformToolsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testRotate()
    {
@@ -70,7 +66,6 @@ public class TransformToolsTest
       EuclidCoreTestTools.assertRigidBodyTransformEquals(transform, transform2, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetTransformFromA1toA2Simple()
    {
@@ -102,7 +97,6 @@ public class TransformToolsTest
       a2Origin.epsilonEquals(a2OriginFramePoint, 1e-9);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetTransformFromA1toA2Random()
    {
@@ -135,7 +129,6 @@ public class TransformToolsTest
       a2Origin.epsilonEquals(a2OriginFramePoint, 1e-9);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testgetTransformDifference()
    {
@@ -171,7 +164,6 @@ public class TransformToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testgetTransformDifferenceBetweenTwoTransforms()
    {

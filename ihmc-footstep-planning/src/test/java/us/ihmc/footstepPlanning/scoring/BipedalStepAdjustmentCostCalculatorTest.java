@@ -5,7 +5,6 @@ import org.junit.Test;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
@@ -64,7 +63,6 @@ public class BipedalStepAdjustmentCostCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testIdealFootstepAlwaysBetterThanOthers()
    {
@@ -128,7 +126,6 @@ public class BipedalStepAdjustmentCostCalculatorTest
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.3)
    @Test(timeout = 30000)
    public void testScoringFootsteps()
    {

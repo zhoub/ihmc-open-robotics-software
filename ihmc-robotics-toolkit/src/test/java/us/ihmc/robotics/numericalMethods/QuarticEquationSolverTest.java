@@ -4,16 +4,12 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 public class QuarticEquationSolverTest
 {
    private static final boolean DEBUG = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testUpToQuarticEquationSolver()
    {

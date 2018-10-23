@@ -10,10 +10,8 @@ import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -34,7 +32,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 2.6)
 	@Test(timeout = 30000)
    public void testChangeFrameUsingNumericalDifferentiationVersusAnalytical()
    {
@@ -86,7 +83,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * Tests centripetal acceleration
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAccelerationOfPointFixedInBodyFrame()
    {
@@ -108,7 +104,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
 	/**
 	 * This test is used to prove that the reference frame in which the linear acceleration of a body fixed point in computed in does not matter.
 	 */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetAccelerationOfPointFixedInBodyFrameComputedInDifferentFrames() throws Exception
    {
@@ -187,7 +182,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * You shouldn't be able to add two spatial acceleration vectors expressed in different frames
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = ReferenceFrameMismatchException.class)
    public void testAddExpressedInDifferentFrames()
    {
@@ -201,7 +195,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * You shouldn't be able to add two spatial acceleration vectors if the second is not relative to the first
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = ReferenceFrameMismatchException.class)
    public void testAddNotRelative()
    {
@@ -216,7 +209,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * (which is allowed)
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAdd()
    {
@@ -272,7 +264,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSub()
    {
@@ -295,7 +286,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       SpatialMotionVectorTest.assertSpatialMotionVectorEquals(vector1, vector1Back, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testSubWrongExpressedInFrame()
    {
@@ -304,7 +294,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       vector1.sub(vector2);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testSubFramesDontMatchUp()
    {
@@ -317,7 +306,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * Compares setScrew method in SpatialAccelerationVector to numerical derivative based method
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSetScrew()
    {
@@ -361,7 +349,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       JUnitTools.assertMatrixEquals(numericalDerivative, acceleration.toMatrix(), 1e-4);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSetBasedOnOriginAcceleration()
    {
@@ -389,7 +376,6 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       EuclidCoreTestTools.assertTuple3DEquals(originAccelerationBack, originAcceleration, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testChangeFrameNoRelativeMotion()
    {

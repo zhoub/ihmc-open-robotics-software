@@ -12,7 +12,6 @@ import org.junit.Test;
 import org.junit.rules.DisableOnDebug;
 import org.junit.rules.Timeout;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -25,7 +24,6 @@ public class MessageTransformerTest
    @Rule
    public DisableOnDebug disableOnDebug = new DisableOnDebug(new Timeout(30, TimeUnit.SECONDS));
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testHandTrajectoryMessage()
    {
@@ -52,7 +50,6 @@ public class MessageTransformerTest
       assertTrue(expected.epsilonEquals(actual, 1.0e-5));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPelvisHeightTrajectoryMessage()
    {
@@ -77,7 +74,6 @@ public class MessageTransformerTest
       assertTrue(expected.epsilonEquals(actual, 1.0e-5));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testQuadrupedBodyHeightMessage()
    {
@@ -102,7 +98,6 @@ public class MessageTransformerTest
       assertTrue(expected.epsilonEquals(actual, 1.0e-5));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testAdjustFootstepMessage()
    {
@@ -122,7 +117,6 @@ public class MessageTransformerTest
       assertTrue(expected.epsilonEquals(actual, 1.0e-5));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFootstepDataMessage()
    {
@@ -148,7 +142,6 @@ public class MessageTransformerTest
       assertTrue(expected.epsilonEquals(actual, 1.0e-5));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFootstepDataListMessage()
    {
@@ -175,7 +168,6 @@ public class MessageTransformerTest
       assertTrue(expected.epsilonEquals(actual, 1.0e-5));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVehiclePosePacket()
    {
@@ -195,7 +187,6 @@ public class MessageTransformerTest
       assertTrue(expected.epsilonEquals(actual, 1.0e-5));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testVideoPacket()
    {

@@ -19,7 +19,6 @@ import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelSta
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelStates.walkingController.states.WalkingStateEnum;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -133,7 +132,6 @@ public abstract class AvatarFlatGroundSideSteppingTest implements MultiRobotTest
       return new FootstepDataListMessage();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testSideStepping() throws SimulationExceededMaximumTimeException
    {
@@ -173,7 +171,6 @@ public abstract class AvatarFlatGroundSideSteppingTest implements MultiRobotTest
       controllerSpy.assertCheckpointsReached();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testSideSteppingWithForceDisturbances() throws SimulationExceededMaximumTimeException
    {

@@ -10,11 +10,8 @@ import org.junit.After;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.interfaces.ConvexPolygon2DReadOnly;
 import us.ihmc.euclid.geometry.interfaces.Vertex2DSupplier;
@@ -34,7 +31,6 @@ public class ConvexPolygonShrinkerTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleSquareConvexPolygonShrinking()
    {
@@ -64,7 +60,6 @@ public class ConvexPolygonShrinkerTest
       assertEquals(1, shrunkenPolygon.getNumberOfVertices());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleTriangleConvexPolygonShrinking()
    {
@@ -93,7 +88,6 @@ public class ConvexPolygonShrinkerTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleLineConvexPolygonShrinking()
    {
@@ -119,7 +113,6 @@ public class ConvexPolygonShrinkerTest
       assertEquals(1, shrunkenPolygon.getNumberOfVertices());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimplePointConvexPolygonShrinking()
    {
@@ -136,7 +129,6 @@ public class ConvexPolygonShrinkerTest
       EuclidCoreTestTools.assertTuple2DEquals(new Point2D(-1.0, 3.0), shrunkenPolygon.getVertexCCW(0), 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testShrinkingRandomPolygonsAreCompletelyInsideOriginalPolygons()
    {

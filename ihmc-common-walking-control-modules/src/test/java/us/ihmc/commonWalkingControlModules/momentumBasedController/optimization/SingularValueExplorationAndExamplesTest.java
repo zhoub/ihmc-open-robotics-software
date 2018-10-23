@@ -9,7 +9,6 @@ import org.ejml.ops.CommonOps;
 import org.junit.AfterClass;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.testing.JUnitTools;
@@ -22,7 +21,6 @@ public class SingularValueExplorationAndExamplesTest
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleCase()
    {
@@ -59,7 +57,6 @@ public class SingularValueExplorationAndExamplesTest
       JUnitTools.assertMatrixEquals(matrixJ, matrixJReconstructed, 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void showIMinusNNTransposeJDoesntMakeSense()
    {
@@ -151,7 +148,6 @@ public class SingularValueExplorationAndExamplesTest
       return ret;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void foo2()
    {

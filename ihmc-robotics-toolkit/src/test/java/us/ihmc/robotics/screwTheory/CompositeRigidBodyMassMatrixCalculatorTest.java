@@ -9,7 +9,6 @@ import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -32,7 +31,6 @@ public class CompositeRigidBodyMassMatrixCalculatorTest extends MassMatrixCalcul
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testKineticEnergy()
    {
@@ -47,7 +45,6 @@ public class CompositeRigidBodyMassMatrixCalculatorTest extends MassMatrixCalcul
       assertEquals(expectedKineticEnergy, kineticEnergyFromMassMatrix, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSixDoFJoint()
    {
@@ -76,7 +73,6 @@ public class CompositeRigidBodyMassMatrixCalculatorTest extends MassMatrixCalcul
       JUnitTools.assertMatrixEquals(inertiaMatrix, massMatrix, 1e-5);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFloatingTree()
    {

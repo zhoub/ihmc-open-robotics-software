@@ -7,7 +7,6 @@ import org.junit.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.referenceFrames.ReferenceFrameHashTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
@@ -21,7 +20,6 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test(timeout = 30000, expected = IllegalArgumentException.class)
    public void testAddingTwoFramesWithTheSameNameThrowsException()
    {
@@ -29,7 +27,6 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test(timeout = 30000)
    public void testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -37,7 +34,6 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.7)
    @Test(timeout = 30000)
    public void testAllFramesGottenFromHumanoidReferenceFrameMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
@@ -46,7 +42,6 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 1.2)
    @Test(timeout = 30000)
    public void testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode()
    {
@@ -54,7 +49,6 @@ public class ValkyrieReferenceFrameHashTest extends ReferenceFrameHashTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test(timeout = 30000)
    public void testGetReferenceFrameFromHashCodeReturnsSameNamedFrames()
    {

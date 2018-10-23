@@ -9,7 +9,6 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.NameSpace;
@@ -21,7 +20,6 @@ public class YoWhiteBoardTest
 {
    private static final boolean VERBOSE = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000,expected = RuntimeException.class)
    public void testWriteNotConnected() throws IOException
    {
@@ -29,7 +27,6 @@ public class YoWhiteBoardTest
       whiteBoard.writeData();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000,expected = RuntimeException.class)
    public void testReadNotConnected() throws IOException
    {

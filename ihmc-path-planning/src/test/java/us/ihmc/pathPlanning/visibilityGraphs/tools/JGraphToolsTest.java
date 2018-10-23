@@ -11,7 +11,6 @@ import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -26,7 +25,6 @@ public class JGraphToolsTest
    private static final double EPSILON = 1.0e-12;
 
    @Test(timeout = 30000)
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    public void testRedundantPathBugTwoStages()
    {
       Random random = new Random(34667);
@@ -77,7 +75,6 @@ public class JGraphToolsTest
    }
 
    @Test(timeout = 30000)
-   @ContinuousIntegrationTest(estimatedDuration = 1.9)
    public void testRedundantPathBugRandomNumberOfStages()
    {
       Random random = new Random(34667);

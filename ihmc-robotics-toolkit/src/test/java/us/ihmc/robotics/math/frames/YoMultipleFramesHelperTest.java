@@ -11,7 +11,6 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -27,7 +26,6 @@ public class YoMultipleFramesHelperTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testCommonUsageOfYoMultipleFramesHelper()
    {
@@ -58,7 +56,6 @@ public class YoMultipleFramesHelperTest
       assertEquals(3, referenceFrames.size());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testRepeatFrames()
    {
@@ -73,7 +70,6 @@ public class YoMultipleFramesHelperTest
       assertEquals("Should ignore repeat frames!", 1, helper.getNumberOfReferenceFramesRegistered());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testExceptions()
    {

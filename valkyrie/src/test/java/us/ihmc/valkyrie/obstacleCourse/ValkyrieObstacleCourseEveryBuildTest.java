@@ -5,11 +5,8 @@ import org.junit.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseEveryBuildTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
@@ -32,7 +29,6 @@ public class ValkyrieObstacleCourseEveryBuildTest extends DRCObstacleCourseEvery
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 113.1)
    @Test(timeout = 570000)
    public void testSimpleFlatGroundScript() throws SimulationExceededMaximumTimeException
    {
@@ -40,7 +36,6 @@ public class ValkyrieObstacleCourseEveryBuildTest extends DRCObstacleCourseEvery
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 76.5)
    @Test(timeout = 380000)
    public void testWalkingUpToRampWithLongSteps() throws SimulationExceededMaximumTimeException
    {

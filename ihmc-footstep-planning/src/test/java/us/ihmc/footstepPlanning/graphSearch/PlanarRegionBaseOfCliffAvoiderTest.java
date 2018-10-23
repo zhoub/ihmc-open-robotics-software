@@ -3,11 +3,8 @@ package us.ihmc.footstepPlanning.graphSearch;
 import org.junit.Test;
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
@@ -42,7 +39,6 @@ public class PlanarRegionBaseOfCliffAvoiderTest
    private final boolean doAsserts = true;
    private final Random random = new Random(4587L);
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testBaseOfCliffAvoiderWithSimpleQueriesOnABlock()
    {
@@ -116,7 +112,6 @@ public class PlanarRegionBaseOfCliffAvoiderTest
       assertTrue(avoider.isNodeValid(node, null));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 3000000)
    public void testAvoidingRotatedAndElevatedCliff()
    {

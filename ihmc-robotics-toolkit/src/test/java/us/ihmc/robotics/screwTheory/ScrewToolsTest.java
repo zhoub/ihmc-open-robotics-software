@@ -17,7 +17,6 @@ import org.junit.Test;
 
 import gnu.trove.list.array.TIntArrayList;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.matrix.Matrix3D;
@@ -130,7 +129,6 @@ public class ScrewToolsTest
       return excludedJoints;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAddRevoluteJoint_String_RigidBody_Vector3d_Vector3d()
    {
@@ -159,7 +157,6 @@ public class ScrewToolsTest
       assertTrue(jointAxis.equals(joint.getJointAxis()));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAddRevoluteJoint_String_RigidBody_Transform3D_Vector3d()
    {
@@ -175,7 +172,6 @@ public class ScrewToolsTest
       assertTrue(jointAxis.equals(joint.getJointAxis()));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAddPrismaticJoint_String_RigidBody_Vector3d_Vector3d()
    {
@@ -190,7 +186,6 @@ public class ScrewToolsTest
       assertTrue(parentBody.equals(joint.getPredecessor()));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAddPrismaticJoint_String_RigidBody_Transform3D_Vector3d()
    {
@@ -205,7 +200,6 @@ public class ScrewToolsTest
       assertTrue(parentBody.equals(joint.getPredecessor()));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAddRigidBody_String_InverseDynamicsJoint_Matrix3d_double_Vector3d()
    {
@@ -221,7 +215,6 @@ public class ScrewToolsTest
       assertTrue(parentJoint.equals(body.getParentJoint()));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAddRigidBody_String_InverseDynamicsJoint_Matrix3d_double_Transform3D()
    {
@@ -238,7 +231,6 @@ public class ScrewToolsTest
       assertTrue(parentJoint.equals(body.getParentJoint()));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeSuccessors()
    {  
@@ -259,7 +251,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeSubtreeSuccessors_InverseDynamicsJoint_RigidBody()
    {
@@ -278,7 +269,6 @@ public class ScrewToolsTest
       assertEquals("Should be equal", 0.0, subtreeSuccessors.length, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeSubtreeSuccessors_RigidBody()
    {
@@ -294,7 +284,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeSubtreeSuccessors_InverseDynamicsJoint()
    {
@@ -314,7 +303,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeSupportAndSubtreeSuccessors_RigidBody()
    {
@@ -327,7 +315,6 @@ public class ScrewToolsTest
       assertEquals(numberOfBodies - 1, successors.length);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeSupportAndSubtreeJoints_RigidBody()
    {
@@ -340,7 +327,6 @@ public class ScrewToolsTest
       assertEquals(numberOfJoints, successors.length);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeSupportJoints_RigidBody()
    {
@@ -355,7 +341,6 @@ public class ScrewToolsTest
       assertEquals(jointsSupportingSecondLevelSubTree * numberOfChainsUsed, supportJoints.length);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeSubtreeJoints_RigidBody()
    {
@@ -373,7 +358,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeSubtreeJoints_RigidBodyLIST()
    {
@@ -404,7 +388,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetRootBody()
    {
@@ -412,7 +395,6 @@ public class ScrewToolsTest
       assertTrue(randomBody.isRootBody());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateParentMap()
    {
@@ -438,7 +420,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetTauMatrix()
    {
@@ -453,7 +434,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateJointPath()
    {
@@ -473,7 +453,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIsAncestor()
    {
@@ -495,7 +474,6 @@ public class ScrewToolsTest
       assertFalse(ScrewTools.isAncestor(d0, d3)); //descendant 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeDistanceToAncestor()
    {
@@ -517,7 +495,6 @@ public class ScrewToolsTest
       assertEquals(-1, ScrewTools.computeDistanceToAncestor(d0, d3)); //descendant 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackJointVelocitiesMatrix_Array()
    {
@@ -540,7 +517,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackJointVelocitiesMatrix_Iterable()
    {
@@ -568,7 +544,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackDesiredJointAccelerationsMatrix()
    {
@@ -591,7 +566,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeDegreesOfFreedom_Array()
    {
@@ -612,7 +586,6 @@ public class ScrewToolsTest
       assertEquals(11, result);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeDegreesOfFreedom_Iterable()
    {
@@ -634,7 +607,6 @@ public class ScrewToolsTest
       ScrewTools.computeDegreesOfFreedom(jointsList);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateGravitationalSpatialAcceleration()
    {
@@ -657,7 +629,6 @@ public class ScrewToolsTest
       assertEquals(gravity, linearPart.getZ(), epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSetDesiredAccelerations()
    {
@@ -689,7 +660,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSetVelocities()
    {
@@ -721,7 +691,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeIndicesForJoint()
    {
@@ -743,7 +712,6 @@ public class ScrewToolsTest
       assertEquals(10, indices.get(indices.size() - 1));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testExtractRevoluteJoints()
    {
@@ -759,7 +727,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeNumberOfJointsOfType()
    {
@@ -774,7 +741,6 @@ public class ScrewToolsTest
       assertEquals(jointsArr.length - 1, numberRev);      
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testFilterJoints()
    {
@@ -804,7 +770,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testFilterJoints_dest()
    {
@@ -836,7 +801,6 @@ public class ScrewToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testFindJointsWithNames()
    {
@@ -860,7 +824,6 @@ public class ScrewToolsTest
       matches = ScrewTools.findJointsWithNames(allJoints, "chainAjoint0");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testFindRigidBodiesWithNames_RigidBody_String()
    {
@@ -887,7 +850,6 @@ public class ScrewToolsTest
             "chainBbody3", "chainBbody4", "chainCbody0", "chainCbody1", "chainCbody2", "chainCbody3", "chainCbody4");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAddExternalWrenches()
    {

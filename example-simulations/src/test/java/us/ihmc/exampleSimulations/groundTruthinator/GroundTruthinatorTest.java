@@ -9,7 +9,6 @@ import org.junit.After;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -28,7 +27,6 @@ public class GroundTruthinatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 30000)
    public void testSimpleTranslationGroundTruthinator()
    {
@@ -98,7 +96,6 @@ public class GroundTruthinatorTest
 
 
    @Disabled
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleRotationGroundTruthinator()
    {

@@ -15,11 +15,8 @@ import org.junit.Test;
 
 import com.jme3.math.FastMath;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.tools.UnitConversions;
 
@@ -30,7 +27,6 @@ public class LineModDetectorTest
    static final String modelFile="drill_DCS551/drillUI.obj";
 //   static final String modelFile=""/examples/drill/drill.obj";
          
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test(timeout=3000)
    public void testGenerateVertexes()
    {
@@ -41,7 +37,6 @@ public class LineModDetectorTest
       org.junit.Assert.assertEquals(257,vertexes.size());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 3.0)
    @Test(timeout=3000)
    public void trainOneTestOne() throws IOException
    {
@@ -76,7 +71,6 @@ public class LineModDetectorTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test(timeout = 3000)
    public void trainOneTestOneScaled() throws IOException
    {
@@ -104,7 +98,6 @@ public class LineModDetectorTest
       assertTrue(bestDetection.score> 0.94);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test(timeout = 5000)
    public void testFeatureSaveLoad()
    {
@@ -130,7 +123,6 @@ public class LineModDetectorTest
       System.out.println("score:"+bestDetection.score);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 3.0)
    @Test(timeout=120000)
    public void testYawAngles() 
    {

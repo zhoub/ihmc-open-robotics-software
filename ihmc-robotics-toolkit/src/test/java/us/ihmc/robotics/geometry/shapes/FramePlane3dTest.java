@@ -5,11 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FrameLine3D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -31,7 +28,6 @@ public class FramePlane3dTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIsOnOrAbove()
    {
@@ -44,7 +40,6 @@ public class FramePlane3dTest
       assertFalse(plane.isOnOrAbove(q));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIsOnOrBelow()
    {
@@ -55,7 +50,6 @@ public class FramePlane3dTest
       assertFalse(plane.isOnOrBelow(q));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testOrthogonalProjection()
    {
@@ -71,7 +65,6 @@ public class FramePlane3dTest
       assertTrue(expectedPoint.epsilonEquals(plane.orthogonalProjectionCopy(point), 1e-14));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testDistance()
    {
@@ -85,7 +78,6 @@ public class FramePlane3dTest
       assertEquals(Math.sqrt(2), plane.distance(point), epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testApplyTransform()
    {
@@ -127,7 +119,6 @@ public class FramePlane3dTest
       assertTrue(plane5.epsilonEquals(new FramePlane3d(expectedNormal, expectedPoint), epsilon));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIntersectionWithLine()
    {

@@ -17,11 +17,8 @@ import java.util.concurrent.Future;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.geometry.InclusionFunction;
 import us.ihmc.robotics.geometry.InsufficientDataException;
@@ -44,7 +41,6 @@ public abstract class AbstractHeightMapTest
       super();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSinglePoint()
    {
@@ -75,7 +71,6 @@ public abstract class AbstractHeightMapTest
       assertSinglePointGridHandlesPoint(x, y, xIndex, yIndex, z);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGettingAreas()
    {
@@ -133,7 +128,6 @@ public abstract class AbstractHeightMapTest
    }
    */
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testUnhandledPoints()
    {
@@ -191,7 +185,6 @@ public abstract class AbstractHeightMapTest
    }
    public abstract HeightMapWithPoints getHeightMap(double minX, double minY, double maxX, double maxY, double resolution);
 
-	@ContinuousIntegrationTest(estimatedDuration = 2.0)
 	@Test(timeout = 30000)
    public void rowModificationSynchronizationTest()
    {
@@ -289,7 +282,6 @@ public abstract class AbstractHeightMapTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testKernelMasking() throws InsufficientDataException
    {

@@ -7,16 +7,11 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPPointName;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Tag("fast")
 public class CoPPlanningToolsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testArrayLinearSearch()
    {
@@ -24,7 +19,6 @@ public class CoPPlanningToolsTest
       assertTrue(CoPPlanningTools.getCoPPointIndex(list, CoPPointName.MIDFOOT_COP) == 2);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testArrayLinearSearchMissingPoint()
    {
@@ -32,7 +26,6 @@ public class CoPPlanningToolsTest
       assertTrue(CoPPlanningTools.getCoPPointIndex(list, CoPPointName.MIDFEET_COP) == -1);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testArrayListLinearSearch()
    {
@@ -45,7 +38,6 @@ public class CoPPlanningToolsTest
       assertTrue(CoPPlanningTools.getCoPPointIndex(list, CoPPointName.ENTRY_COP) == 1);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testArrayListLinearSearchMissingPoint()
    {

@@ -13,7 +13,6 @@ import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -74,7 +73,6 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       return 0.15;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.6)
    @Test(timeout = 150000)
    /**
     * End to end test that makes sure the robot can recover from a push using upper body momentum
@@ -90,7 +88,6 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       assertTrue(standAndPush());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 21.5)
    @Test(timeout = 110000)
    /**
     * End to end test that makes sure the robot falls during test if momentum is disabled
@@ -106,7 +103,6 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       assertFalse(standAndPush());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 34.3)
    @Test(timeout = 170000)
    /**
     * End to end test that makes sure the robot can recover from a push using upper body momentum
@@ -122,7 +118,6 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       assertTrue(stepAndPush());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 23.2)
    @Test(timeout = 120000)
    /**
     * End to end test that makes sure the robot falls during test if momentum is disabled
@@ -138,7 +133,6 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       assertFalse(stepAndPush());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 37.9)
    @Test(timeout = 190000)
    /**
     * End to end test that makes sure the momentum recovery does not get triggered during

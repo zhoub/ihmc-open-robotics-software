@@ -17,10 +17,8 @@ import com.joptimizer.functions.LinearMultivariateRealFunction;
 import com.joptimizer.optimizers.JOptimizer;
 import com.joptimizer.optimizers.OptimizationRequest;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.linearAlgebra.MatrixTools;
 
 public abstract class ConvexOptimizationAdapterTest
@@ -63,7 +61,6 @@ public abstract class ConvexOptimizationAdapterTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testASimpleRedundantEqualityCase()
    {
@@ -79,7 +76,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(2.0, solution[0], getTestErrorEpsilon());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testASimpleRedundantEqualityCase2d()
    {
@@ -96,7 +92,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(1.0, solution[1], getTestErrorEpsilon());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
   public void JOptimizerWebpageLPExample() throws Exception
   {
@@ -145,7 +140,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(0, sol2[1], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testASimpleInequalityCase() throws Exception
    {
@@ -160,7 +154,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(2.0, solution[0], 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testASimpleMaximizationInequalityCase()
    {
@@ -200,7 +193,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(Math.sqrt(2.0), solution[1], 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testLinearCostFullyLinearConstrainedEqualityOptimizationProblem()
    {
@@ -222,7 +214,6 @@ public abstract class ConvexOptimizationAdapterTest
       assertEquals(1.0, solution[1], getTestErrorEpsilon());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testZeroCostLinearEqualityOptimizationProblem() throws Exception
    {

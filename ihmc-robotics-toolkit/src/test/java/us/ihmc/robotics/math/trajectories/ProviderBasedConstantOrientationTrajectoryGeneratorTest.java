@@ -10,7 +10,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
@@ -51,7 +50,6 @@ public class ProviderBasedConstantOrientationTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstructor()
    {
@@ -83,7 +81,6 @@ public class ProviderBasedConstantOrientationTrajectoryGeneratorTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIsDone()
    {
@@ -96,7 +93,6 @@ public class ProviderBasedConstantOrientationTrajectoryGeneratorTest
       assertTrue(provider.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGet()
    {
@@ -108,7 +104,6 @@ public class ProviderBasedConstantOrientationTrajectoryGeneratorTest
       assertEquals(referenceFrame, orientationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackAngularVelocity()
    {      
@@ -125,7 +120,6 @@ public class ProviderBasedConstantOrientationTrajectoryGeneratorTest
      assertSame(referenceFrame, angularVelocityToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackAngularAcceleration()
    {      
@@ -142,7 +136,6 @@ public class ProviderBasedConstantOrientationTrajectoryGeneratorTest
       assertSame(referenceFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackAngularData()
    {

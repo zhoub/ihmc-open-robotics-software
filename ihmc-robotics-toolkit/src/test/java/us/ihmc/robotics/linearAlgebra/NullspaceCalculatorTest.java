@@ -6,8 +6,6 @@ import org.ejml.interfaces.linsol.LinearSolver;
 import org.ejml.ops.CommonOps;
 import org.junit.Test;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import java.util.Random;
@@ -18,7 +16,6 @@ public abstract class NullspaceCalculatorTest
 {
    public abstract NullspaceCalculator getNullspaceProjectorCalculator();
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleNullspaceProjector()
    {
@@ -110,7 +107,6 @@ public abstract class NullspaceCalculatorTest
          assertEquals(nullspaceProjectorExpected.get(i), nullspaceProjector.get(i), 1e-5);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleProjectOntoNullspace()
    {
@@ -223,7 +219,6 @@ public abstract class NullspaceCalculatorTest
       assertEquals(0.0, projectedVector.get(1, 4), epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.7)
    @Test(timeout = 30000)
    public void testRandomProblemsAgainstTrueLeastSquaresProjection()
    {

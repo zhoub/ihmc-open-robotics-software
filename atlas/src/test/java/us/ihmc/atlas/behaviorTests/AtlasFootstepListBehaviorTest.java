@@ -7,11 +7,8 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.behaviorTests.DRCFootstepListBehaviorTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -38,7 +35,6 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.1)
    @Test(timeout = 290000)
    public void testSideStepping() throws SimulationExceededMaximumTimeException
    {
@@ -46,7 +42,6 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 34.5)
    @Test(timeout = 170000)
    public void testStepLongerThanMaxStepLength() throws SimulationExceededMaximumTimeException
    {
@@ -54,7 +49,6 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 71.3)
    @Test(timeout = 360000)
    public void testStop() throws SimulationExceededMaximumTimeException
    {
@@ -62,7 +56,6 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 54.9)
    @Test(timeout = 270000)
    public void testTwoStepsForwards() throws SimulationExceededMaximumTimeException
    {

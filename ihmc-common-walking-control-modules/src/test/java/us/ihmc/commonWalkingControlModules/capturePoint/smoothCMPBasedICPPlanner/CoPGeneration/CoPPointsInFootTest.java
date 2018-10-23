@@ -12,11 +12,8 @@ import org.junit.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPPointName;
 import us.ihmc.commons.Epsilons;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -66,7 +63,6 @@ public class CoPPointsInFootTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testAddCoPPointToList()
    {
@@ -80,7 +76,6 @@ public class CoPPointsInFootTest
       assertTrue(copPointsInFoot.getCoPPointList().isEmpty());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testAddAndSetIncludingFrameWithFramePoint()
    {
@@ -94,7 +89,6 @@ public class CoPPointsInFootTest
       assertEquals(0.2, copPointsInFoot.get(0).getTime(), epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testAddAndSetIncludingFrameWithYoFramePoint()
    {
@@ -116,7 +110,6 @@ public class CoPPointsInFootTest
       assertEquals(0.12, copPointsInFoot.get(1).getTime(), epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testAddAndSetIncludingFrameWithCoPTrajectoryPoint()
    {
@@ -139,7 +132,6 @@ public class CoPPointsInFootTest
       EuclidFrameTestTools.assertFramePoint3DGeometricallyEquals(testLocation2.getPosition(), tempFramePointForTesting, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testSetFeetLocations()
    {
@@ -156,7 +148,6 @@ public class CoPPointsInFootTest
       assertEquals(framePointForTesting.getZ(), 6.6, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testChangeFrame()
    {
@@ -182,7 +173,6 @@ public class CoPPointsInFootTest
       assertEquals(tempFramePoint.getZ(), 0.11 + zToAnkle, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testRegisterFrame()
    {
@@ -219,7 +209,6 @@ public class CoPPointsInFootTest
       assertEquals(tempFramePoint.getZ(), 0.11 + newFrameOriginZ, epsilon);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testVisualization()
    {

@@ -7,7 +7,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.dataStructures.Polynomial;
@@ -24,7 +23,6 @@ public class SingleRealModeTest
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testDifferentLengths()
    {
@@ -42,7 +40,6 @@ public class SingleRealModeTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testDotEqualsOne()
    {
@@ -61,7 +58,6 @@ public class SingleRealModeTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstructTransferFunctionMatrixSISO()
    {
@@ -89,7 +85,6 @@ public class SingleRealModeTest
       DynamicSystemsTestHelpers.assertEpsilonEquals(new double[] {1.0, -eigenvalue}, denominatorCoefficients, 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstructTransferFunctionMatrixMIMO()
    {

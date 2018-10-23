@@ -5,11 +5,8 @@ import org.junit.Test;
 import us.ihmc.avatar.DRCFlatGroundRewindabilityTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.UnreasonableAccelerationException;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
@@ -32,7 +29,6 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 9.2)
    @Test(timeout = 520000)
    public void testCanRewindAndGoForward() throws UnreasonableAccelerationException
    {
@@ -57,7 +53,6 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 43.4)
    @Test(timeout = 520000)
    public void testRunsTheSameWayTwice() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException, ControllerFailureException
    {

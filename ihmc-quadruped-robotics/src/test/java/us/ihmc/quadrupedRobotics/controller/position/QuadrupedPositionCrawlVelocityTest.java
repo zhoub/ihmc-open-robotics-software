@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
@@ -55,7 +54,6 @@ public abstract class QuadrupedPositionCrawlVelocityTest implements QuadrupedMul
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 90.0)
    @Test(timeout = 600000)
    public void testWalkingForward() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -68,7 +66,6 @@ public abstract class QuadrupedPositionCrawlVelocityTest implements QuadrupedMul
       conductor.simulate();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 600000)
    public void testWalkingBackward() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

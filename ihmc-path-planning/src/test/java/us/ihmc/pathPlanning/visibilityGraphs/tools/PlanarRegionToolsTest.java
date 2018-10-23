@@ -13,7 +13,6 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -37,7 +36,6 @@ public class PlanarRegionToolsTest
    private static final double EPSILON = 1.0e-12;
 
    @Test(timeout = 30000)
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testTruncatePlanarRegionIfIntersectingWithPlane() throws Exception
    {
       Point3D groundOrigin = new Point3D();
@@ -80,7 +78,6 @@ public class PlanarRegionToolsTest
    }
 
    @Test(timeout = 30000)
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    public void testIsInsidePolygon() throws Exception
    {
       Random random = new Random(324534L);
@@ -118,7 +115,6 @@ public class PlanarRegionToolsTest
    }
 
    @Test(timeout = 30000)
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testIsInsidePolygonBug1() throws Exception
    {
       Point2D[] polygon = {new Point2D(-0.3, 0.5), new Point2D(0.3, 0.5), new Point2D(0.3, -0.5), new Point2D(-0.3, -0.5)};

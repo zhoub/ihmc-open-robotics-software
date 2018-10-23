@@ -4,17 +4,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.graphicsDescription.input.mouse.Mouse3DPollData;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Tag("fast")
 public class Mouse3DJoystickPollDataTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPollData()
    {

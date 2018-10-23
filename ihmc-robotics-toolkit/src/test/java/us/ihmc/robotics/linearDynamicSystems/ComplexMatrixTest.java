@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Jama.Matrix;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.dataStructures.ComplexNumber;
@@ -91,7 +90,6 @@ public class ComplexMatrixTest
       allExamples = null;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIdentity()
    {
@@ -101,7 +99,6 @@ public class ComplexMatrixTest
       }), 1e-7));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetRowAndColumnDimensions()
    {
@@ -124,7 +121,6 @@ public class ComplexMatrixTest
       assertEquals(4, threeByFour.getColumnDimension());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testEpsilonEquals()
    {
@@ -140,7 +136,6 @@ public class ComplexMatrixTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstructDiagonalMatrix()
    {
@@ -164,7 +159,6 @@ public class ComplexMatrixTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testTranspose()
    {
@@ -185,7 +179,6 @@ public class ComplexMatrixTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testTimes()
    {
@@ -211,7 +204,6 @@ public class ComplexMatrixTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testMatrixTimes()
    {
@@ -234,7 +226,6 @@ public class ComplexMatrixTest
       assertTrue(result12.epsilonEquals(result.get(1, 2), 1e-7));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testInverse()
    {

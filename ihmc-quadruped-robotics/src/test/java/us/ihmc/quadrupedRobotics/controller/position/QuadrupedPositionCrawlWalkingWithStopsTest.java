@@ -7,10 +7,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
 import us.ihmc.quadrupedRobotics.QuadrupedPositionTestYoVariables;
 import us.ihmc.quadrupedRobotics.QuadrupedTestBehaviors;
@@ -57,7 +55,6 @@ public abstract class QuadrupedPositionCrawlWalkingWithStopsTest implements Quad
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 150.0)
    @Test(timeout = 600000)
    public void testWalkingForwardFastWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -79,7 +76,6 @@ public abstract class QuadrupedPositionCrawlWalkingWithStopsTest implements Quad
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test(timeout = 600000)
    public void testWalkingForwardSlowWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -101,7 +97,6 @@ public abstract class QuadrupedPositionCrawlWalkingWithStopsTest implements Quad
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 150.0)
    @Test(timeout = 600000)
    public void testWalkingBackwardSlowWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

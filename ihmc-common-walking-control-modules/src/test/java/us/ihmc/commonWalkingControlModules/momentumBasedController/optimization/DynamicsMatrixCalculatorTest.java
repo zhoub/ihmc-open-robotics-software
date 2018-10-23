@@ -15,7 +15,6 @@ import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControlCoreTo
 import us.ihmc.commonWalkingControlModules.momentumBasedController.HighLevelHumanoidControllerToolbox;
 import us.ihmc.commonWalkingControlModules.wrenchDistribution.WrenchMatrixCalculator;
 import us.ihmc.commons.PrintTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -73,7 +72,6 @@ public class DynamicsMatrixCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testEquivalence() throws Exception
    {
@@ -102,7 +100,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testMassMatrixOnly() throws Exception
    {
@@ -131,7 +128,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testNoLoad() throws Exception
    {
@@ -155,7 +151,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGravityOnly() throws Exception
    {
@@ -179,7 +174,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGravityAndCoriolisOnly() throws Exception
    {
@@ -204,7 +198,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testMassMatrixAndGravityOnly() throws Exception
    {
@@ -231,7 +224,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testMassMatrixAndCoriolisOnly() throws Exception
    {
@@ -259,7 +251,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testMassMatrixGravityAndCoriolisOnly() throws Exception
    {
@@ -287,7 +278,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testForceAndGravityOnly() throws Exception
    {
@@ -311,7 +301,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testForceGravityAndCoriolisOnly() throws Exception
    {
@@ -336,7 +325,6 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testOther() throws Exception
    {

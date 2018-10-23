@@ -27,11 +27,8 @@ import us.ihmc.commonWalkingControlModules.desiredFootStep.footstepGenerator.Foo
 import us.ihmc.commons.Epsilons;
 import us.ihmc.commons.lists.RecyclingArrayList;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -369,7 +366,6 @@ public class SmoothCMPBasedICPPlannerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.9)
    @Test(timeout = 30000)
    public void testForDiscontinuitiesWithoutAngularMomentum()
    {
@@ -379,7 +375,6 @@ public class SmoothCMPBasedICPPlannerTest
       simulate(true, false, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.8)
    @Test(timeout = 30000)
    public void testForDiscontinuitiesWithAngularMomentum()
    {
@@ -389,7 +384,6 @@ public class SmoothCMPBasedICPPlannerTest
       simulate(true, false, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.0)
    @Test(timeout = 3000000)
    public void testForPlanningConsistencyWithoutAngularMomentum()
    {
@@ -399,7 +393,6 @@ public class SmoothCMPBasedICPPlannerTest
       simulate(false, true, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.5)
    @Test(timeout = 30000)
    public void testForPlanningConsistencyWithAngularMomentum()
    {
@@ -410,7 +403,6 @@ public class SmoothCMPBasedICPPlannerTest
       simulate(false, true, true);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.5)
    @Test(timeout = 30000)
    public void testForPlanningConsistencyWithAndWithoutContinuousReplanning()
    {

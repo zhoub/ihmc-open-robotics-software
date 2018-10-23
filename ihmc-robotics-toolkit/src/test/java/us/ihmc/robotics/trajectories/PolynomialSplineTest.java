@@ -7,7 +7,6 @@ import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -23,7 +22,6 @@ public class PolynomialSplineTest
       registry = new YoVariableRegistry("test");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetPosition()
    {
@@ -39,7 +37,6 @@ public class PolynomialSplineTest
       assertEquals(yCheck, y, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetVelocity()
    {
@@ -60,7 +57,6 @@ public class PolynomialSplineTest
       assertEquals(dydxNumerical, dydx, 1e-6);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetAcceleration()
    {
@@ -81,7 +77,6 @@ public class PolynomialSplineTest
       assertEquals(d2ydx2Numerical, d2ydx2, 1e-6);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetIntegral()
    {
@@ -97,7 +92,6 @@ public class PolynomialSplineTest
       assertEquals(expected, actual, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSetBasedOnMidPoint()
    {
@@ -126,7 +120,6 @@ public class PolynomialSplineTest
       assertEquals(zdFinal, spline.getVelocity(), epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSetBasedOnFinalAcceleration()
    {
@@ -152,7 +145,6 @@ public class PolynomialSplineTest
       assertEquals(zddFinal, spline.getAcceleration(), epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstant()
    {

@@ -13,7 +13,6 @@ import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
 import us.ihmc.commonWalkingControlModules.configurations.ICPWithTimeFreezingPlannerParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -81,7 +80,6 @@ public class AtlasFlatGroundForwardWalkingTest extends AvatarFlatGroundForwardWa
    private final Vector3D forceDirection2 = new Vector3D(1.0, 0.0, 0.0);
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.4)
    @Test(timeout = 290000)
    public void testForwardWalk() throws SimulationExceededMaximumTimeException
    {
@@ -89,7 +87,6 @@ public class AtlasFlatGroundForwardWalkingTest extends AvatarFlatGroundForwardWa
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 59.7)
    @Test(timeout = 300000)
    public void testForwardWalkWithForceDisturbances() throws SimulationExceededMaximumTimeException
    {

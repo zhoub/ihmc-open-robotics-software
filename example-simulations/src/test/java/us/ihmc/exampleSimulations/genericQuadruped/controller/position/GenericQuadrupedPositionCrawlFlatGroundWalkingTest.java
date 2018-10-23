@@ -1,11 +1,8 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.position.QuadrupedPositionCrawlFlatGroundWalkingTest;
@@ -24,7 +21,6 @@ public class GenericQuadrupedPositionCrawlFlatGroundWalkingTest extends Quadrupe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.0)
    @Test(timeout = 200000)
    public void testWalkingForwardFast() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -32,7 +28,6 @@ public class GenericQuadrupedPositionCrawlFlatGroundWalkingTest extends Quadrupe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.0)
    @Test(timeout = 200000)
    public void testWalkingForwardSlow() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -40,7 +35,6 @@ public class GenericQuadrupedPositionCrawlFlatGroundWalkingTest extends Quadrupe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.0)
    @Test(timeout = 200000)
    public void testWalkingBackwardsFast() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -48,7 +42,6 @@ public class GenericQuadrupedPositionCrawlFlatGroundWalkingTest extends Quadrupe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.0)
    @Test(timeout = 200000)
    public void testWalkingBackwardsSlow() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -56,7 +49,6 @@ public class GenericQuadrupedPositionCrawlFlatGroundWalkingTest extends Quadrupe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 70.0)
    @Test(timeout = 200000)
    public void testWalkingInAForwardLeftCircle() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -64,7 +56,6 @@ public class GenericQuadrupedPositionCrawlFlatGroundWalkingTest extends Quadrupe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 70.0)
    @Test(timeout = 200000)
    public void testWalkingInAForwardRightCircle() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -72,7 +63,6 @@ public class GenericQuadrupedPositionCrawlFlatGroundWalkingTest extends Quadrupe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 70.0)
    @Test(timeout = 200000)
    public void testWalkingInABackwardLeftCircle() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -80,7 +70,6 @@ public class GenericQuadrupedPositionCrawlFlatGroundWalkingTest extends Quadrupe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 70.0)
    @Test(timeout = 200000)
    public void testWalkingInABackwardRightCircle() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

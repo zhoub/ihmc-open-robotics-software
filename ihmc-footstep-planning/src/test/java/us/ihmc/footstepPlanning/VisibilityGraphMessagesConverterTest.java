@@ -3,7 +3,6 @@ package us.ihmc.footstepPlanning;
 import controller_msgs.msg.dds.*;
 import org.junit.Test;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -36,7 +35,6 @@ public class VisibilityGraphMessagesConverterTest
    private static final double epsilon = 1e-9;
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration =  1.0)
    @Test(timeout = 30000)
    public void testConvertToCluster()
    {
@@ -130,7 +128,6 @@ public class VisibilityGraphMessagesConverterTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration =  2.6)
    @Test(timeout = 30000)
    public void testConvertInterRegionsVisibilityMap()
    {
@@ -146,7 +143,6 @@ public class VisibilityGraphMessagesConverterTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration =  1.8)
    @Test(timeout = 30000)
    public void testConvertSingleSourceVisibilityMap()
    {
@@ -169,7 +165,6 @@ public class VisibilityGraphMessagesConverterTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration =  14.8)
    @Test(timeout = 30000)
    public void testConvertNavigableRegion()
    {
@@ -185,7 +180,6 @@ public class VisibilityGraphMessagesConverterTest
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration =  1.8)
    @Test(timeout = 30000)
    public void testConvertVisibilityMap()
    {
@@ -201,7 +195,6 @@ public class VisibilityGraphMessagesConverterTest
    }
 
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration =  135.9)
    @Test(timeout = 600000)
    public void testConvertBodyPathPlanStatistics()
    {

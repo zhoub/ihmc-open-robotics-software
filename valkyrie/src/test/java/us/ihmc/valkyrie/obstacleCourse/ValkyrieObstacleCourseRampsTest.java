@@ -5,11 +5,8 @@ import org.junit.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseRampsTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
@@ -33,7 +30,6 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 100.6)
    @Test(timeout = 500000)
    public void testWalkingDownRampWithMediumSteps() throws SimulationExceededMaximumTimeException
    {
@@ -41,7 +37,6 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 99.7)
    @Test(timeout = 500000)
    public void testWalkingUpRampWithMediumSteps() throws SimulationExceededMaximumTimeException
    {
@@ -49,7 +44,6 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 100.0)
    @Test(timeout = 500000)
    public void testWalkingUpRampWithShortSteps() throws SimulationExceededMaximumTimeException
    {
@@ -57,7 +51,6 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 104.2)
    @Test(timeout = 520000)
    public void testWalkingUpRampWithShortStepsALittleTooHigh() throws SimulationExceededMaximumTimeException
    {
@@ -65,7 +58,6 @@ public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 100.9)
    @Test(timeout = 500000)
    public void testWalkingUpRampWithShortStepsALittleTooLow() throws SimulationExceededMaximumTimeException
    {

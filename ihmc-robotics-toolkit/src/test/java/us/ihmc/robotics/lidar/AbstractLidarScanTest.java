@@ -4,7 +4,6 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
@@ -18,7 +17,6 @@ public class AbstractLidarScanTest
    Random rand = new Random(1098L);
    private static final double eps = 1e-7;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIdentityScan()
    {
@@ -39,7 +37,6 @@ public class AbstractLidarScanTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleScanRotating()
    {
@@ -68,7 +65,6 @@ public class AbstractLidarScanTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testInterpolationWhileRotating()
    {
@@ -112,14 +108,12 @@ public class AbstractLidarScanTest
 
 	
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testLineSegment()
    {
       // TODO Write test case
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRay()
    {

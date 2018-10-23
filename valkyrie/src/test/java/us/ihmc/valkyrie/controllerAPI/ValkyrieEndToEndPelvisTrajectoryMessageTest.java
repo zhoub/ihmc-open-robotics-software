@@ -5,7 +5,6 @@ import org.junit.Test;
 import us.ihmc.avatar.controllerAPI.EndToEndPelvisTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -28,7 +27,6 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 68.6)
    @Test(timeout = 340000)
    public void testHeightModeSwitchWhileWalking() throws Exception
    {
@@ -36,7 +34,6 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 67.1)
    @Test(timeout = 340000)
    public void testHeightUsingMultipleWaypoints() throws Exception
    {
@@ -44,7 +41,6 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 73.9)
    @Test(timeout = 370000)
    public void testHeightUsingMultipleWaypointsWhileWalking() throws Exception
    {
@@ -52,7 +48,6 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 24.1)
    @Test(timeout = 120000)
    public void testMultipleWaypoints() throws Exception
    {
@@ -60,7 +55,6 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 33.1)
    @Test(timeout = 170000)
    public void testSingleWaypoint() throws Exception
    {
@@ -68,7 +62,6 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 76.4)
    @Test(timeout = 380000)
    public void testSingleWaypointAndWalk() throws Exception
    {
@@ -76,7 +69,6 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 31.5)
    @Test(timeout = 160000)
    public void testStopAllTrajectory() throws Exception
    {
@@ -84,7 +76,6 @@ public class ValkyrieEndToEndPelvisTrajectoryMessageTest extends EndToEndPelvisT
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 91.2)
    @Test(timeout = 460000)
    public void testSingleWaypointThenManualChange() throws Exception
    {

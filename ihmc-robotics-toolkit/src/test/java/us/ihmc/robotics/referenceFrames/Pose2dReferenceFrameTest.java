@@ -9,7 +9,6 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
@@ -29,7 +28,6 @@ public class Pose2dReferenceFrameTest
    }
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAsynchronousUpdatesOne()
    {
@@ -65,7 +63,6 @@ public class Pose2dReferenceFrameTest
       assertTrue(framePointInWorldThree.epsilonEquals(framePointInWorldTwo, 1e-7));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test(timeout = 30000)
    public void testLongChainEfficiency()
    {
@@ -101,7 +98,6 @@ public class Pose2dReferenceFrameTest
       finalPosition3.changeFrame(worldFrame);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAsynchronousUpdatesTwo()
    {

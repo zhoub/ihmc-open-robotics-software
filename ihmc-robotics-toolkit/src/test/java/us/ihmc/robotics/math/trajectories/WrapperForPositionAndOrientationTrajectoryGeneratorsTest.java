@@ -10,7 +10,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -54,7 +53,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testInitialize()
    {
@@ -72,7 +70,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       generator.initialize();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCompute()
    {
@@ -90,7 +87,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       generator.compute(10.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIsDone()
    {
@@ -103,7 +99,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertTrue(generator.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGet()
    {
@@ -115,7 +110,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertEquals(referenceFrame, positionToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGet_Orientation()
    {
@@ -127,7 +121,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertEquals(referenceFrame, orientationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackVelocity()
    {
@@ -144,7 +137,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, velocityToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackAcceleration()
    {
@@ -161,7 +153,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackLinearData()
    {
@@ -204,7 +195,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackAngularVelocity()
    {
@@ -221,7 +211,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, angularVelocityToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackAngularAcceleration()
    {
@@ -238,7 +227,6 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPackAngularData()
    {

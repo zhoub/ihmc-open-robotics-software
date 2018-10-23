@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 import us.ihmc.commonWalkingControlModules.pushRecovery.PushRobotTestConductor;
 import us.ihmc.commons.PrintTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -81,7 +80,6 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test(timeout = 5000000)
    public void testTrottingFast()
    {
@@ -132,7 +130,6 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
       conductor.simulate();
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test(timeout = 5000000)
    public void testTrottingWithPush()
    {
@@ -193,7 +190,6 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
       conductor.simulate();
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test(timeout = 5000000)
    public void testMultiGait()
    {
@@ -300,7 +296,6 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
       conductor.simulate();
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test(timeout = 5000000)
    public void testWalkingUpStaircase() throws IOException
    {
@@ -355,7 +350,6 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
       conductor.simulate();
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test(timeout = 5000000)
    public void testWalkingDownStaircase() throws IOException
    {
@@ -422,7 +416,6 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
       conductor.simulate();
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test(timeout = 5000000)
    public void testWalkingOverCinderBlocks() throws IOException
    {
@@ -467,7 +460,6 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
       conductor.simulate();
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 120.0)
    @Test(timeout = 5000000)
    public void testTrottingOverAggressiveBumpyTerrain() throws IOException
    {

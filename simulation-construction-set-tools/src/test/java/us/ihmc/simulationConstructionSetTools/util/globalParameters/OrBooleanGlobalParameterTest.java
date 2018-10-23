@@ -6,8 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class OrBooleanGlobalParameterTest
@@ -26,7 +24,6 @@ public class OrBooleanGlobalParameterTest
       GlobalParameter.clearGlobalRegistry();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testSetThrowsException()
    {
@@ -55,7 +52,6 @@ public class OrBooleanGlobalParameterTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testAndBooleanGlobalParameter()
    {
@@ -78,7 +74,6 @@ public class OrBooleanGlobalParameterTest
       assertEquals(valueA || valueB, multiplicativeDoubleGlobalParameter.getValue());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testAndBooleanGlobalParameterUpdate()
    {
@@ -114,7 +109,6 @@ public class OrBooleanGlobalParameterTest
       assertEquals(valueA || valueB, multiplicativeDoubleGlobalParameter.getValue());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testFamilyTree()
    {

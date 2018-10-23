@@ -11,10 +11,8 @@ import us.ihmc.avatar.straightLegWalking.AvatarStraightLegWalkingTest;
 import us.ihmc.commonWalkingControlModules.configurations.*;
 import us.ihmc.commonWalkingControlModules.controlModules.legConfiguration.LegConfigurationGains;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.MomentumOptimizationSettings;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
 public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
@@ -22,7 +20,6 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
    private final AtlasRobotModel atlasRobotModel = new MyAtlasRobotModel();
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 300000)
    public void testForwardWalking() throws SimulationExceededMaximumTimeException
    {
@@ -30,7 +27,6 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 400000)
    public void testSlowerWalking() throws SimulationExceededMaximumTimeException
    {
@@ -38,7 +34,6 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 167.7)
    @Test(timeout = 200000000)
    public void testWalkingOverCinderBlockField() throws Exception
    {
@@ -46,7 +41,6 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 167.7)
    @Test(timeout = 520000)
    public void testWalkingOverStairs() throws Exception
    {

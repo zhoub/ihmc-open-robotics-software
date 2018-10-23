@@ -10,7 +10,6 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -20,7 +19,6 @@ import us.ihmc.robotics.kinematics.TransformInterpolationCalculator;
 
 public class TimeStampedTransformBufferTest
 {
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testEmptyBuffer()
    {
@@ -35,7 +33,6 @@ public class TimeStampedTransformBufferTest
          assertFalse(timeStampedPelvisPoseBuffer.isInRange(random.nextLong()));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testThatPosesAreProperlyStored()
    {
@@ -76,7 +73,6 @@ public class TimeStampedTransformBufferTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testThatPosesAreProperlyStoredEvenAfterFillingTheBuffer()
    {
@@ -118,7 +114,6 @@ public class TimeStampedTransformBufferTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testInterpolationBetweenPoses()
    {
@@ -166,7 +161,6 @@ public class TimeStampedTransformBufferTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.9)
    @Test(timeout = 30000)
    public void testInterpolationBetweenPosesAfterFillingBuffer()
    {

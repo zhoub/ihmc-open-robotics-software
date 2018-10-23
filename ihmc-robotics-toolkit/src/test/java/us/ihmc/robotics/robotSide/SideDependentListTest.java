@@ -12,14 +12,11 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class SideDependentListTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCommonUse()
    {
@@ -45,7 +42,6 @@ public class SideDependentListTest
       System.out.println(sideDependentList);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testWitGenericObjects()
    {
@@ -59,7 +55,6 @@ public class SideDependentListTest
       assertTrue(rightObject == sideDependentList.get(RobotSide.RIGHT));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000) 
    public void testCopyConstructor()
    {
@@ -79,7 +74,6 @@ public class SideDependentListTest
       
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = IndexOutOfBoundsException.class)
    public void testIndexOutOfBoundsException()
    {
@@ -98,7 +92,6 @@ public class SideDependentListTest
       iterator.next();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = UnsupportedOperationException.class)
    public void testIteratorCannotRemove()
    {
@@ -111,7 +104,6 @@ public class SideDependentListTest
       iterator.remove();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSet()
    {
@@ -131,7 +123,6 @@ public class SideDependentListTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateListOfHashMaps()
    {
@@ -154,7 +145,6 @@ public class SideDependentListTest
       assertEquals(sideDependentList.get(RobotSide.RIGHT).get(4.0), "4.0");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateListOfEnumMaps()
    {

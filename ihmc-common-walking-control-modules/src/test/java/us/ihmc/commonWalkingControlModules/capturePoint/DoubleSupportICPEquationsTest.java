@@ -6,19 +6,14 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 /**
  * Created by agrabertilton on 3/4/15.
  */
 @Tag("fast")
 public class DoubleSupportICPEquationsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSingleSupportICPDerivatives()
    {
@@ -40,7 +35,6 @@ public class DoubleSupportICPEquationsTest
       assertEquals(icpDot - w * icp, -w * zmp, 1e-14);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCoefficientCalculations()
    {
@@ -66,7 +60,6 @@ public class DoubleSupportICPEquationsTest
       assertEquals(icpDot - w * icp, -w * zmp, 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testZMPICPDerivatives()
    {
@@ -96,7 +89,6 @@ public class DoubleSupportICPEquationsTest
       assertEquals(icpDot - w * icp, -w * zmp, 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSingleCoefficientDetermination()
    {
@@ -123,7 +115,6 @@ public class DoubleSupportICPEquationsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testICPSumFormula()
    {
@@ -152,7 +143,6 @@ public class DoubleSupportICPEquationsTest
       assertEquals(icpSum, matrixCalculation, 1e-10);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testICPICalculation()
    {

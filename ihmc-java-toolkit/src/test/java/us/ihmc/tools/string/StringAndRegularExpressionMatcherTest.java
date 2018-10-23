@@ -5,14 +5,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class StringAndRegularExpressionMatcherTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleExactMatch()
    {
@@ -24,7 +21,6 @@ public class StringAndRegularExpressionMatcherTest
       assertFalse(matcher.matches("banana"));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCaseInsensitiveExactMatch()
    {
@@ -36,7 +32,6 @@ public class StringAndRegularExpressionMatcherTest
       assertFalse(matcher.matches("banana"));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRegularExpression()
    {
@@ -55,7 +50,6 @@ public class StringAndRegularExpressionMatcherTest
       assertTrue(matcher.matches("helloworld"));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRegularExpressionsAndStrings()
    {

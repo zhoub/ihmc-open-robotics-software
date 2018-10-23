@@ -5,7 +5,6 @@ import org.junit.Test;
 import us.ihmc.avatar.controllerAPI.EndToEndWholeBodyTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -28,7 +27,6 @@ public class ValkyrieEndToWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 22.1)
    @Test(timeout = 110000)
    public void testIssue47BadChestTrajectoryMessage() throws Exception
    {
@@ -36,7 +34,6 @@ public class ValkyrieEndToWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 17.1)
    @Test(timeout = 86000)
    public void testIssue47BadPelvisTrajectoryMessage() throws Exception
    {
@@ -44,7 +41,6 @@ public class ValkyrieEndToWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 38.2)
    @Test(timeout = 190000)
    public void testSingleWaypoint() throws Exception
    {
@@ -52,7 +48,6 @@ public class ValkyrieEndToWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 38.1)
    @Test(timeout = 190000)
    public void testSingleWaypointUsingMessageOfMessages() throws Exception
    {
@@ -60,7 +55,6 @@ public class ValkyrieEndToWholeBodyTrajectoryMessageTest extends EndToEndWholeBo
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 69.3)
    @Test(timeout = 350000)
    public void testSingleWaypointUsingMessageOfMessagesWithDelays() throws Exception
    {

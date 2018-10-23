@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.reflections.Reflections;
 import us.ihmc.communication.kryo.KryoNetClassListTestHelper;
 import us.ihmc.communication.net.NetClassList;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.pubsub.TopicDataType;
@@ -22,7 +21,6 @@ public class QuadrupedNetClassListTest
          System.out.println("                         registerPacketField(" + subTypeOf.getSimpleName() + ".class);");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testAllClassesRegisteredArePackets()
    {
@@ -30,7 +28,6 @@ public class QuadrupedNetClassListTest
       KryoNetClassListTestHelper.testAllClassesRegisteredArePackets(netClassList);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.5)
    @Test(timeout = 30000)
    public void testAllPacketFieldsAreRegistered()
          throws InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException, IllegalArgumentException

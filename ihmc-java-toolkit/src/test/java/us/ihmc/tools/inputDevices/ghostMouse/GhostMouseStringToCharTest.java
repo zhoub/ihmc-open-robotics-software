@@ -6,14 +6,11 @@ import java.awt.event.KeyEvent;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class GhostMouseStringToCharTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConvertStringToKeycode()
    {
@@ -29,7 +26,6 @@ public class GhostMouseStringToCharTest
       assertEquals(KeyEvent.VK_9, GhostMouseStringToChar.convertStringToKeycode("9"));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConvertKeycodeToString()
    {

@@ -8,7 +8,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.behaviorTests.DRCObjectWeightBehaviorTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -30,7 +29,6 @@ public class AtlasObjectWeightBehaviorTest extends DRCObjectWeightBehaviorTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 21.2)
    @Test(timeout = 110000)
    public void testConstructorAndSetInput()
    {
@@ -39,7 +37,6 @@ public class AtlasObjectWeightBehaviorTest extends DRCObjectWeightBehaviorTest
 
    @Override
    @Disabled("Needs to be reimplemented")
-   @ContinuousIntegrationTest(estimatedDuration = 19.6)
    @Test(timeout = 98000)
    public void testSettingWeight() throws SimulationExceededMaximumTimeException
    {

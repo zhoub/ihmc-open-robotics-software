@@ -21,7 +21,6 @@ import us.ihmc.communication.net.ObjectConsumer;
 import us.ihmc.communication.net.TcpNetStateListener;
 import us.ihmc.communication.packetCommunicator.PacketCommunicator;
 import us.ihmc.communication.streamingData.GlobalDataProducer;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple2D.Point2D;
@@ -38,7 +37,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 public class QuadrupedControllerInputProviderTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testNoVariablesAreMixedUpWhenSendingTeleOpPacket() throws IOException
    {
@@ -114,7 +112,6 @@ public class QuadrupedControllerInputProviderTest
       assertTrue(randomPlanarVelocity.epsilonEquals(planarVelocityInput, epsilon));
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testYoVariableNamesAreCorrectAndUpdateInputs() throws IOException
    {

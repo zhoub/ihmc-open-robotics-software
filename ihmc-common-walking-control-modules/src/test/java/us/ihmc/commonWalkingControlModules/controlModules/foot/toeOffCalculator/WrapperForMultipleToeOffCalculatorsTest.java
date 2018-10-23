@@ -17,7 +17,6 @@ import us.ihmc.commonWalkingControlModules.configurations.SwingTrajectoryParamet
 import us.ihmc.commonWalkingControlModules.configurations.ToeOffParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.MomentumOptimizationSettings;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
@@ -95,7 +94,6 @@ public class WrapperForMultipleToeOffCalculatorsTest
 
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstructor()
    {
@@ -103,7 +101,6 @@ public class WrapperForMultipleToeOffCalculatorsTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testClear()
    {
@@ -111,7 +108,6 @@ public class WrapperForMultipleToeOffCalculatorsTest
       generator.clear();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSetExitCMP()
    {
@@ -125,7 +121,6 @@ public class WrapperForMultipleToeOffCalculatorsTest
    }
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testComputeToeOffContactPoint()
    {
@@ -145,7 +140,6 @@ public class WrapperForMultipleToeOffCalculatorsTest
       generator.computeToeOffContactPoint(desiredCMP, trailingSide);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetToeOffContactPoint()
    {

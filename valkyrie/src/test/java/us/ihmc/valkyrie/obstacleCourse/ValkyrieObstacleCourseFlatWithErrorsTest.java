@@ -5,11 +5,8 @@ import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseFlatTest;
 import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseFlatWithErrorsTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
@@ -48,7 +45,6 @@ public class ValkyrieObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseF
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 103.8)
    @Test(timeout = 520000)
    public void testSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
@@ -56,7 +52,6 @@ public class ValkyrieObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseF
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 92.0)
    @Test(timeout = 460000)
    public void testSimpleFlatGroundScriptWithRandomFootSlip() throws SimulationExceededMaximumTimeException
    {
@@ -64,7 +59,6 @@ public class ValkyrieObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseF
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 75.5)
    @Test(timeout = 380000)
    public void testSideStepsWithSlipping() throws SimulationExceededMaximumTimeException
    {
@@ -72,7 +66,6 @@ public class ValkyrieObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseF
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 39.7)
    @Test(timeout = 200000)
    public void testStandingWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
@@ -80,7 +73,6 @@ public class ValkyrieObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseF
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 78.3)
    @Test(timeout = 390000)
    public void testSideStepsWithRandomSlipping() throws SimulationExceededMaximumTimeException
    {

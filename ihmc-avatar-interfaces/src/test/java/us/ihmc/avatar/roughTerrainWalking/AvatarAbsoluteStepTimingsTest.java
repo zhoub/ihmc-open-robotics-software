@@ -30,7 +30,6 @@ import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.ExecutionMode;
 import us.ihmc.communication.packets.ExecutionTiming;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -62,7 +61,6 @@ public abstract class AvatarAbsoluteStepTimingsTest implements MultiRobotTestInt
 
    private static final double swingStartTimeEpsilon = 0.005;
 
-   @ContinuousIntegrationTest(estimatedDuration = 142.2)
    @Test(timeout = 900000)
    public void testTakingStepsWithAbsoluteTimings() throws SimulationExceededMaximumTimeException
    {
@@ -259,7 +257,6 @@ public abstract class AvatarAbsoluteStepTimingsTest implements MultiRobotTestInt
 
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 22.0)
    @Test(timeout = 110000)
    public void testMinimumTransferTimeIsRespected() throws SimulationExceededMaximumTimeException
    {

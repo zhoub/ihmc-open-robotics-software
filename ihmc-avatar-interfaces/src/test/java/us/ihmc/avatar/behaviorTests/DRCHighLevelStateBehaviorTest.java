@@ -11,7 +11,6 @@ import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCBehaviorTestHelper;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.humanoidBehaviors.behaviors.primitives.HighLevelStateBehavior;
@@ -72,14 +71,12 @@ public abstract class DRCHighLevelStateBehaviorTest implements MultiRobotTestInt
                                                         simulationTestingParameters, getRobotModel());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 21.5)
    @Test(timeout = 64580)
    public void testWalkingState() throws SimulationExceededMaximumTimeException
    {
       testState(HighLevelControllerName.WALKING);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 21.5)
    @Test(timeout = 64580)
    public void testDoNothingBahviourState() throws SimulationExceededMaximumTimeException
    {
@@ -99,7 +96,6 @@ public abstract class DRCHighLevelStateBehaviorTest implements MultiRobotTestInt
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 21.5)
    @Test(timeout = 64580)
    public void testDiagnosticsState() throws SimulationExceededMaximumTimeException
    {

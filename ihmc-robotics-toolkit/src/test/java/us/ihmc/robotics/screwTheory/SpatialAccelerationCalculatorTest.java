@@ -9,7 +9,6 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -36,7 +35,6 @@ public class SpatialAccelerationCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 30000)
    public void testWithChainComposedOfPrismaticJoints() throws Exception
    {
@@ -101,7 +99,6 @@ public class SpatialAccelerationCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.5)
    @Test(timeout = 30000)
    public void testWithChainComposedOfRevoluteJointsAssertAngularAccelerationOnly() throws Exception
    {
@@ -218,7 +215,6 @@ public class SpatialAccelerationCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testWithChainRobotAgainstFiniteDifference() throws Exception
    {
@@ -281,7 +277,6 @@ public class SpatialAccelerationCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.2)
    @Test(timeout = 30000)
    public void testWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {
@@ -372,7 +367,6 @@ public class SpatialAccelerationCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 8.6)
    @Test(timeout = 43000)
    public void testRelativeAccelerationWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {
@@ -479,7 +473,6 @@ public class SpatialAccelerationCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 7.3)
    @Test(timeout = 37000)
    public void testWithDoVelocityTermsSetToFalse() throws Exception
    {

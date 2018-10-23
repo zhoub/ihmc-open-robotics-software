@@ -5,8 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public abstract class RobotiqInputRegisterTest
@@ -16,7 +14,6 @@ public abstract class RobotiqInputRegisterTest
    protected abstract byte getValueToSet();
    
    @Test(timeout = 30000)
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testSetRegister()
    {
       RobotiqInputRegister inputRegister = getInputRegister();
@@ -26,7 +23,6 @@ public abstract class RobotiqInputRegisterTest
    }
 
    @Test(timeout = 30000)
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testGetRegister()
    {
       assertEquals(getValueToSet(), getExpectedRegister().getRegisterValue());

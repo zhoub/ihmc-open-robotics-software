@@ -12,7 +12,6 @@ import java.net.Socket;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.commons.thread.ThreadTools;
@@ -20,7 +19,6 @@ import us.ihmc.commons.thread.ThreadTools;
 public class PersistentTCPClientTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test(timeout = 30000)
    public void test() throws IOException
    {

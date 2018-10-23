@@ -21,7 +21,6 @@ import us.ihmc.commonWalkingControlModules.controllerAPI.input.MessageCollection
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
@@ -51,7 +50,6 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 36.1)
    @Test(timeout = 180000)
    public void testSingleWaypoint() throws Exception
    {
@@ -186,7 +184,6 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 36.4)
    @Test(timeout = 180000)
    public void testSingleWaypointUsingMessageOfMessages() throws Exception
    {
@@ -310,7 +307,6 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 63.1)
    @Test(timeout = 320000)
    public void testSingleWaypointUsingMessageOfMessagesWithDelays() throws Exception
    {
@@ -437,7 +433,6 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
       }
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 16.8)
    @Test(timeout = 84000)
    public void testIssue47BadChestTrajectoryMessage() throws Exception
    {

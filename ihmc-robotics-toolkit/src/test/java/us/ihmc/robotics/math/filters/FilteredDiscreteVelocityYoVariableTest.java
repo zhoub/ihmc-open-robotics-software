@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -15,7 +14,6 @@ public class FilteredDiscreteVelocityYoVariableTest
 
    private static final double DT = 0.1;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testFilteredDiscreteVelocityNoDirectionChange()
    {
@@ -39,7 +37,6 @@ public class FilteredDiscreteVelocityYoVariableTest
       assertEquals(10, filteredDiscreteVelocityYoVariable.getDoubleValue(), 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testFilteredDiscreteVelocityWithDirectionChange()
    {

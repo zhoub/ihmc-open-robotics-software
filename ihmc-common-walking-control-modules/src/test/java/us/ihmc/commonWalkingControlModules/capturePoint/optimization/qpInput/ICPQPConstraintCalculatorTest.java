@@ -5,7 +5,6 @@ import org.ejml.ops.CommonOps;
 import org.junit.Test;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.testing.JUnitTools;
@@ -21,7 +20,6 @@ public class ICPQPConstraintCalculatorTest
    private final static int iters = 100;
    private final static double epsilon = 1e-7;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFeedbackMaxValueConstraint()
    {
@@ -44,7 +42,6 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFeedbackMaxValueConstraintWithCMP()
    {
@@ -68,7 +65,6 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFeedbackMaxValueConstraintWithInfiniteLimits()
    {
@@ -181,7 +177,6 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFeedbackMaxRateConstraint()
    {
@@ -212,7 +207,6 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFeedbackMaxRateConstraintWithCMP()
    {
@@ -244,7 +238,6 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFeedbackMaxRateConstraintWithInfiniteLimits()
    {

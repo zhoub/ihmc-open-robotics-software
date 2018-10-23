@@ -1,11 +1,8 @@
 package us.ihmc.robotics.geometry;
 
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.tuple2D.Point2D;
 
@@ -15,7 +12,6 @@ import static junit.framework.TestCase.assertTrue;
 @Tag("fast")
 public class ConvexPolygonScalerTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testScaleSquareExteriorPolygonToContainSquareInteriorPolygon()
    {
@@ -215,7 +211,6 @@ public class ConvexPolygonScalerTest
       assertFalse(success);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testScaleSquareExteriorPolygonToContainQuadrulateralInteriorPolygon()
    {
@@ -278,7 +273,6 @@ public class ConvexPolygonScalerTest
       assertTrue(success);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testScaleHexagonExteriorPolygonToContainSquareInteriorPolygon()
    {
@@ -333,7 +327,6 @@ public class ConvexPolygonScalerTest
       assertTrue(success);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithPointScaleExteriorPolygon()
    {
@@ -419,7 +412,6 @@ public class ConvexPolygonScalerTest
       assertTrue(success);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithLineScaleExteriorPolygon()
    {

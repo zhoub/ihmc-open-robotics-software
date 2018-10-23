@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FrameOrientation2D;
@@ -36,7 +35,6 @@ public class OverheadPathTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test(timeout = 30000)
    public void turningOverheadPath_UsageTest()
    {
@@ -66,7 +64,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test(timeout = 30000)
    public void turningOverheadPath_PassingPiTest()
    {
@@ -98,7 +95,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test(timeout = 30000)
    public void straightLineOverheadPath_UsageTest()
    {
@@ -138,7 +134,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test(timeout = 30000)
    public void turnThenStraightOverheadPath_UsageAndHeadingOffsetTest()
    {
@@ -204,7 +199,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test(timeout = 30000)
    public void turnStraightTurnOverheadPath_UsageAndHeadingOffsetTest()
    {
@@ -266,7 +260,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.4)
 	@Test(timeout = 30000)
    public void turnStraightTurnOverheadPath_turnInPlaceTest()
    {
@@ -341,7 +334,6 @@ public class OverheadPathTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test(timeout = 30000)
    public void turningPathInterpolationExtrapolationTest()
    {
@@ -364,7 +356,6 @@ public class OverheadPathTest
       assertEquals("Should extrapolate to -1.0", -1.0,poseAtS.getYaw(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test(timeout = 30000)
    public void straightPathInterpolationExtrapolationTest()
    {

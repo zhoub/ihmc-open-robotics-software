@@ -11,7 +11,6 @@ import org.ejml.ops.CommonOps;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -37,7 +36,6 @@ public class PointJacobianTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testVersusNumericalDifferentiation()
    {
@@ -82,7 +80,6 @@ public class PointJacobianTest
       EuclidFrameTestTools.assertFrameTuple3DEquals(pointVelocityFromNumericalDifferentiation, pointVelocityFromJacobian, 1e-6);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSingularValuesOfTwoPointJacobians()
    {

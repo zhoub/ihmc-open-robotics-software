@@ -2,7 +2,6 @@ package us.ihmc.avatar.pushRecovery;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -15,7 +14,6 @@ import static org.junit.Assert.assertTrue;
 
 public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOptimizationPushRecoveryTestSetup
 {
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 150000)
    public void testPushICPOptimizationNoPush() throws Exception
    {
@@ -24,7 +22,6 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 150000)
    public void testPushICPOptimizationOutwardPushInSwing() throws Exception
    {
@@ -44,7 +41,6 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 150000)
    public void testPushICPOptimizationOutwardPushInSlowSwing() throws Exception
    {
@@ -65,7 +61,6 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 150000)
    public void testPushICPOptimizationDiagonalOutwardPushInSwing() throws Exception
    {
@@ -86,7 +81,6 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 150000)
    public void testPushICPOptimizationDiagonalYawingOutwardPushInSwing() throws Exception
    {
@@ -138,7 +132,6 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps, false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 150000)
    public void testPushICPOptimizationRandomPushInSwing() throws Exception
    {
@@ -163,7 +156,6 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 150000)
    public void testPushICPOptimizationLongForwardPushInSwing() throws Exception
    {
@@ -184,7 +176,6 @@ public abstract class AvatarICPOptimizationPushRecoveryBTest extends AvatarICPOp
       validateTest(footsteps);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 60.0)
    @Test(timeout = 150000)
    public void testPushICPOptimizationLongBackwardPushInSwing() throws Exception
    {

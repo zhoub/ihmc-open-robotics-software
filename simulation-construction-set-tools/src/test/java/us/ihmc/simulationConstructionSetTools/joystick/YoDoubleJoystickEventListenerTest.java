@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import net.java.games.input.Component;
 import net.java.games.input.Event;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -17,7 +16,6 @@ import static org.junit.Assert.assertEquals;
 public class YoDoubleJoystickEventListenerTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testMinMaxAverage()
    {

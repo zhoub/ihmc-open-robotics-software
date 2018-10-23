@@ -5,7 +5,6 @@ import org.junit.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.DRCSwingTrajectoryTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -29,7 +28,6 @@ public class ValkyrieSwingTrajectoryTest extends DRCSwingTrajectoryTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 150.4)
    @Test(timeout = 750000)
    public void testSelfCollisionAvoidance() throws SimulationExceededMaximumTimeException
    {

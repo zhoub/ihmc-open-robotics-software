@@ -1,7 +1,6 @@
 package us.ihmc.commonWalkingControlModules.dynamicReachability;
 
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -15,7 +14,6 @@ public class SphereIntersectionToolsTest
    private static final double epsilon = 0.000001;
    private static final int iters = 1000;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testFlatCenterComputation()
    {
@@ -39,7 +37,6 @@ public class SphereIntersectionToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testComputation()
    {
@@ -94,7 +91,6 @@ public class SphereIntersectionToolsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testRadiusOfIntersection()
    {

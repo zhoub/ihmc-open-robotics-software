@@ -19,7 +19,6 @@ import us.ihmc.commonWalkingControlModules.controlModules.rigidBody.RigidBodyUse
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyInverseDynamicsSolver;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.humanoidRobotics.communication.packets.HumanoidMessageTools;
@@ -39,7 +38,6 @@ public abstract class EndToEndNeckDesiredAccelerationsMessageTest implements Mul
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 20.6)
    @Test(timeout = 100000)
    public void testSimpleCommands() throws Exception
    {

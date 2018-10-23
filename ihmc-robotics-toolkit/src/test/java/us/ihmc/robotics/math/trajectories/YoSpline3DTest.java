@@ -7,7 +7,6 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.Axis;
@@ -28,7 +27,6 @@ public class YoSpline3DTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCubic()
    {
@@ -55,7 +53,6 @@ public class YoSpline3DTest
       
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testQuintic()
    {
@@ -83,7 +80,6 @@ public class YoSpline3DTest
 	   }   
 	}
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetVelocity()
    {
@@ -103,7 +99,6 @@ public class YoSpline3DTest
 	   assertEquals(numerical.getZ(), actual.getZ(), 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetAcceleration()
    {
@@ -146,7 +141,6 @@ public class YoSpline3DTest
 	   return spline;
 	}
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testArcLengthMethods()
    {

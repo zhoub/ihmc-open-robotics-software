@@ -18,7 +18,6 @@ import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyInverseDynami
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.manipulation.individual.states.HandUserControlModeState;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.humanoidRobotics.communication.packets.HumanoidMessageTools;
@@ -38,7 +37,6 @@ public abstract class EndToEndArmDesiredAccelerationsMessageTest implements Mult
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @ContinuousIntegrationTest(estimatedDuration = 21.0)
    @Test(timeout = 110000)
    public void testSimpleCommands() throws Exception
    {

@@ -5,7 +5,6 @@ import org.junit.Test;
 import us.ihmc.avatar.controllerAPI.EndToEndChestTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -28,7 +27,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 38.4)
    @Test(timeout = 190000)
    public void testLookingLeftAndRight() throws Exception
    {
@@ -36,7 +34,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 39.9)
    @Test(timeout = 200000)
    public void testLookingLeftAndRightInVariousTrajectoryFrames() throws Exception
    {
@@ -44,7 +41,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 40.4)
    @Test(timeout = 200000)
    public void testMessageWithALotOfTrajectoryPoints() throws Exception
    {
@@ -52,7 +48,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 39.6)
    @Test(timeout = 200000)
    public void testMessageWithALotOfTrajectoryPointsExpressedInPelvisZUp() throws Exception
    {
@@ -60,7 +55,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 26.2)
    @Test(timeout = 130000)
    public void testMultipleTrajectoryPoints() throws Exception
    {
@@ -68,7 +62,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 49.3)
    @Test(timeout = 250000)
    public void testQueuedMessages() throws Exception
    {
@@ -76,7 +69,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 27.6)
    @Test(timeout = 140000)
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
@@ -84,7 +76,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 44.8)
    @Test(timeout = 220000)
    public void testQueueWithUsingDifferentTrajectoryFrameWithoutOverride() throws Exception
    {
@@ -92,7 +83,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 16.5)
    @Test(timeout = 83000)
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -100,7 +90,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 25.4)
    @Test(timeout = 130000)
    public void testSelectionMatrixDisableRandomAxisWithSingleTrajectoryPoint() throws Exception
    {
@@ -108,7 +97,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 28.1)
    @Test(timeout = 140000)
    public void testSelectionMatrixWithAllAxisOffUsingSingleTrajectoryPoint() throws Exception
    {
@@ -116,7 +104,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 24.4)
    @Test(timeout = 120000)
    public void testSettingWeightMatrixUsingSingleTrajectoryPoint() throws Exception
    {
@@ -124,7 +111,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 26.2)
    @Test(timeout = 130000)
    public void testSingleTrajectoryPoint() throws Exception
    {
@@ -132,7 +118,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.7)
    @Test(timeout = 190000)
    public void testStopAllTrajectory() throws Exception
    {
@@ -140,7 +125,6 @@ public class ValkyrieEndToEndChestTrajectoryMessageTest extends EndToEndChestTra
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.7)
    @Test(timeout = 190000)
    public void testStopAllTrajectoryRepeatedly() throws Exception
    {

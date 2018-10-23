@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.statistics.OnePassMeanAndStandardDeviation.InsufficientMeasurementsException;
@@ -26,7 +25,6 @@ public class OnePassMeanAndStandardDeviationTest
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCalculateMeanAndStandardDeviationExample()
    {
@@ -47,7 +45,6 @@ public class OnePassMeanAndStandardDeviationTest
       assertEquals(9.730769230769189, meanAndStandardDeviation.getSampleVariance(), delta);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCalculateMeanAndStandardDeviationSingleValue()
    {
@@ -59,7 +56,6 @@ public class OnePassMeanAndStandardDeviationTest
       assertEquals(0.0, meanAndStandardDeviation.getStandardDeviation(), delta);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = InsufficientMeasurementsException.class)
    public void testCalculateSampleVarianceSingleValue()
    {
@@ -68,7 +64,6 @@ public class OnePassMeanAndStandardDeviationTest
       assertEquals(0.0, meanAndStandardDeviation.getSampleVariance(), delta);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = InsufficientMeasurementsException.class)
    public void testCalculateAverageNoValue()
    {
@@ -76,7 +71,6 @@ public class OnePassMeanAndStandardDeviationTest
       assertEquals(0.0, meanAndStandardDeviation.getAverage(), delta);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = InsufficientMeasurementsException.class)
    public void testCalculateVarianceNoValue()
    {

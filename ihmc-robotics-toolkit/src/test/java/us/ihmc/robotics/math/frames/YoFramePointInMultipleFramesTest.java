@@ -9,7 +9,6 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -34,7 +33,6 @@ public class YoFramePointInMultipleFramesTest
 
    private static final ReferenceFrame[] allFrames = new ReferenceFrame[] { worldFrame, frameA, frameB, frameC };
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testConstructor()
    {
@@ -69,7 +67,6 @@ public class YoFramePointInMultipleFramesTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testRegisterFrame()
    {
@@ -107,7 +104,6 @@ public class YoFramePointInMultipleFramesTest
       assertEquals(frameA, referenceFrames.get(1));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testSetToZero()
    {
@@ -121,7 +117,6 @@ public class YoFramePointInMultipleFramesTest
       assertTrue(framePoint.epsilonEquals(yoFramePointInMultipleFrames, 1e-10));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testChangeToRegisteredFrame()
    {
@@ -152,7 +147,6 @@ public class YoFramePointInMultipleFramesTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testSetIncludingFrame()
    {

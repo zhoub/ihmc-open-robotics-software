@@ -12,7 +12,6 @@ import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCBehaviorTestHelper;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.humanoidBehaviors.behaviors.primitives.ObjectWeightBehavior;
@@ -60,7 +59,6 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 21.2)
    @Test(timeout = 110000)
    public void testConstructorAndSetInput()
    {
@@ -70,7 +68,6 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
    }
 
    @Disabled("Needs to be reimplemented")
-   @ContinuousIntegrationTest(estimatedDuration = 19.6)
    @Test(timeout = 98000)
    public void testSettingWeight() throws SimulationExceededMaximumTimeException
    {

@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.controllerAPI.EndToEndChestTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -30,7 +29,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 35.8)
    @Test(timeout = 180000)
    public void testLookingLeftAndRight() throws Exception
    {
@@ -38,7 +36,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 37.1)
    @Test(timeout = 190000)
    public void testLookingLeftAndRightInVariousTrajectoryFrames() throws Exception
    {
@@ -46,7 +43,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 34.9)
    @Test(timeout = 170000)
    public void testMessageWithALotOfTrajectoryPoints() throws Exception
    {
@@ -54,7 +50,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 35.4)
    @Test(timeout = 180000)
    public void testMessageWithALotOfTrajectoryPointsExpressedInPelvisZUp() throws Exception
    {
@@ -62,7 +57,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 24.5)
    @Test(timeout = 120000)
    public void testMultipleTrajectoryPoints() throws Exception
    {
@@ -70,7 +64,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 43.2)
    @Test(timeout = 220000)
    public void testQueuedMessages() throws Exception
    {
@@ -78,7 +71,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 26.4)
    @Test(timeout = 130000)
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
@@ -86,7 +78,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 41.2)
    @Test(timeout = 210000)
    public void testQueueWithUsingDifferentTrajectoryFrameWithoutOverride() throws Exception
    {
@@ -94,7 +85,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 17.3)
    @Test(timeout = 87000)
    public void testQueueWithWrongPreviousId() throws Exception
    {
@@ -102,7 +92,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 25.5)
    @Test(timeout = 130000)
    public void testSelectionMatrixDisableRandomAxisWithSingleTrajectoryPoint() throws Exception
    {
@@ -110,7 +99,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 26.7)
    @Test(timeout = 130000)
    public void testSelectionMatrixWithAllAxisOffUsingSingleTrajectoryPoint() throws Exception
    {
@@ -118,7 +106,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 23.8)
    @Test(timeout = 120000)
    public void testSettingWeightMatrixUsingSingleTrajectoryPoint() throws Exception
    {
@@ -126,7 +113,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 27.3)
    @Test(timeout = 140000)
    public void testSingleTrajectoryPoint() throws Exception
    {
@@ -134,7 +120,6 @@ public class AtlasEndToEndChestTrajectoryMessageTest extends EndToEndChestTrajec
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 34.2)
    @Test(timeout = 170000)
    public void testStopAllTrajectory() throws Exception
    {

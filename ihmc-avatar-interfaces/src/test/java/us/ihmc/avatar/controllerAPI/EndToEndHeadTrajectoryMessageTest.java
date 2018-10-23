@@ -14,7 +14,6 @@ import org.junit.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
@@ -52,7 +51,6 @@ public abstract class EndToEndHeadTrajectoryMessageTest implements MultiRobotTes
    private OneDoFJoint[] neckJoints;
    private int numberOfJoints;
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 29.0)
    @Test(timeout = 140000)
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {

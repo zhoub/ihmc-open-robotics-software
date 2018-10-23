@@ -7,7 +7,6 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.valkyrie.kinematics.LinearActuator;
@@ -18,7 +17,6 @@ public class InefficientPushRodTransmissionTest
 {
    private static final boolean DEBUG = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test(timeout = 30000)
    public void testForwardBackward()
    {
@@ -83,7 +81,6 @@ public class InefficientPushRodTransmissionTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRegression()
    {

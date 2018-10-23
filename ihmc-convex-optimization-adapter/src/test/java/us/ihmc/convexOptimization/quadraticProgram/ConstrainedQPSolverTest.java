@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import us.ihmc.commons.PrintTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.commons.MathTools;
@@ -20,7 +19,6 @@ public class ConstrainedQPSolverTest
 {
    private final YoVariableRegistry registry = new YoVariableRegistry("root");
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.4)
    @Test(timeout = 30000)
    public void testSolveContrainedQP() throws NoConvergenceException
    {
@@ -130,7 +128,6 @@ public class ConstrainedQPSolverTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testSolveProblemWithParallelConstraints() throws NoConvergenceException
    {

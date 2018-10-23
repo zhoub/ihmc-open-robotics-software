@@ -1,7 +1,6 @@
 package us.ihmc.footstepPlanning.flatGroundPlanning;
 
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -22,7 +21,6 @@ import static org.junit.Assert.assertTrue;
 
 public class FootstepNodeTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testEqualsAndHashMethodsWithRandomTransforms()
    {
@@ -47,7 +45,6 @@ public class FootstepNodeTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testShiftInSoleFrame()
    {

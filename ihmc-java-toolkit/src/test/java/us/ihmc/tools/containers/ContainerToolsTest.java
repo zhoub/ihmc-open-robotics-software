@@ -19,8 +19,6 @@ import java.util.Vector;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class ContainerToolsTest
@@ -36,7 +34,6 @@ public class ContainerToolsTest
       ONE, TWO, THREE;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testCreateEnumMap()
    {
@@ -55,7 +52,6 @@ public class ContainerToolsTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testFindLargestElements()
    {
@@ -92,7 +88,6 @@ public class ContainerToolsTest
       assertEquals(3, setOfThreeLargestInts.size());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testFlatten()
    {
@@ -139,7 +134,6 @@ public class ContainerToolsTest
       assertEquals(3, numberOfThrees);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testToArrayOfArrays()
    {
@@ -192,7 +186,6 @@ public class ContainerToolsTest
       assertEquals(3, numberOfThrees);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAsSortedList()
    {
@@ -211,7 +204,6 @@ public class ContainerToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRemoveByReference()
    {

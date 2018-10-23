@@ -15,7 +15,6 @@ import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
@@ -101,7 +100,6 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
       ThreadTools.sleep(1000);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testForwardWalkWithAngularMomentumReference() throws SimulationExceededMaximumTimeException
    {
@@ -144,7 +142,6 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
          recordingScript.exportToFile();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testForwardWalkWithCorruptedMomentum() throws SimulationExceededMaximumTimeException
    {
@@ -175,7 +172,6 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(simulationTime));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testWalkingWithDelayedMomentum() throws SimulationExceededMaximumTimeException
    {
@@ -207,7 +203,6 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(simulationTime));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testForwardWalkZeroMomentumFirstStep() throws SimulationExceededMaximumTimeException
    {
@@ -238,7 +233,6 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(simulationTime));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testWalkingWithRandomSinusoidalMomentum() throws SimulationExceededMaximumTimeException
    {

@@ -15,7 +15,6 @@ import org.ejml.ops.RandomMatrices;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -38,7 +37,6 @@ public class WeightMatrix3DTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSettersGetters() throws Exception
    {
@@ -94,7 +92,6 @@ public class WeightMatrix3DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.8)
    @Test(timeout = 30000)
    public void testGetFullSelectionMatrixInFrame() throws Exception
    {
@@ -172,7 +169,6 @@ public class WeightMatrix3DTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.1)
    @Test(timeout = 30000)
    public void testGetEfficientSelectionMatrixInFrame() throws Exception
    {

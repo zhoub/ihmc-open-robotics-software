@@ -8,11 +8,8 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import us.ihmc.commons.Assertions;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.thread.ThreadTools;
 
 @Tag("fast")
@@ -73,7 +70,6 @@ public class DataObjectTransponderTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test(timeout = 30000)
    public void testBidirectionalCommunication() throws InterruptedException
    {
@@ -99,7 +95,6 @@ public class DataObjectTransponderTest
       assertAllTestsPassed();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSerializabilityOfInteger() throws IOException
    {
@@ -107,7 +102,6 @@ public class DataObjectTransponderTest
       Assertions.assertSerializable(integer);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSerializabilityOfIntPacket() throws IOException
    {
@@ -115,7 +109,6 @@ public class DataObjectTransponderTest
       Assertions.assertSerializable(intPacket);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSerializabilityOfStringPacket() throws IOException
    {
@@ -123,7 +116,6 @@ public class DataObjectTransponderTest
       Assertions.assertSerializable(packet);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testServerClientIntPacketCommunication() throws InterruptedException
    {
@@ -134,7 +126,6 @@ public class DataObjectTransponderTest
       assertAllTestsPassed();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testServerClientStringPacketCommunication() throws InterruptedException
    {
@@ -145,7 +136,6 @@ public class DataObjectTransponderTest
       assertAllTestsPassed();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testTwoPacketTypesAtTheSameTime() throws InterruptedException
    {
@@ -157,7 +147,6 @@ public class DataObjectTransponderTest
       assertAllTestsPassed();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testUnhandledPackets() throws InterruptedException
    {

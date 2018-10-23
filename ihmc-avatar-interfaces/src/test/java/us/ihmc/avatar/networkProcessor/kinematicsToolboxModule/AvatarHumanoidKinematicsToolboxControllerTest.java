@@ -26,7 +26,6 @@ import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.controllerAPI.CommandInputManager;
 import us.ihmc.communication.controllerAPI.StatusMessageOutputManager;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -185,7 +184,6 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testHoldBodyPose() throws Exception
    {
@@ -210,7 +208,6 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
                  toolboxController.getSolution().getSolutionQuality() < 1.0e-4);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testRandomHandPositions() throws Exception
    {
@@ -261,7 +258,6 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testRandomHandPoses() throws Exception
    {
@@ -322,7 +318,6 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
       assertTrue("Poor average solution quality: " + averageSolutionQuality, averageSolutionQuality < 5.0e-5);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 30000)
    public void testSingleSupport() throws Exception
    {

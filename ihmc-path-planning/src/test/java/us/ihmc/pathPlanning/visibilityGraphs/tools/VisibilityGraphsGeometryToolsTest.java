@@ -10,7 +10,6 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryTools;
@@ -29,7 +28,6 @@ public class VisibilityGraphsGeometryToolsTest
    private static final double LARGE_EPSILON = 1.0e-11;
 
    @Test(timeout = 30000)
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testDoRay2DAndLineSegment2DIntersect() throws Exception
    {
       Random random = new Random(116L);
@@ -296,7 +294,6 @@ public class VisibilityGraphsGeometryToolsTest
    }
 
    @Test(timeout = 30000)
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testIntersectionBetweenRay2DAndCircle2D() throws Exception
    {
       Random random = new Random(456467);
@@ -404,7 +401,6 @@ public class VisibilityGraphsGeometryToolsTest
    }
 
    @Test(timeout = 30000)
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testIntersectionBetweenRay2DAndLineSegment2D() throws Exception
    {
       Random random = new Random(3242L);

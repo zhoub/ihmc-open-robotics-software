@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
@@ -49,7 +48,6 @@ public abstract class QuadrupedXGaitBumpyTerrainWalkingTest implements Quadruped
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 520000)
    public void testWalkingOverShallowBumpyTerrain() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -80,7 +78,6 @@ public abstract class QuadrupedXGaitBumpyTerrainWalkingTest implements Quadruped
       stepTeleopManager = quadrupedTestFactory.getStepTeleopManager();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 45.0)
    @Test(timeout = 650000)
    public void testWalkingOverMediumBumpyTerrain() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
@@ -99,7 +96,6 @@ public abstract class QuadrupedXGaitBumpyTerrainWalkingTest implements Quadruped
       conductor.simulate();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 70.0)
    @Test(timeout = 350000)
    public void testTrottingOverAggressiveBumpyTerrain() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {

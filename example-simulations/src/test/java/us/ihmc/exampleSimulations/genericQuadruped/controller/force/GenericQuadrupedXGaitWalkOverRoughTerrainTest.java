@@ -2,11 +2,8 @@ package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
 import junit.framework.AssertionFailedError;
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
 import us.ihmc.exampleSimulations.genericQuadruped.parameters.GenericQuadrupedXGaitSettings;
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
@@ -20,7 +17,6 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
    private QuadrupedXGaitSettingsReadOnly xGaitSettings;
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test(timeout = 2000000)
    public void testWalkingUpStaircase() throws IOException
    {
@@ -28,7 +24,6 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
       super.testWalkingUpStaircase();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test(timeout = 2000000)
    public void testWalkingOverTiledGround() throws IOException, AssertionFailedError
    {
@@ -36,7 +31,6 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
       super.testWalkingOverTiledGround();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test(timeout = 2000000)
    public void testWalkingOverSingleStepUp() throws IOException, AssertionFailedError
    {
@@ -44,7 +38,6 @@ public class GenericQuadrupedXGaitWalkOverRoughTerrainTest extends QuadrupedXGai
       super.testWalkingOverSingleStepUp();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 80.0)
    @Test(timeout = 2000000)
    public void testWalkingOverConsecutiveRamps() throws IOException, AssertionFailedError
    {

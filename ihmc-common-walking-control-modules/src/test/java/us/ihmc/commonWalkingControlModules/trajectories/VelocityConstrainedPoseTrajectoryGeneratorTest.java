@@ -8,11 +8,8 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
@@ -44,7 +41,6 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testRuntimeExceptions()
    {
@@ -93,7 +89,6 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testCompareWithStraightLinePoseTrajectoryGeneratorPositionOnly()
    {
@@ -153,7 +148,6 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPositionAndVelocityConsistencyWithInitialVelocity()
    {
@@ -261,7 +255,6 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
     * 
     **/
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testPositionAndVelocityConsistencyWithInitialAndFinalVelocity()
    {
@@ -386,7 +379,6 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
       return ret;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testTooBigTime()
    {

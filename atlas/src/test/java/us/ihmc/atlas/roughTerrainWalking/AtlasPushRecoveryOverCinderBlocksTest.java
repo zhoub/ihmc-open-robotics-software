@@ -15,11 +15,8 @@ import us.ihmc.avatar.roughTerrainWalking.AvatarPushRecoveryOverCinderBlocksTest
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
 import us.ihmc.commonWalkingControlModules.configurations.SteppingParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -27,7 +24,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOverCinderBlocksTest
 {
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 72.3)
    @Test(timeout = 360000)
    public void testNoPushFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -35,7 +31,6 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 64.7)
    @Test(timeout = 320000)
    public void testNoPushForwardWalkOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -43,7 +38,6 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 94.5)
    @Test(timeout = 470000)
    public void testNoPushTiltedBlocks() throws SimulationExceededMaximumTimeException
    {
@@ -51,7 +45,6 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 68.6)
    @Test(timeout = 340000)
    public void testNoPushForwardTiltedBlocks() throws SimulationExceededMaximumTimeException
    {

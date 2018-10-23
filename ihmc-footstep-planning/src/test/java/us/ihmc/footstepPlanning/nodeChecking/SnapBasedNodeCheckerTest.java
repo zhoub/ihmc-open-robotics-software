@@ -5,7 +5,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.Axis;
@@ -45,7 +44,6 @@ public class SnapBasedNodeCheckerTest
    @Rule
    public TestName name = new TestName();
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSwingingThroughObstacle0()
    {
@@ -122,7 +120,6 @@ public class SnapBasedNodeCheckerTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSwingingThroughObstacle1()
    {
@@ -199,7 +196,6 @@ public class SnapBasedNodeCheckerTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testValidNode()
    {
@@ -215,7 +211,6 @@ public class SnapBasedNodeCheckerTest
       Assert.assertTrue(checker.isNodeValid(node0, node1));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testStartNodeValid()
    {
@@ -230,7 +225,6 @@ public class SnapBasedNodeCheckerTest
       Assert.assertTrue(checker.isNodeValid(node, null));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000, expected = RuntimeException.class)
    public void testSameNodes()
    {
@@ -243,7 +237,6 @@ public class SnapBasedNodeCheckerTest
       checker.isNodeValid(node, node);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testTooHighNode()
    {
@@ -285,7 +278,6 @@ public class SnapBasedNodeCheckerTest
       Assert.assertTrue(checker.isNodeValid(node0, node3));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testTooSmallFoothold()
    {

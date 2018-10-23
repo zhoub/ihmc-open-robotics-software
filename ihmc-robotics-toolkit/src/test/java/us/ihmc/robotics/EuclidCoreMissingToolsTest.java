@@ -7,7 +7,6 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.commons.MathTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -18,7 +17,6 @@ import us.ihmc.euclid.tuple4D.Quaternion;
 
 public class EuclidCoreMissingToolsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testRoundToGivenPrecision()
    {
@@ -40,7 +38,6 @@ public class EuclidCoreMissingToolsTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(0.123, 100.123, 1000.123), roundedVector, 1e-14);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProjectRotationOnAxis()
    {

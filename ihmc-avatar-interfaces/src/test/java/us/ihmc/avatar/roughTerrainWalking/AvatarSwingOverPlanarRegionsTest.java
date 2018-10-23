@@ -14,7 +14,6 @@ import us.ihmc.commonWalkingControlModules.trajectories.SwingOverPlanarRegionsTr
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.packets.MessageTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.BoundingBox3D;
@@ -44,7 +43,6 @@ public abstract class AvatarSwingOverPlanarRegionsTest implements MultiRobotTest
 
    private static final boolean LOCAL_MODE = false;
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 72.5)
    @Test(timeout = 360000)
    public void testSwingOverPlanarRegions() throws SimulationExceededMaximumTimeException
    {

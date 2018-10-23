@@ -17,10 +17,8 @@ import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.networkProcessor.wholeBodyTrajectoryToolboxModule.AvatarWholeBodyTrajectoryToolboxControllerTest;
 import us.ihmc.commons.PrintTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.Pose3D;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -62,7 +60,6 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
    }
 
    @Override
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 10.6)
    @Test(timeout = 53000)
    public void testOneBigCircle() throws Exception, UnreasonableAccelerationException
    {
@@ -70,7 +67,6 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
    }
 
    @Override
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testHandCirclePositionAndYaw() throws Exception, UnreasonableAccelerationException
    {
@@ -78,14 +74,12 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
    }
 
    @Override
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testHandCirclePositionAndYawPitchRoll() throws Exception, UnreasonableAccelerationException
    {
       super.testHandCirclePositionAndYawPitchRoll();
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testDoorMotion() throws Exception, UnreasonableAccelerationException
    {
@@ -147,7 +141,6 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
       runTrajectoryTest(message, maxNumberOfIterations);
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testDrillMotion() throws Exception, UnreasonableAccelerationException
    {
@@ -215,7 +208,6 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
       runTrajectoryTest(message, maxNumberOfIterations);
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testValveMotion() throws Exception, UnreasonableAccelerationException
    {
@@ -269,7 +261,6 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
       runTrajectoryTest(message, maxNumberOfIterations);
    }
 
-   @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 120000)
    public void testReaching() throws Exception, UnreasonableAccelerationException
    {

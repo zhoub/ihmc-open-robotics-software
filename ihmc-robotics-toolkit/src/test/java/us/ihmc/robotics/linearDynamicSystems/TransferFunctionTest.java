@@ -8,7 +8,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.dataStructures.Polynomial;
@@ -28,7 +27,6 @@ public class TransferFunctionTest
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetNumeratorAndGetDenominatorCoefficients()
    {
@@ -44,7 +42,6 @@ public class TransferFunctionTest
       DynamicSystemsTestHelpers.assertEpsilonEquals(expectedDenominator, transferFunction.getDenominatorCoefficients(), 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testOneOverOne()
    {
@@ -59,7 +56,6 @@ public class TransferFunctionTest
       assertEquals(magnitude, 1.0, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testZero()
    {
@@ -73,7 +69,6 @@ public class TransferFunctionTest
       assertEquals(magnitude, 0.0, epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testOneOverS2()
    {
@@ -89,7 +84,6 @@ public class TransferFunctionTest
       assertEquals(0.0, AngleTools.computeAngleDifferenceMinusPiToPi(Math.PI, transferFunction.getPhase(5.0)), 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testOneOverSplusA()
    {
@@ -107,7 +101,6 @@ public class TransferFunctionTest
       assertEquals(0.0, AngleTools.computeAngleDifferenceMinusPiToPi(-Math.atan2(omega, a), transferFunction.getPhase(omega)), 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSecondOrderResponse()
    {
@@ -121,7 +114,6 @@ public class TransferFunctionTest
       verify(transferFunction, 100000000.0, 0.0, -Math.PI);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSecondOrderResponseArray()
    {
@@ -145,7 +137,6 @@ public class TransferFunctionTest
 //      fail("Implement me!");
 //   }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testTimes()
    {
@@ -170,7 +161,6 @@ public class TransferFunctionTest
       DynamicSystemsTestHelpers.assertEpsilonEquals(expectedDenominator, productDenominator, 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPlus()
    {
@@ -195,7 +185,6 @@ public class TransferFunctionTest
       DynamicSystemsTestHelpers.assertEpsilonEquals(expectedDenominator, sumDenominator, 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPlusWithSameDenominator()
    {
@@ -239,7 +228,6 @@ public class TransferFunctionTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testEpsilonEquals()
    {
@@ -284,7 +272,6 @@ public class TransferFunctionTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testEqualsZero()
    {

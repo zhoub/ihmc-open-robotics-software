@@ -17,11 +17,8 @@ import java.util.concurrent.Future;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.geometry.InclusionFunction;
 import us.ihmc.robotics.geometry.InsufficientDataException;
@@ -37,7 +34,6 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
    private static final double eps = 1e-7;
    private static final double NaN = Double.NaN;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSinglePointOld()
    {
@@ -68,7 +64,6 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
       assertSinglePointGridHandlesPoint(x, y, xIndex, yIndex, z);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGettingAreasOld()
    {
@@ -120,7 +115,6 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testUnhandledPointsOld()
    {
@@ -154,7 +148,6 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGrabCellsOld()
    {
@@ -191,7 +184,6 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
       assertEquals(z, simpleMap.getHeightAtPoint(xIndex * RESOLUTION, yIndex * RESOLUTION), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 2.0)
 	@Test(timeout = 30000)
    public void rowModificationSynchronizationTestOld()
    {
@@ -219,7 +211,6 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testUnhandledPoints()
    {
@@ -296,7 +287,6 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testKernelMaskingOld() throws InsufficientDataException
    {

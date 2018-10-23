@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.controllerAPI.EndToEndHandLoadBearingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -18,7 +17,6 @@ public class AtlasEndToEndHandLoadBearingTest extends EndToEndHandLoadBearingTes
    private final AtlasRobotModel robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false, true);
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 61.5)
    @Test(timeout = 310000)
    public void testUsingHand() throws SimulationExceededMaximumTimeException
    {

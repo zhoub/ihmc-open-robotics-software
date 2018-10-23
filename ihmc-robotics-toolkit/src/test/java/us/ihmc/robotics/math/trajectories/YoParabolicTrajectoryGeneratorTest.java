@@ -8,7 +8,6 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -27,7 +26,6 @@ public class YoParabolicTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConditions()
    {
@@ -55,7 +53,6 @@ public class YoParabolicTrajectoryGeneratorTest
       EuclidCoreTestTools.assertTuple3DEquals(finalPosition, positionToPack, delta);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testIllegalParameter1()
    {
@@ -69,7 +66,6 @@ public class YoParabolicTrajectoryGeneratorTest
       trajectoryGenerator.initialize(initialPosition, intermediatePosition, finalPosition, intermediateParameter);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testIllegalParameter2()
    {
@@ -83,7 +79,6 @@ public class YoParabolicTrajectoryGeneratorTest
       trajectoryGenerator.initialize(initialPosition, intermediatePosition, finalPosition, intermediateParameter);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testIllegalParameter3()
    {
@@ -109,7 +104,6 @@ public class YoParabolicTrajectoryGeneratorTest
       trajectoryGenerator.getPosition(positionToPack, 1.1);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testApex()
    {
@@ -142,7 +136,6 @@ public class YoParabolicTrajectoryGeneratorTest
       assertTrue(smallestDifference >= 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testVelocity()
    {
@@ -181,7 +174,6 @@ public class YoParabolicTrajectoryGeneratorTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testInitialVelocity()
    {

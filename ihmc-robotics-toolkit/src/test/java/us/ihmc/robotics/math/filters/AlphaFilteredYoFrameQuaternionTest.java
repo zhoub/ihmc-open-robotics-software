@@ -8,7 +8,6 @@ import org.apache.commons.lang3.mutable.MutableDouble;
 import org.junit.After;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -30,7 +29,6 @@ public class AlphaFilteredYoFrameQuaternionTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testInitialValue()
    {
@@ -50,7 +48,6 @@ public class AlphaFilteredYoFrameQuaternionTest
       EuclidCoreTestTools.assertQuaternionEquals(qMeasured, qFiltered, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testAlpha1()
    {
@@ -74,7 +71,6 @@ public class AlphaFilteredYoFrameQuaternionTest
       EuclidCoreTestTools.assertQuaternionGeometricallyEquals(qInitial, qFiltered, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testAlpha0()
    {
@@ -98,7 +94,6 @@ public class AlphaFilteredYoFrameQuaternionTest
       EuclidCoreTestTools.assertQuaternionGeometricallyEquals(qFinal, qFiltered, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testStepChange()
    {

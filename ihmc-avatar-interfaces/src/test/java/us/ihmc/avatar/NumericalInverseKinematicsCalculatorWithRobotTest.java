@@ -13,7 +13,6 @@ import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.jointAnglesWriter.JointAnglesWriter;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -204,7 +203,6 @@ public abstract class NumericalInverseKinematicsCalculatorWithRobotTest implemen
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCase()
    {
@@ -222,7 +220,6 @@ public abstract class NumericalInverseKinematicsCalculatorWithRobotTest implemen
       assertTrue(success);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 16.2)
    @Test(timeout = 81000)
    public void testRandomFeasibleRobotPoses()
    {

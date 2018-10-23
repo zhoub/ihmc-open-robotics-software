@@ -2,7 +2,6 @@ package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
 import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -27,7 +26,6 @@ public class GenericQuadrupedScriptedFlatGroundWalkingTest extends QuadrupedScri
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 74.7)
    @Test(timeout = 370000)
    public void testScriptedFlatGroundWalking() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {

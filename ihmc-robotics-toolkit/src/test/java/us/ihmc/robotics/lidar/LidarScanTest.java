@@ -13,7 +13,6 @@ import org.junit.Test;
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.RunnableThatThrows;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -24,7 +23,6 @@ import us.ihmc.euclid.tuple3D.Point3D;
 public class LidarScanTest
 {
 	
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testFlipNew()
    {
@@ -49,7 +47,6 @@ public class LidarScanTest
       assertLidarScanEquals(lidarScan, lidarScan.flipNew().flipNew(), 1e-7, 1e-7f);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testAssertLidarScanRangesEqual()
    {
@@ -81,7 +78,6 @@ public class LidarScanTest
       assertLidarScanRangesEqual(lidarScan1, lidarScan4, 1e-7);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testAssertLidarScanTransformsEqual()
    {
@@ -112,7 +108,6 @@ public class LidarScanTest
       });
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testAssertLidarScanEquals()
    {
@@ -156,7 +151,6 @@ public class LidarScanTest
       assertLidarScanRangesEqual(lidarScan1, lidarScan2, rangeTolerance);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConstructor()
    {
@@ -176,7 +170,6 @@ public class LidarScanTest
       assertEquals(lidarScan1.size(), 720, 1e-7f);
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testConstructor2()
    {
@@ -193,7 +186,6 @@ public class LidarScanTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetRanges()
    {
@@ -214,7 +206,6 @@ public class LidarScanTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testGetCopy()
    {
@@ -235,7 +226,6 @@ public class LidarScanTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testScanParameters()
    {
@@ -274,7 +264,6 @@ public class LidarScanTest
       }
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 30000)
    public void testGetAllPoints()
    {

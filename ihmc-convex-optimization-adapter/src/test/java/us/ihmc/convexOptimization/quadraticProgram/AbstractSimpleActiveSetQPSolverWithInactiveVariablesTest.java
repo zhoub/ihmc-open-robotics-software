@@ -3,8 +3,6 @@ package us.ihmc.convexOptimization.quadraticProgram;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import static org.junit.Assert.*;
@@ -15,7 +13,6 @@ public abstract class AbstractSimpleActiveSetQPSolverWithInactiveVariablesTest e
 
    public abstract ActiveSetQPSolverWithInactiveVariablesInterface createSolverToTest();
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCasesWithInequalityConstraintsAndInactiveVariables()
    {
@@ -197,7 +194,6 @@ public abstract class AbstractSimpleActiveSetQPSolverWithInactiveVariablesTest e
       assertTrue(Double.isNaN(solution[1]));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCasesWithBoundsConstraintsAndInactiveVariables()
    {

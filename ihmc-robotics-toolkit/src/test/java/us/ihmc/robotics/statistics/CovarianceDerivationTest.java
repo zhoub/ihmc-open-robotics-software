@@ -7,14 +7,11 @@ import java.util.Random;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class CovarianceDerivationTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testLawOfLargeNumbers()
    {
@@ -33,7 +30,6 @@ public class CovarianceDerivationTest
       assertEquals(variance, statistics.getVariance(), epsilon);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 7.6)
 	@Test(timeout = 38000)
    public void testRandomWalkDiscretization()
    {

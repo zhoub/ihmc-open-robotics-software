@@ -9,7 +9,6 @@ import org.ejml.ops.EjmlUnitTests;
 import org.ejml.ops.RandomMatrices;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -22,7 +21,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 public class MatrixYoVariableConversionToolsTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testBackAndForthVector()
    {
@@ -43,7 +41,6 @@ public class MatrixYoVariableConversionToolsTest
       EjmlUnitTests.assertEquals(matrix, matrixBack, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
 	@Test(timeout=300000)
    public void testBackAndForthMatrix()
    {
@@ -65,7 +62,6 @@ public class MatrixYoVariableConversionToolsTest
       EjmlUnitTests.assertEquals(matrix, matrixBack, 1e-12);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test(timeout=300000)
    public void testBackAndForthSymmetricMatrix()
    {

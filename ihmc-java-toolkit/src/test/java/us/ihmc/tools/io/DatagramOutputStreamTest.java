@@ -9,11 +9,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 public class DatagramOutputStreamTest
 {
    private static final long messageSleepMillis = 200;
@@ -33,7 +30,6 @@ public class DatagramOutputStreamTest
       runATest(1776, throwOutStalePackets, expectedMessagesToReceive);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 8.6)
 	@Test(timeout = 43000)
    public void testDatagramOutputStreamDoNotThrowOutStalePackets() throws IOException
    {

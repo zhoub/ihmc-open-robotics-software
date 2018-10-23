@@ -5,7 +5,6 @@ import org.junit.Test;
 import us.ihmc.avatar.controllerAPI.EndToEndFootTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -16,7 +15,6 @@ public class ValkyrieEndToEndFootTrajectoryMessageTest extends EndToEndFootTraje
 {
    private final ValkyrieRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);
 
-   @ContinuousIntegrationTest(estimatedDuration = 23.0)
    @Test(timeout = 120000)
    @Override
    public void testCustomControlPoint() throws SimulationExceededMaximumTimeException
@@ -24,7 +22,6 @@ public class ValkyrieEndToEndFootTrajectoryMessageTest extends EndToEndFootTraje
       super.testCustomControlPoint();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 94.3)
    @Test(timeout = 470000)
    @Override
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
@@ -32,7 +29,6 @@ public class ValkyrieEndToEndFootTrajectoryMessageTest extends EndToEndFootTraje
       super.testSingleWaypoint();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 99.5)
    @Test(timeout = 500000)
    @Override
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
@@ -40,7 +36,6 @@ public class ValkyrieEndToEndFootTrajectoryMessageTest extends EndToEndFootTraje
       super.testMultipleTrajectoryPoints();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 113.5)
    @Test(timeout = 570000)
    @Override
    public void testQueuedMessages() throws SimulationExceededMaximumTimeException
@@ -48,7 +43,6 @@ public class ValkyrieEndToEndFootTrajectoryMessageTest extends EndToEndFootTraje
       super.testQueuedMessages();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 83.5)
    @Test(timeout = 420000)
    @Override
    public void testQueueStoppedWithOverrideMessage() throws SimulationExceededMaximumTimeException
@@ -56,7 +50,6 @@ public class ValkyrieEndToEndFootTrajectoryMessageTest extends EndToEndFootTraje
       super.testQueueStoppedWithOverrideMessage();
    }
    
-   @ContinuousIntegrationTest(estimatedDuration = 64.5)
    @Test(timeout = 320000)
    @Override
    public void testQueueWithWrongPreviousId() throws SimulationExceededMaximumTimeException

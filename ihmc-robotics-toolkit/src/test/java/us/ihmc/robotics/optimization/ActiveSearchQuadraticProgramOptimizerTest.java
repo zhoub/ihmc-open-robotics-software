@@ -10,11 +10,8 @@ import org.ejml.ops.MatrixFeatures;
 import org.ejml.ops.RandomMatrices;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 /**
  * @author twan
  *         Date: 8/9/13
@@ -22,7 +19,6 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 public class ActiveSearchQuadraticProgramOptimizerTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testUnconstrained()
    {
@@ -45,7 +41,6 @@ public class ActiveSearchQuadraticProgramOptimizerTest
       assertTrue(MatrixFeatures.isConstantVal(axMinusB, 0.0, 1e-12));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstrainedSimple()
    {

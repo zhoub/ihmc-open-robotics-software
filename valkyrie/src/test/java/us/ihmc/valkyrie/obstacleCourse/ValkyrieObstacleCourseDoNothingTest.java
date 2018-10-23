@@ -5,7 +5,6 @@ import org.junit.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseDoNothingTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -28,7 +27,6 @@ public class ValkyrieObstacleCourseDoNothingTest extends DRCObstacleCourseDoNoth
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.VALKYRIE);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.3)
    @Test(timeout = 100000)
    public void testDoNothingGroundContactPoints() throws SimulationExceededMaximumTimeException
    {
@@ -36,7 +34,6 @@ public class ValkyrieObstacleCourseDoNothingTest extends DRCObstacleCourseDoNoth
       super.testDoNothing1();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.3)
    @Test(timeout = 100000)
    public void testDoNothingShapeCollision() throws SimulationExceededMaximumTimeException
    {

@@ -8,11 +8,8 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.DRCPushRecoveryMultiStepTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
@@ -47,7 +44,6 @@ public class AtlasPushRecoveryMultiStepTest extends DRCPushRecoveryMultiStepTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 53.2)
    @Test(timeout = 30000)
    public void testMultiStepBackwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
@@ -55,7 +51,6 @@ public class AtlasPushRecoveryMultiStepTest extends DRCPushRecoveryMultiStepTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 67.1)
    @Test(timeout = 30000)
    @Disabled("Needs to be improved")
    public void testMultiStepForwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException

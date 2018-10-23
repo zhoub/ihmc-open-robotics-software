@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.LineSegment3D;
@@ -16,7 +15,6 @@ public class OctreeTest
 {
    private static final String[] axes = { "x", "y", "z" };
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimplePutGetOctree()
    {
@@ -47,7 +45,6 @@ public class OctreeTest
       assertEquals(2, tree.listAllLeaves().size());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void test3DPutGetRemoveTwoLevel()
    {
@@ -88,7 +85,6 @@ public class OctreeTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testOctreeInternalBoarders()
    {
@@ -100,7 +96,6 @@ public class OctreeTest
       assertEquals(2, tree.listAllLeaves().size());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testOctreeLineSearch()
    {
@@ -124,7 +119,6 @@ public class OctreeTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPrint()
    {
@@ -132,7 +126,6 @@ public class OctreeTest
       System.out.println(tree.toString());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPutLidarInOctree()
    {
@@ -149,7 +142,6 @@ public class OctreeTest
       assertEquals(true, tree.get(new double[] { 0.375, 0.0, 0.0 }).getValue());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.2)
 	@Test(timeout = 30000)
    public void testShootOctreeIntoSphereWithLidarBullets()
    {

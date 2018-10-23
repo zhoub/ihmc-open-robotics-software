@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -37,7 +36,6 @@ public class NumericalInverseKinematicsCalculatorTest
     * make sure there are no exceptions when you pass in an infeasible desired transform
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 2.8)
 	@Test(timeout = 30000)
    public void testInfeasible()
    {
@@ -79,7 +77,6 @@ public class NumericalInverseKinematicsCalculatorTest
       if (DEBUG) printStatistics(iterationStatistics, timeStatistics);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.1)
 	@Test(timeout = 30000)
    public void testForwardThenInverse()
    {

@@ -7,15 +7,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class HyperCubeNodeTest
 {
    public static final double eps = 1.0e-6;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testAssumptions()
    {
@@ -30,7 +27,6 @@ public class HyperCubeNodeTest
       assertTrue(index == 7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testToIndex()
    {
@@ -47,7 +43,6 @@ public class HyperCubeNodeTest
       assertEquals(2, index);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testToBooleanArray()
    {
@@ -88,7 +83,6 @@ public class HyperCubeNodeTest
       return node;
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testLocatePoint()
    {
@@ -113,7 +107,6 @@ public class HyperCubeNodeTest
       assertEquals(expectation, index);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIndexing()
    {
@@ -127,7 +120,6 @@ public class HyperCubeNodeTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testWithinBounds()
    {
@@ -140,7 +132,6 @@ public class HyperCubeNodeTest
       assertFalse(HyperCubeNode.withinBounds(bounds, test3));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSubdivideBounds()
    {
@@ -155,7 +146,6 @@ public class HyperCubeNodeTest
       assertEquals(0.5, subBounds[2].max(), eps);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSplit()
    {
@@ -170,7 +160,6 @@ public class HyperCubeNodeTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testReplaceLeaf()
    {

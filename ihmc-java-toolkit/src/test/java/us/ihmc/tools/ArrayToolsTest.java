@@ -24,14 +24,11 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class ArrayToolsTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testParseDoubleArrayFromMATLABString()
    {
@@ -55,7 +52,6 @@ public class ArrayToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testParseDoubleArrayFromMATLABBufferedReader()
    {
@@ -80,7 +76,6 @@ public class ArrayToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testParseDoubleArrayFromDataInputStream()
    {
@@ -107,7 +102,6 @@ public class ArrayToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testParseIntegerArrayFromString()
    {
@@ -127,7 +121,6 @@ public class ArrayToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testParseIntegerArrayFromBufferedReader()
    {
@@ -148,7 +141,6 @@ public class ArrayToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testParseIntegerArrayFromDataInputStream()
    {
@@ -176,7 +168,6 @@ public class ArrayToolsTest
    }
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testDeltaEquals()
    {
@@ -194,7 +185,6 @@ public class ArrayToolsTest
       assertFalse(ArrayTools.deltaEquals(array1, array2, largestDifference - 1));
    }
 	
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
 	public void testDeltaEqualsWithNull()
 	{
@@ -210,7 +200,6 @@ public class ArrayToolsTest
 
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.9)
 	@Test(timeout = 30000)
    public void testParseDoubleArrayFromString() throws IOException
    {
@@ -236,7 +225,6 @@ public class ArrayToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.1)
 	@Test(timeout = 30000)
    public void testParseDoubleArrayFromBufferedReader()
    {
@@ -273,7 +261,6 @@ public class ArrayToolsTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000 , expected = IOException.class)
    public void testParseDoubleArrayFromBufferedReaderWithIOException() throws IOException
    {
@@ -352,7 +339,6 @@ public class ArrayToolsTest
       return array;
    }
 	
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetRearrangedArrayList()
    {
@@ -377,7 +363,6 @@ public class ArrayToolsTest
    }
 
 	
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testGetMaximumAbsoluteChangeBetweenTicks()
    {
@@ -402,7 +387,6 @@ public class ArrayToolsTest
       assertEquals(0.02, maxChange, 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testIsContinuous()
    {

@@ -9,7 +9,6 @@ import org.junit.Test;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
@@ -115,7 +114,6 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
 
    public abstract boolean assertPlannerReturnedResult();
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testOnStaircase()
    {
@@ -123,7 +121,6 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
       runTestAndAssert(getTestData(staircase));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 2.5)
    @Test(timeout = 30000)
    public void testWithWall()
    {
@@ -136,7 +133,6 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
       runTestAndAssert(getTestData(corridor));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test(timeout = 30000)
    public void testOverCinderBlockField()
    {
@@ -144,7 +140,6 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
       runTestAndAssert(getTestData(overCinderBlockField));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 3000000)
    public void testSteppingStones()
    {
@@ -152,70 +147,60 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
       runTestAndAssert(getTestData(steppingStones));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testStepUpsAndDownsScoringDifficult()
    {
       runTestAndAssert(getTestData(stepUpsAndDownsScoringDifficult));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testStepAfterPitchedUp()
    {
       runTestAndAssert(getTestData(stepAfterPitchUp));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testStepAfterPitchedDown()
    {
       runTestAndAssert(getTestData(stepAfterPitchDown));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testCompareStepBeforeGap()
    {
       runTestAndAssert(getTestData(compareStepBeforeGap));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testSimpleStepOnBox()
    {
       runTestAndAssert(getTestData(simpleStepOnBox));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 10.0)
    @Test(timeout = 50000)
    public void testSimpleStepOnBoxTwo()
    {
       runTestAndAssert(getTestData(simpleStepOnBoxTwo));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.2)
    @Test(timeout = 30000)
    public void testRandomEnvironment()
    {
       runTestAndAssert(getTestData(random));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test(timeout = 30000)
    public void testSimpleGaps()
    {
       runTestAndAssert(getTestData(simpleGaps));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test(timeout = 30000)
    public void testPartialGaps()
    {
       runTestAndAssert(getTestData(partialGaps));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test(timeout = 30000)
    public void testWalkingAroundBox()
    {
@@ -223,7 +208,6 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
       runTestAndAssert(getTestData(box));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.6)
    @Test(timeout = 30000)
    public void testSpiralStaircase()
    {
@@ -231,7 +215,6 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
       runTestAndAssert(getTestData(spiralStaircase));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test(timeout = 30000)
    public void testWalkingAroundHole()
    {

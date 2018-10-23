@@ -6,17 +6,12 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Tag("fast")
 public class RobotiqReadResponseTest
 {
    @Test(timeout = 30000)
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testSetAll()
    {
       final int ITERATIONS = 1000;

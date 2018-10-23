@@ -3,7 +3,6 @@ package us.ihmc.quadrupedRobotics.controller.force;
 import java.io.IOException;
 
 import org.junit.Test;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -67,28 +66,24 @@ public abstract class QuadrupedForceBasedStandControllerTest implements Quadrupe
    public abstract double getOrientationDelta();
 
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 320000)
    public void testStandingAndResistingPushesOnFrontRightHipRoll() throws IOException
    {
       pushOnShoulder(quadrupedTestFactory, QuadrupedJointName.FRONT_RIGHT_HIP_ROLL.getUnderBarName());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 320000)
    public void testStandingAndResistingPushesOnHindLeftHipRoll() throws IOException
    {
       pushOnShoulder(quadrupedTestFactory, QuadrupedJointName.HIND_LEFT_HIP_ROLL.getUnderBarName());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 320000)
    public void testStandingAndResistingPushesOnHindRightHipRoll() throws IOException
    {
       pushOnShoulder(quadrupedTestFactory, QuadrupedJointName.HIND_RIGHT_HIP_ROLL.getUnderBarName());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 20.0)
    @Test(timeout = 320000)
    public void testStandingAndResistingPushesOnFrontLeftHipRoll() throws IOException
    {
@@ -175,7 +170,6 @@ public abstract class QuadrupedForceBasedStandControllerTest implements Quadrupe
       conductor.simulate();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 35.0)
    @Test(timeout = 550000)
    public void testStandingAndResistingPushesOnBody() throws IOException
    {
@@ -218,7 +212,6 @@ public abstract class QuadrupedForceBasedStandControllerTest implements Quadrupe
       conductor.simulate();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 390000)
    public void testStandingUpAndAdjustingCoM()
          throws IOException

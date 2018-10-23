@@ -6,7 +6,6 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.math.filters.DelayedYoDouble;
@@ -17,7 +16,6 @@ import us.ihmc.robotics.math.functionGenerator.YoFunctionGeneratorMode;
 
 public class DelayEstimatorBetweenTwoSignalsTest
 {
-   @ContinuousIntegrationTest(estimatedDuration = 1.7)
    @Test(timeout = 30000)
    public void testPerfectSignal() throws Exception
    {
@@ -59,7 +57,6 @@ public class DelayEstimatorBetweenTwoSignalsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.6)
    @Test(timeout = 30000)
    public void testWithShiftedSignal() throws Exception
    {
@@ -103,7 +100,6 @@ public class DelayEstimatorBetweenTwoSignalsTest
       }
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.6)
    @Test(timeout = 30000)
    public void testNoisySignal() throws Exception
    {

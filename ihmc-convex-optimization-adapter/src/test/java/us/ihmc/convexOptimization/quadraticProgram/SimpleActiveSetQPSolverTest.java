@@ -5,17 +5,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Tag("fast")
 public class SimpleActiveSetQPSolverTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleUnconstrainedOptimization()
    {
@@ -38,7 +33,6 @@ public class SimpleActiveSetQPSolverTest
       assertEquals(2.0, solution[1], 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleEqualityConstrainedOptimization()
    {
@@ -68,7 +62,6 @@ public class SimpleActiveSetQPSolverTest
       assertEquals(1.0, solution[1], 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleInequalityConstrainedOptimizationWithActiveConstraint()
    {
@@ -98,7 +91,6 @@ public class SimpleActiveSetQPSolverTest
       assertEquals(-1.0, solution[1], 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testSimpleInequalityConstrainedOptimizationWithInactiveConstraint()
    {
@@ -128,7 +120,6 @@ public class SimpleActiveSetQPSolverTest
       assertEquals(2.0, solution[1], 1e-7);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testNoValidSolutionDueToNonSolvableEqualityConstraints()
    {

@@ -8,18 +8,13 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 @Tag("fast")
 public class LinearRegressionTest
 {
    private static final boolean VERBOSE = false;
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testTypicalExampleOne()
    {
@@ -56,7 +51,6 @@ public class LinearRegressionTest
                                  expectedCoefficients);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testTypicalExampleTwo()
    {
@@ -106,7 +100,6 @@ public class LinearRegressionTest
                                  expectedCoefficients);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPerfectMatch()
    {
@@ -154,7 +147,6 @@ public class LinearRegressionTest
                                  expectedCoefficients);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRandomness()
    {
@@ -182,7 +174,6 @@ public class LinearRegressionTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testNotEnoughPoints()
    {
@@ -197,7 +188,6 @@ public class LinearRegressionTest
       boolean foundSolution = linearRegression.solve();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testAskingForAnswerBeforeDone()
    {
@@ -212,7 +202,6 @@ public class LinearRegressionTest
       linearRegression.getCoefficientVector(coefficientVector);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testAskingForSquaredErrorBeforeDone()
    {
@@ -226,7 +215,6 @@ public class LinearRegressionTest
       linearRegression.getSquaredError();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testAskingForCoefficientVectorAsMatrixBeforeDone()
    {

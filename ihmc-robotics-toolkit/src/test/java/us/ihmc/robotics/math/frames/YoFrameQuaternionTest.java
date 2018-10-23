@@ -10,7 +10,6 @@ import org.junit.After;
 import org.junit.Test;
 
 import us.ihmc.commons.RandomNumbers;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -39,7 +38,6 @@ public class YoFrameQuaternionTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testInitialization()
    {
@@ -71,7 +69,6 @@ public class YoFrameQuaternionTest
       assertArrayEquals(yawPitchRollExpected, yawPitchRollActual, EPS);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testSetters()
    {
@@ -115,7 +112,6 @@ public class YoFrameQuaternionTest
       assertTrue(matrix3dActual.epsilonEquals(matrix3dExpected, EPS));
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testReferenceFramesMismatching()
    {
@@ -150,7 +146,6 @@ public class YoFrameQuaternionTest
       assertFalse(hasReferenceFrameMismatchExceptionBeenThrown);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testMultiplication()
    {
@@ -184,7 +179,6 @@ public class YoFrameQuaternionTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testInterpolate()
    {

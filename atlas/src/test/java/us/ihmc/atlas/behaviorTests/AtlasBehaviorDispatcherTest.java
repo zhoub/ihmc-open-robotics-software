@@ -7,10 +7,8 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.behaviorTests.HumanoidBehaviorDispatcherTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -36,7 +34,6 @@ public class AtlasBehaviorDispatcherTest extends HumanoidBehaviorDispatcherTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 63.1)
    @Test(timeout = 320000)
    public void testDispatchPelvisPoseBehavior() throws SimulationExceededMaximumTimeException
    {
@@ -52,7 +49,6 @@ public class AtlasBehaviorDispatcherTest extends HumanoidBehaviorDispatcherTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.8)
    @Test(timeout = 290000)
    public void testDispatchWalkToLocationBehaviorAndStop() throws SimulationExceededMaximumTimeException
    {
@@ -60,7 +56,6 @@ public class AtlasBehaviorDispatcherTest extends HumanoidBehaviorDispatcherTest
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 102.0)
    @Test(timeout = 510000)
    public void testDispatchWalkToLocationBehaviorPauseAndResume() throws SimulationExceededMaximumTimeException
    {

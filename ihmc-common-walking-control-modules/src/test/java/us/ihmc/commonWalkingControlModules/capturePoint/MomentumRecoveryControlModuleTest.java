@@ -17,11 +17,8 @@ import org.junit.After;
 import org.junit.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.matrix.Matrix3D;
 import us.ihmc.euclid.referenceFrame.FrameConvexPolygon2D;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
@@ -78,7 +75,6 @@ public class MomentumRecoveryControlModuleTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test (timeout = 30000)
    /**
     * This test passes a huge ICP error and a bad ICP to the control module and makes
@@ -119,7 +115,6 @@ public class MomentumRecoveryControlModuleTest
       assertTrue(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test (timeout = 30000)
    /**
     * This test passes a huge ICP error and a bad ICP to the control module and makes
@@ -160,7 +155,6 @@ public class MomentumRecoveryControlModuleTest
       assertTrue(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test (timeout = 30000)
    /**
     * This test passes a huge ICP error and a bad ICP to the control module but disables momentum
@@ -204,7 +198,6 @@ public class MomentumRecoveryControlModuleTest
       assertFalse(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test (timeout = 30000)
    /**
     * This test passes a huge ICP error and a bad ICP to the control module but disables momentum
@@ -248,7 +241,6 @@ public class MomentumRecoveryControlModuleTest
       assertFalse(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test (timeout = 30000)
    public void testLogicDoubleSupportSafe()
    {
@@ -283,7 +275,6 @@ public class MomentumRecoveryControlModuleTest
       assertFalse(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test (timeout = 30000)
    public void testLogicDoubleSupportUnsafe()
    {
@@ -318,7 +309,6 @@ public class MomentumRecoveryControlModuleTest
       assertTrue(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.1)
    @Test (timeout = 30000)
    public void testLogicSingleSupportSafe()
    {
@@ -358,7 +348,6 @@ public class MomentumRecoveryControlModuleTest
       assertFalse(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test (timeout = 30000)
    public void testLogicSingleSupportUnsafe()
    {
@@ -398,7 +387,6 @@ public class MomentumRecoveryControlModuleTest
       assertTrue(usingHighMomentumWeight.getBooleanValue());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test (timeout = 30000)
    /**
     * This test passes a huge ICP error and a good ICP to the control module and makes

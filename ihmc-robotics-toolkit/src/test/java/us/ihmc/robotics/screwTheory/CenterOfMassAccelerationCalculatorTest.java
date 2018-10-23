@@ -8,7 +8,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.matrix.Matrix3D;
@@ -32,7 +31,6 @@ public class CenterOfMassAccelerationCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testOneRigidBody()
    {
@@ -68,7 +66,6 @@ public class CenterOfMassAccelerationCalculatorTest
       EuclidCoreTestTools.assertTuple3DEquals(expected, comAcceleration, 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testTwoSliderJointsZeroAcceleration()
    {
@@ -107,7 +104,6 @@ public class CenterOfMassAccelerationCalculatorTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(), comAcceleration, 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testPendulumCentripetalAcceleration()
    {
@@ -143,7 +139,6 @@ public class CenterOfMassAccelerationCalculatorTest
 
    // Just tests whether it will crash or not for now
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testTree()
    {

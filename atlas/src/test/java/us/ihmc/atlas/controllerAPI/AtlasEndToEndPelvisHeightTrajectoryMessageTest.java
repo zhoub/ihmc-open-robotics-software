@@ -7,7 +7,6 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.controllerAPI.EndToEndPelvisHeightTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
@@ -30,7 +29,6 @@ public class AtlasEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndPelv
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 38.3)
    @Test(timeout = 190000)
    public void testSingleWaypoint() throws Exception
    {
@@ -38,7 +36,6 @@ public class AtlasEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndPelv
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 23.1)
    @Test(timeout = 120000)
    public void testSingleWaypointInUserMode() throws Exception
    {

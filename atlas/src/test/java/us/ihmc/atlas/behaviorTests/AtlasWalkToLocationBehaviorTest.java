@@ -7,11 +7,8 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.behaviorTests.DRCWalkToLocationBehaviorTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
@@ -38,7 +35,6 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 30.0)
    @Test(timeout = 150000)
    public void testTurn361DegreesInPlace() throws SimulationExceededMaximumTimeException
    {
@@ -46,7 +42,6 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.2)
    @Test(timeout = 290000)
    public void testWalkAndStopBehavior() throws SimulationExceededMaximumTimeException
    {
@@ -54,7 +49,6 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 60.3)
    @Test(timeout = 300000)
    public void testWalkAtAngleAndFinishAlignedWithInitialOrientation() throws SimulationExceededMaximumTimeException
    {
@@ -62,7 +56,6 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 63.3)
    @Test(timeout = 320000)
    public void testWalkAtAngleAndFinishAlignedWithWalkingPath() throws SimulationExceededMaximumTimeException
    {
@@ -70,7 +63,6 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 71.6)
    @Test(timeout = 360000)
    public void testWalkAtAngleUsingStartOrientation() throws SimulationExceededMaximumTimeException
    {
@@ -78,7 +70,6 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 84.3)
    @Test(timeout = 420000)
    public void testWalkAtAngleUsingStartTargetMeanOrientation() throws SimulationExceededMaximumTimeException
    {
@@ -86,7 +77,6 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 108.6)
    @Test(timeout = 540000)
    public void testWalkAtAngleUsingTargetOrientation() throws SimulationExceededMaximumTimeException
    {
@@ -94,7 +84,6 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 44.0)
    @Test(timeout = 220000)
    public void testWalkBackwardsASmallAmountWithoutTurningInPlace() throws SimulationExceededMaximumTimeException
    {
@@ -102,7 +91,6 @@ public class AtlasWalkToLocationBehaviorTest extends DRCWalkToLocationBehaviorTe
    }
    
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 59.4)
    @Test(timeout = 300000)
    public void testWalkForwardsX() throws SimulationExceededMaximumTimeException
    {

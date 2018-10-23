@@ -8,7 +8,6 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.trajectories.providers.ConstantDoubleProvider;
@@ -41,7 +40,6 @@ public class ConstantAccelerationTrajectoryGeneratorTest
       initialVelocityProvider = new ConstantDoubleProvider(INITIALVELOCITY);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testConstructor()
    {
@@ -60,7 +58,6 @@ public class ConstantAccelerationTrajectoryGeneratorTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    public void testIsDone()
    {
@@ -77,7 +74,6 @@ public class ConstantAccelerationTrajectoryGeneratorTest
       assertTrue(generator.isDone());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    //s = c * t ^ 2 + v0 * t
    public void testIncreasing()
@@ -98,7 +94,6 @@ public class ConstantAccelerationTrajectoryGeneratorTest
       }
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout=300000)
    //s = -c * t ^ 2 + v0 * t
    public void testDecreasing()

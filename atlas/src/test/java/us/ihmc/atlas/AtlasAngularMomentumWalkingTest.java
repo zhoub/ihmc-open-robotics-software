@@ -11,7 +11,6 @@ import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.ICPOptimizationParameters;
 import us.ihmc.commonWalkingControlModules.configurations.ICPWithTimeFreezingPlannerParameters;
 import us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
@@ -69,35 +68,30 @@ public class AtlasAngularMomentumWalkingTest extends AvatarAngularMomentumWalkin
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 57.4)
    @Test(timeout = 290000)
    public void testForwardWalkWithAngularMomentumReference() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalkWithAngularMomentumReference();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test(timeout = 300000)
    public void testForwardWalkWithCorruptedMomentum() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalkWithCorruptedMomentum();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test(timeout = 300000)
    public void testWalkingWithDelayedMomentum() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingWithDelayedMomentum();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test(timeout = 300000)
    public void testForwardWalkZeroMomentumFirstStep() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalkZeroMomentumFirstStep();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 50.0)
    @Test(timeout = 300000)
    public void testWalkingWithRandomSinusoidalMomentum() throws SimulationExceededMaximumTimeException
    {

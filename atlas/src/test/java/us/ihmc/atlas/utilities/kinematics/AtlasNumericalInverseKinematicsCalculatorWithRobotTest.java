@@ -11,10 +11,8 @@ import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.NumericalInverseKinematicsCalculatorWithRobotTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -51,7 +49,6 @@ public class AtlasNumericalInverseKinematicsCalculatorWithRobotTest extends Nume
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 16.2)
    @Test(timeout = 81000)
    public void testRandomFeasibleRobotPoses()
    {
@@ -59,7 +56,6 @@ public class AtlasNumericalInverseKinematicsCalculatorWithRobotTest extends Nume
    }
 
    @Override
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleCase()
    {

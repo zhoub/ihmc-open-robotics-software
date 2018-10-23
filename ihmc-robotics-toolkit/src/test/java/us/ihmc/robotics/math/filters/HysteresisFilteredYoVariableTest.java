@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -29,7 +28,6 @@ public class HysteresisFilteredYoVariableTest
    {
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testNoHysteresis()
    {
@@ -52,7 +50,6 @@ public class HysteresisFilteredYoVariableTest
       //    plot(x, new double[][]{unfilteredValues, filteredValues}, "No Hysteresis");
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSomeHysteresis()
    {

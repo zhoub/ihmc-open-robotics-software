@@ -2,7 +2,6 @@ package us.ihmc.commonWalkingControlModules.dynamicReachability;
 
 import org.junit.Test;
 import us.ihmc.commonWalkingControlModules.configurations.DynamicReachabilityParameters;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -25,7 +24,6 @@ public class TimeAdjustmentSolverTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithoutHigherSteps()
    {
@@ -158,7 +156,6 @@ public class TimeAdjustmentSolverTest
    /**
     * We only have only told it to consider 3 steps, so none of the higher steps should be allowed.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithHigherStepsButOutOfBounds()
    {
@@ -283,7 +280,6 @@ public class TimeAdjustmentSolverTest
    /**
     * We are not submitting higher gradients, so there should be zero adjustment
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithHigherStepsButNotSubmitted()
    {
@@ -421,7 +417,6 @@ public class TimeAdjustmentSolverTest
    /**
     * The higher gradients are really small, so the adjustment should be really small.
     */
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithHigherSteps()
    {

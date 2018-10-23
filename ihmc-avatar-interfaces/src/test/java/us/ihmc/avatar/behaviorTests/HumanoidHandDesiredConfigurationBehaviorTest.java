@@ -15,7 +15,6 @@ import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCBehaviorTestHelper;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.humanoidBehaviors.behaviors.primitives.HandDesiredConfigurationBehavior;
@@ -77,7 +76,6 @@ public abstract class HumanoidHandDesiredConfigurationBehaviorTest implements Mu
                                                         simulationTestingParameters, getRobotModel());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 27.7)
    @Test(timeout = 83115)
    public void testCloseHand() throws SimulationExceededMaximumTimeException
    {
@@ -105,7 +103,6 @@ public abstract class HumanoidHandDesiredConfigurationBehaviorTest implements Mu
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 27.7)
    @Test(timeout = 83115)
    public void testStopCloseHand() throws SimulationExceededMaximumTimeException
    {
@@ -147,7 +144,6 @@ public abstract class HumanoidHandDesiredConfigurationBehaviorTest implements Mu
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 27.7)
    @Test(timeout = 83115)
    public void testPauseAndResumeCloseHand() throws SimulationExceededMaximumTimeException
    {

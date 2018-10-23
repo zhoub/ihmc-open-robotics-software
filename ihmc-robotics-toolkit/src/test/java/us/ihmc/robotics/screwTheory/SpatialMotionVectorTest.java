@@ -11,7 +11,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -77,7 +76,6 @@ public class SpatialMotionVectorTest
     * Test inverting a twist
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testInvert()
    {
@@ -113,7 +111,6 @@ public class SpatialMotionVectorTest
     * Constructing using a matrix
     */
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testConstructUsingMatrix()
    {
@@ -124,7 +121,6 @@ public class SpatialMotionVectorTest
       JUnitTools.assertMatrixEquals(matrix, matrixBack, 0.0);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testConstructUsingMatrixTooSmall()
    {
@@ -132,7 +128,6 @@ public class SpatialMotionVectorTest
       createSpatialMotionVector(frameC, frameD, frameA, matrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testConstructUsingMatrixTooBig()
    {
@@ -140,7 +135,6 @@ public class SpatialMotionVectorTest
       createSpatialMotionVector(frameC, frameD, frameA, matrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000,expected = RuntimeException.class)
    public void testConstructUsingMatrixTooBig2()
    {
@@ -148,7 +142,6 @@ public class SpatialMotionVectorTest
       createSpatialMotionVector(frameC, frameD, frameA, matrix);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testLimitLinearAndAngularParts()
    {

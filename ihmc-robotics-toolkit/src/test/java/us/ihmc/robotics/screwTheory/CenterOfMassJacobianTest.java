@@ -12,7 +12,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.matrix.Matrix3D;
@@ -49,7 +48,6 @@ public class CenterOfMassJacobianTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeJacobianSingleJoint()
    {
@@ -57,7 +55,6 @@ public class CenterOfMassJacobianTest
       testComputeJacobianRevoluteJoints(joints, ScrewTools.computeSupportAndSubtreeSuccessors(elevator), elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeJacobianTwoJointsSimple()
    {
@@ -65,7 +62,6 @@ public class CenterOfMassJacobianTest
       testComputeJacobianRevoluteJoints(joints, ScrewTools.computeSupportAndSubtreeSuccessors(elevator), elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeJacobianRandomChain()
    {
@@ -73,7 +69,6 @@ public class CenterOfMassJacobianTest
       testComputeJacobianRevoluteJoints(joints, ScrewTools.computeSupportAndSubtreeSuccessors(elevator), elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testTree()
    {
@@ -81,7 +76,6 @@ public class CenterOfMassJacobianTest
       testComputeJacobianRevoluteJoints(joints, ScrewTools.computeSupportAndSubtreeSuccessors(elevator), elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testRigidBodyListSortInvariant()
    {
@@ -109,7 +103,6 @@ public class CenterOfMassJacobianTest
       EuclidCoreTestTools.assertTuple3DEquals(velocityFromJacobianInOrder, velocityFromJacobianOutOrder, 1e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeJacobianSixDoFPlusRandomChain()
    {
@@ -144,7 +137,6 @@ public class CenterOfMassJacobianTest
       EuclidCoreTestTools.assertTuple3DEquals(velocityNumerical, velocityFromJacobian, 4e-5);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeJacobianSkipLeafBody()
    {
@@ -153,7 +145,6 @@ public class CenterOfMassJacobianTest
       testComputeJacobianRevoluteJoints(joints, rigidBodies, elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeJacobianSkipIntermediateBody()
    {
@@ -162,7 +153,6 @@ public class CenterOfMassJacobianTest
       testComputeJacobianRevoluteJoints(joints, rigidBodies, elevator.getBodyFixedFrame());
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testComputeRootJointLinearVelocity()
    {

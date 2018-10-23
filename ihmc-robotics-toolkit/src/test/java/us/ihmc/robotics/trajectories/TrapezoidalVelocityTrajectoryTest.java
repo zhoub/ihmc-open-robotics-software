@@ -9,11 +9,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
-
 public class TrapezoidalVelocityTrajectoryTest
 {
    private static final boolean VERBOSE = false;
@@ -28,7 +25,6 @@ public class TrapezoidalVelocityTrajectoryTest
    {
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetState()
    {
@@ -93,7 +89,6 @@ public class TrapezoidalVelocityTrajectoryTest
 
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void DONTtestOne()
    {
@@ -121,7 +116,6 @@ public class TrapezoidalVelocityTrajectoryTest
 //    sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testTwo()
    {
@@ -151,7 +145,6 @@ public class TrapezoidalVelocityTrajectoryTest
 //    sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testWithoutEnforcingFinalVelocity()
    {
@@ -180,7 +173,6 @@ public class TrapezoidalVelocityTrajectoryTest
 //    sleepForever();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testNotEnforcingFinalVelocityBadCase()
    {
@@ -216,7 +208,6 @@ public class TrapezoidalVelocityTrajectoryTest
       assertTrue("endSpeed=" + endSpeed + ", : " + errorMessage, endSpeed <= maxVelocity);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test(timeout = 30000)
    public void testRandomStuff()
    {
@@ -264,7 +255,6 @@ public class TrapezoidalVelocityTrajectoryTest
          throw new RuntimeException("testRandomStuff Failed. Check output.");
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProblemOnDog()
    {
@@ -281,7 +271,6 @@ public class TrapezoidalVelocityTrajectoryTest
       performTests(trap, t0, x0, v0, xF, vF, vMax, aMax);
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.2)
    @Test(timeout = 30000)
    public void testNotEnforcingFinalVelocity()
    {
@@ -354,7 +343,6 @@ public class TrapezoidalVelocityTrajectoryTest
    }
 
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProblemOne()
    {
@@ -373,7 +361,6 @@ public class TrapezoidalVelocityTrajectoryTest
 
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProblemTwo()
    {

@@ -7,18 +7,14 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.commons.thread.ThreadTools;
 
 @Tag("flaky")
 public class StreamingDataTCPServerTest
 {
 
-	@ContinuousIntegrationTest(estimatedDuration = 1.0)
 	@Test(timeout=90000)
    public void testTypicalUsage()
    {
@@ -52,7 +48,6 @@ public class StreamingDataTCPServerTest
       streamingDataTCPServer.closeAndBlockTillFullyClosed();
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 2.2)
 	@Test(timeout=90000)
    public void testMultipleProducersAndConsumersRobustly()
    {
@@ -105,7 +100,6 @@ public class StreamingDataTCPServerTest
       
    }
 
-	@ContinuousIntegrationTest(estimatedDuration = 3.1)
 	@Test(timeout=90000)
    public void testPersistentConsumerToServerRestart()
    {

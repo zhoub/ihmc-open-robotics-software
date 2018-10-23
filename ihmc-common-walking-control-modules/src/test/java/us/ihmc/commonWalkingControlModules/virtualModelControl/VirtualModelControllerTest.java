@@ -11,11 +11,8 @@ import org.junit.Test;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualWrenchCommand;
 import us.ihmc.commonWalkingControlModules.virtualModelControl.VirtualModelControllerTestHelper.RobotLegs;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
@@ -44,7 +41,6 @@ public class VirtualModelControllerTest
 
    private boolean hasSCSSimulation = false;
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testJacobianCalculation()
    {
@@ -94,7 +90,6 @@ public class VirtualModelControllerTest
       VirtualModelControllerTestHelper.compareWrenches(wrench, appliedWrench);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMC()
    {
@@ -118,7 +113,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, null);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectAll()
    {
@@ -143,7 +137,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, CommonOps.identity(Wrench.SIZE, Wrench.SIZE));
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectForce()
    {
@@ -174,7 +167,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectTorque()
    {
@@ -205,7 +197,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectForceX()
    {
@@ -233,7 +224,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectForceY()
    {
@@ -261,7 +251,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectForceZ()
    {
@@ -289,7 +278,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectTorqueX()
    {
@@ -317,7 +305,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectTorqueY()
    {
@@ -345,7 +332,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectTorqueZ()
    {
@@ -373,7 +359,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectForceXTorqueY()
    {
@@ -402,7 +387,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectForceYZTorqueX()
    {
@@ -432,7 +416,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCSelectForceXTorqueXZ()
    {
@@ -462,7 +445,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCWrongExpressedInFrame()
    {
@@ -492,7 +474,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCWrongExpressedOnFrame()
    {
@@ -522,7 +503,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCWrongExpressedInAndOnFrame()
    {
@@ -549,7 +529,6 @@ public class VirtualModelControllerTest
       submitAndCheckVMC(pelvis, foot, centerOfMassFrame, desiredWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testVMCVirtualWrenchCommand()
    {
@@ -607,7 +586,6 @@ public class VirtualModelControllerTest
       VirtualModelControllerTestHelper.compareWrenches(desiredWrench, appliedWrench, selectionMatrix);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 6.3)
    @Test(timeout = 32000)
    public void testVMCWithArm() throws Exception
    {
@@ -646,7 +624,6 @@ public class VirtualModelControllerTest
       simulationTestingParameters.setKeepSCSUp(false);
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 4.3)
    @Test(timeout = 30000)
    public void testVMCWithPlanarArm() throws Exception
    {
@@ -682,7 +659,6 @@ public class VirtualModelControllerTest
    }
 
    /*
-   @ContinuousIntegrationTest(estimatedDuration = 4.7)
    @Test(timeout = 30000)
    public void testPlanarHydra() throws Exception
    {
@@ -728,7 +704,6 @@ public class VirtualModelControllerTest
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 5.5)
    @Test(timeout = 30000)
    public void testHydra() throws Exception
    {

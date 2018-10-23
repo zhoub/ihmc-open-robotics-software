@@ -20,11 +20,8 @@ import us.ihmc.commonWalkingControlModules.configurations.AngularMomentumEstimat
 import us.ihmc.commonWalkingControlModules.configurations.SmoothCMPPlannerParameters;
 import us.ihmc.commons.Epsilons;
 import us.ihmc.commons.MutationTestFacilitator;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
-import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameQuaternion;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
@@ -247,7 +244,6 @@ public class FootstepAngularMomentumPredictorTest
       clear();
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.9)
    @Test(timeout = 30000)
    public void testAngularMomentumInitialTransfer()
    {
@@ -331,7 +327,6 @@ public class FootstepAngularMomentumPredictorTest
       return comListCounter + 1;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 0.9)
    @Test(timeout = 30000)
    public void testAngularMomentumNormalTransfer()
    {
@@ -482,7 +477,6 @@ public class FootstepAngularMomentumPredictorTest
       return comListCounter;
    }
 
-   @ContinuousIntegrationTest(estimatedDuration = 1.2)
    @Test(timeout = 30000)
    public void testAngularMomentumSwing()
    {
