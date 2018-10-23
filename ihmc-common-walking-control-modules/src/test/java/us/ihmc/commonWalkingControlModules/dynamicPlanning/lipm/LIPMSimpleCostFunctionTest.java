@@ -5,6 +5,7 @@ import org.ejml.ops.CommonOps;
 import org.junit.Test;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.TrackingCostFunctionTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.robotics.testing.JUnitTools;
 import us.ihmc.trajectoryOptimization.DefaultDiscreteState;
 import us.ihmc.trajectoryOptimization.LQTrackingCostFunction;

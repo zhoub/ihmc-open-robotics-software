@@ -1,6 +1,7 @@
 package us.ihmc.robotiq.communication.registers;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationPlan;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotiq.communication.registers.ObjectDetectionRegister.gDTA;
 import us.ihmc.robotiq.communication.registers.ObjectDetectionRegister.gDTB;

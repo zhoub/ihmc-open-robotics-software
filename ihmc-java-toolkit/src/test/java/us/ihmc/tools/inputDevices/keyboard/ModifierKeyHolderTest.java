@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.graphicsDescription.input.keyboard.ModifierKeyHolder;
 import us.ihmc.tools.inputDevices.keyboard.Key;
 

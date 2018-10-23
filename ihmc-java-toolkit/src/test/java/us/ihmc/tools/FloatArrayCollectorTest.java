@@ -3,6 +3,7 @@ package us.ihmc.tools;
 import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.tools.FloatArrayCollector;
 
 import java.util.Arrays;

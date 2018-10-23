@@ -13,6 +13,7 @@ import java.net.Socket;
 import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.commons.thread.ThreadTools;
 
 public class PersistentTCPClientTest

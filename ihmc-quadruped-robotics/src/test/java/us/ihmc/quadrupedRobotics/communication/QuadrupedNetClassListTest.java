@@ -5,6 +5,7 @@ import org.reflections.Reflections;
 import us.ihmc.communication.kryo.KryoNetClassListTestHelper;
 import us.ihmc.communication.net.NetClassList;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.pubsub.TopicDataType;
 
 import java.util.Set;

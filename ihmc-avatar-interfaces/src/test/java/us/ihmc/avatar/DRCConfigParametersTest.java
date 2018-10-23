@@ -7,6 +7,7 @@ import org.junit.Test;
 import us.ihmc.avatar.networkProcessor.modules.uiConnector.PacketsForwardedToTheUi;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
+import org.junit.jupiter.api.Tag;
 public class DRCConfigParametersTest
 {
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)

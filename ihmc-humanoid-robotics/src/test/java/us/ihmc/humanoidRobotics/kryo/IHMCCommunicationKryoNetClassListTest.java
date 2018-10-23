@@ -4,6 +4,7 @@ import org.junit.Test;
 import us.ihmc.communication.kryo.KryoNetClassListTestHelper;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
+import org.junit.jupiter.api.Tag;
 public class IHMCCommunicationKryoNetClassListTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)

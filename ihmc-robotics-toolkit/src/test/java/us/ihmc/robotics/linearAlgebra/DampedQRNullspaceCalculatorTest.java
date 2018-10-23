@@ -5,6 +5,7 @@ import org.ejml.ops.CommonOps;
 import org.junit.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
 
+import org.junit.jupiter.api.Tag;
 import static org.junit.Assert.assertEquals;
 
 public class DampedQRNullspaceCalculatorTest extends DampedNullspaceCalculatorTest

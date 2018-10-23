@@ -8,6 +8,7 @@ import us.ihmc.avatar.controllerAPI.EndToEndEndFootBearingMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
 public class AtlasEndToEndFootLoadBearingTest extends EndToEndEndFootBearingMessageTest

@@ -3,6 +3,7 @@ package us.ihmc.simulationConstructionSetTools.gui;
 import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.commons.Conversions;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.linearDynamicSystems.TransferFunction;

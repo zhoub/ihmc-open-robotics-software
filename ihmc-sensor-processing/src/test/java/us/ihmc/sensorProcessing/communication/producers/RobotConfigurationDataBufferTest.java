@@ -11,6 +11,7 @@ import controller_msgs.msg.dds.RobotConfigurationData;
 import org.junit.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.robotModels.FullHumanoidRobotModel;
 import us.ihmc.robotModels.FullRobotModelUtils;
 import us.ihmc.robotics.screwTheory.OneDoFJoint;

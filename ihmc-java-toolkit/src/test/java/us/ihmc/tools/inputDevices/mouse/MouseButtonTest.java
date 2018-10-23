@@ -7,6 +7,7 @@ import java.awt.event.InputEvent;
 import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.graphicsDescription.input.mouse.MouseButton;
 
 public class MouseButtonTest
