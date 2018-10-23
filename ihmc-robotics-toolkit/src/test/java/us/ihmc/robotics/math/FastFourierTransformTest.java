@@ -4,6 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.robotics.dataStructures.ComplexNumber;
 import us.ihmc.commons.Epsilons;

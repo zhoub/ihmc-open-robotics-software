@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
 public class BambooToolsTest

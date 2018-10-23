@@ -24,6 +24,7 @@ import boofcv.struct.image.GrayF32;
 import boofcv.struct.image.ImageType;
 import georegression.struct.se.Se3_F64;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
 import us.ihmc.tools.io.resources.ResourceTools;

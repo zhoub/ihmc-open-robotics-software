@@ -22,6 +22,7 @@ import us.ihmc.communication.net.TcpNetStateListener;
 import us.ihmc.communication.packetCommunicator.PacketCommunicator;
 import us.ihmc.communication.streamingData.GlobalDataProducer;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;

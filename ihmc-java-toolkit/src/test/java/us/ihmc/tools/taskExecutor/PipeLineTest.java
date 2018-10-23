@@ -8,6 +8,7 @@ import org.junit.Test;
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
+import org.junit.jupiter.api.Tag;
 public class PipeLineTest
 {
 

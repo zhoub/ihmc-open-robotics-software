@@ -7,6 +7,7 @@ import java.util.Random;
 import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.utilities.parameterOptimization.IndividualToEvaluate;
 import us.ihmc.utilities.parameterOptimization.ListOfParametersToOptimize;
 import us.ihmc.utilities.parameterOptimization.OptimizationProblem;

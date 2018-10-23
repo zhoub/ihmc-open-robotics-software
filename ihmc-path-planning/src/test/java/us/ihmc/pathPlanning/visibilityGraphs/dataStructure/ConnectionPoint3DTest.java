@@ -3,6 +3,7 @@ package us.ihmc.pathPlanning.visibilityGraphs.dataStructure;
 import org.apache.commons.math3.util.Precision;
 import org.junit.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
 
 import java.util.Random;

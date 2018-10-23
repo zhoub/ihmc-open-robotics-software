@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.matrix.Matrix3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.modelFileLoaders.SdfLoader.xmlDescription.SDFInertia;

@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
+import org.junit.jupiter.api.Tag;
 public class RobotQuadrantTest
 {
    private RobotQuadrant frontLeft = RobotQuadrant.FRONT_LEFT;

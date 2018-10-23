@@ -6,6 +6,7 @@ import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RunnableThatThrows;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
+import org.junit.jupiter.api.Tag;
 public class FactoryToolsTest
 {
    @ContinuousIntegrationTest(estimatedDuration = 0.0)

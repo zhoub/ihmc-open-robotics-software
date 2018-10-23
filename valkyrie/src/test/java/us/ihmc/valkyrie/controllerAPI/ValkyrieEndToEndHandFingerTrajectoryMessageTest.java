@@ -13,6 +13,7 @@ import us.ihmc.avatar.controllerAPI.EndToEndHandFingerTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.humanoidRobotics.communication.packets.dataobjects.HandConfiguration;
 import us.ihmc.idl.IDLSequence.Object;
 import us.ihmc.robotics.robotSide.RobotSide;

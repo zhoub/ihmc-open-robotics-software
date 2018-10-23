@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
+import org.junit.jupiter.api.Tag;
 /**
  * Created by nathan on 8/12/15.
  */

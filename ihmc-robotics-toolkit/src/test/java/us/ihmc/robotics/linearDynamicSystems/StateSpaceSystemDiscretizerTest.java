@@ -26,6 +26,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 import org.junit.Test;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.commons.MathTools;
 import us.ihmc.robotics.testing.JUnitTools;
 

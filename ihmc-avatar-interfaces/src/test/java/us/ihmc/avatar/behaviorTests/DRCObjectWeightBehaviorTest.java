@@ -13,6 +13,7 @@ import us.ihmc.avatar.testTools.DRCBehaviorTestHelper;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.humanoidBehaviors.behaviors.primitives.ObjectWeightBehavior;
 import us.ihmc.humanoidRobotics.communication.packets.HumanoidMessageTools;
 import us.ihmc.robotics.robotSide.RobotSide;

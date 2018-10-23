@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.SelectionCalculator;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
+import org.junit.jupiter.api.Tag;
 import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;

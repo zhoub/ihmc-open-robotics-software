@@ -13,6 +13,7 @@ import com.esotericsoftware.kryo.serializers.FieldSerializer.Optional;
 
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 
+import org.junit.jupiter.api.Tag;
 public class KryoAnnotationTest
 {
    @Test(timeout = 30000)
