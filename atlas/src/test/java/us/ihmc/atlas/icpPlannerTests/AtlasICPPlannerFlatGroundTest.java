@@ -30,7 +30,6 @@ public class AtlasICPPlannerFlatGroundTest extends AvatarICPPlannerFlatGroundTes
    }
 
    @Override
-   @Tag("fast")
    @Test // timeout = 320000
    /** {@inheritDoc} */
    public void testPauseWalkingInSwing() throws SimulationExceededMaximumTimeException, RuntimeException
@@ -39,7 +38,6 @@ public class AtlasICPPlannerFlatGroundTest extends AvatarICPPlannerFlatGroundTes
    }
 
    @Override
-   @Tag("fast")
    @Test // timeout = 350000
    /** {@inheritDoc} */
    public void testPauseWalkingInTransferFirstStep() throws SimulationExceededMaximumTimeException, RuntimeException
@@ -48,7 +46,6 @@ public class AtlasICPPlannerFlatGroundTest extends AvatarICPPlannerFlatGroundTes
    }
 
    @Override
-   @Tag("fast")
    @Test // timeout = 340000
    /** {@inheritDoc} */
    public void testPauseWalkingInTransfer() throws SimulationExceededMaximumTimeException, RuntimeException

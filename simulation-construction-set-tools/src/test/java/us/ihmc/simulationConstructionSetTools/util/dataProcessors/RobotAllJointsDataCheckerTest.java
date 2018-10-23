@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 
-@Tag("fast")
 public class RobotAllJointsDataCheckerTest
 {
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();

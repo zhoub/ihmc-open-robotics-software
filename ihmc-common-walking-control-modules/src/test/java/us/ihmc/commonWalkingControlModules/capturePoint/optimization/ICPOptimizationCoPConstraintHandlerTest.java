@@ -33,7 +33,6 @@ import us.ihmc.robotics.screwTheory.RigidBody;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 
-@Tag("fast")
 public class ICPOptimizationCoPConstraintHandlerTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

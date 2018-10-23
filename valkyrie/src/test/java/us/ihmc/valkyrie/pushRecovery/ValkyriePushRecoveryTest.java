@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
-@Tag("fast")
 public class ValkyriePushRecoveryTest extends DRCPushRecoveryTest
 {
    @Override

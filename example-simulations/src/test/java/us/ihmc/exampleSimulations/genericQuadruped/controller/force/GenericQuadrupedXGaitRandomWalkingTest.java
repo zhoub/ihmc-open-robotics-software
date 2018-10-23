@@ -11,7 +11,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 
 import java.io.IOException;
 
-@Tag("fast")
 public class GenericQuadrupedXGaitRandomWalkingTest extends QuadrupedXGaitRandomWalkingTest
 {
    @Override

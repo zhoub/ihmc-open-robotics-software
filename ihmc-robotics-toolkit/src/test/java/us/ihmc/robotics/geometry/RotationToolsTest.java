@@ -20,7 +20,6 @@ import us.ihmc.robotics.geometry.RotationTools.AxisAngleComparisonMode;
 import us.ihmc.robotics.math.QuaternionCalculus;
 import us.ihmc.robotics.random.RandomGeometry;
 
-@Tag("fast")
 public class RotationToolsTest
 {
    private Random random = new Random(100L);

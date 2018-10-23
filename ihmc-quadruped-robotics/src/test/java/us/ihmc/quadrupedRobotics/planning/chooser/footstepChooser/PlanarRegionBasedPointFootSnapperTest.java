@@ -11,7 +11,6 @@ import us.ihmc.robotics.geometry.PlanarRegionsListGenerator;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class PlanarRegionBasedPointFootSnapperTest
 {
    private static final double epsilon = 1e-6;

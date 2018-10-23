@@ -29,7 +29,6 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.math.trajectories.FrameTrajectory3D;
 import us.ihmc.robotics.math.trajectories.Trajectory;
 
-@Tag("fast")
 public class SmoothCoMIntegrationToolboxTest
 {
    private static final int nTests = 20;

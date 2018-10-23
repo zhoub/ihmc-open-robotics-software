@@ -12,7 +12,6 @@ import us.ihmc.commons.MathTools;
 import us.ihmc.commons.FormattingTools;
 import us.ihmc.commons.thread.ThreadTools;
 
-@Tag("fast")
 public class Mouse3DJoystickTest
 {
    @Test // timeout = 30000

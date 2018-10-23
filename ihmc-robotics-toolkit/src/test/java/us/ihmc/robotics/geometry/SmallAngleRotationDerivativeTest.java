@@ -15,7 +15,6 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.robotics.random.RandomGeometry;
 
-@Tag("fast")
 public class SmallAngleRotationDerivativeTest
 {
 

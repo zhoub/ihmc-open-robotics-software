@@ -13,7 +13,6 @@ import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@Tag("fast")
 @Tag("video")
 public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 {

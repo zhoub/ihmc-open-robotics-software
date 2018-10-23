@@ -25,7 +25,6 @@ import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class ConstructingGroundPlaneAroundFeetTest
 {
    private final boolean visualize = !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();

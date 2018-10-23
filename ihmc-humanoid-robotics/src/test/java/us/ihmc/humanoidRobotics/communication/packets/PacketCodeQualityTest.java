@@ -69,7 +69,6 @@ public class PacketCodeQualityTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Tag("fast")
    @Test // timeout = 30000
    public void testFrameInformationDefaultValues()
    {
@@ -80,7 +79,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testNoFieldsAreNullAfterPacketCreation()
    { // This test won't fail on Arrays or Lists
@@ -148,7 +146,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketsHaveNoConvenienceMethod()
    { // This test won't fail for setUniqueId(long) or validateMessage()
@@ -270,7 +267,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketsUseIDLSequenceObjectOnly()
    { // This test won't fail on Arrays or Lists
@@ -327,7 +323,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketOnlyExtendPacketClass()
    {
@@ -373,7 +368,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketDoNotDeclareTypes()
    {
@@ -415,7 +409,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketsHaveUniqueSimpleNameBasedHashCode()
    { // This test won't fail on Arrays or Lists
@@ -444,7 +437,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketsDeclarePrimitiveOrMessageTypeFields()
    { // This test won't fail on Arrays or Lists
@@ -524,7 +516,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketStaticFieldsAreFinal()
    {
@@ -568,7 +559,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketHaveNoEnum()
    {
@@ -616,7 +606,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketByteFieldNameRefersToEnumType() throws NoSuchFieldException, SecurityException
    {
@@ -694,7 +683,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testPacketWithByteFieldDeclareEnumValuesAsStaticByteFields() throws NoSuchFieldException, SecurityException
    {
@@ -839,7 +827,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testOnlyEmptyAndCopyConstructor()
    {
@@ -897,7 +884,6 @@ public class PacketCodeQualityTest
    }
 
    @SuppressWarnings("rawtypes")
-   @Tag("fast")
    @Test // timeout = 30000
    public void testNoRandomConstructor()
    {

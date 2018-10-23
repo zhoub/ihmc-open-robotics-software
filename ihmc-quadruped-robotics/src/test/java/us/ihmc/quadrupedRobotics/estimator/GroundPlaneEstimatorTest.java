@@ -27,7 +27,6 @@ import us.ihmc.robotics.robotSide.RobotQuadrant;
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.tools.MemoryTools;
 
-@Tag("fast")
 public class GroundPlaneEstimatorTest
 {
    @BeforeEach

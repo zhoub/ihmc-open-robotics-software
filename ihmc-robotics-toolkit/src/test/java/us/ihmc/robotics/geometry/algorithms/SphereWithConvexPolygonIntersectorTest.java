@@ -22,7 +22,6 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.geometry.shapes.FrameSphere3d;
 import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 
-@Tag("fast")
 public class SphereWithConvexPolygonIntersectorTest
 {
    private static final ReferenceFrame WORLD = ReferenceFrame.getWorldFrame();

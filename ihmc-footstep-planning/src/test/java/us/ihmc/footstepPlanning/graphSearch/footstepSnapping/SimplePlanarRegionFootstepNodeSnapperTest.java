@@ -28,7 +28,6 @@ import java.util.Random;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class SimplePlanarRegionFootstepNodeSnapperTest
 {
    private final Random random = new Random(1209L);

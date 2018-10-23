@@ -11,7 +11,6 @@ import us.ihmc.commons.MathTools;
 
 public class FastFourierTransformTest
 {
-   @Tag("fast")
    @Test // timeout = 30000
    public void testBitReverse()
    {
@@ -26,7 +25,6 @@ public class FastFourierTransformTest
       assertTrue (fft.bitReverse(7, 3) == 7);
    }
 
-   @Tag("fast")
    @Test // timeout = 30000
    public void testFourierTransform()
    {
@@ -44,7 +42,6 @@ public class FastFourierTransformTest
 
    }
 
-   @Tag("fast")
    @Test // timeout = 30000
    public void testFourierTransform2()
    {

@@ -23,7 +23,6 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.testing.JUnitTools;
 
-@Tag("fast")
 public class TransformToolsTest
 {
    @AfterEach

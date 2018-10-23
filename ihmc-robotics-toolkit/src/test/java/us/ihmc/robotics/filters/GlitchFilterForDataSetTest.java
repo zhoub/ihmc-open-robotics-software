@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.testing.JUnitTools;
 
-@Tag("fast")
 public class GlitchFilterForDataSetTest
 {
    @Test // timeout = 30000

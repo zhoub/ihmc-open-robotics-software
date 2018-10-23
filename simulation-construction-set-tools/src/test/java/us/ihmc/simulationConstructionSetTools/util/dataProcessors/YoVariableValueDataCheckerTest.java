@@ -16,7 +16,6 @@ import us.ihmc.simulationconstructionset.SimulationConstructionSet;
 import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 
-@Tag("fast")
 public class YoVariableValueDataCheckerTest
 {
    private double EPSILON = 1e-10;

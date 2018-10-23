@@ -7,7 +7,6 @@ import us.ihmc.exampleSimulations.genericQuadruped.parameters.GenericQuadrupedSq
 import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedForceBasedStandControllerTest;
 
-@Tag("fast")
 public class GenericQuadrupedForceBasedStandControllerTest extends QuadrupedForceBasedStandControllerTest
 {
    public double getTranslationShift()

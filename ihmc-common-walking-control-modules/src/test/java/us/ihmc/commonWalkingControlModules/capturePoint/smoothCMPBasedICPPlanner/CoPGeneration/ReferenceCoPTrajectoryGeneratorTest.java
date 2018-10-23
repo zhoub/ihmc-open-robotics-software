@@ -36,7 +36,6 @@ import java.util.List;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class ReferenceCoPTrajectoryGeneratorTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

@@ -23,7 +23,6 @@ import us.ihmc.commons.exception.DefaultExceptionHandler;
 import us.ihmc.commons.nio.FileTools;
 import us.ihmc.commons.thread.ThreadTools;
 
-@Tag("fast")
 public class ProcessSpawnerTest
 {
    private static final Path testFilePath = Paths.get(System.getProperty("java.io.tmpdir"), "ProcessSpawnerTest.tmp");

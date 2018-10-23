@@ -27,7 +27,6 @@ import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoFramePoint2D;
 import us.ihmc.yoVariables.variable.YoFramePose3D;
 
-@Tag("fast")
 public class ICPOptimizationSolutionHandlerTest
 {
    private YoVariableRegistry registry = new YoVariableRegistry("robert");

@@ -11,7 +11,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 
 import java.io.IOException;
 
-@Tag("fast")
 public class GenericQuadrupedTurning720Test extends QuadrupedXGaitTurning720Test
 {
    @Override

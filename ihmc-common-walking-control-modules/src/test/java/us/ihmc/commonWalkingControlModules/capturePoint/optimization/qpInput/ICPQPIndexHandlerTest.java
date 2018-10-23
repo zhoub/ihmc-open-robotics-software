@@ -6,7 +6,6 @@ import us.ihmc.commonWalkingControlModules.capturePoint.optimization.qpInput.ICP
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-@Tag("fast")
 public class ICPQPIndexHandlerTest
 {
    @Test // timeout = 30000

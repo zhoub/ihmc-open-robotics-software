@@ -19,7 +19,6 @@ import java.util.List;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class QuadrupedXGaitPlannerTest
 {
    @AfterEach

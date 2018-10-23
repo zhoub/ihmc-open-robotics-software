@@ -17,7 +17,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 
 import static us.ihmc.continuousIntegration.IntegrationCategory.SLOW;
 
-@Tag("fast")
 @Tag("video")
 public class AtlasObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 {

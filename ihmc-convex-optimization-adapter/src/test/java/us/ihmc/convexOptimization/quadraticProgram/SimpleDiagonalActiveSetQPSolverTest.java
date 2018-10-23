@@ -3,7 +3,6 @@ package us.ihmc.convexOptimization.quadraticProgram;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-@Tag("fast")
 public class SimpleDiagonalActiveSetQPSolverTest extends AbstractSimpleActiveSetQPSolverTest
 {
    @Override

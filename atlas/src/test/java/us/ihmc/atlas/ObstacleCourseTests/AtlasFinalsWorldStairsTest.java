@@ -38,7 +38,6 @@ import us.ihmc.tools.MemoryTools;
 import us.ihmc.wholeBodyController.AdditionalSimulationContactPoints;
 import us.ihmc.wholeBodyController.FootContactPoints;
 
-@Tag("fast")
 @Tag("video")
 public class AtlasFinalsWorldStairsTest
 {

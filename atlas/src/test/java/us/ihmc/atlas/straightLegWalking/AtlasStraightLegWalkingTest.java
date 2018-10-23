@@ -55,7 +55,6 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
       super.testDropOffsWhileWalking();
    }
 
-   @Tag("fast")
    @Test // timeout = 680000
    public void testSteppingDown() throws SimulationExceededMaximumTimeException
    {

@@ -26,7 +26,6 @@ import us.ihmc.robotics.geometry.RotationTools.AxisAngleComparisonMode;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 
-@Tag("fast")
 public class FramePoseTest
 {
 

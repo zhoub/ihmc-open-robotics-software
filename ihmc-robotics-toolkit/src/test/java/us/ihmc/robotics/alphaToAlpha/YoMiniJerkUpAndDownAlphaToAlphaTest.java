@@ -12,7 +12,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 /**
  * Created by Peter on 9/11/2016.
  */
-@Tag("fast")
 public class YoMiniJerkUpAndDownAlphaToAlphaTest
 {
    private double EPSILON = 1e-6;

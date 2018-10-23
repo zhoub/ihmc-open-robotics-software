@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
 import us.ihmc.pubsub.DomainFactory;
 
-@Tag("fast")
 public class AStarPlannerToolboxTest extends FootstepPlannerToolboxTest
 {
    @Override

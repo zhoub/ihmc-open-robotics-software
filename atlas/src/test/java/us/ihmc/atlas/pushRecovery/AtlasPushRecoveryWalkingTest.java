@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
-@Tag("fast")
 @Tag("video")
 public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 {
@@ -53,7 +52,6 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 
    // Moved one of the old push recovery tests to fast so it is checked from time to time.
    @Override
-   @Tag("fast")
    @Tag("video")
    @Test // timeout = 410000
    public void testPushLeftInitialTransferState() throws SimulationExceededMaximumTimeException

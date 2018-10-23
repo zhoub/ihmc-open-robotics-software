@@ -34,7 +34,6 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple3D.interfaces.Tuple3DBasics;
 import us.ihmc.robotics.random.RandomGeometry;
 
-@Tag("fast")
 public class GeometryToolsTest
 {
    private static final int ITERATIONS = 1000;

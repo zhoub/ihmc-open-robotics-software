@@ -10,7 +10,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class CallFrequencyCalculatorTest
 {
-   @Tag("fast")
    @Test // timeout = 30000
    public void testDetermineCallFrequency()
    {

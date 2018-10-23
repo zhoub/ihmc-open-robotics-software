@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotiq.communication.registers.GripperOptionRegister.rICF;
 import us.ihmc.robotiq.communication.registers.GripperOptionRegister.rICS;
 
-@Tag("fast")
 public class GripperOptionRegisterTest extends RobotiqOutputRegisterTest
 {
    @Override

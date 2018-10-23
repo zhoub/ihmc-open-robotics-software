@@ -11,7 +11,6 @@ import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
-@Tag("fast")
 public class RigidBodyTransformGeneratorTest
 {
    @Test // timeout = 30000

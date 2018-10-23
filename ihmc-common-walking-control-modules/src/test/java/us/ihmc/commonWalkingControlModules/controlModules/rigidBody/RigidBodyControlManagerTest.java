@@ -58,7 +58,6 @@ import us.ihmc.yoVariables.providers.DoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-@Tag("fast")
 public class RigidBodyControlManagerTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

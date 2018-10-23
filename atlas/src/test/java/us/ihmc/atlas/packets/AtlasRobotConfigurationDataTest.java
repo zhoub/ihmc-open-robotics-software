@@ -27,7 +27,6 @@ import us.ihmc.robotics.sensors.ForceSensorDefinition;
 import us.ihmc.robotics.sensors.IMUDefinition;
 import us.ihmc.sensorProcessing.communication.packets.dataobjects.RobotConfigurationDataFactory;
 
-@Tag("fast")
 public class AtlasRobotConfigurationDataTest
 {
 

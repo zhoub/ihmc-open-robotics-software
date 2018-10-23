@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.controllers.pidGains.implementations.YoPIDGains;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-@Tag("fast")
 public class YoPIDGainsTest
 {
    @Test // timeout = 30000

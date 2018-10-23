@@ -14,7 +14,6 @@ import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-@Tag("fast")
 public class SmartCMPPlanarProjectorTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

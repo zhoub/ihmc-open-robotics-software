@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.footstepPlanning.FootstepPlanner;
 import us.ihmc.footstepPlanning.simplePlanners.TurnWalkTurnPlanner;
 
-@Tag("fast")
 public class TurnWalkTurnPlannerTest extends FootstepPlannerOnFlatGroundTest
 {
    private static final boolean visualize = false;

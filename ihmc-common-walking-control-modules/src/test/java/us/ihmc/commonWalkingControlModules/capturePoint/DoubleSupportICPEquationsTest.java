@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Disabled;
 /**
  * Created by agrabertilton on 3/4/15.
  */
-@Tag("fast")
 public class DoubleSupportICPEquationsTest
 {
    @Test // timeout = 30000

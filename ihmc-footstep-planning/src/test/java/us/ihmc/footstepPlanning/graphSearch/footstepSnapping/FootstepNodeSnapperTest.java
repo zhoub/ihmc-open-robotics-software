@@ -13,7 +13,6 @@ import java.util.Random;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class FootstepNodeSnapperTest
 {
    private final Random random = new Random(320L);

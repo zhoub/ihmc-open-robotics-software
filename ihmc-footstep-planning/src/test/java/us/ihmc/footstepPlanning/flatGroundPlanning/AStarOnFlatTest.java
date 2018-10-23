@@ -17,7 +17,6 @@ import us.ihmc.footstepPlanning.graphSearch.planners.AStarFootstepPlanner;
 import us.ihmc.robotics.robotSide.SideDependentList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-@Tag("fast")
 public class AStarOnFlatTest extends FootstepPlannerOnFlatGroundTest
 {
    private static final boolean visualize = !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();

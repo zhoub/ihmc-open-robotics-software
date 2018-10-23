@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
-@Tag("fast")
 public class RecyclingQuadrantDependentListTest
 {
    @AfterEach

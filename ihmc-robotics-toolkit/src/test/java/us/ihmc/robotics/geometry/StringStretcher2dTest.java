@@ -15,7 +15,6 @@ import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.robotics.random.RandomGeometry;
 
-@Tag("fast")
 public class StringStretcher2dTest
 {
 

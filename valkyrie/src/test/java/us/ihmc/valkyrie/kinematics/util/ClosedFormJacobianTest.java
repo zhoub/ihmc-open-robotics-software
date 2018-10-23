@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.valkyrie.kinematics.transmissions.InefficientPushrodTransmissionJacobian;
 import us.ihmc.valkyrie.kinematics.transmissions.PushRodTransmissionJoint;
 
-@Tag("fast")
 public class ClosedFormJacobianTest
 {
    private static final boolean DEBUG = false;

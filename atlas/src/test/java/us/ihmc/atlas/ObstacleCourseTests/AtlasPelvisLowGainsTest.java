@@ -25,7 +25,6 @@ import us.ihmc.simulationconstructionset.UnreasonableAccelerationException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-@Tag("fast")
 @Tag("video")
 public class AtlasPelvisLowGainsTest extends DRCPelvisLowGainsTest
 {

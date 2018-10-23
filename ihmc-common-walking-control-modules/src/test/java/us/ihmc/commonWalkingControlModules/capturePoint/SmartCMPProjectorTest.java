@@ -48,7 +48,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFrameConvexPolygon2D;
 import us.ihmc.yoVariables.variable.YoFramePoint2D;
 
-@Tag("fast")
 public class SmartCMPProjectorTest
 {
    private static boolean showPlotter = false;

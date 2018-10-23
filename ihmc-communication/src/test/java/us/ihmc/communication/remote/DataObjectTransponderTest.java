@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.commons.thread.ThreadTools;
 
-@Tag("fast")
 public class DataObjectTransponderTest
 {
    private static final int MAXIMUM_INTER_PACKET_DELAY_MILLIS = 300;

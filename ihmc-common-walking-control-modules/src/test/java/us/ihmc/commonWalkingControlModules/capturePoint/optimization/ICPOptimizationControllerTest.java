@@ -36,7 +36,6 @@ import us.ihmc.robotics.screwTheory.RigidBody;
 import us.ihmc.yoVariables.parameters.DefaultParameterReader;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-@Tag("fast")
 public class ICPOptimizationControllerTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

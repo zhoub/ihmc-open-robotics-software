@@ -12,7 +12,6 @@ import us.ihmc.valkyrie.ValkyrieRobotModel;
 import us.ihmc.valkyrie.parameters.ValkyrieICPOptimizationParameters;
 import us.ihmc.valkyrie.parameters.ValkyrieWalkingControllerParameters;
 
-@Tag("fast")
 public class ValkyrieICPOptimizationPushRecoveryATest extends AvatarICPOptimizationPushRecoveryATest
 {
    @Override

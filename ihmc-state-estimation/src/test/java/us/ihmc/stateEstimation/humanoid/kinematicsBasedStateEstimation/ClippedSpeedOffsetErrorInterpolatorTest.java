@@ -30,7 +30,6 @@ import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 import us.ihmc.tools.MemoryTools;
 
-@Tag("fast")
 public class ClippedSpeedOffsetErrorInterpolatorTest
 {
    SimulationTestingParameters simulationTestingParameters = new SimulationTestingParameters();

@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-@Tag("fast")
 public class ReferenceICPTrajectoryGeneratorTest
 {
    private static double EPSILON = 1e-6;

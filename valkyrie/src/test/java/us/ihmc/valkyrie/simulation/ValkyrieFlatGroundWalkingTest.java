@@ -13,7 +13,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 //This test is slow but very important, let's keep it in the FAST build please. (Sylvain)
-@Tag("fast")
 @Tag("video")
 public class ValkyrieFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
 {

@@ -11,7 +11,6 @@ import static us.ihmc.robotics.Assert.*;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class SimpleEfficientActiveSetQPSolverTest extends AbstractSimpleActiveSetQPSolverTest
 {
    @Override

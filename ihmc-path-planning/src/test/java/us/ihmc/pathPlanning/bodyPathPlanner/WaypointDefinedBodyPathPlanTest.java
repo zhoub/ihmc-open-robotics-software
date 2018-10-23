@@ -36,7 +36,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
 import us.ihmc.yoVariables.variable.YoFrameVector3D;
 
-@Tag("fast")
 public class WaypointDefinedBodyPathPlanTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

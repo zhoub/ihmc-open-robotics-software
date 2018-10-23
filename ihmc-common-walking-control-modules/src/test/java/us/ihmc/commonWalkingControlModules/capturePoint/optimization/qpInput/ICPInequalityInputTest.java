@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import java.util.Random;
 
-@Tag("fast")
 public class ICPInequalityInputTest
 {
    @Test // timeout = 30000

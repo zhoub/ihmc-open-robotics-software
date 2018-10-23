@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.robotics.controllers.pidGains.GainCalculator;
 
-@Tag("fast")
 public class GainCalculatorTest
 {
    @Test // timeout = 30000

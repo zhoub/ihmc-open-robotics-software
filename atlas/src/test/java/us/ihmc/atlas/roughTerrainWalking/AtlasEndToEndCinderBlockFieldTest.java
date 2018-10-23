@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 
-@Tag("fast")
 @Tag("video")
 public class AtlasEndToEndCinderBlockFieldTest extends EndToEndCinderBlockFieldTest
 {

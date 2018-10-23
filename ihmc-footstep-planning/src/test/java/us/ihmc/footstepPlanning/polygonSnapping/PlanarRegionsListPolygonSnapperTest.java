@@ -23,7 +23,6 @@ import us.ihmc.robotics.geometry.PlanarRegionsListGenerator;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.simulationConstructionSetTools.util.planarRegions.PlanarRegionsListExamples;
 
-@Tag("fast")
 public class PlanarRegionsListPolygonSnapperTest
 {
    @Test // timeout = 30000

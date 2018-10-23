@@ -34,7 +34,6 @@ import java.util.Random;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 @VmOptions("-XX:-TieredCompilation")
 public class QuadrupedSupportPolygonTest
 {

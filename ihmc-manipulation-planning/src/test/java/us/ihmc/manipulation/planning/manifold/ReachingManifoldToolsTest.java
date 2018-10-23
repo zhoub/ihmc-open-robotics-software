@@ -19,7 +19,6 @@ import us.ihmc.humanoidRobotics.communication.wholeBodyTrajectoryToolboxAPI.Reac
 import us.ihmc.robotics.robotSide.RobotSide;
 import us.ihmc.robotics.screwTheory.RigidBody;
 
-@Tag("fast")
 public class ReachingManifoldToolsTest
 {
    private Random random = new Random();

@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-@Tag("fast")
 public class TrajectoryPointOptimizerTest
 {
    private static final double epsilon = 10E-7;

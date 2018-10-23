@@ -19,7 +19,6 @@ import us.ihmc.valkyrie.kinematics.LinearActuator;
 import us.ihmc.valkyrie.kinematics.ValkyrieJointInterface;
 import us.ihmc.valkyrie.kinematics.YoValkyrieJointWriter;
 
-@Tag("fast")
 public class ComparePushRodTransmissionsTest
 {
    private static final boolean DEBUG = true;

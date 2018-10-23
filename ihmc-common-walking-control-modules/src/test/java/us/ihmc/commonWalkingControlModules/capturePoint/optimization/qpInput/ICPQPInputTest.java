@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-@Tag("fast")
 public class ICPQPInputTest
 {
    @Test // timeout = 30000

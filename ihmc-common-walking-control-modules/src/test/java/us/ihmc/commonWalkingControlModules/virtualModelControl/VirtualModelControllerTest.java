@@ -32,7 +32,6 @@ import us.ihmc.simulationConstructionSetTools.tools.RobotTools.SCSRobotFromInver
 import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestingParameters;
 import us.ihmc.commons.thread.ThreadTools;
 
-@Tag("fast")
 public class VirtualModelControllerTest
 {
    private final Random bigRandom = new Random(1000L);

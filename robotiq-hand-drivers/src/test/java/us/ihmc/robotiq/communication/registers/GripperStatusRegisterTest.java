@@ -8,7 +8,6 @@ import us.ihmc.robotiq.communication.registers.GripperStatusRegister.gIMC;
 import us.ihmc.robotiq.communication.registers.GripperStatusRegister.gMOD;
 import us.ihmc.robotiq.communication.registers.GripperStatusRegister.gSTA;
 
-@Tag("fast")
 public class GripperStatusRegisterTest extends RobotiqInputRegisterTest
 {
    @Override

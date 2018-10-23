@@ -28,7 +28,6 @@ import us.ihmc.humanoidRobotics.footstep.FootSpoof;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
 
-@Tag("fast")
 public class CoPPointsInFootTest
 {
    private static final String testClassName = "CoPPointsInFootTestRegistry";

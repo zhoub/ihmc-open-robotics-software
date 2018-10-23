@@ -64,7 +64,6 @@ public class AtlasUpperBodyTrajectoriesWhileWalkingTest
 
    protected DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Tag("fast")
    @Test // timeout = 790000
    public void testWalkingWithRandomArmTrajectoryMovements() throws Exception
    {
@@ -89,7 +88,6 @@ public class AtlasUpperBodyTrajectoriesWhileWalkingTest
       assertTrue(success);
    }
 
-   @Tag("fast")
    @Test // timeout = 840000
    public void testWalkingWithArmsHoldingInFeetFrame() throws Exception
    {

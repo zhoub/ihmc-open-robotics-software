@@ -13,7 +13,6 @@ import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.matrix.Matrix3D;
 import us.ihmc.commons.MathTools;
 
-@Tag("fast")
 public class RotationalInertiaCalculatorTest
 {
    private static final double DELTA = 1e-3;

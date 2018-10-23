@@ -16,7 +16,6 @@ import us.ihmc.humanoidRobotics.footstep.FootstepTiming;
 import us.ihmc.commons.MathTools;
 import us.ihmc.robotics.robotSide.RobotSide;
 
-@Tag("fast")
 public class FootstepDataTest
 {
    @AfterEach

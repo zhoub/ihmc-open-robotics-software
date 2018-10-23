@@ -19,7 +19,6 @@ import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.Vector2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 
-@Tag("fast")
 public class ConvexPolygon2dCalculatorTest
 {
    private static final double epsilon = 1.0e-10;

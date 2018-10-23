@@ -194,7 +194,6 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
    /**
     * This test pauses walking after the first two steps to check that functionality, and then finishes the plan.
     */
-   @Tag("fast")
    @Test // timeout = 320000
    public void testPauseWalkingInSwing() throws SimulationExceededMaximumTimeException, RuntimeException
    {
@@ -264,7 +263,6 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
    /**
     * This test pauses walking on the first step to check that functionality, and then finishes the plan.
     */
-   @Tag("fast")
    @Test // timeout = 350000
    public void testPauseWalkingInTransferFirstStep() throws SimulationExceededMaximumTimeException, RuntimeException
    {
@@ -334,7 +332,6 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
    /**
     * This test pauses walking after the first two steps to check that functionality, and then finishes the plan.
     */
-   @Tag("fast")
    @Test // timeout = 340000
    public void testPauseWalkingInTransfer() throws SimulationExceededMaximumTimeException, RuntimeException
    {

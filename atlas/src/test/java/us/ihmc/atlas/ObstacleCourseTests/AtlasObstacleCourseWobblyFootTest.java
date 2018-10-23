@@ -16,7 +16,6 @@ import us.ihmc.wholeBodyController.FootContactPoints;
 import us.ihmc.wholeBodyController.WobblySimulationContactPoints;
 import us.ihmc.yoVariables.variable.YoDouble;
 
-@Tag("fast")
 @Tag("video")
 public class AtlasObstacleCourseWobblyFootTest extends DRCObstacleCourseWobblyFootTest
 {

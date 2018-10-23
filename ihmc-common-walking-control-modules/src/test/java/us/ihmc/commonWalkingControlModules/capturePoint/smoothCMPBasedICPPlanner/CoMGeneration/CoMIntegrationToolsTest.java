@@ -17,7 +17,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
 import us.ihmc.yoVariables.variable.YoFrameVector3D;
 
-@Tag("fast")
 public class CoMIntegrationToolsTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

@@ -20,7 +20,6 @@ import us.ihmc.euclid.tuple4D.Quaternion;
 import us.ihmc.robotics.geometry.HullFace;
 import us.ihmc.robotics.geometry.QuickHull3dWrapper;
 
-@Tag("fast")
 public class QuickHull3DWrapperTest
 {
    @Test // timeout = 30000

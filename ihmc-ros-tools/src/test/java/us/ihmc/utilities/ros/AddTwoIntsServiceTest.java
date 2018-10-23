@@ -20,7 +20,6 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.utilities.ros.service.AddTwoIntsClient;
 import us.ihmc.utilities.ros.service.AddTwoIntsServer;
 
-@Tag("fast")
 public class AddTwoIntsServiceTest extends IHMCRosTestWithRosCore
 {
    final static boolean USE_JAVA_ROSCORE = true;

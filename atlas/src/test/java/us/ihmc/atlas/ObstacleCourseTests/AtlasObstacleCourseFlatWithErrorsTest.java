@@ -17,7 +17,6 @@ import java.io.IOException;
 
 import static us.ihmc.continuousIntegration.IntegrationCategory.SLOW;
 
-@Tag("fast")
 @Tag("video")
 public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlatWithErrorsTest
 {

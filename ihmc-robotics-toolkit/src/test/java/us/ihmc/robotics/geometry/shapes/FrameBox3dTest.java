@@ -24,7 +24,6 @@ import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 
-@Tag("fast")
 public class FrameBox3dTest
 {
    @AfterEach

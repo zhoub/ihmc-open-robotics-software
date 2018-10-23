@@ -76,7 +76,6 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @Tag("fast")
    @Test // timeout = 30000
    public void testRandomPoses()
    {

@@ -30,7 +30,6 @@ import java.util.Random;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class PolygonWigglingTest
 {
    private static final boolean visualize = false;

@@ -12,7 +12,6 @@ import us.ihmc.robotiq.communication.registers.ActionRequestRegister.rATR;
 import us.ihmc.robotiq.communication.registers.ActionRequestRegister.rGTO;
 import us.ihmc.robotiq.communication.registers.ActionRequestRegister.rMOD;
 
-@Tag("fast")
 public class RobotiqRegisterTest
 {
    @Test // timeout = 30000

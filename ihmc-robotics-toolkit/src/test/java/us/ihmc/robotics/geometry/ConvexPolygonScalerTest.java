@@ -8,7 +8,6 @@ import us.ihmc.euclid.tuple2D.Point2D;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class ConvexPolygonScalerTest
 {
    @Test // timeout = 30000

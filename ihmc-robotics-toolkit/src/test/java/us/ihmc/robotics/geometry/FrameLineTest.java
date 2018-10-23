@@ -20,7 +20,6 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.referenceFrames.OrientationFrame;
 
-@Tag("fast")
 public class FrameLineTest
 {
 

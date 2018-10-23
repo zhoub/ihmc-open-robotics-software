@@ -22,7 +22,6 @@ import us.ihmc.robotics.dataStructures.HeightMapWithPoints;
 import us.ihmc.robotics.geometry.HeightMapBestFitPlaneCalculator;
 import us.ihmc.robotics.geometry.InsufficientDataException;
 
-@Tag("fast")
 public class BestFitPlaneCalculatorTest
 {
    private static final double eps = 1e-7;

@@ -11,7 +11,6 @@ import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
-@Tag("fast")
 @Tag("video")
 public class ValkyrieObstacleCourseRampsTest extends DRCObstacleCourseRampsTest
 {

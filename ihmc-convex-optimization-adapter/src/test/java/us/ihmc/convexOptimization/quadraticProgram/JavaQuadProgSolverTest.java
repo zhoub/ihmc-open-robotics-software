@@ -15,7 +15,6 @@ import us.ihmc.tools.exceptions.NoConvergenceException;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
 {
    private static final double epsilon = 1e-4;

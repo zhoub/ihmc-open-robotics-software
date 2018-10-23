@@ -10,7 +10,6 @@ import us.ihmc.quadrupedRobotics.QuadrupedTestFactory;
 import us.ihmc.quadrupedRobotics.controller.force.QuadrupedXGaitWalkingOverRampsTest;
 import us.ihmc.quadrupedRobotics.model.QuadrupedInitialPositionParameters;
 
-@Tag("fast")
 public class GenericQuadrupedXGaitWalkingOverRampsTest extends QuadrupedXGaitWalkingOverRampsTest
 {
    @Override

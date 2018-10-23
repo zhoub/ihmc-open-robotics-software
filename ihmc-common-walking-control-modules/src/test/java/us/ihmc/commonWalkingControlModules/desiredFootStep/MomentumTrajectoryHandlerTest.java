@@ -21,7 +21,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 import java.util.Random;
 
-@Tag("fast")
 public class MomentumTrajectoryHandlerTest
 {
    @Test // timeout = 30000

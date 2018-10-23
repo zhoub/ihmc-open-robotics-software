@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.graphicsDescription.input.mouse.Mouse3DListener;
 import us.ihmc.graphicsDescription.input.mouse.Mouse3DListenerHolder;
-@Tag("fast")
 public class Mouse3DListenerHolderTest
 {
    int count1 = 0;

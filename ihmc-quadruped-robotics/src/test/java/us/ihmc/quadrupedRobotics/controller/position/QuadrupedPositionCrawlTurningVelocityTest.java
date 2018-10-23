@@ -55,7 +55,6 @@ public abstract class QuadrupedPositionCrawlTurningVelocityTest implements Quadr
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Tag("fast")
    @Tag("video")
    @Test // timeout = 600000
    public void testTurnInPlaceRegularSpeed() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException

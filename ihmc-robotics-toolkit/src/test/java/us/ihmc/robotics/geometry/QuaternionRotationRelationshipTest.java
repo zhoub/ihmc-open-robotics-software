@@ -13,7 +13,6 @@ import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple4D.Quaternion;
 
-@Tag("fast")
 public class QuaternionRotationRelationshipTest
 {
 

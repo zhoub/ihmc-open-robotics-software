@@ -19,7 +19,6 @@ import us.ihmc.footstepPlanning.polygonWiggling.PolygonWiggler;
 import java.util.ArrayList;
 import java.util.Random;
 
-@Tag("fast")
 public class ConstraintToConvexRegionTest
 {
    @AfterEach

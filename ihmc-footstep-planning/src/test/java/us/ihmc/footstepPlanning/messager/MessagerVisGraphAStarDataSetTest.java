@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
 
-@Tag("fast")
 public class MessagerVisGraphAStarDataSetTest extends MessagerPlannerDataSetTest
 {
    @Override

@@ -8,7 +8,6 @@ import us.ihmc.footstepPlanning.simplePlanners.PlanThenSnapPlanner;
 import us.ihmc.footstepPlanning.simplePlanners.TurnWalkTurnPlanner;
 import us.ihmc.footstepPlanning.tools.PlannerTools;
 
-@Tag("fast")
 public class PlanThenSnapPlannerTest extends FootstepPlannerOnRoughTerrainTest
 {
    private PlanThenSnapPlanner planner;

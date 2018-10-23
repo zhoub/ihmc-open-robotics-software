@@ -15,7 +15,6 @@ import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.commons.MathTools;
 
-@Tag("fast")
 public class CoPTrajectoryTest
 {
    private static int maxNumberOfSegments = 2;

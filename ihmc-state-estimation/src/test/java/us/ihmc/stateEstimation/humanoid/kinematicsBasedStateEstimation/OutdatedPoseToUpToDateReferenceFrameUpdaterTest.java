@@ -21,7 +21,6 @@ import us.ihmc.robotics.kinematics.TimeStampedTransform3D;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 
-@Tag("fast")
 public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

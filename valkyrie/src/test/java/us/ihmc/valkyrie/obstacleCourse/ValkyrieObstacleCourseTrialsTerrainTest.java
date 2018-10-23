@@ -14,7 +14,6 @@ import us.ihmc.valkyrie.ValkyrieRobotModel;
 import us.ihmc.wholeBodyController.AdditionalSimulationContactPoints;
 import us.ihmc.wholeBodyController.FootContactPoints;
 
-@Tag("fast")
 @Tag("video")
 public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTrialsTerrainTest
 {

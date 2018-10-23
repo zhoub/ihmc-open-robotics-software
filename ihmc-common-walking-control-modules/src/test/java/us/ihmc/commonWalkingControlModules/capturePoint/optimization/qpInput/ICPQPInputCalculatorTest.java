@@ -15,7 +15,6 @@ import us.ihmc.robotics.testing.JUnitTools;
 import javax.print.attribute.standard.JobOriginatingUserName;
 import java.util.Random;
 
-@Tag("fast")
 public class ICPQPInputCalculatorTest
 {
    private static final double epsilon = 1e-7;

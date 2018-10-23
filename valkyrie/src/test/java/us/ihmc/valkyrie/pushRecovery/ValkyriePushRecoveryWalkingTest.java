@@ -13,7 +13,6 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 import us.ihmc.valkyrie.parameters.ValkyrieWalkingControllerParameters;
 
-@Tag("fast")
 @Tag("video")
 public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 {

@@ -48,7 +48,6 @@ import us.ihmc.yoVariables.providers.DoubleProvider;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFramePoseUsingYawPitchRoll;
 
-@Tag("fast")
 public class AStarPlanarRegionsPlannerTest
 {
 //   private static final boolean visualize = !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();

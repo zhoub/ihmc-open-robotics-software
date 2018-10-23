@@ -31,7 +31,6 @@ import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DBasics;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 
-@Tag("fast")
 public class ConvexPolygonToolsTest
 {
    private static final boolean PLOT_RESULTS = false;

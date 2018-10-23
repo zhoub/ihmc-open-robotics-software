@@ -14,7 +14,6 @@ import us.ihmc.valkyrie.ValkyrieRobotModel;
 
 import java.io.IOException;
 
-@Tag("fast")
 @Tag("video")
 public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 {
@@ -108,7 +107,6 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    }
 
    @Override
-   @Tag("fast")
    @Tag("video")
    @Test // timeout = 460000
    public void testTurningInPlaceAndPassingPI() throws SimulationExceededMaximumTimeException

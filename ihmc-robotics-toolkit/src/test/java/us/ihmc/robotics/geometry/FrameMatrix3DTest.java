@@ -20,7 +20,6 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.robotics.random.RandomGeometry;
 import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 
-@Tag("fast")
 public class FrameMatrix3DTest
 {
    private static final double EPSILON = 1e-10;

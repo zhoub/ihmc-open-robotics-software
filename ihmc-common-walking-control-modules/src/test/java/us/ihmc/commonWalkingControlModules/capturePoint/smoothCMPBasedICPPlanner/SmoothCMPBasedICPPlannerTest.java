@@ -68,7 +68,6 @@ import us.ihmc.yoVariables.variable.YoDouble;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
 import us.ihmc.yoVariables.variable.YoFramePoseUsingYawPitchRoll;
 
-@Tag("fast")
 public class SmoothCMPBasedICPPlannerTest
 {
    private static final String testClassName = "UltimateSmoothCMPBasedICPPlannerTest";

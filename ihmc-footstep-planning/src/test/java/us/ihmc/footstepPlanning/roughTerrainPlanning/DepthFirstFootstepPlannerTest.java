@@ -17,7 +17,6 @@ import us.ihmc.footstepPlanning.tools.PlannerTools;
 import us.ihmc.robotics.robotSide.SideDependentList;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
-@Tag("fast")
 public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrainTest
 {
    private YoFootstepPlannerParameters parameters;

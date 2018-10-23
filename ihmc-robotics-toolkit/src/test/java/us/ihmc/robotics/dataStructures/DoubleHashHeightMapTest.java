@@ -20,7 +20,6 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.robotics.geometry.InclusionFunction;
 import us.ihmc.robotics.geometry.InsufficientDataException;
 
-@Tag("fast")
 public class DoubleHashHeightMapTest extends AbstractHeightMapTest
 {
    private static final int MAX_X = 500;

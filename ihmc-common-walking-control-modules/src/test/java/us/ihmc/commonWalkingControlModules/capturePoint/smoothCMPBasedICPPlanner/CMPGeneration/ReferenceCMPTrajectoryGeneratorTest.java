@@ -26,7 +26,6 @@ import us.ihmc.robotics.math.trajectories.TrajectoryMathTools;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoInteger;
 
-@Tag("fast")
 public class ReferenceCMPTrajectoryGeneratorTest
 {
    private final int numberOfFootsteps = 3;

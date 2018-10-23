@@ -36,7 +36,6 @@ import java.util.Random;
 
 import static us.ihmc.robotics.Assert.*;
 
-@Tag("fast")
 public class VirtualModelMomentumControllerTest
 {
    private final static double gravity = -9.81;

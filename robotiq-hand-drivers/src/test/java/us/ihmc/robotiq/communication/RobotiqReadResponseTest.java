@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-@Tag("fast")
 public class RobotiqReadResponseTest
 {
    @Test // timeout = 30000
