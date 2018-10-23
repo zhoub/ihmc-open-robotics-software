@@ -1,7 +1,7 @@
 package us.ihmc.robotics.geometry;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -19,14 +19,14 @@ public class FrameConvexPolygon2dTest
    private ConvexPolygon2D convexPolygon2d;
    private FrameConvexPolygon2D frameConvexPolygon2d;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       convexPolygon2d = createSomeValidPolygon();
       frameConvexPolygon2d = new FrameConvexPolygon2D(worldFrame, convexPolygon2d);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

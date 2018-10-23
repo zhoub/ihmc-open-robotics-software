@@ -2,8 +2,8 @@ package us.ihmc.exampleSimulations.skippy;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -50,14 +50,14 @@ public class SkippyV2Test
       System.out.println("pushRobot");
    }
 
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       skippySimulationV2 = new SkippySimulationV2();
       skippy = skippySimulationV2.getSkippy();
    }
 
-   @After
+   @AfterEach
    public void afterTest()
    {
       if (sleepAfterTest)

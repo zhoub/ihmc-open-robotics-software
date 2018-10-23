@@ -6,7 +6,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.factory.DecompositionFactory;
 import org.ejml.interfaces.decomposition.SingularValueDecomposition;
 import org.ejml.ops.CommonOps;
-import org.junit.AfterClass;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -16,7 +16,7 @@ import us.ihmc.robotics.testing.JUnitTools;
 public class SingularValueExplorationAndExamplesTest
 {
 
-   @AfterClass
+   @AfterAll
    public static void tearDownAfterClass() throws Exception
    {
    }

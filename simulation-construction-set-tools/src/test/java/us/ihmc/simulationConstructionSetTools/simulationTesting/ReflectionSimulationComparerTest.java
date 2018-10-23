@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -28,13 +28,13 @@ import us.ihmc.tools.MemoryTools;
 public class ReflectionSimulationComparerTest
 {
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
    
-   @After
+   @AfterEach
    public void showMemoryUsageAfterTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");

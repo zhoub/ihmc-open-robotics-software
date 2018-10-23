@@ -2,9 +2,9 @@ package us.ihmc.avatar.behaviorTests;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
@@ -36,13 +36,13 @@ public abstract class AvatarWalkToFiducialsBehaviorTest implements MultiRobotTes
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    private DRCBehaviorTestHelper drcBehaviorTestHelper;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -60,13 +60,13 @@ public abstract class AvatarWalkToFiducialsBehaviorTest implements MultiRobotTes
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @AfterClass
+   @AfterAll
    public static void printMemoryUsageAfterClass()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(DRCWalkToLocationBehaviorTest.class + " after class.");
    }
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       drcBehaviorTestHelper = new DRCBehaviorTestHelper(new FiducialsFlatGroundEnvironment(), getSimpleRobotName(), DRCObstacleCourseStartingLocation.DEFAULT,

@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.ejml.data.DenseMatrix64F;
 import org.jcodec.common.Assert;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
@@ -490,7 +490,7 @@ public class WalkingControllerTest
    }
 
    @SuppressWarnings("unchecked")
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -569,7 +569,7 @@ public class WalkingControllerTest
       referenceFrames.updateFrames();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       if (showSCS)

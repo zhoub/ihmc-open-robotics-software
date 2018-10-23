@@ -8,8 +8,8 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.CapturabilityBasedStatus;
@@ -95,7 +95,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
     */
    public abstract DRCRobotModel getGhostRobotModel();
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       mainRegistry = new YoVariableRegistry("main");
@@ -151,7 +151,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
       new JointAnglesWriter(ghost, fullHumanoidRobotModel).updateRobotConfigurationBasedOnFullRobotModel();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       if (simulationTestingParameters.getKeepSCSUp())

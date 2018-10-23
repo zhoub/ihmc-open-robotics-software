@@ -6,8 +6,8 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -39,7 +39,7 @@ public class OrientationInterpolationTrajectoryGeneratorTest
    
    private OrientationInterpolationTrajectoryGenerator generator;
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       referenceFrame = ReferenceFrame.constructARootFrame("rootFrameTEST");
@@ -51,7 +51,7 @@ public class OrientationInterpolationTrajectoryGeneratorTest
       parentRegistry = new YoVariableRegistry("registry");
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       orientation = null;

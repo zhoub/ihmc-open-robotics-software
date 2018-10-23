@@ -2,7 +2,7 @@ package us.ihmc.robotics.hyperCubeTree;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -15,7 +15,7 @@ public class SphericalLinearResolutionProviderTest
 {
    private static final double eps = 1e-7;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

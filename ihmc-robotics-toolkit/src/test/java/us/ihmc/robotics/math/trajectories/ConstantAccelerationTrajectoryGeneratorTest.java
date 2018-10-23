@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -32,7 +32,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
 
    private ConstantAccelerationTrajectoryGenerator generator;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       initialPositionProvider = new ConstantDoubleProvider(0.0);

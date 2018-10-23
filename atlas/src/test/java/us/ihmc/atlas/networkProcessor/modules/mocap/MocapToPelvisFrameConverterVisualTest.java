@@ -3,8 +3,8 @@ package us.ihmc.atlas.networkProcessor.modules.mocap;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import optiTrack.MocapMarker;
@@ -37,13 +37,13 @@ public class MocapToPelvisFrameConverterVisualTest
    private static final String modelDirectory = "models/GFE/atlas_description/meshes_unplugged/";
    private final Random random = new Random(456654321123L);
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before: ");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

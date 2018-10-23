@@ -11,7 +11,7 @@ import static us.ihmc.avatar.roughTerrainWalking.AvatarBipedalFootstepPlannerEnd
 
 import java.io.IOException;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -43,7 +43,7 @@ public abstract class AvatarWalkOverTerrainBehaviorTest implements MultiRobotTes
    private DRCSimulationTestHelper simulationTestHelper;
    private PlanarRegionsList cinderBlockField;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       PlanarRegionsListGenerator generator = new PlanarRegionsListGenerator();

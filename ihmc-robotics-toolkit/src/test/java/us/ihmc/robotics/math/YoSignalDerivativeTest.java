@@ -2,7 +2,7 @@ package us.ihmc.robotics.math;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -16,7 +16,7 @@ public class YoSignalDerivativeTest
    private static double epsilon = 1e-10;
    private YoSignalDerivative yoSignalDerivative;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("testRegistry");

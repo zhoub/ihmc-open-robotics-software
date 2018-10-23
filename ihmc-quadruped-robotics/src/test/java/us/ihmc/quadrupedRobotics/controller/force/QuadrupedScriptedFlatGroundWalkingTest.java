@@ -2,8 +2,8 @@ package us.ihmc.quadrupedRobotics.controller.force;
 
 import controller_msgs.msg.dds.QuadrupedTimedStepListMessage;
 import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -28,7 +28,7 @@ public abstract class QuadrupedScriptedFlatGroundWalkingTest implements Quadrupe
    private QuadrupedTeleopManager stepTeleopManager;
    private QuadrupedTestFactory quadrupedTestFactory;
 
-   @Before
+   @BeforeEach
    public void setup() throws IOException
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -42,7 +42,7 @@ public abstract class QuadrupedScriptedFlatGroundWalkingTest implements Quadrupe
       stepTeleopManager = quadrupedTestFactory.getStepTeleopManager();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       quadrupedTestFactory.close();

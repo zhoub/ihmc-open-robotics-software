@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.CapturabilityBasedStatus;
@@ -30,7 +30,7 @@ public class CapturabilityBasedStatusTest
 {
    private static final Path TEST_FILE_PATH = Paths.get("TestSerialize" + CapturabilityBasedStatus.class.getSimpleName() + ".ibag");
 
-   @After
+   @AfterEach
    public void cleanUp()
    {
       FileTools.deleteQuietly(TEST_FILE_PATH);

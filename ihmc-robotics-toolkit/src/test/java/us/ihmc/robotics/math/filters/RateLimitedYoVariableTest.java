@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -21,7 +21,7 @@ public class RateLimitedYoVariableTest
    double maxRate1, maxRate3;
    double dt1, dt2, dt3, dt4;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       maxRate2 = new YoDouble("maxRate2", registry);

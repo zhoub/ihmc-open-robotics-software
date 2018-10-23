@@ -11,14 +11,14 @@ import us.ihmc.tools.exceptions.NoConvergenceException;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 
 public class TimeAdjustmentSolverTest
 {
    private static final double epsilon = 0.00001;
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

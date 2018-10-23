@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.trajectories.providers;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -18,7 +18,7 @@ public class YoVariableDoubleProviderTest
    private static double value2 = Math.random();
    private static final double EPSILON = 1e-14;
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       registry = new YoVariableRegistry("registry");

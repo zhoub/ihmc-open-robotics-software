@@ -6,9 +6,9 @@ import java.io.InputStream;
 import java.util.List;
 
 import junit.framework.TestCase;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -47,14 +47,14 @@ public abstract class DRCObstacleCourseTrialsTerrainTest implements MultiRobotTe
 
    protected abstract DRCRobotModel getRobotModelWithAdditionalFootContactPoints();
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       environment = new DarpaRoboticsChallengeTrialsWalkingEnvironment();
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

@@ -2,7 +2,7 @@ package us.ihmc.avatar.behaviorTests;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
@@ -32,7 +32,7 @@ public abstract class AvatarCollaborativeBehaviorTest implements MultiRobotTestI
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    DRCBehaviorTestHelper drcBehaviorTestHelper;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

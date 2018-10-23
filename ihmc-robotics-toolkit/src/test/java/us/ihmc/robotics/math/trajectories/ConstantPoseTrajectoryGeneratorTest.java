@@ -6,8 +6,8 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -41,7 +41,7 @@ public class ConstantPoseTrajectoryGeneratorTest
    private ConstantPoseTrajectoryGenerator generator;
    private ReferenceFrame frame2;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       RigidBodyTransform transformToParent = new RigidBodyTransform();
@@ -56,7 +56,7 @@ public class ConstantPoseTrajectoryGeneratorTest
       generator = new ConstantPoseTrajectoryGenerator(positionYoFramePoint, orientationQuaternion);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

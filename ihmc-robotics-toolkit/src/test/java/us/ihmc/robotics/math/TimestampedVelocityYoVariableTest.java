@@ -3,7 +3,7 @@ package us.ihmc.robotics.math;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -17,7 +17,7 @@ public class TimestampedVelocityYoVariableTest
    private YoDouble timestamp;
    private TimestampedVelocityYoVariable velocityYoVariable;
    
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("testRegistry");

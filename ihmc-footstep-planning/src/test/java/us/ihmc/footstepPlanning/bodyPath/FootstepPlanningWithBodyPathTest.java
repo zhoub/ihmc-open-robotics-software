@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.bodyPath;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
@@ -52,7 +52,7 @@ public class FootstepPlanningWithBodyPathTest
    @Rule
    public TestName name = new TestName();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

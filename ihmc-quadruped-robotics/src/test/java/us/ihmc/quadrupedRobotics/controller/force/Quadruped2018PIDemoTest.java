@@ -1,7 +1,7 @@
 package us.ihmc.quadrupedRobotics.controller.force;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.pushRecovery.PushRobotTestConductor;
 import us.ihmc.commons.PrintTools;
@@ -38,7 +38,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    private QuadrupedTestFactory quadrupedTestFactory;
    private QuadrupedTeleopManager stepTeleopManager;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -66,7 +66,7 @@ public abstract class Quadruped2018PIDemoTest implements QuadrupedMultiRobotTest
    }
 
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       quadrupedTestFactory.close();

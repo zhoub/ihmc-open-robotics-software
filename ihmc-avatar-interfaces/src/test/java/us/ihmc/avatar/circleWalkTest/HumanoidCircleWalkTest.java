@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
@@ -47,7 +47,7 @@ public abstract class HumanoidCircleWalkTest implements MultiRobotTestInterface
    private DRCSimulationTestHelper drcSimulationTestHelper;
    Random random = new Random(42);
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       drcSimulationTestHelper = null;
@@ -236,13 +236,13 @@ public abstract class HumanoidCircleWalkTest implements MultiRobotTestInterface
       drcSimulationTestHelper.setupCameraForUnitTest(cameraFix, cameraPosition);
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

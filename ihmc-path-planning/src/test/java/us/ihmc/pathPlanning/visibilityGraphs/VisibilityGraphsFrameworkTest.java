@@ -7,9 +7,9 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javafx.application.Application;
@@ -87,7 +87,7 @@ public class VisibilityGraphsFrameworkTest extends Application
       return new DefaultVisibilityGraphParameters();
    }
 
-   @Before
+   @BeforeEach
    public void setup() throws InterruptedException, Exception
    {
       VISUALIZE = VISUALIZE && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
@@ -113,7 +113,7 @@ public class VisibilityGraphsFrameworkTest extends Application
       }
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       if (VISUALIZE)

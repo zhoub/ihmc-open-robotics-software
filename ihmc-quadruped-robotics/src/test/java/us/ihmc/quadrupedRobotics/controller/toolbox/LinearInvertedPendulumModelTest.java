@@ -2,7 +2,7 @@ package us.ihmc.quadrupedRobotics.controller.toolbox;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -14,7 +14,7 @@ import us.ihmc.robotics.referenceFrames.TranslationReferenceFrame;
 
 public class LinearInvertedPendulumModelTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

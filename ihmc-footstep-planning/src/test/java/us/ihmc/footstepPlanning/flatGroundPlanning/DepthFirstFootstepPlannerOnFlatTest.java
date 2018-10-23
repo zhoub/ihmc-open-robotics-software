@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.flatGroundPlanning;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -86,7 +86,7 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
       super.testRandomPoses();
    }
 
-   @Before
+   @BeforeEach
    public void setupPlanner()
    {
       registry = new YoVariableRegistry("test");

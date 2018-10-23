@@ -6,8 +6,8 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -41,7 +41,7 @@ public class StraightLinePositionTrajectoryGeneratorTest
    private double zValue = Math.random();
 
    private static double finalTime = 10.0;
-   @Before
+   @BeforeEach
    public void setUp()
    {
       parentRegistry = new YoVariableRegistry("parentRegistryTEST");
@@ -52,7 +52,7 @@ public class StraightLinePositionTrajectoryGeneratorTest
       trajectoryTimeProvider = new ConstantDoubleProvider(10.0);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

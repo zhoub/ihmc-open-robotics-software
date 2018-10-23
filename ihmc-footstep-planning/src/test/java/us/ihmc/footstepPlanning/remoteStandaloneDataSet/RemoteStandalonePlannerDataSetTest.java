@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.remoteStandaloneDataSet;
 
 import controller_msgs.msg.dds.*;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.communication.IHMCRealtimeROS2Publisher;
@@ -75,7 +75,7 @@ public abstract class RemoteStandalonePlannerDataSetTest extends FootstepPlanner
          PrintTools.info("Received a result over Java FX.");
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       ros2Node.destroy();

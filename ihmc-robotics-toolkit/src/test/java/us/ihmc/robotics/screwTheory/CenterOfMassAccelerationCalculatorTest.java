@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -20,12 +20,12 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 
 public class CenterOfMassAccelerationCalculatorTest
 {
-   @Before
+   @BeforeEach
    public void setUp()
    {
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

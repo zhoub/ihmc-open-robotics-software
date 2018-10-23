@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.sensors;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -23,7 +23,7 @@ public abstract class ProvidedMassMatrixToolRigidBodyTest
    private final double gravity = 9.81;
    private final double mass = 2.0;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

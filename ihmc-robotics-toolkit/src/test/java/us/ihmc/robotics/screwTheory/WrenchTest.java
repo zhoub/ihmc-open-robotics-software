@@ -12,8 +12,8 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.NormOps;
 import org.ejml.ops.RandomMatrices;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -31,7 +31,7 @@ public class WrenchTest
    private ReferenceFrame frameB;
    private ReferenceFrame frameC;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       frameA = ReferenceFrame.constructARootFrame("A");
@@ -63,7 +63,7 @@ public class WrenchTest
       frameC.update();
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       ReferenceFrameTools.clearWorldFrameTree();

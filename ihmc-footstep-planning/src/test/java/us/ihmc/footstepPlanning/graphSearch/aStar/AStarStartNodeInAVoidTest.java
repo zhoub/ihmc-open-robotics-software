@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.graphSearch.aStar;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
 import org.junit.jupiter.api.Tag;
@@ -33,7 +33,7 @@ public class AStarStartNodeInAVoidTest
    private final YoVariableRegistry registry = new YoVariableRegistry("testRegistry");
    private AStarFootstepPlanner planner;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       visualize = visualize && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
@@ -44,7 +44,7 @@ public class AStarStartNodeInAVoidTest
       planner = AStarFootstepPlanner.createPlanner(parameters, null, footPolygons, expansion, registry);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

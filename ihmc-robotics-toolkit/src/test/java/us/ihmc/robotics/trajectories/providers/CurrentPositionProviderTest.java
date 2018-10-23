@@ -2,8 +2,8 @@ package us.ihmc.robotics.trajectories.providers;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -16,13 +16,13 @@ public class CurrentPositionProviderTest
    private ReferenceFrame referenceFrame;
    private CurrentPositionProvider provider;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       referenceFrame = ReferenceFrame.constructARootFrame("rootNameTEST");
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       referenceFrame = null;

@@ -1,6 +1,6 @@
 package us.ihmc.robotics.referenceFrames;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -13,7 +13,7 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 
 public class TranslationReferenceFrameTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

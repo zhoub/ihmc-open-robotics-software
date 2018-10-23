@@ -4,8 +4,8 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -36,7 +36,7 @@ public abstract class DRCFlatGroundRewindabilityTest implements MultiRobotTestIn
 {
    private SimulationTestingParameters simulationTestingParameters;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
@@ -44,7 +44,7 @@ public abstract class DRCFlatGroundRewindabilityTest implements MultiRobotTestIn
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void showMemoryUsageAfterTest()
    {
       simulationTestingParameters = null;

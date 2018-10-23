@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -32,7 +32,7 @@ public abstract class QuadrupedStepControllerTest implements QuadrupedMultiRobot
    private QuadrupedTeleopManager stepTeleopManager;
    private QuadrupedTestFactory quadrupedTestFactory;
    
-   @Before
+   @BeforeEach
    public void setup()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -53,7 +53,7 @@ public abstract class QuadrupedStepControllerTest implements QuadrupedMultiRobot
       }
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       quadrupedTestFactory.close();

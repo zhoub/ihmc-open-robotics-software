@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -15,7 +15,7 @@ public class PolynomialTest
 {
    private Polynomial constant5Polynomial, twoXPlus3Polynomial, fourX4ThreeX3TwoX2OneX1Polynomial;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       constant5Polynomial = new Polynomial(new double[] {5.0});
@@ -23,7 +23,7 @@ public class PolynomialTest
       fourX4ThreeX3TwoX2OneX1Polynomial = new Polynomial(new double[] {4.0, 3.0, 2.0, 1.0, 0.0});
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       constant5Polynomial = null;

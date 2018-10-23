@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -16,7 +16,7 @@ public class PolynomialSplineTest
 {
    private YoVariableRegistry registry;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       registry = new YoVariableRegistry("test");

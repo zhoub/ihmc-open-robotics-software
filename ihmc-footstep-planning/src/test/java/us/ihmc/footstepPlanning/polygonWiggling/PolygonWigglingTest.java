@@ -2,7 +2,7 @@ package us.ihmc.footstepPlanning.polygonWiggling;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.commons.thread.ThreadTools;
@@ -41,7 +41,7 @@ public class PolygonWigglingTest
 
    private final static double epsilon = 0.00001;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

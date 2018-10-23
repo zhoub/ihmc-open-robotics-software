@@ -5,8 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -21,7 +21,7 @@ public class GlitchFilteredYoBooleanTest
    private YoBoolean yoVariableToFilter;
    private GlitchFilteredYoBoolean filteredVariable;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       registry = new YoVariableRegistry("testRegistry");
@@ -29,7 +29,7 @@ public class GlitchFilteredYoBooleanTest
       filteredVariable = new GlitchFilteredYoBoolean("filteredVariable", registry, yoVariableToFilter, WINDOW_SIZE);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       registry = null;

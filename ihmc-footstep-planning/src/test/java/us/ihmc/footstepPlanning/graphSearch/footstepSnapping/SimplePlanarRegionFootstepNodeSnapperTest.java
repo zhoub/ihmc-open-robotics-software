@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.graphSearch.footstepSnapping;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -40,7 +40,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
    private boolean visualize = true;
    private PolygonSnapperVisualizer visualizer;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       visualize = visualize && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();

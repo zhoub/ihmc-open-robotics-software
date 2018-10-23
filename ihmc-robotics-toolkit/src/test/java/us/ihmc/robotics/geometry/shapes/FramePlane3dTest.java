@@ -2,7 +2,7 @@ package us.ihmc.robotics.geometry.shapes;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -22,7 +22,7 @@ public class FramePlane3dTest
 	private static ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
 	private static double epsilon = 1e-14;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

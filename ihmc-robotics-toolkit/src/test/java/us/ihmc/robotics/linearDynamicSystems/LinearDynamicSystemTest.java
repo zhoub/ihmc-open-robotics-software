@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
@@ -25,7 +25,7 @@ public class LinearDynamicSystemTest
    private Matrix simpleNotSquareMatrix;
    private Matrix simpleSquareMatrix;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       simpleDecayMatrixA = new Matrix(new double[][] { { -1.0 } });
@@ -36,7 +36,7 @@ public class LinearDynamicSystemTest
       simpleSquareMatrix = new Matrix(2, 2, 0);
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       simpleDecaySystem = null;

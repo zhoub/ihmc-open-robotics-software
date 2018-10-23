@@ -2,8 +2,8 @@ package us.ihmc.robotics.math.filters;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -18,14 +18,14 @@ public class DelayedYoBooleanTest
    private static Boolean DEBUG = false;
    private int ticksToDelay;
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       registry = new YoVariableRegistry("registry");
       variableToDelay = new YoBoolean("variableToDelay", registry);
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       registry = null;

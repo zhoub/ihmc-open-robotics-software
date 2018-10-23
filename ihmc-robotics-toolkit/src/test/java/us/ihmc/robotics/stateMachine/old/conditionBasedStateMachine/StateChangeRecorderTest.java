@@ -6,8 +6,8 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -24,14 +24,14 @@ public class StateChangeRecorderTest
    {
    }
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       listOfStates = getListOfStates();
       stateChangeRecorder = new StateChangeRecorder<TestEnum>();
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
    }

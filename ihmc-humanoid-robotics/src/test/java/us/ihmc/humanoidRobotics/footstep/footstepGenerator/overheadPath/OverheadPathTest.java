@@ -2,8 +2,8 @@ package us.ihmc.humanoidRobotics.footstep.footstepGenerator.overheadPath;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -22,13 +22,13 @@ public class OverheadPathTest
    private boolean VERBOSE = false;
    private static final ReferenceFrame WORLD_FRAME = ReferenceFrame.getWorldFrame();
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void showMemoryUsageAfterTest()
    {
       ReferenceFrameTools.clearWorldFrameTree();

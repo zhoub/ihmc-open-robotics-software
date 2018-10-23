@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
@@ -32,7 +32,7 @@ import us.ihmc.robotics.referenceFrames.PoseReferenceFrame;
 
 public class FrameEuclideanTrajectoryPointTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

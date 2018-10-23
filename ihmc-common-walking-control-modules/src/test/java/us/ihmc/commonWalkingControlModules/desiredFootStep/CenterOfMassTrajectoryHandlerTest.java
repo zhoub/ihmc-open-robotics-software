@@ -3,7 +3,7 @@ package us.ihmc.commonWalkingControlModules.desiredFootStep;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.messageHandlers.CenterOfMassTrajectoryHandler;
@@ -23,7 +23,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 public class CenterOfMassTrajectoryHandlerTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

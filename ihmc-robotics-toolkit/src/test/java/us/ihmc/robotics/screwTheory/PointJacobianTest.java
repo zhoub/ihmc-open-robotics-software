@@ -8,7 +8,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.factory.DecompositionFactory;
 import org.ejml.interfaces.decomposition.SingularValueDecomposition;
 import org.ejml.ops.CommonOps;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -30,7 +30,7 @@ public class PointJacobianTest
    private static final Vector3D Y = new Vector3D(0.0, 1.0, 0.0);
    private static final Vector3D Z = new Vector3D(0.0, 0.0, 1.0);
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

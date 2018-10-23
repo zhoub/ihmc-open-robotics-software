@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.lists.RecyclingArrayList;
@@ -37,7 +37,7 @@ public class SmoothCapturePointAdjustmentToolboxTest
    private final SmoothCapturePointAdjustmentToolbox icpAdjustmentToolbox = new SmoothCapturePointAdjustmentToolbox();
    private final List<FrameTuple3DBasics> icpQuantityInitialConditionList = new ArrayList<>();
 
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       icpQuantityInitialConditionList.clear();
@@ -46,7 +46,7 @@ public class SmoothCapturePointAdjustmentToolboxTest
          icpQuantityInitialConditionList.add(new FrameVector3D());
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

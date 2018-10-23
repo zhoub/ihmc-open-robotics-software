@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
@@ -130,7 +130,7 @@ public class FootstepAngularMomentumPredictorTest
    private TrajectoryMathTools trajectoryMathTools = new TrajectoryMathTools(14);
    private FrameVector3D zeroVector = new FrameVector3D(worldFrame);
 
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       omega.set(omega0);
@@ -238,7 +238,7 @@ public class FootstepAngularMomentumPredictorTest
       numberOfUpcomingFootsteps.set(0);
    }
 
-   @After
+   @AfterEach
    public void tearDownTest()
    {
       clear();

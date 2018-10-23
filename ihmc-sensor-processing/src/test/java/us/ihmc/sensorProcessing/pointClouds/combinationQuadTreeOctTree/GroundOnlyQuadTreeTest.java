@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
@@ -47,7 +47,7 @@ public class GroundOnlyQuadTreeTest extends AbstractHeightMapTest
 
    private static final boolean DO_ASSERTS = true;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

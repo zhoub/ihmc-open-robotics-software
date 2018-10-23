@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.CapturePointTools;
@@ -61,7 +61,7 @@ public class OneStepCaptureRegionCalculatorTest
 
    private final YoVariableRegistry registry = new YoVariableRegistry("CaptureRegionCalculatorTest");
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

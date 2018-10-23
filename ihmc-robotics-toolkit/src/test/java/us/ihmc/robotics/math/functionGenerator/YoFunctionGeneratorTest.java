@@ -2,8 +2,8 @@ package us.ihmc.robotics.math.functionGenerator;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -13,14 +13,14 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 public class YoFunctionGeneratorTest
 {
 	YoFunctionGenerator yoFunctionGenerator;
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
 	   YoVariableRegistry registry = new YoVariableRegistry("testRegistry");
 	   yoFunctionGenerator = new YoFunctionGenerator("test", registry);
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
    }

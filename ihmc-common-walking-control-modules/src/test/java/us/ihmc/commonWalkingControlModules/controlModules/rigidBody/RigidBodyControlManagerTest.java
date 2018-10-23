@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.SE3TrajectoryMessage;
@@ -80,7 +80,7 @@ public class RigidBodyControlManagerTest
    private double q1_home = random.nextDouble();
    private double q2_home = random.nextDouble();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

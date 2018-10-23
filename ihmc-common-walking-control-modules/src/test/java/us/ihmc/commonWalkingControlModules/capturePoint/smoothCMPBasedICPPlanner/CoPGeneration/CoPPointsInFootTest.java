@@ -6,8 +6,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPPointName;
@@ -49,13 +49,13 @@ public class CoPPointsInFootTest
    private final ReferenceFrame[] framesToRegister = {worldFrame, footSpoof.getSoleFrame()};
    private CoPPointsInFoot copPointsInFoot;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       copPointsInFoot = new CoPPointsInFoot(testClassName, 0, framesToRegister, registry);
    }
 
-   @After
+   @AfterEach
    public void clean()
    {
       copPointsInFoot.reset();

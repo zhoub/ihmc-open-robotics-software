@@ -2,7 +2,7 @@ package us.ihmc.simulationconstructionset.simulatedSensors;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -62,7 +62,7 @@ public class SimulatedIMURawSensorReaderTest
 
    private SimulatedIMURawSensorReader simulatedIMURawSensorReader;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       transformIMUToJoint.setRotation(jointToIMURotation);

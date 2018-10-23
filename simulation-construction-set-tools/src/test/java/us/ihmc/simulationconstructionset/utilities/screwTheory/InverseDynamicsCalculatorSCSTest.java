@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Random;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -61,7 +61,7 @@ public class InverseDynamicsCalculatorSCSTest
    
    private final Random random = new Random(100L);
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
    }

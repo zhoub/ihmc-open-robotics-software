@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.trajectories;
 
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -22,7 +22,7 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class CirclePositionTrajectoryGeneratorTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

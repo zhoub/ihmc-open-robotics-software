@@ -7,9 +7,9 @@ import org.ejml.alg.dense.decomposition.bidiagonal.BidiagonalDecompositionRow_D6
 import org.ejml.alg.dense.decomposition.chol.CholeskyDecompositionCommon_D64;
 import org.ejml.alg.dense.decomposition.lu.LUDecompositionBase_D64;
 import org.ejml.data.DenseMatrix64F;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
@@ -74,7 +74,7 @@ public class AtlasAllocationTest
    private DRCSimulationTestHelper testHelper;
    private AllocationProfiler allocationProfiler = new AllocationProfiler();
    
-   @Before
+   @BeforeEach
    public void before() throws SimulationExceededMaximumTimeException
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -343,7 +343,7 @@ public class AtlasAllocationTest
       }
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());

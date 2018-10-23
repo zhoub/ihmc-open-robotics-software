@@ -1,6 +1,6 @@
 package us.ihmc.pathPlanning.visibilityGraphs;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
@@ -26,7 +26,7 @@ public class VisibilityGraphOcclusionTest
    private PlanarRegionsList occludedEnvironmentWithAGoalPlane;
    private PlanarRegionsList occludedEnvironmentWithoutAGoalPlane;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       visualize = visualize && !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.apache.commons.lang3.mutable.MutableDouble;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
@@ -26,7 +26,7 @@ public class RateLimitedYoFrameQuaternionTest
 {
    private static final double EPSILON = 1.0e-12;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

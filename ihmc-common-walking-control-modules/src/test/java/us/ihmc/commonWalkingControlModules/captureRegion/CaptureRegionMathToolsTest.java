@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.captureRegion;
 
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
@@ -20,7 +20,7 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 
 public class CaptureRegionMathToolsTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

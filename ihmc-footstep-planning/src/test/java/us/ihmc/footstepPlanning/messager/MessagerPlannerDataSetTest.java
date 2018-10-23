@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.messager;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
 import us.ihmc.footstepPlanning.FootstepPlan;
@@ -21,7 +21,7 @@ public abstract class MessagerPlannerDataSetTest extends FootstepPlannerDataSetT
 
 
    @Override
-   @Before
+   @BeforeEach
    public void setup()
    {
       super.setup();
@@ -40,7 +40,7 @@ public abstract class MessagerPlannerDataSetTest extends FootstepPlannerDataSetT
       module.start();
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       module.stop();

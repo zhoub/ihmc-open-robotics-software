@@ -3,7 +3,7 @@ package us.ihmc.robotics.robotSide;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -14,7 +14,7 @@ import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 @Tag("fast")
 public class RecyclingQuadrantDependentListTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

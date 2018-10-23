@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Epsilons;
@@ -29,7 +29,7 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 @Tag("fast")
 public class FrameBox3dTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

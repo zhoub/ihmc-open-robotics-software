@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.roughTerrainPlanning;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
@@ -55,7 +55,7 @@ public class AStarOnRoughTerrainTest extends FootstepPlannerOnRoughTerrainTest
       super.testSpiralStaircase();
    }
 
-   @After
+   @AfterEach
    public void destroyPlanner()
    {
       planner = null;

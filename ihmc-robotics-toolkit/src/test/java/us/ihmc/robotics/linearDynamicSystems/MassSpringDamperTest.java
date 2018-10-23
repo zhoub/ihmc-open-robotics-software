@@ -2,8 +2,8 @@ package us.ihmc.robotics.linearDynamicSystems;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
@@ -26,7 +26,7 @@ public class MassSpringDamperTest
 
    private EigenvalueDecomposer eigenvalueDecomposerA;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       matrixA = new Matrix(new double[][]
@@ -44,7 +44,7 @@ public class MassSpringDamperTest
       new LinearDynamicSystem(matrixA, null, null, null);
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       matrixA = null;

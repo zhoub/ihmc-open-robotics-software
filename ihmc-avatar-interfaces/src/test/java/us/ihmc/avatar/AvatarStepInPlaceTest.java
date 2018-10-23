@@ -3,8 +3,8 @@ package us.ihmc.avatar;
 import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
@@ -77,7 +77,7 @@ public abstract class AvatarStepInPlaceTest implements MultiRobotTestInterface
       return new OffsetAndYawRobotInitialSetup();
    }
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -113,7 +113,7 @@ public abstract class AvatarStepInPlaceTest implements MultiRobotTestInterface
       }
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       if (simulationTestingParameters.getKeepSCSUp())

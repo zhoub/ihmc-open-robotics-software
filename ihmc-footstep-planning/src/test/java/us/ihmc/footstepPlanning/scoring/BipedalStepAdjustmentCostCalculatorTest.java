@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.scoring;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
@@ -57,7 +57,7 @@ public class BipedalStepAdjustmentCostCalculatorTest
    private int numInX = (int) ((xMax - xMin) / incrementX);
    private int numInY = (int) ((xMax - yMin) / incrementY);
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

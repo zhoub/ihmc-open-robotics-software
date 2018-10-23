@@ -6,7 +6,7 @@ import java.net.URISyntaxException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.ros.exception.RemoteException;
 import org.ros.exception.RosRuntimeException;
@@ -26,7 +26,7 @@ public class AddTwoIntsServiceTest extends IHMCRosTestWithRosCore
    final static boolean USE_JAVA_ROSCORE = true;
 
    @Override
-   @Before
+   @BeforeEach
    public void setUp()
    {
       super.setUp(USE_JAVA_ROSCORE);

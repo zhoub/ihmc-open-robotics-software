@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import java.io.File;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -17,7 +17,7 @@ public class CalibrationPropertiesTest
    private File currentPropertiesFile;
    private CalibrationProperties calibrationProperties;
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       // create a calibration file with the specifies path.
@@ -26,7 +26,7 @@ public class CalibrationPropertiesTest
       calibrationProperties = new CalibrationProperties(".", fileName);
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       currentPropertiesFile.delete();

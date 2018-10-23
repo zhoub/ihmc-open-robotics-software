@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import std_msgs.msg.dds.Float64;
@@ -94,7 +94,7 @@ public class InterprocessObjectCommunicatorTest
 
    }
 
-   @After
+   @AfterEach
    public void closeNetwork()
    {
       IntraprocessCommunicationNetwork.closeAllConnectionsForMyJUnitTests();

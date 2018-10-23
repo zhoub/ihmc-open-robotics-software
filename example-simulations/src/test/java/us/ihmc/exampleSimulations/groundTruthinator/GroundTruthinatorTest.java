@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +21,7 @@ import us.ihmc.robotics.random.RandomGeometry;
 
 public class GroundTruthinatorTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

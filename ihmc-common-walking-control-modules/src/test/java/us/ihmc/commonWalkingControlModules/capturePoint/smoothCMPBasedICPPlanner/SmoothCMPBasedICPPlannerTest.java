@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
@@ -184,7 +184,7 @@ public class SmoothCMPBasedICPPlannerTest
 
    private int numberOfFootstepsForTest;
 
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       this.newTestStartDiscontinuity = true;
@@ -353,7 +353,7 @@ public class SmoothCMPBasedICPPlannerTest
       copTrack = new BagOfBalls(numberOfTrackBalls, trackBallSize, "CoPTrack", new YoAppearanceRGBColor(copPointsColor, 0.0), registry, graphicsListRegistry);
    }
 
-   @After
+   @AfterEach
    public void cleanUpTest()
    {
       if (keepSCSUp)

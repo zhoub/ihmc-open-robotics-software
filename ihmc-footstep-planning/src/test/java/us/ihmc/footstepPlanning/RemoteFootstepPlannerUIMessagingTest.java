@@ -4,7 +4,7 @@ import controller_msgs.msg.dds.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.RandomNumbers;
@@ -69,7 +69,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    private final AtomicReference<FootstepPlanningRequestPacket> planningRequestReference = new AtomicReference<>(null);
    private final AtomicReference<FootstepPlannerParametersPacket> footstepPlannerParametersReference = new AtomicReference<>(null);
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       for (int i = 0; i < 100; i++)

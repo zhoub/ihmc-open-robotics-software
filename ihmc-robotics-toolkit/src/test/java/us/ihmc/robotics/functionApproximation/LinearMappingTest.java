@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -18,7 +18,7 @@ public class LinearMappingTest
    private LinearMapping linearMappingOneD = null;
    private LinearMapping linearMappingTwoD = null;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       ArrayList<double[]> inputDimensions = new ArrayList<double[]>();
@@ -35,7 +35,7 @@ public class LinearMappingTest
       linearMappingTwoD = new LinearMapping(inputDimensions, outputDimensions);
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       linearMappingOneD = null;

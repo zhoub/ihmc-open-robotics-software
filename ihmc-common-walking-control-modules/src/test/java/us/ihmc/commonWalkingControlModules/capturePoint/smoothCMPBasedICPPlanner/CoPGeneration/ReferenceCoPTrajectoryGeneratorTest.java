@@ -1,8 +1,8 @@
 package us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.CoPGeneration;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.ListOfPointsContactableFoot;
@@ -73,7 +73,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
    private final ArrayList<YoDouble> transferSplitFractions = new ArrayList<>();
    private final ArrayList<FootstepData> upcomingFootstepsData = new ArrayList<>();
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       for (RobotSide side : RobotSide.values)
@@ -144,7 +144,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
       assertTrue("Object not initialized", testCoPGenerator != null);
    }
 
-   @After
+   @AfterEach
    public void clearAllVariables()
    {
       parentRegistry.clear();

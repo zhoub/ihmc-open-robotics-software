@@ -6,8 +6,8 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -33,7 +33,7 @@ public class ProviderBasedConstantOrientationTrajectoryGeneratorTest
    private ProviderBasedConstantOrientationTrajectoryGenerator provider;
    private static int globalCounter = 0;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       referenceFrame = ReferenceFrame.constructARootFrame("rootFrame!");
@@ -41,7 +41,7 @@ public class ProviderBasedConstantOrientationTrajectoryGeneratorTest
       orientationProvider = new ConstantOrientationProvider(frameOrientation);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       frameOrientation = null;

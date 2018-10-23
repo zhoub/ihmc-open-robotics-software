@@ -12,8 +12,8 @@ import org.ejml.factory.DecompositionFactory;
 import org.ejml.interfaces.decomposition.EigenDecomposition;
 import org.ejml.ops.CommonOps;
 import org.ejml.simple.SimpleMatrix;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -39,7 +39,7 @@ public class RigidBodyInertiaTest
    private RigidBodyInertia inertia;
 
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       worldFrame = ReferenceFrame.constructARootFrame("worldFrame");
@@ -83,7 +83,7 @@ public class RigidBodyInertiaTest
       inertia = new RigidBodyInertia(frameB, getRandomSymmetricPositiveDefiniteMatrix(), getRandomPositiveNumber());
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

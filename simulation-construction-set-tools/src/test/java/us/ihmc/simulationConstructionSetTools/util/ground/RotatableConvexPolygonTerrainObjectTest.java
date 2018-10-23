@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -30,7 +30,7 @@ public class RotatableConvexPolygonTerrainObjectTest
    private double centroidHeight;
    private double epsilon = 1e-8;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       normalZVector = new Vector3D(0.0, 0.0, 1.0);

@@ -2,8 +2,8 @@ package us.ihmc.commonWalkingControlModules.virtualModelControl;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualWrenchCommand;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.JointIndexHandler;
@@ -45,7 +45,7 @@ public class VirtualModelMomentumControllerTest
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    private Random random;
 
-   @Before
+   @BeforeEach
    public void setupSimulation()
    {
       random = new Random(1000L);
@@ -55,7 +55,7 @@ public class VirtualModelMomentumControllerTest
    }
 
 
-   @After
+   @AfterEach
    public void destroySimulation()
    {
       if (simulationTestingParameters.getKeepSCSUp())

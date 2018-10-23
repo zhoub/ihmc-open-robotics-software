@@ -2,8 +2,8 @@ package us.ihmc.avatar.behaviorTests;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
    private static final double epsilon = 10e-8;
    private DRCBehaviorTestHelper drcBehaviorTestHelper;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -41,7 +41,7 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
                                                         simulationTestingParameters, getRobotModel());
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

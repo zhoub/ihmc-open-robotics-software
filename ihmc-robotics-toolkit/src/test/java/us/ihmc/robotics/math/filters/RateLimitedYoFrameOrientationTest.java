@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Random;
 
 import org.apache.commons.lang3.mutable.MutableDouble;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
@@ -24,7 +24,7 @@ public class RateLimitedYoFrameOrientationTest
 {
    private static final double EPSILON = 1.0e-11;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

@@ -1,6 +1,6 @@
 package us.ihmc.quadrupedRobotics.planning;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -22,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 @Tag("fast")
 public class QuadrupedXGaitPlannerTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

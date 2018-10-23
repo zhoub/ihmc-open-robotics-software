@@ -1,7 +1,7 @@
 package us.ihmc.commonWalkingControlModules.capturePoint.optimization;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
@@ -13,7 +13,7 @@ import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 @Tag("fast")
 public class ICPOptimizationControllerHelperTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

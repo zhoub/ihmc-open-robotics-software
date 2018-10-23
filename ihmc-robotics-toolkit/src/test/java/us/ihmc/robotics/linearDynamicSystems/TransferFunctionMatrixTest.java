@@ -3,8 +3,8 @@ package us.ihmc.robotics.linearDynamicSystems;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
@@ -18,7 +18,7 @@ public class TransferFunctionMatrixTest
    private TransferFunction simpleDecayTwo, secondOrderResponseTwo;
    private TransferFunctionMatrix transferFunctionMatrix;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       secondOrderResponseOne = TransferFunction.constructSecondOrderTransferFunction(1.0, 10.0, 0.3);
@@ -34,7 +34,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix = new TransferFunctionMatrix(transferFunctions);
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       simpleDecayOne = null;

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import com.esotericsoftware.kryo.Kryo;
@@ -73,7 +73,7 @@ public class AtlasRobotConfigurationDataTest
       assertTrue("RobotConfigurationData is to large " + length, length < 1460);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

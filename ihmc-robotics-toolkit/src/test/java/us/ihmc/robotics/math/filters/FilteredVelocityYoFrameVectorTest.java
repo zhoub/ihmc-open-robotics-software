@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.filters;
 
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -18,7 +18,7 @@ public class FilteredVelocityYoFrameVectorTest
 {
    private static final double EPSILON = 1.0e-15;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

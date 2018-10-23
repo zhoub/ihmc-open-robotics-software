@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.LocalizationPacket;
@@ -80,13 +80,13 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
    private BlockingSimulationRunner blockingSimulationRunner;
    private DRCFlatGroundWalkingTrack flatGroundWalkingTrack;
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
@@ -223,7 +223,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 
 //   private BlockingSimulationRunner blockingSimulationRunner;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       flatGroundEnvironment = new FlatGroundEnvironment();

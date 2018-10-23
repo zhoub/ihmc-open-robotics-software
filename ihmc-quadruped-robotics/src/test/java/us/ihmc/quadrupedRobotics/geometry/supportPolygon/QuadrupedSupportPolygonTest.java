@@ -5,7 +5,7 @@ import com.google.caliper.api.VmOptions;
 import com.google.caliper.runner.CaliperMain;
 import com.jme3.scene.shape.Quad;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Assertions;
@@ -41,7 +41,7 @@ public class QuadrupedSupportPolygonTest
 {
    private static final ReferenceFrame WORLD = ReferenceFrame.getWorldFrame();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

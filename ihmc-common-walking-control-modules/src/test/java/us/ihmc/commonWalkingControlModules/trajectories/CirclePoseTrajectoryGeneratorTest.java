@@ -7,8 +7,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -41,7 +41,7 @@ public class CirclePoseTrajectoryGeneratorTest
    private DoubleProvider trajectoryTimeProvider;
    private CirclePoseTrajectoryGenerator trajectoryGenerator;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       worldFrame = ReferenceFrame.getWorldFrame();
@@ -59,7 +59,7 @@ public class CirclePoseTrajectoryGeneratorTest
       trajectoryGenerator.initialize();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       worldFrame = null;

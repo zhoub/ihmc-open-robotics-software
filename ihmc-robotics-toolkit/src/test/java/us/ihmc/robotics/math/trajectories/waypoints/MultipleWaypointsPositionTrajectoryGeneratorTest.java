@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.trajectories.waypoints;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -24,7 +24,7 @@ public class MultipleWaypointsPositionTrajectoryGeneratorTest
 
  private final double EPSILON = 1e-3;
 
- @After
+ @AfterEach
  public void tearDown()
  {
     ReferenceFrameTools.clearWorldFrameTree();

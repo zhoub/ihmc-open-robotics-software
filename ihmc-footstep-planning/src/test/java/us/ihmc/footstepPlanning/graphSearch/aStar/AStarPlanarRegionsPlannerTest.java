@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import com.google.common.util.concurrent.AtomicDouble;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -55,7 +55,7 @@ public class AStarPlanarRegionsPlannerTest
 //   private static final boolean visualize = !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
    private static final boolean visualize = false;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

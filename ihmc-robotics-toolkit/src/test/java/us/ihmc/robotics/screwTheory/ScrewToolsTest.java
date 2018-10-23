@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.Set;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import gnu.trove.list.array.TIntArrayList;
@@ -46,7 +46,7 @@ public class ScrewToolsTest
    protected ReferenceFrame theFrame = ReferenceFrame.constructARootFrame("theFrame");
    protected ReferenceFrame aFrame = ReferenceFrame.constructARootFrame("aFrame");
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       elevator = new RigidBody("elevator", ReferenceFrame.getWorldFrame());

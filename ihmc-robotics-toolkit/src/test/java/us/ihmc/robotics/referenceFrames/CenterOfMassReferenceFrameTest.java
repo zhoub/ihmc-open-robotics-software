@@ -3,7 +3,7 @@ package us.ihmc.robotics.referenceFrames;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -25,7 +25,7 @@ import us.ihmc.robotics.screwTheory.SixDoFJoint;
 
 public class CenterOfMassReferenceFrameTest
 {
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

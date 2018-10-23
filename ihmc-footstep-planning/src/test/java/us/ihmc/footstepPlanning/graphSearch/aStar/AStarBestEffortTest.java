@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.graphSearch.aStar;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -30,7 +30,7 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 
 public class AStarBestEffortTest
 {
@@ -40,7 +40,7 @@ public class AStarBestEffortTest
    private final YoVariableRegistry registry = new YoVariableRegistry("testRegistry");
    private AStarFootstepPlanner planner;
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       FootstepPlannerParameters parameters = new BestEffortPlannerParameters(3);
@@ -50,7 +50,7 @@ public class AStarBestEffortTest
       planner.setTimeout(5.0);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

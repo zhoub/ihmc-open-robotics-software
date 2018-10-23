@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -28,7 +28,7 @@ public class DataSamplerTest
    HashMap<String, Double> secondData = createSecondData();
    HashMap<String, Double> thirdData = createThirdData();
    
-   @Before
+   @BeforeEach
    public void createDataSampler()
    {
       dataSampler = new DataSampler<Double>();

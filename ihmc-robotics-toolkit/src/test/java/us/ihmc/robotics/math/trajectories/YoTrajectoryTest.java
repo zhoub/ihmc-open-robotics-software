@@ -1,6 +1,6 @@
 package us.ihmc.robotics.math.trajectories;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MathTools;
@@ -12,7 +12,7 @@ public class YoTrajectoryTest
 {
    YoVariableRegistry registry = new YoVariableRegistry("TrajectoryTestRegistry");
 
-   @Before
+   @BeforeEach
    public void setup()
    {
       registry.clear();

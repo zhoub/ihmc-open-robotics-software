@@ -9,7 +9,7 @@ import java.util.Map.Entry;
 import java.util.Random;
 import java.util.Set;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -28,7 +28,7 @@ public class MovingZUpFrameTest
 {
    private static final double EPSILON = 1.0e-7;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

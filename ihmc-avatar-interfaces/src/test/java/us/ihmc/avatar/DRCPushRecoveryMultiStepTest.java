@@ -1,7 +1,7 @@
 package us.ihmc.avatar;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
@@ -60,13 +60,13 @@ public abstract class DRCPushRecoveryMultiStepTest implements MultiRobotTestInte
       return 0.5;
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest()
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())

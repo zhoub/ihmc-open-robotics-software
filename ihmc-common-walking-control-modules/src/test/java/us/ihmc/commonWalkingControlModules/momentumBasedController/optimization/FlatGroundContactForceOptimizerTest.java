@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.groundContactForce.FlatGroundContactForceOptimizer;
@@ -29,7 +29,7 @@ public class FlatGroundContactForceOptimizerTest
 
    private static final boolean showSCS = false;
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

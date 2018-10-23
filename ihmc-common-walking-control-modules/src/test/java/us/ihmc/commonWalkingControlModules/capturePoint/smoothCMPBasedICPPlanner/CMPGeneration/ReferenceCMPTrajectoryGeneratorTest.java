@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPSplineType;
@@ -47,7 +47,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
    private FrameTrajectory3D cmpSegmentTrajectory = new FrameTrajectory3D(numberOfCoefficients, worldFrame);
    private TorqueTrajectory torqueTrajectory = new TorqueTrajectory(Math.max(numberOfSwingSegments, numberOfTransferSegments), numberOfCoefficients);
 
-   @Before
+   @BeforeEach
    public void setupTest()
    {
       clear();
@@ -110,7 +110,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
       return new FrameVector3D(worldFrame, Math.random(), Math.random(), Math.random());
    }
 
-   @After
+   @AfterEach
    public void tearDownTest()
    {
       ReferenceFrameTools.clearWorldFrameTree();

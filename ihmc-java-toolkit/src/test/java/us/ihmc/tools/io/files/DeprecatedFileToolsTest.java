@@ -19,8 +19,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.exception.DefaultExceptionHandler;
@@ -53,7 +53,7 @@ public class DeprecatedFileToolsTest
    private static final Path FILE_TOOLS_EXAMPLE_FILE2_PATH = TEXT_DIRECTORY_PATH.resolve(FILE_TOOLS_EXAMPLE_FILE2_TXT);
    private static final Path READ_ALL_LINES_PATH = FILE_TOOLS_TEST_PATH.resolve(TEST_READ_ALL_LINES_TXT);
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       FileTools.ensureDirectoryExists(FILE_TOOLS_TEST_PATH, DefaultExceptionHandler.PRINT_STACKTRACE);
@@ -68,7 +68,7 @@ public class DeprecatedFileToolsTest
       createReadAllLinesFile();
    }
    
-   @After
+   @AfterEach
    public void tearDown()
    {
       FileTools.deleteQuietly(EXAMPLE_JAVA_FILE1_PATH);

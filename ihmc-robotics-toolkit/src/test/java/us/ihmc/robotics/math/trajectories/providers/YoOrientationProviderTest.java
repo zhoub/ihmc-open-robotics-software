@@ -3,8 +3,8 @@ package us.ihmc.robotics.math.trajectories.providers;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -26,7 +26,7 @@ public class YoOrientationProviderTest
    private YoFrameYawPitchRoll yoFrameOrientation;
    public FrameQuaternion frameOrientationToPack;
    
-   @Before
+   @BeforeEach
    public void setUp()
    {
       referenceFrame =ReferenceFrame.constructARootFrame("rootFrame");
@@ -35,7 +35,7 @@ public class YoOrientationProviderTest
       frameOrientationToPack = new FrameQuaternion();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

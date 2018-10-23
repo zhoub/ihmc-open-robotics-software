@@ -4,8 +4,8 @@ import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -26,7 +26,7 @@ public class SpringFlamingoSimulationTest
    private SimulationGUITestFixture testFixture;
    private SimulationConstructionSet scs;
 
-   @Before
+   @BeforeEach
    public void setUp() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       SpringFlamingoSimulation springFlamingoSimulation = new SpringFlamingoSimulation();
@@ -36,7 +36,7 @@ public class SpringFlamingoSimulationTest
       testFixture = new SimulationGUITestFixture(scs);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       testFixture.closeAndDispose();

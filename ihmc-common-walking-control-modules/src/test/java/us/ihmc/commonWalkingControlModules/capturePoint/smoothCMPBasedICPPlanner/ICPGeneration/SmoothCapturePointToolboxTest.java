@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.lists.RecyclingArrayList;
@@ -37,7 +37,7 @@ public class SmoothCapturePointToolboxTest
    
    private final SmoothCapturePointToolbox icpToolbox = new SmoothCapturePointToolbox();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

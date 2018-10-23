@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 
 import java.util.Random;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
@@ -36,7 +36,7 @@ public class TransformInterpolationCalculatorTest
 {
    public TransformInterpolationCalculator transformInterpolationCalculator = new TransformInterpolationCalculator();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -37,7 +37,7 @@ public class OneDoFJointQuinticTrajectoryGeneratorTest
 
    private OneDoFJointQuinticTrajectoryGenerator generator;
 
-   @Before
+   @BeforeEach
    public void setUp()
    {
       joint.setQ(0.0);

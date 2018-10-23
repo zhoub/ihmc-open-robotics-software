@@ -1,7 +1,7 @@
 package us.ihmc.robotics.geometry;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -21,12 +21,12 @@ public class FrameLine2dTest
    private final boolean DISPLAY_PANEL = false;
    private final boolean WAIT_FOR_BUTTON_PUSH = false;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       ReferenceFrameTools.clearWorldFrameTree();

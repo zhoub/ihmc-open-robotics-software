@@ -1,8 +1,8 @@
 package us.ihmc.avatar.roughTerrainWalking;
 
 import controller_msgs.msg.dds.*;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -99,7 +99,7 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
    private AtomicReference<FootstepPlanningToolboxOutputStatus> outputStatus;
    private BlockingSimulationRunner blockingSimulationRunner;
 
-   @Before
+   @BeforeEach
    public void setup() throws IOException
    {
       PlanarRegionsListGenerator generator = new PlanarRegionsListGenerator();
@@ -142,7 +142,7 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       ros2Node.spin();
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       cinderBlockField = null;

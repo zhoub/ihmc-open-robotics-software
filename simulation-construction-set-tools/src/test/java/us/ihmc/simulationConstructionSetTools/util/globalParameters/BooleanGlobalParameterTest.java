@@ -1,8 +1,8 @@
 package us.ihmc.simulationConstructionSetTools.util.globalParameters;
 
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
@@ -14,13 +14,13 @@ public class BooleanGlobalParameterTest
    private static final boolean VERBOSE = false;
    private final boolean DEFAULT_VALUE = true;
 
-   @Before
+   @BeforeEach
    public void setUp() throws Exception
    {
       GlobalParameter.clearGlobalRegistry();
    }
 
-   @After
+   @AfterEach
    public void tearDown() throws Exception
    {
       GlobalParameter.clearGlobalRegistry();

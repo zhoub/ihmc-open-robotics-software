@@ -16,7 +16,7 @@ import java.util.Random;
 import org.ddogleg.optimization.FactoryOptimization;
 import org.ddogleg.optimization.UnconstrainedLeastSquares;
 import org.ddogleg.optimization.UtilOptimize;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import boofcv.abst.fiducial.calib.CalibrationDetectorChessboard;
@@ -102,7 +102,7 @@ public class KinematicCalibrationHeadLoopResidualTest
       targetToEE.setRotation(rotFull);
    }
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

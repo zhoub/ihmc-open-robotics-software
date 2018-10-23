@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.polygonSnapping;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
@@ -30,7 +30,7 @@ public class ConstructingGroundPlaneAroundFeetTest
 {
    private final boolean visualize = !ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer();
 
-   @After
+   @AfterEach
    public void tearDown()
    {
       ReferenceFrameTools.clearWorldFrameTree();

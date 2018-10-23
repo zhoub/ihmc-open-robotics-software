@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
@@ -394,7 +394,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       return time;
    }
 
-   @Before
+   @BeforeEach
    public void showMemoryUsageBeforeTest() throws SimulationExceededMaximumTimeException
    {
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " before test.");
@@ -416,7 +416,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       humanoidReferenceFrames.updateFrames();
    }
 
-   @After
+   @AfterEach
    public void destroySimulationAndRecycleMemory()
    {
       if (simulationTestingParameters.getKeepSCSUp())
