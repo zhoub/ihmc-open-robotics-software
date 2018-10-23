@@ -11,7 +11,7 @@ import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
-import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
+import us.ihmc.commons.ContinuousIntegrationTools;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.footstepPlanning.FootstepPlan;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
@@ -29,7 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static org.junit.Assert.assertTrue;
+import static us.ihmc.robotics.Assert.*;
+
 import static us.ihmc.footstepPlanning.testTools.PlannerTestEnvironments.*;
 import static us.ihmc.footstepPlanning.communication.FootstepPlannerMessagerAPI.*;
 

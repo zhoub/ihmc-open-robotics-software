@@ -6,7 +6,6 @@ import com.google.caliper.runner.CaliperMain;
 import com.jme3.scene.shape.Quad;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.MathTools;
@@ -33,7 +32,7 @@ import us.ihmc.yoVariables.variable.YoFramePoint3D;
 
 import java.util.Random;
 
-import static org.junit.Assert.*;
+import static us.ihmc.robotics.Assert.*;
 
 @Tag("fast")
 @VmOptions("-XX:-TieredCompilation")

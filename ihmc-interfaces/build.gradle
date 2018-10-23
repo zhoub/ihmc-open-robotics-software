@@ -40,9 +40,7 @@ mainDependencies {
    compile group: "us.ihmc", name: "ihmc-commons", version: "0.25.0"
 }
 
-testDependencies {
-   compile group: "us.ihmc", name: "ihmc-ci-core-api", version: "0.18.0"
-   compile group: "us.ihmc", name: "ihmc-ros2-library", version: "0.10.0"
+testDependencies {   compile group: "us.ihmc", name: "ihmc-ros2-library", version: "0.10.0"
 }
 
 generatorDependencies {

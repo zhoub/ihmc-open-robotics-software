@@ -1,11 +1,10 @@
 package us.ihmc.commonWalkingControlModules.capturePoint;
 
-import static org.junit.Assert.*;
+import static us.ihmc.robotics.Assert.*;
 
 import java.util.Random;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;

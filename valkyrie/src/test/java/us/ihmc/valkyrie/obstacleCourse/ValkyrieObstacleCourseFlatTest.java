@@ -1,6 +1,5 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;

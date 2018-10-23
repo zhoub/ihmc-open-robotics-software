@@ -1,6 +1,5 @@
 package us.ihmc.humanoidBehaviors.utilities;
 
-import static org.junit.Assert.assertTrue;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
@@ -47,7 +46,7 @@ public class TimeBasedStopThreadUpdatable extends StopThreadUpdatable
       }
       else if (hasThresholdBeenCrossed(resumeTime))
       {
-         assertTrue(!behavior.isDone());
+         assert !behavior.isDone();
 
          PrintTools.debug(this, "Requesting Resume");
          setRequestedBehaviorControlMode(BehaviorControlModeEnum.RESUME);

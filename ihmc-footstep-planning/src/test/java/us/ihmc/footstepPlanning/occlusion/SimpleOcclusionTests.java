@@ -1,7 +1,6 @@
 package us.ihmc.footstepPlanning.occlusion;
 
-import org.junit.Assert;
-import org.junit.Ignore;
+import us.ihmc.robotics.Assert;
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;

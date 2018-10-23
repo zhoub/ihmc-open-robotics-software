@@ -1,6 +1,6 @@
 package us.ihmc.quadrupedRobotics.gait;
 
-import static org.junit.Assert.assertEquals;
+import static us.ihmc.robotics.Assert.*;
 
 import org.junit.jupiter.api.Test;
 

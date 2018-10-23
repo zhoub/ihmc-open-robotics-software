@@ -1,13 +1,12 @@
 package us.ihmc.robotics.screwTheory;
 
-import static org.junit.Assert.*;
+import static us.ihmc.robotics.Assert.*;
 
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;

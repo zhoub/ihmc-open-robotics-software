@@ -2,11 +2,11 @@ package us.ihmc.parameterTuner;
 
 import java.util.List;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.parameterTuner.guiElements.GuiParameter;
 import us.ihmc.parameterTuner.guiElements.GuiRegistry;
@@ -154,7 +154,7 @@ public class ParameterSavingToolsTest
          printRegistry(rootB, "Registry B");
          printRegistry(expected, "Expected Result");
          printRegistry(actual, "Actual Result");
-         Assert.fail("The merged registry did not match the expected. See console output for results.");
+         Assertions.fail("The merged registry did not match the expected. See console output for results.");
       }
    }
 

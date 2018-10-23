@@ -1,7 +1,6 @@
 package us.ihmc.footstepPlanning.roughTerrainPlanning;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;

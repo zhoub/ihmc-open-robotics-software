@@ -1,6 +1,5 @@
 package us.ihmc.atlas.pushRecovery;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;

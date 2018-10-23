@@ -23,8 +23,6 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
 import us.ihmc.yoVariables.variable.YoFrameVector3D;
 
-import static org.junit.Assert.assertTrue;
-
 public class PlannerTools
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -111,7 +109,7 @@ public class PlannerTools
 
       FootstepPlan footstepPlan = planner.getPlan();
       if (assertPlannerReturnedResult)
-         assertTrue("Planner was not able to provide valid result. Result: " + result, result.validForExecution());
+         assert result.validForExecution();
       return footstepPlan;
    }
 

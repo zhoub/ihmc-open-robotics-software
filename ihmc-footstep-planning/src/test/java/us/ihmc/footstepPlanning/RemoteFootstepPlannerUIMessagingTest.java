@@ -49,9 +49,9 @@ import java.util.Random;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
 
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertFalse;
+import static us.ihmc.robotics.Assert.*;
+
+import static us.ihmc.robotics.Assert.*;
 
 public class RemoteFootstepPlannerUIMessagingTest
 {

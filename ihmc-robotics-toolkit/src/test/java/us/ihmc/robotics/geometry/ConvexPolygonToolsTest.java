@@ -1,10 +1,6 @@
 package us.ihmc.robotics.geometry;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static us.ihmc.robotics.Assert.*;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -12,8 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.Assert;
-import org.junit.Ignore;
+import us.ihmc.robotics.Assert;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;

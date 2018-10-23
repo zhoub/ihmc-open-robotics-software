@@ -1,11 +1,9 @@
 package us.ihmc.valkyrie.kinematics.transmissions;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static us.ihmc.robotics.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;

@@ -1,6 +1,6 @@
 package us.ihmc.robotics.screwTheory;
 
-import static org.junit.Assert.assertEquals;
+import static us.ihmc.robotics.Assert.*;
 
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 

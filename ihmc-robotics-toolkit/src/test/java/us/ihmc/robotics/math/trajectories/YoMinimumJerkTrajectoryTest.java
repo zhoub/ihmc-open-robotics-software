@@ -1,10 +1,9 @@
 package us.ihmc.robotics.math.trajectories;
 
-import static org.junit.Assert.*;
+import static us.ihmc.robotics.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;

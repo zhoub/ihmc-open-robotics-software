@@ -1,15 +1,11 @@
 package us.ihmc.convexOptimization.quadraticProgram;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static us.ihmc.robotics.Assert.*;
 
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;

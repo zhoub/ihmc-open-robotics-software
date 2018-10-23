@@ -1,7 +1,6 @@
 package us.ihmc.atlas;
 
 import org.junit.Assume;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.internal.AssumptionViolatedException;
 

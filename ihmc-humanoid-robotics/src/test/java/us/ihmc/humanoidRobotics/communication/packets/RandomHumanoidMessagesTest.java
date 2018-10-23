@@ -1,7 +1,6 @@
 package us.ihmc.humanoidRobotics.communication.packets;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static us.ihmc.robotics.Assert.*;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -11,15 +10,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Rule;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.DisableOnDebug;
 import org.junit.rules.Timeout;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class RandomHumanoidMessagesTest
 {
-   @Rule
-   public DisableOnDebug disableOnDebug = new DisableOnDebug(new Timeout(5, TimeUnit.SECONDS));
 
    @Test // timeout = 30000
    public void testMethodName()

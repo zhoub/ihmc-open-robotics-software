@@ -1,6 +1,5 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
