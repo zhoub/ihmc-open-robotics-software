@@ -41,6 +41,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 520000)
    public void testRewindabilityWithSimpleFastMethod() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
@@ -50,6 +51,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
 
    @Override
    // This takes a long time. Use it for debugging where the broken changes were made when the tests above fail.
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 520000)
    public void testRewindabilityWithSlowerMoreExtensiveMethod() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException

@@ -42,6 +42,7 @@ import us.ihmc.simulationconstructionset.util.simulationTesting.SimulationTestin
 import us.ihmc.tools.TimestampProvider;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Disabled
 @ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class FiducialDetectorFromCameraImagesTest
 {

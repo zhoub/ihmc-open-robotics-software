@@ -16,6 +16,7 @@ import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 
+@Disabled
 @ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class ValkyriePushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 {
@@ -31,7 +32,7 @@ public class ValkyriePushRecoveryStandingTest extends DRCPushRecoveryStandingTes
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.VALKYRIE);
    }
 
-   @Ignore("Needs to be improved")
+   @Disabled("Needs to be improved")
    @ContinuousIntegrationTest(estimatedDuration = 53.2)
    @Test(timeout = 270000)
    @Override

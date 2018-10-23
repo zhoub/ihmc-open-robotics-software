@@ -538,6 +538,7 @@ public class RotationToolsTest
    /**
     * Test that has for only purpose to highlight a bug in Java3d.
     */
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 10000)
    public void testJava3dAxisAngleSetMatrixBug()
@@ -556,6 +557,7 @@ public class RotationToolsTest
    /**
     * Test that has for only purpose to highlight a bug in Java3d
     */
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 10000)
    public void testJava3dQuat4dSetMatrixBug()

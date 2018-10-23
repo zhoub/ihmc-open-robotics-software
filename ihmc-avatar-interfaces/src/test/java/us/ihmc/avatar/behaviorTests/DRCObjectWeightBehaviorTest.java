@@ -69,7 +69,7 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
       assertTrue(behavior.hasInputBeenSet());
    }
 
-   @Ignore("Needs to be reimplemented")
+   @Disabled("Needs to be reimplemented")
    @ContinuousIntegrationTest(estimatedDuration = 19.6)
    @Test(timeout = 98000)
    public void testSettingWeight() throws SimulationExceededMaximumTimeException

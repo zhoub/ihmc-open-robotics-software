@@ -116,7 +116,7 @@ public class YoMinimumJerkTrajectoryTest
    }
 
 	// FIXME That test is stuck in an infinite loop of some sort.
-	@Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout=300000)
    public void testTimeExtension()

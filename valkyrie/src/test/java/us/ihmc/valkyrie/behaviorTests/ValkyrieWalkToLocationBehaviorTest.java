@@ -105,6 +105,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 57.8, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 290000)
    public void testWalkPauseAndResumeBehavior() throws SimulationExceededMaximumTimeException
@@ -113,6 +114,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 45.7, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 230000)
    public void testWalkPauseAndResumeOnLastStepBehavior() throws SimulationExceededMaximumTimeException
@@ -121,6 +123,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 67.6, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 340000)
    public void testWalkStopAndWalkToDifferentLocation() throws SimulationExceededMaximumTimeException

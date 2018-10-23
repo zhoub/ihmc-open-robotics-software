@@ -15,6 +15,7 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 
 import java.io.IOException;
 
+@Disabled
 @ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class GenericQuadrupedPositionCrawlTurning360Test extends QuadrupedPositionCrawlTurning360Test
 {

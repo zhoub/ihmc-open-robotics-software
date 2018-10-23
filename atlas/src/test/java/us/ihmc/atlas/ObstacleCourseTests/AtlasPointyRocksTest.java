@@ -31,6 +31,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * Hard test: Atlas walks forward and steps on unknown contacts including lines that need to be explored.
     */
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 115.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 230000)
    public void testWalkingForwardWithHalfFootContactChangesStopBetweenSteps() throws SimulationExceededMaximumTimeException
@@ -101,7 +102,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 77.5)
    @Test(timeout = 390000)
-   @Ignore // is a duplicate of other tests with less asserts.
+   @Disabled // is a duplicate of other tests with less asserts.
    public void testStandingAndStepsInPlaceWithHalfFootContactsChanges() throws SimulationExceededMaximumTimeException
    {
       super.testStandingAndStepsInPlaceWithHalfFootContactsChanges();
@@ -113,7 +114,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 58.3)
    @Test(timeout = 290000)
-   @Ignore // does only test stuff that is already covered by other tests in a easier setup
+   @Disabled // does only test stuff that is already covered by other tests in a easier setup
    public void testWalkingWithLinePredictedSupportPolygonButFullActualPolygon() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingWithLinePredictedSupportPolygonButFullActualPolygon();
@@ -122,7 +123,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 45.9)
    @Test(timeout = 400000)
-   @Ignore // not very interesting test the push does not do much
+   @Disabled // not very interesting test the push does not do much
    public void testHoldPositionByStandingOnOneLegAndGettingPushedSideways() throws SimulationExceededMaximumTimeException
    {
       super.testHoldPositionByStandingOnOneLegAndGettingPushedSideways();
@@ -132,6 +133,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * Attempts to stand on a line for a while.
     */
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 45.0, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 300000)
    public void testBalanceOnLine() throws SimulationExceededMaximumTimeException

@@ -30,7 +30,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 90.0)
-   @Ignore("Revisit when there are contact patches.")
+   @Disabled("Revisit when there are contact patches.")
    @Test(timeout = 230000)
    public void testUnknownStepDownTwoFeetOnEachStep() throws SimulationExceededMaximumTimeException
    {
@@ -71,6 +71,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 68.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 340000)
    public void testUnknownStepDownOneFootOnEachStepWithUncertainty() throws SimulationExceededMaximumTimeException
@@ -87,7 +88,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 110.0)
-   @Ignore("Re-enable when planar region constraints are used.")
+   @Disabled("Re-enable when planar region constraints are used.")
    @Test(timeout = 230000)
    public void testRandomHeightField() throws SimulationExceededMaximumTimeException
    {

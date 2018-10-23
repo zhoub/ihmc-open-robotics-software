@@ -22,6 +22,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 
+@Disabled
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE}) // Revisit JOptimzer some day and see if they ever got their act in gear...
 public class SimpleJOptimizerTest
 {
@@ -32,6 +33,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout = 300000)
    public void testReallyReallySimpleOptimizationProblem() throws Exception
@@ -59,6 +61,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 300000)
    public void testASimpleRedundantEqualityCase() throws Exception
@@ -84,6 +87,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 300000)
    public void testAnotherReallySimpleOptimizationProblem() throws Exception
@@ -152,6 +156,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 300000)
    public void testLinearCostFullyLinearConstrainedEqualityOptimizationProblem() throws Exception
@@ -222,6 +227,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 300000)
    public void testQuadraticCostLinearEqualityQuadraticInequalityOptimizationProblem() throws Exception
@@ -305,6 +311,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 300000)
    public void testASecondOrderLorenzConeProblemUsingSquaring() throws Exception
@@ -381,6 +388,7 @@ public class SimpleJOptimizerTest
     * 
     * @throws Exception
     */
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 300000)
    public void testASecondOrderLorenzConeProblemUsingSOCP() throws Exception

@@ -97,7 +97,7 @@ public class GroundTruthinatorTest
    }
 
 
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testSimpleRotationGroundTruthinator()

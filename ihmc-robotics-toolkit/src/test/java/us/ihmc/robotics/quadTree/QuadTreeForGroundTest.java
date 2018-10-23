@@ -22,6 +22,7 @@ import us.ihmc.robotics.random.RandomGeometry;
 
 public class QuadTreeForGroundTest
 {
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testGetAllPoints()

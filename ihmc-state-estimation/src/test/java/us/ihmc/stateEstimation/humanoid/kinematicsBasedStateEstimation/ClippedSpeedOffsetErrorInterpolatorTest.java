@@ -78,6 +78,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 6.6, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 33000)
    public void testRandomTranslationErrorInterpolation()
@@ -154,6 +155,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
    }
 
    //TODO
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 600000)
    public void testRandomRotationErrorInterpolation()
@@ -241,6 +243,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
    }
 
    // TODO
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 600000)
    public void testTranslationAndRotationErrorsInterpolation()
@@ -400,6 +403,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
    }
 
    //TODO
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.3, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 60000)
    public void testMaxRotationalCorrectionSpeedClip()
@@ -483,6 +487,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
    }
 
    // TODO
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.3, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testMaxCorrectionSpeedClipWorksWhenTranslationAndRotationOffsetsAreBig()

@@ -23,6 +23,7 @@ import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 
+@Disabled
 @ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class ChessboardPoseEstimatorTest
 {
@@ -92,6 +93,7 @@ public class ChessboardPoseEstimatorTest
    }
 
    //boofCV can't find checker board
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 5000)
    public void testImage3() throws IOException

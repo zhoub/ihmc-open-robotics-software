@@ -23,6 +23,7 @@ public class AtlasICPPlannerFlatGroundTest extends AvatarICPPlannerFlatGroundTes
 
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 74.3, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 370000)
    /** {@inheritDoc} */

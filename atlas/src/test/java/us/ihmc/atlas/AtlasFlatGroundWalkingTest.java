@@ -39,6 +39,7 @@ public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
       super.testFlatGroundWalking();
    }
 
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 348.7, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 1700000)
    public void testAtlasFlatGroundWalkingWithShapeCollision() throws SimulationExceededMaximumTimeException, ControllerFailureException
@@ -49,7 +50,7 @@ public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
 
    @ContinuousIntegrationTest(estimatedDuration = 0.3)
    @Test(timeout = 30000)
-   @Ignore // Not working because of multithreading. Should be switched over to use the DRCSimulationTestHelper.
+   @Disabled // Not working because of multithreading. Should be switched over to use the DRCSimulationTestHelper.
    public void testFlatGroundWalkingRunsSameWayTwice() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       try

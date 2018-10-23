@@ -96,7 +96,7 @@ public abstract class DRCPushRecoveryMultiStepTest implements MultiRobotTestInte
 
    @ContinuousIntegrationTest(estimatedDuration = 67.1)
    @Test(timeout = 30000)
-   @Ignore("Needs to be improved")
+   @Disabled("Needs to be improved")
    public void testMultiStepForwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

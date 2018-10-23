@@ -190,6 +190,7 @@ public class LeastSquaresZPlaneFitterTest
    }
 
    // Straight up and down fails with LeastSquaresZPlaneFitter since it assumes equation Ax + By + z + C = 0
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout=300000)
    public void testStraightUpAndDownPlane()

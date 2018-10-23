@@ -15,6 +15,7 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 import us.ihmc.commons.thread.ThreadTools;
 
+@Disabled
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class SkippyV2Test
 {

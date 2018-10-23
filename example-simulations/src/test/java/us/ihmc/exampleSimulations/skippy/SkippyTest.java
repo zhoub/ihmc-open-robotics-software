@@ -26,6 +26,7 @@ public class SkippyTest
    private SkippySimulation skippySimulation;
 
    
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 100000)
    public void testStanding() throws SimulationExceededMaximumTimeException

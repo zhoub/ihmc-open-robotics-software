@@ -20,6 +20,7 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 import us.ihmc.valkyrie.ValkyrieRobotModel;
 import us.ihmc.yoVariables.variable.YoDouble;
 
+@Disabled
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class ValkyriePelvisLowGainsTest extends DRCPelvisLowGainsTest
 {

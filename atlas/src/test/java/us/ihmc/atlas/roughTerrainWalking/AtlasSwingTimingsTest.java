@@ -15,6 +15,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
+@Disabled
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class AtlasSwingTimingsTest extends AvatarSwingTimingsTest
 {

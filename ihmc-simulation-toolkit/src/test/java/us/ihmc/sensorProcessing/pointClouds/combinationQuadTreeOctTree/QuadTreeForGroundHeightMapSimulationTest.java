@@ -51,6 +51,7 @@ public class QuadTreeForGroundHeightMapSimulationTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
 	@Test(timeout = 300000)
    public void testPointsFromAFile() throws NumberFormatException, IOException

@@ -42,6 +42,7 @@ public class ProcessSpawnerTest
       Assert.assertEquals(expectedContent, content);
    }
 
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 1.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testForkedShellProcessSpawner() throws Exception
@@ -61,6 +62,7 @@ public class ProcessSpawnerTest
       validateFileContents(randomString);
    }
 
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 1.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testShelloutProcessSpawnerOnShellScript() throws Exception

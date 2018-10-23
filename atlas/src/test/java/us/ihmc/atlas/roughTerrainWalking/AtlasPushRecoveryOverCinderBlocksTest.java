@@ -60,6 +60,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 180000)
    public void testPushOverFlatBlocks() throws SimulationExceededMaximumTimeException
@@ -68,6 +69,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 180000)
    public void testForwardPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
@@ -76,6 +78,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 180000)
    public void testLeftSidewaysPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
@@ -84,6 +87,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 180000)
    public void testRightSidewaysPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
@@ -92,6 +96,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 30.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 180000)
    public void testPushOverTiltedBlocks() throws SimulationExceededMaximumTimeException

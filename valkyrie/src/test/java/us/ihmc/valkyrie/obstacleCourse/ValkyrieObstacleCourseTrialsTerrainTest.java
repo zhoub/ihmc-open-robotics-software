@@ -84,6 +84,7 @@ public class ValkyrieObstacleCourseTrialsTerrainTest extends DRCObstacleCourseTr
     * fail because the foot contact points are on the edge of a cinder block.
     */
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 56.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 280000)
    public void testTrialsTerrainZigzagHurdlesScriptRandomFootSlip() throws SimulationExceededMaximumTimeException

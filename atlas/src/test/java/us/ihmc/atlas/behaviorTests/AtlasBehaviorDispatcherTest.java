@@ -44,6 +44,7 @@ public class AtlasBehaviorDispatcherTest extends HumanoidBehaviorDispatcherTest
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 315.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 1200000)
    public void testDispatchWalkToLocationBehavior() throws SimulationExceededMaximumTimeException

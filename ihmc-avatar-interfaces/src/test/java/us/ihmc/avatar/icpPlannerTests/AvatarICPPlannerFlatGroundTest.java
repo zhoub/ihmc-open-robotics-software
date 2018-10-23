@@ -95,6 +95,7 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
    /**
     * This test will drop the floor out from underneath the sim randomly while standing. Tests if detection and hold position are working well.
     */
+   @Disabled
    @ContinuousIntegrationAnnotations.ContinuousIntegrationTest(estimatedDuration = 74.3, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 370000)
    public void testChangeOfSupport() throws SimulationExceededMaximumTimeException, RuntimeException

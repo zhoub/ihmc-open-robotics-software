@@ -50,6 +50,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
       super.testForwardStepWithPause();
    }
 
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 45.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 99990000)
    public void testForwardSteps() throws SimulationExceededMaximumTimeException
@@ -84,6 +85,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
       super.testSteppingDown();
    }
 
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 50.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 100000)
    public void testSteppingDownWithClosing() throws SimulationExceededMaximumTimeException

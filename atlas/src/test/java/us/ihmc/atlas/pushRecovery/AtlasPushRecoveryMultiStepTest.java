@@ -17,6 +17,7 @@ import us.ihmc.simulationConstructionSetTools.bambooTools.BambooTools;
 import us.ihmc.simulationconstructionset.util.ControllerFailureException;
 import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulationRunner.SimulationExceededMaximumTimeException;
 
+@Disabled
 @ContinuousIntegrationPlan(categories = {IntegrationCategory.EXCLUDE})
 public class AtlasPushRecoveryMultiStepTest extends DRCPushRecoveryMultiStepTest
 {
@@ -57,7 +58,7 @@ public class AtlasPushRecoveryMultiStepTest extends DRCPushRecoveryMultiStepTest
    @Override
    @ContinuousIntegrationTest(estimatedDuration = 67.1)
    @Test(timeout = 30000)
-   @Ignore("Needs to be improved")
+   @Disabled("Needs to be improved")
    public void testMultiStepForwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       super.testMultiStepForwardAndContinueWalking();

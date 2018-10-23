@@ -1042,7 +1042,7 @@ public class QuadrupedSupportPolygonTest
       assertFalse("trot", QuadrupedSupportPolygonTools.isValidTrotPolygon(side));
    }
 
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testGetCenterOfCircleOfRadiusInCornerOfPolygon()

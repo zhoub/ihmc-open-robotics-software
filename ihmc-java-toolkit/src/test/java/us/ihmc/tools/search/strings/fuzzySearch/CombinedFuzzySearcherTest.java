@@ -11,6 +11,7 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 /**
  * @author Doug Stephen <a href="mailto:dstephen@ihmc.us">(dstephen@ihmc.us)</a>
  */
+@Disabled
 @ContinuousIntegrationPlan(categories = IntegrationCategory.EXCLUDE)
 public class CombinedFuzzySearcherTest
 {

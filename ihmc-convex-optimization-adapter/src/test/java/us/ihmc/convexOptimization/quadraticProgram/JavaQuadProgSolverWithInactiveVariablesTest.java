@@ -67,7 +67,7 @@ public class JavaQuadProgSolverWithInactiveVariablesTest extends AbstractSimpleA
       test2DCasesWithPolygonConstraints(2, 1);
    }
 
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testChallengingCasesWithPolygonConstraints()

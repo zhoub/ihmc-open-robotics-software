@@ -34,7 +34,7 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 		return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.ATLAS);
 	}
 
-	@Ignore("Needs to be improved")
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 53.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 270000)
 	@Override

@@ -46,7 +46,7 @@ public class InefficientPushrodTransmissionJacobianTest
 
    }
 
-	@Ignore
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 0.0)
 	@Test(timeout = 30000)
    public void testInefficientPushrodTransmissionJacobianForWaistAtZero()

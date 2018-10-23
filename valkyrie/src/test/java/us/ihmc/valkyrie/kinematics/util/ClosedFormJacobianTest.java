@@ -55,6 +55,7 @@ public class ClosedFormJacobianTest
       }
    }
 
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testJacobianMatchesMATLABWaist()
@@ -95,8 +96,8 @@ public class ClosedFormJacobianTest
    }
 
    // The following test is just for achieving proper renishaw jacobian matrix signs/element indices. It should never be used in Bamboo.
-   @Ignore
 
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 9000)
    public void testEfficientKindaMatchesInefficientJacobianAnkle()
@@ -120,6 +121,7 @@ public class ClosedFormJacobianTest
       }
    }
 
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
    public void testEfficientMatchesInefficientJacobianWaist()

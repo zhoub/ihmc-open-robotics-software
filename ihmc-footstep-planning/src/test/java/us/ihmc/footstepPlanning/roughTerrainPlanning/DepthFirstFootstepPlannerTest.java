@@ -161,6 +161,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 10.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 51000)
    public void testPartialGaps()
@@ -169,6 +170,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 10.2, categoriesOverride = {IntegrationCategory.EXCLUDE})
    @Test(timeout = 51000)
    public void testSpiralStaircase()

@@ -335,7 +335,7 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
    }
    
    //this tests fails, I don't think OutdatedPoseToUpToDateReferenceFrameUpdater can support more than a single rotation at a time
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testKnownDifferenceBetweenStateEstimatorAndLocalization()
@@ -423,7 +423,7 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
    }
    
    //this tests fails, I don't think OutdatedPoseToUpToDateReferenceFrameUpdater can support more than a single rotation at a time
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testKnownTranslationYawAndPitchDifferenceBetweenStateEstimatorAndLocalization()
@@ -499,7 +499,7 @@ public class OutdatedPoseToUpToDateReferenceFrameUpdaterTest
    }
 
    //this tests fails, I don't think OutdatedPoseToUpToDateReferenceFrameUpdater can support more than a single rotation at a time
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testUpdateOutdatedTransformWithKnownOffsets()

@@ -246,7 +246,7 @@ public class ICPControlPlaneTest
     * filled up with NaNs, now the test fails as it should have always been.
     * </p>
     */
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testProjectPointForwardAndLeftOntoPlaneEdgeCase()

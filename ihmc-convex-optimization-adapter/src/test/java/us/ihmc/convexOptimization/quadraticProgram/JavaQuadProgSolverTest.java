@@ -323,7 +323,7 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
    }
 
 
-   @Ignore
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testChallengingCasesWithPolygonConstraints()

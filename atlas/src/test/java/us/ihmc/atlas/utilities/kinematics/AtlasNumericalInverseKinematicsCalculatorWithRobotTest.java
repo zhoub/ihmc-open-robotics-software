@@ -34,6 +34,7 @@ public class AtlasNumericalInverseKinematicsCalculatorWithRobotTest extends Nume
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.ATLAS);
    }
 
+   @Disabled
    @ContinuousIntegrationTest(estimatedDuration = 0.0, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 120000)
    public void testTroublesomeCaseOne()

@@ -19,6 +19,7 @@ public class AtlasCollaborativeTaskTest extends AvatarCollaborativeBehaviorTest{
 	AtlasRobotModel robotModel = new AtlasRobotModel(version, RobotTarget.SCS, false);
 
 	@Override
+	@Disabled
 	@ContinuousIntegrationTest(estimatedDuration = 0.1, categoriesOverride = IntegrationCategory.EXCLUDE)
    @Test(timeout = 30000)
 	public void testBehavior() throws SimulationExceededMaximumTimeException

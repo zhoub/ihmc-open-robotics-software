@@ -1022,7 +1022,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertEquals(0.0, lagrangeInequalityMultipliers[1], 1e-7);
    }
 
-   @Ignore // This should pass with a good solver. But a simple one has trouble on it.  
+   @Disabled // This should pass with a good solver. But a simple one has trouble on it.  
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
    public void testChallengingCasesWithPolygonConstraints()
@@ -1121,7 +1121,7 @@ public abstract class AbstractSimpleActiveSetQPSolverTest
       assertTrue(Double.isInfinite(lagrangeInequalityMultipliers[2]) || Double.isNaN(lagrangeInequalityMultipliers[2]));
    }
 
-   @Ignore /** we can set this to be valid, via {@link JavaQuadProgSolver.setRequireInequalityConstraintsSatisfied(boolean)} to true. But this does not, by default
+   @Disabled /** we can set this to be valid, via {@link JavaQuadProgSolver.setRequireInequalityConstraintsSatisfied(boolean)} to true. But this does not, by default
     require that */
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    @Test(timeout = 30000)
