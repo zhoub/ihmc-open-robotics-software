@@ -23,9 +23,9 @@ fast.minHeapSizeGB = 6
 fast.maxHeapSizeGB = 8
 
 def allocation = categories.get("allocation")
-fast.jvmProperties.putAll(fast.getScsDefaultJVMProps())
-fast.minHeapSizeGB = 6
-fast.maxHeapSizeGB = 8
+allocation.jvmProperties.putAll(allocation.getScsDefaultJVMProps())
+allocation.minHeapSizeGB = 6
+allocation.maxHeapSizeGB = 8
 
 mainDependencies {
    compile group: "org.georegression", name: "georegression", version: "0.11"
