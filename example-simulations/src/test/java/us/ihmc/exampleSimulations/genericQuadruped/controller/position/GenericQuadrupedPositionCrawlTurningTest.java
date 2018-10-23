@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -21,28 +21,28 @@ public class GenericQuadrupedPositionCrawlTurningTest extends QuadrupedPositionC
    }
    
    @Override
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void testYawingRightFastNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testYawingRightFastNinetyDegrees();
    }
    
    @Override
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void testYawingLeftFastNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testYawingLeftFastNinetyDegrees();
    }
    
    @Override
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void testYawingRightSlowNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testYawingRightSlowNinetyDegrees();
    }
 
    @Override
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void testYawingLeftSlowNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testYawingLeftSlowNinetyDegrees();

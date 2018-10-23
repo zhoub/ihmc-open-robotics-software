@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -42,7 +42,7 @@ public class LinearMappingTest
       linearMappingTwoD = null;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMapFromInputSpaceToOutputSpace()
    {
       double[] input = new double[] { 1.0 / 9.0 };
@@ -65,7 +65,7 @@ public class LinearMappingTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMapFromOutputSpaceToInputSpace()
    {
       double[] input = new double[] { 1.0 / 9.0 };

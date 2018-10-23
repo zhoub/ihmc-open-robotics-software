@@ -2,7 +2,7 @@ package us.ihmc.tools.inputDevices.mouse3DJoystick;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -10,7 +10,7 @@ import us.ihmc.graphicsDescription.input.mouse.Mouse3DPollData;
 @Tag("fast")
 public class Mouse3DJoystickPollDataTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPollData()
    {
       Mouse3DPollData pollData = new Mouse3DPollData(-1.0, -2.0, 0.0, 1.0, 2.0, 3.0);

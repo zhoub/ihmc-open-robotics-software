@@ -6,7 +6,7 @@ import java.util.BitSet;
 import java.util.Random;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -27,7 +27,7 @@ public class GenericCRC32Test
       CRC_32_BITSET = BitSet.valueOf(CRC_32_BYTE_BUFFER);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testUpdateLong()
    {
       Random random = new Random(4271L);

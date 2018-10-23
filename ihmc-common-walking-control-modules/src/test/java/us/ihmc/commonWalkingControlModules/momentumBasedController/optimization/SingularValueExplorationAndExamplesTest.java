@@ -7,7 +7,7 @@ import org.ejml.factory.DecompositionFactory;
 import org.ejml.interfaces.decomposition.SingularValueDecomposition;
 import org.ejml.ops.CommonOps;
 import org.junit.AfterClass;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -21,7 +21,7 @@ public class SingularValueExplorationAndExamplesTest
    {
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleCase()
    {
       DenseMatrix64F matrixJ = new DenseMatrix64F(new double[][]{{1.0, 0.0, 0.0}, {1.0, 0.0, 0.0}});
@@ -57,7 +57,7 @@ public class SingularValueExplorationAndExamplesTest
       JUnitTools.assertMatrixEquals(matrixJ, matrixJReconstructed, 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void showIMinusNNTransposeJDoesntMakeSense()
    {
       
@@ -148,7 +148,7 @@ public class SingularValueExplorationAndExamplesTest
       return ret;
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void foo2()
    {
       

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -26,7 +26,7 @@ public class YoMultipleFramesHelperTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testCommonUsageOfYoMultipleFramesHelper()
    {
       String namePrefix = "framesHelper";
@@ -56,7 +56,7 @@ public class YoMultipleFramesHelperTest
       assertEquals(3, referenceFrames.size());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testRepeatFrames()
    {
       YoVariableRegistry registry = new YoVariableRegistry("framesHelper");
@@ -70,7 +70,7 @@ public class YoMultipleFramesHelperTest
       assertEquals("Should ignore repeat frames!", 1, helper.getNumberOfReferenceFramesRegistered());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testExceptions()
    {
       YoVariableRegistry registry = new YoVariableRegistry("framesHelper");

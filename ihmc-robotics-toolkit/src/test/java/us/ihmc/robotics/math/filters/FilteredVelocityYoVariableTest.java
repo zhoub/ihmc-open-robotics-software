@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.filters;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ public class FilteredVelocityYoVariableTest
 
    private static final double DT = 0.1;
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdateForTranslationalVelocity()
    {
       YoVariableRegistry registry = new YoVariableRegistry("testRegistry");
@@ -37,7 +37,7 @@ public class FilteredVelocityYoVariableTest
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdateForRotationalVelocity()
    {
       YoVariableRegistry registry = new YoVariableRegistry("testRegistry");

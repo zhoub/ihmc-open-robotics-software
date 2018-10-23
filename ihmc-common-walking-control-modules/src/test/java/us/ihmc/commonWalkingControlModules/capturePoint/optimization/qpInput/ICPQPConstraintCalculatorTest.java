@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.capturePoint.optimization.qpInput;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -20,7 +20,7 @@ public class ICPQPConstraintCalculatorTest
    private final static int iters = 100;
    private final static double epsilon = 1e-7;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFeedbackMaxValueConstraint()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -42,7 +42,7 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFeedbackMaxValueConstraintWithCMP()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -65,7 +65,7 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFeedbackMaxValueConstraintWithInfiniteLimits()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -177,7 +177,7 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFeedbackMaxRateConstraint()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -207,7 +207,7 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFeedbackMaxRateConstraintWithCMP()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -238,7 +238,7 @@ public class ICPQPConstraintCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFeedbackMaxRateConstraintWithInfiniteLimits()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();

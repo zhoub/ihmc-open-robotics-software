@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -138,7 +138,7 @@ public abstract class AvatarPushRecoveryOverSteppingStonesTest implements MultiR
 
 
 
-	@Test(timeout = 260000)
+	@Test // timeout = 260000
    public void testWalkingOverSteppingStonesForwardPush() throws SimulationExceededMaximumTimeException
    {
       setupTest();

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -19,7 +19,7 @@ import us.ihmc.robotics.kinematics.TransformInterpolationCalculator;
 
 public class TimeStampedTransformBufferTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testEmptyBuffer()
    {
       Random random = new Random(5616L);
@@ -33,7 +33,7 @@ public class TimeStampedTransformBufferTest
          assertFalse(timeStampedPelvisPoseBuffer.isInRange(random.nextLong()));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testThatPosesAreProperlyStored()
    {
       int bufferSize = 100;
@@ -73,7 +73,7 @@ public class TimeStampedTransformBufferTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testThatPosesAreProperlyStoredEvenAfterFillingTheBuffer()
    {
       int bufferSize = 100;
@@ -114,7 +114,7 @@ public class TimeStampedTransformBufferTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInterpolationBetweenPoses()
    {
       int bufferSize = 100;
@@ -161,7 +161,7 @@ public class TimeStampedTransformBufferTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInterpolationBetweenPosesAfterFillingBuffer()
    {
       int bufferSize = 100;

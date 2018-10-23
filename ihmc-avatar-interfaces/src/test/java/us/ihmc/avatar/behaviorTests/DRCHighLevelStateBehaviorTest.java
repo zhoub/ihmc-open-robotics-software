@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -71,13 +71,13 @@ public abstract class DRCHighLevelStateBehaviorTest implements MultiRobotTestInt
                                                         simulationTestingParameters, getRobotModel());
    }
 
-   @Test(timeout = 64580)
+   @Test // timeout = 64580
    public void testWalkingState() throws SimulationExceededMaximumTimeException
    {
       testState(HighLevelControllerName.WALKING);
    }
 
-   @Test(timeout = 64580)
+   @Test // timeout = 64580
    public void testDoNothingBahviourState() throws SimulationExceededMaximumTimeException
    {
       testState(HighLevelControllerName.DO_NOTHING_BEHAVIOR);
@@ -96,7 +96,7 @@ public abstract class DRCHighLevelStateBehaviorTest implements MultiRobotTestInt
       }
    }
 
-   @Test(timeout = 64580)
+   @Test // timeout = 64580
    public void testDiagnosticsState() throws SimulationExceededMaximumTimeException
    {
       testState(HighLevelControllerName.DIAGNOSTICS);

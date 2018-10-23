@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -25,7 +25,7 @@ public class TrapezoidalVelocityTrajectoryTest
    {
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetState()
    {
       double t0 = 3.0;
@@ -89,7 +89,7 @@ public class TrapezoidalVelocityTrajectoryTest
 
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void DONTtestOne()
    {
       double t0 = 1.0;
@@ -116,7 +116,7 @@ public class TrapezoidalVelocityTrajectoryTest
 //    sleepForever();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTwo()
    {
       // Should we overshoot in this case, or just brake fast and violate acceleration limits...
@@ -145,7 +145,7 @@ public class TrapezoidalVelocityTrajectoryTest
 //    sleepForever();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithoutEnforcingFinalVelocity()
    {
       double t0 = 0.0;
@@ -173,7 +173,7 @@ public class TrapezoidalVelocityTrajectoryTest
 //    sleepForever();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNotEnforcingFinalVelocityBadCase()
    {
       // +++tk 090219 added this test.
@@ -208,7 +208,7 @@ public class TrapezoidalVelocityTrajectoryTest
       assertTrue("endSpeed=" + endSpeed + ", : " + errorMessage, endSpeed <= maxVelocity);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomStuff()
    {
       Random random = new Random(1458L);
@@ -255,7 +255,7 @@ public class TrapezoidalVelocityTrajectoryTest
          throw new RuntimeException("testRandomStuff Failed. Check output.");
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testProblemOnDog()
    {
       double t0 = 0.0;
@@ -271,7 +271,7 @@ public class TrapezoidalVelocityTrajectoryTest
       performTests(trap, t0, x0, v0, xF, vF, vMax, aMax);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNotEnforcingFinalVelocity()
    {
       double maxInitialVelocity = 0.2;
@@ -343,7 +343,7 @@ public class TrapezoidalVelocityTrajectoryTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testProblemOne()
    {
       // Sometimes have a problem when vF == vMax.
@@ -361,7 +361,7 @@ public class TrapezoidalVelocityTrajectoryTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testProblemTwo()
    {
       double t0 = -6.454075981539176;
@@ -385,7 +385,7 @@ public class TrapezoidalVelocityTrajectoryTest
 	 * Never really worked yet. Some day maybe.
 	 */
    @Disabled
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void DONTtestRandomSamples()
    {
       //TODO: This test binds at test number 110 or so!!!

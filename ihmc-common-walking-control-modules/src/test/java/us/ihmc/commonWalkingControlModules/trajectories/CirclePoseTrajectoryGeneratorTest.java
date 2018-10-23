@@ -9,7 +9,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -71,7 +71,7 @@ public class CirclePoseTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOrientation()
    {
       trajectoryGenerator.setControlHandAngleAboutAxis(true);
@@ -82,7 +82,7 @@ public class CirclePoseTrajectoryGeneratorTest
       checkOrientationAtVariousPoints(trajectoryGenerator, initialOrientationProvider, trajectoryTimeProvider.getValue(), worldFrame);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompute()
    {
       trajectoryGenerator.setControlHandAngleAboutAxis(true);
@@ -113,7 +113,7 @@ public class CirclePoseTrajectoryGeneratorTest
       assertEquals(0.0, accelerationToPack.getZ(), EPSILON);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    //TODO: implement a real test
    public void testGetPosition()
    {
@@ -123,7 +123,7 @@ public class CirclePoseTrajectoryGeneratorTest
       currentPosition.getX();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsDone()
    {
       trajectoryGenerator.compute(trajectoryTimeProvider.getValue() / 2.0);
@@ -133,7 +133,7 @@ public class CirclePoseTrajectoryGeneratorTest
       assertTrue(trajectoryGenerator.isDone());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGet_FramePoint()
    {
       FramePoint3D positionToPack = new FramePoint3D();
@@ -143,7 +143,7 @@ public class CirclePoseTrajectoryGeneratorTest
       assertEquals(worldFrame, positionToPack.getReferenceFrame());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGet_FrameOrientation()
    {
       FrameQuaternion orientationToPack = new FrameQuaternion();
@@ -153,7 +153,7 @@ public class CirclePoseTrajectoryGeneratorTest
       assertEquals(worldFrame, orientationToPack.getReferenceFrame());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPackVelocity()
    {
       FrameVector3D velocityToPack = new FrameVector3D(ReferenceFrame.constructARootFrame("root"), 10.0, 10.0, 10.0);
@@ -168,7 +168,7 @@ public class CirclePoseTrajectoryGeneratorTest
       assertSame(worldFrame, velocityToPack.getReferenceFrame());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPackAcceleration()
    {
       FrameVector3D accelerationToPack = new FrameVector3D(ReferenceFrame.constructARootFrame("root"), 10.0, 10.0, 10.0);
@@ -183,7 +183,7 @@ public class CirclePoseTrajectoryGeneratorTest
       assertSame(worldFrame, accelerationToPack.getReferenceFrame());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPackAngularVelocity()
    {
       FrameVector3D angularVelocityToPack = new FrameVector3D(ReferenceFrame.constructARootFrame("root"), 10.0, 10.0, 10.0);
@@ -198,7 +198,7 @@ public class CirclePoseTrajectoryGeneratorTest
       assertSame(worldFrame, angularVelocityToPack.getReferenceFrame());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPackAngularAcceleration()
    {
       FrameVector3D angularAccelerationToPack = new FrameVector3D(ReferenceFrame.constructARootFrame("root"), 10.0, 10.0, 10.0);
@@ -213,7 +213,7 @@ public class CirclePoseTrajectoryGeneratorTest
       assertSame(worldFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPackLinearData()
    {
       FramePoint3D positionToPack = new FramePoint3D(worldFrame);
@@ -254,7 +254,7 @@ public class CirclePoseTrajectoryGeneratorTest
       assertSame(worldFrame, accelerationToPack.getReferenceFrame());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPackAngularData()
    {
       FramePoint3D positionToPack = new FramePoint3D(worldFrame);

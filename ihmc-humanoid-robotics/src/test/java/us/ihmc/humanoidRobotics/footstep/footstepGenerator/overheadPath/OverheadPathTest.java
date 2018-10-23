@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -35,7 +35,7 @@ public class OverheadPathTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void turningOverheadPath_UsageTest()
    {
       double eps = 1e-15;
@@ -64,7 +64,7 @@ public class OverheadPathTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void turningOverheadPath_PassingPiTest()
    {
       double eps = 1e-15;
@@ -95,7 +95,7 @@ public class OverheadPathTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void straightLineOverheadPath_UsageTest()
    {
       double eps = 1e-15;
@@ -134,7 +134,7 @@ public class OverheadPathTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void turnThenStraightOverheadPath_UsageAndHeadingOffsetTest()
    {
       double eps = 1e-14;
@@ -199,7 +199,7 @@ public class OverheadPathTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void turnStraightTurnOverheadPath_UsageAndHeadingOffsetTest()
    {
       double eps = 1e-14;
@@ -260,7 +260,7 @@ public class OverheadPathTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void turnStraightTurnOverheadPath_turnInPlaceTest()
    {
       // Turn in place would try to go to zero yaw for the intermediate case which could cause it to start to turn away from
@@ -334,7 +334,7 @@ public class OverheadPathTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void turningPathInterpolationExtrapolationTest()
    {
       double eps = 1e-14;
@@ -356,7 +356,7 @@ public class OverheadPathTest
       assertEquals("Should extrapolate to -1.0", -1.0,poseAtS.getYaw(), eps);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void straightPathInterpolationExtrapolationTest()
    {
       double eps = 1e-14;

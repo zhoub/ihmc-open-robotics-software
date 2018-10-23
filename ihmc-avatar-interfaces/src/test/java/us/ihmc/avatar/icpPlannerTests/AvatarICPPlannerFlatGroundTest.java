@@ -11,7 +11,7 @@ import org.junit.Before;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -94,7 +94,7 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
     * This test will drop the floor out from underneath the sim randomly while standing. Tests if detection and hold position are working well.
     */
    @Disabled
-   @Test(timeout = 370000)
+   @Test // timeout = 370000
    public void testChangeOfSupport() throws SimulationExceededMaximumTimeException, RuntimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -196,7 +196,7 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
     * This test pauses walking after the first two steps to check that functionality, and then finishes the plan.
     */
    @Tag("fast")
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
    public void testPauseWalkingInSwing() throws SimulationExceededMaximumTimeException, RuntimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -266,7 +266,7 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
     * This test pauses walking on the first step to check that functionality, and then finishes the plan.
     */
    @Tag("fast")
-   @Test(timeout = 350000)
+   @Test // timeout = 350000
    public void testPauseWalkingInTransferFirstStep() throws SimulationExceededMaximumTimeException, RuntimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -336,7 +336,7 @@ public abstract class AvatarICPPlannerFlatGroundTest implements MultiRobotTestIn
     * This test pauses walking after the first two steps to check that functionality, and then finishes the plan.
     */
    @Tag("fast")
-   @Test(timeout = 340000)
+   @Test // timeout = 340000
    public void testPauseWalkingInTransfer() throws SimulationExceededMaximumTimeException, RuntimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

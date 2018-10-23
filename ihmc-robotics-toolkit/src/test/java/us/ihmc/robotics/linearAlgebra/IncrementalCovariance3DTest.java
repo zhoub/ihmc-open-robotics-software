@@ -9,7 +9,7 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -24,7 +24,7 @@ public class IncrementalCovariance3DTest
 {
    private static final double EPSILON = 1.0e-12;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testEasyCase()
    {
       Random random = new Random(51651L);
@@ -49,7 +49,7 @@ public class IncrementalCovariance3DTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNonZeroMean()
    {
       Random random = new Random(51651L);

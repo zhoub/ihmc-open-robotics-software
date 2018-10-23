@@ -14,7 +14,7 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -39,7 +39,7 @@ public class ProcessSpawnerTest
    }
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForkedShellProcessSpawner() throws Exception
    {
       String randomString = Long.toString(System.nanoTime());
@@ -58,7 +58,7 @@ public class ProcessSpawnerTest
    }
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testShelloutProcessSpawnerOnShellScript() throws Exception
    {
       if (SystemUtils.IS_OS_WINDOWS)
@@ -84,7 +84,7 @@ public class ProcessSpawnerTest
       validateFileContents(randomString);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testJavaProcessSpawnerWithClasspathAsArgument() throws Exception
    {
       String randomString = Long.toString(System.nanoTime());
@@ -100,7 +100,7 @@ public class ProcessSpawnerTest
       validateFileContents(randomString);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testJavaProcessSpawnerWithClasspathAsEnvironmentVariable() throws Exception
    {
       String randomString = Long.toString(System.nanoTime());
@@ -117,7 +117,7 @@ public class ProcessSpawnerTest
    }
 
    @Tag("flaky")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testExitListeners() throws Exception
    {
       if (SystemUtils.IS_OS_WINDOWS)

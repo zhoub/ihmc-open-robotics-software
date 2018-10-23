@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.graphSearch.aStar;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -56,7 +56,7 @@ public class AStarBestEffortTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBestEffort()
    {
       ConvexPolygon2D groundPlane = new ConvexPolygon2D();

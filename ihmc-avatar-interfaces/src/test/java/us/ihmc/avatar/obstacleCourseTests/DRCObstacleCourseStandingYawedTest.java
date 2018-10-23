@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -53,7 +53,7 @@ import us.ihmc.commons.thread.ThreadTools;
       }
 
 
-      @Test(timeout = 110000)
+      @Test // timeout = 110000
       public void testStandingYawed() throws SimulationExceededMaximumTimeException
       {
          BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

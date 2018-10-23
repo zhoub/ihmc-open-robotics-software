@@ -10,7 +10,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.NormOps;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -35,7 +35,7 @@ public class MomentumCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSingleRigidBodyTranslation()
    {
       Random random = new Random(1766L);
@@ -65,7 +65,7 @@ public class MomentumCalculatorTest
       assertTrue(linearMomentum.length() > epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSingleRigidBodyRotation()
    {
       Random random = new Random(1766L);
@@ -101,7 +101,7 @@ public class MomentumCalculatorTest
       assertTrue(angularMomentum.length() > epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testChainAgainstCentroidalMomentumMatrix()
    {
       Random random = new Random(17679L);

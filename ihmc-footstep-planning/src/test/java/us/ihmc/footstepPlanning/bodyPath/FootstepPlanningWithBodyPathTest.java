@@ -2,7 +2,7 @@ package us.ihmc.footstepPlanning.bodyPath;
 
 import org.junit.After;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -58,7 +58,7 @@ public class FootstepPlanningWithBodyPathTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWaypointPathOnFlat()
    {
       YoVariableRegistry registry = new YoVariableRegistry(name.getMethodName());
@@ -90,7 +90,7 @@ public class FootstepPlanningWithBodyPathTest
          PlanningTestTools.visualizeAndSleep(null, footstepPlan, goalPose, bodyPath);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    @Disabled
    public void testMaze()
    {

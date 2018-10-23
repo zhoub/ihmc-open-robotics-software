@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -43,7 +43,7 @@ public class YoFrameSE3TrajectoryPointTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCommonUsageExample()
    {
       String namePrefix = "point";
@@ -98,7 +98,7 @@ public class YoFrameSE3TrajectoryPointTest
       assertTrue(expectedYoFrameSE3TrajectoryPoint.epsilonEquals(yoFrameSE3TrajectoryPoint, 1e-10));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructor()
    {
       double epsilon = 1.0e-20;
@@ -120,7 +120,7 @@ public class YoFrameSE3TrajectoryPointTest
                                          expectedLinearVelocity, expectedAngularVelocity, testedYoFrameSE3TrajectoryPoint, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetters()
    {
       double epsilon = 1.0e-14;
@@ -186,7 +186,7 @@ public class YoFrameSE3TrajectoryPointTest
                                          testedYoFrameSE3TrajectoryPoint.getAngularVelocity(), testedYoFrameSE3TrajectoryPoint, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrame() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -228,7 +228,7 @@ public class YoFrameSE3TrajectoryPointTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToZero() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -280,7 +280,7 @@ public class YoFrameSE3TrajectoryPointTest
                                          expectedLinearVelocity, expectedAngularVelocity, testedYoFrameSE3TrajectoryPoint, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToNaN() throws Exception
    {
       Random random = new Random(21651016L);
@@ -399,7 +399,7 @@ public class YoFrameSE3TrajectoryPointTest
       assertTrue(expectedAngularVelocity.epsilonEquals(actualFrameAngularVelocity, epsilon));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeSetsAngGets()
    {
       String namePrefix = "point";
@@ -532,7 +532,7 @@ public class YoFrameSE3TrajectoryPointTest
       assertEquals(expectedString, string);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeMoreSettersAndGetters()
    {
       String namePrefix = "point";

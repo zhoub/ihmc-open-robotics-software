@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
@@ -29,7 +29,7 @@ import us.ihmc.robotDataLogger.VariableChangeRequestPubSubType;
 public class VariableChangeRequestTest
 {
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testSendingVariableChangedMessage() throws IOException
    {
       Domain domain = DomainFactory.getDomain(PubSubImplementation.FAST_RTPS);

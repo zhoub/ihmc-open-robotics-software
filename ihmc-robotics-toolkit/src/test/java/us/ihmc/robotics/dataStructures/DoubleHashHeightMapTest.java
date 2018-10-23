@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -34,7 +34,7 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
    private static final double eps = 1e-7;
    private static final double NaN = Double.NaN;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSinglePointOld()
    {
       double x = 0.00001;
@@ -64,7 +64,7 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
       assertSinglePointGridHandlesPoint(x, y, xIndex, yIndex, z);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGettingAreasOld()
    {
       double gridResolution = 1;
@@ -115,7 +115,7 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
 
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testUnhandledPointsOld()
    {
       HeightMapWithPoints simpleMap = new DoubleHashHeightMap(RESOLUTION);
@@ -148,7 +148,7 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
 
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGrabCellsOld()
    {
       HeightMapWithPoints simpleMap = new DoubleHashHeightMap(RESOLUTION);
@@ -184,7 +184,7 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
       assertEquals(z, simpleMap.getHeightAtPoint(xIndex * RESOLUTION, yIndex * RESOLUTION), eps);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void rowModificationSynchronizationTestOld()
    {
 
@@ -211,7 +211,7 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testUnhandledPoints()
    {
       super.testUnhandledPoints();
@@ -287,7 +287,7 @@ public class DoubleHashHeightMapTest extends AbstractHeightMapTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testKernelMaskingOld() throws InsufficientDataException
    {
       double b = 10000;    // borderOfExpectedFootPlacement

@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -17,7 +17,7 @@ public class BambooToolsTest
 {
    private static final boolean SHOW_GUI = true;
    
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGetClassAndMethodName()
    {
       String classAndMethodName = BambooTools.getClassAndMethodName();
@@ -28,7 +28,7 @@ public class BambooToolsTest
    }
 
 	@Tag("ui")
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testLogMessagesToFile() throws IOException
    {
       BambooTools.reportTestStartedMessage(SHOW_GUI);

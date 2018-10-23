@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.filters;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -12,7 +12,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 public class DelayedYoDoubleTest
 {
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testDelayedYoVariableMultipleTickDelays()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");
@@ -53,7 +53,7 @@ public class DelayedYoDoubleTest
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testDelayedYoVariableOneTickDelay()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");
@@ -87,7 +87,7 @@ public class DelayedYoDoubleTest
       assertEquals(delayedYoVariable.getDoubleValue(), 3.0, 1e-7);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testDelayedYoVariableZeroTickDelay()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");

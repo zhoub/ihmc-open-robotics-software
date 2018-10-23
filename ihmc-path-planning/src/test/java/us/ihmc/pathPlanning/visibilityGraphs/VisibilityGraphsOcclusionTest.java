@@ -96,7 +96,7 @@ public class VisibilityGraphsOcclusionTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test // timeout = TIMEOUT
    public void testFlatGround()
    {
       Point3D startPose = new Point3D();
@@ -105,7 +105,7 @@ public class VisibilityGraphsOcclusionTest
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION, defaultMaxAllowedSolveTime, 3.0);
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test // timeout = TIMEOUT
    public void testFlatGroundWithWall()
    {
       Point3D startPose = new Point3D(-4.805, 0.001, 0.0);
@@ -123,7 +123,7 @@ public class VisibilityGraphsOcclusionTest
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION, defaultMaxAllowedSolveTime);
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test // timeout = TIMEOUT
    public void testSimpleOcclusions()
    {
       Point3D startPose = new Point3D();
@@ -132,7 +132,7 @@ public class VisibilityGraphsOcclusionTest
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION_PLUS_GROUND, defaultMaxAllowedSolveTime);
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test // timeout = TIMEOUT
    public void testMazeWithOcclusions()
    {
       Point3D startPose = new Point3D();
@@ -141,7 +141,7 @@ public class VisibilityGraphsOcclusionTest
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION_PLUS_GROUND, defaultMaxAllowedSolveTime);
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test // timeout = TIMEOUT
    @Tag("in-development")
    public void testCrazyBridgeEnvironment()
    {

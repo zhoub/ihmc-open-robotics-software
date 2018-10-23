@@ -6,7 +6,7 @@ import org.ejml.interfaces.decomposition.QRDecomposition;
 import org.ejml.interfaces.decomposition.QRPDecomposition;
 import org.ejml.interfaces.decomposition.SingularValueDecomposition;
 import org.ejml.interfaces.linsol.LinearSolver;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 
 public class DampedNullspaceCalculatorTimingTest
 {
-   @Test(timeout = 91000)
+   @Test // timeout = 91000
    public void testTimings()
    {
       YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import org.junit.jupiter.api.Tag;
@@ -19,7 +19,7 @@ public class ConstrainedQPSolverTest
 {
    private final YoVariableRegistry registry = new YoVariableRegistry("root");
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSolveContrainedQP() throws NoConvergenceException
    {
       int numberOfInequalityConstraints = 1;
@@ -128,7 +128,7 @@ public class ConstrainedQPSolverTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSolveProblemWithParallelConstraints() throws NoConvergenceException
    {
       // our simple active set solver can not solve this:

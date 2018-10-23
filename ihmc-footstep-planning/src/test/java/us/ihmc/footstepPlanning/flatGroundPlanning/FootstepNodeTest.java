@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.flatGroundPlanning;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.axisAngle.AxisAngle;
@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 public class FootstepNodeTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testEqualsAndHashMethodsWithRandomTransforms()
    {
       Random random = new Random(3823L);
@@ -45,7 +45,7 @@ public class FootstepNodeTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testShiftInSoleFrame()
    {
       Vector3D soleTranslation = new Vector3D();

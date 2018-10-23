@@ -2,14 +2,14 @@ package us.ihmc.tools.gui;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 @Tag("ui")
 public class GUIMessagePanelTest
 {
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetText()
    {
       GUIMessagePanel guiMessagePanel = new GUIMessagePanel("Test");

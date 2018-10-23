@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -19,7 +19,7 @@ public abstract class PlaybackPoseInterpolatorDRCTest implements MultiRobotTestI
 {
    private static final boolean SHOW_GUI = false;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testMoveElbowExample()
    {
       DRCRobotModel robotModel = getRobotModel();
@@ -42,7 +42,7 @@ public abstract class PlaybackPoseInterpolatorDRCTest implements MultiRobotTestI
       });
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRandomExample()
    {
       DRCRobotModel robotModel = getRobotModel();
@@ -68,7 +68,7 @@ public abstract class PlaybackPoseInterpolatorDRCTest implements MultiRobotTestI
       });
    }
    
-//   @Test(timeout=300000)
+//   @Test // timeout=300000
 //   public void testExampleOne()
 //   {
 //      DRCRobotJointMap jointMap = robotModel.getJointMap();
@@ -81,7 +81,7 @@ public abstract class PlaybackPoseInterpolatorDRCTest implements MultiRobotTestI
 //      playASequence(sdfRobot, sequence);
 //   }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testLoadingAndPlayingASequence()
    {
       DRCRobotModel robotModel = getRobotModel();
@@ -101,7 +101,7 @@ public abstract class PlaybackPoseInterpolatorDRCTest implements MultiRobotTestI
       });
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testLoadingAndPlayingAnotherSequence()
    {
       DRCRobotModel robotModel = getRobotModel();

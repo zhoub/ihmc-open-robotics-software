@@ -1,6 +1,6 @@
 package us.ihmc.robotics.filters;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.yoVariables.registry.YoVariableRegistry;
@@ -13,7 +13,7 @@ public class SecondOrderFilteredYoVariableTest
 {
    YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLowPassFilterCoefficients()
    {
       double dt = 0.001;
@@ -32,7 +32,7 @@ public class SecondOrderFilteredYoVariableTest
       JUnitTools.assertDoubleArrayEquals(a, aAssert, 1e-8);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNotchFilterCoefficients()
    {
       double dt = 0.001;
@@ -51,7 +51,7 @@ public class SecondOrderFilteredYoVariableTest
       JUnitTools.assertDoubleArrayEquals(a, aAssert, 1e-8);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testHighPassFilterCoefficients()
    {
       double dt = 0.001;

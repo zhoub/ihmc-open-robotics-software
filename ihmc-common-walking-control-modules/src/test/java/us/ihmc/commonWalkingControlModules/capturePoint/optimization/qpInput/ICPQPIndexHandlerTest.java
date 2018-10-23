@@ -1,7 +1,7 @@
 package us.ihmc.commonWalkingControlModules.capturePoint.optimization.qpInput;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.capturePoint.optimization.qpInput.ICPQPIndexHandler;
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Disabled;
 @Tag("fast")
 public class ICPQPIndexHandlerTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRegisterFootstep()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();
@@ -19,7 +19,7 @@ public class ICPQPIndexHandlerTest
       Assert.assertEquals(1, indexHandler.getNumberOfFootstepsToConsider());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSizing()
    {
       ICPQPIndexHandler indexHandler = new ICPQPIndexHandler();

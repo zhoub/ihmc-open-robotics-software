@@ -8,7 +8,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -74,7 +74,7 @@ public abstract class AvatarStraightLegWalkingTest implements MultiRobotTestInte
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testForwardWalking() throws SimulationExceededMaximumTimeException
    {
 //      simulationTestingParameters.setKeepSCSUp(!ContinuousIntegrationTools.isRunningOnContinuousIntegrationServer());
@@ -141,7 +141,7 @@ public abstract class AvatarStraightLegWalkingTest implements MultiRobotTestInte
    }
 
 
-   @Test(timeout = 840000)
+   @Test // timeout = 840000
    public void testWalkingOverCinderBlockField() throws Exception
    {
       CinderBlockFieldEnvironment cinderBlockFieldEnvironment = new CinderBlockFieldEnvironment();
@@ -169,7 +169,7 @@ public abstract class AvatarStraightLegWalkingTest implements MultiRobotTestInte
 
    }
 
-   @Test(timeout = 840000)
+   @Test // timeout = 840000
    public void testWalkingOverStairs() throws Exception
    {
       StairsUpAndDownEnvironment stairsEnvironment = new StairsUpAndDownEnvironment();
@@ -196,7 +196,7 @@ public abstract class AvatarStraightLegWalkingTest implements MultiRobotTestInte
       assertReachedGoal(footsteps);
    }
 
-   @Test(timeout = 400000)
+   @Test // timeout = 400000
    public void testSlowerWalking() throws SimulationExceededMaximumTimeException
    {
       FlatGroundEnvironment flatGround = new FlatGroundEnvironment();
@@ -227,7 +227,7 @@ public abstract class AvatarStraightLegWalkingTest implements MultiRobotTestInte
       assertReachedGoal(footstepListMessage);
    }
 
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testDropOffsWhileWalking() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.08;
@@ -320,14 +320,14 @@ public abstract class AvatarStraightLegWalkingTest implements MultiRobotTestInte
       assertReachedGoal(message);
    }
 
-   @Test(timeout = 680000)
+   @Test // timeout = 680000
    public void testSteppingDown() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.2;
       runSteppingDown(stepDownHeight, 0.30, 1);
    }
 
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testSteppingDownEveryTime() throws Exception
    {
       double stepLength = 0.35;
@@ -429,7 +429,7 @@ public abstract class AvatarStraightLegWalkingTest implements MultiRobotTestInte
       assertReachedGoal(message);
    }
 
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testRandomHeightField() throws Exception
    {
       double maxStepIncrease = 0.07;

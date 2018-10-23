@@ -3,14 +3,14 @@ package us.ihmc.tools.string;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class StringAndRegularExpressionMatcherTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleExactMatch()
    {
       StringAndRegularExpressionMatcher matcher = new StringAndRegularExpressionMatcher();
@@ -21,7 +21,7 @@ public class StringAndRegularExpressionMatcherTest
       assertFalse(matcher.matches("banana"));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCaseInsensitiveExactMatch()
    {
       StringAndRegularExpressionMatcher matcher = new StringAndRegularExpressionMatcher(false);
@@ -32,7 +32,7 @@ public class StringAndRegularExpressionMatcherTest
       assertFalse(matcher.matches("banana"));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRegularExpression()
    {
       StringAndRegularExpressionMatcher matcher = new StringAndRegularExpressionMatcher();
@@ -50,7 +50,7 @@ public class StringAndRegularExpressionMatcherTest
       assertTrue(matcher.matches("helloworld"));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRegularExpressionsAndStrings()
    {
       StringAndRegularExpressionMatcher matcher = new StringAndRegularExpressionMatcher();

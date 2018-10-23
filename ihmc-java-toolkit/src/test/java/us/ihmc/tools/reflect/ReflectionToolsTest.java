@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -23,7 +23,7 @@ public class ReflectionToolsTest
    {
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public final void testPrintDeclaredFields() throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException
    {
       Double testDouble = 1.234;

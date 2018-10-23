@@ -8,7 +8,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.ejml.ops.RandomMatrices;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -25,7 +25,7 @@ public class SVDNullspaceCalculatorTest extends NullspaceCalculatorTest
       return new SVDNullspaceCalculator(10, true);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRemoveNullspaceComponent()
    {
       int matrixSize = 10;
@@ -46,7 +46,7 @@ public class SVDNullspaceCalculatorTest extends NullspaceCalculatorTest
       assertTrue(isNullspaceComponentZero(matrixCopy, nullspace));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRemoveNullspaceComponent2()
    {
       int matrixSize = 6;
@@ -66,7 +66,7 @@ public class SVDNullspaceCalculatorTest extends NullspaceCalculatorTest
       assertTrue(isNullspaceComponentZero(matrix2, nullspace));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRemoveNullspaceComponentProblematicCase()
    {
       double[] array = new double[]
@@ -93,7 +93,7 @@ public class SVDNullspaceCalculatorTest extends NullspaceCalculatorTest
       assertTrue(isNullspaceComponentZero(otherMatrix, nullspace));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testNullspace()
    {
       int matrixSize = 10;

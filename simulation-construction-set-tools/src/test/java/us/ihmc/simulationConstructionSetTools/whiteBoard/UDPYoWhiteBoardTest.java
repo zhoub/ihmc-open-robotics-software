@@ -3,7 +3,7 @@ package us.ihmc.simulationConstructionSetTools.whiteBoard;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -11,7 +11,7 @@ import us.ihmc.commons.thread.ThreadTools;
 
 public class UDPYoWhiteBoardTest extends YoWhiteBoardTest
 {
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUDPWhiteBoardOne() throws IOException
    {
       String IPAddress = "localHost";
@@ -33,7 +33,7 @@ public class UDPYoWhiteBoardTest extends YoWhiteBoardTest
       doASynchronizedWriteThenReadTest(leftWhiteBoard, rightWhiteBoard, numberOfTests, 203, 207);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUDPWhiteBoardTwo() throws IOException
    {
       String IPAddress = "localHost";

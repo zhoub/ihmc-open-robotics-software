@@ -9,7 +9,7 @@ import org.junit.Before;
 
 import controller_msgs.msg.dds.QuadrupedTimedStepListMessage;
 import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.pushRecovery.PushRobotTestConductor;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -78,13 +78,13 @@ public abstract class QuadrupedXGaitPushRecoveryTest implements QuadrupedMultiRo
    public abstract double getWalkingSpeed();
    public abstract double getStepDuration();
 
-   @Test(timeout = 630000)
+   @Test // timeout = 630000
    public void testWalkingForwardFastWithPush()
    {
       testWalkingWithPush(90.0, getWalkingSpeed());
    }
 
-   @Test(timeout = 630000)
+   @Test // timeout = 630000
    public void testScriptedWalkingForwardFastWithPush()
    {
       testScriptedWalkingWithPush(90.0, getWalkingSpeed(), getStepDuration());

@@ -2,7 +2,7 @@ package us.ihmc.avatar;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commonWalkingControlModules.controlModules.foot.FootControlModule.ConstraintType;
@@ -70,7 +70,7 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
    protected abstract DRCRobotModel getRobotModel();
 
    @Tag("in-development")
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testForwardWalkingShort() throws SimulationExceededMaximumTimeException
    {
       setupTest(shortScript);
@@ -81,7 +81,7 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
    }
 
    @Tag("in-development")
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testForwardWalkingMedium() throws SimulationExceededMaximumTimeException
    {
       setupTest(mediumScript);
@@ -92,7 +92,7 @@ public abstract class AvatarDynamicReachabilityCalculatorTest
    }
 
    @Tag("in-development")
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testForwardWalkingLong() throws SimulationExceededMaximumTimeException
    {
       setupTest(longScript);

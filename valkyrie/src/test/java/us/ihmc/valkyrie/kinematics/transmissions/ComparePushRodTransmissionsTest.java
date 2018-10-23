@@ -6,7 +6,7 @@ import static org.junit.Assert.assertFalse;
 import java.util.Random;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -27,7 +27,7 @@ public class ComparePushRodTransmissionsTest
    private static final boolean DEBUG = true;
    private static final boolean VISUALIZE = false;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCompareInefficientToEfficientAnkle()
    {
       Random random = new Random(1255L);
@@ -49,7 +49,7 @@ public class ComparePushRodTransmissionsTest
    }
 
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testTiming()
    {
       Random random = new Random(1255L);
@@ -71,7 +71,7 @@ public class ComparePushRodTransmissionsTest
    }
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompareInefficientToEfficientWaist()
    {
       Random random = new Random(1255L);
@@ -93,7 +93,7 @@ public class ComparePushRodTransmissionsTest
    }
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompareInefficientToJSCWaist()
    {
       Random random = new Random(1255L);
@@ -116,7 +116,7 @@ public class ComparePushRodTransmissionsTest
    }
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompareInefficientToEfficientWaistOverRenishaw()
    {
       Random random = new Random(1255L);
@@ -140,7 +140,7 @@ public class ComparePushRodTransmissionsTest
    }
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompareEfficientToJSCWaist()
    {
       Random random = new Random(1255L);

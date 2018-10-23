@@ -8,7 +8,7 @@ import java.util.Random;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -45,7 +45,7 @@ public class CenterOfPressureResolverTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCenterOfPressureResolverSimpleCaseWithNoTorque()
    {
       Point3D groundPoint = new Point3D();
@@ -64,7 +64,7 @@ public class CenterOfPressureResolverTest
             expectedCenterOfPressure, expectedNormalTorque);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCenterOfPressureResolverSimpleCaseWithVerticalForce()
    {
       Point3D groundPoint = new Point3D();
@@ -83,7 +83,7 @@ public class CenterOfPressureResolverTest
             expectedCenterOfPressure, expectedNormalTorque);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCenterOfPressureResolverNoForceInZ()
    {
       Point3D groundPoint = new Point3D();
@@ -102,7 +102,7 @@ public class CenterOfPressureResolverTest
             expectedCenterOfPressure, expectedNormalTorque);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomExamples()
    {
       Random random = new Random(1776L);

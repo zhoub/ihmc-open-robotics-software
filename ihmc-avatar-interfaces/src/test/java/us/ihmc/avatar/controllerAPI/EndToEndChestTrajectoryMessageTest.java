@@ -13,7 +13,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
 import controller_msgs.msg.dds.SO3TrajectoryMessage;
@@ -68,7 +68,7 @@ public abstract class EndToEndChestTrajectoryMessageTest implements MultiRobotTe
 
    private final String prefix = "Orientation";
 
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testLookingLeftAndRight() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

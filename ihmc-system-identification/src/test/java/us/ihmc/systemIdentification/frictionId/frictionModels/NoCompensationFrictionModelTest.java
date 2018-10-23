@@ -2,7 +2,7 @@ package us.ihmc.systemIdentification.frictionId.frictionModels;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ public class NoCompensationFrictionModelTest
    private double negativeVelocity = -1.5;
    private double zeroVelocity = 0.0;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructorAndFormula()
    {
       NoCompensationFrictionModel model = new NoCompensationFrictionModel();

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ public class BetaFilteredYoVariableTest
 {
    private final Random rng = new Random();
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testBetaFilteredYoVariable()
    {
       int beta = 5000;

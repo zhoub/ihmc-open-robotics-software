@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -36,7 +36,7 @@ public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlat
    }
 
    @Override
-   @Test(timeout = 420000)
+   @Test // timeout = 420000
    public void testSideStepsWithRandomSlipping() throws SimulationExceededMaximumTimeException
    {
       super.testSideStepsWithRandomSlipping();
@@ -44,35 +44,35 @@ public class AtlasObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseFlat
 
    @Override
    @Tag("slow")
-   @Test(timeout = 370000)
+   @Test // timeout = 370000
    public void testSideStepsWithSlipping() throws SimulationExceededMaximumTimeException
    {
       super.testSideStepsWithSlipping();
    }
 
    @Override
-   @Test(timeout = 460000)
+   @Test // timeout = 460000
    public void testSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       super.testSimpleFlatGroundScriptWithOscillatingFeet();
    }
 
    @Override
-   @Test(timeout = 410000)
+   @Test // timeout = 410000
    public void testSimpleFlatGroundScriptWithRandomFootSlip() throws SimulationExceededMaximumTimeException
    {
       super.testSimpleFlatGroundScriptWithRandomFootSlip();
    }
 
    @Override
-   @Test(timeout = 220000)
+   @Test // timeout = 220000
    public void testStandingWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       super.testStandingWithOscillatingFeet();
    }
    
    @Override
-   @Test(timeout = 220000)
+   @Test // timeout = 220000
    public void testStandingWithStateEstimatorDrift() throws SimulationExceededMaximumTimeException
    {
       super.testStandingWithStateEstimatorDrift();

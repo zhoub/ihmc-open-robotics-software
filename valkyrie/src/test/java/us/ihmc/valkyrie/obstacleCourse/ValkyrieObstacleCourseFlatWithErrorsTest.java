@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.obstacleCourseTests.DRCObstacleCourseFlatTest;
@@ -45,35 +45,35 @@ public class ValkyrieObstacleCourseFlatWithErrorsTest extends DRCObstacleCourseF
    }
 
    @Override
-   @Test(timeout = 520000)
+   @Test // timeout = 520000
    public void testSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       super.testSimpleFlatGroundScriptWithOscillatingFeet();
    }
 
    @Override
-   @Test(timeout = 460000)
+   @Test // timeout = 460000
    public void testSimpleFlatGroundScriptWithRandomFootSlip() throws SimulationExceededMaximumTimeException
    {
       super.testSimpleFlatGroundScriptWithRandomFootSlip();
    }
 
    @Override
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    public void testSideStepsWithSlipping() throws SimulationExceededMaximumTimeException
    {
       super.testSideStepsWithSlipping();
    }
 
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testStandingWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       super.testStandingWithOscillatingFeet();
    }
 
    @Override
-   @Test(timeout = 390000)
+   @Test // timeout = 390000
    public void testSideStepsWithRandomSlipping() throws SimulationExceededMaximumTimeException
    {
       super.testSideStepsWithRandomSlipping();

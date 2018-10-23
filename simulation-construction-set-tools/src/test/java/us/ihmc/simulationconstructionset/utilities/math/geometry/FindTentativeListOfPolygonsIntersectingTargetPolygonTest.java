@@ -10,7 +10,7 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -30,7 +30,7 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
    private static final boolean VERBOSE = false;
    private static final boolean SHOW_PLOTTER = false;
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testFindTentativeListOfPolygonsIntersectingTargetPolygon()
    {
 
@@ -128,7 +128,7 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testFindTentativeListOfPolygonsIntersectingTargetPolygonTwo()
    {
       PlotterPanel plotterpanel = createPlotterPanel();
@@ -185,7 +185,7 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testFindTentativeListOfPolygonsIntersectingTargetPolygonThree()
    {
       PlotterPanel plotterpanel = createPlotterPanel();
@@ -282,7 +282,7 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testFindTentativeListOfPolygonsIntersectingTargetPolygonTiming()
    {
       Random random = new Random(1776L);
@@ -378,7 +378,7 @@ public class FindTentativeListOfPolygonsIntersectingTargetPolygonTest
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testBadCase()
    {
       ArrayList<Point2D> points = new ArrayList<Point2D>();

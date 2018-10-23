@@ -5,7 +5,7 @@ import controller_msgs.msg.dds.FootstepPlanningRequestPacket;
 import controller_msgs.msg.dds.FootstepPlanningToolboxOutputStatus;
 import controller_msgs.msg.dds.ToolboxStateMessage;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.handControl.packetsAndConsumers.HandModel;
 import us.ihmc.avatar.initialSetup.DRCRobotInitialSetup;
@@ -111,7 +111,7 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    public void testDatasetsWithoutOcclusion()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -120,7 +120,7 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -128,7 +128,7 @@ public abstract class FootstepPlannerToolboxTest extends FootstepPlannerDataSetT
       runAssertionsOnAllDatasetsWithoutOcclusionsInDevelopment(dataset -> runAssertions(dataset));
    }
 
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    @Tag("in-development")
    public void testDatasetsWithoutOcclusionRTPS()
    {

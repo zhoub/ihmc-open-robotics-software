@@ -3,7 +3,7 @@ package us.ihmc.robotics.math.filters;
 import java.util.Random;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -21,7 +21,7 @@ public class DeltaLimitedYoVariableTest
    private YoVariableRegistry registry;
    private DeltaLimitedYoVariable variable;
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testReferenceAndInputBothNegativeNoOvershootInputGreaterThanReference()
    {
       Random random = new Random(1976L);
@@ -45,7 +45,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testReferenceAndInputBothNegativeNoOvershootReferenceGreaterThanInput()
    {
       Random random = new Random(1976L);
@@ -69,7 +69,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testReferenceAndInputBothPositiveNoOvershootReferenceGreaterThanInput()
    {
       Random random = new Random(1976L);
@@ -93,7 +93,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testReferenceAndInputBothPositiveNoOvershootInputGreaterThanReference()
    {
       Random random = new Random(1976L);
@@ -117,7 +117,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testPositiveReferenceNegativeInputNoOvershoot()
    {
       Random random = new Random(1976L);
@@ -141,7 +141,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testNegativeReferencePositiveInputNoOvershoot()
    {
       Random random = new Random(1976L);
@@ -165,7 +165,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testReferenceAndInputBothNegativeWithOvershootInputGreaterThanReference()
    {
       Random random = new Random(1976L);
@@ -193,7 +193,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testReferenceAndInputBothNegativeWithOvershootReferenceGreaterThanInput()
    {
       Random random = new Random(1976L);
@@ -221,7 +221,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testReferenceAndInputBothPositiveWithOvershootInputGreaterThanReference()
    {
       Random random = new Random(1976L);
@@ -249,7 +249,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testReferenceAndInputBothPositiveWithOvershootReferenceGreaterThanInput()
    {
       Random random = new Random(1976L);
@@ -277,7 +277,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testPositiveReferenceNegativeInputWithOvershoot()
    {
       Random random = new Random(1976L);
@@ -305,7 +305,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testNegativeReferencePositiveInputWithOvershoot()
    {
       Random random = new Random(1976L);
@@ -333,7 +333,7 @@ public class DeltaLimitedYoVariableTest
       }
    }
 
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testOvershootThenNoOvershoot()
    {
       Random random = new Random(1976L);

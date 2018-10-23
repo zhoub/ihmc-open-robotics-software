@@ -2,7 +2,7 @@ package us.ihmc.simulationConstructionSetTools.util.globalParameters;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -26,7 +26,7 @@ public class DoubleGlobalParameterTest
       GlobalParameter.clearGlobalRegistry();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGetValue()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -37,7 +37,7 @@ public class DoubleGlobalParameterTest
       assertEquals(DEFAULT_VALUE, doubleGlobalParameter.getValue(), eps);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSetValue()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -64,7 +64,7 @@ public class DoubleGlobalParameterTest
       assertEquals(newValue, doubleGlobalParameter.getValue(), eps);
    }
 
-	@Test(timeout=300000,expected = RuntimeException.class)
+	@Test // timeout=300000,expected = RuntimeException.class
    public void testThatCantHaveParentsUnlessOverwriteUpdateMethodOne()
    {
       DoubleGlobalParameter parent = new DoubleGlobalParameter("parent", "parent", DEFAULT_VALUE, null);
@@ -73,7 +73,7 @@ public class DoubleGlobalParameterTest
       parent.set(1.0);
    }
 
-	@Test(timeout=300000,expected = RuntimeException.class)
+	@Test // timeout=300000,expected = RuntimeException.class
    public void testCantSetChild()
    {
       DoubleGlobalParameter parent = new DoubleGlobalParameter("parent", "", 0.7, null);

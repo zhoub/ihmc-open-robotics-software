@@ -11,7 +11,7 @@ import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.ejml.ops.RandomMatrices;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -34,7 +34,7 @@ public class SelectionMatrix6DTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGettersSetters()
    {
       Random random = new Random(123423L);
@@ -159,7 +159,7 @@ public class SelectionMatrix6DTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetFullSelectionMatrixInFrame() throws Exception
    {
       Random random = new Random(456465L);
@@ -254,7 +254,7 @@ public class SelectionMatrix6DTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetEfficientSelectionMatrixInFrame() throws Exception
    {
       Random random = new Random(456465L);

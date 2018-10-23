@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPSplineType;
 import us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.WalkingTrajectoryType;
@@ -116,7 +116,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDoubleSupportWithoutAngularMomentum()
    {
       cmpTrajectoryGenerator.setNumberOfRegisteredSteps(numberOfFootsteps);
@@ -125,7 +125,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
       checkSwingTrajectoriesForCopy();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSingleSupportWithoutAngularMomentum()
    {
       cmpTrajectoryGenerator.setNumberOfRegisteredSteps(numberOfFootsteps);
@@ -134,7 +134,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
       checkSwingTrajectoriesForCopy();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDoubleSupportWithAngularMomentum()
    {
       cmpTrajectoryGenerator.setNumberOfRegisteredSteps(numberOfFootsteps);
@@ -144,7 +144,7 @@ public class ReferenceCMPTrajectoryGeneratorTest
       checkSwingTrajectoriesForAddition();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSingleSupportWithAngularMomentum()
    {
       cmpTrajectoryGenerator.setNumberOfRegisteredSteps(numberOfFootsteps);

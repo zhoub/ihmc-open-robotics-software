@@ -5,7 +5,7 @@ import org.ejml.factory.DecompositionFactory;
 import org.ejml.interfaces.decomposition.QRDecomposition;
 import org.ejml.interfaces.decomposition.QRPDecomposition;
 import org.ejml.interfaces.decomposition.SingularValueDecomposition;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 
 public class NullspaceCalculatorTimingTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRemoveNullspaceComponent()
    {
       YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());

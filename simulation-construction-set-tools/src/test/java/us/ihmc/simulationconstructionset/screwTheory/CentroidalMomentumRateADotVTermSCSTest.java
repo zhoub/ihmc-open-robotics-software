@@ -6,7 +6,7 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -51,7 +51,7 @@ public class CentroidalMomentumRateADotVTermSCSTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void chainTest() throws UnreasonableAccelerationException
    {
       Random random = new Random(12651L);
@@ -69,7 +69,7 @@ public class CentroidalMomentumRateADotVTermSCSTest
       assertADotV(random, joints, elevator, robot,numberOfJoints);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void treeTest() throws UnreasonableAccelerationException
    {
       Random random = new Random(12651L);
@@ -87,7 +87,7 @@ public class CentroidalMomentumRateADotVTermSCSTest
       assertADotV(random, joints, elevator, robot, numberOfJoints);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void floatingChainTest() throws UnreasonableAccelerationException
    {
       Random random = new Random(12651L);

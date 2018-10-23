@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.jme3.math.FastMath;
 
@@ -27,7 +27,7 @@ public class LineModDetectorTest
    static final String modelFile="drill_DCS551/drillUI.obj";
 //   static final String modelFile=""/examples/drill/drill.obj";
          
-   @Test(timeout=3000)
+   @Test // timeout=3000
    public void testGenerateVertexes()
    {
       LineModDetector detector = new LineModDetector(null);
@@ -37,7 +37,7 @@ public class LineModDetectorTest
       org.junit.Assert.assertEquals(257,vertexes.size());
    }
 
-   @Test(timeout=3000)
+   @Test // timeout=3000
    public void trainOneTestOne() throws IOException
    {
       LineModDetector detector = new LineModDetector(modelFile);
@@ -71,7 +71,7 @@ public class LineModDetectorTest
       }
    }
    
-   @Test(timeout = 3000)
+   @Test // timeout = 3000
    public void trainOneTestOneScaled() throws IOException
    {
       LineModDetector detector = new LineModDetector(modelFile);
@@ -98,7 +98,7 @@ public class LineModDetectorTest
       assertTrue(bestDetection.score> 0.94);
    }
    
-   @Test(timeout = 5000)
+   @Test // timeout = 5000
    public void testFeatureSaveLoad()
    {
       LineModDetector detector = new LineModDetector(modelFile);
@@ -123,7 +123,7 @@ public class LineModDetectorTest
       System.out.println("score:"+bestDetection.score);
    }
 
-   @Test(timeout=120000)
+   @Test // timeout=120000
    public void testYawAngles() 
    {
       LineModDetector detector = new LineModDetector(modelFile);

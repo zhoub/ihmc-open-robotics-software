@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -20,7 +20,7 @@ import us.ihmc.robotics.trajectories.providers.SettableDoubleProvider;
 
 public class StateMachineExampleOneTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructionOfSimpleTimeBasedStateMachine()
    {
       // This shows a quick and easy way to make a simple state machine without using the complex machinery for a more complex state machine.
@@ -102,7 +102,7 @@ public class StateMachineExampleOneTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructionOfSimpleEventBasedStateMachine()
    {
       // This shows a quick and easy way to make a simple state machine without using the complex machinery for a more complex state machine.
@@ -297,7 +297,7 @@ public class StateMachineExampleOneTest
       assertFalse(currentState.didTransitionOutOfAction);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeStateMachineExceptions()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");

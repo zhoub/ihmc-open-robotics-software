@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.simulation;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -33,7 +33,7 @@ public class ValkyriePelvisLowGainsTest extends DRCPelvisLowGainsTest
    };
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStandingWithLowPelvisOrientationGains() throws SimulationExceededMaximumTimeException
    {
       super.testStandingWithLowPelvisOrientationGains();

@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -41,7 +41,7 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRuntimeExceptions()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -89,7 +89,7 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompareWithStraightLinePoseTrajectoryGeneratorPositionOnly()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -148,7 +148,7 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPositionAndVelocityConsistencyWithInitialVelocity()
    {
       YoVariableRegistry registry = new YoVariableRegistry("PositionAndVelocityConsistency");
@@ -255,7 +255,7 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
     * 
     **/
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPositionAndVelocityConsistencyWithInitialAndFinalVelocity()
    {
       YoVariableRegistry registry = new YoVariableRegistry("PositionAndVelocityConsistency");
@@ -379,7 +379,7 @@ public class VelocityConstrainedPoseTrajectoryGeneratorTest
       return ret;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTooBigTime()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");

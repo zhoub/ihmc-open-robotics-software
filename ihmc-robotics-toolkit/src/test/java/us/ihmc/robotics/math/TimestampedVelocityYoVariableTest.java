@@ -4,7 +4,7 @@ package us.ihmc.robotics.math;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -26,14 +26,14 @@ public class TimestampedVelocityYoVariableTest
       velocityYoVariable = new TimestampedVelocityYoVariable("testVelVar", "", position, timestamp, registry, 1e-9);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testHasNotBeenUpdated()
    {
       double val = velocityYoVariable.getDoubleValue();
       assertEquals(0.0, val, 0.0);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testHasBeenUpdatedOnce()
    {
       position.set(1.0);
@@ -43,7 +43,7 @@ public class TimestampedVelocityYoVariableTest
       assertEquals(0.0, val, 0.0);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testHasBeenUpdatedTwice()
    {
       velocityYoVariable.update();
@@ -54,7 +54,7 @@ public class TimestampedVelocityYoVariableTest
       assertEquals(position.getDoubleValue() / timestamp.getDoubleValue(), val, 0.0);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testHasBeenUpdatedThreeTimes()
    {
       velocityYoVariable.update();
@@ -68,7 +68,7 @@ public class TimestampedVelocityYoVariableTest
       assertEquals(1.0, val, 0.0);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testHasBeenUpdatedThreeTimesNoChange()
    {
       velocityYoVariable.update();

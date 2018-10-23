@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ import us.ihmc.commons.thread.ThreadTools;
 public class StreamingDataTCPServerTest
 {
 
-	@Test(timeout=90000)
+	@Test // timeout=90000
    public void testTypicalUsage()
    {
       String hostname = "localhost";
@@ -48,7 +48,7 @@ public class StreamingDataTCPServerTest
       streamingDataTCPServer.closeAndBlockTillFullyClosed();
    }
 
-	@Test(timeout=90000)
+	@Test // timeout=90000
    public void testMultipleProducersAndConsumersRobustly()
    {
       String hostname = "localhost";
@@ -100,7 +100,7 @@ public class StreamingDataTCPServerTest
       
    }
 
-	@Test(timeout=90000)
+	@Test // timeout=90000
    public void testPersistentConsumerToServerRestart()
    {
       String hostname = "localhost";

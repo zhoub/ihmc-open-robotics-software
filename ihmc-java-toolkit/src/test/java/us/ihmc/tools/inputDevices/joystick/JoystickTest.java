@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import net.java.games.input.Component.Identifier;
 import net.java.games.input.Event;
@@ -18,7 +18,7 @@ import us.ihmc.tools.inputDevices.joystick.virtualJoystick.VirtualJoystick;
 
 public class JoystickTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCreateJoystick()
    {
       try
@@ -49,7 +49,7 @@ public class JoystickTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCreateVirtualJoystick()
    {
       final Object monitor = new Object();
@@ -97,7 +97,7 @@ public class JoystickTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFindNonExistentJoystick()
    {
       Assertions.assertExceptionThrown(JoystickNotFoundException.class, new RunnableThatThrows()
@@ -114,7 +114,7 @@ public class JoystickTest
    boolean madCatz1Status = false;
 
    @Tag("manual")
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testCreateTwoJoysticks()
    {
       final Object monitor1 = new Object();

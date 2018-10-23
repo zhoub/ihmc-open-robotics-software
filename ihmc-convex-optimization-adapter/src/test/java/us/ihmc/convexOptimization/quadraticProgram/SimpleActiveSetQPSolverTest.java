@@ -3,7 +3,7 @@ package us.ihmc.convexOptimization.quadraticProgram;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Disabled;
 public class SimpleActiveSetQPSolverTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleUnconstrainedOptimization()
    {
       // Minimize 1/2 * (x1^2 + x2^2) - x1 - 2.0 * x2; (Solution = [1, 2])
@@ -33,7 +33,7 @@ public class SimpleActiveSetQPSolverTest
       assertEquals(2.0, solution[1], 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleEqualityConstrainedOptimization()
    {
       // Minimize 1/2 * (x1^2 + x2^2) subject to x1 + x2 = 2; (Solution = [1, 1])
@@ -62,7 +62,7 @@ public class SimpleActiveSetQPSolverTest
       assertEquals(1.0, solution[1], 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleInequalityConstrainedOptimizationWithActiveConstraint()
    {
       // Minimize 1/2 * (x1^2 + x2^2) subject to x1 + x2 <= -2; (Solution = [-1, -1])
@@ -91,7 +91,7 @@ public class SimpleActiveSetQPSolverTest
       assertEquals(-1.0, solution[1], 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleInequalityConstrainedOptimizationWithInactiveConstraint()
    {
       // Minimize 1/2 * (x1^2 + x2^2) - x1 - 2.0 * x2 subject to x1 + x2 <= 4; (Solution = [1, 2])
@@ -120,7 +120,7 @@ public class SimpleActiveSetQPSolverTest
       assertEquals(2.0, solution[1], 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testNoValidSolutionDueToNonSolvableEqualityConstraints()
    {
       // Minimize 1/2 * (x1^2 + x2^2) - x1 - 2.0 * x2 subject to x1 + x2 = 1; x1 + x2 = 2; (No solution)
@@ -151,7 +151,7 @@ public class SimpleActiveSetQPSolverTest
 
    // Fails when conflicting constraints are active... Need to fix this case.
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConflictingInequalityAndEqualityConstraintsIfActive()
    {
       // Minimize 1/2 * (x1^2 + x2^2) - x1 - 2.0 * x2 subject to x1 = -4; x1 < 4; (Solution = [-4, 2])

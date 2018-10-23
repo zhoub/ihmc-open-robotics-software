@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -32,7 +32,7 @@ public class CalibrationPropertiesTest
       currentPropertiesFile.delete();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSetIntegerProperty()
    {
       Random random = new Random(1984L);
@@ -50,7 +50,7 @@ public class CalibrationPropertiesTest
       assertEquals(0, calibrationProperties.getIntegerProperty("notAKey"));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetDoubleProperty()
    {
       final Random random = new Random(1984L);
@@ -69,7 +69,7 @@ public class CalibrationPropertiesTest
       assertEquals(0.0, calibrationProperties.getDoubleProperty("notAKey"), EPSILON);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSaveAndLoad()
    {
       String key = "abcd";
@@ -81,7 +81,7 @@ public class CalibrationPropertiesTest
       assertEquals(value, calibrationProperties2.getIntegerProperty(key));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testArithmetic1()
    {
       String key = "abcd";
@@ -92,7 +92,7 @@ public class CalibrationPropertiesTest
       assertEquals(value1 + value2, calibrationProperties.getIntegerProperty(key));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testArithmetic2()
    {
       String key = "abcd";

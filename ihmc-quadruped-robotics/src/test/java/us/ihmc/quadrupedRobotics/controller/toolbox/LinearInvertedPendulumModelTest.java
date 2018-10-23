@@ -3,7 +3,7 @@ package us.ihmc.quadrupedRobotics.controller.toolbox;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -20,7 +20,7 @@ public class LinearInvertedPendulumModelTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLinearInvertedPendulumModelGettersAndSetters()
    {
       TranslationReferenceFrame comZUpFrame = new TranslationReferenceFrame("comZUpFrame", ReferenceFrame.getWorldFrame());

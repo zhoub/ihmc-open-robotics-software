@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -22,7 +22,7 @@ public class NewtonRaphsonMethodTest
    {
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testThirdOrderPolynomial()
    {
       int maxIterations = 100;
@@ -46,7 +46,7 @@ public class NewtonRaphsonMethodTest
       assertEpsilonEquals(thirdOrderPolynomial(x), 0.0, epsilon);
    }
 
-//   @Test(timeout=300000)
+//   @Test // timeout=300000
 //   public void testWeirdFunction()
 //   {
 //      int maxIterations = 100;

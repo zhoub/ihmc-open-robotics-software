@@ -1,6 +1,6 @@
 package us.ihmc.atlas.pushRecovery;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -44,7 +44,7 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.ATLAS);
    }
 
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testPushLeftEarlySwing() throws SimulationExceededMaximumTimeException
    {
       setPushMagnitude(700.0);
@@ -55,27 +55,27 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    @Override
    @Tag("fast")
    @Tag("video")
-   @Test(timeout = 410000)
+   @Test // timeout = 410000
    public void testPushLeftInitialTransferState() throws SimulationExceededMaximumTimeException
    {
       super.testPushLeftInitialTransferState();
    }
 
    @Override
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
    public void testPushRightInitialTransferState() throws SimulationExceededMaximumTimeException
    {
       super.testPushRightInitialTransferState();
    }
 
    @Override
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testPushRightLateSwing() throws SimulationExceededMaximumTimeException
    {
       super.testPushRightLateSwing();
    }
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testPushRightThenLeftMidSwing() throws SimulationExceededMaximumTimeException
    {
       setPushMagnitude(800.0);
@@ -83,21 +83,21 @@ public class AtlasPushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @Test(timeout = 210000)
+   @Test // timeout = 210000
    public void testPushRightTransferState() throws SimulationExceededMaximumTimeException
    {
       super.testPushRightTransferState();
    }
 
    @Override
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testPushTowardsTheBack() throws SimulationExceededMaximumTimeException
    {
       super.testPushTowardsTheBack();
    }
 
    @Override
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testPushTowardsTheFront() throws SimulationExceededMaximumTimeException
    {
       super.testPushTowardsTheFront();

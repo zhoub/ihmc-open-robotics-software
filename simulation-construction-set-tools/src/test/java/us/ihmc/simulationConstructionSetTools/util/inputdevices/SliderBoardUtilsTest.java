@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Disabled;
 public class SliderBoardUtilsTest
 {
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSimpleConversion()
    {
       int sliderBoardMax = 128;
@@ -45,7 +45,7 @@ public class SliderBoardUtilsTest
       assertEquals(intValue, sliderValue);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSimpleSquareConversion()
    {
       int sliderBoardMax = 128;
@@ -95,7 +95,7 @@ public class SliderBoardUtilsTest
       assertEquals(intValue, sliderValue);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testRandomConversions()
    {
       Random random = new Random(1776L);
@@ -114,7 +114,7 @@ public class SliderBoardUtilsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testRandomConversionsWithHires()
    {
       Random random = new Random(1776L);

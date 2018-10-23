@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -22,14 +22,14 @@ public class GenericQuadrupedPositionCrawlTurning360Test extends QuadrupedPositi
    }
 
    @Override
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void rotate360InPlaceRight() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.rotate360InPlaceRight();
    }
    
    @Override
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void rotate360InPlaceLeft() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.rotate360InPlaceLeft();

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -22,7 +22,7 @@ public class ComplexConjugateModeTest
    {
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSecondOrderMassSpringDamper()
    {
       double wn = 7.2;
@@ -62,7 +62,7 @@ public class ComplexConjugateModeTest
       assertTrue(expectedTransferFunction10.epsilonEquals(transferFunction10, 1e-7));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCircleGenerator()
    {
       ComplexNumber[] leftEigenvectorV = new ComplexNumber[] {new ComplexNumber(1.0, 0.0), new ComplexNumber(0.0, -1.0)};

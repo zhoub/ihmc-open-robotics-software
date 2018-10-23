@@ -1,6 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -34,21 +34,21 @@ public class AtlasHandDesiredConfigurationBehaviorTest extends HumanoidHandDesir
    }
 
    @Override
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testCloseHand() throws SimulationExceededMaximumTimeException
    {
       super.testCloseHand();
    }
 
    @Override
-   @Test(timeout = 260000)
+   @Test // timeout = 260000
    public void testPauseAndResumeCloseHand() throws SimulationExceededMaximumTimeException
    {
       super.testPauseAndResumeCloseHand();
    }
 
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testStopCloseHand() throws SimulationExceededMaximumTimeException
    {
       super.testStopCloseHand();

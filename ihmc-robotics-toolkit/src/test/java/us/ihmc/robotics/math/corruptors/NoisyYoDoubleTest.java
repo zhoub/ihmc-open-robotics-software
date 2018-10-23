@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,14 +15,14 @@ public class NoisyYoDoubleTest
 {
    YoVariableRegistry yoVariableRegistry = new YoVariableRegistry("testRegistry");
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSimpleConstructor()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
       noisyDoubleYoVariable.update();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSimpleConstructorDouble()
    {
       YoDouble yoDouble = new YoDouble("testD", yoVariableRegistry);
@@ -30,7 +30,7 @@ public class NoisyYoDoubleTest
       noisyDoubleYoVariable.update();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testFullConstructor()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry, false, 2.0, true, 1.0, 2.0, 0.0, 0.01,
@@ -38,7 +38,7 @@ public class NoisyYoDoubleTest
       noisyDoubleYoVariable.update();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testFullConstructorDouble()
    {
       YoDouble yoDouble = new YoDouble("testD", yoVariableRegistry);
@@ -47,7 +47,7 @@ public class NoisyYoDoubleTest
       noisyDoubleYoVariable.update();
    }
 
-// @Test(timeout=300000)
+// @Test // timeout=300000
 // public void testUpdateException()
 // {
 //  NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("test", yoVariableRegistry);
@@ -63,7 +63,7 @@ public class NoisyYoDoubleTest
 //  }
 // }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGetPerfectDoubleValue()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -75,7 +75,7 @@ public class NoisyYoDoubleTest
       assertTrue(noisyDoubleYoVariable.getPerfectDoubleValue() == 2.0);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGetPerfectDoubleValueDouble()
    {
       YoDouble yoDouble = new YoDouble("testD", yoVariableRegistry);
@@ -88,7 +88,7 @@ public class NoisyYoDoubleTest
       assertTrue(noisyDoubleYoVariable.getPerfectDoubleValue() == 3.0);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testDiscrete()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -104,7 +104,7 @@ public class NoisyYoDoubleTest
       assertFalse(noisy == noisy3);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testRandomBound()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -128,7 +128,7 @@ public class NoisyYoDoubleTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testZeroRandomBound()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -149,7 +149,7 @@ public class NoisyYoDoubleTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testZeroRandomBoundWithPerfect()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -170,7 +170,7 @@ public class NoisyYoDoubleTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testStaticBias()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -187,7 +187,7 @@ public class NoisyYoDoubleTest
       assertTrue(noisyDoubleYoVariable.getDoubleValue() == value + bias);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testWalkingBias()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -217,7 +217,7 @@ public class NoisyYoDoubleTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testRandomBoundAndStaticBias()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -242,7 +242,7 @@ public class NoisyYoDoubleTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testRandomBoundAndWalkingBias()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -270,7 +270,7 @@ public class NoisyYoDoubleTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGaussianNoise()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);
@@ -295,7 +295,7 @@ public class NoisyYoDoubleTest
       assertEquals(standardDeviation, standardDeviation(values), delta);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGaussianNoiseAndStaticBias()
    {
       NoisyYoDouble noisyDoubleYoVariable = new NoisyYoDouble("testN", yoVariableRegistry);

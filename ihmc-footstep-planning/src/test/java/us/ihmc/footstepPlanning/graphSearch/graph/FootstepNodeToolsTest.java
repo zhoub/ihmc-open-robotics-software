@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.graphSearch.graph;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -20,7 +20,7 @@ public class FootstepNodeToolsTest
    private final Random random = new Random(456789L);
    private final double epsilon = 1e-8;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetNodeTransform()
    {
       int numTests = 1000;
@@ -64,7 +64,7 @@ public class FootstepNodeToolsTest
       assertEquals(rotationYawPitchRoll[2], 0.0, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetSnappedNodeTransform()
    {
       int numTests = 10;

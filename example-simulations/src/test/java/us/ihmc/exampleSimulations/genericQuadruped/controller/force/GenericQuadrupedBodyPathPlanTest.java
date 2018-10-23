@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -16,14 +16,14 @@ public class GenericQuadrupedBodyPathPlanTest extends QuadrupedBodyPathPlanTest
       return new GenericQuadrupedTestFactory();
    }
 
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    @Override
    public void testSimpleBodyPathPlan()
    {
       super.testSimpleBodyPathPlan();
    }
 
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    @Override
    public void testBodyPathAroundASimpleMaze()
    {

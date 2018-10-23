@@ -9,7 +9,7 @@ import org.junit.Before;
 
 import controller_msgs.msg.dds.AdjustFootstepMessage;
 import controller_msgs.msg.dds.FootstepDataListMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commonWalkingControlModules.configurations.SteppingParameters;
@@ -50,7 +50,7 @@ public abstract class EndToEndAdjustFootstepMessageTest implements MultiRobotTes
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testAdjustFootstepOnce() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

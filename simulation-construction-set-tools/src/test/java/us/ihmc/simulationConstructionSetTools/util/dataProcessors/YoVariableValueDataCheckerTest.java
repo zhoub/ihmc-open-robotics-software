@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -34,7 +34,7 @@ public class YoVariableValueDataCheckerTest
       simulationTestingParameters = null;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleSmoothDerviativeNoExeeded()
    {
       Robot robot = new Robot("Derivative");
@@ -82,7 +82,7 @@ public class YoVariableValueDataCheckerTest
       assertTrue(!yoVariableValueDataChecker.isMinValueExeeded());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleSmoothDerviativeNoExeededWithSecondDerivateProvided()
    {
       Robot robot = new Robot("Derivative");
@@ -137,7 +137,7 @@ public class YoVariableValueDataCheckerTest
       assertTrue(!yoVariableValueDataChecker.isDerivativeCompErrorOccurred());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleSmoothDerviativeNoExeededWithSecondDerivateProvidedAndError()
    {
       Robot robot = new Robot("Derivative");
@@ -193,7 +193,7 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleSmoothDerviativeExceed()
    {
       Robot robot = new Robot("Derivative");
@@ -239,7 +239,7 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test // timeout = 30000, expected=RuntimeException.class
    public void testMinGreaterThanMax()
    {
       Robot robot = new Robot("Derivative");
@@ -266,7 +266,7 @@ public class YoVariableValueDataCheckerTest
       yoVariableValueDataChecker.setMinimumValue(2.0);
    }
 
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test // timeout = 30000, expected=RuntimeException.class
    public void testMaxGreaterThanMin()
    {
       Robot robot = new Robot("Derivative");
@@ -291,7 +291,7 @@ public class YoVariableValueDataCheckerTest
       yoVariableValueDataChecker.setMaximumValue(1.0);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
       public void testErrorThresholdOnDerivativeComparison()
    {
       Robot robot = new Robot("Derivative");
@@ -317,7 +317,7 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
       public void testMaximumDerivative()
    {
       Robot robot = new Robot("Derivative");
@@ -343,7 +343,7 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMaximumSecondDerivative()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();
@@ -357,7 +357,7 @@ public class YoVariableValueDataCheckerTest
       assertEquals(valueDataCheckerParametersOriginal.getMaximumSecondDerivative(), value, EPSILON);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
       public void testMaximumValue()
    {
       Robot robot = new Robot("Derivative");
@@ -383,7 +383,7 @@ public class YoVariableValueDataCheckerTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMinimumValue()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();
@@ -398,7 +398,7 @@ public class YoVariableValueDataCheckerTest
       assertFalse(valueDataCheckerParametersOriginal.getMinimumValue() == value);
    }
 
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test // timeout = 30000, expected=RuntimeException.class
    public void testSetMinGreaterThanMax()
    {
       Robot robot = new Robot("Derivative");
@@ -419,7 +419,7 @@ public class YoVariableValueDataCheckerTest
       yoVariableValueDataChecker.setMinimumValue(value + 1.0);
    }
 
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test // timeout = 30000, expected=RuntimeException.class
    public void testSetMaxLessThanMin()
    {
       Robot robot = new Robot("Derivative");

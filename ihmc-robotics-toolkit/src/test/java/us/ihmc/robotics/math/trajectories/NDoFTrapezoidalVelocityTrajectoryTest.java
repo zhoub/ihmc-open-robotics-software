@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -144,7 +144,7 @@ public class NDoFTrapezoidalVelocityTrajectoryTest
    }
 
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testVelocityAndAcceleration()
    {
       double t0 = 1.0;

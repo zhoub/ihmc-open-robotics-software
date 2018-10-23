@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.Vector;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -34,7 +34,7 @@ public class ContainerToolsTest
       ONE, TWO, THREE;
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCreateEnumMap()
    {
       EnumMap<TestEnum, Integer> enumMap = ContainerTools.createEnumMap(TestEnum.class);
@@ -52,7 +52,7 @@ public class ContainerToolsTest
 
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testFindLargestElements()
    {
       ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(generateIntegerArray()));
@@ -88,7 +88,7 @@ public class ContainerToolsTest
       assertEquals(3, setOfThreeLargestInts.size());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testFlatten()
    {
       EnumMap<TestEnum, Integer> map1 = ContainerTools.createEnumMap(TestEnum.class);
@@ -134,7 +134,7 @@ public class ContainerToolsTest
       assertEquals(3, numberOfThrees);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testToArrayOfArrays()
    {
       EnumMap<TestEnum, Double> map1 = ContainerTools.createEnumMap(TestEnum.class);
@@ -186,7 +186,7 @@ public class ContainerToolsTest
       assertEquals(3, numberOfThrees);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testAsSortedList()
    {
       Integer[] baseArray = generateIntegerArray();
@@ -204,7 +204,7 @@ public class ContainerToolsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRemoveByReference()
    {
       Set<Integer> set = new TreeSet<Integer>(Arrays.asList(generateIntegerArray()));      

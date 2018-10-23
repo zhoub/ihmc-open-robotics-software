@@ -7,7 +7,7 @@ import java.util.EnumMap;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.jointAnglesWriter.JointAnglesWriter;
@@ -203,7 +203,7 @@ public abstract class NumericalInverseKinematicsCalculatorWithRobotTest implemen
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleCase()
    {
       Random random = new Random(1984L);
@@ -220,7 +220,7 @@ public abstract class NumericalInverseKinematicsCalculatorWithRobotTest implemen
       assertTrue(success);
    }
 
-   @Test(timeout = 81000)
+   @Test // timeout = 81000
    public void testRandomFeasibleRobotPoses()
    {
       Random random = new Random(1776L);

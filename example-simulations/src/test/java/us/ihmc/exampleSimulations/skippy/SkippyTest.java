@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -23,7 +23,7 @@ public class SkippyTest
 
    
    @Disabled
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testStanding() throws SimulationExceededMaximumTimeException
    {
       SkippyRobot skippy = skippySimulation.getSkippy();
@@ -33,7 +33,7 @@ public class SkippyTest
       assertTrue(skippySimulation.run(10.0));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRecoveringFromPush() throws SimulationExceededMaximumTimeException
    {
       double pushDuration = 0.03;

@@ -1,6 +1,6 @@
 package us.ihmc.atlas.straightLegWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -20,28 +20,28 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
    private final AtlasRobotModel atlasRobotModel = new MyAtlasRobotModel();
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testForwardWalking() throws SimulationExceededMaximumTimeException
    {
       super.testForwardWalking();
    }
 
    @Override
-   @Test(timeout = 400000)
+   @Test // timeout = 400000
    public void testSlowerWalking() throws SimulationExceededMaximumTimeException
    {
       super.testSlowerWalking();
    }
 
    @Override
-   @Test(timeout = 200000000)
+   @Test // timeout = 200000000
    public void testWalkingOverCinderBlockField() throws Exception
    {
       super.testWalkingOverCinderBlockField();
    }
 
    @Override
-   @Test(timeout = 520000)
+   @Test // timeout = 520000
    public void testWalkingOverStairs() throws Exception
    {
       super.testWalkingOverStairs();
@@ -49,14 +49,14 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
 
    @Override
    @Disabled
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testDropOffsWhileWalking() throws SimulationExceededMaximumTimeException
    {
       super.testDropOffsWhileWalking();
    }
 
    @Tag("fast")
-   @Test(timeout = 680000)
+   @Test // timeout = 680000
    public void testSteppingDown() throws SimulationExceededMaximumTimeException
    {
       super.testSteppingDown();
@@ -64,7 +64,7 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
 
    @Override
    @Disabled
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testSteppingDownEveryTime() throws Exception
    {
       super.testSteppingDownEveryTime();
@@ -72,7 +72,7 @@ public class AtlasStraightLegWalkingTest extends AvatarStraightLegWalkingTest
 
    @Override
    @Disabled
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testRandomHeightField() throws Exception
    {
       super.testRandomHeightField();

@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.polygonSnapping;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -36,7 +36,7 @@ public class ConstructingGroundPlaneAroundFeetTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructingGroundPlaneAroundFeet()
    {
       PlanarRegionsList planarRegionsList = new PlanarRegionsList();

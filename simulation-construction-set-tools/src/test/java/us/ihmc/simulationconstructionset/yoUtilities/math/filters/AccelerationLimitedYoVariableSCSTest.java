@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -86,7 +86,7 @@ public class AccelerationLimitedYoVariableSCSTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
          public void makeSureGUIIsNotUpWhenRunning()
          {
             if ( VISUALIZE) throw new RuntimeException(this.getClass() + "was checked in with the GUI enabled. Better fix that."); 
@@ -113,7 +113,7 @@ public class AccelerationLimitedYoVariableSCSTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void test_ZeroVelocity()
    {
       setupSCSStuff();
@@ -161,7 +161,7 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void test_ConstantVelocity()
    {
       setupSCSStuff();
@@ -198,7 +198,7 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void test_ConstantAcceleration_PlusInitialize()
    {
       setupSCSStuff();
@@ -246,7 +246,7 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void test_Sine_Plus_Reset_Plus_Update()
    {
       setupSCSStuff();
@@ -298,7 +298,7 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void test_RiseTimeSquareWave()
    {
       setupSCSStuff();
@@ -351,7 +351,7 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void test_SquareWaves()
    {
       setupSCSStuff();
@@ -393,7 +393,7 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void test_Chirp_Plus_UpdateWithoutNoArguments()
    {
       setupSCSStuff();
@@ -448,7 +448,7 @@ public class AccelerationLimitedYoVariableSCSTest
       shutdownSCSStuff(scs);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSetAndGetGainsByPolePlacement()
    {
       setupSCSStuff();
@@ -470,7 +470,7 @@ public class AccelerationLimitedYoVariableSCSTest
       assertEquals(velocityGainResult, processed.getVelocityGain().getDoubleValue(), EPSILON);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdate()
    {
       setupSCSStuff();
@@ -493,7 +493,7 @@ public class AccelerationLimitedYoVariableSCSTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGetAndSetMaximumRateaAndAcceleration()
    {
       setupSCSStuff();
@@ -520,7 +520,7 @@ public class AccelerationLimitedYoVariableSCSTest
    }
 
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testDump()
    {
       double dt = 0.006;
@@ -583,7 +583,7 @@ public class AccelerationLimitedYoVariableSCSTest
       ThreadTools.sleepForever();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testErrorTooHigh()
    {
       assertFalse(isValueWithinMarginOfError(1.0, 0.0, 0.1));

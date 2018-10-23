@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.graphSearch;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.MutationTestFacilitator;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
@@ -39,7 +39,7 @@ public class PlanarRegionBaseOfCliffAvoiderTest
    private final boolean doAsserts = true;
    private final Random random = new Random(4587L);
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBaseOfCliffAvoiderWithSimpleQueriesOnABlock()
    {
       double stepHeight = 0.2;
@@ -112,7 +112,7 @@ public class PlanarRegionBaseOfCliffAvoiderTest
       assertTrue(avoider.isNodeValid(node, null));
    }
 
-   @Test(timeout = 3000000)
+   @Test // timeout = 3000000
    public void testAvoidingRotatedAndElevatedCliff()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");

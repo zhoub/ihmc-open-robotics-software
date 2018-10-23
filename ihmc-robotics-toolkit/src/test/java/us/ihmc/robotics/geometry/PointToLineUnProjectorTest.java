@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -18,7 +18,7 @@ public class PointToLineUnProjectorTest
 {
    private static final double eps = 1e-7;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testsimpleCase()
    {
       double x0 = 1.0;
@@ -33,7 +33,7 @@ public class PointToLineUnProjectorTest
       runTest(x0, y0, z0, x1, y1, z1, x2, y2, z2);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGeneralCase()
    {
       Random gen = new Random(124L);
@@ -52,7 +52,7 @@ public class PointToLineUnProjectorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDegenerateCase()
    {
       Random gen = new Random(124L);
@@ -71,7 +71,7 @@ public class PointToLineUnProjectorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testYCase()
    {
       Random gen = new Random(124L);
@@ -91,7 +91,7 @@ public class PointToLineUnProjectorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testXCase()
    {
       Random gen = new Random(124L);

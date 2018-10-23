@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -32,7 +32,7 @@ public class DelayedYoBooleanTest
       variableToDelay = null;
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testDelayedYoVariableMultipleTickDelays()
    {
       for (ticksToDelay = 0; ticksToDelay < 10; ticksToDelay++)
@@ -72,7 +72,7 @@ public class DelayedYoBooleanTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testDelayedYoVariableOneTickDelay()
    {
       ticksToDelay = 1;
@@ -103,7 +103,7 @@ public class DelayedYoBooleanTest
       assertEquals(delayedYoVariable.getBooleanValue(), true);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testDelayedYoVariableZeroTickDelay()
    {
       ticksToDelay = 0;
@@ -134,7 +134,7 @@ public class DelayedYoBooleanTest
       assertEquals(delayedYoVariable.getBooleanValue(), true);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdateWithZero()
    {
       ticksToDelay = 0;
@@ -151,7 +151,7 @@ public class DelayedYoBooleanTest
       assertEquals(delayedYoVariable.getBooleanValue(), true);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testReset()
    {  
       ticksToDelay = 10;

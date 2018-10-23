@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.awt.event.KeyEvent;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -12,7 +12,7 @@ import us.ihmc.tools.inputDevices.keyboard.Key;
 
 public class KeyTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testKey()
    {
       assertEquals("Key code not mapped", Key.fromKeyCode(KeyEvent.VK_LEFT), Key.LEFT);

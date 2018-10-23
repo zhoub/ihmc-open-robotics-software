@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import org.junit.jupiter.api.Tag;
@@ -56,7 +56,7 @@ public class MassSpringDamperTest
       eigenvalueDecomposerA = null;
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testVDotWEqualsOne()
    {
       ComplexNumber dotProduct = new ComplexNumber(0.0, 0.0);
@@ -69,7 +69,7 @@ public class MassSpringDamperTest
       assertEquals(0.0, dotProduct.imag(), 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testVDotWCongEqualsZero()
    {
       ComplexNumber dotProduct = new ComplexNumber(0.0, 0.0);
@@ -82,14 +82,14 @@ public class MassSpringDamperTest
       assertEquals(0.0, dotProduct.imag(), 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testDecomposerGotEigenvaluesRight()
    {
       ComplexNumber[] eigenvaluesFromDecomposer = eigenvalueDecomposerA.getEigenvalues();
       DynamicSystemsTestHelpers.assertEpsilonEquals(eigenvalues, eigenvaluesFromDecomposer, 1e-7);
    }
 
-//   @Test(timeout=300000)
+//   @Test // timeout=300000
 //   public void testDynamicSystem()
 //   {
 //      @SuppressWarnings("unused") TransferFunctionMatrix transferFunctionMatrix = dynamicSystem.getTransferFunctionMatrix();

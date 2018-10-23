@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -134,7 +134,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       return referenceTrajectory;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNoConstraints()
    {
       Random random = new Random();
@@ -159,7 +159,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInitialPoseConstraint()
    {
       Random random = new Random();
@@ -197,7 +197,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInitialPoseAndTwistConstraint()
    {
       Random random = new Random();
@@ -234,7 +234,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFinalPoseConstraint()
    {
       Random random = new Random(1738L);
@@ -285,7 +285,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSameFinalPoseConstraint()
    {
       Random random = new Random(1738L);
@@ -333,7 +333,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFinalPoseAndTwistConstraint()
    {
       Random random = new Random();
@@ -370,7 +370,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInitialAndFinalConstraint()
    {
       Random random = new Random();
@@ -417,7 +417,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDerivativesConsistency() throws Exception
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -500,7 +500,7 @@ public class BlendedPoseTrajectoryGeneratorTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTroublingDataSet1WithBlending()
    {
       double trajectoryDuration = 0.6;
@@ -563,7 +563,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTroublingDataSet1WithoutBlending()
    {
       int numberOfSamples = 100;
@@ -615,7 +615,7 @@ public class BlendedPoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTroublingDataSet2WithBlending()
    {
       double dt = 0.01;

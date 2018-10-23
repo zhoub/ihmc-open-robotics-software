@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -24,7 +24,7 @@ public class ConstantForceTrajectoryGeneratorTest
 
    private ConstantForceTrajectoryGenerator generator;
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructor()
    {
       generator = null;
@@ -51,7 +51,7 @@ public class ConstantForceTrajectoryGeneratorTest
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testIsDone()
    {
       generator = new ConstantForceTrajectoryGenerator(namePrefix, force, finalTime, parentRegistry);
@@ -64,7 +64,7 @@ public class ConstantForceTrajectoryGeneratorTest
       assertTrue(generator.isDone());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testIncreasing()
    {
       generator = new ConstantForceTrajectoryGenerator(namePrefix, force, finalTime, parentRegistry);

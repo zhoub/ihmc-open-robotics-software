@@ -5,14 +5,14 @@ import static org.junit.Assert.assertEquals;
 import java.util.Random;
 
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class CovarianceDerivationTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testLawOfLargeNumbers()
    {
       Random random = new Random(12352351L);
@@ -30,7 +30,7 @@ public class CovarianceDerivationTest
       assertEquals(variance, statistics.getVariance(), epsilon);
    }
 
-	@Test(timeout = 38000)
+	@Test // timeout = 38000
    public void testRandomWalkDiscretization()
    {
       Random random = new Random(1252L);

@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.filters;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 public class DeadzoneYoVariableTest
 {
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDeadzone()
    {
       YoVariableRegistry registry = new YoVariableRegistry("test");

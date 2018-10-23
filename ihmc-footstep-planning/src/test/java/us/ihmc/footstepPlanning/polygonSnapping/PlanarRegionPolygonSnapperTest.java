@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -21,7 +21,7 @@ import us.ihmc.robotics.geometry.PlanarRegion;
 public class PlanarRegionPolygonSnapperTest
 {
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSnapPolygonToFlatPlanarRegion()
    {
       ConvexPolygon2D polygonToSnap = new ConvexPolygon2D();
@@ -60,7 +60,7 @@ public class PlanarRegionPolygonSnapperTest
       assertTrue(polygonSnappingTransform.epsilonEquals(expectedTransform, 1e-7));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSnapPolygonToLargeRotatedRegion()
    {
       ConvexPolygon2D polygonToSnap = new ConvexPolygon2D();
@@ -108,7 +108,7 @@ public class PlanarRegionPolygonSnapperTest
       assertSurfaceNormalsMatchAndSnapPreservesXFromAbove(polygonSnappingTransform, planarRegionTransformToWorld);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testYawOfRegionDoesNotYawSnappedPolygon()
    {
       ConvexPolygon2D polygonToSnap = new ConvexPolygon2D();

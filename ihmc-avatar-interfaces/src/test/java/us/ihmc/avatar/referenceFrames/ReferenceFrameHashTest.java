@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import gnu.trove.map.hash.TLongObjectHashMap;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -41,7 +41,7 @@ public abstract class ReferenceFrameHashTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetReferenceFrameFromHashCodeReturnsSameNamedFrames()
    {
       DRCRobotModel robotModelA = getRobotModel();
@@ -60,7 +60,7 @@ public abstract class ReferenceFrameHashTest
       checkReferenceFramesMatch(midFeetZUpFrameA, midZUpFrameB);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode()
    {
       DRCRobotModel robotModelA = getRobotModel();
@@ -93,7 +93,7 @@ public abstract class ReferenceFrameHashTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAllFramesGottenFromHumanoidReferenceFrameMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -134,7 +134,7 @@ public abstract class ReferenceFrameHashTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -175,7 +175,7 @@ public abstract class ReferenceFrameHashTest
       }
    }
 
-   @Test(timeout = 30000, expected = IllegalArgumentException.class)
+   @Test // timeout = 30000, expected = IllegalArgumentException.class
    public void testAddingTwoFramesWithTheSameNameThrowsException()
    {
       DRCRobotModel robotModelA = getRobotModel();

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -40,7 +40,7 @@ public class FrameSE3TrajectoryPointTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCommonUsageExample()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -88,7 +88,7 @@ public class FrameSE3TrajectoryPointTest
       assertTrue(expectedFrameSE3TrajectoryPoint.epsilonEquals(frameSE3TrajectoryPoint, 1e-10));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructors()
    {
       double epsilon = 1.0e-20;
@@ -169,7 +169,7 @@ public class FrameSE3TrajectoryPointTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetters()
    {
       double epsilon = 1.0e-20;
@@ -275,7 +275,7 @@ public class FrameSE3TrajectoryPointTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrame() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -306,7 +306,7 @@ public class FrameSE3TrajectoryPointTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToZero() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -351,7 +351,7 @@ public class FrameSE3TrajectoryPointTest
             expectedAngularVelocity, testedFrameSE3TrajectoryPoint, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToNaN() throws Exception
    {
       Random random = new Random(21651016L);
@@ -442,7 +442,7 @@ public class FrameSE3TrajectoryPointTest
       assertTrue(expectedAngularVelocity.epsilonEquals(actualFrameAngularVelocity, epsilon));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeSetsAngGets()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -566,7 +566,7 @@ public class FrameSE3TrajectoryPointTest
       assertTrue(FrameSE3TrajectoryPoint.epsilonEquals(FrameSE3TrajectoryPointTwo, 1e-7));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeMoreSettersAndGetters()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

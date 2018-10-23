@@ -2,7 +2,7 @@ package us.ihmc.atlas;
 
 import org.junit.Assume;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.internal.AssumptionViolatedException;
 
 import us.ihmc.avatar.DRCFlatGroundWalkingTest;
@@ -27,7 +27,7 @@ public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
    }
 
    @Override
-   @Test(timeout = 1700000)
+   @Test // timeout = 1700000
    public void testFlatGroundWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false);
@@ -35,14 +35,14 @@ public class AtlasFlatGroundWalkingTest extends DRCFlatGroundWalkingTest
    }
 
    @Disabled
-   @Test(timeout = 1700000)
+   @Test // timeout = 1700000
    public void testAtlasFlatGroundWalkingWithShapeCollision() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false, false, true);
       runFlatGroundWalking();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    @Disabled // Not working because of multithreading. Should be switched over to use the DRCSimulationTestHelper.
    public void testFlatGroundWalkingRunsSameWayTwice() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {

@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.apache.commons.lang3.mutable.MutableDouble;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -29,7 +29,7 @@ public class AlphaFilteredYoFrameQuaternionTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testInitialValue()
    {
 	   MutableDouble alpha = new MutableDouble();
@@ -48,7 +48,7 @@ public class AlphaFilteredYoFrameQuaternionTest
       EuclidCoreTestTools.assertQuaternionEquals(qMeasured, qFiltered, 1e-12);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testAlpha1()
    {
       MutableDouble alpha = new MutableDouble();
@@ -71,7 +71,7 @@ public class AlphaFilteredYoFrameQuaternionTest
       EuclidCoreTestTools.assertQuaternionGeometricallyEquals(qInitial, qFiltered, 1e-12);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testAlpha0()
    {
       MutableDouble alpha = new MutableDouble();
@@ -94,7 +94,7 @@ public class AlphaFilteredYoFrameQuaternionTest
       EuclidCoreTestTools.assertQuaternionGeometricallyEquals(qFinal, qFiltered, 1e-12);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testStepChange()
    {
       MutableDouble alpha = new MutableDouble();

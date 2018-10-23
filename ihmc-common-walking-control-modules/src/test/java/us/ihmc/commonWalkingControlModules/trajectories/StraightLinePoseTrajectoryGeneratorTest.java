@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -38,7 +38,7 @@ public class StraightLinePoseTrajectoryGeneratorTest
 
    private static final double EPSILON = 1.0e-10;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRuntimeExceptions()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -86,7 +86,7 @@ public class StraightLinePoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompareWithSingleFrameTrajectoryGenerators()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -152,7 +152,7 @@ public class StraightLinePoseTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNegativeTime()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -197,7 +197,7 @@ public class StraightLinePoseTrajectoryGeneratorTest
       assertTrue(angularAcceleration1.epsilonEquals(angularAcceleration2, EPSILON));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTooBigTime()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");
@@ -242,7 +242,7 @@ public class StraightLinePoseTrajectoryGeneratorTest
       assertTrue(angularAcceleration1.epsilonEquals(angularAcceleration2, EPSILON));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMultipleFramesWithSingleFrameTrajectoryGenerators()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youpiloup");

@@ -1,6 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -34,7 +34,7 @@ public class AtlasBehaviorDispatcherTest extends HumanoidBehaviorDispatcherTest
    }
 
    @Override
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
    public void testDispatchPelvisPoseBehavior() throws SimulationExceededMaximumTimeException
    {
       super.testDispatchPelvisPoseBehavior();
@@ -42,21 +42,21 @@ public class AtlasBehaviorDispatcherTest extends HumanoidBehaviorDispatcherTest
 
    @Override
    @Disabled
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testDispatchWalkToLocationBehavior() throws SimulationExceededMaximumTimeException
    {
       super.testDispatchWalkToLocationBehavior();
    }
 
    @Override
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
    public void testDispatchWalkToLocationBehaviorAndStop() throws SimulationExceededMaximumTimeException
    {
       super.testDispatchWalkToLocationBehaviorAndStop();
    }
 
    @Override
-   @Test(timeout = 510000)
+   @Test // timeout = 510000
    public void testDispatchWalkToLocationBehaviorPauseAndResume() throws SimulationExceededMaximumTimeException
    {
       super.testDispatchWalkToLocationBehaviorPauseAndResume();

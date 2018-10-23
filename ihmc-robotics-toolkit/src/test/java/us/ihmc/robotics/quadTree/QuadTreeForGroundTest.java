@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -21,7 +21,7 @@ import us.ihmc.robotics.random.RandomGeometry;
 public class QuadTreeForGroundTest
 {
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetAllPoints()
    {
       QuadTreeForGroundParameters quadTreeParameters = new QuadTreeForGroundParameters(0.01, Double.MAX_VALUE, Double.MAX_VALUE, Integer.MAX_VALUE, 0.0, -1);
@@ -47,7 +47,7 @@ public class QuadTreeForGroundTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCommonCaseWithNoFilteringOrPointAveraging()
    {
       Random random = new Random(1178L);
@@ -97,7 +97,7 @@ public class QuadTreeForGroundTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPointLimiter()
    {
 
@@ -171,7 +171,7 @@ public class QuadTreeForGroundTest
       assertFalse(NE.hasChildren());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleCasesOne()
    {
       float minX = -10.0f;
@@ -238,7 +238,7 @@ public class QuadTreeForGroundTest
       assertEquals(1, quadTree.getNumberOfQuads());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithFilteringAndPointAveraging()
    {
       Random random = new Random(1398L);
@@ -322,7 +322,7 @@ public class QuadTreeForGroundTest
       assertEquals(16, quadTree.getNumberOfQuads()); // Still 16 here.
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetClosestPoint()
    {
       Random random = new Random(1776L);
@@ -368,7 +368,7 @@ public class QuadTreeForGroundTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetAllPointsWithinBounds()
    {
       Random random = new Random(1178L);
@@ -409,7 +409,7 @@ public class QuadTreeForGroundTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetAllPointsWithinDistance()
    {
       Random random = new Random(1984L);

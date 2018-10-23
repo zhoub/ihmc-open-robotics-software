@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.junit.After;
 import org.junit.Before;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
@@ -62,7 +62,7 @@ public abstract class QuadrupedXGaitTurning720Test implements QuadrupedMultiRobo
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 1900000)
+   @Test // timeout = 1900000
    public void rotate720InPlaceRight() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);
@@ -93,7 +93,7 @@ public abstract class QuadrupedXGaitTurning720Test implements QuadrupedMultiRobo
       conductor.concludeTesting();
    }
 
-   @Test(timeout = 1900000)
+   @Test // timeout = 1900000
    public void rotate720InPlaceLeft() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);

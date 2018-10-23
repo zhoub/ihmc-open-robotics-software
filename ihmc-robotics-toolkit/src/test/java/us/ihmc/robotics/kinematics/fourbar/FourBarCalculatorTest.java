@@ -3,7 +3,7 @@ package us.ihmc.robotics.kinematics.fourbar;
 import static java.lang.Math.PI;
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ public class FourBarCalculatorTest
    private FourbarLink outputLink, groundLink, inputLink, floatingLink;
    private FourbarProperties fourBarProperties;
       
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSquare()
    {
       outputLink = new FourbarLink(1.0);

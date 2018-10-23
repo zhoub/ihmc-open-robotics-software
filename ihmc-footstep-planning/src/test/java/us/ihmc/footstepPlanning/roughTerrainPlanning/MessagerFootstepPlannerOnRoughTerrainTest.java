@@ -5,7 +5,7 @@ import javafx.application.Platform;
 import javafx.stage.Stage;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -117,7 +117,7 @@ public abstract class MessagerFootstepPlannerOnRoughTerrainTest
       ui = null;
    }
 
-   @Test(timeout = 30000000)
+   @Test // timeout = 30000000
    public void test()
    {
       List<String> testsToRun = getTestsToRun();

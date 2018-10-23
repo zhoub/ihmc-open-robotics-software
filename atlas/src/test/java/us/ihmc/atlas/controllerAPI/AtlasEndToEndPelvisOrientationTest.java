@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -17,49 +17,49 @@ public class AtlasEndToEndPelvisOrientationTest extends EndToEndPelvisOrientatio
    private DRCRobotModel robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false);
 
    @Override
-   @Test(timeout = 130000)
+   @Test // timeout = 130000
    public void testGoHome() throws SimulationExceededMaximumTimeException
    {
       super.testGoHome();
    }
 
    @Override
-   @Test(timeout = 130000)
+   @Test // timeout = 130000
    public void testSingleTrajectoryPoint() throws SimulationExceededMaximumTimeException
    {
       super.testSingleTrajectoryPoint();
    }
 
    @Override
-   @Test(timeout = 210000)
+   @Test // timeout = 210000
    public void testWalking() throws SimulationExceededMaximumTimeException
    {
       super.testWalking();
    }
 
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingAfterTrajectory() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingAfterTrajectory();
    }
 
    @Override
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
    {
       super.testMultipleTrajectoryPoints();
    }
 
    @Override
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testWalkingWithUserControl() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingWithUserControl();
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testCustomControlFrame() throws SimulationExceededMaximumTimeException
    {
       super.testCustomControlFrame();

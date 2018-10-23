@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -31,14 +31,14 @@ public class AtlasObstacleCourseEveryBuildTest extends DRCObstacleCourseEveryBui
    }
    
    @Override
-   @Test(timeout = 510000)
+   @Test // timeout = 510000
    public void testSimpleFlatGroundScript() throws SimulationExceededMaximumTimeException
    {
       super.testSimpleFlatGroundScript();
    }
    
    @Override
-   @Test(timeout = 310000)
+   @Test // timeout = 310000
    public void testWalkingUpToRampWithLongSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpToRampWithLongSteps();

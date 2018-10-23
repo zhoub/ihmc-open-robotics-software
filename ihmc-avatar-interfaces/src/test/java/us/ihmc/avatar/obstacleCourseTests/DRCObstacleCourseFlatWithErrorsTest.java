@@ -3,7 +3,7 @@ package us.ihmc.avatar.obstacleCourseTests;
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -84,7 +84,7 @@ public abstract class DRCObstacleCourseFlatWithErrorsTest implements MultiRobotT
    }
 
 
-   @Test(timeout = 410000)
+   @Test // timeout = 410000
    public void testSimpleFlatGroundScriptWithRandomFootSlip() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -128,7 +128,7 @@ public abstract class DRCObstacleCourseFlatWithErrorsTest implements MultiRobotT
    }
 
 
-   @Test(timeout = 460000)
+   @Test // timeout = 460000
    public void testSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -184,7 +184,7 @@ public abstract class DRCObstacleCourseFlatWithErrorsTest implements MultiRobotT
       drcSimulationTestHelper.loadScriptFile(scriptInputStream, leftSoleFrame);
    }
 
-   @Test(timeout = 220000)
+   @Test // timeout = 220000
    public void testStandingWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -289,7 +289,7 @@ public abstract class DRCObstacleCourseFlatWithErrorsTest implements MultiRobotT
    }
 
 
-   @Test(timeout = 370000)
+   @Test // timeout = 370000
    public void testSideStepsWithSlipping() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -332,7 +332,7 @@ public abstract class DRCObstacleCourseFlatWithErrorsTest implements MultiRobotT
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @Test(timeout = 420000)
+   @Test // timeout = 420000
    public void testSideStepsWithRandomSlipping() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

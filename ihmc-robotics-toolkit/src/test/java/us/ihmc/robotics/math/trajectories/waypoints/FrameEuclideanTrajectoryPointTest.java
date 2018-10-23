@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -38,7 +38,7 @@ public class FrameEuclideanTrajectoryPointTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCommonUsageExample()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -78,7 +78,7 @@ public class FrameEuclideanTrajectoryPointTest
       assertTrue(expectedFrameEuclideanTrajectoryPoint.epsilonEquals(frameEuclideanTrajectoryPoint, 1e-10));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructors()
    {
       double epsilon = 1.0e-20;
@@ -142,7 +142,7 @@ public class FrameEuclideanTrajectoryPointTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetters()
    {
       double epsilon = 1.0e-20;
@@ -225,7 +225,7 @@ public class FrameEuclideanTrajectoryPointTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrame() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -250,7 +250,7 @@ public class FrameEuclideanTrajectoryPointTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToZero() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -284,7 +284,7 @@ public class FrameEuclideanTrajectoryPointTest
       assertTrajectoryPointContainsExpectedData(expectedFrame, expectedTime, expectedPosition, expectedLinearVelocity, testedFrameEuclideanTrajectoryPoint, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToNaN() throws Exception
    {
       Random random = new Random(21651016L);
@@ -349,7 +349,7 @@ public class FrameEuclideanTrajectoryPointTest
       assertTrue(expectedLinearVelocity.epsilonEquals(actualFrameLinearVelocity, epsilon));
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeSetsAngGets()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -440,7 +440,7 @@ public class FrameEuclideanTrajectoryPointTest
       assertTrue(FrameEuclideanTrajectoryPoint.epsilonEquals(FrameEuclideanTrajectoryPointTwo, 1e-7));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeMoreSettersAndGetters()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

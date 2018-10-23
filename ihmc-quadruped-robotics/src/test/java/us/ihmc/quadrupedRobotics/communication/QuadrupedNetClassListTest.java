@@ -1,6 +1,6 @@
 package us.ihmc.quadrupedRobotics.communication;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.reflections.Reflections;
 import us.ihmc.communication.kryo.KryoNetClassListTestHelper;
 import us.ihmc.communication.net.NetClassList;
@@ -21,14 +21,14 @@ public class QuadrupedNetClassListTest
          System.out.println("                         registerPacketField(" + subTypeOf.getSimpleName() + ".class);");
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAllClassesRegisteredArePackets()
    {
       NetClassList netClassList = new QuadrupedNetClassList();
       KryoNetClassListTestHelper.testAllClassesRegisteredArePackets(netClassList);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAllPacketFieldsAreRegistered()
          throws InstantiationException, IllegalAccessException, NoSuchFieldException, SecurityException, IllegalArgumentException
    {

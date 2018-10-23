@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -28,7 +28,7 @@ public class AtlasEndToEndFootLoadBearingTest extends EndToEndEndFootBearingMess
    }
 
    @Override
-   @Test(timeout = 270000)
+   @Test // timeout = 270000
    public void testSwitchFootToLoadBearing() throws Exception
    {
       super.testSwitchFootToLoadBearing();

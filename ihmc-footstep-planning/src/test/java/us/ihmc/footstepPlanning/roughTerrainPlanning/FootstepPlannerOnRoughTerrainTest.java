@@ -5,7 +5,7 @@ import javafx.application.Platform;
 import javafx.stage.Stage;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -114,14 +114,14 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
 
    public abstract boolean assertPlannerReturnedResult();
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testOnStaircase()
    {
       // run the test
       runTestAndAssert(getTestData(staircase));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithWall()
    {
       // run the test
@@ -133,89 +133,89 @@ public abstract class FootstepPlannerOnRoughTerrainTest implements PlanningTest
       runTestAndAssert(getTestData(corridor));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOverCinderBlockField()
    {
       // run the test
       runTestAndAssert(getTestData(overCinderBlockField));
    }
 
-   @Test(timeout = 3000000)
+   @Test // timeout = 3000000
    public void testSteppingStones()
    {
       // run the test
       runTestAndAssert(getTestData(steppingStones));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStepUpsAndDownsScoringDifficult()
    {
       runTestAndAssert(getTestData(stepUpsAndDownsScoringDifficult));
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testStepAfterPitchedUp()
    {
       runTestAndAssert(getTestData(stepAfterPitchUp));
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testStepAfterPitchedDown()
    {
       runTestAndAssert(getTestData(stepAfterPitchDown));
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testCompareStepBeforeGap()
    {
       runTestAndAssert(getTestData(compareStepBeforeGap));
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testSimpleStepOnBox()
    {
       runTestAndAssert(getTestData(simpleStepOnBox));
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testSimpleStepOnBoxTwo()
    {
       runTestAndAssert(getTestData(simpleStepOnBoxTwo));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomEnvironment()
    {
       runTestAndAssert(getTestData(random));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleGaps()
    {
       runTestAndAssert(getTestData(simpleGaps));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPartialGaps()
    {
       runTestAndAssert(getTestData(partialGaps));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWalkingAroundBox()
    {
       // run the test
       runTestAndAssert(getTestData(box));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSpiralStaircase()
    {
       // run the test
       runTestAndAssert(getTestData(spiralStaircase));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWalkingAroundHole()
    {
       // run the test

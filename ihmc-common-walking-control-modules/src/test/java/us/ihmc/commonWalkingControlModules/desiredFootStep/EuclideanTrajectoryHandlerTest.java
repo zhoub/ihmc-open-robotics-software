@@ -1,7 +1,7 @@
 package us.ihmc.commonWalkingControlModules.desiredFootStep;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.messageHandlers.EuclideanTrajectoryHandler;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 public class EuclideanTrajectoryHandlerTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testClearPointsInPast()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");

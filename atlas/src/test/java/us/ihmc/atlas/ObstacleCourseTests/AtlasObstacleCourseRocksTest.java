@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -30,7 +30,7 @@ public class AtlasObstacleCourseRocksTest extends DRCObstacleCourseRocksTest
    }
 
    @Override
-   @Test(timeout = 470000)
+   @Test // timeout = 470000
    public void testWalkingOntoRocks() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOntoRocks();

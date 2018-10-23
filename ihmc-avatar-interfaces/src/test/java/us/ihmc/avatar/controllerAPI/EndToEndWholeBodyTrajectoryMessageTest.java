@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
 import controller_msgs.msg.dds.FootTrajectoryMessage;
@@ -50,7 +50,7 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testSingleWaypoint() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -184,7 +184,7 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
       }
    }
 
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testSingleWaypointUsingMessageOfMessages() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -307,7 +307,7 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
       }
    }
 
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
    public void testSingleWaypointUsingMessageOfMessagesWithDelays() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -433,7 +433,7 @@ public abstract class EndToEndWholeBodyTrajectoryMessageTest implements MultiRob
       }
    }
 
-   @Test(timeout = 84000)
+   @Test // timeout = 84000
    public void testIssue47BadChestTrajectoryMessage() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

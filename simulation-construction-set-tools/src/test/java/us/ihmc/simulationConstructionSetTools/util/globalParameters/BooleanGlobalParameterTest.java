@@ -3,7 +3,7 @@ package us.ihmc.simulationConstructionSetTools.util.globalParameters;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -26,7 +26,7 @@ public class BooleanGlobalParameterTest
       GlobalParameter.clearGlobalRegistry();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGetValue()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -37,7 +37,7 @@ public class BooleanGlobalParameterTest
       assertEquals(DEFAULT_VALUE, booleanGlobalParameter.getValue());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSetValue()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -64,7 +64,7 @@ public class BooleanGlobalParameterTest
       assertEquals(newValue, booleanGlobalParameter.getValue());
    }
 
-	@Test(timeout=300000,expected = RuntimeException.class)
+	@Test // timeout=300000,expected = RuntimeException.class
    public void testThatCantHaveParentsUnlessOverwriteUpdateMethodOne()
    {
       BooleanGlobalParameter parent = new BooleanGlobalParameter("parent", "parent", DEFAULT_VALUE, null);
@@ -74,7 +74,7 @@ public class BooleanGlobalParameterTest
       parent.set(false);
    }
 
-	@Test(timeout=300000,expected = RuntimeException.class)
+	@Test // timeout=300000,expected = RuntimeException.class
    public void testCantSetChild()
    {
       BooleanGlobalParameter parent = new BooleanGlobalParameter("parent", "", true, null);

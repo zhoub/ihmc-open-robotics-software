@@ -2,14 +2,14 @@ package us.ihmc.robotics.robotSide;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 @Tag("fast")
 public class QuadrantDependentListTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMultipleIterations()
    {
       QuadrantDependentList<String> quadrantDependentList = new QuadrantDependentList<>();
@@ -30,7 +30,7 @@ public class QuadrantDependentListTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIteratorOrdering()
    {
       QuadrantDependentList<String> quadrantDependentList = new QuadrantDependentList<>("1", "2", "3", "4");

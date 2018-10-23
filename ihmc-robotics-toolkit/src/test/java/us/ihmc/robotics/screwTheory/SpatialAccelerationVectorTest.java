@@ -8,7 +8,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -32,7 +32,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testChangeFrameUsingNumericalDifferentiationVersusAnalytical()
    {
       double epsilon = 1e-3;    // needs to be pretty high, but if you decrease deltaT, you can go lower
@@ -83,7 +83,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * Tests centripetal acceleration
     */
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testAccelerationOfPointFixedInBodyFrame()
    {
       Random random = new Random(1456L);
@@ -104,7 +104,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
 	/**
 	 * This test is used to prove that the reference frame in which the linear acceleration of a body fixed point in computed in does not matter.
 	 */
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetAccelerationOfPointFixedInBodyFrameComputedInDifferentFrames() throws Exception
    {
       Random random = new Random(345345L);
@@ -146,7 +146,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
 
    // TODO: Figure out this test and get it to pass if it should.
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testAccelerationOfPointFixedInBodyFrameAlternative()
    {
       Random random = new Random();
@@ -182,7 +182,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * You shouldn't be able to add two spatial acceleration vectors expressed in different frames
     */
 
-	@Test(timeout = 30000,expected = ReferenceFrameMismatchException.class)
+	@Test // timeout = 30000,expected = ReferenceFrameMismatchException.class
    public void testAddExpressedInDifferentFrames()
    {
       SpatialAccelerationVector acceleration1 = createSpatialMotionVector(frameB, frameA, frameC, new Vector3D(), new Vector3D());
@@ -195,7 +195,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * You shouldn't be able to add two spatial acceleration vectors if the second is not relative to the first
     */
 
-	@Test(timeout = 30000,expected = ReferenceFrameMismatchException.class)
+	@Test // timeout = 30000,expected = ReferenceFrameMismatchException.class
    public void testAddNotRelative()
    {
       SpatialAccelerationVector acceleration1 = createSpatialMotionVector(frameB, frameA, frameC, new Vector3D(), new Vector3D());
@@ -209,7 +209,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * (which is allowed)
     */
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testAdd()
    {
       Vector3D angularVelocity1 = new Vector3D(random.nextDouble(), random.nextDouble(), random.nextDouble());
@@ -264,7 +264,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSub()
    {
       Random random = new Random(3454L);
@@ -286,7 +286,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       SpatialMotionVectorTest.assertSpatialMotionVectorEquals(vector1, vector1Back, epsilon);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testSubWrongExpressedInFrame()
    {
       SpatialAccelerationVector vector1 = new SpatialAccelerationVector(frameB, frameA, frameD);
@@ -294,7 +294,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       vector1.sub(vector2);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testSubFramesDontMatchUp()
    {
       SpatialAccelerationVector vector1 = new SpatialAccelerationVector(frameD, frameA, frameC);
@@ -306,7 +306,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
     * Compares setScrew method in SpatialAccelerationVector to numerical derivative based method
     */
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSetScrew()
    {
       ReferenceFrame bodyFrame = frameA;
@@ -349,7 +349,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       JUnitTools.assertMatrixEquals(numericalDerivative, acceleration.toMatrix(), 1e-4);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSetBasedOnOriginAcceleration()
    {
       SpatialAccelerationVector acceleration = new SpatialAccelerationVector(frameA, frameB, frameA);
@@ -376,7 +376,7 @@ public class SpatialAccelerationVectorTest extends SpatialMotionVectorTest
       EuclidCoreTestTools.assertTuple3DEquals(originAccelerationBack, originAcceleration, 1e-12);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testChangeFrameNoRelativeMotion()
    {
       ReferenceFrame bodyFrame = frameA;

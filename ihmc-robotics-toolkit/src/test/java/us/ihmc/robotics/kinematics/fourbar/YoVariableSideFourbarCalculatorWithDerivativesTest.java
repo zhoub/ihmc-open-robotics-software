@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -20,7 +20,7 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
    private static final boolean PRINT = false;
    private final YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSquare()
    {
       YoVariableSideFourbarCalculatorWithDerivatives calculator = new YoVariableSideFourbarCalculatorWithDerivatives("testCalculator", registry);
@@ -32,7 +32,7 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
       assertEquals(PI / 2, calculator.getAngleCDA(), eps);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSquareDer()
    {
       YoVariableSideFourbarCalculatorWithDerivatives calculator = new YoVariableSideFourbarCalculatorWithDerivatives("testCalculator", registry);
@@ -44,7 +44,7 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
       assertEquals(-1, calculator.getAngleDtCDA(), eps);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testParallelogram()
    {
       YoVariableSideFourbarCalculatorWithDerivatives calculator = new YoVariableSideFourbarCalculatorWithDerivatives("testCalculator", registry);
@@ -60,7 +60,7 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
       assertEquals(-1, calculator.getAngleDtCDA(), eps);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomQuadrilatteral()
    {
       YoVariableSideFourbarCalculatorWithDerivatives calculator = new YoVariableSideFourbarCalculatorWithDerivatives("testCalculator", registry);
@@ -105,7 +105,7 @@ public class YoVariableSideFourbarCalculatorWithDerivativesTest
       assertEquals(D, calculator.getAngleCDA(), eps);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMasterAngleComputations()
    {
       YoVariableSideFourbarCalculatorWithDerivatives calculator = new YoVariableSideFourbarCalculatorWithDerivatives("testCalculator", registry);

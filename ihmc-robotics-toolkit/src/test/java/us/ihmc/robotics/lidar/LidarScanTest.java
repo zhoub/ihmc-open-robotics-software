@@ -8,7 +8,7 @@ import java.util.Random;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.RandomNumbers;
@@ -23,7 +23,7 @@ import us.ihmc.euclid.tuple3D.Point3D;
 public class LidarScanTest
 {
 	
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testFlipNew()
    {
       float[] ranges = new float[720];
@@ -47,7 +47,7 @@ public class LidarScanTest
       assertLidarScanEquals(lidarScan, lidarScan.flipNew().flipNew(), 1e-7, 1e-7f);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAssertLidarScanRangesEqual()
    {
       Random random = new Random();
@@ -78,7 +78,7 @@ public class LidarScanTest
       assertLidarScanRangesEqual(lidarScan1, lidarScan4, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAssertLidarScanTransformsEqual()
    {
       Random random = new Random();
@@ -108,7 +108,7 @@ public class LidarScanTest
       });
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAssertLidarScanEquals()
    {
       Random random = new Random();
@@ -151,7 +151,7 @@ public class LidarScanTest
       assertLidarScanRangesEqual(lidarScan1, lidarScan2, rangeTolerance);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructor()
    {
       Random random = new Random();
@@ -170,7 +170,7 @@ public class LidarScanTest
       assertEquals(lidarScan1.size(), 720, 1e-7f);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructor2()
    {
       Random random = new Random();
@@ -186,7 +186,7 @@ public class LidarScanTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetRanges()
    {
       Random random = new Random();
@@ -206,7 +206,7 @@ public class LidarScanTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetCopy()
    {
       Random random = new Random();
@@ -226,7 +226,7 @@ public class LidarScanTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testScanParameters()
    {
       Random random = new Random();
@@ -264,7 +264,7 @@ public class LidarScanTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetAllPoints()
    {
       Random random = new Random();

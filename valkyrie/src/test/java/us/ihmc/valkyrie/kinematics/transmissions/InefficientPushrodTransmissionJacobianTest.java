@@ -3,7 +3,7 @@ package us.ihmc.valkyrie.kinematics.transmissions;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -23,7 +23,7 @@ public class InefficientPushrodTransmissionJacobianTest
    private final boolean DEBUG = false;
    private final boolean visualizeAndKeepUp = false;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInefficientPushrodTransmissionJacobianForAnklesAtZero()
    {
       Robot robot = new Robot("testPushrodTransmission");
@@ -45,7 +45,7 @@ public class InefficientPushrodTransmissionJacobianTest
    }
 
 	@Disabled
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInefficientPushrodTransmissionJacobianForWaistAtZero()
    {
       Robot robot = new Robot("testPushrodTransmission");
@@ -65,7 +65,7 @@ public class InefficientPushrodTransmissionJacobianTest
       assertJacobianEquals(jacobian, -0.04520035766057378, 0.04520035766057378, -0.06336787027660956, -0.06336787027660956); // Regression. Need to double check with Solid Works numbers.
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInefficientPushrodTransmissionForAnkles()
    {
       Robot robot = new ValkyrieAnkleRobot();
@@ -164,7 +164,7 @@ public class InefficientPushrodTransmissionJacobianTest
 
    }
 
-//	@Test(timeout = 30000)
+//	@Test // timeout = 30000
    public void testInefficientPushrodTransmissionForWaist()
    {
       Robot robot = new ValkyrieWaistRobot();      

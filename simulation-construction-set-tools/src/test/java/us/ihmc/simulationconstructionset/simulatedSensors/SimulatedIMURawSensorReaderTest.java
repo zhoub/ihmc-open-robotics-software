@@ -3,7 +3,7 @@ package us.ihmc.simulationconstructionset.simulatedSensors;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -82,7 +82,7 @@ public class SimulatedIMURawSensorReaderTest
       simulatedIMURawSensorReader.initialize();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRead()
    {
       for (int i = 0; i < 10000; i++)

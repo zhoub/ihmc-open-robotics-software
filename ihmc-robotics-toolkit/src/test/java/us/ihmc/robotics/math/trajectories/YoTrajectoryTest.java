@@ -1,7 +1,7 @@
 package us.ihmc.robotics.math.trajectories;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MathTools;
 import org.junit.jupiter.api.Tag;
@@ -18,7 +18,7 @@ public class YoTrajectoryTest
       registry.clear();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetDerivative()
    {
       YoTrajectory traj = new YoTrajectory("Trajectory", 10, registry);

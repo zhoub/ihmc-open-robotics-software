@@ -1,6 +1,6 @@
 package us.ihmc.convexOptimization.quadraticProgram;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 @Tag("fast")
@@ -12,7 +12,7 @@ public class SimpleDiagonalActiveSetQPSolverTest extends AbstractSimpleActiveSet
       return new SimpleDiagonalActiveSetQPSolver();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleCasesWithBoundsConstraints()
    {
       testSimpleCasesWithBoundsConstraints(1, 3, 2, 3, false);

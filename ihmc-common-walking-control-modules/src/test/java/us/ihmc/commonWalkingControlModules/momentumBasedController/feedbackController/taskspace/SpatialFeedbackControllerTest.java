@@ -11,7 +11,7 @@ import org.ejml.factory.LinearSolverFactory;
 import org.ejml.interfaces.linsol.LinearSolver;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.FeedbackControllerToolbox;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControlCoreToolbox;
@@ -52,7 +52,7 @@ public final class SpatialFeedbackControllerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConvergence() throws Exception
    {
       Random random = new Random(5641654L);
@@ -158,7 +158,7 @@ public final class SpatialFeedbackControllerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConvergenceWithJerryQP() throws Exception
    {
       Random random = new Random(5641654L);

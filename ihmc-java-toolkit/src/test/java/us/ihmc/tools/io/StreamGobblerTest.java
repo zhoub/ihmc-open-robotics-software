@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -18,7 +18,7 @@ import us.ihmc.commons.thread.ThreadTools;
 public class StreamGobblerTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testStreamGobblerWithASingleLine() throws IOException
    {
       String string = "This is some input! Yep, this is one fine line of input!";
@@ -45,7 +45,7 @@ public class StreamGobblerTest
       assertEquals(0, inputStream.available());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testStreamGobblerToGobbleMultipleLines() throws IOException
    {
       String string = "This is some input! \nHere's a second line of input!";

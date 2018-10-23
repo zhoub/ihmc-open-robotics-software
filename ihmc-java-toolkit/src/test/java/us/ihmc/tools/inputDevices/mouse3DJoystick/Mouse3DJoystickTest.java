@@ -2,7 +2,7 @@ package us.ihmc.tools.inputDevices.mouse3DJoystick;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import org.junit.jupiter.api.Tag;
@@ -15,7 +15,7 @@ import us.ihmc.commons.thread.ThreadTools;
 @Tag("fast")
 public class Mouse3DJoystickTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMouse3DJoystick()
    {
       Mouse3DJoystick mouse3dJoystick = new Mouse3DJoystick();

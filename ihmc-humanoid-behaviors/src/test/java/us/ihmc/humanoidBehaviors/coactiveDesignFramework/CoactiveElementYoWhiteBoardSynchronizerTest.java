@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.communication.util.NetworkPorts;
@@ -20,7 +20,7 @@ import us.ihmc.yoVariables.variable.YoInteger;
 
 public class CoactiveElementYoWhiteBoardSynchronizerTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCoactiveElementTCPYoWhiteBoardSynchronizer() throws IOException, InterruptedException
    {
       int port = NetworkPorts.COACTIVE_ELEMENTS_PORT.getPort();

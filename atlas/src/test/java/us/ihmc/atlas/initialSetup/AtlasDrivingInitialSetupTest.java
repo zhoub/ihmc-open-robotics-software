@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
@@ -26,7 +26,7 @@ public class AtlasDrivingInitialSetupTest
 {
    private static final AtlasRobotVersion version = AtlasRobotVersion.ATLAS_UNPLUGGED_V5_DUAL_ROBOTIQ;
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLoadFile()
    {
 	   AtlasPhysicalProperties atlasPhysicalProperties = new AtlasPhysicalProperties(1);
@@ -38,7 +38,7 @@ public class AtlasDrivingInitialSetupTest
       initialSetup.initializeRobot(robot, jointMap);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFileContainsAllJoints()
    {
       boolean containsAllJoints = true;

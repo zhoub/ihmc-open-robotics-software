@@ -8,7 +8,7 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.lists.RecyclingArrayList;
 import org.junit.jupiter.api.Tag;
@@ -43,7 +43,7 @@ public class SmoothCapturePointToolboxTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeDesiredCornerPointsFromCMPPolynomials()
    {
       double omega0 = 3.4;
@@ -141,7 +141,7 @@ public class SmoothCapturePointToolboxTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMatricesPrime3DLinear()
    {
       // Linear polynomial: y(x) = a0 + a1*x
@@ -207,7 +207,7 @@ public class SmoothCapturePointToolboxTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMatricesPrime3DCubic()
    {
       // Cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -276,7 +276,7 @@ public class SmoothCapturePointToolboxTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCalculateICPPositionAndVelocityOnSegment3DLinear()
    {
    // Linear polynomial: y(x) = a0 + a1*x
@@ -334,7 +334,7 @@ public class SmoothCapturePointToolboxTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCalculateICPPositionAndVelocityOnSegment3DCubic()
    {
       // Cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3

@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -27,7 +27,7 @@ public class PlanarRegionTerrainObjectTest
 {
    private static final double DEFAULT_ALLOWABLE_PENETRATION_THICKNESS = 1e5;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testHeightAt() throws Exception
    {
       Random random = new Random(1776L);
@@ -58,7 +58,7 @@ public class PlanarRegionTerrainObjectTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testHeightAndNormalAt() throws Exception
    {
       Random random = new Random(1776L);
@@ -97,7 +97,7 @@ public class PlanarRegionTerrainObjectTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetBoundingBox() throws Exception
    {
       Random random = new Random(1776L);
@@ -139,7 +139,7 @@ public class PlanarRegionTerrainObjectTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsClose() throws Exception
    {
       Random random = new Random(1776L);
@@ -168,7 +168,7 @@ public class PlanarRegionTerrainObjectTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCheckIfInside() throws Exception
    {
       Random random = new Random(1776L);

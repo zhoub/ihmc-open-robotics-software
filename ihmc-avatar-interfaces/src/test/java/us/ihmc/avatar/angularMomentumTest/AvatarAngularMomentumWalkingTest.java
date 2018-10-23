@@ -8,7 +8,7 @@ import gnu.trove.list.array.TDoubleArrayList;
 import org.apache.commons.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -100,7 +100,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
       ThreadTools.sleep(1000);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForwardWalkWithAngularMomentumReference() throws SimulationExceededMaximumTimeException
    {
       // only set to true when saving new angular momentum data. output file usually needs to be manually moved to resources folder
@@ -142,7 +142,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
          recordingScript.exportToFile();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForwardWalkWithCorruptedMomentum() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -172,7 +172,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(simulationTime));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWalkingWithDelayedMomentum() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -203,7 +203,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(simulationTime));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForwardWalkZeroMomentumFirstStep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -233,7 +233,7 @@ public abstract class AvatarAngularMomentumWalkingTest implements MultiRobotTest
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(simulationTime));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWalkingWithRandomSinusoidalMomentum() throws SimulationExceededMaximumTimeException
    {
       setupTest();

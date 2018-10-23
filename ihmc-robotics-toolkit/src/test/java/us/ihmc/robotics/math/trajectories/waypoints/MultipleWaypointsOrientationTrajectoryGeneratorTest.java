@@ -3,7 +3,7 @@ package us.ihmc.robotics.math.trajectories.waypoints;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -26,7 +26,7 @@ public class MultipleWaypointsOrientationTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompareWithSimple()
    {
       YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());

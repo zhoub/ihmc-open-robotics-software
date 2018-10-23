@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -16,7 +16,7 @@ import us.ihmc.robotics.math.functionGenerator.YoFunctionGeneratorMode;
 
 public class DelayEstimatorBetweenTwoSignalsTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPerfectSignal() throws Exception
    {
       double epsilon = 1.0e-15;
@@ -57,7 +57,7 @@ public class DelayEstimatorBetweenTwoSignalsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithShiftedSignal() throws Exception
    {
       double epsilon = 1.0e-15;
@@ -100,7 +100,7 @@ public class DelayEstimatorBetweenTwoSignalsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNoisySignal() throws Exception
    {
       Random random = new Random(5616515L);

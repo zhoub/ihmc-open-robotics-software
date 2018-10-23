@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -22,28 +22,28 @@ public class GenericQuadrupedXGaitRandomWalkingTest extends QuadrupedXGaitRandom
 
    @Override
    @Disabled
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    public void testExtremeRandomWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testExtremeRandomWalking();
    }
 
    @Override
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testWalkingRandomly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingRandomly();
    }
 
    @Override
-   @Test(timeout = 860000)
+   @Test // timeout = 860000
    public void testWalkingAtRandomSpeedsWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingAtRandomSpeedsWithStops();
    }
 
    @Override
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testWalkingRandomVelocitiesStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingRandomVelocitiesStoppingAndTurning();

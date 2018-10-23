@@ -10,7 +10,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -45,7 +45,7 @@ public class GroundPlaneEstimatorTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPointsWithSamePitchAndDifferentPositionGetSameAnswer()
    {
       GroundPlaneEstimator groundPlaneEstimator = new GroundPlaneEstimator();
@@ -75,7 +75,7 @@ public class GroundPlaneEstimatorTest
       assertTrue(normalA.epsilonEquals(normalB, 1e-7));
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPointsWithSamePitchAndDifferentPositionGetSameAnswer2()
    {
       double epsilon = 0.001;
@@ -113,7 +113,7 @@ public class GroundPlaneEstimatorTest
    }
    
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetPitchWithFeetOnPlane()
    {
       double epsilon = 0.00001;

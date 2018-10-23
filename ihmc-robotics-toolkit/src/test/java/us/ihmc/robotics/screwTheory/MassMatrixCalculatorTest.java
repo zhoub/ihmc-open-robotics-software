@@ -10,7 +10,7 @@ import org.ejml.ops.CommonOps;
 import org.ejml.simple.SimpleMatrix;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -90,7 +90,7 @@ public abstract class MassMatrixCalculatorTest
       return kineticEnergy.get(0, 0);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void compareMassMatrixCalculators()
    {
       double eps = 1e-10;

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -54,7 +54,7 @@ public abstract class QuadrupedPositionCrawlVelocityTest implements QuadrupedMul
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
    
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testWalkingForward() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -66,7 +66,7 @@ public abstract class QuadrupedPositionCrawlVelocityTest implements QuadrupedMul
       conductor.simulate();
    }
    
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testWalkingBackward() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);

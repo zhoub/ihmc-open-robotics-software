@@ -5,7 +5,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -70,7 +70,7 @@ public abstract class QuadrupedPositionCrawlRandomWalkingTest implements Quadrup
       return random.nextDouble() * 10.0 + 5.0;
    }
    
-   @Test(timeout = 1000000)
+   @Test // timeout = 1000000
    public void testWalkingRandomly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -96,7 +96,7 @@ public abstract class QuadrupedPositionCrawlRandomWalkingTest implements Quadrup
       }
    }
 
-   @Test(timeout = 1000000)
+   @Test // timeout = 1000000
    public void testWalkingAtRandomSpeedsWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -123,7 +123,7 @@ public abstract class QuadrupedPositionCrawlRandomWalkingTest implements Quadrup
       }
    }
 
-   @Test(timeout = 1000000)
+   @Test // timeout = 1000000
    public void testWalkingRandomVelocitiesStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);

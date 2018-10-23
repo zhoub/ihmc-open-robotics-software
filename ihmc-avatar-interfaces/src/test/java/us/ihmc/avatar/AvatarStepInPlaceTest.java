@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -132,7 +132,7 @@ public abstract class AvatarStepInPlaceTest implements MultiRobotTestInterface
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testStepInPlace() throws SimulationExceededMaximumTimeException
    {
       setupCameraSideView();
@@ -166,7 +166,7 @@ public abstract class AvatarStepInPlaceTest implements MultiRobotTestInterface
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(simulationTime));
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testStepInPlaceWithPush() throws SimulationExceededMaximumTimeException
    {
       setupCameraSideView();

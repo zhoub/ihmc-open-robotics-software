@@ -5,7 +5,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.thread.ThreadTools;
@@ -136,7 +136,7 @@ public class RemoteFootstepPlannerUIMessagingTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSendingFootstepPlanningRequestPacketFromUIIntraprocess()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -145,7 +145,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @Tag("flaky")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSendingFootstepPlanningRequestPacketFromUIFastRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;
@@ -153,7 +153,7 @@ public class RemoteFootstepPlannerUIMessagingTest
       runPlanningRequestTestFromUI();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSendingFootstepPlannerRequestPacketToUIIntraprocess()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -162,7 +162,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @Tag("flaky")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSendingFootstepPlannerRequestPacketToUIFastRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;
@@ -170,7 +170,7 @@ public class RemoteFootstepPlannerUIMessagingTest
       runPlannerRequestToUI();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSendingFootstepPlannerParametersPacketIntraprocess()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -179,7 +179,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @Tag("flaky")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSendingFootstepPlannerParametersPacketFastRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;
@@ -187,7 +187,7 @@ public class RemoteFootstepPlannerUIMessagingTest
       runPlannerParametersPacket();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSendingFootstepPlannerOutputStatusToUIIntraprocess()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -196,7 +196,7 @@ public class RemoteFootstepPlannerUIMessagingTest
    }
 
    @Tag("flaky")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSendingFootstepPlannerOutputStatusToUIFastRTPS()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.FAST_RTPS;

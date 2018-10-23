@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -25,7 +25,7 @@ public class StateMachineTest
    private final double OUT_OF = 0.9;
    private final int MAX_NUMBER_OF_CALLS = 2;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStateTransitions()
    {
       ArrayList<Double> listOfActions = new ArrayList<>();

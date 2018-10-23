@@ -6,7 +6,7 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Before;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
@@ -79,7 +79,7 @@ public abstract class QuadrupedXGaitRandomWalkingTest implements QuadrupedMultiR
       return random.nextDouble() * 2.0 + 0.25;
    }
 
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    public void testExtremeRandomWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);
@@ -98,7 +98,7 @@ public abstract class QuadrupedXGaitRandomWalkingTest implements QuadrupedMultiR
       }
    }
 
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testWalkingRandomly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);
@@ -122,7 +122,7 @@ public abstract class QuadrupedXGaitRandomWalkingTest implements QuadrupedMultiR
       }
    }
 
-   @Test(timeout = 860000)
+   @Test // timeout = 860000
    public void testWalkingAtRandomSpeedsWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);
@@ -150,7 +150,7 @@ public abstract class QuadrupedXGaitRandomWalkingTest implements QuadrupedMultiR
       }
    }
 
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testWalkingRandomVelocitiesStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);

@@ -3,7 +3,7 @@ package us.ihmc.robotics.math;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -23,14 +23,14 @@ public class YoSignalDerivativeTest
       yoSignalDerivative = new YoSignalDerivative("test", registry);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void checkConstructor()
    {
       String name = yoSignalDerivative.getName();
       assertEquals("test", name);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void checkSetDifferentiationMode()
    {
       yoSignalDerivative.setDifferentiationMode(DifferentiationMode.ON_SIGNAL_CHANGE);
@@ -42,7 +42,7 @@ public class YoSignalDerivativeTest
       assertEquals(DifferentiationMode.USING_DT, differentiationMode2);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void checkDTMode()
    {
       yoSignalDerivative.initialize(DifferentiationMode.USING_DT, 0.5, 0.0, 0.0);
@@ -62,7 +62,7 @@ public class YoSignalDerivativeTest
       assertEquals(0.0, derivative4, epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void checkSignalChangeModeWithDefaultTolerance()
    {
       yoSignalDerivative.initialize(DifferentiationMode.ON_SIGNAL_CHANGE, 0.0, 0.1, 4.0);
@@ -85,7 +85,7 @@ public class YoSignalDerivativeTest
       assertEquals(3.5, derivative5, epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void checkSignalChangeModeWithUserTolerance()
    {
       yoSignalDerivative.initialize(DifferentiationMode.ON_SIGNAL_CHANGE, 0.1, 0.0, 0.0, 0.0);
@@ -111,7 +111,7 @@ public class YoSignalDerivativeTest
       assertEquals(0.036, derivative6, epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void checkResetToZero()
    {
       yoSignalDerivative.initialize(DifferentiationMode.ON_SIGNAL_CHANGE, 1.0, 0.5, 3.0);

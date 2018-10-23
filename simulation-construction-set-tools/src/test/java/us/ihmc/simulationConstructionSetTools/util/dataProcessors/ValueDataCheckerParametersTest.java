@@ -2,7 +2,7 @@ package us.ihmc.simulationConstructionSetTools.util.dataProcessors;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -11,7 +11,7 @@ public class ValueDataCheckerParametersTest
 {
    private double EPSILON = 1e-10;
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
       public void testGetDefensiveCopy()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();
@@ -30,7 +30,7 @@ public class ValueDataCheckerParametersTest
       assertEquals(valueDataCheckerParametersOriginal.getMinimumValue(), valueDataCheckerParametersCopy.getMinimumValue(), EPSILON);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
       public void testErrorThresholdOnDerivativeComparison()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();
@@ -44,7 +44,7 @@ public class ValueDataCheckerParametersTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
       public void testMaximumDerivative()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();
@@ -58,7 +58,7 @@ public class ValueDataCheckerParametersTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMaximumSecondDerivative()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();
@@ -71,7 +71,7 @@ public class ValueDataCheckerParametersTest
       assertEquals(valueDataCheckerParametersOriginal.getMaximumSecondDerivative(), value, EPSILON);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
       public void testMaximumValue()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();
@@ -85,7 +85,7 @@ public class ValueDataCheckerParametersTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMinimumValue()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();
@@ -98,7 +98,7 @@ public class ValueDataCheckerParametersTest
       assertFalse(valueDataCheckerParametersOriginal.getMinimumValue() == value);
    }
 
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test // timeout = 30000, expected=RuntimeException.class
    public void testSetMinGreaterThanMax()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();
@@ -108,7 +108,7 @@ public class ValueDataCheckerParametersTest
       valueDataCheckerParametersOriginal.setMinimumValue(value + 1.0);
    }
    
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test // timeout = 30000, expected=RuntimeException.class
    public void testSetMaxLessThanMin()
    {
       ValueDataCheckerParameters valueDataCheckerParametersOriginal = new ValueDataCheckerParameters();

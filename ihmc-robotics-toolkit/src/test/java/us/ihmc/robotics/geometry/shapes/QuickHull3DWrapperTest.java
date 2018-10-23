@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -24,7 +24,7 @@ import us.ihmc.robotics.geometry.QuickHull3dWrapper;
 @Tag("fast")
 public class QuickHull3DWrapperTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimplexHull()
    {
       List<Point3D> points = new ArrayList<Point3D>();
@@ -39,7 +39,7 @@ public class QuickHull3DWrapperTest
       assertTrue(quickHull.getNumFaces() == 4);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testExtraPointInSimplex()
    {
       List<Point3D> points = new ArrayList<Point3D>();
@@ -56,7 +56,7 @@ public class QuickHull3DWrapperTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testExtraPointOnSimplex()
    {
       List<Point3D> points = new ArrayList<Point3D>();
@@ -72,7 +72,7 @@ public class QuickHull3DWrapperTest
       assertTrue(quickHull.getNumFaces() == 4);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFivePointHull()
    {
       List<Point3D> points = new ArrayList<Point3D>();
@@ -88,7 +88,7 @@ public class QuickHull3DWrapperTest
       assertTrue(quickHull.getNumFaces() == 6);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testExtraPointApproximatelyOnSimplex()
    {
       double testTolerance = 1e-15;
@@ -113,7 +113,7 @@ public class QuickHull3DWrapperTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCubeHull()
    {
       List<Point3D> points = new ArrayList<Point3D>();
@@ -138,7 +138,7 @@ public class QuickHull3DWrapperTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrapezoidalPrismHull()
    {
       List<Point3D> points = new ArrayList<Point3D>();
@@ -182,7 +182,7 @@ public class QuickHull3DWrapperTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFaceToPolygonTrapezoidalPrismHull()
    {
       List<Point3D> points = new ArrayList<Point3D>();

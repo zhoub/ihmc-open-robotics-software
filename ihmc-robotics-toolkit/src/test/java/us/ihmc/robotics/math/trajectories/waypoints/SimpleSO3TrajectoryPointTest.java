@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -36,7 +36,7 @@ public class SimpleSO3TrajectoryPointTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCommonUsageExample()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -76,7 +76,7 @@ public class SimpleSO3TrajectoryPointTest
       assertTrue(expectedSimpleSO3TrajectoryPoint.epsilonEquals(simpleSO3TrajectoryPoint, 1e-10));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructors()
    {
       double epsilon = 1.0e-14;
@@ -137,7 +137,7 @@ public class SimpleSO3TrajectoryPointTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetters()
    {
       double epsilon = 1.0e-14;
@@ -218,7 +218,7 @@ public class SimpleSO3TrajectoryPointTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrame() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -245,7 +245,7 @@ public class SimpleSO3TrajectoryPointTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToZero() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -278,7 +278,7 @@ public class SimpleSO3TrajectoryPointTest
             expectedAngularVelocity, testedSimpleSO3TrajectoryPoint, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToNaN() throws Exception
    {
       Random random = new Random(21651016L);
@@ -340,7 +340,7 @@ public class SimpleSO3TrajectoryPointTest
       assertTrue(expectedAngularVelocity.epsilonEquals(actualFrameAngularVelocity, epsilon));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeSetsAngGets()
    {
       SimpleSO3TrajectoryPoint simpleSO3TrajectoryPoint = new SimpleSO3TrajectoryPoint();
@@ -426,7 +426,7 @@ public class SimpleSO3TrajectoryPointTest
       assertTrue(simpleSO3TrajectoryPoint.epsilonEquals(simpleSO3TrajectoryPointTwo, 1e-7));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeMoreSettersAndGetters()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

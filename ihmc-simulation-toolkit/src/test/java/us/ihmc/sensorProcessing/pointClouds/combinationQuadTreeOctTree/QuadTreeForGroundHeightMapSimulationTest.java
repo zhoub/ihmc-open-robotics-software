@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -50,7 +50,7 @@ public class QuadTreeForGroundHeightMapSimulationTest
    }
 
 	@Disabled
-	@Test(timeout = 300000)
+	@Test // timeout = 300000
    public void testPointsFromAFile() throws NumberFormatException, IOException
    {
       boolean visualizeAndKeepUp = false;
@@ -109,7 +109,7 @@ public class QuadTreeForGroundHeightMapSimulationTest
          ThreadTools.sleepForever();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testOnSomeSlopes()
    {
       boolean visualizeAndKeepUp = false;
@@ -132,7 +132,7 @@ public class QuadTreeForGroundHeightMapSimulationTest
       if (visualizeAndKeepUp) ThreadTools.sleepForever();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testOnSomeStairCases()
    {
       boolean visualizeAndKeepUp = false;
@@ -159,7 +159,7 @@ public class QuadTreeForGroundHeightMapSimulationTest
       if (visualizeAndKeepUp) ThreadTools.sleepForever();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testUsingStairGroundProfile()
    {
       boolean visualizeAndKeepUp = false;

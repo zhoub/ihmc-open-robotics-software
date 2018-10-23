@@ -1,6 +1,6 @@
 package us.ihmc.atlas.pushRecovery;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
@@ -98,28 +98,28 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
       return 0.8;
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationDiagonalOutwardPushInSwing() throws Exception
    {
       percentWeight = 0.2;
       super.testPushICPOptimizationDiagonalOutwardPushInSwing();
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationDiagonalYawingOutwardPushInSwing() throws Exception
    {
       percentWeight = 0.13;
       super.testPushICPOptimizationDiagonalYawingOutwardPushInSwing();
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationLongBackwardPushInSwing() throws Exception
    {
       percentWeight = 0.15;
       super.testPushICPOptimizationLongBackwardPushInSwing();
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationLongForwardPushInSwing() throws Exception
    {
       percentWeight = 0.07;
@@ -127,27 +127,27 @@ public class AtlasICPOptimizationPushRecoveryBTest extends AvatarICPOptimization
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationNoPush() throws Exception
    {
       super.testPushICPOptimizationNoPush();
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationOutwardPushInSlowSwing() throws Exception
    {
       percentWeight = 0.11;
       super.testPushICPOptimizationOutwardPushInSlowSwing();
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationOutwardPushInSwing() throws Exception
    {
       percentWeight = 0.25;
       super.testPushICPOptimizationOutwardPushInSwing();
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationRandomPushInSwing() throws Exception
    {
       percentWeight = 0.18;

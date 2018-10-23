@@ -2,7 +2,7 @@ package us.ihmc.footstepPlanning.roughTerrainPlanning;
 
 import org.junit.After;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -32,7 +32,7 @@ public class AStarOnRoughTerrainTest extends FootstepPlannerOnRoughTerrainTest
    }
 
    @Override
-   @Test(timeout = 1000000)
+   @Test // timeout = 1000000
    public void testDownCorridor()
    {
       setCheckForBodyBoxCollision(true);
@@ -41,7 +41,7 @@ public class AStarOnRoughTerrainTest extends FootstepPlannerOnRoughTerrainTest
 
    @Override
    @Disabled
-   @Test(timeout = 51000)
+   @Test // timeout = 51000
    public void testPartialGaps()
    {
       super.testPartialGaps();
@@ -49,7 +49,7 @@ public class AStarOnRoughTerrainTest extends FootstepPlannerOnRoughTerrainTest
 
    @Override
    @Disabled
-   @Test(timeout = 51000)
+   @Test // timeout = 51000
    public void testSpiralStaircase()
    {
       super.testSpiralStaircase();

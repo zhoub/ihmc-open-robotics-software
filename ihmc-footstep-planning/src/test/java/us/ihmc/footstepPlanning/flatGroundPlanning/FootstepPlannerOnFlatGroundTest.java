@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.flatGroundPlanning;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePose2D;
@@ -28,7 +28,7 @@ public abstract class FootstepPlannerOnFlatGroundTest implements PlanningTest
 
    public abstract boolean assertPlannerReturnedResult();
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testJustStraightLine()
    {
       runJustStraightLine(assertPlannerReturnedResult());
@@ -66,7 +66,7 @@ public abstract class FootstepPlannerOnFlatGroundTest implements PlanningTest
       if (assertPlannerReturnedResult) assertTrue(PlannerTools.isGoalNextToLastStep(goalPose3d, footstepPlan));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testATightTurn()
    {
       boolean assertPlannerReturnedResult = assertPlannerReturnedResult();
@@ -95,7 +95,7 @@ public abstract class FootstepPlannerOnFlatGroundTest implements PlanningTest
          PlanningTestTools.visualizeAndSleep(null, footstepPlan, goalPose3d);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStraightLineWithInitialTurn()
    {
       boolean assertPlannerReturnedResult = assertPlannerReturnedResult();
@@ -149,7 +149,7 @@ public abstract class FootstepPlannerOnFlatGroundTest implements PlanningTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomPoses()
    {
       boolean assertPlannerReturnedResult = assertPlannerReturnedResult();

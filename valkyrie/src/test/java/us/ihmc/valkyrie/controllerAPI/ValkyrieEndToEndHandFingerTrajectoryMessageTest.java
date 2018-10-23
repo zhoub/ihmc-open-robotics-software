@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.OneDoFJointTrajectoryMessage;
 import controller_msgs.msg.dds.TrajectoryPoint1DMessage;
@@ -44,21 +44,21 @@ public class ValkyrieEndToEndHandFingerTrajectoryMessageTest extends EndToEndHan
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testCloseAndStopAndOpen() throws SimulationExceededMaximumTimeException
    {
       super.testCloseAndStopAndOpen();
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testCloseAndOpenFingers() throws SimulationExceededMaximumTimeException
    {
       super.testCloseAndOpenFingers();
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testClose() throws SimulationExceededMaximumTimeException
    {
       super.testClose();

@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -29,49 +29,49 @@ public class AtlasEndToEndArmTrajectoryMessageTest extends EndToEndArmTrajectory
    }
 
    @Override
-   @Test(timeout = 83000)
+   @Test // timeout = 83000
    public void testMessageWithTooManyTrajectoryPoints() throws Exception
    {
       super.testMessageWithTooManyTrajectoryPoints();
    }
 
    @Override
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testMultipleTrajectoryPoints() throws Exception
    {
       super.testMultipleTrajectoryPoints();
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testQueuedMessages() throws Exception
    {
       super.testQueuedMessages();
    }
 
    @Override
-   @Test(timeout = 95000)
+   @Test // timeout = 95000
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
       super.testQueueStoppedWithOverrideMessage();
    }
 
    @Override
-   @Test(timeout = 85000)
+   @Test // timeout = 85000
    public void testQueueWithWrongPreviousId() throws Exception
    {
       super.testQueueWithWrongPreviousId();
    }
 
    @Override
-   @Test(timeout = 140000)
+   @Test // timeout = 140000
    public void testSingleTrajectoryPoint() throws Exception
    {
       super.testSingleTrajectoryPoint();
    }
 
    @Override
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testStopAllTrajectory() throws Exception
    {
       super.testStopAllTrajectory();

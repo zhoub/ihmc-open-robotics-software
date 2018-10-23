@@ -11,7 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCBehaviorTestHelper;
@@ -171,7 +171,7 @@ public abstract class AvatarWalkingPathGeneratorTest implements MultiRobotTestIn
 
    }
 
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testOne() throws BlockingSimulationRunner.SimulationExceededMaximumTimeException
    {
       // ******************************** //

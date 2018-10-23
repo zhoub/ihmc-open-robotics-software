@@ -2,7 +2,7 @@ package us.ihmc.tools.inputDevices.mouse3DJoystick;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ public class Mouse3DListenerHolderTest
    int count1 = 0;
    int count2 = 0;
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testListenersGetNotified()
    {
       Mouse3DListenerHolder holder = new Mouse3DListenerHolder();

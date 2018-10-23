@@ -1,6 +1,6 @@
 package us.ihmc.atlas.communication.producers;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -21,14 +21,14 @@ public class AtlasRobotConfigurationDataBufferTest extends RobotConfigurationDat
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAddingStuff()
    {
       super.testAddingStuff();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWaitForTimestamp()
    {
       super.testWaitForTimestamp();

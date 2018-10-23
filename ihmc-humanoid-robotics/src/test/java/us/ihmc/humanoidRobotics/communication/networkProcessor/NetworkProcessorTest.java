@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.communication.PacketRouter;
 import us.ihmc.communication.packetCommunicator.ConcurrentPacketQueue;
@@ -123,7 +123,7 @@ public class NetworkProcessorTest
       
    }
 
-   @Test (timeout = 30000)
+   @Test // timeout = 30000
    public void testSendPackets() throws IOException
    {
       connectCommunicators();
@@ -169,7 +169,7 @@ public class NetworkProcessorTest
       disconnectCommunicators();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDetatchObjectCommunicator() throws IOException
    {
       connectCommunicators();
@@ -207,7 +207,7 @@ public class NetworkProcessorTest
       disconnectCommunicators();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForwarder() throws IOException
    {
       connectCommunicators();
@@ -232,7 +232,7 @@ public class NetworkProcessorTest
       disconnectCommunicators();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDoubleForwarder() throws IOException
    {
       connectCommunicators();
@@ -250,7 +250,7 @@ public class NetworkProcessorTest
       assertTrue(threwException);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDisconnectDoesNotFail() throws IOException
    {
       connectCommunicators();

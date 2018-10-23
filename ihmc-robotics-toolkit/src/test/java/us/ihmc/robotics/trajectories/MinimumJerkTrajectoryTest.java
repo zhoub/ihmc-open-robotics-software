@@ -2,7 +2,7 @@ package us.ihmc.robotics.trajectories;
 
 import static junit.framework.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -18,7 +18,7 @@ public class MinimumJerkTrajectoryTest
       return min + Math.random() * (max - min);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRandomInitialFinalConditions()
    {
       MinimumJerkTrajectory minimumJerkTrajectory = new MinimumJerkTrajectory();
@@ -54,7 +54,7 @@ public class MinimumJerkTrajectoryTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCheckVelocityAndAcceleration()
    {
       double x0 = 0.0;

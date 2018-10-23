@@ -8,7 +8,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.ejml.ops.RandomMatrices;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Disabled;
 public class ActiveSearchQuadraticProgramOptimizerTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testUnconstrained()
    {
       Random random = new Random(12355L);
@@ -41,7 +41,7 @@ public class ActiveSearchQuadraticProgramOptimizerTest
       assertTrue(MatrixFeatures.isConstantVal(axMinusB, 0.0, 1e-12));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstrainedSimple()
    {
       int objectiveSize = 3;
@@ -81,7 +81,7 @@ public class ActiveSearchQuadraticProgramOptimizerTest
 	 * Not working, but probably not critical right now. Get this to work some day TODO
 	 */
 	@Disabled
-	@Test(timeout = 525)
+	@Test // timeout = 525
    public void testFullyConstrained()
    {	   
       int objectiveSize = 3;

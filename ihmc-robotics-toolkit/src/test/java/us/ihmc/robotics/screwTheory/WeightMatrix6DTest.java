@@ -12,7 +12,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.MatrixFeatures;
 import org.ejml.ops.RandomMatrices;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -37,7 +37,7 @@ public class WeightMatrix6DTest
 
    private static final int ITERATIONS = 500;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGettersSetters()
    {
       Random random = new Random(123423L);
@@ -170,7 +170,7 @@ public class WeightMatrix6DTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetFullSelectionMatrixInFrame() throws Exception
    {
       Random random = new Random(456465L);
@@ -265,7 +265,7 @@ public class WeightMatrix6DTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetEfficientSelectionMatrixInFrame() throws Exception
    {
       Random random = new Random(456465L);

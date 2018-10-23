@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 
 public class CollisionSphereTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInsideSpherePoints()
    {
       Random random = new Random(98124L);
@@ -33,7 +33,7 @@ public class CollisionSphereTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOutsideSpherePoints()
    {
       Random random = new Random(1098551L);

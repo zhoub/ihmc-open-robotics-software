@@ -1,6 +1,6 @@
 package us.ihmc.commonWalkingControlModules.dynamicReachability;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
@@ -14,7 +14,7 @@ public class SphereIntersectionToolsTest
    private static final double epsilon = 0.000001;
    private static final int iters = 1000;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFlatCenterComputation()
    {
       Random random = new Random();
@@ -37,7 +37,7 @@ public class SphereIntersectionToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputation()
    {
       Random random = new Random();
@@ -91,7 +91,7 @@ public class SphereIntersectionToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRadiusOfIntersection()
    {
       Random random = new Random();

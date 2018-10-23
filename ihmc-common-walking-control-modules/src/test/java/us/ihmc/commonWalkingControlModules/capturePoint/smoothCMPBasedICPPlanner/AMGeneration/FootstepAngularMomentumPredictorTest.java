@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
@@ -244,7 +244,7 @@ public class FootstepAngularMomentumPredictorTest
       clear();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAngularMomentumInitialTransfer()
    {
       setupInputs();
@@ -327,7 +327,7 @@ public class FootstepAngularMomentumPredictorTest
       return comListCounter + 1;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAngularMomentumNormalTransfer()
    {
       setupInputs();
@@ -477,7 +477,7 @@ public class FootstepAngularMomentumPredictorTest
       return comListCounter;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAngularMomentumSwing()
    {
       setupInputs();

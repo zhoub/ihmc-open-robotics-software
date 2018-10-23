@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.CapturabilityBasedStatus;
 import controller_msgs.msg.dds.KinematicsToolboxCenterOfMassMessage;
@@ -184,7 +184,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testHoldBodyPose() throws Exception
    {
       FullHumanoidRobotModel initialFullRobotModel = createFullRobotModelAtInitialConfiguration();
@@ -208,7 +208,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
                  toolboxController.getSolution().getSolutionQuality() < 1.0e-4);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomHandPositions() throws Exception
    {
       if (VERBOSE)
@@ -258,7 +258,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomHandPoses() throws Exception
    {
       if (VERBOSE)
@@ -318,7 +318,7 @@ public abstract class AvatarHumanoidKinematicsToolboxControllerTest implements M
       assertTrue("Poor average solution quality: " + averageSolutionQuality, averageSolutionQuality < 5.0e-5);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSingleSupport() throws Exception
    {
       if (VERBOSE)

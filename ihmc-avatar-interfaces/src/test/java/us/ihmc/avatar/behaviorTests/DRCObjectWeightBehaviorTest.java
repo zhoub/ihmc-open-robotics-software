@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCBehaviorTestHelper;
@@ -59,7 +59,7 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 110000)
+   @Test // timeout = 110000
    public void testConstructorAndSetInput()
    {
       ObjectWeightBehavior behavior = new ObjectWeightBehavior(drcBehaviorTestHelper.getRobotName(), drcBehaviorTestHelper.getRos2Node());
@@ -68,7 +68,7 @@ public abstract class DRCObjectWeightBehaviorTest implements MultiRobotTestInter
    }
 
    @Disabled("Needs to be reimplemented")
-   @Test(timeout = 98000)
+   @Test // timeout = 98000
    public void testSettingWeight() throws SimulationExceededMaximumTimeException
    {
       boolean success = drcBehaviorTestHelper.simulateAndBlockAndCatchExceptions(1.0);

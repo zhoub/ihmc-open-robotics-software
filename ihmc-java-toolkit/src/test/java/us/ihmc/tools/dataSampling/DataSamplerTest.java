@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -34,7 +34,7 @@ public class DataSamplerTest
       dataSampler = new DataSampler<Double>();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInitialization()
    {
       dataSampler.initialize(variableNames, initialTime, timeInterval, numberOfSamples);
@@ -48,7 +48,7 @@ public class DataSamplerTest
       assertNotNull(array2);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSampling()
    {
       dataSampler.initialize(variableNames, initialTime, timeInterval, numberOfSamples);

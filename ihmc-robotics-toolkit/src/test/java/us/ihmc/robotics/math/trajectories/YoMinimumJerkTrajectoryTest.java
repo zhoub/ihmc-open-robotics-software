@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Random;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class YoMinimumJerkTrajectoryTest
 {
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRandomInitialFinalConditions()
    {
       YoVariableRegistry registry = new YoVariableRegistry("test");
@@ -59,7 +59,7 @@ public class YoMinimumJerkTrajectoryTest
       return min + Math.random() * (max - min);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTimeExtensionRuntime()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestMinimumJerkTrajectory");
@@ -85,7 +85,7 @@ public class YoMinimumJerkTrajectoryTest
       System.out.println("TestMinimumJerkTrajectory.testTimeExtensionRuntime: Execution Time = " + (runtime) + "ms per 6 calls");
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFindMaxVals()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestMinimumJerkTrajectory");
@@ -112,7 +112,7 @@ public class YoMinimumJerkTrajectoryTest
 
 	// FIXME That test is stuck in an infinite loop of some sort.
    @Disabled
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testTimeExtension()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestMinimumJerkTrajectory");
@@ -130,7 +130,7 @@ public class YoMinimumJerkTrajectoryTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testZeroLength()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestMinimumJerkTrajectory");
@@ -161,7 +161,7 @@ public class YoMinimumJerkTrajectoryTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBadInitialParams()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestMinimumJerkTrajectory");

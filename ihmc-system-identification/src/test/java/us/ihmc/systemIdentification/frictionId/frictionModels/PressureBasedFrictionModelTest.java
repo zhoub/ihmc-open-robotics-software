@@ -2,7 +2,7 @@ package us.ihmc.systemIdentification.frictionId.frictionModels;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -22,7 +22,7 @@ public class PressureBasedFrictionModelTest
    private double posPressure = 123;
    private double negPressure = 105;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructorAndFormula()
    {
       PressureBasedFrictionModel model = new PressureBasedFrictionModel(x1, x2, x3, x4, x5);

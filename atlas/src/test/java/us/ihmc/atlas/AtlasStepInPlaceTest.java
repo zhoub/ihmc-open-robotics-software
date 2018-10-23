@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
 import us.ihmc.atlas.parameters.AtlasWalkingControllerParameters;
 import us.ihmc.avatar.AvatarStepInPlaceTest;
@@ -47,13 +47,13 @@ public class AtlasStepInPlaceTest extends AvatarStepInPlaceTest
 
 
    @Override
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testStepInPlace() throws SimulationExceededMaximumTimeException
    {
       super.testStepInPlace();
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testStepInPlaceWithPush() throws SimulationExceededMaximumTimeException
    {
       super.testStepInPlaceWithPush();

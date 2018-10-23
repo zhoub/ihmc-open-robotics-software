@@ -4,7 +4,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.factory.LinearSolverFactory;
 import org.ejml.interfaces.linsol.LinearSolver;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -16,7 +16,7 @@ public abstract class DampedNullspaceCalculatorTest extends NullspaceCalculatorT
 {
    public abstract DampedNullspaceCalculator getDampedNullspaceProjectorCalculator();
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleNullspaceProjectorWithDamping()
    {
       DampedNullspaceCalculator nullspaceCalculator = getDampedNullspaceProjectorCalculator();
@@ -185,7 +185,7 @@ public abstract class DampedNullspaceCalculatorTest extends NullspaceCalculatorT
          assertEquals(nullspaceProjectorExpected.get(i), nullspaceProjector.get(i), 1e-5);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleProjectOntoNullspaceWithDamping()
    {
       DampedNullspaceCalculator nullspaceCalculator = getDampedNullspaceProjectorCalculator();
@@ -246,7 +246,7 @@ public abstract class DampedNullspaceCalculatorTest extends NullspaceCalculatorT
       assertEquals(-2.93631, projectedVector.get(1, 3), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomProblemsAgainstTrueDampedLeastSquaresProjection()
    {
       Random random = new Random(12345L);

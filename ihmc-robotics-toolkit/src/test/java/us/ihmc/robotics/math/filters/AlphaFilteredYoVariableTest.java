@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ public class AlphaFilteredYoVariableTest
 {
    private final Random rng = new Random();
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testNoisyFixedPosition()
    {
       // Use a reasonably large alpha for a reasonably large amount of noise
@@ -42,7 +42,7 @@ public class AlphaFilteredYoVariableTest
       assertEquals(10, alphaFilteredYoVariable.getDoubleValue(), 1);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testAlphaAndBreakFrequencyComputations()
    {
       for (int i = 0; i < 1000; i++)

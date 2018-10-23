@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.mutable.MutableInt;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.warmup.HumanoidControllerWarumupTools;
 import us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.highLevelStates.walkingController.states.WalkingStateEnum;
@@ -17,7 +17,7 @@ import us.ihmc.yoVariables.variable.YoEnum;
 
 public class AtlasControllerWarmupTest
 {
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    @SuppressWarnings("unchecked")
    public void testWarmup()
    {

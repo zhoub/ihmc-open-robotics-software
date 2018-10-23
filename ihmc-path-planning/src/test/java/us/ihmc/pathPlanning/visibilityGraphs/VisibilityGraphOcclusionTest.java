@@ -1,7 +1,7 @@
 package us.ihmc.pathPlanning.visibilityGraphs;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -34,13 +34,13 @@ public class VisibilityGraphOcclusionTest
       occludedEnvironmentWithoutAGoalPlane = simpleOccludedEnvironment(false);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVisibilityGraphWithOcclusion()
    {
       runTest(occludedEnvironmentWithAGoalPlane);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVisibilityGraphWithOcclusionAndNoGoalPlane()
    {
       runTest(occludedEnvironmentWithoutAGoalPlane);

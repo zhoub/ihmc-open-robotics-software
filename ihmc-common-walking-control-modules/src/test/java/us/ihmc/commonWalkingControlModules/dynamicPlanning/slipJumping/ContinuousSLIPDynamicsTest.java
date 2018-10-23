@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -17,7 +17,7 @@ import static us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SL
 
 public class ContinuousSLIPDynamicsTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamics()
    {
       double mass = 10.0;
@@ -89,7 +89,7 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(functionExpected, function, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsStateGradient()
    {
       double mass = 11.0;
@@ -189,7 +189,7 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsStateGradientNumericalDifferentiationStance()
    {
       double mass = 11.0;
@@ -266,7 +266,7 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsStateGradientNumericalDifferentiationFlight()
    {
       double mass = 11.0;
@@ -343,7 +343,7 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsControlGradient()
    {
       double mass = 11.0;
@@ -436,7 +436,7 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsControlGradientNumericalDifferentiationStance()
    {
       double mass = 11.0;
@@ -542,7 +542,7 @@ public class ContinuousSLIPDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsControlGradientNumericalDifferentiationFlight()
    {
       double mass = 11.0;

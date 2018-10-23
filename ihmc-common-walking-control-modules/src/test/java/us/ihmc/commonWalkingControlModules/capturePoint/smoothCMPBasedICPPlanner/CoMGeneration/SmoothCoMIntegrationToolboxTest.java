@@ -9,7 +9,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.DenseMatrixVector3D;
 import us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.ICPGeneration.SmoothCapturePointToolbox;
@@ -50,7 +50,7 @@ public class SmoothCoMIntegrationToolboxTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMatricesCoMPrime3DLinear()
    {
       // Linear polynomial: y(x) = a0 + a1*x
@@ -120,7 +120,7 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDMatricesCoMPrime3DLinear()
    {
       // Linear polynomial: y(x) = a0 + a1*x
@@ -193,7 +193,7 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCalculateCoMPositionAndVelocityOnSegment3DLinear()
    {
       // Linear polynomial: y(x) = a0 + a1*x
@@ -279,7 +279,7 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCalculateCoMQuantity3DWithDenseMatrixVector3D() throws Exception
    {
       Random random = new Random(2432);
@@ -341,7 +341,7 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCalculateGeneralizedAlphaBetaCoMPrimeOnCMPSegment3D() throws Exception
    {
       Random random = new Random(545645);
@@ -461,7 +461,7 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeDesiredCenterOfMassPositionVelocityAcceleration() throws Exception
    {
       Random random = new Random(453453);
@@ -498,7 +498,7 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPower() throws Exception
    {
       Random random = new Random(34549037);
@@ -514,7 +514,7 @@ public class SmoothCoMIntegrationToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBugWithDataset()
    {
       double omega0 = 3.0;

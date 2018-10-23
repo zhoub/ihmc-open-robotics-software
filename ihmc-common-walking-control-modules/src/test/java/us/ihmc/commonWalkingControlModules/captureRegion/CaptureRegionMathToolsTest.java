@@ -3,7 +3,7 @@ package us.ihmc.commonWalkingControlModules.captureRegion;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -26,7 +26,7 @@ public class CaptureRegionMathToolsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetPointBetweenVectorsAtDistanceFromOriginCircular() throws Exception
    {
       Random random = new Random(33252L);

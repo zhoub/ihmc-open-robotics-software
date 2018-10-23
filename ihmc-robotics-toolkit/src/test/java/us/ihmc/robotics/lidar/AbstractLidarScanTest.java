@@ -2,7 +2,7 @@ package us.ihmc.robotics.lidar;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -17,7 +17,7 @@ public class AbstractLidarScanTest
    Random rand = new Random(1098L);
    private static final double eps = 1e-7;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testIdentityScan()
    {
       int numPoints = 100;
@@ -37,7 +37,7 @@ public class AbstractLidarScanTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleScanRotating()
    {
       int numPoints = 100;
@@ -65,7 +65,7 @@ public class AbstractLidarScanTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInterpolationWhileRotating()
    {
       int numPoints = 100;
@@ -108,13 +108,13 @@ public class AbstractLidarScanTest
 
 	
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testLineSegment()
    {
       // TODO Write test case
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRay()
    {
       // TODO Write test case

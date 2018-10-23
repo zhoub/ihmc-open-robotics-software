@@ -2,13 +2,13 @@ package us.ihmc.tools.string;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class StringToolsTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testString()
    {
       String string = "YoLowLevelOneDoFJointDesiredDataHolder";

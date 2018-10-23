@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import optiTrack.MocapMarker;
 import optiTrack.MocapRigidBody;
@@ -50,7 +50,7 @@ public class MocapToPelvisFrameConverterTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 10000)
+   @Test // timeout = 10000
    public void testForFrameConversionNoPelvisMotion()
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -69,7 +69,7 @@ public class MocapToPelvisFrameConverterTest
       assertTrue(computedPelvisToWorldTransform.epsilonEquals(actualPelvisToWorldTransform, 1e-5));
    }
 
-   @Test(timeout = 10000)
+   @Test // timeout = 10000
    public void testFrameConversionForRandomPelvisMotion()
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

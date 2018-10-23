@@ -14,7 +14,7 @@ import org.ejml.ops.NormOps;
 import org.ejml.ops.RandomMatrices;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -69,7 +69,7 @@ public class WrenchTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testChangeExpressedInWhatReferenceFrame()
    {
       // create random twists and random wrenches, transform both to other frames,
@@ -98,7 +98,7 @@ public class WrenchTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testDefaultConstructor()
    {
       Wrench wrench = new Wrench();
@@ -108,7 +108,7 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(), wrench.getLinearPart(), 0.0);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructUsingMatrix()
    {
       Random random = new Random(167L);
@@ -126,7 +126,7 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(force, wrench.getLinearPartCopy(), 0.0);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testConstructUsingMatrixTooSmall()
    {
       Random random = new Random(12342L);
@@ -134,7 +134,7 @@ public class WrenchTest
       new Wrench(frameA, frameB, matrix);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testConstructUsingMatrixTooBig()
    {
       Random random = new Random(12342L);
@@ -142,7 +142,7 @@ public class WrenchTest
       new Wrench(frameA, frameB, matrix);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructUsingDoubleArray()
    {
       Random random = new Random(1234L);
@@ -166,19 +166,19 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(linearArray), wrench.getLinearPartCopy(), epsilon);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testConstructUsingDoubleArrayTooSmall()
    {
       new Wrench(frameA, frameB, new double[Wrench.SIZE + 1]);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testConstructUsingDoubleArrayTooBig()
    {
       new Wrench(frameA, frameB, new double[Wrench.SIZE - 1]);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testAddNotAllowed()
    {
       Wrench wrench1 = null, wrench2 = null;
@@ -195,7 +195,7 @@ public class WrenchTest
       wrench1.add(wrench2);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testAddNotAllowed2()
    {
       Wrench wrench1 = null, wrench2 = null;
@@ -212,7 +212,7 @@ public class WrenchTest
       wrench1.add(wrench2);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testAdd()
    {
       Random random = new Random(187L);
@@ -231,7 +231,7 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(wrench3.getAngularPartCopy(), angularPart, 1e-24);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testSubNotAllowed()
    {
       Wrench wrench1 = null, wrench2 = null;
@@ -248,7 +248,7 @@ public class WrenchTest
       wrench1.sub(wrench2);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testSubNotAllowed2()
    {
       Wrench wrench1 = null, wrench2 = null;
@@ -265,7 +265,7 @@ public class WrenchTest
       wrench1.sub(wrench2);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSub()
    {
       Random random = new Random(187L);
@@ -284,7 +284,7 @@ public class WrenchTest
       EuclidCoreTestTools.assertTuple3DEquals(wrench3.getAngularPartCopy(), angularPart, 1e-24);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testCheckAndSetNotAllowed1()
    {
       Wrench wrench1 = null, wrench2 = null;
@@ -301,7 +301,7 @@ public class WrenchTest
       wrench2.checkAndSet(wrench1);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testCheckAndSetNotAllowed2()
    {
       Wrench wrench1 = null, wrench2 = null;
@@ -318,19 +318,19 @@ public class WrenchTest
       wrench2.checkAndSet(wrench1);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testDotProduct()
    {
       testDotProduct(frameA, frameB, frameC);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testDotProductNotAllowed1()
    {
       testDotProductNotAllowed1(frameA, frameB, frameC);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testDotProductNotAllowed2()
    {
       testDotProductNotAllowed2(frameA, frameB, frameC);
@@ -384,7 +384,7 @@ public class WrenchTest
       wrench.dot(twist);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSetToZero()
    {
       Random random = new Random(71243L);

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -13,7 +13,7 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 @Tag("fast")
 public class PDControllerTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputerForAngles()
    {
       PDController pdController = new PDController("suffix", new YoVariableRegistry("testRegistry"));
@@ -46,7 +46,7 @@ public class PDControllerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAngleBoundaries()
    {
       PDController pdController = new PDController("suffix", new YoVariableRegistry("testRegistry"));

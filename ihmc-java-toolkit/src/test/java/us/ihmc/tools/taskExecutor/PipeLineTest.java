@@ -3,7 +3,7 @@ package us.ihmc.tools.taskExecutor;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Disabled;
 public class PipeLineTest
 {
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testEmptyPipeline()
    {
       PipeLine<ParallelTaskKey> pipeLine = new PipeLine<ParallelTaskKey>();
@@ -21,7 +21,7 @@ public class PipeLineTest
       assertTrue(pipeLine.isDone());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPipelineWithOneSingleTaskStage()
    {
       PipeLine<ParallelTaskKey> pipeLine = new PipeLine<ParallelTaskKey>();
@@ -41,7 +41,7 @@ public class PipeLineTest
       assertTrue(pipeLine.isDone());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPipelineWithTwoSingleTaskStages()
    {
       PipeLine<ParallelTaskKey> pipeLine = new PipeLine<ParallelTaskKey>();
@@ -82,7 +82,7 @@ public class PipeLineTest
       assertTrue(pipeLine.isDone());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPipelineOneStageTwoPipesThenOneSingleTaskStage()
    {
       PipeLine<ParallelTaskKey> pipeLine = new PipeLine<ParallelTaskKey>();
@@ -139,7 +139,7 @@ public class PipeLineTest
       assertTrue(pipeLine.isDone());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTwoParallelPipes()
    {
       PipeLine<ParallelTaskKey> pipeLine = new PipeLine<ParallelTaskKey>();
@@ -193,7 +193,7 @@ public class PipeLineTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testThreePipesWithParallelAndSeriesTasks()
    {
       PipeLine<ParallelTaskKey> pipeLine = new PipeLine<ParallelTaskKey>();

@@ -1,6 +1,6 @@
 package us.ihmc.atlas.networkProcessor.depthData;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -18,7 +18,7 @@ public class AtlasPointCloudDataReceiverTest extends HumanoidPointCloudDataRecei
    private final DRCRobotModel robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false);
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsReceivingScansAnd95PercentOfPointsAreCorrect() throws SimulationExceededMaximumTimeException
    {
       super.testIsReceivingScansAnd95PercentOfPointsAreCorrect();

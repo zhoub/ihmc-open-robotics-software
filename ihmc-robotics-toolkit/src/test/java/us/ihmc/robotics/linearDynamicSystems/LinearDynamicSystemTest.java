@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import org.junit.jupiter.api.Tag;
@@ -45,7 +45,7 @@ public class LinearDynamicSystemTest
       massSpringDamperSystem = null;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testException()
    {
       boolean thrown = false;
@@ -170,7 +170,7 @@ public class LinearDynamicSystemTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMCSExampleOne()
    {
 
@@ -273,7 +273,7 @@ public class LinearDynamicSystemTest
       // assertTrue(passed);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMCSExampleTwo()
    {
 
@@ -366,7 +366,7 @@ public class LinearDynamicSystemTest
       //      }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimulateInitialConditions()
    {
 
@@ -408,7 +408,7 @@ public class LinearDynamicSystemTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetTransferFunctionMatrix()
    {
       TransferFunctionMatrix transferFunctions = simpleDecaySystem.getTransferFunctionMatrix();
@@ -422,19 +422,19 @@ public class LinearDynamicSystemTest
       assertTrue(transferFunction.epsilonEquals(expectedTransferFunction, 1e-7));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleDecaySystem()
    {
       verifyLinearDynamicSystem(simpleDecaySystem, simpleDecayMatrixA);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMassSpringDamperSystem()
    {
       verifyLinearDynamicSystem(massSpringDamperSystem, massSpringDamperMatrixA);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomLinearDynamicSystems()
    {
 
@@ -493,7 +493,7 @@ public class LinearDynamicSystemTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStateFeedbackMethods()
    {
       double[][] elementsA = new double[][] { { -10.0 } };

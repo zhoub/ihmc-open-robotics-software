@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -31,7 +31,7 @@ public class CenterOfMassAccelerationCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testOneRigidBody()
    {
       Random random = new Random(1779L);
@@ -66,7 +66,7 @@ public class CenterOfMassAccelerationCalculatorTest
       EuclidCoreTestTools.assertTuple3DEquals(expected, comAcceleration, 1e-5);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTwoSliderJointsZeroAcceleration()
    {
       Random random = new Random(1779L);
@@ -104,7 +104,7 @@ public class CenterOfMassAccelerationCalculatorTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(), comAcceleration, 1e-5);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPendulumCentripetalAcceleration()
    {
       Random random = new Random(1779L);
@@ -139,7 +139,7 @@ public class CenterOfMassAccelerationCalculatorTest
 
    // Just tests whether it will crash or not for now
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTree()
    {
       Random random = new Random(1779L);

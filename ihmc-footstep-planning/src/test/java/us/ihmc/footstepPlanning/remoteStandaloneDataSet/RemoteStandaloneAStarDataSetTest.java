@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.remoteStandaloneDataSet;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
@@ -17,7 +17,7 @@ public class RemoteStandaloneAStarDataSetTest extends RemoteStandalonePlannerDat
 
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    public void testDatasetsWithoutOcclusion()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -26,7 +26,7 @@ public class RemoteStandaloneAStarDataSetTest extends RemoteStandalonePlannerDat
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    @Tag("in-development")
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
@@ -35,7 +35,7 @@ public class RemoteStandaloneAStarDataSetTest extends RemoteStandalonePlannerDat
       runAssertionsOnAllDatasetsWithoutOcclusionsInDevelopment(dataset -> runAssertions(dataset));
    }
 
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    @Tag("in-development")
    public void testDatasetsWithoutOcclusionRTPS()
    {

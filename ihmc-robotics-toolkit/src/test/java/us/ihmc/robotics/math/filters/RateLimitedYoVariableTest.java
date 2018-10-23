@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -48,7 +48,7 @@ public class RateLimitedYoVariableTest
       rateLimitedYoVariable4 = new RateLimitedYoVariable("rateLimitedYoVariable4", registry, maxRate4, position4, dt4);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdate()
    {
       try
@@ -62,7 +62,7 @@ public class RateLimitedYoVariableTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdateWithNullPointerException()
    {
       try
@@ -78,7 +78,7 @@ public class RateLimitedYoVariableTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdateWithCurrentPositionParameter()
    {
       for (double angle = 0.0; angle < 3 * 6.28; angle += 1.0)
@@ -110,7 +110,7 @@ public class RateLimitedYoVariableTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdateWithCurrentPositionParameterExceedingMaxRate()
    {
       for (double angle = 0.0; angle < 3 * 6.28; angle += 1.0)
@@ -170,7 +170,7 @@ public class RateLimitedYoVariableTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdateWithMaxRateBeingNegative()
    {
       try

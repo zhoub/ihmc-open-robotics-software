@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -73,7 +73,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       return 0.15;
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    /**
     * End to end test that makes sure the robot can recover from a push using upper body momentum
     *
@@ -88,7 +88,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       assertTrue(standAndPush());
    }
 
-   @Test(timeout = 110000)
+   @Test // timeout = 110000
    /**
     * End to end test that makes sure the robot falls during test if momentum is disabled
     *
@@ -103,7 +103,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       assertFalse(standAndPush());
    }
 
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    /**
     * End to end test that makes sure the robot can recover from a push using upper body momentum
     *
@@ -118,7 +118,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       assertTrue(stepAndPush());
    }
 
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    /**
     * End to end test that makes sure the robot falls during test if momentum is disabled
     *
@@ -133,7 +133,7 @@ public abstract class HumanoidMomentumRecoveryTest implements MultiRobotTestInte
       assertFalse(stepAndPush());
    }
 
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    /**
     * End to end test that makes sure the momentum recovery does not get triggered during
     * some normal steps

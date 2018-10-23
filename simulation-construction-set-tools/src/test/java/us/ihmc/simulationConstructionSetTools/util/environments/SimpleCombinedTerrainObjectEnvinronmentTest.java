@@ -2,7 +2,7 @@ package us.ihmc.simulationConstructionSetTools.util.environments;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -22,7 +22,7 @@ public class SimpleCombinedTerrainObjectEnvinronmentTest
 {
    private static boolean SHOW_GUI = false;
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSimpleCombinedTerrainObjectEnvironment()
    {
       SimpleCombinedTerrainObjectsEnvironment combinedEnvironment = new SimpleCombinedTerrainObjectsEnvironment();

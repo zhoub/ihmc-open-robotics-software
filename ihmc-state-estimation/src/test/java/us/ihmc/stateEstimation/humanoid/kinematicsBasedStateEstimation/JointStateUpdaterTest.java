@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -35,7 +35,7 @@ public class JointStateUpdaterTest
    private static final Random random = new Random(1776L);
    private static final double EPS = 1e-10;
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructorNormalCase()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");
@@ -61,7 +61,7 @@ public class JointStateUpdaterTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testInitializingAndReading()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");

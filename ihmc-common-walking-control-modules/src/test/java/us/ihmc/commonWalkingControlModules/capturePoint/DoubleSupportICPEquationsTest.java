@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Disabled;
 @Tag("fast")
 public class DoubleSupportICPEquationsTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSingleSupportICPDerivatives()
    {
       Random random = new Random(8723L);
@@ -35,7 +35,7 @@ public class DoubleSupportICPEquationsTest
       assertEquals(icpDot - w * icp, -w * zmp, 1e-14);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCoefficientCalculations()
    {
       Random random = new Random(8723L);
@@ -60,7 +60,7 @@ public class DoubleSupportICPEquationsTest
       assertEquals(icpDot - w * icp, -w * zmp, 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testZMPICPDerivatives()
    {
       Random random = new Random(8723L);
@@ -89,7 +89,7 @@ public class DoubleSupportICPEquationsTest
       assertEquals(icpDot - w * icp, -w * zmp, 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSingleCoefficientDetermination()
    {
       Random random = new Random(4575L);
@@ -115,7 +115,7 @@ public class DoubleSupportICPEquationsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testICPSumFormula()
    {
       Random random = new Random(4575L);
@@ -143,7 +143,7 @@ public class DoubleSupportICPEquationsTest
       assertEquals(icpSum, matrixCalculation, 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testICPICalculation()
    {
       Random random = new Random(8723L);

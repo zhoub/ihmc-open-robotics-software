@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -16,42 +16,42 @@ public class AtlasEndToEndFootTrajectoryMessageTest extends EndToEndFootTrajecto
 {
    private final DRCRobotModel robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false);
 
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    @Override
    public void testCustomControlPoint() throws SimulationExceededMaximumTimeException
    {
       super.testCustomControlPoint();
    }
    
-   @Test(timeout = 390000)
+   @Test // timeout = 390000
    @Override
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
       super.testSingleWaypoint();
    }
    
-   @Test(timeout = 430000)
+   @Test // timeout = 430000
    @Override
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
    {
       super.testMultipleTrajectoryPoints();
    }
    
-   @Test(timeout = 480000)
+   @Test // timeout = 480000
    @Override
    public void testQueuedMessages() throws SimulationExceededMaximumTimeException
    {
       super.testQueuedMessages();
    }
    
-   @Test(timeout = 360000)
+   @Test // timeout = 360000
    @Override
    public void testQueueStoppedWithOverrideMessage() throws SimulationExceededMaximumTimeException
    {
       super.testQueueStoppedWithOverrideMessage();
    }
    
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
    @Override
    public void testQueueWithWrongPreviousId() throws SimulationExceededMaximumTimeException
    {

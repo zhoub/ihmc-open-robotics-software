@@ -11,7 +11,7 @@ import controller_msgs.msg.dds.ChestTrajectoryMessage;
 import controller_msgs.msg.dds.HandLoadBearingMessage;
 import controller_msgs.msg.dds.HandTrajectoryMessage;
 import controller_msgs.msg.dds.SE3TrajectoryMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -49,7 +49,7 @@ public abstract class EndToEndHandLoadBearingTest implements MultiRobotTestInter
 
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
 
-   @Test(timeout = 310000)
+   @Test // timeout = 310000
    public void testUsingHand() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

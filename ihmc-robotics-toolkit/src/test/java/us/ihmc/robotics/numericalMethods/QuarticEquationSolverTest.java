@@ -2,7 +2,7 @@ package us.ihmc.robotics.numericalMethods;
 
 import static org.junit.Assert.fail;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -10,7 +10,7 @@ public class QuarticEquationSolverTest
 {
    private static final boolean DEBUG = false;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testUpToQuarticEquationSolver()
    {
       QuarticEquationSolver solver = new QuarticEquationSolver();
@@ -69,7 +69,7 @@ public class QuarticEquationSolverTest
    }
    
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testQuarticEquationSolver()
    {
       QuarticEquationSolver solver = new QuarticEquationSolver();

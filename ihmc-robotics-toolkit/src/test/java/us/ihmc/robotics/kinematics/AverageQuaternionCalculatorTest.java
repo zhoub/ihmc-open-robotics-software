@@ -4,7 +4,7 @@ import static org.junit.Assert.assertArrayEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -17,7 +17,7 @@ import us.ihmc.robotics.random.RandomGeometry;
 
 public class AverageQuaternionCalculatorTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstInterpolation() throws Exception
    {
       for (int nTest = 0; nTest < 10; nTest++)
@@ -47,7 +47,7 @@ public class AverageQuaternionCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithRotationsAroundTheSameAxis() throws Exception
    {
       for (int nTest = 0; nTest < 10; nTest++)

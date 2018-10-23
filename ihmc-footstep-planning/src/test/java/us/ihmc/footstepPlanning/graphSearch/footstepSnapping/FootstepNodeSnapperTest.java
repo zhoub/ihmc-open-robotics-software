@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.graphSearch.footstepSnapping;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.transform.RigidBodyTransform;
@@ -23,7 +23,7 @@ public class FootstepNodeSnapperTest
    private int[] yIndices = new int[]{-35, 0, -777, 87, -50, 28};
    private int[] yawIndices = new int[]{-2, 4, 0};
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFootstepCacheing()
    {
       TestSnapper testSnapper = new TestSnapper();
@@ -49,7 +49,7 @@ public class FootstepNodeSnapperTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithoutPlanarRegions()
    {
       TestSnapper testSnapper = new TestSnapper();

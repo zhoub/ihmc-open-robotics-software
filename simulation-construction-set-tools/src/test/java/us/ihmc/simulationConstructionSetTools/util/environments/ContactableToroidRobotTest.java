@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -17,7 +17,7 @@ import us.ihmc.simulationConstructionSetTools.util.environments.environmentRobot
 public class ContactableToroidRobotTest
 {
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testIsPointOnOrInsideAtOrigin()
    {
       double majorRadius = ContactableToroidRobot.DEFAULT_RADIUS;
@@ -50,7 +50,7 @@ public class ContactableToroidRobotTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testIsPointOnOrInsideNotAtOriginUsingTransform()
    {
       Random random = new Random(1972L);
@@ -89,7 +89,7 @@ public class ContactableToroidRobotTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPointIsntInsideWhenUsingComOffset()
    {
       Random random = new Random(1972L);

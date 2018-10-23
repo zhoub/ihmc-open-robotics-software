@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import org.junit.Before;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.networkProcessor.DRCNetworkModuleParameters;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -65,7 +65,7 @@ public abstract class AvatarWalkOverTerrainBehaviorTest implements MultiRobotTes
                                                      allowablePenetrationThickness, generateGroundPlane);
    }
 
-   @Test(timeout = 400000)
+   @Test // timeout = 400000
    public void testWalkOverCinderBlocks() throws IOException, BlockingSimulationRunner.SimulationExceededMaximumTimeException, ControllerFailureException
    {
       DRCNetworkModuleParameters networkModuleParameters = new DRCNetworkModuleParameters();

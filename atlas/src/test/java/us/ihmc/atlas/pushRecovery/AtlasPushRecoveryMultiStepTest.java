@@ -1,7 +1,7 @@
 package us.ihmc.atlas.pushRecovery;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -44,14 +44,14 @@ public class AtlasPushRecoveryMultiStepTest extends DRCPushRecoveryMultiStepTest
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMultiStepBackwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       super.testMultiStepBackwardAndContinueWalking();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    @Disabled("Needs to be improved")
    public void testMultiStepForwardAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {

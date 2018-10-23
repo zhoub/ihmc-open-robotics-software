@@ -4,13 +4,13 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class TimeIntervalToolsTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSortMethods()
    {
       double epsilon = 1e-6;
@@ -50,7 +50,7 @@ public class TimeIntervalToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRemoveMethods()
    {
       double epsilon = 1e-6;

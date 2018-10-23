@@ -1,6 +1,6 @@
 package us.ihmc.atlas.stateEstimation;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -30,42 +30,42 @@ public class AtlasPelvisPoseHistoryCorrectorTest extends PelvisPoseHistoryCorrec
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBigYawInDoubleSupport() throws SimulationExceededMaximumTimeException
    {
       super.testBigYawInDoubleSupport();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBigYawInSingleSupport() throws SimulationExceededMaximumTimeException
    {
       super.testBigYawInSingleSupport();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLocalizationOffsetOutsideOfFootInSingleSupport() throws SimulationExceededMaximumTimeException
    {
       super.testLocalizationOffsetOutsideOfFootInSingleSupport();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPelvisCorrectionControllerOutOfTheLoop() throws SimulationExceededMaximumTimeException
    {
       super.testPelvisCorrectionControllerOutOfTheLoop();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPelvisCorrectionDuringSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       super.testPelvisCorrectionDuringSimpleFlatGroundScriptWithOscillatingFeet();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWalkingDuringBigPelvisCorrection() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       super.testWalkingDuringBigPelvisCorrection();

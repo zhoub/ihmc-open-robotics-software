@@ -3,7 +3,7 @@ package us.ihmc.robotics.math.filters;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -25,7 +25,7 @@ public class AlphaFilteredYoFrameVectorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 1000)
+   @Test // timeout = 1000
    public void testConsistencyWithAlphaFilteredYoVariable()
    {
       Random random = new Random(3453456);

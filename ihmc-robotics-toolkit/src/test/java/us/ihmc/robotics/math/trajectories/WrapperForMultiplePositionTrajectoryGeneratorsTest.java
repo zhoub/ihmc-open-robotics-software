@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -57,7 +57,7 @@ public class WrapperForMultiplePositionTrajectoryGeneratorsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructor()
    {
       try
@@ -72,7 +72,7 @@ public class WrapperForMultiplePositionTrajectoryGeneratorsTest
       generator = new WrapperForMultiplePositionTrajectoryGenerators(positionTrajectoryGenerators, namePrefix, parentRegistry);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testIsDone()
    {
       generator = new WrapperForMultiplePositionTrajectoryGenerators(positionTrajectoryGenerators, namePrefix, parentRegistry);
@@ -84,7 +84,7 @@ public class WrapperForMultiplePositionTrajectoryGeneratorsTest
       assertTrue(generator.isDone());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGet()
    {
       generator = new WrapperForMultiplePositionTrajectoryGenerators(positionTrajectoryGenerators, namePrefix, parentRegistry);
@@ -95,7 +95,7 @@ public class WrapperForMultiplePositionTrajectoryGeneratorsTest
       assertEquals(referenceFrame, positionToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackVelocity()
    {
       generator = new WrapperForMultiplePositionTrajectoryGenerators(positionTrajectoryGenerators, namePrefix, parentRegistry);
@@ -111,7 +111,7 @@ public class WrapperForMultiplePositionTrajectoryGeneratorsTest
       assertSame(referenceFrame, velocityToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackAcceleration()
    {
       generator = new WrapperForMultiplePositionTrajectoryGenerators(positionTrajectoryGenerators, namePrefix, parentRegistry);
@@ -127,7 +127,7 @@ public class WrapperForMultiplePositionTrajectoryGeneratorsTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackLinearData()
    {
       FramePoint3D positionToPack = new FramePoint3D(referenceFrame);

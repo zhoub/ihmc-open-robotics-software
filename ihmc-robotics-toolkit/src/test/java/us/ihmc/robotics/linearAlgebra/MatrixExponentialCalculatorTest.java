@@ -8,14 +8,14 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.ejml.ops.RandomMatrices;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class MatrixExponentialCalculatorTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testAgainstTaylorSeries()
    {
       int size = 50;
@@ -35,7 +35,7 @@ public class MatrixExponentialCalculatorTest
    }
 
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testEfficiency()
    {
       int size = 50;

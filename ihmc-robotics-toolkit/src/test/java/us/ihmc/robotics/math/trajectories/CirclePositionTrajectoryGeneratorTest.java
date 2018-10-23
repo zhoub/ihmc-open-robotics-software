@@ -3,7 +3,7 @@ package us.ihmc.robotics.math.trajectories;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -28,7 +28,7 @@ public class CirclePositionTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testVersusNumericalDifferentiation()
    {
       Random random = new Random(12522535L);
@@ -68,7 +68,7 @@ public class CirclePositionTrajectoryGeneratorTest
       EuclidFrameTestTools.assertFrameTuple3DEquals(acceleration, numericallyDifferentiatedAcceleration, 1e-4);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInitialAndFinalPositionFullCircle()
    {
       Random random = new Random(125125L);

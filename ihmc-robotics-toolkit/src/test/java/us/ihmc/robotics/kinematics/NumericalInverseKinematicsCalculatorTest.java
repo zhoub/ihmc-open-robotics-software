@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Conversions;
 import us.ihmc.commons.RandomNumbers;
@@ -36,7 +36,7 @@ public class NumericalInverseKinematicsCalculatorTest
     * make sure there are no exceptions when you pass in an infeasible desired transform
     */
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInfeasible()
    {
       Random random = new Random(1235125L);
@@ -77,7 +77,7 @@ public class NumericalInverseKinematicsCalculatorTest
       if (DEBUG) printStatistics(iterationStatistics, timeStatistics);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testForwardThenInverse()
    {
       Random random = new Random(125125L);

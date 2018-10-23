@@ -1,7 +1,7 @@
 package us.ihmc.quadrupedRobotics.planning;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -28,7 +28,7 @@ public class QuadrupedXGaitPlannerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testInitialForwardVelocityPlan()
    {
       ForwardMotionBodyPathProvider bodyPathProvider = new ForwardMotionBodyPathProvider();
@@ -93,7 +93,7 @@ public class QuadrupedXGaitPlannerTest
       }
    }
 
-      @Test(timeout=300000)
+      @Test // timeout=300000
       public void testOnlineForwardVelocityPlan()
       {
          ForwardMotionBodyPathProvider bodyPathProvider = new ForwardMotionBodyPathProvider();

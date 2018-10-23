@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -20,7 +20,7 @@ import us.ihmc.euclid.tuple3D.Point3D;
 @Tag("fast")
 public class PlanarRegionsListTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrivialCase() throws Exception
    {
       // polygons forming a "|"-shaped region.

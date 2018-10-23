@@ -2,7 +2,7 @@ package us.ihmc.robotics.filters;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Disabled;
 public class ZeroLagLowPassFilterTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testZeroFiltering()
    {
       double[] list = new double[10];
@@ -29,7 +29,7 @@ public class ZeroLagLowPassFilterTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testZeroNonZeroAlpha()
    {
       double[] list = new double[10];
@@ -52,7 +52,7 @@ public class ZeroLagLowPassFilterTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testZeroNonZeroAlpha2()
    {
       double[] list = new double[10];

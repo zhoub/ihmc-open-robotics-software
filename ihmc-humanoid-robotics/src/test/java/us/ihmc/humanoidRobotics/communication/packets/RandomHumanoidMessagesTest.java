@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.DisableOnDebug;
 import org.junit.rules.Timeout;
 
@@ -21,7 +21,7 @@ public class RandomHumanoidMessagesTest
    @Rule
    public DisableOnDebug disableOnDebug = new DisableOnDebug(new Timeout(5, TimeUnit.SECONDS));
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMethodName()
    { // Assert that all the methods are following the convention: ReturnedObjectType nextReturnedObjectType(Random)
       for (Method method : RandomHumanoidMessages.class.getDeclaredMethods())

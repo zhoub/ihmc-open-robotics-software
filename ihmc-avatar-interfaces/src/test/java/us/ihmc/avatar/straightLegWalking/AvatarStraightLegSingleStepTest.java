@@ -10,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commons.InterpolationTools;
@@ -106,7 +106,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       this.stepHeight = stepHeight;
    }
 
-   @Test(timeout = 70000)
+   @Test // timeout = 70000
    public void testForwardStep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -125,7 +125,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @Test(timeout = 70000)
+   @Test // timeout = 70000
    public void testForwardStepWithPause() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -150,7 +150,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @Test(timeout = 99990000)
+   @Test // timeout = 99990000
    public void testForwardSteps() throws SimulationExceededMaximumTimeException
    {
       double startingLength = 0.4;
@@ -200,7 +200,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @Test(timeout = 70000)
+   @Test // timeout = 70000
    public void testWideStep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -224,7 +224,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testSteppingDown() throws SimulationExceededMaximumTimeException
    {
       runSteppingDown(stepDownHeight, stepDownHeight, stepLength, stanceWidth);
@@ -265,7 +265,7 @@ public abstract class AvatarStraightLegSingleStepTest implements MultiRobotTestI
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testSteppingDownWithClosing() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

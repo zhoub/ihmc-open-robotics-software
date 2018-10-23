@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ public class LinearRegressionTest
 {
    private static final boolean VERBOSE = false;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTypicalExampleOne()
    {
       Random random = new Random(1984L);
@@ -51,7 +51,7 @@ public class LinearRegressionTest
                                  expectedCoefficients);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTypicalExampleTwo()
    {
       Random random = new Random(1776L);
@@ -100,7 +100,7 @@ public class LinearRegressionTest
                                  expectedCoefficients);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPerfectMatch()
    {
       Random random = new Random(2000L);
@@ -147,7 +147,7 @@ public class LinearRegressionTest
                                  expectedCoefficients);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRandomness()
    {
       Random random = new Random(1776L);
@@ -174,7 +174,7 @@ public class LinearRegressionTest
       }
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testNotEnoughPoints()
    {
       ArrayList<double[]> inputs = new ArrayList<double[]>();
@@ -188,7 +188,7 @@ public class LinearRegressionTest
       boolean foundSolution = linearRegression.solve();
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testAskingForAnswerBeforeDone()
    {
       double[][] inputs = new double[][]
@@ -202,7 +202,7 @@ public class LinearRegressionTest
       linearRegression.getCoefficientVector(coefficientVector);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testAskingForSquaredErrorBeforeDone()
    {
       double[][] inputs = new double[][]
@@ -215,7 +215,7 @@ public class LinearRegressionTest
       linearRegression.getSquaredError();
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testAskingForCoefficientVectorAsMatrixBeforeDone()
    {
       double[][] inputs = new double[][]

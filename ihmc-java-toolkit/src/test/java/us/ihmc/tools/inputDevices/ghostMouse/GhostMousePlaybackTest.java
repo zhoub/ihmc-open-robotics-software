@@ -3,7 +3,7 @@ package us.ihmc.tools.inputDevices.ghostMouse;
 
 import java.awt.AWTException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -12,7 +12,7 @@ public class GhostMousePlaybackTest
 {
    private final boolean PLAY_IT_BACK = false;    // Keep false in SVN so we don't mess up Bamboo. Set to true when manually testing...
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGhostMousePlayback() throws AWTException
    {
       GhostMousePlayback playback = new GhostMousePlayback();
@@ -402,7 +402,7 @@ public class GhostMousePlaybackTest
    }
 
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testLoad() throws AWTException
    {
       GhostMousePlayback playback = new GhostMousePlayback();

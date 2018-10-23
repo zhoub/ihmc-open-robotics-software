@@ -7,7 +7,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.jcodec.common.Assert;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
@@ -156,7 +156,7 @@ public class WalkingControllerTest
 
    private static final double maxDriftRate = 0.2;
 
-   @Test(timeout = 87000)
+   @Test // timeout = 87000
    public void testForGarbage()
    {
       walkingController.initialize();

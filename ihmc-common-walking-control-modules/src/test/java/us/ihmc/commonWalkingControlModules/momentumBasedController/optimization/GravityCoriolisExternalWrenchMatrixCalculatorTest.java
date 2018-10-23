@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.ContactablePlaneBodyTools;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControlCoreToolbox;
@@ -64,7 +64,7 @@ public class GravityCoriolisExternalWrenchMatrixCalculatorTest
     * This should return equivalence, as acceleration should not play a factor in the coriolis, centrifugal, and gravity force matrix.
     * @throws Exception
     */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithAndWithoutAcceleration() throws Exception
    {
       setupTest();

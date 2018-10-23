@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -21,7 +21,7 @@ public class GenericQuadrupedPositionCrawlWalkingForwardStoppingAndTurningTest e
    }
    
    @Override
-   @Test(timeout = 2000000)
+   @Test // timeout = 2000000
    public void testWalkingForwardStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingForwardStoppingAndTurning();

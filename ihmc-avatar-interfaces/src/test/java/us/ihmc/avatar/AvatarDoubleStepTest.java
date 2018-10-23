@@ -3,7 +3,7 @@ package us.ihmc.avatar;
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.initialSetup.OffsetAndYawRobotInitialSetup;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -67,7 +67,7 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testTwoStepsInARowSameSide() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -89,7 +89,7 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testTwoStepsInARowSameSideAfterFirstSep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -123,7 +123,7 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
 
 
    @Tag("slow")
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testTwoStepsInARowLongTransferSameSide() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -144,7 +144,7 @@ public abstract class AvatarDoubleStepTest implements MultiRobotTestInterface
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(9.0));
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testTwoStepsStandingInBetween() throws SimulationExceededMaximumTimeException
    {
       setupTest();

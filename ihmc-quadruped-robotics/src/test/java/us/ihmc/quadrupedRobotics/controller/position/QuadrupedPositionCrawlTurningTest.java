@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -54,7 +54,7 @@ public abstract class QuadrupedPositionCrawlTurningTest implements QuadrupedMult
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
    
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void testYawingRightFastNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -66,7 +66,7 @@ public abstract class QuadrupedPositionCrawlTurningTest implements QuadrupedMult
       conductor.simulate();
    }
    
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void testYawingLeftFastNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -78,7 +78,7 @@ public abstract class QuadrupedPositionCrawlTurningTest implements QuadrupedMult
       conductor.simulate();
    }
    
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void testYawingRightSlowNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -90,7 +90,7 @@ public abstract class QuadrupedPositionCrawlTurningTest implements QuadrupedMult
       conductor.simulate();
    }
 
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void testYawingLeftSlowNinetyDegrees() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);

@@ -2,7 +2,7 @@ package us.ihmc.modelFileLoaders.SdfLoader;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ import us.ihmc.modelFileLoaders.SdfLoader.xmlDescription.SDFLink;
 public class SDFLinkHolderTest
 {
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void noInertialPose()
    {
       // Setup
@@ -52,7 +52,7 @@ public class SDFLinkHolderTest
       assertTrue("Inertia matrix should not change values", inertiaMatrix.equals(expectedInertia));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void inertialPoseTranslationOnly()
    {
       // Setup
@@ -90,7 +90,7 @@ public class SDFLinkHolderTest
       assertTrue("Inertia matrix should not change values", inertiaMatrix.equals(expectedInertia));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void inertialPoseWithRotationOnly()//This one should have right COM, but inertia will have to change.
    {
       // Setup
@@ -147,7 +147,7 @@ public class SDFLinkHolderTest
       //assertTrue("Inertia matrix should be changed to link frame. " + helpMessage, inertiaEqual);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void inertialPoseProximaliRobotWithRotationAndTranslation()
    {
       // Setup
@@ -210,7 +210,7 @@ public class SDFLinkHolderTest
             inertiaMatrix.getM11(), inertiaMatrix.getM12(), inertiaMatrix.getM22()}, 3e-9);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void inertialPoseDistaliRobotWithRotationAndTranslation()
    {
       // Setup

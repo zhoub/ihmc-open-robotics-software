@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -124,7 +124,7 @@ public class VisibilityGraphsFrameworkTest extends Application
       }
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test // timeout = TIMEOUT
    public void testDatasetsWithoutOcclusion() throws Exception
    {
       if (VISUALIZE)
@@ -136,7 +136,7 @@ public class VisibilityGraphsFrameworkTest extends Application
       runAssertionsOnAllDatasets(dataset -> runAssertionsWithoutOcclusion(dataset));
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test // timeout = TIMEOUT
    @Tag("in-development")
    public void testDatasetsNoOcclusionSimulateDynamicReplanning() throws Exception
    {
@@ -147,7 +147,7 @@ public class VisibilityGraphsFrameworkTest extends Application
       runAssertionsOnAllDatasets(dataset -> runAssertionsSimulateDynamicReplanning(dataset, 0.20, 1000, false));
    }
 
-   @Test(timeout = TIMEOUT)
+   @Test // timeout = TIMEOUT
    @Tag("in-development")
    public void testDatasetsSimulateOcclusionAndDynamicReplanning() throws Exception
    {

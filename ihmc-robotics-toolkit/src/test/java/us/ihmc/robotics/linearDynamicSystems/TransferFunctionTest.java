@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -27,7 +27,7 @@ public class TransferFunctionTest
    {
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetNumeratorAndGetDenominatorCoefficients()
    {
       double[] numerator = new double[] {1.0, 2.0};
@@ -42,7 +42,7 @@ public class TransferFunctionTest
       DynamicSystemsTestHelpers.assertEpsilonEquals(expectedDenominator, transferFunction.getDenominatorCoefficients(), 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testOneOverOne()
    {
       double[] numerator = new double[] {1};
@@ -56,7 +56,7 @@ public class TransferFunctionTest
       assertEquals(magnitude, 1.0, epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testZero()
    {
       double[] numerator = new double[] {0};
@@ -69,7 +69,7 @@ public class TransferFunctionTest
       assertEquals(magnitude, 0.0, epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testOneOverS2()
    {
       double[] numerator = new double[] {1.0};
@@ -84,7 +84,7 @@ public class TransferFunctionTest
       assertEquals(0.0, AngleTools.computeAngleDifferenceMinusPiToPi(Math.PI, transferFunction.getPhase(5.0)), 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testOneOverSplusA()
    {
       double a = 3.0;
@@ -101,7 +101,7 @@ public class TransferFunctionTest
       assertEquals(0.0, AngleTools.computeAngleDifferenceMinusPiToPi(-Math.atan2(omega, a), transferFunction.getPhase(omega)), 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSecondOrderResponse()
    {
       double wn = 30.0;
@@ -114,7 +114,7 @@ public class TransferFunctionTest
       verify(transferFunction, 100000000.0, 0.0, -Math.PI);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSecondOrderResponseArray()
    {
       double wn = 30.0;
@@ -131,13 +131,13 @@ public class TransferFunctionTest
       verify(transferFunction, w, expectedMagnitude, expectedPhase);
    }
 
-//   @Test(timeout=300000)
+//   @Test // timeout=300000
 //   public void testScalarTimes()
 //   {
 //      fail("Implement me!");
 //   }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTimes()
    {
       double a1 = 1.0, a2 = 2.0, b1 = 3.0, b2 = 4.0;
@@ -161,7 +161,7 @@ public class TransferFunctionTest
       DynamicSystemsTestHelpers.assertEpsilonEquals(expectedDenominator, productDenominator, 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPlus()
    {
       double a1 = 1.0, a2 = 2.0, b1 = 3.0, b2 = 4.0;
@@ -185,7 +185,7 @@ public class TransferFunctionTest
       DynamicSystemsTestHelpers.assertEpsilonEquals(expectedDenominator, sumDenominator, 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPlusWithSameDenominator()
    {
       double a1 = 1.0, a2 = 2.0, b1 = 3.0;
@@ -228,7 +228,7 @@ public class TransferFunctionTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testEpsilonEquals()
    {
       double a = 1.0, b = 2.0, c = 3.0, d = 4.0;
@@ -272,7 +272,7 @@ public class TransferFunctionTest
 
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testEqualsZero()
    {
       Polynomial numerator = new Polynomial(new double[] {1.0, 2.0});

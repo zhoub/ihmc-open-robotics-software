@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -16,7 +16,7 @@ public class AtlasEndToEndFootstepDataListMessageTest extends EndToEndFootstepDa
 {
    private final DRCRobotModel robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false);
 
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
    @Override
    public void testQueuing() throws SimulationExceededMaximumTimeException
    {

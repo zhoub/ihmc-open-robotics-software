@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ import us.ihmc.tools.MemoryTools;
 public class ReferenceFrameMemoryTest
 {
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGarbageCollectionInBroadTrees()
    {
       int beforeMemoryInMB = MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB("ReferenceFrameTest: before");

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import org.junit.jupiter.api.Tag;
@@ -70,7 +70,7 @@ public class DataObjectTransponderTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testBidirectionalCommunication() throws InterruptedException
    {
       int port = 1341;
@@ -82,7 +82,7 @@ public class DataObjectTransponderTest
    }
 
    @Tag("flaky")
-   @Test(timeout = 42000)
+   @Test // timeout = 42000
    public void testDoubleBidirectionalCommunication() throws InterruptedException
    {
       int numberOfPackets = 60000;
@@ -95,28 +95,28 @@ public class DataObjectTransponderTest
       assertAllTestsPassed();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSerializabilityOfInteger() throws IOException
    {
       Integer integer = new Integer(2);
       Assertions.assertSerializable(integer);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSerializabilityOfIntPacket() throws IOException
    {
       IntegerPacket intPacket = new IntegerPacket(2);
       Assertions.assertSerializable(intPacket);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSerializabilityOfStringPacket() throws IOException
    {
       StringPacket packet = new StringPacket("Buzzap!");
       Assertions.assertSerializable(packet);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testServerClientIntPacketCommunication() throws InterruptedException
    {
       int port = 1337;
@@ -126,7 +126,7 @@ public class DataObjectTransponderTest
       assertAllTestsPassed();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testServerClientStringPacketCommunication() throws InterruptedException
    {
       int port = 1338;
@@ -136,7 +136,7 @@ public class DataObjectTransponderTest
       assertAllTestsPassed();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTwoPacketTypesAtTheSameTime() throws InterruptedException
    {
       int port = 1339;
@@ -147,7 +147,7 @@ public class DataObjectTransponderTest
       assertAllTestsPassed();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testUnhandledPackets() throws InterruptedException
    {
       int port = 1340;

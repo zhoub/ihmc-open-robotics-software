@@ -7,7 +7,7 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -50,7 +50,7 @@ public class CentroidalMomentumBenchmarkTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 240000)
+   @Test // timeout = 240000
    public void floatingChainTest() throws UnreasonableAccelerationException
    {
       Random random = new Random(12651L);

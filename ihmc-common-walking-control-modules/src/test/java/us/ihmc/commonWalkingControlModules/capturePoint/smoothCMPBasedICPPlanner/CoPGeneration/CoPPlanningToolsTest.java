@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPPointName;
 import org.junit.jupiter.api.Tag;
@@ -12,21 +12,21 @@ import org.junit.jupiter.api.Disabled;
 @Tag("fast")
 public class CoPPlanningToolsTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testArrayLinearSearch()
    {
       CoPPointName[] list = new CoPPointName[]{CoPPointName.MIDFEET_COP, CoPPointName.ENTRY_COP, CoPPointName.MIDFOOT_COP, CoPPointName.EXIT_COP, CoPPointName.EXIT_COP};
       assertTrue(CoPPlanningTools.getCoPPointIndex(list, CoPPointName.MIDFOOT_COP) == 2);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testArrayLinearSearchMissingPoint()
    {
       CoPPointName[] list = new CoPPointName[]{CoPPointName.ENTRY_COP, CoPPointName.MIDFOOT_COP, CoPPointName.EXIT_COP, CoPPointName.EXIT_COP};
       assertTrue(CoPPlanningTools.getCoPPointIndex(list, CoPPointName.MIDFEET_COP) == -1);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testArrayListLinearSearch()
    {
       ArrayList<CoPPointName> list = new ArrayList<>();
@@ -38,7 +38,7 @@ public class CoPPlanningToolsTest
       assertTrue(CoPPlanningTools.getCoPPointIndex(list, CoPPointName.ENTRY_COP) == 1);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testArrayListLinearSearchMissingPoint()
    {
       ArrayList<CoPPointName> list = new ArrayList<>();

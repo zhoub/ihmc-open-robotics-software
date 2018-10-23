@@ -1,7 +1,7 @@
 package us.ihmc.commonWalkingControlModules.highLevelHumanoidControl.factories;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.communication.controllerAPI.command.Command;
 import us.ihmc.communication.controllerAPI.command.QueueableCommand;
 import us.ihmc.communication.packets.ExecutionMode;
@@ -18,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 public class ControllerAPIDefinitionTest
 {
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCommandSetters()
    {
       Random random = new Random();

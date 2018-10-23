@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -85,7 +85,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testPauseWalking() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -104,7 +104,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testTwoIndependentSteps() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -132,7 +132,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testStartSecondStepWhileTransitioningToStand() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -159,7 +159,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(3.0));
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testPauseWalkingForward() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -177,7 +177,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(getNumberOfFootsteps() * (getSwingTime() + getTransferTime())));
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testPauseWalkingInitialTransfer() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -199,7 +199,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
       assertTrue(drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(getNumberOfFootsteps() * (getSwingTime() + getTransferTime())));
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testPauseWalkingInitialTransferOneStep() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -232,7 +232,7 @@ public abstract class AvatarPauseWalkingTest implements MultiRobotTestInterface
    }
 
    @Tag("slow")
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testPauseWalkingForwardInitialTransfer() throws SimulationExceededMaximumTimeException
    {
       setupTest();

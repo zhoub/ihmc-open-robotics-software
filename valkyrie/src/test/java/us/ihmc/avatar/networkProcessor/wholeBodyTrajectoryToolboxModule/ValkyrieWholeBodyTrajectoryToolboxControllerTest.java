@@ -6,7 +6,7 @@ import static us.ihmc.humanoidRobotics.communication.packets.manipulation.wholeB
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ReachingManifoldMessage;
 import controller_msgs.msg.dds.RigidBodyExplorationConfigurationMessage;
@@ -60,27 +60,27 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
    }
 
    @Override
-   @Test(timeout = 53000)
+   @Test // timeout = 53000
    public void testOneBigCircle() throws Exception, UnreasonableAccelerationException
    {
       super.testOneBigCircle();
    }
 
    @Override
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testHandCirclePositionAndYaw() throws Exception, UnreasonableAccelerationException
    {
       super.testHandCirclePositionAndYaw();
    }
 
    @Override
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testHandCirclePositionAndYawPitchRoll() throws Exception, UnreasonableAccelerationException
    {
       super.testHandCirclePositionAndYawPitchRoll();
    }
 
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testDoorMotion() throws Exception, UnreasonableAccelerationException
    {
       // trajectory parameter
@@ -141,7 +141,7 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
       runTrajectoryTest(message, maxNumberOfIterations);
    }
 
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testDrillMotion() throws Exception, UnreasonableAccelerationException
    {
       // trajectory parameter
@@ -208,7 +208,7 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
       runTrajectoryTest(message, maxNumberOfIterations);
    }
 
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testValveMotion() throws Exception, UnreasonableAccelerationException
    {
       // trajectory parameter
@@ -261,7 +261,7 @@ public class ValkyrieWholeBodyTrajectoryToolboxControllerTest extends AvatarWhol
       runTrajectoryTest(message, maxNumberOfIterations);
    }
 
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testReaching() throws Exception, UnreasonableAccelerationException
    {
       FullHumanoidRobotModel fullRobotModel = createFullRobotModelAtInitialConfiguration();

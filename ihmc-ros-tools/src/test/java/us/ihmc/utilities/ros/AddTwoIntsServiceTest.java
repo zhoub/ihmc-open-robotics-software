@@ -7,7 +7,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.ros.exception.RemoteException;
 import org.ros.exception.RosRuntimeException;
 import org.ros.node.service.ServiceResponseListener;
@@ -32,7 +32,7 @@ public class AddTwoIntsServiceTest extends IHMCRosTestWithRosCore
       super.setUp(USE_JAVA_ROSCORE);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void lowlevelRosServiceClientTest() throws URISyntaxException, InterruptedException
    {
       RosMainNode rosMainNode = new RosMainNode(rosMasterURI, "serviceClientTestNode");
@@ -76,7 +76,7 @@ public class AddTwoIntsServiceTest extends IHMCRosTestWithRosCore
       assertTrue(latch.await(1, TimeUnit.SECONDS));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void highLevelRosServiceClientTest() throws InterruptedException
    {
       RosMainNode rosMainNode = new RosMainNode(rosMasterURI, "serviceClientTestNode");

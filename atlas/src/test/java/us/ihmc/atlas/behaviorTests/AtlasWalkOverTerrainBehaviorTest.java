@@ -2,7 +2,7 @@ package us.ihmc.atlas.behaviorTests;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -32,7 +32,7 @@ public class AtlasWalkOverTerrainBehaviorTest extends AvatarWalkOverTerrainBehav
 
    @Override
    @Disabled
-   @Test(timeout = 400000)
+   @Test // timeout = 400000
    public void testWalkOverCinderBlocks() throws IOException, BlockingSimulationRunner.SimulationExceededMaximumTimeException, ControllerFailureException
    {
       super.testWalkOverCinderBlocks();

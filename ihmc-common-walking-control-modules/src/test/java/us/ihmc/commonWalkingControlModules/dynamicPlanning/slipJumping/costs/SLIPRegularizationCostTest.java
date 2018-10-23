@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.costs;
 
 import org.ejml.data.DenseMatrix64F;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.CostFunctionTest;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState;
 import us.ihmc.commons.RandomNumbers;
@@ -55,7 +55,7 @@ public class SLIPRegularizationCostTest extends CostFunctionTest<SLIPState>
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCost()
    {
       LQCostFunction<SLIPState> costFunction = getCostFunction();
@@ -101,35 +101,35 @@ public class SLIPRegularizationCostTest extends CostFunctionTest<SLIPState>
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateGradientNumerically()
    {
       super.testCostStateGradientNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostControlGradientNumerically()
    {
       super.testCostControlGradientNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateHessianNumerically()
    {
       super.testCostStateHessianNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostControlHessianNumerically()
    {
       super.testCostControlHessianNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateControlHessianNumerically()
    {
       super.testCostStateControlHessianNumerically();
@@ -140,7 +140,7 @@ public class SLIPRegularizationCostTest extends CostFunctionTest<SLIPState>
 
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateGradient()
    {
       double mass = 15.0;
@@ -245,7 +245,7 @@ public class SLIPRegularizationCostTest extends CostFunctionTest<SLIPState>
       JUnitTools.assertMatrixEquals(expectedGradient, gradient, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostControlGradient()
    {
       double mass = 15.0;

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -17,7 +17,7 @@ public class InefficientPushRodTransmissionTest
 {
    private static final boolean DEBUG = false;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testForwardBackward()
    {
       Random random = new Random(1234L);
@@ -81,7 +81,7 @@ public class InefficientPushRodTransmissionTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRegression()
    {
       double reflectBottom = 1.0;

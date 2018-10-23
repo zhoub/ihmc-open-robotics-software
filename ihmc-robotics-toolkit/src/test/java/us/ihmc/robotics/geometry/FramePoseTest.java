@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -37,7 +37,7 @@ public class FramePoseTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetOrientationDistanceTrivial()
    {
       RigidBodyTransform transform1 = new RigidBodyTransform();
@@ -52,7 +52,7 @@ public class FramePoseTest
       assertEquals(0.0, distance, 1e-9);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetTransform()
    {
       Random random = new Random(1179L);
@@ -65,7 +65,7 @@ public class FramePoseTest
       EuclidCoreTestTools.assertRigidBodyTransformEquals(transform, transformCheck, 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRotatePoseAboutOffsetAxisAndCheckTranslation()
    {
       Random random = new Random(1179L);
@@ -94,7 +94,7 @@ public class FramePoseTest
             + actualPosePositionAfterRotation, 0.0, positionError.length(), 1e-3);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRotatePoseAboutCollinearAxisAndCheckTranslation()
    {
       Random random = new Random(1179L);
@@ -121,7 +121,7 @@ public class FramePoseTest
             + actualPosePositionAfterRotation, 0.0, positionError.length(), 1e-3);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRotatePoseAboutZAxisAndCheckOrientation()
    {
       Random random = new Random(1179L);
@@ -154,7 +154,7 @@ public class FramePoseTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRotatePoseAboutCollinearAxisIncrementally()
    {
       Random random = new Random(1179L);
@@ -179,7 +179,7 @@ public class FramePoseTest
       assertEquals("Change in FramePose Orientation after rotation is wrong.", desiredOrientationDistance, orientationDistance, Math.toRadians(0.1));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRotateAndUnrotatePoseAboutCollinearAxis()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -201,7 +201,7 @@ public class FramePoseTest
       assertEquals("Change in FramePose Orientation after rotation is wrong.", 0.0, orientationDistance, Math.toRadians(0.1));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRotatePoseLockOrientation()
    {
       boolean lockPosition = false;
@@ -243,7 +243,7 @@ public class FramePoseTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRotatePoseLockPosition()
    {
       boolean lockPosition = true;

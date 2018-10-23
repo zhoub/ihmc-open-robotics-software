@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -22,7 +22,7 @@ import us.ihmc.robotics.random.RandomGeometry;
 public class StringStretcher2dTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleExampleWithNoWaypoints()
    {
       StringStretcher2d stringStretcher2d = new StringStretcher2d();
@@ -57,7 +57,7 @@ public class StringStretcher2dTest
       EuclidCoreTestTools.assertTuple2DEquals(endPoint, solution.get(2), 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleExampleWithOneWaypointsNoInterpolation()
    {
       StringStretcher2d stringStretcher2d = new StringStretcher2d();
@@ -81,7 +81,7 @@ public class StringStretcher2dTest
       assertTrue(maxPoint.epsilonEquals(waypoints.get(0), 1e-6));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleExampleWithAllWaypointsNoInterpolation()
    {
       StringStretcher2d stringStretcher2d = new StringStretcher2d();
@@ -119,7 +119,7 @@ public class StringStretcher2dTest
 
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testStartAndEnd()
    {
       StringStretcher2d stringStretcher2d = new StringStretcher2d();
@@ -137,7 +137,7 @@ public class StringStretcher2dTest
       EuclidCoreTestTools.assertTuple2DEquals(endPoint, waypoints.get(1), 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRandomExample()
    {
       StringStretcher2d stringStretcher2d = new StringStretcher2d();

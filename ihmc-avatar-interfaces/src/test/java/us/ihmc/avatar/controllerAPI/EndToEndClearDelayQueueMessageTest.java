@@ -9,7 +9,7 @@ import org.junit.Before;
 import controller_msgs.msg.dds.ClearDelayQueueMessage;
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.HandTrajectoryMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.DRCStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -42,7 +42,7 @@ public abstract class EndToEndClearDelayQueueMessageTest implements MultiRobotTe
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Test(timeout = 87000)
+   @Test // timeout = 87000
    public void testClearingQueue() throws SimulationExceededMaximumTimeException
    {
       DRCRobotModel robotModel = getRobotModel();

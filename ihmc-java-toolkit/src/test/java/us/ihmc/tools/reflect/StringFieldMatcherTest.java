@@ -5,14 +5,14 @@ import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Field;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class StringFieldMatcherTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testStringFieldMatcher() throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException
    {     
      ObjectWithAName barry = new ObjectWithAName("Obama2012", "Prez", 1.5);
@@ -41,7 +41,7 @@ public class StringFieldMatcherTest
      assertTrue(matcher.matches(mitt));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCombine() throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException
    {
       ObjectWithAName barry = new ObjectWithAName("Obama2012", "Prez", 1.5);

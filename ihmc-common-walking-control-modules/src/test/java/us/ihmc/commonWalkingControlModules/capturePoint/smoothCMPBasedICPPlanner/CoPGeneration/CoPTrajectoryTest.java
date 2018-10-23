@@ -3,7 +3,7 @@ package us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanne
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPSplineType;
 import us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanner.WalkingTrajectoryType;
@@ -28,7 +28,7 @@ public class CoPTrajectoryTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLinear()
    {
       CoPTrajectory testTrajectory = new CoPTrajectory(CoPSplineType.LINEAR, maxNumberOfSegments, WalkingTrajectoryType.TRANSFER);
@@ -62,7 +62,7 @@ public class CoPTrajectoryTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCubic()
    {
       CoPTrajectory testTrajectory = new CoPTrajectory(CoPSplineType.CUBIC, maxNumberOfSegments, WalkingTrajectoryType.SWING);

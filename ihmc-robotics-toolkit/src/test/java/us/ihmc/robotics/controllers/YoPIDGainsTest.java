@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 @Tag("fast")
 public class YoPIDGainsTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test()
    {
       YoPIDGains pidGains = new YoPIDGains("test", new YoVariableRegistry("PIDGainsRegistry"));
@@ -56,7 +56,7 @@ public class YoPIDGainsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testParameters_2()
    {
       YoPIDGains pidGains = new YoPIDGains("test", new YoVariableRegistry("PIDGainsRegistry"));
@@ -96,7 +96,7 @@ public class YoPIDGainsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testParameters_3()
    {
       YoPIDGains pidGains = new YoPIDGains("test", new YoVariableRegistry("PIDGainsRegistry"));
@@ -134,7 +134,7 @@ public class YoPIDGainsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testClippingLeakRate()
    {
       YoPIDGains pidGains = new YoPIDGains("test", new YoVariableRegistry("PIDGainsRegistry"));

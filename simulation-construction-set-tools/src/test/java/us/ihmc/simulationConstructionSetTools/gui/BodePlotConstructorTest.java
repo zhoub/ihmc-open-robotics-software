@@ -1,6 +1,6 @@
 package us.ihmc.simulationConstructionSetTools.gui;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -16,7 +16,7 @@ import us.ihmc.simulationconstructionset.gui.HumanAssistedTestFrame;
 public class BodePlotConstructorTest
 {
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSimpleFilter()
    {
       // int n = 1000;
@@ -46,7 +46,7 @@ public class BodePlotConstructorTest
    }
 
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSingleFreqPhaseShift()
    {
       // int n = 1000;
@@ -76,7 +76,7 @@ public class BodePlotConstructorTest
    }
 
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSecondOrderResponse()
    {
       double T = 5.0;

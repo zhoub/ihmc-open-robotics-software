@@ -9,7 +9,7 @@ import static us.ihmc.commons.MathTools.square;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -19,7 +19,7 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
    private static final double eps = 1e-7;
    private static final boolean PRINT = false;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSquare()
    {
       ConstantSideFourBarCalculatorWithDerivatives fourBar = new ConstantSideFourBarCalculatorWithDerivatives(1.0, 1.0, 1.0, 1.0);
@@ -30,7 +30,7 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(PI / 2, fourBar.getAngleCDA(), eps);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstruction()
    {
       Random random = new Random(1738);
@@ -46,7 +46,7 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(DA, fourBar.getDA(), eps);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSquareDer()
    {
       ConstantSideFourBarCalculatorWithDerivatives fourBar = new ConstantSideFourBarCalculatorWithDerivatives(1.0, 1.0, 1.0, 1.0);
@@ -61,7 +61,7 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(-1, fourBar.getAngleDtCDA(), eps);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testParallelogram()
    {
       ConstantSideFourBarCalculatorWithDerivatives fourBar = new ConstantSideFourBarCalculatorWithDerivatives(1.0, 1.0, 1.0, 1.0);
@@ -76,7 +76,7 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(-1, fourBar.getAngleDtCDA(), eps);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRandomQuadrilatteral()
    {
       Random rand = new Random(1986L);
@@ -118,7 +118,7 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       assertEquals(D, fourBar.getAngleCDA(), eps);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRandomConvenientLinkageDerivatives()
    {
       Random rand = new Random(1986L);
@@ -157,7 +157,7 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testVelocitiesWithRandomQuadrilateral()
    {
       double eps = 1.0e-6;
@@ -268,7 +268,7 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testAccelerationsWithRandomQuadrilateral()
    {
       double eps = 1.0e-5;
@@ -356,7 +356,7 @@ public class ConstantSideFourBarCalculatorWithDerivativesTest
       }
    }
 	
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMasterAngleComputations()
    {
 	   Random rand = new Random(1986L);

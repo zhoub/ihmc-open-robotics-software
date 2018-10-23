@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -20,7 +20,7 @@ import org.junit.jupiter.api.Disabled;
 public class LabeledPixelCodecTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void write_read() throws IOException
    {
       String expectedName = "foo";

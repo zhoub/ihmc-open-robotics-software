@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -55,7 +55,7 @@ public class PositionTrajectorySmootherTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructor()
    {
       try
@@ -71,13 +71,13 @@ public class PositionTrajectorySmootherTest
    }
 
    //TODO: Implement this test
-   //   @Test(timeout=300000)
+   //   @Test // timeout=300000
    //   public void testComputeGains()
    //   {
    //      smoother = new PositionTrajectorySmoother(namePrefix, positionTrajectoryInput, dt, parentRegistry);
    //   }
    
-//   @Test(timeout=300000)
+//   @Test // timeout=300000
 //   public void testSetMaxAccelerationAndJerk()
 //   {
 //      smoother = new PositionTrajectorySmoother(namePrefix, positionTrajectoryInput, dt, parentRegistry);
@@ -87,7 +87,7 @@ public class PositionTrajectorySmootherTest
 //      smoother.setMaxAccelerationAndJerk(maxAbsoluteAcceleration, maxAbsoluteJerk);
 //   }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testIsDone()
    {
       smoother = new PositionTrajectorySmoother(namePrefix, positionTrajectoryInput, dt, parentRegistry);
@@ -99,7 +99,7 @@ public class PositionTrajectorySmootherTest
       assertTrue(smoother.isDone());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGet()
    {
       smoother = new PositionTrajectorySmoother(namePrefix, positionTrajectoryInput, dt, parentRegistry);
@@ -110,7 +110,7 @@ public class PositionTrajectorySmootherTest
       assertEquals(referenceFrame, positionToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackVelocity()
    {
       smoother = new PositionTrajectorySmoother(namePrefix, positionTrajectoryInput, dt, parentRegistry);
@@ -126,7 +126,7 @@ public class PositionTrajectorySmootherTest
       assertSame(referenceFrame, velocityToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackAcceleration()
    {
       smoother = new PositionTrajectorySmoother(namePrefix, positionTrajectoryInput, dt, parentRegistry);
@@ -142,7 +142,7 @@ public class PositionTrajectorySmootherTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackLinearData()
    {
       FramePoint3D positionToPack = new FramePoint3D(referenceFrame);

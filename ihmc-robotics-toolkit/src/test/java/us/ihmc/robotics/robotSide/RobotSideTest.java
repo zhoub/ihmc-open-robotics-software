@@ -3,14 +3,14 @@ package us.ihmc.robotics.robotSide;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class RobotSideTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRobotSide()
    {
       RobotSide leftRobotSide = RobotSide.LEFT;
@@ -58,7 +58,7 @@ public class RobotSideTest
       assertEquals(numberToTest, leftRobotSide.negateIfRightSide(numberToTest), 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCheckRobotSideMatch()
    {
       RobotSide leftRobotSide = RobotSide.LEFT;

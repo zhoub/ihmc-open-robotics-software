@@ -13,7 +13,7 @@ import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.ejml.ops.NormOps;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.controllerCore.FeedbackControllerToolbox;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControlCoreToolbox;
@@ -58,7 +58,7 @@ public final class PointFeedbackControllerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConvergence() throws Exception
    {
       Random random = new Random(5641654L);
@@ -147,7 +147,7 @@ public final class PointFeedbackControllerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConvergenceWithJerryQP() throws Exception
    {
       Random random = new Random(5641654L);
@@ -271,7 +271,7 @@ public final class PointFeedbackControllerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompareAgainstSpatialController() throws Exception
    {
       Random random = new Random(5641654L);

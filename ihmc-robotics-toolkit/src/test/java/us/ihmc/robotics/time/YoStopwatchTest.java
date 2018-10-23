@@ -2,7 +2,7 @@ package us.ihmc.robotics.time;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -12,7 +12,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 public class YoStopwatchTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStopwatch()
    {
       YoVariableRegistry registry = new YoVariableRegistry("test");

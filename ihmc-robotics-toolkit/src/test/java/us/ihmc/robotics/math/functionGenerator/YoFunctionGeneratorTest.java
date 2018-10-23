@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -25,7 +25,7 @@ public class YoFunctionGeneratorTest
    {
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testZeroFrequencyDC()
    {
 	   yoFunctionGenerator.setMode(YoFunctionGeneratorMode.DC);
@@ -41,7 +41,7 @@ public class YoFunctionGeneratorTest
 	   }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testOutputContinuityDuringFrequencyChange()
    {
 	   double freq0=10,amp0=10;
@@ -77,7 +77,7 @@ public class YoFunctionGeneratorTest
 	   assertEquals("|"+output0+"-"+output1+"|<" + tolerance,0,output1-output0, tolerance);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testZeroFrequencySine()
    {
 	   yoFunctionGenerator.setMode(YoFunctionGeneratorMode.SINE);
@@ -94,7 +94,7 @@ public class YoFunctionGeneratorTest
 	   }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testTriangle()
    {
       yoFunctionGenerator.setMode(YoFunctionGeneratorMode.TRIANGLE);

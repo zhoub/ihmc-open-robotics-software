@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -41,7 +41,7 @@ public class FourBarCalculatorsComparisonTest
     */
    private static final double eps = 1e-7;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void equalOuputAnglesForRandomQuadrilatteralTest()
    {
       Random rand = new Random(1986L);

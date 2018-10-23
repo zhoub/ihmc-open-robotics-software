@@ -4,14 +4,14 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class ExampleOptimizationProblemOneTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleXSquaredOptimization()
    {
       SimpleXSquaredCostFunction sampleCostFunction = new SimpleXSquaredCostFunction();      
@@ -86,7 +86,7 @@ public class ExampleOptimizationProblemOneTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleThreeParameterCostFunction()
    {      
       SimpleThreeParameterCostFunction sampleCostFunction = new SimpleThreeParameterCostFunction();

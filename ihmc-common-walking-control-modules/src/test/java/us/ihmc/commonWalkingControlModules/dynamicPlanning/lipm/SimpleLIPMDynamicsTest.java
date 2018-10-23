@@ -1,7 +1,7 @@
 package us.ihmc.commonWalkingControlModules.dynamicPlanning.lipm;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 public class SimpleLIPMDynamicsTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNextStateComputation()
    {
       double deltaT = 0.01;
@@ -120,7 +120,7 @@ public class SimpleLIPMDynamicsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsStateGradient()
    {
       double deltaT = 0.01;
@@ -240,7 +240,7 @@ public class SimpleLIPMDynamicsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsControlGradient()
    {
       double deltaT = 0.01;
@@ -349,7 +349,7 @@ public class SimpleLIPMDynamicsTest
 
 
    /*
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsStateHessian()
    {
       double deltaT = 0.01;
@@ -569,7 +569,7 @@ public class SimpleLIPMDynamicsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsControlHessian()
    {
       double deltaT = 0.01;
@@ -745,7 +745,7 @@ public class SimpleLIPMDynamicsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsStateGradientOfControlGradient()
    {
       double deltaT = 0.01;

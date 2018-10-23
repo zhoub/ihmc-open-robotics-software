@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.AvatarDoubleStepTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -26,7 +26,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
       return robotModel.getSimpleRobotName();
    }
 
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    @Override
    public void testTwoStepsInARowSameSide() throws SimulationExceededMaximumTimeException
    {
@@ -34,7 +34,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
    }
 
    @Tag("slow")
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    @Override
    public void testTwoStepsInARowSameSideAfterFirstSep() throws SimulationExceededMaximumTimeException
    {
@@ -42,7 +42,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
    }
 
    @Tag("slow")
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    @Override
    public void testTwoStepsInARowLongTransferSameSide() throws SimulationExceededMaximumTimeException
    {
@@ -50,7 +50,7 @@ public class AtlasDoubleStepTest extends AvatarDoubleStepTest
    }
 
    @Tag("slow")
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    @Override
    public void testTwoStepsStandingInBetween() throws SimulationExceededMaximumTimeException
    {

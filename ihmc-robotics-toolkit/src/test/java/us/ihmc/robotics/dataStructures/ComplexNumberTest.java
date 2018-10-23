@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Epsilons;
 import org.junit.jupiter.api.Tag;
@@ -20,7 +20,7 @@ public class ComplexNumberTest
 {
 
    @Tag("fast")
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCommonUsage()
    {
       double real = 3.0;
@@ -37,7 +37,7 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testZero()
    {
       ComplexNumber complexNumber = new ComplexNumber(0.0, 0.0);
@@ -47,7 +47,7 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testALotOfRandomComplexNumbers()
    {
       Random random = new Random(1776L);
@@ -67,7 +67,7 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testEpsilonEquals()
    {
       double epsilon = 0.1;
@@ -100,7 +100,7 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void regressionTest()
    {
       ComplexNumber complexNumber = new ComplexNumber(5.5, 7.93);
@@ -140,7 +140,7 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void regessionTestTwo()
    {
       ComplexNumber complexNumberOne = new ComplexNumber(88.34, -17.67);
@@ -158,7 +158,7 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void regessionTestThree()
    {
       ComplexNumber complexNumber = new ComplexNumber(76.45, 92.345);
@@ -174,7 +174,7 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testToString()
    {
       ComplexNumber complexNumber = new ComplexNumber(1.0, 2.0);
@@ -201,7 +201,7 @@ public class ComplexNumberTest
 
 
    @Tag("fast")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInitialization()
    {
       ComplexNumber c1 = new ComplexNumber();
@@ -219,7 +219,7 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMath()
    {
       ComplexNumber c1 = new ComplexNumber(2.4, 3.1);
@@ -247,7 +247,7 @@ public class ComplexNumberTest
    }
 
    @Tag("fast")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void tesNthRoots()
    {
       ComplexNumber c1 = new ComplexNumber(1.0, 0.0);

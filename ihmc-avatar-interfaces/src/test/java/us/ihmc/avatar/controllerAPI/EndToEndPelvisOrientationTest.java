@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
 import controller_msgs.msg.dds.FootstepDataListMessage;
@@ -59,7 +59,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
    private HumanoidReferenceFrames humanoidReferenceFrames;
    private SimulationConstructionSet scs;
 
-   @Test(timeout = 130000)
+   @Test // timeout = 130000
    public void testGoHome() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 1.0e-5;
@@ -91,7 +91,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       EndToEndTestTools.assertCurrentDesiredsMatchWaypoint(pelvisName, home, scs, epsilon);
    }
 
-   @Test(timeout = 130000)
+   @Test // timeout = 130000
    public void testSingleTrajectoryPoint() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 1.0e-10;
@@ -125,7 +125,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       drcSimulationTestHelper.createVideo(getSimpleRobotName(), 2);
    }
 
-   @Test(timeout = 210000)
+   @Test // timeout = 210000
    public void testWalking() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 1.0e-4;
@@ -147,7 +147,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       drcSimulationTestHelper.createVideo(getSimpleRobotName(), 2);
    }
 
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingAfterTrajectory() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 3.0e-3;
@@ -184,7 +184,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       drcSimulationTestHelper.createVideo(getSimpleRobotName(), 2);
    }
 
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
    {
       double epsilon = 1.0e-10;
@@ -259,7 +259,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       drcSimulationTestHelper.createVideo(getSimpleRobotName(), 2);
    }
 
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testWalkingWithUserControl() throws SimulationExceededMaximumTimeException
    {
       double trajectoryTime = 0.5;
@@ -281,7 +281,7 @@ public abstract class EndToEndPelvisOrientationTest implements MultiRobotTestInt
       assertEquals("Control Mode", PelvisOrientationControlMode.USER, findCurrentControlMode());
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testCustomControlFrame() throws SimulationExceededMaximumTimeException
    {
       double pitch = Math.toRadians(20.0);

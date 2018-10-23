@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Output;
@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class KryoAnnotationTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOptionalAnnotation()
    {
       final int ITERATIONS = 1000;

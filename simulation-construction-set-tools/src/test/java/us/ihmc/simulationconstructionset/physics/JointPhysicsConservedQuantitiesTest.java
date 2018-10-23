@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.thread.ThreadTools;
@@ -79,7 +79,7 @@ public class JointPhysicsConservedQuantitiesTest
       return randomFloatingChain;
    }
 
-   @Test(timeout=3000000)
+   @Test // timeout=3000000
    public void testLinearAndAngularMomentumAreConverved()
    {
       int numberOfRobotsToTest = 5;

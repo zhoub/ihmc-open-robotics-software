@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -12,7 +12,7 @@ public class UnitConversionsTest
 {
    private static final double EPS = 1e-12;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void inchToMeter()
    {
       Random rand = new Random();
@@ -24,7 +24,7 @@ public class UnitConversionsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void squareInchToSquareMeter()
    {
       Random rand = new Random();
@@ -39,7 +39,7 @@ public class UnitConversionsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void cubicInchToCubicMeter()
    {
       Random rand = new Random();
@@ -57,7 +57,7 @@ public class UnitConversionsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void degreesToRadians()
    {
       Random rand = new Random();
@@ -68,7 +68,7 @@ public class UnitConversionsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void psiToPascals()
    {
       Random rand = new Random();

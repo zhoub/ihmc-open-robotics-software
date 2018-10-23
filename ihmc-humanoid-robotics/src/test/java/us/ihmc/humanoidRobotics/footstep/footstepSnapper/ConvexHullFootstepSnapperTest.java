@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -23,7 +23,7 @@ import us.ihmc.robotics.random.RandomGeometry;
 public class ConvexHullFootstepSnapperTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
 	public void testBasicCropping()
 	{
       QuadTreeFootstepSnappingParameters snappingParameters = new GenericFootstepSnappingParameters();
@@ -41,7 +41,7 @@ public class ConvexHullFootstepSnapperTest
       assertEquals(4.0, endPolygon.getArea(), 1e-15);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
 	public void testRandomCropping()
 	{
       QuadTreeFootstepSnappingParameters snappingParameters = new GenericFootstepSnappingParameters();

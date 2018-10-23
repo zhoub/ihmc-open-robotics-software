@@ -10,7 +10,7 @@ import java.util.Random;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -61,7 +61,7 @@ public abstract class AvatarAbsoluteStepTimingsTest implements MultiRobotTestInt
 
    private static final double swingStartTimeEpsilon = 0.005;
 
-   @Test(timeout = 900000)
+   @Test // timeout = 900000
    public void testTakingStepsWithAbsoluteTimings() throws SimulationExceededMaximumTimeException
    {
       String className = getClass().getSimpleName();
@@ -257,7 +257,7 @@ public abstract class AvatarAbsoluteStepTimingsTest implements MultiRobotTestInt
 
    }
 
-   @Test(timeout = 110000)
+   @Test // timeout = 110000
    public void testMinimumTransferTimeIsRespected() throws SimulationExceededMaximumTimeException
    {
       String className = getClass().getSimpleName();

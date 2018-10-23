@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -45,7 +45,7 @@ public class SpringFlamingoSimulationTest
       testFixture = null;
    }
 
-	@Test(timeout = 42000)
+	@Test // timeout = 42000
    public void testSpringFlamingoSimulationAndGUI() throws SimulationExceededMaximumTimeException
    {
       testFixture.showWindow();
@@ -115,7 +115,7 @@ public class SpringFlamingoSimulationTest
    }
 
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
 	public void testRewindability() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
 	{
       int numTicksToTest = 1000;

@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -15,21 +15,21 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 public class AtlasAbsoluteStepTimingsTest extends AvatarAbsoluteStepTimingsTest
 {
    @Override
-   @Test(timeout = 900000)
+   @Test // timeout = 900000
    public void testTakingStepsWithAbsoluteTimings() throws SimulationExceededMaximumTimeException
    {
       super.testTakingStepsWithAbsoluteTimings();
    }
 
    @Override
-   @Test(timeout = 110000)
+   @Test // timeout = 110000
    public void testMinimumTransferTimeIsRespected() throws SimulationExceededMaximumTimeException
    {
       super.testMinimumTransferTimeIsRespected();
    }
 
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testPausingWalkDuringLongTransfers() throws SimulationExceededMaximumTimeException
    {
       super.testPausingWalkDuringLongTransfers();

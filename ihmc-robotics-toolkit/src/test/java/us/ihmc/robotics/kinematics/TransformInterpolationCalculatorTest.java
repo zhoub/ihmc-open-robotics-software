@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -42,7 +42,7 @@ public class TransformInterpolationCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeInterpolationOne() throws Exception
    {
       RigidBodyTransform t1 =  new RigidBodyTransform();
@@ -60,7 +60,7 @@ public class TransformInterpolationCalculatorTest
       assertTrue(t2.equals(t3));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeInterpolationForTranslation() throws Exception
    {
       RotationMatrix maxtrixIdentity = new RotationMatrix();
@@ -95,7 +95,7 @@ public class TransformInterpolationCalculatorTest
       assertTrue(expectedVector.epsilonEquals(interpolatedVector, 1e-8));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeInterpolationForRotationYaw() throws Exception
    {
       double yaw1, pitch1, roll1;
@@ -157,7 +157,7 @@ public class TransformInterpolationCalculatorTest
       assertEquals(yawPitchRoll[0], (alpha-1)*yaw1 + alpha * yaw2, 1e-6);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeInterpolationForRotationRoll() throws Exception
    {
       double yaw1, pitch1, roll1;
@@ -194,7 +194,7 @@ public class TransformInterpolationCalculatorTest
       assertEquals(yawPitchRoll[2], (alpha-1)*roll1 + alpha * roll2, 1e-6);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeInterpolationForRotationPitch() throws Exception
    {
       double yaw1, pitch1, roll1;
@@ -231,7 +231,7 @@ public class TransformInterpolationCalculatorTest
       assertEquals(yawPitchRoll[1], (alpha-1)*pitch1 + alpha * pitch2, 1e-6);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeInterpolationForRotationYawEdgeCases() throws Exception
    {
       double yaw1, pitch1, roll1;
@@ -307,7 +307,7 @@ public class TransformInterpolationCalculatorTest
       assertEquals(yawPitchRoll[0], (alpha-1)*yaw1 + alpha * yaw2, 1e-6);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeInterpolationForRotationCombined() throws Exception
    {
       double yaw1, pitch1, roll1;
@@ -388,7 +388,7 @@ public class TransformInterpolationCalculatorTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInterpolationWithFramePoses()
    {
       Random random = new Random(52156165L);
@@ -435,7 +435,7 @@ public class TransformInterpolationCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInterpolationForTimeStampedTransform()
    {
       Random random = new Random(52156165L);

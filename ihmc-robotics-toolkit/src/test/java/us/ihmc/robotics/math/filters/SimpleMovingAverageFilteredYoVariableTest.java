@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -15,7 +15,7 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 
 public class SimpleMovingAverageFilteredYoVariableTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithFixedSizeDoubleArrays() throws Exception
    {
       for (int i = 0; i < 100; i++)

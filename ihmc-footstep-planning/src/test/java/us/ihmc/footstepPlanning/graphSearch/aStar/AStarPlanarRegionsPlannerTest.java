@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.google.common.util.concurrent.AtomicDouble;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -61,7 +61,7 @@ public class AStarPlanarRegionsPlannerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFootstepGraph()
    {
       FootstepNode startNode = new FootstepNode(0.0, 0.0);
@@ -115,7 +115,7 @@ public class AStarPlanarRegionsPlannerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFootstepNode()
    {
       double gridX = FootstepNode.gridSizeXY;
@@ -143,7 +143,7 @@ public class AStarPlanarRegionsPlannerTest
       assertEquals(-8.0 * gridY, node.getY(), 1.0e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNodeExpansion()
    {
       if (!visualize)
@@ -182,7 +182,7 @@ public class AStarPlanarRegionsPlannerTest
       ThreadTools.sleepForever();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleExpansion()
    {
       // make planar regions

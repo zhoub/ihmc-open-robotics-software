@@ -3,7 +3,7 @@ package us.ihmc.robotics.math.trajectories.providers;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -26,7 +26,7 @@ public class YoVariableDoubleProviderTest
       yoValue.set(value1);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructor1()
    {
       YoVariableDoubleProvider provider1 = new YoVariableDoubleProvider("provider1", registry);
@@ -36,7 +36,7 @@ public class YoVariableDoubleProviderTest
       assertEquals(value2, provider1.getValue(), EPSILON);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructor2()
    {
       YoVariableDoubleProvider provider2 = new YoVariableDoubleProvider(yoValue);

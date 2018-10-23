@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -28,7 +28,7 @@ public class ValkyrieObstacleCourseRampFootstepSnapperTest extends DRCObstacleCo
    }
 
    @Override
-   @Test(timeout = 530000)
+   @Test // timeout = 530000
    public void testWalkingUpRampUsingSnapFootsteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpRampUsingSnapFootsteps();

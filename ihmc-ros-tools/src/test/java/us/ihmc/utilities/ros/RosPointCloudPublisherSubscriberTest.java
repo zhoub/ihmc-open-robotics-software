@@ -9,7 +9,7 @@ import java.net.URISyntaxException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import sensor_msgs.PointCloud2;
 import org.junit.jupiter.api.Tag;
@@ -23,13 +23,13 @@ import us.ihmc.utilities.ros.types.PointType;
 @Tag("flaky")
 public class RosPointCloudPublisherSubscriberTest extends IHMCRosTestWithRosCore
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPubSubSinglePointXYZICloud() throws URISyntaxException, InterruptedException
    {
       testPubSubSingleCloud(PointType.XYZI);
    }
 
-   @Test(timeout = 2000)
+   @Test // timeout = 2000
    public void testPubSubSinglePointXYZRGBCloud() throws URISyntaxException, InterruptedException
    {
       testPubSubSingleCloud(PointType.XYZRGB);

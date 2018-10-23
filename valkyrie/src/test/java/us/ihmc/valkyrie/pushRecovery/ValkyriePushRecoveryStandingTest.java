@@ -1,7 +1,7 @@
 package us.ihmc.valkyrie.pushRecovery;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCPushRecoveryStandingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -29,35 +29,35 @@ public class ValkyriePushRecoveryStandingTest extends DRCPushRecoveryStandingTes
    }
 
    @Disabled("Needs to be improved")
-   @Test(timeout = 270000)
+   @Test // timeout = 270000
    @Override
    public void testDoublePushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       super.testDoublePushForwardInDoubleSupportAndContinueWalking();
    }
 
-   @Test(timeout = 270000)
+   @Test // timeout = 270000
    @Override
    public void testPushBackwardForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       super.testPushBackwardForwardInDoubleSupportAndContinueWalking();
    }
 
-   @Test(timeout = 270000)
+   @Test // timeout = 270000
    @Override
    public void testPushBackwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       super.testPushBackwardInDoubleSupportAndContinueWalking();
    }
 
-   @Test(timeout = 270000)
+   @Test // timeout = 270000
    @Override
    public void testPushForwardInDoubleSupport() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {
       super.testPushForwardInDoubleSupport();
    }
 
-   @Test(timeout = 270000)
+   @Test // timeout = 270000
    @Override
    public void testPushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
    {

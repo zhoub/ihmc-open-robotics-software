@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCBumpyAndShallowRampsWalkingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -27,7 +27,7 @@ public class AtlasBumpyAndShallowRampsWalkingTest extends DRCBumpyAndShallowRamp
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.ATLAS);
    }
    
-   @Test(timeout = 910000)
+   @Test // timeout = 910000
    @Override
    public void testDRCBumpyGroundWalking() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
@@ -36,14 +36,14 @@ public class AtlasBumpyAndShallowRampsWalkingTest extends DRCBumpyAndShallowRamp
    
    // This has never worked. Would be nice if we can get it to work.")
    @Disabled
-   @Test(timeout=300000)
+   @Test // timeout=300000
    @Override
    public void testDRCOverRandomBlocks() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       super.testDRCOverRandomBlocks();
    }
    
-   @Test(timeout = 650000)
+   @Test // timeout = 650000
    @Override
    public void testDRCOverShallowRamp() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {

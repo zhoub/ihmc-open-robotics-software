@@ -2,7 +2,7 @@ package us.ihmc.footstepPlanning.graphSearch.aStar;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -55,7 +55,7 @@ public class AStarPartialFootholdTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPartialFootholds()
    {
       double steppingStoneWidth = footWidth * Math.sqrt(percentageFootholdToTest);

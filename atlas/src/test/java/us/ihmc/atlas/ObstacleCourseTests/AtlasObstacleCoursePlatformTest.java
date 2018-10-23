@@ -1,6 +1,6 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -33,56 +33,56 @@ public class AtlasObstacleCoursePlatformTest extends DRCObstacleCoursePlatformTe
    @Override
    // "This test is flaky. Sometimes it works, sometimes it doesn't due to threading of the various globalDataProducer and communicators. We need to be able to shut those off or make them not screw up the robot run.")
    @Tag("flaky")
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testRunsTheSameWayTwiceJustStanding() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
    {
       super.testRunsTheSameWayTwiceJustStanding();
    }
 
    @Override
-   @Test(timeout = 340000)
+   @Test // timeout = 340000
    public void testSidestepOverSmallPlatform() throws SimulationExceededMaximumTimeException
    {
       super.testSidestepOverSmallPlatform();
    }
 
    @Override
-   @Test(timeout = 330000)
+   @Test // timeout = 330000
    public void testSidestepOverSmallWall() throws SimulationExceededMaximumTimeException
    {
       super.testSidestepOverSmallWall();
    }
 
    @Override
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testWalkingOffOfMediumPlatform() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOffOfMediumPlatform();
    }
 
    @Override
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
    public void testWalkingOffOfMediumPlatformSlowSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOffOfMediumPlatformSlowSteps();
    }
 
    @Override
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testWalkingOntoMediumPlatformToesTouching() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOntoMediumPlatformToesTouching();
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testWalkingOverSmallPlatform() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOverSmallPlatform();
    }
 
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingOverSmallPlatformQuickly() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingOverSmallPlatformQuickly();

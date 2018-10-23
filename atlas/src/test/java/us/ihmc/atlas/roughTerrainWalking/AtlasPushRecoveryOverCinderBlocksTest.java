@@ -2,7 +2,7 @@ package us.ihmc.atlas.roughTerrainWalking;
 
 import java.io.InputStream;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -24,28 +24,28 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOverCinderBlocksTest
 {
    @Override
-   @Test(timeout = 360000)
+   @Test // timeout = 360000
    public void testNoPushFlatBlocks() throws SimulationExceededMaximumTimeException
    {
       super.testNoPushFlatBlocks();
    }
 
    @Override
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
    public void testNoPushForwardWalkOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
       super.testNoPushForwardWalkOverFlatBlocks();
    }
 
    @Override
-   @Test(timeout = 470000)
+   @Test // timeout = 470000
    public void testNoPushTiltedBlocks() throws SimulationExceededMaximumTimeException
    {
       super.testNoPushTiltedBlocks();
    }
 
    @Override
-   @Test(timeout = 340000)
+   @Test // timeout = 340000
    public void testNoPushForwardTiltedBlocks() throws SimulationExceededMaximumTimeException
    {
       super.testNoPushForwardTiltedBlocks();
@@ -53,7 +53,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
 
    @Override
    @Disabled
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testPushOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
       super.testPushOverFlatBlocks();
@@ -61,7 +61,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
 
    @Override
    @Disabled
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testForwardPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
       super.testForwardPushWalkWithOffsetOverFlatBlocks();
@@ -69,7 +69,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
 
    @Override
    @Disabled
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testLeftSidewaysPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
       super.testLeftSidewaysPushWalkWithOffsetOverFlatBlocks();
@@ -77,7 +77,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
 
    @Override
    @Disabled
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testRightSidewaysPushWalkWithOffsetOverFlatBlocks() throws SimulationExceededMaximumTimeException
    {
       super.testRightSidewaysPushWalkWithOffsetOverFlatBlocks();
@@ -85,7 +85,7 @@ public class AtlasPushRecoveryOverCinderBlocksTest extends AvatarPushRecoveryOve
 
    @Override
    @Disabled
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testPushOverTiltedBlocks() throws SimulationExceededMaximumTimeException
    {
       super.testPushOverTiltedBlocks();

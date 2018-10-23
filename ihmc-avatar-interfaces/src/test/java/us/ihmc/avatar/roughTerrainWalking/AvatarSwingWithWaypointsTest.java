@@ -7,7 +7,7 @@ import org.junit.Before;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.DRCStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -44,7 +44,7 @@ public abstract class AvatarSwingWithWaypointsTest implements MultiRobotTestInte
    private SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Test(timeout = 690000)
+   @Test // timeout = 690000
    public void testRegularSwingWithWaypoints() throws SimulationExceededMaximumTimeException
    {
       String className = getClass().getSimpleName();
@@ -181,7 +181,7 @@ public abstract class AvatarSwingWithWaypointsTest implements MultiRobotTestInte
       drcSimulationTestHelper.createVideo(getSimpleRobotName(), 2);
    }
 
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testSwingWithWaypointsRotated() throws SimulationExceededMaximumTimeException
    {
       String className = getClass().getSimpleName();

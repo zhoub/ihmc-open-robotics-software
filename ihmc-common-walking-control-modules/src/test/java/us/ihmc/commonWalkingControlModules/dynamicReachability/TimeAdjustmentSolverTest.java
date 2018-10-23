@@ -1,6 +1,6 @@
 package us.ihmc.commonWalkingControlModules.dynamicReachability;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.configurations.DynamicReachabilityParameters;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -24,7 +24,7 @@ public class TimeAdjustmentSolverTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithoutHigherSteps()
    {
       int maximumNumberOfSteps = 3;
@@ -156,7 +156,7 @@ public class TimeAdjustmentSolverTest
    /**
     * We only have only told it to consider 3 steps, so none of the higher steps should be allowed.
     */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithHigherStepsButOutOfBounds()
    {
       int maximumNumberOfSteps = 3;
@@ -280,7 +280,7 @@ public class TimeAdjustmentSolverTest
    /**
     * We are not submitting higher gradients, so there should be zero adjustment
     */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithHigherStepsButNotSubmitted()
    {
       int maximumNumberOfSteps = 4;
@@ -417,7 +417,7 @@ public class TimeAdjustmentSolverTest
    /**
     * The higher gradients are really small, so the adjustment should be really small.
     */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithHigherSteps()
    {
       int maximumNumberOfSteps = 4;

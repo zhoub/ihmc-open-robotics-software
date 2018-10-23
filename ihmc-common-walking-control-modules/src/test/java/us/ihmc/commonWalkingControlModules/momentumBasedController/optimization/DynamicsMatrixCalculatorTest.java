@@ -8,7 +8,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.ContactablePlaneBodyTools;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControlCoreToolbox;
@@ -72,7 +72,7 @@ public class DynamicsMatrixCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testEquivalence() throws Exception
    {
       setupTest();
@@ -100,7 +100,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMassMatrixOnly() throws Exception
    {
       setupTest();
@@ -128,7 +128,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNoLoad() throws Exception
    {
       setupTest();
@@ -151,7 +151,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGravityOnly() throws Exception
    {
       setupTest();
@@ -174,7 +174,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGravityAndCoriolisOnly() throws Exception
    {
       setupTest();
@@ -198,7 +198,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMassMatrixAndGravityOnly() throws Exception
    {
       setupTest();
@@ -224,7 +224,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMassMatrixAndCoriolisOnly() throws Exception
    {
       setupTest();
@@ -251,7 +251,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMassMatrixGravityAndCoriolisOnly() throws Exception
    {
       setupTest();
@@ -278,7 +278,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForceAndGravityOnly() throws Exception
    {
       setupTest();
@@ -301,7 +301,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForceGravityAndCoriolisOnly() throws Exception
    {
       setupTest();
@@ -325,7 +325,7 @@ public class DynamicsMatrixCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOther() throws Exception
    {
    }

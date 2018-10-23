@@ -5,7 +5,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -57,7 +57,7 @@ public abstract class QuadrupedPositionCrawlTurningVelocityTest implements Quadr
 
    @Tag("fast")
    @Tag("video")
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testTurnInPlaceRegularSpeed() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -72,7 +72,7 @@ public abstract class QuadrupedPositionCrawlTurningVelocityTest implements Quadr
    //"Turn in place slowly still fails due to CoM shifting outside support polygon. Need to fix it..."
    @Tag("video")
    @Disabled
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testTurnInPlaceSlowly() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -85,7 +85,7 @@ public abstract class QuadrupedPositionCrawlTurningVelocityTest implements Quadr
       conductor.simulate();
    }
 
-   @Test(timeout = 2000000)
+   @Test // timeout = 2000000
    public void testWalkingBackwardStoppingAndTurning() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       Random random = new Random(1234L);

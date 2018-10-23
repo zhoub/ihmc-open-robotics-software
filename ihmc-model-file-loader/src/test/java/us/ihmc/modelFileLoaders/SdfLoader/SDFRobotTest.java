@@ -11,7 +11,7 @@ import java.util.List;
 
 import javax.xml.bind.JAXBException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import org.junit.jupiter.api.Tag;
@@ -34,7 +34,7 @@ import us.ihmc.simulationconstructionset.RobotFromDescription;
 
 public class SDFRobotTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSDFRobotVersusRobotDescription() throws FileNotFoundException, JAXBException
    {
 	   List<String> resourceDirectories = (List<String>) null;

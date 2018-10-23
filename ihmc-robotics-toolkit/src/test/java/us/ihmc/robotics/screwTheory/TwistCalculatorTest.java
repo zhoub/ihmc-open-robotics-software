@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -36,7 +36,7 @@ public class TwistCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithChainComposedOfPrismaticJoints() throws Exception
    {
       Random random = new Random(234234L);
@@ -72,7 +72,7 @@ public class TwistCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithChainComposedOfRevoluteJointsAssertAngularVelocityOnly() throws Exception
    {
       Random random = new Random(234234L);
@@ -110,7 +110,7 @@ public class TwistCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithTreeComposedOfPrismaticJoints() throws Exception
    {
       Random random = new Random(234234L);
@@ -153,7 +153,7 @@ public class TwistCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithTreeComposedOfRevoluteJointsAssertAngularVelocity() throws Exception
    {
       Random random = new Random(234234L);
@@ -198,7 +198,7 @@ public class TwistCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithChainRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(234234L);
@@ -243,7 +243,7 @@ public class TwistCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithTreeRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(234234L);
@@ -288,7 +288,7 @@ public class TwistCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(435345L);
@@ -364,7 +364,7 @@ public class TwistCalculatorTest
       }
    }
 
-   @Test(timeout = 32000)
+   @Test // timeout = 32000
    public void testRelativeTwistWithFloatingJointRobotAgainstFiniteDifference() throws Exception
    {
       Random random = new Random(435345L);

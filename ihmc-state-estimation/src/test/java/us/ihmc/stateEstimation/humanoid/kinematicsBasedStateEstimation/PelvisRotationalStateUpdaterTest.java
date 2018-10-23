@@ -8,7 +8,7 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -54,7 +54,7 @@ public class PelvisRotationalStateUpdaterTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructorWithOneIMU()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");
@@ -81,7 +81,7 @@ public class PelvisRotationalStateUpdaterTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructorWithZeroIMUSensor()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");
@@ -109,7 +109,7 @@ public class PelvisRotationalStateUpdaterTest
          fail("RuntimeException expected, no orientation sensor attached to the sensor map.");
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testInitializeAndReadWithOneIMU()
    {
       YoVariableRegistry registry = new YoVariableRegistry("Blop");

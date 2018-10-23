@@ -7,7 +7,7 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.EjmlUnitTests;
 import org.ejml.ops.RandomMatrices;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -21,7 +21,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 public class MatrixYoVariableConversionToolsTest
 {
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testBackAndForthVector()
    {
       List<YoDouble> yoArray = new ArrayList<YoDouble>();
@@ -41,7 +41,7 @@ public class MatrixYoVariableConversionToolsTest
       EjmlUnitTests.assertEquals(matrix, matrixBack, 1e-12);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testBackAndForthMatrix()
    {
       List<List<YoDouble>> yoArray = new ArrayList<List<YoDouble>>();
@@ -62,7 +62,7 @@ public class MatrixYoVariableConversionToolsTest
       EjmlUnitTests.assertEquals(matrix, matrixBack, 1e-12);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testBackAndForthSymmetricMatrix()
    {
       List<List<YoDouble>> yoArray = new ArrayList<List<YoDouble>>();

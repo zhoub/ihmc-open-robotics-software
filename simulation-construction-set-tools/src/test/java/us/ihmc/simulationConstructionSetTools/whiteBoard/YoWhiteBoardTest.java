@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -20,14 +20,14 @@ public class YoWhiteBoardTest
 {
    private static final boolean VERBOSE = false;
 
-	@Test(timeout=300000,expected = RuntimeException.class)
+	@Test // timeout=300000,expected = RuntimeException.class
    public void testWriteNotConnected() throws IOException
    {
       YoWhiteBoard whiteBoard = new DoNothingWhiteBoard();
       whiteBoard.writeData();
    }
 
-	@Test(timeout=300000,expected = RuntimeException.class)
+	@Test // timeout=300000,expected = RuntimeException.class
    public void testReadNotConnected() throws IOException
    {
       YoWhiteBoard whiteBoard = new DoNothingWhiteBoard();

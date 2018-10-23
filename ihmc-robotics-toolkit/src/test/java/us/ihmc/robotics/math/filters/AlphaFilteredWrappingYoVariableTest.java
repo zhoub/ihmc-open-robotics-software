@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -20,7 +20,7 @@ public class AlphaFilteredWrappingYoVariableTest
    private static final boolean DEBUG = false;
    private final Random random = new Random();
 
-   @Test(timeout=60000)
+   @Test // timeout=60000
    public void testInputModulo()
    {
       YoVariableRegistry registry = new YoVariableRegistry("testRegistry");
@@ -67,7 +67,7 @@ public class AlphaFilteredWrappingYoVariableTest
    }
    
    
-	@Test(timeout=60000)
+	@Test // timeout=60000
    public void testNoisyFixedPosition()
    {
       // Use a reasonably large alpha for a reasonably large amount of noise
@@ -95,7 +95,7 @@ public class AlphaFilteredWrappingYoVariableTest
       assertEquals(10.0, alphaFilteredWrappingYoVariable.getDoubleValue(), 1.0);
    }
 	
-	@Test(timeout=60000)
+	@Test // timeout=60000
 	public void testErrorAlwaysDecreases()
 	{
 	   // Use a reasonably large alpha for a reasonably large amount of noise
@@ -162,7 +162,7 @@ public class AlphaFilteredWrappingYoVariableTest
 	   return wrappingError;
 	}
 	
-   @Test(timeout=60000)
+   @Test // timeout=60000
    public void testWrappingError()
    {
 	   double e = getErrorConsideringWrap(0.2,0.8,0.0,1.0);
@@ -202,7 +202,7 @@ public class AlphaFilteredWrappingYoVariableTest
 	   
    }
 
-	@Test(timeout=60000)
+	@Test // timeout=60000
    public void testAlphaAndBreakFrequencyComputations()
    {
       double DT = 0.1;

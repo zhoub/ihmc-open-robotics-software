@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -19,7 +19,7 @@ public class ClusterToolsTest
 {
    private static final double EPSILON = 1.0e-12;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testExtrudeLine() throws Exception
    {
       Point2D endpoint1 = new Point2D(0.0, 0.0);
@@ -39,7 +39,7 @@ public class ClusterToolsTest
       EuclidCoreTestTools.assertPoint2DGeometricallyEquals(new Point2D(0.0, -0.5), extrusions.get(index++), EPSILON);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFilterVerticalPolygonForMultiLineExtrusion() throws Exception
    {
       List<Point3D> rawPoints = new ArrayList<>();
@@ -56,7 +56,7 @@ public class ClusterToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testExtrudeCorner()
    {
       Point2D previous = new Point2D(1.0, 0.0);

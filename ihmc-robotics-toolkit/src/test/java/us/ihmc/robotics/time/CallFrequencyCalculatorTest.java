@@ -2,7 +2,7 @@ package us.ihmc.robotics.time;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -11,7 +11,7 @@ import us.ihmc.yoVariables.registry.YoVariableRegistry;
 public class CallFrequencyCalculatorTest
 {
    @Tag("fast")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDetermineCallFrequency()
    {
       CallFrequencyCalculator callFrequencyCalculator = new CallFrequencyCalculator(new YoVariableRegistry("test"), "");

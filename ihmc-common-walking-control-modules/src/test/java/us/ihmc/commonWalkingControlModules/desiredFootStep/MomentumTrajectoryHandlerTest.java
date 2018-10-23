@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.desiredFootStep;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.messageHandlers.MomentumTrajectoryHandler;
 import us.ihmc.commons.MutationTestFacilitator;
@@ -24,7 +24,7 @@ import java.util.Random;
 @Tag("fast")
 public class MomentumTrajectoryHandlerTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleExample()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -62,7 +62,7 @@ public class MomentumTrajectoryHandlerTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(0.0, 0.0, 0.0), momentumTrajectory.get(2).getEuclideanWaypoint().getLinearVelocity(), Double.MIN_VALUE);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSamplingDurations()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -137,7 +137,7 @@ public class MomentumTrajectoryHandlerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOutOfBounds()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -167,7 +167,7 @@ public class MomentumTrajectoryHandlerTest
       assertEquals(3, momentumTrajectory.size());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testQueuing()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");

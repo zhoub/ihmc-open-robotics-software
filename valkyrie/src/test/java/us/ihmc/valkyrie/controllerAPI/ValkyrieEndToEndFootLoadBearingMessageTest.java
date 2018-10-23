@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.controllerAPI.EndToEndEndFootBearingMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -27,7 +27,7 @@ public class ValkyrieEndToEndFootLoadBearingMessageTest extends EndToEndEndFootB
    }
 
    @Override
-   @Test(timeout = 270000)
+   @Test // timeout = 270000
    public void testSwitchFootToLoadBearing() throws Exception
    {
       super.testSwitchFootToLoadBearing();

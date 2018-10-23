@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ import us.ihmc.robotics.controllers.pidGains.GainCalculator;
 @Tag("fast")
 public class GainCalculatorTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeDerivativeGain()
    {
       Random random = new Random();
@@ -28,7 +28,7 @@ public class GainCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeDampingRatio()
    {
       Random random = new Random();
@@ -47,7 +47,7 @@ public class GainCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeDampingForSecondOrderSystem()
    {
       double dampingCoeff = GainCalculator.computeDampingForSecondOrderSystem(1, 1, 1);

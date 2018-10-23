@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -38,7 +38,7 @@ public class YoFrameEuclideanTrajectoryPointTest
    {
       ReferenceFrameTools.clearWorldFrameTree();
    }
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCommonUsageExample()
    {
       String namePrefix = "point";
@@ -88,7 +88,7 @@ public class YoFrameEuclideanTrajectoryPointTest
       assertTrue(expectedYoFrameEuclideanTrajectoryPoint.epsilonEquals(yoFrameEuclideanTrajectoryPoint, 1e-10));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructor()
    {
       double epsilon = 1.0e-20;
@@ -109,7 +109,7 @@ public class YoFrameEuclideanTrajectoryPointTest
                                          testedYoFrameEuclideanTrajectoryPoint, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetters()
    {
       double epsilon = 1.0e-20;
@@ -167,7 +167,7 @@ public class YoFrameEuclideanTrajectoryPointTest
                                          testedYoFrameEuclideanTrajectoryPoint.getLinearVelocity(), testedYoFrameEuclideanTrajectoryPoint, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrame() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -206,7 +206,7 @@ public class YoFrameEuclideanTrajectoryPointTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToZero() throws Exception
    {
       double epsilon = 1.0e-10;
@@ -251,7 +251,7 @@ public class YoFrameEuclideanTrajectoryPointTest
                                          testedYoFrameEuclideanTrajectoryPoint, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToNaN() throws Exception
    {
       Random random = new Random(21651016L);
@@ -338,7 +338,7 @@ public class YoFrameEuclideanTrajectoryPointTest
       assertTrue(expectedLinearVelocity.epsilonEquals(actualFrameLinearVelocity, epsilon));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeSetsAngGets()
    {
       String namePrefix = "point";
@@ -438,7 +438,7 @@ public class YoFrameEuclideanTrajectoryPointTest
       assertEquals(expectedString, string);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeMoreSettersAndGetters()
    {
       String namePrefix = "point";

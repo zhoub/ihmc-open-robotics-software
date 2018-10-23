@@ -5,7 +5,7 @@ import static org.junit.Assert.fail;
 
 import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -34,7 +34,7 @@ public class BestFitPlaneCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void basicBestFitPlaneCalculatorTest() throws InsufficientDataException
    {
       double gridResolution = 1;
@@ -64,7 +64,7 @@ public class BestFitPlaneCalculatorTest
 
    }  
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void basicBestFitPlaneCalculatorNaNTest() throws InsufficientDataException
    {
       double gridResolution = 1;

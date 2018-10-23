@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.SE3TrajectoryMessage;
 import gnu.trove.map.hash.TObjectDoubleHashMap;
@@ -86,13 +86,13 @@ public class RigidBodyControlManagerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstuctor()
    {
       createManager();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInitialize()
    {
       // create manager
@@ -126,7 +126,7 @@ public class RigidBodyControlManagerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTaskspaceMessage()
    {
       RigidBodyControlManager manager = createManager();
@@ -265,7 +265,7 @@ public class RigidBodyControlManagerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTaskspaceWeightAndSelectionMatrixFromMessage()
    {
       RigidBodyControlManager manager = createManager();
@@ -385,7 +385,7 @@ public class RigidBodyControlManagerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTaskspaceMessageWithCustomControlFrame()
    {
       RigidBodyControlManager manager = createManager();

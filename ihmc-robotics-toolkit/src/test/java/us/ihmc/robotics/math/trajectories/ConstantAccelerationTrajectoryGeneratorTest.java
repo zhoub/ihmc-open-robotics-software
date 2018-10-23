@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -40,7 +40,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
       initialVelocityProvider = new ConstantDoubleProvider(INITIALVELOCITY);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructor()
    {
       finalPositionProvider = new ConstantDoubleProvider(CONSTANT * timeRequired * timeRequired + INITIALVELOCITY * timeRequired);
@@ -58,7 +58,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testIsDone()
    {
       finalPositionProvider = new ConstantDoubleProvider(CONSTANT * timeRequired * timeRequired + INITIALVELOCITY * timeRequired);
@@ -74,7 +74,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
       assertTrue(generator.isDone());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    //s = c * t ^ 2 + v0 * t
    public void testIncreasing()
    {
@@ -94,7 +94,7 @@ public class ConstantAccelerationTrajectoryGeneratorTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    //s = -c * t ^ 2 + v0 * t
    public void testDecreasing()
    {

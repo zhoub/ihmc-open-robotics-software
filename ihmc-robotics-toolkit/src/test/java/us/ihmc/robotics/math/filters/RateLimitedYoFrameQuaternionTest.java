@@ -8,7 +8,7 @@ import java.util.Random;
 
 import org.apache.commons.lang3.mutable.MutableDouble;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -32,7 +32,7 @@ public class RateLimitedYoFrameQuaternionTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConvergenceWithConstantInput() throws Exception
    {
       Random random = new Random(46363);

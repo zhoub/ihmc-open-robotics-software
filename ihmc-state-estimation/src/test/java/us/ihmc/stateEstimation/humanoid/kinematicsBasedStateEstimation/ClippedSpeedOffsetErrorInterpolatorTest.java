@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -75,7 +75,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
    }
 
    @Disabled
-   @Test(timeout = 33000)
+   @Test // timeout = 33000
    public void testRandomTranslationErrorInterpolation()
    {
       Random random = new Random();
@@ -151,7 +151,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
 
    //TODO
    @Disabled
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testRandomRotationErrorInterpolation()
    {
       Random random = new Random();
@@ -238,7 +238,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
 
    // TODO
    @Disabled
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testTranslationAndRotationErrorsInterpolation()
    {
       Random random = new Random();
@@ -313,7 +313,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMaxTranslationalCorrectionSpeedClip()
    {
       int numberOfTicks = 10000;
@@ -396,7 +396,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
 
    //TODO
    @Disabled
-   @Test(timeout = 60000)
+   @Test // timeout = 60000
    public void testMaxRotationalCorrectionSpeedClip()
    {
       int numberOfTicks = 10000;
@@ -479,7 +479,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
 
    // TODO
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMaxCorrectionSpeedClipWorksWhenTranslationAndRotationOffsetsAreBig()
    {
       int numberOfTicks = 10000;
@@ -624,7 +624,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
       }
    }
 
-   @Test(timeout = 60000)
+   @Test // timeout = 60000
    public void testRotationCorrectionIsActuallyDeactivatedWhenAskedTo()
    {
       Random random = new Random();
@@ -699,7 +699,7 @@ public class ClippedSpeedOffsetErrorInterpolatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testErrorRotationCheckIsBehavingProperly()
    {
       Random random = new Random();

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ public class OctreeTest
 {
    private static final String[] axes = { "x", "y", "z" };
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimplePutGetOctree()
    {
       HyperCubeTree<Boolean, Void> tree = setupUnitCubeOctree(0.5);
@@ -45,7 +45,7 @@ public class OctreeTest
       assertEquals(2, tree.listAllLeaves().size());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void test3DPutGetRemoveTwoLevel()
    {
       HyperCubeTree<Boolean, Void> tree = setupUnitCubeOctree(0.25);
@@ -85,7 +85,7 @@ public class OctreeTest
 
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testOctreeInternalBoarders()
    {
       HyperCubeTree<Boolean, Void> tree = setupUnitCubeOctree(0.25);
@@ -96,7 +96,7 @@ public class OctreeTest
       assertEquals(2, tree.listAllLeaves().size());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testOctreeLineSearch()
    {
 
@@ -119,14 +119,14 @@ public class OctreeTest
 
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPrint()
    {
       HyperCubeTree<Boolean, Void> tree = createStandardTestOctree();
       System.out.println(tree.toString());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPutLidarInOctree()
    {
       Octree tree = createStandardTestOctree();
@@ -142,7 +142,7 @@ public class OctreeTest
       assertEquals(true, tree.get(new double[] { 0.375, 0.0, 0.0 }).getValue());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testShootOctreeIntoSphereWithLidarBullets()
    {
       long time = System.currentTimeMillis();

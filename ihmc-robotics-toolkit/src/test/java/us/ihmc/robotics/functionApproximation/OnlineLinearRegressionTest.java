@@ -4,14 +4,14 @@ import static org.junit.Assert.assertArrayEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 @Tag("fast")
 public class OnlineLinearRegressionTest {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
 	   public void toyExample()
 	   {
 		   int testSize=100;

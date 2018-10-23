@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -24,7 +24,7 @@ public class OrBooleanGlobalParameterTest
       GlobalParameter.clearGlobalRegistry();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSetThrowsException()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -52,7 +52,7 @@ public class OrBooleanGlobalParameterTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testAndBooleanGlobalParameter()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -74,7 +74,7 @@ public class OrBooleanGlobalParameterTest
       assertEquals(valueA || valueB, multiplicativeDoubleGlobalParameter.getValue());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testAndBooleanGlobalParameterUpdate()
    {
       SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = null;
@@ -109,7 +109,7 @@ public class OrBooleanGlobalParameterTest
       assertEquals(valueA || valueB, multiplicativeDoubleGlobalParameter.getValue());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testFamilyTree()
    {
 //    SystemOutGlobalParameterChangedListener systemOutGlobalParameterChangedListener = new SystemOutGlobalParameterChangedListener();

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -31,7 +31,7 @@ public class YoConcatenatedSplinesTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleCubicQuinticCubic()
    {
       int trials = 50;
@@ -64,7 +64,7 @@ public class YoConcatenatedSplinesTest
    }
    
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSimpleCubicQuinticCubicTroublesome()
    {
       YoVariableRegistry registry = new YoVariableRegistry("ConcatenatedSplinesTest");
@@ -102,7 +102,7 @@ public class YoConcatenatedSplinesTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testQuinticsFromCubicQuinticCubic()
    {
       int trials = 50;
@@ -140,7 +140,7 @@ public class YoConcatenatedSplinesTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTimeFromArcLength()
    {
       int trials = 50;

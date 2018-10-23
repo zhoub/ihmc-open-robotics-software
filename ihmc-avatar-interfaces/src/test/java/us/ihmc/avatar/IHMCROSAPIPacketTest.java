@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.ros.RosCore;
 import org.ros.internal.message.Message;
 
@@ -116,7 +116,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
       }
    }
 
-   @Test(timeout = 420000)
+   @Test // timeout = 420000
    public void testFuzzyPacketsUsingRos()
    {
       RosCore rosCore = RosCore.newPrivate();
@@ -232,7 +232,7 @@ public abstract class IHMCROSAPIPacketTest implements MultiRobotTestInterface
 
    private AvatarSimulation avatarSimulation;
 
-   @Test(timeout = 420000)
+   @Test // timeout = 420000
    public void testFuzzyPacketsWithoutRos()
    {
       DRCRobotModel robotModel = getRobotModel();

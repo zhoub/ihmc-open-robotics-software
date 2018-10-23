@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
@@ -78,14 +78,14 @@ public class AtlasFlatGroundSideSteppingTest extends AvatarFlatGroundSideSteppin
    private final Vector3D forceDirection2 = new Vector3D(1.0, 0.5, 0.0);
 
    @Override
-   @Test(timeout = 310000)
+   @Test // timeout = 310000
    public void testSideStepping() throws SimulationExceededMaximumTimeException
    {
       super.testSideStepping();
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testSideSteppingWithForceDisturbances() throws SimulationExceededMaximumTimeException
    {
       super.testSideSteppingWithForceDisturbances();

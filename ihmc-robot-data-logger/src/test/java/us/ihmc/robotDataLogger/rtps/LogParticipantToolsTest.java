@@ -3,7 +3,7 @@ package us.ihmc.robotDataLogger.rtps;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -17,7 +17,7 @@ import us.ihmc.tools.compression.CompressionImplementationFactory;
 
 public class LogParticipantToolsTest
 {
-   @Test(timeout = 41000)
+   @Test // timeout = 41000
    public void testSegmentation()
    {
       CompressionImplementation compressor = CompressionImplementationFactory.instance();

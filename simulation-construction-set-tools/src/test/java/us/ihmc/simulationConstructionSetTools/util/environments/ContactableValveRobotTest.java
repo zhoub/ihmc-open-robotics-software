@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.RandomNumbers;
@@ -54,7 +54,7 @@ public class ContactableValveRobotTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testValveIsClosing()
    {
       boolean isValveClosed = false;
@@ -96,7 +96,7 @@ public class ContactableValveRobotTest
       blockingSimulationRunner.destroySimulation();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetValveTransformToWorld()
    {
       Random random = new Random(1235125L);

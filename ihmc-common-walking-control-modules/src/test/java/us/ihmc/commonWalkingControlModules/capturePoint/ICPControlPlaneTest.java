@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -36,7 +36,7 @@ public class ICPControlPlaneTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testProjectPointForwardAndLeftOntoPlane()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -242,7 +242,7 @@ public class ICPControlPlaneTest
     * </p>
     */
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testProjectPointForwardAndLeftOntoPlaneEdgeCase()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -279,7 +279,7 @@ public class ICPControlPlaneTest
       expectedProjectedPoint.checkReferenceFrameMatch(projectedPoint);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomProjectOntoPlane()
    {
       Random random = new Random(12345);
@@ -323,7 +323,7 @@ public class ICPControlPlaneTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testProjectPointForwardAndLeftFromPlaneOntoSurface()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -518,7 +518,7 @@ public class ICPControlPlaneTest
       EuclidCoreTestTools.assertTuple3DEquals(expectedProjectedPoint, projectedPoint, 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomProjectOntoSurface()
    {
       Random random = new Random(12345);
@@ -563,7 +563,7 @@ public class ICPControlPlaneTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testProjectPlanarRegionMostBasic()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -617,7 +617,7 @@ public class ICPControlPlaneTest
       EuclidCoreTestTools.assertTuple2DEquals(predictedProjectPoint4, projectedConvexPolygon.getVertex(3), 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testProjectPlanarRegion()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");

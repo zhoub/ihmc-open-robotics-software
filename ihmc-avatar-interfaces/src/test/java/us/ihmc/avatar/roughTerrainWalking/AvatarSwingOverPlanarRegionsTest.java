@@ -5,7 +5,7 @@ import org.junit.Before;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -43,7 +43,7 @@ public abstract class AvatarSwingOverPlanarRegionsTest implements MultiRobotTest
 
    private static final boolean LOCAL_MODE = false;
 
-   @Test(timeout = 360000)
+   @Test // timeout = 360000
    public void testSwingOverPlanarRegions() throws SimulationExceededMaximumTimeException
    {
       String className = getClass().getSimpleName();

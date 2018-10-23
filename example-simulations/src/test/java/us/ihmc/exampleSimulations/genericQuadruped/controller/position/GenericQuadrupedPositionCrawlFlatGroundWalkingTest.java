@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -21,56 +21,56 @@ public class GenericQuadrupedPositionCrawlFlatGroundWalkingTest extends Quadrupe
    }
    
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingForwardFast() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingForwardFast();
    }
    
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingForwardSlow() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingForwardSlow();
    }
    
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingBackwardsFast() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingBackwardsFast();
    }
    
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingBackwardsSlow() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingBackwardsSlow();
    }
    
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingInAForwardLeftCircle() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingInAForwardLeftCircle();
    }
    
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingInAForwardRightCircle() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingInAForwardRightCircle();
    }
    
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingInABackwardLeftCircle() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingInABackwardLeftCircle();
    }
    
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingInABackwardRightCircle() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingInABackwardRightCircle();

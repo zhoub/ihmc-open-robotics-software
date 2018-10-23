@@ -1,6 +1,6 @@
 package us.ihmc.avatar.networkProcessor.footstepPlanningToolboxModule;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.footstepPlanning.FootstepPlannerType;
@@ -16,7 +16,7 @@ public class PlanThenSnapPlannerToolboxTest extends FootstepPlannerToolboxTest
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    public void testDatasetsWithoutOcclusion()
    {
       pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
@@ -25,7 +25,7 @@ public class PlanThenSnapPlannerToolboxTest extends FootstepPlannerToolboxTest
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    @Tag("in-development")
    public void testDatasetsWithoutOcclusionInDevelopment()
    {
@@ -35,7 +35,7 @@ public class PlanThenSnapPlannerToolboxTest extends FootstepPlannerToolboxTest
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    @Tag("in-development")
    public void testDatasetsWithoutOcclusionRTPS()
    {

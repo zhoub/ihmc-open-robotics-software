@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -51,7 +51,7 @@ public class ConstantPositionTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructor()
    {
       try
@@ -66,7 +66,7 @@ public class ConstantPositionTrajectoryGeneratorTest
       generator = new ConstantPositionTrajectoryGenerator(namePrefix, referenceFrame, positionProvider, finalTime, parentRegistry);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testIsDone()
    {
       generator = new ConstantPositionTrajectoryGenerator(namePrefix, referenceFrame, positionProvider, finalTime, parentRegistry);
@@ -78,7 +78,7 @@ public class ConstantPositionTrajectoryGeneratorTest
       assertTrue(generator.isDone());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGet()
    {
       generator = new ConstantPositionTrajectoryGenerator(namePrefix, referenceFrame, positionProvider, finalTime, parentRegistry);
@@ -89,7 +89,7 @@ public class ConstantPositionTrajectoryGeneratorTest
       assertEquals(referenceFrame, positionToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackVelocity()
    {
       generator = new ConstantPositionTrajectoryGenerator(namePrefix, referenceFrame, positionProvider, finalTime, parentRegistry);
@@ -105,7 +105,7 @@ public class ConstantPositionTrajectoryGeneratorTest
       assertSame(referenceFrame, velocityToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackAcceleration()
    {
       generator = new ConstantPositionTrajectoryGenerator(namePrefix, referenceFrame, positionProvider, finalTime, parentRegistry);
@@ -121,7 +121,7 @@ public class ConstantPositionTrajectoryGeneratorTest
       assertSame(referenceFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackLinearData()
    {
       FramePoint3D positionToPack = new FramePoint3D(referenceFrame);

@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.behaviorTests.HumanoidHandDesiredConfigurationBehaviorTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -29,21 +29,21 @@ public class ValkyrieHandDesiredConfigurationBehaviorTest extends HumanoidHandDe
    }
 
    @Override
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testCloseHand() throws SimulationExceededMaximumTimeException
    {
       super.testCloseHand();
    }
 
    @Override
-   @Test(timeout = 260000)
+   @Test // timeout = 260000
    public void testPauseAndResumeCloseHand() throws SimulationExceededMaximumTimeException
    {
       super.testPauseAndResumeCloseHand();
    }
 
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testStopCloseHand() throws SimulationExceededMaximumTimeException
    {
       super.testStopCloseHand();

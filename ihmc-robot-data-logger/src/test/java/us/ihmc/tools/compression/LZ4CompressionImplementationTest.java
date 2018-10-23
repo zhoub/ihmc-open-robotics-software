@@ -4,13 +4,13 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class LZ4CompressionImplementationTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLength()
    {
       LZ4CompressionImplementation impl = new LZ4CompressionImplementation();

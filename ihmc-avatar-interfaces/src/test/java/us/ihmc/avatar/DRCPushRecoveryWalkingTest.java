@@ -7,7 +7,7 @@ import org.junit.Before;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commonWalkingControlModules.controlModules.foot.FootControlModule.ConstraintType;
@@ -86,7 +86,7 @@ public abstract class DRCPushRecoveryWalkingTest implements MultiRobotTestInterf
       this.pushMagnitude = pushMagnitude;
    }
 
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testPushLeftEarlySwing() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -102,7 +102,7 @@ public abstract class DRCPushRecoveryWalkingTest implements MultiRobotTestInterf
       testPush(forceDirection, magnitude, duration, percentInSwing, side, swingStartConditions, swingTime);
    }
 
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testPushRightLateSwing() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -118,7 +118,7 @@ public abstract class DRCPushRecoveryWalkingTest implements MultiRobotTestInterf
       testPush(forceDirection, magnitude, duration, percentInSwing, side, swingStartConditions, swingTime);
    }
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testPushRightThenLeftMidSwing() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -143,7 +143,7 @@ public abstract class DRCPushRecoveryWalkingTest implements MultiRobotTestInterf
       testPush(forceDirection, magnitude, duration, percentInSwing, side, swingStartConditions, swingTime);
    }
 
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testPushTowardsTheBack() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -159,7 +159,7 @@ public abstract class DRCPushRecoveryWalkingTest implements MultiRobotTestInterf
       testPush(forceDirection, magnitude, duration, percentInSwing, side, swingStartConditions, swingTime);
    }
 
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testPushTowardsTheFront() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -175,7 +175,7 @@ public abstract class DRCPushRecoveryWalkingTest implements MultiRobotTestInterf
       testPush(forceDirection, magnitude, duration, percentInSwing, side, swingStartConditions, swingTime);
    }
 
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
    public void testPushRightInitialTransferState() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -203,7 +203,7 @@ public abstract class DRCPushRecoveryWalkingTest implements MultiRobotTestInterf
 
    @Tag("fast")
    @Tag("video")
-   @Test(timeout = 410000)
+   @Test // timeout = 410000
    public void testPushLeftInitialTransferState() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -229,7 +229,7 @@ public abstract class DRCPushRecoveryWalkingTest implements MultiRobotTestInterf
       testPush(forceDirection, magnitude, duration, percentInSwing, side, swingStartConditions, swingTime);
    }
 
-   @Test(timeout = 210000)
+   @Test // timeout = 210000
    public void testPushRightTransferState() throws SimulationExceededMaximumTimeException
    {
       setupTest();

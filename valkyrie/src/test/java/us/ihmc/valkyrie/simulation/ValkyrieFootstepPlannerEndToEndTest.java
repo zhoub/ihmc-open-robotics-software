@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.simulation;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.roughTerrainWalking.AvatarBipedalFootstepPlannerEndToEndTest;
@@ -41,14 +41,14 @@ public class ValkyrieFootstepPlannerEndToEndTest extends AvatarBipedalFootstepPl
    }
 
    @Override
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testWalkingOnFlatGround()
    {
       super.testWalkingOnFlatGround();
    }
 
    @Override
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testWalkingBetweenBollardsAStarPlanner()
    {
       super.testWalkingBetweenBollardsAStarPlanner();

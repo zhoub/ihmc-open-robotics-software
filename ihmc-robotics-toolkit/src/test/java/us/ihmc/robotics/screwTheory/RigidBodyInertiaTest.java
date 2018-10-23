@@ -14,7 +14,7 @@ import org.ejml.ops.CommonOps;
 import org.ejml.simple.SimpleMatrix;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -89,14 +89,14 @@ public class RigidBodyInertiaTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeKineticCoEnergyNoFrameChange()
    {
       Twist twist = new Twist(frameB, worldFrame, frameB, getRandomVector(), getRandomVector());
       assertKineticCoEnergyFrameIndependent(twist, inertia);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeKineticCoEnergyWithFrameChange()
    {
       Twist twist = new Twist(frameB, worldFrame, frameB, getRandomVector(), getRandomVector());
@@ -106,7 +106,7 @@ public class RigidBodyInertiaTest
       assertKineticCoEnergyFrameIndependent(twist, inertia);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testChangeFrame()
    {
       ReferenceFrame oldFrame = inertia.getExpressedInFrame();
@@ -126,7 +126,7 @@ public class RigidBodyInertiaTest
       JUnitTools.assertMatrixEquals(inertiaCheap, inertiaExpensive.getMatrix(), epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testChangeFrameKineticCoEnergyConsistency()
    {
       // compute kinetic co-energy in frame B
@@ -143,7 +143,7 @@ public class RigidBodyInertiaTest
       assertEquals(kineticCoEnergyFrameB, kineticCoEnergyFrameC, epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSantiyIfChangeFramePurelyRotational()
    {
       inertia = new RigidBodyInertia(rotatedOnlyFrame, getRandomSymmetricPositiveDefiniteMatrix(), getRandomPositiveNumber());

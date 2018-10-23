@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import gnu.trove.list.array.TDoubleArrayList;
 import us.ihmc.commons.Epsilons;
@@ -31,7 +31,7 @@ public class TrajectoryMathToolsTest
    private static final int iters = 1000;
    private final Random random = new Random(12903L);
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrajectoryAdditionAndSubtraction()
    {
       int maxNumberOfCoefficients = 10;
@@ -78,7 +78,7 @@ public class TrajectoryMathToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testScale()
    {
       Trajectory traj1 = new Trajectory(7);
@@ -162,7 +162,7 @@ public class TrajectoryMathToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrajectoryMultiTimeScaleAdditionAndSubtraction()
    {
       int maxNumberOfCoefficients = 10;
@@ -268,7 +268,7 @@ public class TrajectoryMathToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMultiTimeScaleOperation()
    {
       TDoubleArrayList timeList = new TDoubleArrayList(4);
@@ -457,7 +457,7 @@ public class TrajectoryMathToolsTest
       Assert.assertTrue(timeList.get(1) == 10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrajectorySubtraction()
    {
       Trajectory traj1 = new Trajectory(7);
@@ -474,7 +474,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj1.getCoefficient(3), 1.5 - 0.025, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrajectoryMultiTimeScaleSubtraction()
    {
       List<Trajectory> resultTrajectoryList = new ArrayList<>(3);
@@ -518,7 +518,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj5.getCoefficient(3), 0.0469135802, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrajectoryMultiplication()
    {
       int maxNumberOfCoefficientsPreMultiply = 5;
@@ -592,7 +592,7 @@ public class TrajectoryMathToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrajectoryMultiTimeScaleMultiplication()
    {
       List<Trajectory> resultTrajectoryList = new ArrayList<>(2);
@@ -628,7 +628,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj4.getCoefficient(3), 0, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test3DTrajectoryAddition()
    {
       Trajectory3D traj1 = new Trajectory3D(3);
@@ -659,7 +659,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj.getCoefficient(1), -4, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test3DTrajectorySubtraction()
    {
       Trajectory3D resultingTrajectory = new Trajectory3D(3);
@@ -691,7 +691,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj.getCoefficient(1), 15.26, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test3DTrajectorySubtractionEquals()
    {
       Trajectory3D traj1 = new Trajectory3D(3);
@@ -722,7 +722,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj.getCoefficient(1), 15.26, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test3DTrajectoryDotProducts()
    {
       Trajectory3D traj1 = new Trajectory3D(3);
@@ -756,7 +756,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj.getCoefficient(2), 15, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test3DTrajectoryCrossProduct()
    {
       Trajectory3D traj1 = new Trajectory3D(3);
@@ -791,7 +791,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj.getCoefficient(2), -8, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test3DTrajectoryCrossProductStoreInSelf()
    {
       Trajectory3D traj1 = new Trajectory3D(3);
@@ -825,7 +825,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj.getCoefficient(2), -8, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIntegration()
    {
       Trajectory traj1 = new Trajectory(2);
@@ -837,7 +837,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj2.getCoefficient(2), 0.05, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleDerivative()
    {
       Trajectory cubicTrajectory = new Trajectory(4);
@@ -867,7 +867,7 @@ public class TrajectoryMathToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDerivativeOfConstantTrajectory()
    {
       Trajectory constantTrajectory = new Trajectory(1);
@@ -882,7 +882,7 @@ public class TrajectoryMathToolsTest
       Assert.assertEquals(derivativeTrajectory.getCoefficient(0), 0.0, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDerivativeOnRandomTrajectories()
    {
       int maximumNumberOfCoefficients = 10;
@@ -904,7 +904,7 @@ public class TrajectoryMathToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDifferentiation()
    {
       Trajectory baseTrajectory = new Trajectory(3);
@@ -977,7 +977,7 @@ public class TrajectoryMathToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testShifting()
    {
       Trajectory traj1 = new Trajectory(3);
@@ -995,7 +995,7 @@ public class TrajectoryMathToolsTest
       assertEquals(traj1.getCoefficient(2), 3, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSegmentedAddition()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1049,7 +1049,7 @@ public class TrajectoryMathToolsTest
 
    }
 
-   @Test(timeout = 3000000)
+   @Test // timeout = 3000000
    public void testSegmentedAdditionHard()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1133,7 +1133,7 @@ public class TrajectoryMathToolsTest
       assertEquals(13, traj3.getNumberOfSegments());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSegmentedAdditionWithLimitsA()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1173,7 +1173,7 @@ public class TrajectoryMathToolsTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSegmentedAdditionWithLimitsB()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1214,7 +1214,7 @@ public class TrajectoryMathToolsTest
    }
 
    @Tag("in-development")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSegmentedAdditionWithLimitsC()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1241,7 +1241,7 @@ public class TrajectoryMathToolsTest
    }
 
    @Tag("in-development")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSegmentedAdditionWithLimitsD()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1267,7 +1267,7 @@ public class TrajectoryMathToolsTest
       assertEquals(1.0, traj3.getSegment(2).getFinalTime(), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSegmentedAdditionWithLimitsE()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1293,7 +1293,7 @@ public class TrajectoryMathToolsTest
       assertEquals(1.0, traj3.getSegment(2).getFinalTime(), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetCurrentSegmentPolynomial()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1334,7 +1334,7 @@ public class TrajectoryMathToolsTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRemoveShortSegments()
    {
       SegmentedFrameTrajectory3D traj = new SegmentedFrameTrajectory3D(4, 2);
@@ -1422,7 +1422,7 @@ public class TrajectoryMathToolsTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStretchTrajectoryToMatchBounds()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1561,7 +1561,7 @@ public class TrajectoryMathToolsTest
       assertEquals(3.0, traj2.getSegment(3).getFinalTime(), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testShrinkTrajectoryToMatchBounds()
    {
       SegmentedFrameTrajectory3D traj1 = new SegmentedFrameTrajectory3D(4, 2);
@@ -1701,7 +1701,7 @@ public class TrajectoryMathToolsTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testResampleTrajectoryToMatchWaypoints()
    {
       TrajectoryMathTools tools = new TrajectoryMathTools(10);
@@ -1895,7 +1895,7 @@ public class TrajectoryMathToolsTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testResampleTrajectoryToMatchWaypointsHard()
    {
       TrajectoryMathTools tools = new TrajectoryMathTools(10);

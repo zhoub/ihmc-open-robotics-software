@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.capturePoint.optimization.qpInput;
 
 import org.ejml.ops.CommonOps;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -11,7 +11,7 @@ import java.util.Random;
 @Tag("fast")
 public class ICPInequalityInputTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSize()
    {
       Random random = new Random(10L);
@@ -29,7 +29,7 @@ public class ICPInequalityInputTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testReshape()
    {
       Random random = new Random(10L);
@@ -62,7 +62,7 @@ public class ICPInequalityInputTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testReset()
    {
       Random random = new Random(10L);

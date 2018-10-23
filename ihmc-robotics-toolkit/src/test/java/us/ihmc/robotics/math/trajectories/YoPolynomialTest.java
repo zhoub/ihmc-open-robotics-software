@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import org.junit.jupiter.api.Tag;
@@ -18,7 +18,7 @@ public class YoPolynomialTest
    
    String namePrefix = "YoPolynomialTest";
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLinearDerivativePointManual()
    {
       //linear polynomial: y(x) = a0 + a1*x
@@ -48,7 +48,7 @@ public class YoPolynomialTest
       assertEquals(ddyLinear, ddyManual, EPSILON); 
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLinearDerivativePointAutomated()
    {
       //linear polynomial: y(x) = a0 + a1*x
@@ -66,7 +66,7 @@ public class YoPolynomialTest
       compareDerivativesPoint(linear, x);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCubicDerivativePointAutomated()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -85,7 +85,7 @@ public class YoPolynomialTest
       compareDerivativesPoint(cubic, x);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testXPowersDerivativeVectorCubic()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -112,7 +112,7 @@ public class YoPolynomialTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDerivativeCoefficients()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3
@@ -159,7 +159,7 @@ public class YoPolynomialTest
       assertEquals(order13Exponent8Func, order13Exponent8Hand, EPSILON);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDerivativeVersionsCubic()
    {
       //cubic polynomial: y(x) = a0 + a1*x + a2*x^2 + a3*x^3

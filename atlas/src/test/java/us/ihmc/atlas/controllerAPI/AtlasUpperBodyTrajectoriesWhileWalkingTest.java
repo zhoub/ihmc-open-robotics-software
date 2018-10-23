@@ -8,7 +8,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.FootstepDataListMessage;
@@ -65,7 +65,7 @@ public class AtlasUpperBodyTrajectoriesWhileWalkingTest
    protected DRCSimulationTestHelper drcSimulationTestHelper;
 
    @Tag("fast")
-   @Test(timeout = 790000)
+   @Test // timeout = 790000
    public void testWalkingWithRandomArmTrajectoryMovements() throws Exception
    {
       Random random = new Random(564654L);
@@ -90,7 +90,7 @@ public class AtlasUpperBodyTrajectoriesWhileWalkingTest
    }
 
    @Tag("fast")
-   @Test(timeout = 840000)
+   @Test // timeout = 840000
    public void testWalkingWithArmsHoldingInFeetFrame() throws Exception
    {
       Random random = new Random(564654L);

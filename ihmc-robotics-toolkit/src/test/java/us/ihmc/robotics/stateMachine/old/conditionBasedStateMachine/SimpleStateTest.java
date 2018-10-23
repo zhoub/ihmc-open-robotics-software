@@ -2,7 +2,7 @@ package us.ihmc.robotics.stateMachine.old.conditionBasedStateMachine;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -13,7 +13,7 @@ import us.ihmc.robotics.trajectories.providers.SettableDoubleProvider;
 
 public class SimpleStateTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleStateMachine()
    {
       SettableDoubleProvider timeProvider = new SettableDoubleProvider();

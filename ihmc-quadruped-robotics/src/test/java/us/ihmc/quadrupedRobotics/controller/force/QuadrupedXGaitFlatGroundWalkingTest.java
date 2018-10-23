@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.junit.After;
 import org.junit.Before;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.QuadrupedForceTestYoVariables;
@@ -67,98 +67,98 @@ public abstract class QuadrupedXGaitFlatGroundWalkingTest implements QuadrupedMu
    }
 
 
-   @Test(timeout = 630000)
+   @Test // timeout = 630000
    public void testWalkingForwardFast()
    {
       testFlatGroundWalking(90.0, getFastWalkingSpeed());
    }
 
-   @Test(timeout = 720000)
+   @Test // timeout = 720000
    public void testWalkingForwardSlow()
    {
       testFlatGroundWalking(90.0, getSlowWalkingSpeed());
    }
 
-   @Test(timeout = 460000)
+   @Test // timeout = 460000
    public void testWalkingBackwardsFast()
    {
       testFlatGroundWalking(90.0, -getFastWalkingSpeed());
    }
 
-   @Test(timeout = 670000)
+   @Test // timeout = 670000
    public void testWalkingBackwardsSlow()
    {
       testFlatGroundWalking(90.0, -getSlowWalkingSpeed());
    }
 
-   @Test(timeout = 1100000)
+   @Test // timeout = 1100000
    public void testWalkingInAForwardLeftCircle()
    {
       testWalkingInASemiCircle(90.0, getWalkingSpeedWhileTurning(), getWalkingAngularVelocity());
    }
 
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testWalkingInAForwardRightCircle()
    {
       testWalkingInASemiCircle(90.0, getWalkingSpeedWhileTurning(), -getWalkingAngularVelocity());
    }
 
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testWalkingInABackwardLeftCircle()
    {
       testWalkingInASemiCircle(90.0, -getWalkingSpeedWhileTurning(), -getWalkingAngularVelocity());
    }
 
-   @Test(timeout = 1500000)
+   @Test // timeout = 1500000
    public void testWalkingInABackwardRightCircle()
    {
       testWalkingInASemiCircle(90.0, -getWalkingSpeedWhileTurning(), getWalkingAngularVelocity());
    }
 
 
-   @Test(timeout = 630000)
+   @Test // timeout = 630000
    public void testTrottingForwardFast()
    {
       testFlatGroundWalking(180.0, getFastWalkingSpeed());
    }
 
-   @Test(timeout = 720000)
+   @Test // timeout = 720000
    public void testTrottingForwardSlow()
    {
       testFlatGroundWalking(180.0, getSlowWalkingSpeed());
    }
 
-   @Test(timeout = 460000)
+   @Test // timeout = 460000
    public void testTrottingBackwardsFast()
    {
       testFlatGroundWalking(180.0, -getFastWalkingSpeed());
    }
 
-   @Test(timeout = 670000)
+   @Test // timeout = 670000
    public void testTrottingBackwardsSlow()
    {
       testFlatGroundWalking(180.0, -getSlowWalkingSpeed());
    }
 
-   @Test(timeout = 1100000)
+   @Test // timeout = 1100000
    public void testTrottingInAForwardLeftCircle()
    {
       testWalkingInASemiCircle(180.0, getWalkingSpeedWhileTurning(), getWalkingAngularVelocity());
    }
 
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testTrottingInAForwardRightCircle()
    {
       testWalkingInASemiCircle(180.0, getWalkingSpeedWhileTurning(), -getWalkingAngularVelocity());
    }
 
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testTrottingInABackwardLeftCircle()
    {
       testWalkingInASemiCircle(180.0, -getWalkingSpeedWhileTurning(), -getWalkingAngularVelocity());
    }
 
-   @Test(timeout = 1500000)
+   @Test // timeout = 1500000
    public void testTrottingInABackwardRightCircle()
    {
       testWalkingInASemiCircle(180.0, -getWalkingSpeedWhileTurning(), getWalkingAngularVelocity());
@@ -220,49 +220,49 @@ public abstract class QuadrupedXGaitFlatGroundWalkingTest implements QuadrupedMu
       conductor.simulate();
    }
 
-   @Test(timeout = 630000)
+   @Test // timeout = 630000
    public void testPacingForwardFast()
    {
       testFlatGroundPacing(getFastWalkingSpeed());
    }
 
-   @Test(timeout = 720000)
+   @Test // timeout = 720000
    public void testPacingForwardSlow()
    {
       testFlatGroundPacing(getSlowWalkingSpeed());
    }
 
-   @Test(timeout = 460000)
+   @Test // timeout = 460000
    public void testPacingBackwardsFast()
    {
       testFlatGroundPacing(-getFastWalkingSpeed());
    }
 
-   @Test(timeout = 670000)
+   @Test // timeout = 670000
    public void testPacingBackwardsSlow()
    {
       testFlatGroundPacing(-getSlowWalkingSpeed());
    }
 
-   @Test(timeout = 1100000)
+   @Test // timeout = 1100000
    public void testPacingInAForwardLeftCircle()
    {
       testPacingInASemiCircle(getWalkingSpeedWhileTurning(), getWalkingAngularVelocity());
    }
 
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testPacingInAForwardRightCircle()
    {
       testPacingInASemiCircle(getWalkingSpeedWhileTurning(), -getWalkingAngularVelocity());
    }
 
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testPacingInABackwardLeftCircle()
    {
       testPacingInASemiCircle(-getWalkingSpeedWhileTurning(), -getWalkingAngularVelocity());
    }
 
-   @Test(timeout = 1500000)
+   @Test // timeout = 1500000
    public void testPacingInABackwardRightCircle()
    {
       testPacingInASemiCircle(-getWalkingSpeedWhileTurning(), getWalkingAngularVelocity());

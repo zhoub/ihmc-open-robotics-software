@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.KinematicsToolboxRigidBodyMessage;
 import controller_msgs.msg.dds.RobotConfigurationData;
@@ -166,7 +166,7 @@ public class KinematicsToolboxControllerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testHoldBodyPose() throws Exception
    {
       Pair<FloatingInverseDynamicsJoint, OneDoFJoint[]> initialFullRobotModel = createFullRobotModelAtInitialConfiguration();
@@ -187,7 +187,7 @@ public class KinematicsToolboxControllerTest
                  toolboxController.getSolution().getSolutionQuality() < 1.0e-4);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomHandPositions() throws Exception
    {
       if (VERBOSE)
@@ -224,7 +224,7 @@ public class KinematicsToolboxControllerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomHandPoses() throws Exception
    {
       if (VERBOSE)

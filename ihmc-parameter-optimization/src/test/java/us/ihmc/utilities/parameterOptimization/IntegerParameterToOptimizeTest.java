@@ -2,14 +2,14 @@ package us.ihmc.utilities.parameterOptimization;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class IntegerParameterToOptimizeTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetBitsOfResolution()
    {
       testNBit(0, 0, 1);
@@ -37,7 +37,7 @@ public class IntegerParameterToOptimizeTest
       assertEquals(expectedNumberOfBits, integerParameterToOptimize.getBitsOfResolution());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testZeroToOneConversions()
    {
       testZeroToOneConversion(0, 100);

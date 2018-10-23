@@ -11,7 +11,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -20,7 +20,7 @@ import us.ihmc.commons.thread.ThreadTools;
 public class PersistentTCPServerTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPersistentTCPServer() throws UnknownHostException, IOException
    {
       EstablishedConnectionCounter establishedConnectionCounter = new EstablishedConnectionCounter();

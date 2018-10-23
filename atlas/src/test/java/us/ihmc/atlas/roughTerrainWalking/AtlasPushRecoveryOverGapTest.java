@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
 import us.ihmc.atlas.parameters.AtlasICPOptimizationParameters;
@@ -22,14 +22,14 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 public class AtlasPushRecoveryOverGapTest extends AvatarPushRecoveryOverGapTest
 {
    @Override
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testNoPush() throws SimulationExceededMaximumTimeException
    {
       super.testNoPush();
    }
 
    @Override
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testForwardPush() throws SimulationExceededMaximumTimeException
    {
       super.testForwardPush();
@@ -37,7 +37,7 @@ public class AtlasPushRecoveryOverGapTest extends AvatarPushRecoveryOverGapTest
 
    @Override
    @Disabled
-   @Test(timeout = 70000)
+   @Test // timeout = 70000
    public void testSidePush() throws SimulationExceededMaximumTimeException
    {
       super.testSidePush();

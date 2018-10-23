@@ -2,7 +2,7 @@ package us.ihmc.robotics.geometry;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ public class SmallQuaternionRelationshipTest
 {
    // Test for some relationships that are used in QuaternionOrientation estimation.
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSmallAngleQuaternionDifferences()
    { 
       // If deltaQ = q X q_hat_inverse

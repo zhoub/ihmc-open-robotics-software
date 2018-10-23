@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import org.junit.jupiter.api.Tag;
@@ -23,7 +23,7 @@ public class PolynomialMatrixTest
    {
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeDeterminantOne()
    {
       Polynomial zero = new Polynomial(new double[] {0.0});
@@ -54,7 +54,7 @@ public class PolynomialMatrixTest
       assertTrue(determinant.epsilonEquals(two.times(-1.0), 1e-7));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeDeterminantTwo()
    {
       // From J.Pratt MCSI Problem Set 5.
@@ -76,7 +76,7 @@ public class PolynomialMatrixTest
       assertTrue(determinant.epsilonEquals(expectedDeterminant, 1e-7));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeDeterminantAndConstructSIMinusA()
    {
       Matrix matrixA = new Matrix(new double[][]
@@ -104,7 +104,7 @@ public class PolynomialMatrixTest
       assertTrue(expectedPolynomial.epsilonEquals(determinant, 1e-7));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testComputeDeterminantAndCofactors()
    {
       // From J.Pratt MCSI Problem Set 3.

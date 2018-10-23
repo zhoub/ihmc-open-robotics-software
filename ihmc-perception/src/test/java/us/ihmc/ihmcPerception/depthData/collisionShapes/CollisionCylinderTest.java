@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ import us.ihmc.euclid.tuple3D.Point3D;
 
 public class CollisionCylinderTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInsideCylinderPoints()
    {
       Random random = new Random(98124L);
@@ -35,7 +35,7 @@ public class CollisionCylinderTest
          assertTrue(cylinder.contains(point));
       }
    }
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOutideCylinderPoints()
    {
       Random random = new Random(98716L);

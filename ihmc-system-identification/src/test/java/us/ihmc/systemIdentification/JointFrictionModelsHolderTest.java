@@ -3,7 +3,7 @@ package us.ihmc.systemIdentification;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -60,7 +60,7 @@ public class JointFrictionModelsHolderTest
    private String name = "simpleHolder";
    private YoVariableRegistry registry = new YoVariableRegistry("simpleRegistry");
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructorAndFrictionStateSelection()
    {
       JointFrictionModelsHolderForTest holder = new JointFrictionModelsHolderForTest(name, registry);

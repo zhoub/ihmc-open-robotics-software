@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.Random;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import org.junit.jupiter.api.Tag;
@@ -41,7 +41,7 @@ public class MatrixStatisticsTest
       return random.nextDouble() * MAXDOUBLE * 2.0 - MAXDOUBLE;
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testIndecesOfMaxElement()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -66,7 +66,7 @@ public class MatrixStatisticsTest
 
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetCovarianceMatrix()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -119,7 +119,7 @@ public class MatrixStatisticsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSubtractAverageColumnFromEachRow()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -154,7 +154,7 @@ public class MatrixStatisticsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSumAllElements()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -179,7 +179,7 @@ public class MatrixStatisticsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testDivideEachRowByStdDevOfRow()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -211,7 +211,7 @@ public class MatrixStatisticsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetVarianceOfEachRow()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -253,7 +253,7 @@ public class MatrixStatisticsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetAverageColumnVector()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -284,7 +284,7 @@ public class MatrixStatisticsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCreateColumnVectorIntDouble()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -304,7 +304,7 @@ public class MatrixStatisticsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCreateRowVectorIntDouble()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -324,7 +324,7 @@ public class MatrixStatisticsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCreateColumnVectorInt()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -343,7 +343,7 @@ public class MatrixStatisticsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCreateRowVectorInt()
    {
       for (int i = 0; i < ITERATIONS; i++)
@@ -363,14 +363,14 @@ public class MatrixStatisticsTest
    }
 
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGetRowNumber()
    {
       fail("Not yet implemented");
    }
 
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGetColumnNumber()
    {
       fail("Not yet implemented");

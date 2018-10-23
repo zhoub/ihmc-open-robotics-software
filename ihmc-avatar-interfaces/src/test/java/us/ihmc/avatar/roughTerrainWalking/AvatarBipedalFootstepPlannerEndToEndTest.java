@@ -3,7 +3,7 @@ package us.ihmc.avatar.roughTerrainWalking;
 import controller_msgs.msg.dds.*;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -170,7 +170,7 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = timeout)
+   @Test // timeout = timeout
    public void testShortCinderBlockFieldWithAStar()
    {
       double courseLength = CINDER_BLOCK_COURSE_WIDTH_X_IN_NUMBER_OF_BLOCKS * CINDER_BLOCK_SIZE + CINDER_BLOCK_FIELD_PLATFORM_LENGTH;
@@ -182,7 +182,7 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.A_STAR, cinderBlockField, goalPose);
    }
 
-   @Test(timeout = timeout)
+   @Test // timeout = timeout
    public void testShortCinderBlockFieldWithVisibilityGraph()
    {
       double courseLength = CINDER_BLOCK_COURSE_WIDTH_X_IN_NUMBER_OF_BLOCKS * CINDER_BLOCK_SIZE + CINDER_BLOCK_FIELD_PLATFORM_LENGTH;
@@ -194,7 +194,7 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.VIS_GRAPH_WITH_A_STAR, cinderBlockField, goalPose);
    }
 
-   @Test(timeout = timeout)
+   @Test // timeout = timeout
    public void testShortCinderBlockFieldWithPlanarRegionBipedalPlanner()
    {
       double courseLength = CINDER_BLOCK_COURSE_WIDTH_X_IN_NUMBER_OF_BLOCKS * CINDER_BLOCK_SIZE + CINDER_BLOCK_FIELD_PLATFORM_LENGTH;
@@ -206,7 +206,7 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.PLANAR_REGION_BIPEDAL, cinderBlockField, goalPose);
    }
 
-   @Test(timeout = timeout)
+   @Test // timeout = timeout
    public void testSteppingStonesWithAStar()
    {
       DRCStartingLocation startingLocation = () -> new OffsetAndYawRobotInitialSetup(0.0, -0.75, 0.007, 0.5 * Math.PI);
@@ -218,7 +218,7 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.A_STAR, steppingStoneField, goalPose);
    }
 
-   @Test(timeout = timeout)
+   @Test // timeout = timeout
    public void testSteppingStonesWithPlanarRegionBipedalPlanner()
    {
       DRCStartingLocation startingLocation = () -> new OffsetAndYawRobotInitialSetup(0.0, -0.75, 0.007, 0.5 * Math.PI);
@@ -230,7 +230,7 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.PLANAR_REGION_BIPEDAL, steppingStoneField, goalPose);
    }
 
-   @Test(timeout = timeout)
+   @Test // timeout = timeout
    public void testWalkingOnFlatGround()
    {
       DRCStartingLocation startingLocation = () -> new OffsetAndYawRobotInitialSetup(-1.0, 0.0, 0.007, 0.0);
@@ -241,7 +241,7 @@ public abstract class AvatarBipedalFootstepPlannerEndToEndTest implements MultiR
       runEndToEndTestAndKeepSCSUpIfRequested(FootstepPlannerType.A_STAR, null, goalPose);
    }
 
-   @Test(timeout = timeout)
+   @Test // timeout = timeout
    public void testWalkingBetweenBollardsAStarPlanner()
    {
       DRCStartingLocation startingLocation = () -> new OffsetAndYawRobotInitialSetup(-1.5, 0.0, 0.007, 0.0);

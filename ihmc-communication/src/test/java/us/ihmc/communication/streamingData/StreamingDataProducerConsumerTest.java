@@ -1,6 +1,6 @@
 package us.ihmc.communication.streamingData;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -9,7 +9,7 @@ import us.ihmc.commons.thread.ThreadTools;
 public class StreamingDataProducerConsumerTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTypicalUsage()
    {
       SimpleStreamingDataProducer simpleStreamingDataProducer = new SimpleStreamingDataProducer();
@@ -24,7 +24,7 @@ public class StreamingDataProducerConsumerTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testMultipleProducersAndConsumers()
    {
       SimpleStreamingDataProducer simpleStreamingDataProducerA = new SimpleStreamingDataProducer();

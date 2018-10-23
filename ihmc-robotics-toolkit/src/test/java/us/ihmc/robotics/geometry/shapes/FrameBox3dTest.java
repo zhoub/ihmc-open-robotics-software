@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Epsilons;
 import us.ihmc.commons.MathTools;
@@ -35,7 +35,7 @@ public class FrameBox3dTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDistance()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -72,7 +72,7 @@ public class FrameBox3dTest
       assertEquals(expectedDistance, box.distance(pointOnTheVertexBetweenXandYandZ), 1e-14);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOrthogonalProjection()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -119,7 +119,7 @@ public class FrameBox3dTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrame() throws Exception
    {
       // This test ensures consistency between the changeFrame of FrameBox3d and FramePose.
@@ -165,7 +165,7 @@ public class FrameBox3dTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testgetClosestPointAndNormalAt()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -193,7 +193,7 @@ public class FrameBox3dTest
       assertTrue(expectedNormal.epsilonEquals(returnedNormal, 1e-14));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsInsideOrOnSurface()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -216,7 +216,7 @@ public class FrameBox3dTest
       assertFalse(box.isInsideOrOnSurface(pointOutsideBox, 1e-7));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testApplyTransform()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -253,7 +253,7 @@ public class FrameBox3dTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetTransform3DAndGetters()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

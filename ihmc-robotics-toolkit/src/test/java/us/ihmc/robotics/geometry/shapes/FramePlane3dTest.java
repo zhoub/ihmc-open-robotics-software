@@ -3,7 +3,7 @@ package us.ihmc.robotics.geometry.shapes;
 import static org.junit.Assert.*;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -28,7 +28,7 @@ public class FramePlane3dTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testIsOnOrAbove()
    {
       FramePlane3d plane = new FramePlane3d(worldFrame, new Point3D(), new Vector3D(0.0, 0.0, 1.0));
@@ -40,7 +40,7 @@ public class FramePlane3dTest
       assertFalse(plane.isOnOrAbove(q));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testIsOnOrBelow()
    {
       FramePlane3d plane = new FramePlane3d(worldFrame, new Point3D(), new Vector3D(0.0, 0.0, 1.0));
@@ -50,7 +50,7 @@ public class FramePlane3dTest
       assertFalse(plane.isOnOrBelow(q));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testOrthogonalProjection()
    {
       FramePoint3D point = new FramePoint3D(worldFrame, 1.0, 2.0, -3.0);
@@ -65,7 +65,7 @@ public class FramePlane3dTest
       assertTrue(expectedPoint.epsilonEquals(plane.orthogonalProjectionCopy(point), 1e-14));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testDistance()
    {
       FramePoint3D point = new FramePoint3D(worldFrame, 1.0, 1.0, 1.0);
@@ -78,7 +78,7 @@ public class FramePlane3dTest
       assertEquals(Math.sqrt(2), plane.distance(point), epsilon);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testApplyTransform()
    {
       RigidBodyTransform transformation = new RigidBodyTransform();
@@ -119,7 +119,7 @@ public class FramePlane3dTest
       assertTrue(plane5.epsilonEquals(new FramePlane3d(expectedNormal, expectedPoint), epsilon));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testIntersectionWithLine()
    {
 	   FrameVector3D normal = new FrameVector3D(worldFrame, 0.0, 0.0, 1.0);

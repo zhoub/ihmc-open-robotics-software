@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -33,35 +33,35 @@ import us.ihmc.commons.thread.ThreadTools;
 public class AtlasFootstepSnapperTest extends FootstepSnapperSimulationTest
 {
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAdjustingFootstepSnapperOnOddTerrain() throws InsufficientDataException
    {
       super.testAdjustingFootstepSnapperOnOddTerrain();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConvexHullFootstepSnapperOnOddTerrain() throws InsufficientDataException
    {
       super.testConvexHullFootstepSnapperOnOddTerrain();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConvexHullFootstepSnapperOnSteps() throws InsufficientDataException
    {
       super.testConvexHullFootstepSnapperOnSteps();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFootstepAndPointsFromDataFile() throws NumberFormatException, InsufficientDataException, IOException
    {
       super.testFootstepAndPointsFromDataFile();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleFootstepSnapperOnBumpyGround() throws InsufficientDataException
    {
       super.testSimpleFootstepSnapperOnBumpyGround();
@@ -69,21 +69,21 @@ public class AtlasFootstepSnapperTest extends FootstepSnapperSimulationTest
 
    @Override
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleFootstepSnapperOnListOfPoints() throws InsufficientDataException, IOException
    {
       super.testSimpleFootstepSnapperOnListOfPoints();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleFootstepSnapperOnSteps() throws InsufficientDataException
    {
       super.testSimpleFootstepSnapperOnSteps();
    }
 
 	@Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPointsFromAtlasDataFile() throws NumberFormatException, InsufficientDataException, IOException
    {
       boolean assertPositionConditions = true;

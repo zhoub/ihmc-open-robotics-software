@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.roughTerrainPlanning;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.footstepPlanning.FootstepPlanner;
@@ -42,7 +42,7 @@ public class PlanThenSnapPlannerTest extends FootstepPlannerOnRoughTerrainTest
    }
 
    @Tag("in-development")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSteppingStones()
    {
       super.testSteppingStones();

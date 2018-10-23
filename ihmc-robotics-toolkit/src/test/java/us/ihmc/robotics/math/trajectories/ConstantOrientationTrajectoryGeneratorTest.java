@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -54,7 +54,7 @@ public class ConstantOrientationTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructor()
    {
       try
@@ -69,7 +69,7 @@ public class ConstantOrientationTrajectoryGeneratorTest
       generator = new ConstantOrientationTrajectoryGenerator(namePrefix, referenceFrame, orientationProvider, finalTime, parentRegistry);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testIsDone()
    {
       generator = new ConstantOrientationTrajectoryGenerator(namePrefix, referenceFrame, orientationProvider, finalTime, parentRegistry);
@@ -81,7 +81,7 @@ public class ConstantOrientationTrajectoryGeneratorTest
       assertTrue(generator.isDone());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGet()
    {
       generator = new ConstantOrientationTrajectoryGenerator(namePrefix, referenceFrame, orientationProvider, finalTime, parentRegistry);
@@ -92,7 +92,7 @@ public class ConstantOrientationTrajectoryGeneratorTest
       assertEquals(referenceFrame, orientationToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackAngularVelocity()
    {
       generator = new ConstantOrientationTrajectoryGenerator(namePrefix, referenceFrame, orientationProvider, finalTime, parentRegistry);
@@ -108,7 +108,7 @@ public class ConstantOrientationTrajectoryGeneratorTest
       assertSame(referenceFrame, angularVelocityToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackAngularAcceleration()
    {
       generator = new ConstantOrientationTrajectoryGenerator(namePrefix, referenceFrame, orientationProvider, finalTime, parentRegistry);
@@ -124,7 +124,7 @@ public class ConstantOrientationTrajectoryGeneratorTest
       assertSame(referenceFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackAngularData()
    {
       FrameQuaternion orientationToPack = new FrameQuaternion(referenceFrame);

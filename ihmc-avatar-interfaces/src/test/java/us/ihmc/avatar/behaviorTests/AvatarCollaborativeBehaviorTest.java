@@ -3,7 +3,7 @@ package us.ihmc.avatar.behaviorTests;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -38,7 +38,7 @@ public abstract class AvatarCollaborativeBehaviorTest implements MultiRobotTestI
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBehavior() throws SimulationExceededMaximumTimeException
    {
       DRCRobotModel robotModel = getRobotModel();

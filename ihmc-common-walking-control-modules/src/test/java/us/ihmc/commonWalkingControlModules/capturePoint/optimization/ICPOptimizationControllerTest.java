@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
@@ -54,7 +54,7 @@ public class ICPOptimizationControllerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStandingWithPerfectTracking() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -124,7 +124,7 @@ public class ICPOptimizationControllerTest
       Assert.assertTrue(desiredCMP.epsilonEquals(perfectCMP, epsilon));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTransferWithPerfectTracking() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -194,7 +194,7 @@ public class ICPOptimizationControllerTest
       Assert.assertTrue(desiredCMP.epsilonEquals(perfectCMP, epsilon));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStandingConstrained() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -275,7 +275,7 @@ public class ICPOptimizationControllerTest
       Assert.assertTrue(desiredCMP.epsilonEquals(desiredCMPExpected, epsilon));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStandingConstrainedWithAngularMomentum() throws Exception
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");

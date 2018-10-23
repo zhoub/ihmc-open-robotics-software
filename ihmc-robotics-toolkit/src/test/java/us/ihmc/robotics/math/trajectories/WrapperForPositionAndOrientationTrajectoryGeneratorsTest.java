@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -53,7 +53,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInitialize()
    {
       generator = new WrapperForPositionAndOrientationTrajectoryGenerators(null, null);
@@ -70,7 +70,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       generator.initialize();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCompute()
    {
       generator = new WrapperForPositionAndOrientationTrajectoryGenerators(null, null);
@@ -87,7 +87,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       generator.compute(10.0);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testIsDone()
    {
       generator = new WrapperForPositionAndOrientationTrajectoryGenerators(positionTrajectoryGenerator, orientationTrajectoryGenerator);
@@ -99,7 +99,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertTrue(generator.isDone());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGet()
    {
       generator = new WrapperForPositionAndOrientationTrajectoryGenerators(positionTrajectoryGenerator, orientationTrajectoryGenerator);
@@ -110,7 +110,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertEquals(referenceFrame, positionToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGet_Orientation()
    {
       generator = new WrapperForPositionAndOrientationTrajectoryGenerators(positionTrajectoryGenerator, orientationTrajectoryGenerator);
@@ -121,7 +121,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertEquals(referenceFrame, orientationToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackVelocity()
    {
       generator = new WrapperForPositionAndOrientationTrajectoryGenerators(positionTrajectoryGenerator, orientationTrajectoryGenerator);
@@ -137,7 +137,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, velocityToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackAcceleration()
    {
       generator = new WrapperForPositionAndOrientationTrajectoryGenerators(positionTrajectoryGenerator, orientationTrajectoryGenerator);
@@ -153,7 +153,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackLinearData()
    {
       FramePoint3D positionToPack = new FramePoint3D(referenceFrame);
@@ -195,7 +195,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackAngularVelocity()
    {
       generator = new WrapperForPositionAndOrientationTrajectoryGenerators(positionTrajectoryGenerator, orientationTrajectoryGenerator);
@@ -211,7 +211,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, angularVelocityToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackAngularAcceleration()
    {
       generator = new WrapperForPositionAndOrientationTrajectoryGenerators(positionTrajectoryGenerator, orientationTrajectoryGenerator);
@@ -227,7 +227,7 @@ public class WrapperForPositionAndOrientationTrajectoryGeneratorsTest
       assertSame(referenceFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPackAngularData()
    {
       FrameQuaternion orientationToPack = new FrameQuaternion(referenceFrame);

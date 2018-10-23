@@ -4,7 +4,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -34,7 +34,7 @@ public class PassiveRevoluteJointTest
    {
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPackTauMatrix()
    {
       try
@@ -48,7 +48,7 @@ public class PassiveRevoluteJointTest
       Assert.fail(); // if it doesn't catch anything it will reach this line, which will make the test fail
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetTorqueFromWrench()
    {
       try
@@ -62,7 +62,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetDesiredAcceleration()
    {
       try
@@ -76,7 +76,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetQ()
    {
       try
@@ -90,7 +90,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetQd()
    {
       try
@@ -104,7 +104,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetQdd()
    {
       try
@@ -118,7 +118,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetQddDesired()
    {
       try
@@ -132,7 +132,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetTau()
    {
       try
@@ -146,7 +146,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetConfiguration()
    {
       try
@@ -160,7 +160,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetVelocity()
    {
       try
@@ -174,7 +174,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetJointPositionVelocityAndAcceleration()
    {
       try
@@ -188,7 +188,7 @@ public class PassiveRevoluteJointTest
       Assert.fail();
    }
     
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetQddDesiredFromJoint()
    {
       try

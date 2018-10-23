@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -62,7 +62,7 @@ public class ConstantPoseTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructors()
    {
       ConstantPoseTrajectoryGenerator generator1 = new ConstantPoseTrajectoryGenerator(positionYoFramePoint, orientationQuaternion);
@@ -126,7 +126,7 @@ public class ConstantPoseTrajectoryGeneratorTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    //TODO: Find a way to test this.
    public void testRegisterNewTrajectoryFrame()
    {
@@ -136,42 +136,42 @@ public class ConstantPoseTrajectoryGeneratorTest
       //      System.out.println(generator2);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    //TODO: Find a way to test this.
    public void testChangeFrame()
    {
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    //TODO: Find a way to test this.
    public void testSwitchTrajectoryFrame()
    {
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    //TODO: Find a way to test this.
    public void testRegisterAndSwitchFrame()
    {
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    //TODO: Find a way to test this.
    public void testSetConstantPose()
    {
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testIsDone()
    {
       ConstantPoseTrajectoryGenerator generator1 = new ConstantPoseTrajectoryGenerator(positionYoFramePoint, orientationQuaternion);
       assertTrue(generator1.isDone());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testGet()
    {
       FramePoint3D positionToPack = new FramePoint3D();
@@ -183,7 +183,7 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertEquals(referenceFrame, orientationToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackVelocity()
    {
       FrameVector3D velocityToPack = new FrameVector3D(ReferenceFrame.constructARootFrame("root"), 10.0, 10.0, 10.0);
@@ -198,7 +198,7 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, velocityToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackAcceleration()
    {
       FrameVector3D accelerationToPack = new FrameVector3D(ReferenceFrame.constructARootFrame("root"), 10.0, 10.0, 10.0);
@@ -213,7 +213,7 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackAngularVelocity()
    {
       FrameVector3D angularVelocityToPack = new FrameVector3D(ReferenceFrame.constructARootFrame("root"), 10.0, 10.0, 10.0);
@@ -228,7 +228,7 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, angularVelocityToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackAngularAcceleration()
    {
       FrameVector3D angularAccelerationToPack = new FrameVector3D(ReferenceFrame.constructARootFrame("root"), 10.0, 10.0, 10.0);
@@ -243,7 +243,7 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackLinearData()
    {
       FramePoint3D positionToPack = new FramePoint3D(referenceFrame);
@@ -284,7 +284,7 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, accelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testPackAngularData()
    {
       FrameQuaternion orientationToPack = new FrameQuaternion(referenceFrame);
@@ -325,19 +325,19 @@ public class ConstantPoseTrajectoryGeneratorTest
       assertSame(referenceFrame, angularAccelerationToPack.getReferenceFrame());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testInitialize()
    {
       generator.initialize();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testCompute()
    {
       generator.compute(0.0);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testToString()
    {
       String expectedString = "Current position: " + positionYoFramePoint.toString() + "\nCurrent orientation: " + orientationQuaternion.toString();

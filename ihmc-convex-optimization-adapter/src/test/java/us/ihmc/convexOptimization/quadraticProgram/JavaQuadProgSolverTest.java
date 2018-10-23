@@ -4,7 +4,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.Assert;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.PrintTools;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -29,7 +29,7 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
       return solver;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTimingAgainstStandardQuadProg() throws NoConvergenceException
    {
       YoVariableRegistry registry = new YoVariableRegistry("test");
@@ -91,7 +91,7 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
       PrintTools.info("Java solve time : " + javaSolverTimer.getAverageTime());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTimingAgainstSimpleSolver()
    {
       YoVariableRegistry registry = new YoVariableRegistry("test");
@@ -154,7 +154,7 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
       PrintTools.info("Simple solve time : " + simpleTimer.getAverageTime());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstStandardQuadProg() throws NoConvergenceException
    {
       int numberOfInequalityConstraints = 1;
@@ -225,7 +225,7 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSolveProblemWithParallelConstraints() throws NoConvergenceException
    {
       // our simple active set solver can not solve this:
@@ -269,40 +269,40 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
    }
 
    @Override /** have to override because quad prog uses fewer iterations */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSolutionMethodsAreAllConsistent() throws NoConvergenceException
    {
       testSolutionMethodsAreAllConsistent(1);
    }
 
    @Override /** have to override because quad prog uses fewer iterations */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleCasesWithInequalityConstraints()
    {
       testSimpleCasesWithInequalityConstraints(0);
    }
 
    @Override /** have to override because quad prog uses fewer iterations */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleCasesWithBoundsConstraints()
    {
       testSimpleCasesWithBoundsConstraints(0, 1, 2, 6, true);
    }
 
    @Override /** have to override because quad prog uses different iterations */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testClear()
    {
       testClear(6, 1, true);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMaxIterations()
    {
       testMaxIterations(6, false);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test2DCasesWithPolygonConstraints()
    {
       test2DCasesWithPolygonConstraints(2, 1);
@@ -310,7 +310,7 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
 
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChallengingCasesWithPolygonConstraints()
    {
       testChallengingCasesWithPolygonConstraints(1, 5);
@@ -318,7 +318,7 @@ public class JavaQuadProgSolverTest extends AbstractSimpleActiveSetQPSolverTest
 
 
    @Override /** This IS a good solver **/
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChallengingCasesWithPolygonConstraintsCheckFailsWithSimpleSolver()
    {
       SimpleActiveSetQPSolverInterface solver = createSolverToTest();

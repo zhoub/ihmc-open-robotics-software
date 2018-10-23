@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -30,7 +30,7 @@ public class ValkyrieEndToEndFootstepDataListMessageTest extends EndToEndFootste
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.VALKYRIE);
    }
 
-   @Test(timeout = 85000)
+   @Test // timeout = 85000
    public void testProblematicNasaMessage() throws SimulationExceededMaximumTimeException
    {
       testMessageIsHandled(createProblematicNasaMessage());

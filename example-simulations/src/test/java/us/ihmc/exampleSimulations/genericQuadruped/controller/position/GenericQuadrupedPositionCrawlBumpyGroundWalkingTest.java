@@ -1,6 +1,6 @@
 package us.ihmc.exampleSimulations.genericQuadruped.controller.position;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.exampleSimulations.genericQuadruped.GenericQuadrupedTestFactory;
@@ -21,7 +21,7 @@ public class GenericQuadrupedPositionCrawlBumpyGroundWalkingTest extends Quadrup
    }
 
    @Override
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingOverBumpyTerrain() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       super.testWalkingOverBumpyTerrain();

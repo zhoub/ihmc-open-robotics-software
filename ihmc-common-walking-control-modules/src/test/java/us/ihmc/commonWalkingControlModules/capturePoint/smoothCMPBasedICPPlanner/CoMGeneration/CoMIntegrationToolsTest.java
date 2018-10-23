@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanne
 
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.CapturePointTools;
 import us.ihmc.commonWalkingControlModules.capturePoint.ICPPlannerSegmentedTrajectoryGenerator;
@@ -30,7 +30,7 @@ public class CoMIntegrationToolsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTransferIntegration()
    {
       YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
@@ -98,7 +98,7 @@ public class CoMIntegrationToolsTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSwingIntegration()
    {
       YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());
@@ -182,7 +182,7 @@ public class CoMIntegrationToolsTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSwingIntegrationWithSpline()
    {
       YoVariableRegistry registry = new YoVariableRegistry(getClass().getSimpleName());

@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -18,7 +18,7 @@ import us.ihmc.robotics.testing.JUnitTools;
 
 public class YoMatrixTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleYoMatrixExample()
    {
       int maxNumberOfRows = 4;
@@ -46,7 +46,7 @@ public class YoMatrixTest
       assertEquals(registry.getVariable("testMatrix_0_0").getValueAsDouble(), checkMatrix.get(0, 0), 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testYoMatrixDimensioning()
    {
       int maxNumberOfRows = 4;
@@ -104,7 +104,7 @@ public class YoMatrixTest
       checkMatrixYoVariablesEqualsCheckMatrixAndOutsideValuesAreNaN(name, maxNumberOfRows, maxNumberOfColumns, checkMatrix2, registry);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testYoMatrixSetToZero()
    {
       int maxNumberOfRows = 4;
@@ -127,7 +127,7 @@ public class YoMatrixTest
       checkMatrixYoVariablesEqualsCheckMatrixAndOutsideValuesAreNaN(name, maxNumberOfRows, maxNumberOfColumns, zeroMatrix, registry);  
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testYoMatrixSetTooBig()
    {
       int maxNumberOfRows = 4;

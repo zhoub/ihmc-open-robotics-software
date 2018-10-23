@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import junit.framework.AssertionFailedError;
 import us.ihmc.commons.PrintTools;
@@ -65,7 +65,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStandingLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);
@@ -74,7 +74,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       conductor.concludeTesting();
    }
    
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testStandingOnThreeLegsLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);
@@ -93,7 +93,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       conductor.concludeTesting();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testXGaitWalkingInPlaceLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);
@@ -107,7 +107,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       conductor.concludeTesting();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testXGaitTrottingInPlaceLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);
@@ -122,7 +122,7 @@ public abstract class QuadrupedSpeedTorqueLimitsTest implements QuadrupedMultiRo
       conductor.concludeTesting();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testXGaitWalkingLowerLimit(double nominalCoMHeight)
    {
       standupPrecisely(nominalCoMHeight);

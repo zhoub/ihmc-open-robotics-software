@@ -9,7 +9,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.LocalizationPacket;
 import controller_msgs.msg.dds.PelvisPoseErrorPacket;
@@ -324,7 +324,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPelvisCorrectionControllerOutOfTheLoop() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -367,7 +367,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPelvisCorrectionDuringSimpleFlatGroundScriptWithOscillatingFeet() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -398,7 +398,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 	 *
 	 * @throws SimulationExceededMaximumTimeException
 	 */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBigYawInDoubleSupport() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -427,7 +427,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 	 *
 	 * @throws SimulationExceededMaximumTimeException
 	 */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBigYawInSingleSupport() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -458,7 +458,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
 	 *
 	 * @throws SimulationExceededMaximumTimeException
 	 */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLocalizationOffsetOutsideOfFootInSingleSupport() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -517,7 +517,7 @@ public abstract class PelvisPoseHistoryCorrectionEndToEndTest implements MultiRo
     * @throws SimulationExceededMaximumTimeException
     * @throws ControllerFailureException
     */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWalkingDuringBigPelvisCorrection() throws SimulationExceededMaximumTimeException, ControllerFailureException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

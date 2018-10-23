@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.TrajectoryPoint1DMessage;
@@ -24,7 +24,7 @@ import us.ihmc.robotics.robotSide.RobotSide;
 public class ArmTrajectoryCommandTest
 {
 
-   @Test(timeout = 30000, expected = IndexOutOfBoundsException.class)
+   @Test // timeout = 30000, expected = IndexOutOfBoundsException.class
    public void testClear()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand();
@@ -40,7 +40,7 @@ public class ArmTrajectoryCommandTest
       armTrajectoryCommand.getJointspaceTrajectory().getJointTrajectoryPoint(0, 0);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsCommandValid()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand(new Random());
@@ -49,13 +49,13 @@ public class ArmTrajectoryCommandTest
       assertFalse(armTrajectoryCommand.isCommandValid());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testArmTrajectoryCommand()
    {
       new ArmTrajectoryCommand();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testClearRobotSide()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand();
@@ -72,7 +72,7 @@ public class ArmTrajectoryCommandTest
       assertEquals(0, armTrajectoryCommand.getJointspaceTrajectory().getTrajectoryPointLists().size());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetRobotSide()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand();
@@ -81,7 +81,7 @@ public class ArmTrajectoryCommandTest
       assertEquals(RobotSide.LEFT, armTrajectoryCommand.getRobotSide());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetArmTrajectoryMessage()
    {
       Random random = new Random();
@@ -111,7 +111,7 @@ public class ArmTrajectoryCommandTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetArmTrajectoryCommand()
    {
       ArmTrajectoryCommand armTrajectoryCommand = new ArmTrajectoryCommand(new Random());
@@ -151,7 +151,7 @@ public class ArmTrajectoryCommandTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetMessageClass()
    {
       ArmTrajectoryCommand otherArmTrajectoryCommand = new ArmTrajectoryCommand();

@@ -12,7 +12,7 @@ import java.nio.file.Paths;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.CapturabilityBasedStatus;
 import us.ihmc.commons.Conversions;
@@ -36,7 +36,7 @@ public class CapturabilityBasedStatusTest
       FileTools.deleteQuietly(TEST_FILE_PATH);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSerializeAndDeserialize() throws IOException
    {
       KryoStreamSerializer kryoStreamSerializer = new KryoStreamSerializer(Conversions.megabytesToBytes(10));
@@ -56,7 +56,7 @@ public class CapturabilityBasedStatusTest
       assertPacketsEqual(cbs, cbsOut);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSerializeToFileAndDeserialize() throws IOException
    {
       Random random = new Random();

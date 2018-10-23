@@ -3,13 +3,13 @@ package us.ihmc.quadrupedRobotics.util;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class TimeIntervalTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAccessors()
    {
       double epsilon = 1e-6;
@@ -35,7 +35,7 @@ public class TimeIntervalTest
       assertTrue(timeInterval.epsilonEquals(other, epsilon));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testShiftInterval()
    {
       double epsilon = 1e-6;

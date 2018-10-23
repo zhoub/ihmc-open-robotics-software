@@ -4,7 +4,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.controllerCore.command.virtualModelControl.VirtualWrenchCommand;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.JointIndexHandler;
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.virtualModelControl.VirtualModelMomentumController;
@@ -68,7 +68,7 @@ public class VirtualModelMomentumControllerTest
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMC()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -84,7 +84,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, null);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectAll()
    {
          RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -101,7 +101,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectForce()
    {
       double gravity = -9.81;
@@ -125,7 +125,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectTorque()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -146,7 +146,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectForceX()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -166,7 +166,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectForceY()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -186,7 +186,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectForceZ()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -206,7 +206,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectTorqueX()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -226,7 +226,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectTorqueY()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -247,7 +247,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectTorqueZ()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -267,7 +267,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectForceXTorqueY()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -288,7 +288,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectForceYZTorqueX()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -309,7 +309,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCSelectForceXTorqueXZ()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -330,7 +330,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCWrongExpressedInFrame()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -351,7 +351,7 @@ public class VirtualModelMomentumControllerTest
       submitAndCheckVMC(pelvis, foot, desiredWrench, selectionMatrix);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCWrongExpressedOnFrame()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -382,7 +382,7 @@ public class VirtualModelMomentumControllerTest
       assertTrue("Wrong frame", caughtException);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCWrongExpressedInAndOnFrame()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -413,7 +413,7 @@ public class VirtualModelMomentumControllerTest
       assertTrue("Wrong frame", caughtException);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCVirtualWrenchCommand()
    {
       RobotLegs robotLeg = VirtualModelMomentumControllerTestHelper.createRobotLeg(gravity);
@@ -461,7 +461,7 @@ public class VirtualModelMomentumControllerTest
       VirtualModelMomentumControllerTestHelper.compareWrenches(desiredWrench, appliedWrench);
    }
 
-   @Test(timeout = 33000)
+   @Test // timeout = 33000
    public void testVMCWithArm() throws Exception
    {
       RobotArm robotArm = VirtualModelMomentumControllerTestHelper.createRobotArm();
@@ -486,7 +486,7 @@ public class VirtualModelMomentumControllerTest
             desiredTorques, externalForcePoints, new SelectionMatrix6D(), simulationTestingParameters);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVMCWithPlanarArm() throws Exception
    {
       PlanarRobotArm robotArm = VirtualModelMomentumControllerTestHelper.createPlanarArm();
@@ -515,7 +515,7 @@ public class VirtualModelMomentumControllerTest
                                                                                      desiredForces, desiredTorques, externalForcePoints, selectionMatrix, simulationTestingParameters);
    }
 
-   @Test(timeout = 35000)
+   @Test // timeout = 35000
    public void testPlanarHydra() throws Exception
    {
       PlanarForkedRobotArm robotArm = VirtualModelMomentumControllerTestHelper.createPlanarForkedRobotArm();
@@ -553,7 +553,7 @@ public class VirtualModelMomentumControllerTest
             desiredTorques, externalForcePoints, selectionMatrix, simulationTestingParameters);
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testHydra() throws Exception
    {
       ForkedRobotArm robotArm = VirtualModelMomentumControllerTestHelper.createForkedRobotArm();

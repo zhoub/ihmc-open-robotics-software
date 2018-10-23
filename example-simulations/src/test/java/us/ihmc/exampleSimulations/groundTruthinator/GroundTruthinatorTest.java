@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -27,7 +27,7 @@ public class GroundTruthinatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleTranslationGroundTruthinator()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -96,7 +96,7 @@ public class GroundTruthinatorTest
 
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleRotationGroundTruthinator()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.dynamicPlanning.lipm;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.TrackingCostFunctionTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -49,7 +49,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCost()
    {
       LIPMSimpleCostFunction costFunction = new LIPMSimpleCostFunction();
@@ -91,7 +91,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       assertEquals(stateCost + controlCost, cost, 1e-5);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeCostStateGradient()
    {
       LIPMSimpleCostFunction costFunction = new LIPMSimpleCostFunction();
@@ -139,7 +139,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeCostControlGradient()
    {
       LIPMSimpleCostFunction costFunction = new LIPMSimpleCostFunction();
@@ -184,7 +184,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeCostControlHessian()
    {
       DenseMatrix64F R = new DenseMatrix64F(3, 3);
@@ -217,7 +217,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       JUnitTools.assertMatrixEquals(R, hessian, 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeCostStateHessian()
    {
       DenseMatrix64F Q = new DenseMatrix64F(6, 6);
@@ -253,7 +253,7 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
       JUnitTools.assertMatrixEquals(Q, hessian, 1e-10);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeCostStateGradientOfControlGradient()
    {
       LIPMSimpleCostFunction costFunction = new LIPMSimpleCostFunction();
@@ -285,35 +285,35 @@ public class LIPMSimpleCostFunctionTest extends TrackingCostFunctionTest<Default
 
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateGradientNumerically()
    {
       super.testCostStateGradientNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostControlGradientNumerically()
    {
       super.testCostControlGradientNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateHessianNumerically()
    {
       super.testCostStateHessianNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostControlHessianNumerically()
    {
       super.testCostControlHessianNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateControlHessianNumerically()
    {
       super.testCostStateControlHessianNumerically();

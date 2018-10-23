@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -38,7 +38,7 @@ public class YoFrameQuaternionTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testInitialization()
    {
       YoVariableRegistry registry = new YoVariableRegistry("blop");
@@ -69,7 +69,7 @@ public class YoFrameQuaternionTest
       assertArrayEquals(yawPitchRollExpected, yawPitchRollActual, EPS);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSetters()
    {
       Random random = new Random(1972L);
@@ -112,7 +112,7 @@ public class YoFrameQuaternionTest
       assertTrue(matrix3dActual.epsilonEquals(matrix3dExpected, EPS));
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testReferenceFramesMismatching()
    {
       Random random = new Random(1984L);
@@ -146,7 +146,7 @@ public class YoFrameQuaternionTest
       assertFalse(hasReferenceFrameMismatchExceptionBeenThrown);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testMultiplication()
    {
       Random random = new Random(1776L);
@@ -179,7 +179,7 @@ public class YoFrameQuaternionTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testInterpolate()
    {
       Random random = new Random(1776L);

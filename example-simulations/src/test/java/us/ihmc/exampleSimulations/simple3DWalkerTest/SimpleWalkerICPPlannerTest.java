@@ -3,7 +3,7 @@ package us.ihmc.exampleSimulations.simple3DWalkerTest;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -27,13 +27,13 @@ public class SimpleWalkerICPPlannerTest
    SimpleWalkerICPPlanner icpPlanner = new SimpleWalkerICPPlanner(CoPs, stepTime, omega );
    ArrayList<Double> ICPs = icpPlanner.getICPKnotPoints();
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIfICPListIsSameSize()
    {
       Assert.assertEquals("CoP knots not equal length ICP knots", CoPs.size(),ICPs.size());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public  void testIfICPsAreInFrontICPExceptLast()
    {
       for(int i=0; i<CoPs.size();i++)
@@ -50,7 +50,7 @@ public class SimpleWalkerICPPlannerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIfICPsAreBetweenAllCoPs()
    {
       for(int i =0; i<ICPs.size();i++)
@@ -59,7 +59,7 @@ public class SimpleWalkerICPPlannerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIfICPReferenceLiesBetweenICPPoints()
    {
 

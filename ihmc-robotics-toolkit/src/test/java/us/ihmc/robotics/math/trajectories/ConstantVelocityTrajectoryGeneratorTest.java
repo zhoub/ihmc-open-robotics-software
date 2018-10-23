@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -19,7 +19,7 @@ public class ConstantVelocityTrajectoryGeneratorTest
    private final double epsilon = 1e-7;
    private ConstantVelocityTrajectoryGenerator constantVelocityTrajectoryGenerator;
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSimpleTrajectory()
    {
       DoubleProvider initialPosition = new ConstantDoubleProvider(0.0);
@@ -35,7 +35,7 @@ public class ConstantVelocityTrajectoryGeneratorTest
       assertTrue(simpleLinearTrajectory.getAcceleration() == 0.0);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testRandomTrajectories()
    {
       final double numberOfIterations = 100;

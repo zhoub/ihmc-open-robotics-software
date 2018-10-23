@@ -1,7 +1,7 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
@@ -28,7 +28,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @Disabled("Revisit when there are contact patches.")
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testUnknownStepDownTwoFeetOnEachStep() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.08;
@@ -38,7 +38,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @Test(timeout = 370000)
+   @Test // timeout = 370000
    public void testUnknownStepDownOneFootOnEachStep() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.07;
@@ -52,7 +52,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @Test(timeout = 350000)
+   @Test // timeout = 350000
    public void testUnknownStepDownOneFootOnEachStepLong() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.08;
@@ -67,7 +67,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @Disabled
-   @Test(timeout = 340000)
+   @Test // timeout = 340000
    public void testUnknownStepDownOneFootOnEachStepWithUncertainty() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.07;
@@ -82,7 +82,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
    /** {@inheritDoc} */
    @Override
    @Disabled("Re-enable when planar region constraints are used.")
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testRandomHeightField() throws SimulationExceededMaximumTimeException
    {
       super.testRandomHeightField();
@@ -90,7 +90,7 @@ public class AtlasLeapOfFaithTest extends AvatarLeapOfFaithTest
 
    /** {@inheritDoc} */
    @Override
-   @Test(timeout = 540000)
+   @Test // timeout = 540000
    public void testDropOffsWhileWalking() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.08;

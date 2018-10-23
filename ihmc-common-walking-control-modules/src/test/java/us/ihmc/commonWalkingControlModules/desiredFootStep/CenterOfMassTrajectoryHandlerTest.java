@@ -4,7 +4,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.messageHandlers.CenterOfMassTrajectoryHandler;
 import us.ihmc.commons.MutationTestFacilitator;
@@ -29,7 +29,7 @@ public class CenterOfMassTrajectoryHandlerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleExample()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -80,7 +80,7 @@ public class CenterOfMassTrajectoryHandlerTest
       assertTrue(desiredICPVelocity.containsNaN());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNonZeroStartTime()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");
@@ -134,7 +134,7 @@ public class CenterOfMassTrajectoryHandlerTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testQueuing()
    {
       YoVariableRegistry registry = new YoVariableRegistry("TestRegistry");

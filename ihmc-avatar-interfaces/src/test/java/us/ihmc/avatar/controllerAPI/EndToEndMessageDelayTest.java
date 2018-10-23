@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
 import controller_msgs.msg.dds.ClearDelayQueueMessage;
@@ -42,7 +42,7 @@ public abstract class EndToEndMessageDelayTest implements MultiRobotTestInterfac
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Test(timeout = 95000)
+   @Test // timeout = 95000
    public void testClearingDelaysWithMessageOfMessagesWithDelays() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

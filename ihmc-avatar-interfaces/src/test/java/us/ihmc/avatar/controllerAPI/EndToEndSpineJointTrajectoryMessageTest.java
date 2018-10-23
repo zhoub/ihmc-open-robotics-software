@@ -9,12 +9,12 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
 import controller_msgs.msg.dds.OneDoFJointTrajectoryMessage;
 import controller_msgs.msg.dds.SpineTrajectoryMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commonWalkingControlModules.controlModules.rigidBody.RigidBodyJointControlHelper;
@@ -71,7 +71,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * This tests the execution of a single spine waypoint.
     * @throws SimulationExceededMaximumTimeException
     */
-   @Test(timeout = 110000)
+   @Test // timeout = 110000
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -90,7 +90,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * It does not test that the desired joint positions are continuous over the state switches anymore.
     * @throws SimulationExceededMaximumTimeException
     */
-   @Test (timeout = 170000)
+   @Test // timeout = 170000
    public void testSwitchingBetweenControlModes() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -111,7 +111,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * This tests that the joint desireds are continuous when sending multiple joint space messages.
     * @throws SimulationExceededMaximumTimeException
     */
-   @Test (timeout = 330000)
+   @Test // timeout = 330000
    public void testDesiredsAreContinuous() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -131,7 +131,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * This tests a trajectory with multiple waypoints. This will execute a spine yaw sine wave.
     * @throws SimulationExceededMaximumTimeException
     */
-   @Test (timeout = 330000)
+   @Test // timeout = 330000
    public void testMultipleWaypoints() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -175,7 +175,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * the controller does not blow up.
     * @throws SimulationExceededMaximumTimeException
     */
-   @Test (timeout = 340000)
+   @Test // timeout = 340000
    public void testLongMessage() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -202,7 +202,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * queuing.
     * @throws SimulationExceededMaximumTimeException
     */
-   @Test (timeout = 190000)
+   @Test // timeout = 190000
    public void testMessageQueuing() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -296,7 +296,7 @@ public abstract class EndToEndSpineJointTrajectoryMessageTest implements MultiRo
     * queuing.
     * @throws SimulationExceededMaximumTimeException
     */
-   @Test (timeout = 250000)
+   @Test // timeout = 250000
    public void testMessageWithDifferentTrajectoryLengthsPerJoint() throws SimulationExceededMaximumTimeException
    {
       setupTest();

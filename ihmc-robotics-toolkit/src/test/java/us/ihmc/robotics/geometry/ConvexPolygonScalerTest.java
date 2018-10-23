@@ -1,6 +1,6 @@
 package us.ihmc.robotics.geometry;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
@@ -12,7 +12,7 @@ import static junit.framework.TestCase.assertTrue;
 @Tag("fast")
 public class ConvexPolygonScalerTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testScaleSquareExteriorPolygonToContainSquareInteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -211,7 +211,7 @@ public class ConvexPolygonScalerTest
       assertFalse(success);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testScaleSquareExteriorPolygonToContainQuadrulateralInteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -273,7 +273,7 @@ public class ConvexPolygonScalerTest
       assertTrue(success);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testScaleHexagonExteriorPolygonToContainSquareInteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -327,7 +327,7 @@ public class ConvexPolygonScalerTest
       assertTrue(success);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithPointScaleExteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -412,7 +412,7 @@ public class ConvexPolygonScalerTest
       assertTrue(success);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithLineScaleExteriorPolygon()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();
@@ -575,7 +575,7 @@ public class ConvexPolygonScalerTest
    }
 
    @Tag("in-development")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTroublingCollapseExteriorRectangleToLine()
    {
       ConvexPolygonScaler scaler = new ConvexPolygonScaler();

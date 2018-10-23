@@ -3,7 +3,7 @@ package us.ihmc.simulationConstructionSetTools.simulationDispatcher.client;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -23,7 +23,7 @@ public class SimulationDispatcherClientTest
    
 // private static final String serverURL = "//10.100.0.74/RemoteSimulationRunner0";
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void test()
    {
 //    YoVariable foo = new YoVariable("foo", null);

@@ -5,14 +5,14 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class TaskExecutorTest
 {
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testEmptyExecutor()
    {
       TaskExecutor taskExecutor = new TaskExecutor();
@@ -29,7 +29,7 @@ public class TaskExecutorTest
       assertNull(lastTask);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithOneNullTask()
    {
       TaskExecutor taskExecutor = new TaskExecutor();
@@ -55,7 +55,7 @@ public class TaskExecutorTest
       assertTrue(taskExecutor.isDone());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithSeveralNullTasks()
    {
       TaskExecutor taskExecutor = new TaskExecutor();
@@ -115,7 +115,7 @@ public class TaskExecutorTest
       assertTrue(taskExecutor.getCurrentTask() instanceof NullTask);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeTasks()
    {
       int[] doActionsPerTask = new int[] { 1 };
@@ -135,7 +135,7 @@ public class TaskExecutorTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAddingTasksOnTheFly()
    {
       TaskExecutor taskExecutor = new TaskExecutor();

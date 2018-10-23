@@ -9,7 +9,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -49,7 +49,7 @@ public class GeometricJacobianTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstTwistCalculatorChainRobot() throws Exception
    {
       Random random = new Random(4324342L);
@@ -94,7 +94,7 @@ public class GeometricJacobianTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstTwistCalculatorFloatingJointRobot() throws Exception
    {
       Random random = new Random(4324342L);
@@ -152,7 +152,7 @@ public class GeometricJacobianTest
     * Jacobian was also computed manually using a Matlab script.
     */
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testDuindamExample()
    {
       // compute

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -28,14 +28,14 @@ public class CurrentPositionProviderTest
       referenceFrame = null;
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructor()
    {
       provider = new CurrentPositionProvider(null);
       provider = new CurrentPositionProvider(referenceFrame);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGet()
    {
       provider = new CurrentPositionProvider(referenceFrame);

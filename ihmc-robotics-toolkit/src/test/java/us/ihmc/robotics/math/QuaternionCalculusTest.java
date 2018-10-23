@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -34,7 +34,7 @@ public class QuaternionCalculusTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testLogAndExpAlgebra() throws Exception
    {
       Random random = new Random(651651961L);
@@ -61,7 +61,7 @@ public class QuaternionCalculusTest
    }
    
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConversionQDotToAngularVelocityBackAndForth() throws Exception
    {
       Random random = new Random(651651961L);
@@ -84,7 +84,7 @@ public class QuaternionCalculusTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConversionQDDotToAngularAccelerationBackAndForth() throws Exception
    {
       Random random = new Random(651651961L);
@@ -124,7 +124,7 @@ public class QuaternionCalculusTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVelocityFromFDAgainstTrajectory() throws Exception
    {
       QuaternionCalculus quaternionCalculus = new QuaternionCalculus();
@@ -169,7 +169,7 @@ public class QuaternionCalculusTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFDSimpleCase() throws Exception
    {
       QuaternionCalculus quaternionCalculus = new QuaternionCalculus();
@@ -217,7 +217,7 @@ public class QuaternionCalculusTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAccelerationFromFDAgainstTrajectory() throws Exception
    {
       QuaternionCalculus quaternionCalculus = new QuaternionCalculus();
@@ -264,7 +264,7 @@ public class QuaternionCalculusTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInterpolateAgainstQuat4d() throws Exception
    {
       QuaternionCalculus quaternionCalculus = new QuaternionCalculus();

@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -32,7 +32,7 @@ import us.ihmc.simulationconstructionset.Robot;
 
 public class CentroidalMomentumMatrixSCSTest
 {
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testTree()
    {
       Random random = new Random(167L);
@@ -64,7 +64,7 @@ public class CentroidalMomentumMatrixSCSTest
       EuclidCoreTestTools.assertTuple3DEquals(angularMomentum, comMomentum.getAngularPart(), 1e-12);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testFloatingBody()
    {
       Random random = new Random(167L);

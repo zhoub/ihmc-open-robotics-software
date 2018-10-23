@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import org.junit.jupiter.api.Tag;
@@ -45,7 +45,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix = null;
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGet()
    {
       verifyEpsilonEqual(simpleDecayOne, transferFunctionMatrix.get(0, 0), 1e-7);
@@ -70,7 +70,7 @@ public class TransferFunctionMatrixTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPremultiply()
    {
       Matrix matrixC = new Matrix(new double[][]
@@ -95,7 +95,7 @@ public class TransferFunctionMatrixTest
       assertTrue(newTransferFunctionMatrix.epsilonEquals(transferFunctionMatrix, 1e-7));
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testPreMultiplyException()
    {
       int rows = transferFunctionMatrix.getRows();
@@ -105,7 +105,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix.preMultiply(testMatrix);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTimes()
    {
       Matrix matrixC = new Matrix(new double[][]
@@ -130,7 +130,7 @@ public class TransferFunctionMatrixTest
       assertTrue(newTransferFunctionMatrix.epsilonEquals(transferFunctionMatrix, 1e-7));
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testTimesException()
    {
       int rows = transferFunctionMatrix.getRows();
@@ -140,7 +140,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix.times(testMatrix);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPlusDouble()
    {
       Matrix testMatrix = Matrix.random(transferFunctionMatrix.getRows(), transferFunctionMatrix.getRows());
@@ -181,7 +181,7 @@ public class TransferFunctionMatrixTest
       }
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testPlusDoubleException()
    {
       Matrix testMatrix = new Matrix(new double[][]
@@ -191,7 +191,7 @@ public class TransferFunctionMatrixTest
       transferFunctionMatrix.plus(testMatrix);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPlusTransferFunctionDouble()
    {
       TransferFunction[][] transferFunctions = new TransferFunction[][]
@@ -239,7 +239,7 @@ public class TransferFunctionMatrixTest
       }
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testPlusTransferFunctionException()
    {
       TransferFunctionMatrix testMatrix = new TransferFunctionMatrix(new TransferFunction[][]

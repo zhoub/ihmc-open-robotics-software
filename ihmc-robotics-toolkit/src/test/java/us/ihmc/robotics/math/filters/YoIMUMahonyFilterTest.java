@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.tools.EuclidFrameRandomTools;
@@ -25,7 +25,7 @@ public class YoIMUMahonyFilterTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout=10000)
+   @Test // timeout=10000
    public void testInitialization() throws Exception
    {
       String imuName = "test";
@@ -62,7 +62,7 @@ public class YoIMUMahonyFilterTest
       assertTrue(currentError <= 1.0e-10);
    }
 
-   @Test(timeout=10000)
+   @Test // timeout=10000
    public void testConvergenceToStaticOrientation() throws Exception
    {
       String imuName = "test";
@@ -109,7 +109,7 @@ public class YoIMUMahonyFilterTest
       assertTrue(currentError <= 3.0e-4);
    }
 
-   @Test(timeout=10000)
+   @Test // timeout=10000
    public void testConvergenceToStaticOrientationWithGyroBias() throws Exception
    {
       String imuName = "test";

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -30,7 +30,7 @@ public class FrameLineTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrameCopy()
    {
       Random random = new Random(1776L);
@@ -89,7 +89,7 @@ public class FrameLineTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetFrameVector()
    {
       Random random = new Random(1234L);
@@ -118,7 +118,7 @@ public class FrameLineTest
       assertTrue(frameVector.epsilonEquals(vector, 1e-12));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetFramePoint()
    {
       Random random = new Random(4567L);
@@ -147,7 +147,7 @@ public class FrameLineTest
       assertTrue(frameNormalizedVectorCopy.epsilonEquals(vector, 1e-12));
    }
 
-   @Test(timeout = 30000, expected = RuntimeException.class)
+   @Test // timeout = 30000, expected = RuntimeException.class
    public void testConstructorC()
    {
       FramePoint3D origin = new FramePoint3D(ReferenceFrame.getWorldFrame(), 1.0, 2.0, 3.0);

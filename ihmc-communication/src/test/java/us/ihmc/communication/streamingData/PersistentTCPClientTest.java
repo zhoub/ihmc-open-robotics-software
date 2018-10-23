@@ -10,7 +10,7 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -19,7 +19,7 @@ import us.ihmc.commons.thread.ThreadTools;
 public class PersistentTCPClientTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void test() throws IOException
    {
       String serverIPAddress = "localHost";

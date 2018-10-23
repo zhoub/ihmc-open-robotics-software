@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 
 import junit.framework.AssertionFailedError;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -46,7 +46,7 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 2200000)
+   @Test // timeout = 2200000
    public void testWalkingOverShallowRamps() throws IOException
    {
       RampsGroundProfile groundProfile = new RampsGroundProfile(0.075, 0.75, 1.2);
@@ -54,7 +54,7 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       walkOverRamps(groundProfile, getComHeightForRoughTerrain());
    }
 
-   @Test(timeout = 2000000)
+   @Test // timeout = 2000000
    public void testWalkingOverAggressiveRamps() throws IOException
    {
       RampsGroundProfile groundProfile = new RampsGroundProfile(0.15, 0.75, 1.2);
@@ -102,13 +102,13 @@ public abstract class QuadrupedXGaitWalkingOverRampsTest implements QuadrupedMul
       conductor.concludeTesting();
    }
 
-   @Test(timeout = 1200000)
+   @Test // timeout = 1200000
    public void testWalkingDownSlope() throws IOException
    {
       walkSlope(0.2, getWalkingDownSlopePosition());
    }
 
-   @Test(timeout = 980000)
+   @Test // timeout = 980000
    public void testWalkingUpSlope() throws IOException
    {
       walkSlope(-0.1, getWalkingUpSlopePosition());

@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCFlatGroundRewindabilityTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -29,7 +29,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
    }
 
    @Override
-   @Test(timeout = 520000)
+   @Test // timeout = 520000
    public void testCanRewindAndGoForward() throws UnreasonableAccelerationException
    {
       super.testCanRewindAndGoForward();
@@ -37,7 +37,7 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
 
    @Override
    @Disabled
-   @Test(timeout = 520000)
+   @Test // timeout = 520000
    public void testRewindabilityWithSimpleFastMethod() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
    {
       super.testRewindabilityWithSimpleFastMethod();
@@ -46,14 +46,14 @@ public class AtlasFlatGroundRewindabilityTest extends DRCFlatGroundRewindability
    @Override
    // This takes a long time. Use it for debugging where the broken changes were made when the tests above fail.
    @Disabled
-   @Test(timeout = 520000)
+   @Test // timeout = 520000
    public void testRewindabilityWithSlowerMoreExtensiveMethod() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException
    {
       super.testRewindabilityWithSlowerMoreExtensiveMethod();
    }
 
    @Override
-   @Test(timeout = 520000)
+   @Test // timeout = 520000
    public void testRunsTheSameWayTwice() throws UnreasonableAccelerationException, SimulationExceededMaximumTimeException, ControllerFailureException
    {
       super.testRunsTheSameWayTwice();

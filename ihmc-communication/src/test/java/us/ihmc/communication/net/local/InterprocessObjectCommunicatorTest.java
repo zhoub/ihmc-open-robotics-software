@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import std_msgs.msg.dds.Float64;
 import std_msgs.msg.dds.Int32;
@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class InterprocessObjectCommunicatorTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOpeningAndClosingALotOfPorts() throws IOException
    {
       TestNetClassList classList = new TestNetClassList();
@@ -44,7 +44,7 @@ public class InterprocessObjectCommunicatorTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSendingObjectsToClients() throws IOException
    {
       IntraprocessObjectCommunicator port128ClientA = new IntraprocessObjectCommunicator(128, new TestNetClassList());

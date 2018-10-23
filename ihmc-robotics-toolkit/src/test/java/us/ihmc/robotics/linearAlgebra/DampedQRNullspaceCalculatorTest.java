@@ -2,7 +2,7 @@ package us.ihmc.robotics.linearAlgebra;
 
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import static org.junit.Assert.assertEquals;
@@ -47,7 +47,7 @@ public class DampedQRNullspaceCalculatorTest extends DampedNullspaceCalculatorTe
       return upperDiagonal;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInnerProductMultiply()
    {
       for (int size = 2; size < 20; size++)

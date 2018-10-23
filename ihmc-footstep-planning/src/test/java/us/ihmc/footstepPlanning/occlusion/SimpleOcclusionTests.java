@@ -3,7 +3,7 @@ package us.ihmc.footstepPlanning.occlusion;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
@@ -68,7 +68,7 @@ public class SimpleOcclusionTests
    @Rule
    public TestName name = new TestName();
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    @Disabled
    public void testSimpleOcclusions()
    {
@@ -78,7 +78,7 @@ public class SimpleOcclusionTests
       runTest(startPose, goalPose, regions, defaultMaxAllowedSolveTime);
    }
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    @Disabled // Resource file does not seem to exist.
    public void testOcclusionsFromData()
    {
@@ -110,7 +110,7 @@ public class SimpleOcclusionTests
       }
    }
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    @Disabled
    public void testMazeWithOcclusions()
    {

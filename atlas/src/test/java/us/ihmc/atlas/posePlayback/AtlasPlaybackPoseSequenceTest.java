@@ -1,6 +1,6 @@
 package us.ihmc.atlas.posePlayback;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -27,7 +27,7 @@ public class AtlasPlaybackPoseSequenceTest extends PlaybackPoseSequenceDRCTest
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testReadAndWriteWithRandomSequence()
    {
       super.testReadAndWriteWithRandomSequence();

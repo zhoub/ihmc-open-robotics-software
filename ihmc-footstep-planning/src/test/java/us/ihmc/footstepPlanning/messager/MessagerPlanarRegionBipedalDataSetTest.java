@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.messager;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.PrintTools;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -16,14 +16,14 @@ public class MessagerPlanarRegionBipedalDataSetTest extends MessagerPlannerDataS
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    public void testDatasetsWithoutOcclusion()
    {
       runAssertionsOnAllDatasetsWithoutOcclusions(dataset -> runAssertions(dataset));
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    @Tag("in-development")
    public void testDatasetsWithoutOcclusionInDevelopment()
    {

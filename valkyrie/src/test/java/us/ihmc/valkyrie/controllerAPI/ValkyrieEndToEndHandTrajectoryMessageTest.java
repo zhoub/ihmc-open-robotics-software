@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.controllerAPI.EndToEndHandTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -17,56 +17,56 @@ public class ValkyrieEndToEndHandTrajectoryMessageTest extends EndToEndHandTraje
    private final ValkyrieRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);
 
    @Override
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testCustomControlFrame() throws SimulationExceededMaximumTimeException
    {
       super.testCustomControlFrame();
    }
 
    @Override
-   @Test(timeout = 79000)
+   @Test // timeout = 79000
    public void testMessageWithTooManyTrajectoryPoints() throws Exception
    {
       super.testMessageWithTooManyTrajectoryPoints();
    }
 
    @Override
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testMultipleTrajectoryPoints() throws Exception
    {
       super.testMultipleTrajectoryPoints();
    }
 
    @Override
-   @Test(timeout = 330000)
+   @Test // timeout = 330000
    public void testQueuedMessages() throws Exception
    {
       super.testQueuedMessages();
    }
 
    @Override
-   @Test(timeout = 160000)
+   @Test // timeout = 160000
    public void testQueueStoppedWithOverrideMessage() throws Exception
    {
       super.testQueueStoppedWithOverrideMessage();
    }
 
    @Override
-   @Test(timeout = 86000)
+   @Test // timeout = 86000
    public void testQueueWithWrongPreviousId() throws Exception
    {
       super.testQueueWithWrongPreviousId();
    }
 
    @Override
-   @Test(timeout = 210000)
+   @Test // timeout = 210000
    public void testSingleTrajectoryPoint() throws Exception
    {
       super.testSingleTrajectoryPoint();
    }
 
    @Override
-   @Test(timeout = 220000)
+   @Test // timeout = 220000
    public void testStopAllTrajectory() throws Exception
    {
       super.testStopAllTrajectory();

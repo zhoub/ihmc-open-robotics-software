@@ -8,7 +8,7 @@ import org.ejml.interfaces.linsol.LinearSolver;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.RandomMatrices;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -19,7 +19,7 @@ public class DiagonalMatrixToolsTest
 {
    private final double epsilon = 1e-6;
 
-   @Test(timeout = 72000)
+   @Test // timeout = 72000
    public void testSquareInvert()
    {
       Random random = new Random(1738L);
@@ -64,7 +64,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testPreMult()
    {
       Random random = new Random(1738L);
@@ -101,7 +101,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testPreMultVector()
    {
       Random random = new Random(1738L);
@@ -134,7 +134,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testPreMultAddBlock()
    {
       Random random = new Random(1738L);
@@ -193,7 +193,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 52000)
+   @Test // timeout = 52000
    public void testPostMult()
    {
       Random random = new Random(1738L);
@@ -230,7 +230,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 52000)
+   @Test // timeout = 52000
    public void testPostMultVector()
    {
       Random random = new Random(1738L);
@@ -263,7 +263,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPostMultTransA()
    {
       DenseMatrix64F diagonal = new DenseMatrix64F(2, 4);
@@ -288,7 +288,7 @@ public class DiagonalMatrixToolsTest
       JUnitTools.assertMatrixEquals(solution, expectedSolution, epsilon);
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomPostMultTransA()
    {
       Random random = new Random(124L);
@@ -325,7 +325,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testEasyMultInner()
    {
       Random random = new Random(124L);
@@ -359,7 +359,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomMultInner()
    {
       Random random = new Random(124L);
@@ -406,7 +406,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testEasyMultOuter()
    {
       Random random = new Random(124L);
@@ -438,7 +438,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomMultOuter()
    {
       Random random = new Random(124L);
@@ -483,7 +483,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testEasyMultAddInner()
    {
       Random random = new Random(124L);
@@ -521,7 +521,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomMultAddInner()
    {
       Random random = new Random(124L);
@@ -570,7 +570,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomMultAddBlockInner()
    {
       Random random = new Random(124L);
@@ -617,7 +617,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testEasyMultAddBlockInner()
    {
       Random random = new Random(124L);
@@ -923,7 +923,7 @@ public class DiagonalMatrixToolsTest
 
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testEasyInnerDiagonalMult()
    {
       Random random = new Random(124L);
@@ -957,7 +957,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomInnerDiagonalMult()
    {
       Random random = new Random(124L);
@@ -998,7 +998,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomInnerDiagonalMultVector()
    {
       Random random = new Random(124L);
@@ -1035,7 +1035,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testEasyInnerDiagonalMultTransA()
    {
       Random random = new Random(124L);
@@ -1069,7 +1069,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomInnerDiagonalMultTransA()
    {
       Random random = new Random(124L);
@@ -1110,7 +1110,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomInnerDiagonalMultTransAVector()
    {
       Random random = new Random(124L);
@@ -1147,7 +1147,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomInnerDiagonalMultAddTransA()
    {
       Random random = new Random(124L);
@@ -1188,7 +1188,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomInnerDiagonalMultAddTransAVector()
    {
       Random random = new Random(124L);
@@ -1225,7 +1225,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomInnerDiagonalMultAddBlockTransA()
    {
       Random random = new Random(124L);
@@ -1285,7 +1285,7 @@ public class DiagonalMatrixToolsTest
       }
    }
 
-   @Test(timeout = 40000)
+   @Test // timeout = 40000
    public void testRandomInnerDiagonalMultAddBlockTransAVector()
    {
       Random random = new Random(124L);

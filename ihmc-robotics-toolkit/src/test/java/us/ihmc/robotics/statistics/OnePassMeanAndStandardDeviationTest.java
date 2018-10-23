@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -25,7 +25,7 @@ public class OnePassMeanAndStandardDeviationTest
    {
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCalculateMeanAndStandardDeviationExample()
    {
       double[] data =
@@ -45,7 +45,7 @@ public class OnePassMeanAndStandardDeviationTest
       assertEquals(9.730769230769189, meanAndStandardDeviation.getSampleVariance(), delta);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCalculateMeanAndStandardDeviationSingleValue()
    {
       meanAndStandardDeviation.compute(65.0);
@@ -56,7 +56,7 @@ public class OnePassMeanAndStandardDeviationTest
       assertEquals(0.0, meanAndStandardDeviation.getStandardDeviation(), delta);
    }
 
-	@Test(timeout = 30000,expected = InsufficientMeasurementsException.class)
+	@Test // timeout = 30000,expected = InsufficientMeasurementsException.class
    public void testCalculateSampleVarianceSingleValue()
    {
       meanAndStandardDeviation.compute(65.0);
@@ -64,14 +64,14 @@ public class OnePassMeanAndStandardDeviationTest
       assertEquals(0.0, meanAndStandardDeviation.getSampleVariance(), delta);
    }
 
-	@Test(timeout = 30000,expected = InsufficientMeasurementsException.class)
+	@Test // timeout = 30000,expected = InsufficientMeasurementsException.class
    public void testCalculateAverageNoValue()
    {
       double delta = 1e-10;
       assertEquals(0.0, meanAndStandardDeviation.getAverage(), delta);
    }
 
-	@Test(timeout = 30000,expected = InsufficientMeasurementsException.class)
+	@Test // timeout = 30000,expected = InsufficientMeasurementsException.class
    public void testCalculateVarianceNoValue()
    {
       double delta = 1e-10;

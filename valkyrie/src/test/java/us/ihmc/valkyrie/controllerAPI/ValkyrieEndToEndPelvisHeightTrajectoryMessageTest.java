@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.controllerAPI.EndToEndPelvisHeightTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -27,28 +27,28 @@ public class ValkyrieEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndP
    }
 
    @Override
-   @Test(timeout = 210000)
+   @Test // timeout = 210000
    public void testSingleWaypoint() throws Exception
    {
       super.testSingleWaypoint();
    }
 
    @Override
-   @Test(timeout = 140000)
+   @Test // timeout = 140000
    public void testSingleWaypointInUserMode() throws Exception
    {
       super.testSingleWaypointInUserMode();
    }
 
    @Override
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    public void testSingleWaypointThenManualChange() throws Exception
    {
       super.testSingleWaypointThenManualChange();
    }
 
    @Override
-   @Test(timeout = 210000)
+   @Test // timeout = 210000
    public void testStopAllTrajectory() throws Exception
    {
       super.testStopAllTrajectory();

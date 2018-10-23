@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -25,7 +25,7 @@ import us.ihmc.yoVariables.variable.YoInteger;
 public class StateMachineExampleTwoTest
 {
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComplexStateMachineExample()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");

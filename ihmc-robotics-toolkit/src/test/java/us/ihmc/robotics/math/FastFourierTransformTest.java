@@ -1,6 +1,6 @@
 package us.ihmc.robotics.math;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 
 import org.junit.jupiter.api.Tag;
@@ -12,7 +12,7 @@ import us.ihmc.commons.MathTools;
 public class FastFourierTransformTest
 {
    @Tag("fast")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBitReverse()
    {
       FastFourierTransform fft = FastFourierTransform.getFourierTransformer();
@@ -27,7 +27,7 @@ public class FastFourierTransformTest
    }
 
    @Tag("fast")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFourierTransform()
    {
       double[] testArray = {1, 1, 1, 1, 1};
@@ -45,7 +45,7 @@ public class FastFourierTransformTest
    }
 
    @Tag("fast")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFourierTransform2()
    {
       double[] testArray1 = {1, 1};

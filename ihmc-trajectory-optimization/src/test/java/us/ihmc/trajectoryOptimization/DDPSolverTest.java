@@ -5,7 +5,7 @@ import org.ejml.factory.LinearSolverFactory;
 import org.ejml.interfaces.linsol.LinearSolver;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.RandomMatrices;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class DDPSolverTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeUpdatedControl()
    {
       TestDynamics dynamics = new TestDynamics();
@@ -110,7 +110,7 @@ public class DDPSolverTest
       JUnitTools.assertMatrixEquals(updatedControlExpected, updatedControl, 1e-12);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testUpdateHamiltonianApproximations()
    {
       Random random = new Random(1738);
@@ -179,7 +179,7 @@ public class DDPSolverTest
 
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputePreviousValueApproximation()
    {
       TestDynamics dynamics = new TestDynamics();
@@ -308,7 +308,7 @@ public class DDPSolverTest
       JUnitTools.assertMatrixEquals(V_XX_expected, V_XX, 1e-12);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeFeedbackGainAndFeedForwardTerm()
    {
       TestDynamics dynamics = new TestDynamics();
@@ -427,7 +427,7 @@ public class DDPSolverTest
       JUnitTools.assertMatrixEquals(feedforwardExpected, feedforwardMatrix, 1e-6);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAddMultQuad()
    {
       Random random = new Random(1738);

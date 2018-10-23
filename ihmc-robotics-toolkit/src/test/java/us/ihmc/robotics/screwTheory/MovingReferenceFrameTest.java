@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -21,7 +21,7 @@ public class MovingReferenceFrameTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstTwistCalculatorWithPrismaticChainRobot() throws Exception
    {
       Random random = new Random(435423L);
@@ -54,7 +54,7 @@ public class MovingReferenceFrameTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstTwistCalculatorWithChainRobot() throws Exception
    {
       Random random = new Random(435423L);
@@ -87,7 +87,7 @@ public class MovingReferenceFrameTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstTwistCalculatorWithTreeRobot() throws Exception
    {
       Random random = new Random(435423L);

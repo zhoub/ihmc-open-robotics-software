@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import Jama.Matrix;
 import org.junit.jupiter.api.Tag;
@@ -17,7 +17,7 @@ public class DoubleMassSpringOscillatorTest
 {
    private static final boolean VERBOSE = true;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDecomposerGotEigenvaluesRight()
    {
       Matrix matrixA = new Matrix(new double[][] { { 0.0, 1.0, 0.0, 0.0 }, { -2.0, 0.0, 1.0, 0.0 }, { 0.0, 0.0, 0.0, 1.0 }, { 1.0, 0.0, -2.0, 0.0 } });

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -46,7 +46,7 @@ public class OneDoFJointQuinticTrajectoryGeneratorTest
       trajectoryTimeProvider = new ConstantDoubleProvider(timeRequired);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructor()
    {
       try
@@ -59,7 +59,7 @@ public class OneDoFJointQuinticTrajectoryGeneratorTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testIsDone()
    {
       generator = new OneDoFJointQuinticTrajectoryGenerator(namePrefix, joint, trajectoryTimeProvider, parentRegistry);
@@ -72,7 +72,7 @@ public class OneDoFJointQuinticTrajectoryGeneratorTest
       assertTrue(generator.isDone());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void test()
    {
       generator = new OneDoFJointQuinticTrajectoryGenerator(namePrefix, joint, trajectoryTimeProvider, parentRegistry);

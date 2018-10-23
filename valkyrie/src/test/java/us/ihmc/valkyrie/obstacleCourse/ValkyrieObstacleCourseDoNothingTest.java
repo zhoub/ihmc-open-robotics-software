@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -27,14 +27,14 @@ public class ValkyrieObstacleCourseDoNothingTest extends DRCObstacleCourseDoNoth
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.VALKYRIE);
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testDoNothingGroundContactPoints() throws SimulationExceededMaximumTimeException
    {
       robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);
       super.testDoNothing1();
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testDoNothingShapeCollision() throws SimulationExceededMaximumTimeException
    {
       robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false, true);

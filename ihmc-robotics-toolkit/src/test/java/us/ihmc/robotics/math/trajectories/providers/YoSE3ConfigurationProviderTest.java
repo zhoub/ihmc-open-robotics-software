@@ -5,7 +5,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -40,14 +40,14 @@ public class YoSE3ConfigurationProviderTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructor()
    {
       provider = new YoSE3ConfigurationProvider(name, referenceFrame, null);
       provider = new YoSE3ConfigurationProvider(name, referenceFrame, registry);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGet()
    {
       provider = new YoSE3ConfigurationProvider(name, referenceFrame, registry);
@@ -62,7 +62,7 @@ public class YoSE3ConfigurationProviderTest
       assertEquals(referenceFrame, framePointToPack.getReferenceFrame());
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSetPose()
    {
       provider = new YoSE3ConfigurationProvider(name, referenceFrame, registry);

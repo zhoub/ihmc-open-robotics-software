@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
 import us.ihmc.commonWalkingControlModules.capturePoint.ICPControlGains;
@@ -89,21 +89,21 @@ public class CentroidProjectionToeOffCalculatorTest
 
 
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructor()
    {
       toeOffCalculator = new CentroidProjectionToeOffCalculator(contactStates, contactableFeet, getToeOffParameters(), parentRegistry);
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testClear()
    {
       toeOffCalculator = new CentroidProjectionToeOffCalculator(contactStates, contactableFeet, getToeOffParameters(), parentRegistry);
       toeOffCalculator.clear();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetExitCMP()
    {
       RobotSide trailingSide = RobotSide.LEFT;
@@ -116,7 +116,7 @@ public class CentroidProjectionToeOffCalculatorTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeToeOffContactPoint()
    {
       RobotSide trailingSide = RobotSide.LEFT;
@@ -136,7 +136,7 @@ public class CentroidProjectionToeOffCalculatorTest
       toeOffCalculator.computeToeOffContactPoint(desiredCMP, trailingSide);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetToeOffContactPoint()
    {
       RobotSide trailingSide = RobotSide.LEFT;

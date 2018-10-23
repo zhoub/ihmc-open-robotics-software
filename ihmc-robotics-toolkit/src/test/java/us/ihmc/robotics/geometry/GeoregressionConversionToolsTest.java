@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import georegression.struct.point.Point3D_F64;
 import georegression.struct.se.Se3_F64;
@@ -22,7 +22,7 @@ public class GeoregressionConversionToolsTest
 {
    private final static double eps = 1e-7;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTransformConversionFromGeoregressionToVecmath()
    {
       Random rand = new Random(123384L);
@@ -60,7 +60,7 @@ public class GeoregressionConversionToolsTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTransformConversionFromVecmathToGeoregression()
    {
       Random random = new Random(123384L);

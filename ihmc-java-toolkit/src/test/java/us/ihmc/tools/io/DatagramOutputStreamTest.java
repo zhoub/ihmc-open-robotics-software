@@ -7,7 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -30,7 +30,7 @@ public class DatagramOutputStreamTest
       runATest(1776, throwOutStalePackets, expectedMessagesToReceive);
    }
 
-	@Test(timeout = 43000)
+	@Test // timeout = 43000
    public void testDatagramOutputStreamDoNotThrowOutStalePackets() throws IOException
    {
       boolean throwOutStalePackets = false;

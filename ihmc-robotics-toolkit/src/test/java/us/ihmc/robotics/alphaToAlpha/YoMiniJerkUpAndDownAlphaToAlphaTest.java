@@ -2,7 +2,7 @@ package us.ihmc.robotics.alphaToAlpha;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -16,7 +16,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 public class YoMiniJerkUpAndDownAlphaToAlphaTest
 {
    private double EPSILON = 1e-6;
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testInvalidYoVariables()
    {
       YoVariableRegistry registry = new YoVariableRegistry("dummy");
@@ -48,7 +48,7 @@ public class YoMiniJerkUpAndDownAlphaToAlphaTest
 
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testValidYoVariables()
    {
       YoVariableRegistry registry = new YoVariableRegistry("dummy");
@@ -116,7 +116,7 @@ public class YoMiniJerkUpAndDownAlphaToAlphaTest
       assertEquals(value, 0.0, EPSILON);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testHalfWay()
    {
       YoVariableRegistry registry = new YoVariableRegistry("dummy");
@@ -159,7 +159,7 @@ public class YoMiniJerkUpAndDownAlphaToAlphaTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSmallDifferences()
    {
       YoVariableRegistry registry = new YoVariableRegistry("dummy");

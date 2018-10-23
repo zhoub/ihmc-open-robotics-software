@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -33,7 +33,7 @@ public class YoFramePointInMultipleFramesTest
 
    private static final ReferenceFrame[] allFrames = new ReferenceFrame[] { worldFrame, frameA, frameB, frameC };
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructor()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youhou");
@@ -67,7 +67,7 @@ public class YoFramePointInMultipleFramesTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testRegisterFrame()
    {
       ArrayList<ReferenceFrame> referenceFrames = new ArrayList<ReferenceFrame>();
@@ -104,7 +104,7 @@ public class YoFramePointInMultipleFramesTest
       assertEquals(frameA, referenceFrames.get(1));
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSetToZero()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youhou");
@@ -117,7 +117,7 @@ public class YoFramePointInMultipleFramesTest
       assertTrue(framePoint.epsilonEquals(yoFramePointInMultipleFrames, 1e-10));
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testChangeToRegisteredFrame()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youhou");
@@ -147,7 +147,7 @@ public class YoFramePointInMultipleFramesTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testSetIncludingFrame()
    {
       YoVariableRegistry registry = new YoVariableRegistry("youhou");

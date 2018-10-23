@@ -5,7 +5,7 @@ import static junit.framework.Assert.assertEquals;
 import java.util.ArrayList;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -33,7 +33,7 @@ public class WaypointMotionGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testStraightLineMotion()
    {
       ArrayList<FramePoint3D> listOfPoints = new ArrayList<FramePoint3D>();
@@ -90,7 +90,7 @@ public class WaypointMotionGeneratorTest
       assertEquals(0.0, acceleration.length(), 1e-2);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testThreePointMotion()
    {
       ArrayList<FramePoint3D> listOfPoints = new ArrayList<FramePoint3D>();

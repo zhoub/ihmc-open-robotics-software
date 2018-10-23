@@ -9,7 +9,7 @@ import java.lang.reflect.Modifier;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -30,7 +30,7 @@ public class AngleToolsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructor()
            throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -42,7 +42,7 @@ public class AngleToolsTest
       constructor.newInstance();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeAngleDifferenceMinusTwoPiToZero()
    {
       Random random = new Random(123456);
@@ -65,7 +65,7 @@ public class AngleToolsTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeAngleDifferenceMinusPiToPi()
    {
       Random random = new Random(123456);
@@ -88,7 +88,7 @@ public class AngleToolsTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeAngleDifferenceMinusPiToPiUsingTrim()
    {
       Random random = new Random(123456);
@@ -111,7 +111,7 @@ public class AngleToolsTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFindClosestNinetyDegreeYaw()
    {
       double yawInRadians;
@@ -145,7 +145,7 @@ public class AngleToolsTest
       assertEquals(expectedReturn, actualReturn);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGenerateRandomAngle()
    {
       Random random = new Random(0);
@@ -158,7 +158,7 @@ public class AngleToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGenerateArrayOfTestAngles()
    {
       double[] anglesWithoutZeroOrPlusMinusPi = AngleTools.generateArrayOfTestAngles(100, 1e-1, false, false);
@@ -266,7 +266,7 @@ public class AngleToolsTest
       assertEquals("Should have found one angle equal to -2PI!", 1, numberOfAnglesEqualToMinus2PI);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testShiftAngleToStartOfRange()
    {
       double angleToShift = 0.5;
@@ -290,7 +290,7 @@ public class AngleToolsTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testShiftAngleToStartOfRangeUnitless()
    {
       double range = Math.pow(2.0, 13.0);
@@ -331,7 +331,7 @@ public class AngleToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrimAngleMinusPiToPi()
    {
       Random random = new Random(0);
@@ -345,7 +345,7 @@ public class AngleToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeAngleAverage()
    {
       double angleA, angleB;
@@ -386,7 +386,7 @@ public class AngleToolsTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAngleMinusPiToPi()
    {
       Vector2D vectorA, vectorB;
@@ -420,7 +420,7 @@ public class AngleToolsTest
       assertTrue(Double.isNaN(expected));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAngleFromZeroToTwoPi()
    {
       assertEquals("not equal", 0.0, AngleTools.angleFromZeroToTwoPi(0.0, 0.0), 1e-7);
@@ -428,7 +428,7 @@ public class AngleToolsTest
       assertEquals("not equal", 7.0 * Math.PI / 4.0, AngleTools.angleFromZeroToTwoPi(1.0, -1.0), 1e-7);
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCalculateHeading()
    {
 	   FramePose2D start = new FramePose2D(ReferenceFrame.getWorldFrame(), new Point2D(0.0,0.0), 0.0);

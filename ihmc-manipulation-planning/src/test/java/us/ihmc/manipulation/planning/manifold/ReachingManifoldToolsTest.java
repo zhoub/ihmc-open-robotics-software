@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ReachingManifoldMessage;
 import org.junit.jupiter.api.Tag;
@@ -43,7 +43,7 @@ public class ReachingManifoldToolsTest
       transform.appendYawRotation(random.nextDouble());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFindingClosestPointOnSphere()
    {
       RigidBodyTransform expectedClosestTransform = new RigidBodyTransform();
@@ -76,7 +76,7 @@ public class ReachingManifoldToolsTest
       assertTrue("expected transform is on the manifolds ", distance < errorThreshold);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFindingClosestPointOnCylinder()
    {
       RigidBodyTransform expectedClosestTransform = new RigidBodyTransform();

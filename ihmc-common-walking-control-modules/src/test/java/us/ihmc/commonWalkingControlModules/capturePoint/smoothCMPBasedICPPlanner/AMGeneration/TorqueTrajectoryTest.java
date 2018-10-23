@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Epsilons;
 import us.ihmc.commons.RandomNumbers;
@@ -33,7 +33,7 @@ public class TorqueTrajectoryTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetter()
    {
       Random random = new Random(1738L);
@@ -69,7 +69,7 @@ public class TorqueTrajectoryTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetter2()
    {
       Random random = new Random(1738L);

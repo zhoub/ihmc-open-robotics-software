@@ -1,6 +1,6 @@
 package us.ihmc.quadrupedRobotics.planning.chooser.footstepChooser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.Axis;
@@ -16,7 +16,7 @@ public class PlanarRegionBasedPointFootSnapperTest
 {
    private static final double epsilon = 1e-6;
 
-   @Test(timeout = 2000)
+   @Test // timeout = 2000
    public void testSnappingToFlatSquare()
    {
       PointFootSnapperParameters testParameters = new PointFootSnapperParameters()
@@ -57,7 +57,7 @@ public class PlanarRegionBasedPointFootSnapperTest
       assertTrue(snappedStep.epsilonEquals(new Point3D(1.4, 2.25, -0.5), epsilon));
    }
 
-   @Test(timeout = 2000)
+   @Test // timeout = 2000
    public void testSnappingToRotatedSquare()
    {
       PointFootSnapperParameters testParameters = new PointFootSnapperParameters()

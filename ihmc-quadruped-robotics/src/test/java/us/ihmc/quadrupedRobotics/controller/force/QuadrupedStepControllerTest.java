@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -64,7 +64,7 @@ public abstract class QuadrupedStepControllerTest implements QuadrupedMultiRobot
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
    
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testTakingAStep() throws SimulationExceededMaximumTimeException
    {
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);

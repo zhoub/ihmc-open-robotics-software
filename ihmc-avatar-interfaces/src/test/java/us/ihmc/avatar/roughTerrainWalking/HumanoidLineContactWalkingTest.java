@@ -15,7 +15,7 @@ import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
 import controller_msgs.msg.dds.OneDoFJointTrajectoryMessage;
 import controller_msgs.msg.dds.TrajectoryPoint1DMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -84,7 +84,7 @@ public abstract class HumanoidLineContactWalkingTest implements MultiRobotTestIn
    private YoBoolean allowUpperBodyMomentumInDoubleSupport;
    private YoBoolean allowUsingHighMomentumWeight;
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testWalkingOnStraightSidewayLines() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -131,7 +131,7 @@ public abstract class HumanoidLineContactWalkingTest implements MultiRobotTestIn
       }
    }
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testWalkingOnStraightForwardLines() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -178,7 +178,7 @@ public abstract class HumanoidLineContactWalkingTest implements MultiRobotTestIn
       }
    }
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testWalkingOnLines() throws SimulationExceededMaximumTimeException
    {
       Random random = new Random(49039845179L);

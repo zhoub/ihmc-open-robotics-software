@@ -3,7 +3,7 @@ package us.ihmc.robotiq.communication.registers;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -16,7 +16,7 @@ import us.ihmc.robotiq.communication.registers.ActionRequestRegister.rMOD;
 @Tag("fast")
 public class RobotiqRegisterTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testEquals()
    {
       ActionRequestRegister arr = new ActionRequestRegister(rACT.ACTIVATE_GRIPPER, rMOD.BASIC_MODE, rGTO.GO_TO, rATR.NORMAL);

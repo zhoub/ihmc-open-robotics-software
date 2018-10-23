@@ -3,7 +3,7 @@ package us.ihmc.commonWalkingControlModules.capturePoint.optimization;
 import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FrameVector2D;
@@ -19,7 +19,7 @@ public class ICPOptimizationControllerHelperTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTransformFromDynamicsFrame()
    {
       ICPOptimizationControllerHelper helper = new ICPOptimizationControllerHelper();

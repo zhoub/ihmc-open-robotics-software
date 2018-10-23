@@ -10,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 
 import controller_msgs.msg.dds.HeadTrajectoryMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -51,7 +51,7 @@ public abstract class EndToEndHeadTrajectoryMessageTest implements MultiRobotTes
    private OneDoFJoint[] neckJoints;
    private int numberOfJoints;
 
-   @Test(timeout = 140000)
+   @Test // timeout = 140000
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
       setupTest();

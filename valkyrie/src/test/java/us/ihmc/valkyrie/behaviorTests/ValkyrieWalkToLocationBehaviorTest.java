@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.behaviorTests.DRCWalkToLocationBehaviorTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -29,63 +29,63 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testTurn361DegreesInPlace() throws SimulationExceededMaximumTimeException
    {
       super.testTurn361DegreesInPlace();
    }
 
    @Override
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
    public void testWalkAndStopBehavior() throws SimulationExceededMaximumTimeException
    {
       super.testWalkAndStopBehavior();
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testWalkAtAngleAndFinishAlignedWithInitialOrientation() throws SimulationExceededMaximumTimeException
    {
       super.testWalkAtAngleAndFinishAlignedWithInitialOrientation();
    }
 
    @Override
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
    public void testWalkAtAngleAndFinishAlignedWithWalkingPath() throws SimulationExceededMaximumTimeException
    {
       super.testWalkAtAngleAndFinishAlignedWithWalkingPath();
    }
 
    @Override
-   @Test(timeout = 360000)
+   @Test // timeout = 360000
    public void testWalkAtAngleUsingStartOrientation() throws SimulationExceededMaximumTimeException
    {
       super.testWalkAtAngleUsingStartOrientation();
    }
 
    @Override
-   @Test(timeout = 420000)
+   @Test // timeout = 420000
    public void testWalkAtAngleUsingStartTargetMeanOrientation() throws SimulationExceededMaximumTimeException
    {
       super.testWalkAtAngleUsingStartTargetMeanOrientation();
    }
 
    @Override
-   @Test(timeout = 540000)
+   @Test // timeout = 540000
    public void testWalkAtAngleUsingTargetOrientation() throws SimulationExceededMaximumTimeException
    {
       super.testWalkAtAngleUsingTargetOrientation();
    }
 
    @Override
-   @Test(timeout = 220000)
+   @Test // timeout = 220000
    public void testWalkBackwardsASmallAmountWithoutTurningInPlace() throws SimulationExceededMaximumTimeException
    {
       super.testWalkBackwardsASmallAmountWithoutTurningInPlace();
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testWalkForwardsX() throws SimulationExceededMaximumTimeException
    {
       super.testWalkForwardsX();
@@ -93,7 +93,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
 
    @Override
    @Disabled
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
    public void testWalkPauseAndResumeBehavior() throws SimulationExceededMaximumTimeException
    {
       super.testWalkPauseAndResumeBehavior();
@@ -101,7 +101,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
 
    @Override
    @Disabled
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testWalkPauseAndResumeOnLastStepBehavior() throws SimulationExceededMaximumTimeException
    {
       super.testWalkPauseAndResumeOnLastStepBehavior();
@@ -109,7 +109,7 @@ public class ValkyrieWalkToLocationBehaviorTest extends DRCWalkToLocationBehavio
 
    @Override
    @Disabled
-   @Test(timeout = 340000)
+   @Test // timeout = 340000
    public void testWalkStopAndWalkToDifferentLocation() throws SimulationExceededMaximumTimeException
    {
       super.testWalkStopAndWalkToDifferentLocation();

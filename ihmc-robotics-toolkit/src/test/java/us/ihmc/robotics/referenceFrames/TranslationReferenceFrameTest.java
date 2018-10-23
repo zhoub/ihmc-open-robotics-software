@@ -1,7 +1,7 @@
 package us.ihmc.robotics.referenceFrames;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -19,7 +19,7 @@ public class TranslationReferenceFrameTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testUpdateInMiddleFrame()
    {
       TranslationReferenceFrame frame1 = new TranslationReferenceFrame("frame1", ReferenceFrame.getWorldFrame());

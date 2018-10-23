@@ -2,7 +2,7 @@ package us.ihmc.footstepPlanning.nodeChecking;
 
 import org.junit.Assert;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
@@ -44,7 +44,7 @@ public class SnapBasedNodeCheckerTest
    @Rule
    public TestName name = new TestName();
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSwingingThroughObstacle0()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters();
@@ -120,7 +120,7 @@ public class SnapBasedNodeCheckerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSwingingThroughObstacle1()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters();
@@ -196,7 +196,7 @@ public class SnapBasedNodeCheckerTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testValidNode()
    {
       FootstepNodeSnapper snapper = new TestSnapper();
@@ -211,7 +211,7 @@ public class SnapBasedNodeCheckerTest
       Assert.assertTrue(checker.isNodeValid(node0, node1));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testStartNodeValid()
    {
       FootstepNodeSnapper snapper = new TestSnapper();
@@ -225,7 +225,7 @@ public class SnapBasedNodeCheckerTest
       Assert.assertTrue(checker.isNodeValid(node, null));
    }
 
-   @Test(timeout = 30000, expected = RuntimeException.class)
+   @Test // timeout = 30000, expected = RuntimeException.class
    public void testSameNodes()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters();
@@ -237,7 +237,7 @@ public class SnapBasedNodeCheckerTest
       checker.isNodeValid(node, node);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTooHighNode()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters()
@@ -278,7 +278,7 @@ public class SnapBasedNodeCheckerTest
       Assert.assertTrue(checker.isNodeValid(node0, node3));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTooSmallFoothold()
    {
       FootstepPlannerParameters parameters = new DefaultFootstepPlanningParameters();

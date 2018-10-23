@@ -5,7 +5,7 @@ import static org.junit.Assert.assertSame;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -49,14 +49,14 @@ public class YoPositionProviderTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructor()
    {
       provider = new YoPositionProvider(null);
       provider = new YoPositionProvider(yoFramePoint);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSetAndGet()
    {
       provider = new YoPositionProvider(yoFramePoint);

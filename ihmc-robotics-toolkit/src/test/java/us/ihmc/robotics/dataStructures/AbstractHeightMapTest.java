@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -41,7 +41,7 @@ public abstract class AbstractHeightMapTest
       super();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSinglePoint()
    {
       double x = 0.00001;
@@ -71,7 +71,7 @@ public abstract class AbstractHeightMapTest
       assertSinglePointGridHandlesPoint(x, y, xIndex, yIndex, z);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGettingAreas()
    {
       double gridResolution = 1;
@@ -121,14 +121,14 @@ public abstract class AbstractHeightMapTest
     * 
 
 	@DeployableTestMethod(estimatedDuration = 0.1)
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUnhandledPoints()
    {
       super.testUnhandledPoints();
    }
    */
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testUnhandledPoints()
    {
       HeightMapWithPoints simpleMap = getHeightMap(-63.5*RESOLUTION,-63.5*RESOLUTION,64.5*RESOLUTION,64.5*RESOLUTION,RESOLUTION);
@@ -185,7 +185,7 @@ public abstract class AbstractHeightMapTest
    }
    public abstract HeightMapWithPoints getHeightMap(double minX, double minY, double maxX, double maxY, double resolution);
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void rowModificationSynchronizationTest()
    {
    
@@ -282,7 +282,7 @@ public abstract class AbstractHeightMapTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testKernelMasking() throws InsufficientDataException
    {
       double b = 10000;    // borderOfExpectedFootPlacement

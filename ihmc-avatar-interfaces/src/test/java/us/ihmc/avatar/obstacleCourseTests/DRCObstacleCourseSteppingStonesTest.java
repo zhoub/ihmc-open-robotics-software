@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
@@ -55,7 +55,7 @@ public abstract class DRCObstacleCourseSteppingStonesTest implements MultiRobotT
    }
 
 
-	@Test(timeout = 260000)
+	@Test // timeout = 260000
    public void testWalkingOverEasySteppingStones() throws SimulationExceededMaximumTimeException
    {
       try

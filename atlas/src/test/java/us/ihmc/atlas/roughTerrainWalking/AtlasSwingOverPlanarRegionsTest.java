@@ -1,6 +1,6 @@
 package us.ihmc.atlas.roughTerrainWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -17,7 +17,7 @@ import us.ihmc.simulationconstructionset.util.simulationRunner.BlockingSimulatio
 public class AtlasSwingOverPlanarRegionsTest extends AvatarSwingOverPlanarRegionsTest
 {
    @Override
-   @Test(timeout = 360000)
+   @Test // timeout = 360000
    public void testSwingOverPlanarRegions() throws SimulationExceededMaximumTimeException
    {
       super.testSwingOverPlanarRegions();

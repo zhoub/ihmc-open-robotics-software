@@ -9,7 +9,7 @@ import java.util.Random;
 
 import org.ddogleg.nn.FactoryNearestNeighbor;
 import org.ddogleg.nn.NearestNeighbor;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import georegression.fitting.MotionTransformPoint;
 import georegression.fitting.se.MotionSe3PointSVD_F64;
@@ -27,7 +27,7 @@ public class IcpCloud3DTest {
 
    Random rand = new Random(234);
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void perfect_nomotion() {
 
       List<Point3D_F64> ref = new ArrayList<Point3D_F64>();
@@ -57,7 +57,7 @@ public class IcpCloud3DTest {
       assertTrue(found.getT().normSq()<=1e-8);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void perfect_translation() {
 
       List<Point3D_F64> ref = new ArrayList<Point3D_F64>();
@@ -92,7 +92,7 @@ public class IcpCloud3DTest {
       assertEquals(expected.getT().z,found.getT().z,1e-8);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void perfect_tran_rot() {
 
       List<Point3D_F64> ref = new ArrayList<Point3D_F64>();

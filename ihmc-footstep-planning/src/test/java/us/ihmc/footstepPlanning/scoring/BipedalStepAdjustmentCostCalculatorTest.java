@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.scoring;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.RandomNumbers;
 import us.ihmc.commons.thread.ThreadTools;
@@ -63,7 +63,7 @@ public class BipedalStepAdjustmentCostCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIdealFootstepAlwaysBetterThanOthers()
    {
       Random random = new Random(1776L);
@@ -126,7 +126,7 @@ public class BipedalStepAdjustmentCostCalculatorTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testScoringFootsteps()
    {
       SimulationTestingParameters simulationTestingParameters = new SimulationTestingParameters();

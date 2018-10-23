@@ -3,7 +3,7 @@ package us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanne
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Epsilons;
 import org.junit.jupiter.api.Tag;
@@ -25,7 +25,7 @@ public class FootstepDataTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructor()
    {
       FootstepData testObject = new FootstepData();
@@ -51,7 +51,7 @@ public class FootstepDataTest
       assertTrue(testObject.getFootstep() == newFootstep);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCopy()
    {
       Footstep footstep = new Footstep(RobotSide.RIGHT);

@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -31,7 +31,7 @@ public class CompositeRigidBodyMassMatrixCalculatorTest extends MassMatrixCalcul
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testKineticEnergy()
    {
       setUpRandomChainRobot();
@@ -45,7 +45,7 @@ public class CompositeRigidBodyMassMatrixCalculatorTest extends MassMatrixCalcul
       assertEquals(expectedKineticEnergy, kineticEnergyFromMassMatrix, 1e-12);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSixDoFJoint()
    {
       Random random = new Random(1982L);
@@ -73,7 +73,7 @@ public class CompositeRigidBodyMassMatrixCalculatorTest extends MassMatrixCalcul
       JUnitTools.assertMatrixEquals(inertiaMatrix, massMatrix, 1e-5);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testFloatingTree()
    {
       random = new Random(1982L);

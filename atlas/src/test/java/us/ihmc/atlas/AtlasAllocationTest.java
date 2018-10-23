@@ -10,7 +10,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.ChestTrajectoryMessage;
@@ -108,7 +108,7 @@ public class AtlasAllocationTest
    }
 
    @Tag("slow")
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testForAllocationsStanding() throws SimulationExceededMaximumTimeException
    {
       testInternal(() -> {
@@ -124,7 +124,7 @@ public class AtlasAllocationTest
    }
 
    @Tag("slow")
-   @Test(timeout = 900000)
+   @Test // timeout = 900000
    public void testForAllocationsWalking() throws SimulationExceededMaximumTimeException
    {
       double defaultSwingDuration = 0.5;
@@ -153,7 +153,7 @@ public class AtlasAllocationTest
    }
 
    @Tag("slow")
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testForAllocationsDuringPelvisMotion() throws SimulationExceededMaximumTimeException
    {
       Random random = new Random(42884L);
@@ -176,7 +176,7 @@ public class AtlasAllocationTest
    }
 
    @Tag("slow")
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testForAllocationsWithPelvisUserControl() throws SimulationExceededMaximumTimeException
    {
       Random random = new Random(4281284L);
@@ -202,7 +202,7 @@ public class AtlasAllocationTest
    }
 
    @Tag("slow")
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testForAllocationsDuringArmMotion() throws SimulationExceededMaximumTimeException
    {
       Random random = new Random(4281284L);
@@ -223,7 +223,7 @@ public class AtlasAllocationTest
    }
 
    @Tag("slow")
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testForAllocationsDuringChestMotion() throws SimulationExceededMaximumTimeException
    {
       Random random = new Random(4281284L);

@@ -2,13 +2,13 @@ package us.ihmc.tools.lists;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class PairListTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimplePairList()
    {
       PairList<LeftObject, RightObject> pairList = new PairList<>();

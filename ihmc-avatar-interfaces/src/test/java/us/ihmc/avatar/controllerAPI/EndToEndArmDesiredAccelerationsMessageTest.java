@@ -10,7 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 
 import controller_msgs.msg.dds.ArmDesiredAccelerationsMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
 import us.ihmc.commonWalkingControlModules.controlModules.rigidBody.RigidBodyControlMode;
@@ -37,7 +37,7 @@ public abstract class EndToEndArmDesiredAccelerationsMessageTest implements Mult
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Test(timeout = 110000)
+   @Test // timeout = 110000
    public void testSimpleCommands() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

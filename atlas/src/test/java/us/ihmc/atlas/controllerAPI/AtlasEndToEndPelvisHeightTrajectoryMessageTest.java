@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -29,14 +29,14 @@ public class AtlasEndToEndPelvisHeightTrajectoryMessageTest extends EndToEndPelv
    }
 
    @Override
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testSingleWaypoint() throws Exception
    {
       super.testSingleWaypoint();
    }
 
    @Override
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testSingleWaypointInUserMode() throws Exception
    {
       super.testSingleWaypointInUserMode();

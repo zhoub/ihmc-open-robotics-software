@@ -2,7 +2,7 @@ package us.ihmc.ihmcPerception.fiducialDetector;
 
 import java.awt.image.BufferedImage;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import boofcv.struct.calib.IntrinsicParameters;
 import us.ihmc.communication.net.AtomicSettableTimestampProvider;
@@ -44,7 +44,7 @@ public class FiducialDetectorFromCameraImagesTest
 {
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testUsingSimulationConstructionSet()
    {
       double fieldOfView = 0.81;

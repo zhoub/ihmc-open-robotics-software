@@ -1,6 +1,6 @@
 package us.ihmc.atlas.behaviorTests;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -35,28 +35,28 @@ public class AtlasFootstepListBehaviorTest extends DRCFootstepListBehaviorTest
    }
 
    @Override
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
    public void testSideStepping() throws SimulationExceededMaximumTimeException
    {
       super.testSideStepping();
    }
 
    @Override
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testStepLongerThanMaxStepLength() throws SimulationExceededMaximumTimeException
    {
       super.testStepLongerThanMaxStepLength();
    }
 
    @Override
-   @Test(timeout = 360000)
+   @Test // timeout = 360000
    public void testStop() throws SimulationExceededMaximumTimeException
    {
       super.testStop();
    }
 
    @Override
-   @Test(timeout = 270000)
+   @Test // timeout = 270000
    public void testTwoStepsForwards() throws SimulationExceededMaximumTimeException
    {
       super.testTwoStepsForwards();

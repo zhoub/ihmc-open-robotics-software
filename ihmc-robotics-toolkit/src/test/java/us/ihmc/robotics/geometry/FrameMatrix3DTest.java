@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.Random;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -31,7 +31,7 @@ public class FrameMatrix3DTest
    private static final ReferenceFrame bFrame = ReferenceFrame.constructFrameWithUnchangingTransformToParent("bFrame", worldFrame,
                                                                                                              EuclidCoreRandomTools.nextRigidBodyTransform(random));
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructors()
    {
       Matrix3D matrixTested = new Matrix3D();
@@ -59,7 +59,7 @@ public class FrameMatrix3DTest
       assertTrue(matrixExpected.epsilonEquals(matrixTested, EPSILON));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetters()
    {
       Matrix3D matrixTested = new Matrix3D();
@@ -153,7 +153,7 @@ public class FrameMatrix3DTest
       assertTrue(matrixExpected.epsilonEquals(matrixTested, EPSILON));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetters()
    {
       FrameMatrix3D frameMatrix3D = new FrameMatrix3D();
@@ -197,7 +197,7 @@ public class FrameMatrix3DTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToNaN()
    {
       FrameMatrix3D frameMatrix3D = new FrameMatrix3D();
@@ -225,7 +225,7 @@ public class FrameMatrix3DTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToZero()
    {
       FrameMatrix3D frameMatrix3D = new FrameMatrix3D();
@@ -253,7 +253,7 @@ public class FrameMatrix3DTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetToIdentity()
    {
       FrameMatrix3D frameMatrix3D = new FrameMatrix3D();
@@ -287,7 +287,7 @@ public class FrameMatrix3DTest
       }
    }
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetMainDiagonal()
    {
       for (int testIndex = 0; testIndex < 1000; testIndex++)
@@ -324,7 +324,7 @@ public class FrameMatrix3DTest
     * Check that changing frame applies the expected transformation to the matrix3d held in
     * FrameMatrix3D
     */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrame()
    {
       for (int i = 0; i < 1000; i++)
@@ -353,7 +353,7 @@ public class FrameMatrix3DTest
     * Test the changeFrame method by check that transforming a random vector in two different frames
     * using the FrameMatrix3D ends up being the same.
     */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrameByTransformingAVectorInTwoDifferentFrames()
    {
       PoseReferenceFrame randomFrameA = new PoseReferenceFrame("randomFrameA", worldFrame);

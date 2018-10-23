@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -15,7 +15,7 @@ public class ExecutionTimerTest
 {
    private static final long RANDOM_SEED = 1976L;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test()
    {
       ExecutionTimer executionTimer = new ExecutionTimer("executionTimer", 0.0, new YoVariableRegistry("testRegistry"));

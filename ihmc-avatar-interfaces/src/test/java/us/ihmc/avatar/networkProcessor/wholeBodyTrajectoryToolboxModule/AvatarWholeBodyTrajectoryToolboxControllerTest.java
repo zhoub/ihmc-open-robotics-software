@@ -18,7 +18,7 @@ import java.util.stream.IntStream;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.KinematicsToolboxOutputStatus;
 import controller_msgs.msg.dds.KinematicsToolboxRigidBodyMessage;
@@ -224,7 +224,7 @@ public abstract class AvatarWholeBodyTrajectoryToolboxControllerTest implements 
       }
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testOneBigCircle() throws Exception, UnreasonableAccelerationException
    {
       // Trajectory parameters
@@ -290,7 +290,7 @@ public abstract class AvatarWholeBodyTrajectoryToolboxControllerTest implements 
       runTrajectoryTest(message, 100000);
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testHandCirclePositionAndYaw() throws Exception, UnreasonableAccelerationException
    {
       // Trajectory parameters
@@ -351,7 +351,7 @@ public abstract class AvatarWholeBodyTrajectoryToolboxControllerTest implements 
       runTrajectoryTest(message, 100000);
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testHandCirclePositionAndYawPitchRoll() throws Exception, UnreasonableAccelerationException
    {
       // Trajectory parameters

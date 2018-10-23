@@ -5,7 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -19,7 +19,7 @@ import us.ihmc.yoVariables.variable.YoDouble;
 
 public class StateMachineExampleOneTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructionOfSimpleTimeBasedStateMachine()
    {
       // This shows a quick and easy way to make a simple state machine without using the complex machinery for a more complex state machine.
@@ -103,7 +103,7 @@ public class StateMachineExampleOneTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructionOfSimpleEventBasedStateMachine()
    {
       // This shows a quick and easy way to make a simple state machine without using the complex machinery for a more complex state machine.

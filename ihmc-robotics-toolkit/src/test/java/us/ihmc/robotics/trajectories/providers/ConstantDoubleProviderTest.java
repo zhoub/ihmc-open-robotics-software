@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -14,7 +14,7 @@ public class ConstantDoubleProviderTest
 
    private static final double EPS = 1e-12;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void test()
    {
       Random random = new Random();

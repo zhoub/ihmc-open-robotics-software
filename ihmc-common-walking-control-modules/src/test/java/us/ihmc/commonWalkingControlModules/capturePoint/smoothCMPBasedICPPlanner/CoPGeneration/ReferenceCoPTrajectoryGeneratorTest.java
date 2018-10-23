@@ -3,7 +3,7 @@ package us.ihmc.commonWalkingControlModules.capturePoint.smoothCMPBasedICPPlanne
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.ListOfPointsContactableFoot;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
@@ -179,7 +179,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
       numberOfUpcomingFootsteps.set(upcomingFootstepsData.size());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDoubleSupportFootstepPlanFromRest()
    {
       int numberOfFootsteps = 3;
@@ -270,7 +270,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
       assertTrue("Planned footsteps not removed", testCoPGenerator.getNumberOfFootstepsRegistered() == 0);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDoubleSupportFootstepPlanMoving()
    {
       sendFootStepMessages(10);
@@ -355,7 +355,7 @@ public class ReferenceCoPTrajectoryGeneratorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSingleSupportFootstepPlan()
    {
       int numberOfFootsteps = 10;

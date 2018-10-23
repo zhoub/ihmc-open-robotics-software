@@ -2,7 +2,7 @@ package us.ihmc.atlas.roughTerrainWalking;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -33,28 +33,28 @@ public class AtlasBipedalFootstepPlannerEndToEndTest extends AvatarBipedalFootst
    }
 
    @Override
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testShortCinderBlockFieldWithPlanarRegionBipedalPlanner()
    {
       super.testShortCinderBlockFieldWithPlanarRegionBipedalPlanner();
    }
 
    @Override
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testShortCinderBlockFieldWithAStar()
    {
       super.testShortCinderBlockFieldWithAStar();
    }
 
    @Override
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testSteppingStonesWithAStar()
    {
       super.testSteppingStonesWithAStar();
    }
 
    @Override
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    public void testSteppingStonesWithPlanarRegionBipedalPlanner()
    {
       super.testSteppingStonesWithPlanarRegionBipedalPlanner();

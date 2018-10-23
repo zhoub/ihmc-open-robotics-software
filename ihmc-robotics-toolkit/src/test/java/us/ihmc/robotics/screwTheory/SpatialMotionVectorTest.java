@@ -9,7 +9,7 @@ import org.ejml.ops.CommonOps;
 import org.ejml.ops.RandomMatrices;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -76,7 +76,7 @@ public class SpatialMotionVectorTest
     * Test inverting a twist
     */
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInvert()
    {
       Vector3D linearPart = RandomGeometry.nextVector3D(random);
@@ -111,7 +111,7 @@ public class SpatialMotionVectorTest
     * Constructing using a matrix
     */
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructUsingMatrix()
    {
       DenseMatrix64F matrix = RandomMatrices.createRandom(SpatialMotionVector.SIZE, 1, random);
@@ -121,28 +121,28 @@ public class SpatialMotionVectorTest
       JUnitTools.assertMatrixEquals(matrix, matrixBack, 0.0);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testConstructUsingMatrixTooSmall()
    {
       DenseMatrix64F matrix = new DenseMatrix64F(SpatialMotionVector.SIZE - 1, 1);
       createSpatialMotionVector(frameC, frameD, frameA, matrix);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testConstructUsingMatrixTooBig()
    {
       DenseMatrix64F matrix = new DenseMatrix64F(SpatialMotionVector.SIZE + 1, 1);
       createSpatialMotionVector(frameC, frameD, frameA, matrix);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testConstructUsingMatrixTooBig2()
    {
       DenseMatrix64F matrix = new DenseMatrix64F(SpatialMotionVector.SIZE, 2);
       createSpatialMotionVector(frameC, frameD, frameA, matrix);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testLimitLinearAndAngularParts()
    {
       double linearLength = 10.0;

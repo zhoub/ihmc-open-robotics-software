@@ -3,7 +3,7 @@ package us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -27,7 +27,7 @@ public class SimpleReactionDynamicsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamics()
    {
       double mass = 10.0;
@@ -99,7 +99,7 @@ public class SimpleReactionDynamicsTest
       JUnitTools.assertMatrixEquals(nextStateExpected, nextState, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsStateGradient()
    {
       double mass = 10.0;
@@ -163,7 +163,7 @@ public class SimpleReactionDynamicsTest
       JUnitTools.assertMatrixEquals(gradientExpected, gradient, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDynamicsControlGradient()
    {
       double mass = 10.0;

@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.flatGroundPlanning;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -37,7 +37,7 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testJustStraightLine()
    {
       planner.setMaximumNumberOfNodesToExpand(10000);
@@ -46,7 +46,7 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testATightTurn()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -56,7 +56,7 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testStraightLineWithInitialTurn()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -66,7 +66,7 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testJustTurnInPlace()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -77,7 +77,7 @@ public class DepthFirstFootstepPlannerOnFlatTest extends FootstepPlannerOnFlatGr
 
    @Override
    @Tag("fast")
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomPoses()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);

@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.junit.After;
 import org.junit.Before;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.QuadrupedMultiRobotTestInterface;
@@ -88,7 +88,7 @@ public abstract class QuadrupedPositionCrawlFlatGroundWalkingTest implements Qua
       conductor.simulate();
    }
 
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testWalkingBackwardsSlow() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);

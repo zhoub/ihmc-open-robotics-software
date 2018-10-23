@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.pushRecovery;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.DRCPushRecoveryWalkingTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -43,7 +43,7 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.VALKYRIE);
    }
 
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testPushLeftEarlySwing() throws SimulationExceededMaximumTimeException
    {
       setPushMagnitude(700.0);
@@ -51,27 +51,27 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @Test(timeout = 350000)
+   @Test // timeout = 350000
    public void testPushLeftInitialTransferState() throws SimulationExceededMaximumTimeException
    {
       super.testPushLeftInitialTransferState();
    }
 
    @Override
-   @Test(timeout = 310000)
+   @Test // timeout = 310000
    public void testPushRightInitialTransferState() throws SimulationExceededMaximumTimeException
    {
       super.testPushRightInitialTransferState();
    }
 
    @Override
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testPushRightLateSwing() throws SimulationExceededMaximumTimeException
    {
       super.testPushRightLateSwing();
    }
 
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
    public void testPushRightThenLeftMidSwing() throws SimulationExceededMaximumTimeException
    {
       setPushMagnitude(700.0);
@@ -79,7 +79,7 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
    }
 
    @Override
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testPushRightTransferState() throws SimulationExceededMaximumTimeException
    {
       super.testPushRightTransferState();
@@ -87,14 +87,14 @@ public class ValkyriePushRecoveryWalkingTest extends DRCPushRecoveryWalkingTest
 
    @Override
    @Disabled
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testPushTowardsTheBack() throws SimulationExceededMaximumTimeException
    {
       super.testPushTowardsTheBack();
    }
 
    @Override
-   @Test(timeout = 190000)
+   @Test // timeout = 190000
    public void testPushTowardsTheFront() throws SimulationExceededMaximumTimeException
    {
       super.testPushTowardsTheFront();

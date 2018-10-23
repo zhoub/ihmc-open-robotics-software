@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -39,7 +39,7 @@ public class RegistrySendBufferTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 280000)
+   @Test // timeout = 280000
    public void testYoVariables() throws IOException
    {
       Random random = new Random(23589735l);

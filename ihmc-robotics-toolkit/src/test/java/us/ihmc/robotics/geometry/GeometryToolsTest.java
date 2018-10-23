@@ -10,7 +10,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.Assertions;
 import us.ihmc.commons.Epsilons;
@@ -55,7 +55,7 @@ public class GeometryToolsTest
 
    private static final double EPSILON = 1e-6;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetDistanceBetweenPointAndPlane1()
    {
       FramePoint3D pointOnPlane = new FramePoint3D(ReferenceFrame.getWorldFrame(), 0, 0, 0);
@@ -108,7 +108,7 @@ public class GeometryToolsTest
       assertEquals("FAILED: Distance from point to plane", expected, actual, EPSILON);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsLineSegmentIntersectingPlane1()
    {
       FramePoint3D pointOnPlane = new FramePoint3D(ReferenceFrame.getWorldFrame(), 0, 0, 0);
@@ -142,7 +142,7 @@ public class GeometryToolsTest
       assertFalse(GeometryTools.isLineSegmentIntersectingPlane(pointOnPlane, planeNormal, lineStart, lineEnd));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetPerpendicularVectorFromLineToPoint1()
    {
       FramePoint3D point0 = new FramePoint3D(ReferenceFrame.getWorldFrame(), 0, 0, 0);
@@ -180,7 +180,7 @@ public class GeometryToolsTest
       assertTrue("Test Failed", expectedReturn1.epsilonEquals(actualReturn1, EPSILON));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetPlaneNormalGivenThreePoints()
    {
       FramePoint3D point1 = new FramePoint3D(ReferenceFrame.getWorldFrame(), 0, 5, 0);
@@ -242,7 +242,7 @@ public class GeometryToolsTest
       assertTrue("Test Failed", expectedReturn3.epsilonEquals(actualReturn3, EPSILON));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsPointOnLeftSideOfLine()
    {
       FramePoint3D lineStart = new FramePoint3D(ReferenceFrame.getWorldFrame(), 5.0, 0.0, 0.0);
@@ -257,7 +257,7 @@ public class GeometryToolsTest
       /** @todo fill in the test code */
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testClipToBoundingBox()
    {
       Tuple3DBasics tuple3d = new Point3D(1.0, -1.0, 0.0);
@@ -271,7 +271,7 @@ public class GeometryToolsTest
       EuclidCoreTestTools.assertTuple3DEquals("not equal", new Point3D(0.5, -0.5, 1.0), tuple3d, 0.0);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCombine()
    {
       Random random = new Random(1176L);
@@ -321,7 +321,7 @@ public class GeometryToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNormalizeSafeZUp() throws Exception
    {
       Vector3D actualVector;
@@ -348,7 +348,7 @@ public class GeometryToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsZero() throws Exception
    {
       Random random = new Random(23423L);
@@ -391,7 +391,7 @@ public class GeometryToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructFrameFromPointAndAxis()
    {
       Random random = new Random(1776L);
@@ -416,7 +416,7 @@ public class GeometryToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testYawAboutPointRegression()
    {
       double epsilon = 1e-10;
@@ -463,7 +463,7 @@ public class GeometryToolsTest
       assertEquals("not equal", -3096.5574256022164, result.getZ(), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPitchAboutPointRegression()
    {
       double epsilon = 1e-10;
@@ -510,7 +510,7 @@ public class GeometryToolsTest
       assertEquals("not equal", 8214.605434738955, result.getZ(), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testYawAboutPoint()
    {
       ReferenceFrame theFrame = ReferenceFrame.constructARootFrame("theFrame");
@@ -555,7 +555,7 @@ public class GeometryToolsTest
       assertEquals("These should be equal", 1.0, result.getZ(), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPitchAboutPoint()
    {
       ReferenceFrame theFrame = ReferenceFrame.constructARootFrame("theFrame");
@@ -595,7 +595,7 @@ public class GeometryToolsTest
       return (random.nextDouble() - 0.5) * 2.0 * Math.PI;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testYawAboutPoint_FramePoint2d_double()
    {
       ReferenceFrame theFrame = ReferenceFrame.constructARootFrame("theFrame");

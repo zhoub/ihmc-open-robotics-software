@@ -17,7 +17,7 @@ import org.ddogleg.optimization.FactoryOptimization;
 import org.ddogleg.optimization.UnconstrainedLeastSquares;
 import org.ddogleg.optimization.UtilOptimize;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import boofcv.abst.fiducial.calib.CalibrationDetectorChessboard;
 import boofcv.abst.fiducial.calib.ConfigChessboard;
@@ -114,7 +114,7 @@ public class KinematicCalibrationHeadLoopResidualTest
     * @throws IOException
     */
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void perfect() throws IOException
    {
       // No offsets to make things easy
@@ -164,7 +164,7 @@ public class KinematicCalibrationHeadLoopResidualTest
     * @throws IOException
     */
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void smallError() throws IOException
    {
       // some small offests, which won't be provided to the algorithm
@@ -218,7 +218,7 @@ public class KinematicCalibrationHeadLoopResidualTest
     * @throws IOException
     */
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void optimize() throws IOException
    {
       // some small offests, which won't be provided to the algorithm

@@ -8,7 +8,7 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -29,7 +29,7 @@ public class GeometricJacobianCalculatorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBasicFeatures() throws Exception
    {
       Random random = new Random(435435L);
@@ -158,7 +158,7 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstTwistCalculatorChainRobot() throws Exception
    {
       Random random = new Random(4324342L);
@@ -232,7 +232,7 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConvectiveTerm() throws Exception
    {
       Random random = new Random(345345L);
@@ -321,7 +321,7 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstSpatialAccelerationCalculatorChainRobot() throws Exception
    {
       Random random = new Random(4324342L);
@@ -378,7 +378,7 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstTwistCalculatorFloatingJointRobot() throws Exception
    {
       Random random = new Random(4324342L);
@@ -421,7 +421,7 @@ public class GeometricJacobianCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstSpatialAccelerationCalculatorFloatingJointRobot() throws Exception
    {
       Random random = new Random(4324342L);

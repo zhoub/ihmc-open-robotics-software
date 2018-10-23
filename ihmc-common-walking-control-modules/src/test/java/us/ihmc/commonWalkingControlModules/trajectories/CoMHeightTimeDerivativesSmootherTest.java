@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -35,7 +35,7 @@ public class CoMHeightTimeDerivativesSmootherTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstantHeight()
    {
       double dt = 0.001;
@@ -67,7 +67,7 @@ public class CoMHeightTimeDerivativesSmootherTest
       assertEquals(comHeightAcceleration, comHeightAccelerationOut, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDiscreetJump()
    {
       boolean visualize = false;
@@ -159,7 +159,7 @@ public class CoMHeightTimeDerivativesSmootherTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSinusoidalInput()
    {
       boolean visualize = false;

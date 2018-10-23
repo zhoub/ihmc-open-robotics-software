@@ -14,7 +14,7 @@ import org.apache.commons.lang3.mutable.MutableObject;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FrameInformation;
@@ -90,7 +90,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
 
    private DRCSimulationTestHelper drcSimulationTestHelper;
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testSingleWaypoint() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -167,7 +167,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
       assertSingleWaypointExecuted(pelvisName, fullRobotModel, desiredPosition, desiredOrientation, scs, isUsingPelvisHeightControlOnly());
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testSingleWaypointAndAbort() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -182,7 +182,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    public void testSingleWaypointAndWalk() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -464,7 +464,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
       return simpleSE3TrajectoryPoint;
    }
 
-   @Test(timeout = 360000)
+   @Test // timeout = 360000
    public void testHeightUsingMultipleWaypointsWhileWalking() throws Exception
    {
 
@@ -593,7 +593,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
       assertCenterOfMassHeightManagerIsInState(scs, PelvisHeightControlMode.USER);
    }
 
-   @Test(timeout = 310000)
+   @Test // timeout = 310000
    public void testHeightModeSwitchWhileWalking() throws Exception
    {
 
@@ -805,7 +805,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
       return 0.15;
    }
 
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testSixDoFMovementsOfPelvis() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -904,7 +904,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
 
    }
 
-   @Test(timeout = 110000)
+   @Test // timeout = 110000
    public void testMultipleWaypoints() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -1040,7 +1040,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
                                               EPSILON_FOR_DESIREDS);
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    @SuppressWarnings("unchecked")
    public void testStopAllTrajectory() throws Exception
    {
@@ -1125,7 +1125,7 @@ public abstract class EndToEndPelvisTrajectoryMessageTest implements MultiRobotT
       assertEquals(controllerDesiredPelvisHeightBeforeStop.getZ(), controllerDesiredPelvisHeightAfterStop.getZ(), 1.0e-2);
    }
 
-   @Test(timeout = 460000)
+   @Test // timeout = 460000
    public void testSingleWaypointThenManualChange() throws Exception
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

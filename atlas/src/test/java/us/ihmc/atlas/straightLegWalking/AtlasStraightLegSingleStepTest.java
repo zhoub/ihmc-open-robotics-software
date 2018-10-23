@@ -1,6 +1,6 @@
 package us.ihmc.atlas.straightLegWalking;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -22,7 +22,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
 {
    private final AtlasRobotModel atlasRobotModel = new MyAtlasRobotModel();
 
-   @Test(timeout = 70000)
+   @Test // timeout = 70000
    public void testForwardStep() throws SimulationExceededMaximumTimeException
    {
       double stepLength = 1.3;
@@ -34,7 +34,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
       super.testForwardStep();
    }
 
-   @Test(timeout = 70000)
+   @Test // timeout = 70000
    public void testForwardStepWithPause() throws SimulationExceededMaximumTimeException
    {
       double stepLength = 0.9;
@@ -47,13 +47,13 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
    }
 
    @Disabled
-   @Test(timeout = 99990000)
+   @Test // timeout = 99990000
    public void testForwardSteps() throws SimulationExceededMaximumTimeException
    {
       super.testForwardSteps();
    }
 
-   @Test(timeout = 70000)
+   @Test // timeout = 70000
    public void testWideStep() throws SimulationExceededMaximumTimeException
    {
       double stepWidth = 0.6;
@@ -65,7 +65,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
       super.testWideStep();
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testSteppingDown() throws SimulationExceededMaximumTimeException
    {
       double stepHeight = 0.4;
@@ -79,7 +79,7 @@ public class AtlasStraightLegSingleStepTest extends AvatarStraightLegSingleStepT
    }
 
    @Disabled
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testSteppingDownWithClosing() throws SimulationExceededMaximumTimeException
    {
       double stepDownHeight = 0.3;

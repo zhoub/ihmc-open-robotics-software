@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.ArmTrajectoryMessage;
 import controller_msgs.msg.dds.FootstepDataListMessage;
@@ -102,7 +102,7 @@ public abstract class HumanoidCircleWalkTest implements MultiRobotTestInterface
       return null;
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCircleWalk() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

@@ -7,7 +7,7 @@ import org.junit.Before;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -68,7 +68,7 @@ public abstract class AvatarToeOffTest implements MultiRobotTestInterface
 
 
 
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testShortSteps() throws SimulationExceededMaximumTimeException
    {
       setupTest();

@@ -10,7 +10,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -45,7 +45,7 @@ public class PlanarRegionTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIntersections()
    {
       List<ConvexPolygon2D> polygonsRegion1 = new ArrayList<>();
@@ -119,7 +119,7 @@ public class PlanarRegionTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsPointOnOrSlightlyAbove()
    {
       Random random = new Random(1776L);
@@ -153,7 +153,7 @@ public class PlanarRegionTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsPointOnOrSlightlyBelow()
    {
       Random random = new Random(1776L);
@@ -187,7 +187,7 @@ public class PlanarRegionTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCreationOfBoundingBoxWithAllPointsGreaterThanOrigin()
    {
       final double zLocationOfPlanarRegion = 2.0;
@@ -226,7 +226,7 @@ public class PlanarRegionTest
       assertEquals(maxPoint, boundingBoxMaxPoint);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCreationOfBoundingBoxWithAllPointsLessThanOrigin()
    {
       final double zLocationOfPlanarRegion = -2.0;
@@ -265,7 +265,7 @@ public class PlanarRegionTest
       assertEquals(maxPoint, boundingBoxMaxPoint);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCreationOfBoundingBoxWithMinimumLessThanOriginAndMaximumGreaterThanOrigin()
    {
       Point3D maxPoint = new Point3D(2.0, 2.0, 0.0);
@@ -302,7 +302,7 @@ public class PlanarRegionTest
       assertEquals(maxPoint, boundingBoxMaxPoint);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testBoundingBoxForLShapedPlanarRegionWithIdentifyTransform()
    {
       List<ConvexPolygon2D> regionConvexPolygons = new ArrayList<>();
@@ -338,7 +338,7 @@ public class PlanarRegionTest
       assertThatAllPolygonVerticesAreInBoundingBox(regionConvexPolygons, planarRegion, boundingBox3dInWorld);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithLShapedPlanarRegionWithIdentityTransform()
    {
       // polygons forming a L-shaped region.
@@ -540,7 +540,7 @@ public class PlanarRegionTest
       assertEquals(3, intersections.size());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetPolygonIntersectionsWhenSnapped()
    {
       RigidBodyTransform transform = new RigidBodyTransform();
@@ -571,7 +571,7 @@ public class PlanarRegionTest
       assertEquals(0.04, intersectionArea, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testWithLShapedPlanarRegionWithRandomTransform()
    {
       Random random = new Random(42L);
@@ -778,7 +778,7 @@ public class PlanarRegionTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetPlaneZGivenXY()
    {
       ConvexPolygon2D convexPolygon2d = new ConvexPolygon2D();

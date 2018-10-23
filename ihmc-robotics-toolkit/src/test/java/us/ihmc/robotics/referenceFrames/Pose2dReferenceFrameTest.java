@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -28,7 +28,7 @@ public class Pose2dReferenceFrameTest
    }
 
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testAsynchronousUpdatesOne()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -63,7 +63,7 @@ public class Pose2dReferenceFrameTest
       assertTrue(framePointInWorldThree.epsilonEquals(framePointInWorldTwo, 1e-7));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testLongChainEfficiency()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
@@ -98,7 +98,7 @@ public class Pose2dReferenceFrameTest
       finalPosition3.changeFrame(worldFrame);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testAsynchronousUpdatesTwo()
    {
       ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();

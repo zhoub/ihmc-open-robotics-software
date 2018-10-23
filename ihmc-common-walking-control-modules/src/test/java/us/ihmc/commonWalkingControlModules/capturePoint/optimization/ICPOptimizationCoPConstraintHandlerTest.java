@@ -11,7 +11,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
@@ -51,7 +51,7 @@ public class ICPOptimizationCoPConstraintHandlerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDoubleSupportWithBipedSupportPolygonsAndAngularMomentum()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -107,7 +107,7 @@ public class ICPOptimizationCoPConstraintHandlerTest
       assertTrue(MatrixFeatures.isEquals(cmpBin, solver.getCMPLocationConstraint().bineq, 1e-7));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSingleSupportWithBipedSupportPolygonsAndAngularMomentum()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -208,7 +208,7 @@ public class ICPOptimizationCoPConstraintHandlerTest
       assertTrue(MatrixFeatures.isEquals(cmpBin, solver.getCMPLocationConstraint().bineq, 1e-7));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDoubleSupportWithBipedSupportPolygonsNoAngularMomentum()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");
@@ -258,7 +258,7 @@ public class ICPOptimizationCoPConstraintHandlerTest
       assertEquals(CommonOps.elementSum(solver.getCMPLocationConstraint().bineq), 0.0, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSingleSupportWithBipedSupportPolygonsNoAngularMomentum()
    {
       YoVariableRegistry registry = new YoVariableRegistry("robert");

@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.configurations.CoPPointName;
 import us.ihmc.commons.Epsilons;
@@ -63,7 +63,7 @@ public class CoPPointsInFootTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAddCoPPointToList()
    {
       assertTrue(copPointsInFoot.isEmpty());
@@ -76,7 +76,7 @@ public class CoPPointsInFootTest
       assertTrue(copPointsInFoot.getCoPPointList().isEmpty());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAddAndSetIncludingFrameWithFramePoint()
    {
       FramePoint3D testLocation = new FramePoint3D(footSpoof.getSoleFrame(), Math.random(), Math.random(), Math.random());
@@ -89,7 +89,7 @@ public class CoPPointsInFootTest
       assertEquals(0.2, copPointsInFoot.get(0).getTime(), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAddAndSetIncludingFrameWithYoFramePoint()
    {
       YoFramePoint3D testLocation1 = new YoFramePoint3D("TestLocation1", footSpoof.getSoleFrame(), null);
@@ -110,7 +110,7 @@ public class CoPPointsInFootTest
       assertEquals(0.12, copPointsInFoot.get(1).getTime(), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAddAndSetIncludingFrameWithCoPTrajectoryPoint()
    {
       CoPTrajectoryPoint testLocation1 = new CoPTrajectoryPoint("TestLocation1", "", null, framesToRegister);
@@ -132,7 +132,7 @@ public class CoPPointsInFootTest
       EuclidFrameTestTools.assertFramePoint3DGeometricallyEquals(testLocation2.getPosition(), tempFramePointForTesting, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetFeetLocations()
    {
       copPointsInFoot.setFeetLocation(new FramePoint3D(worldFrame, 0.2, 1.35, 2.1), new FramePoint3D(worldFrame, 1.3, 2.4, 6.6));
@@ -148,7 +148,7 @@ public class CoPPointsInFootTest
       assertEquals(framePointForTesting.getZ(), 6.6, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testChangeFrame()
    {
       copPointsInFoot.setFeetLocation(new FramePoint3D(worldFrame, 0.2, 0.1, 0.1), new FramePoint3D(worldFrame, 0.2, -0.1, 0.1));
@@ -173,7 +173,7 @@ public class CoPPointsInFootTest
       assertEquals(tempFramePoint.getZ(), 0.11 + zToAnkle, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRegisterFrame()
    {
       double newFrameOriginX = 1;
@@ -209,7 +209,7 @@ public class CoPPointsInFootTest
       assertEquals(tempFramePoint.getZ(), 0.11 + newFrameOriginZ, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVisualization()
    {
       YoGraphicsList dummyGraphicsList = new YoGraphicsList("DummyGraphics");

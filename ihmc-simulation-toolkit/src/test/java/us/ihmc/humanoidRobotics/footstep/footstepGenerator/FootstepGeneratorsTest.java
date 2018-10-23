@@ -9,7 +9,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -136,13 +136,13 @@ public class FootstepGeneratorsTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void noVisualizationsForBambooTest()
    {
       assertTrue("Do not allow visualizations for committing to bamboo", allowVisualization == Visualization.NO_VISUALIZATION);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void stepInPlaceTest()
    {
 //      Visualization vis = Visualization.VISUALIZE;
@@ -209,7 +209,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void walkForwardsTest()
    {
       /////////////////////////////////////////////
@@ -232,7 +232,7 @@ public class FootstepGeneratorsTest
       testTurnStraightTurnFootstepGenerator("Walk forwards, auto stance", startX, startY, startYaw, null, endX, endY, endYaw, vis);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void walkLeftwardTest()
    {
       /////////////////////////////////////////////
@@ -260,7 +260,7 @@ public class FootstepGeneratorsTest
             endYaw, vis);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void walkRightwardTest()
    {
       /////////////////////////////////////////////
@@ -288,7 +288,7 @@ public class FootstepGeneratorsTest
             endYaw, vis);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void walkBackwardTest()
    {
       /////////////////////////////////////////////
@@ -316,7 +316,7 @@ public class FootstepGeneratorsTest
             endYaw, vis);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void walkForwardsDifferentStartTest()
    {
       /////////////////////////////////////////////
@@ -343,7 +343,7 @@ public class FootstepGeneratorsTest
       testTurnStraightTurnFootstepGenerator("Forwards not on zero, auto stance first", startX, startY, startYaw, null, endX, endY, endYaw, vis2);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void turningThenStraightFootstepGenerator_noTurnVaryingStartOrientationTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -373,7 +373,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void turningThenStraightFootstepGenerator_varyInitialTurnsThenForwardsToSameEndPointTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -398,7 +398,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void turningThenStraightFootstepGenerator_varyInitialTurnsThenNonForwardsToSameEndPointTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -425,7 +425,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void smallTurnWithSmallDisplacementTest()
    {
 //        Visualization vis = Visualization.VISUALIZE;
@@ -466,7 +466,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void negativePathS_LeftRightPathsWithSmallTurnAndLargerInitialStance()
    {
       //    Visualization vis = Visualization.VISUALIZE;
@@ -493,7 +493,7 @@ public class FootstepGeneratorsTest
       testTurnStraightTurnFootstepGenerator(testDescription, startX, startY, startYaw, null, pathOrientation, endX, endY, yawDelta + startYaw, vis);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TurnStraightTurn_turnInPlaceTest()
    {
       // Visualization visr = Visualization.VISUALIZE;
@@ -528,7 +528,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TurnStraightTurn_varyInitialTurnsToSameFinalPoseTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -553,7 +553,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TurnStraightTurn_nonForwardTestInitialTurnsNoFinalTurnsToSameEndPointTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -584,7 +584,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TurnStraightTurn_varyFinalOrientationOnlyTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -609,7 +609,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TurnStraightTurn_varyFinalOrientationOnlyNonForwardTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -640,7 +640,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TurnStraightTurn_varyFinalPositionWithSameOrientationsTest()
    {
       // Visualization visr = Visualization.VISUALIZE;
@@ -681,7 +681,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TurnStraightTurn_finalYawCloseToPathAngleTest()
    {
       // Visualization visr = Visualization.VISUALIZE;
@@ -710,7 +710,7 @@ public class FootstepGeneratorsTest
       testTurnStraightTurnFootstepGenerator("AutoStance, " + description, startX, startY, startYaw, null, endX, endY, endYaw, visl);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TurnStraightTurn_180PathVaryingOrientationsCheckMiddleOrientationTest()
    {
       // Visualization visr = Visualization.VISUALIZE;
@@ -761,7 +761,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TwoSegment_RandomTransitionTest()
    {
 //       Visualization vis = Visualization.VISUALIZE;
@@ -805,7 +805,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TwoSegment_MixedPathOrientationsTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -847,7 +847,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void VaryingLengthTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -882,7 +882,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void ForwardAutoStanceSideSelectionTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -924,7 +924,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void BackwardAutoStanceSideSelectionTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -966,7 +966,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void LeftRightAutoStanceSideSelectionTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1007,7 +1007,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void turningAutoStanceSideSelectionTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1049,7 +1049,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void turningNonStandardInitialConditionsAutoStanceSideSelectionTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1100,7 +1100,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void leftRightNonStandardInitialConditionsAutoStanceSideSelectionTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1144,7 +1144,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void leftRightWrongOutwardFirstStepTest()
    {
       // DRC parameters:
@@ -1212,7 +1212,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void forwardBackwardNonStandardInitialConditionsAutoStanceSideSelectionTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1277,7 +1277,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TranslationPathTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1297,7 +1297,7 @@ public class FootstepGeneratorsTest
       testTranslationFootstepGenerator(testDescription + " LStance", startX, startY, startYaw, null, endX, endY, vis);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TranslationPathEndPointTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1318,7 +1318,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TranslationPathYawTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1340,7 +1340,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TranslationPathMaxDispTest()
    {
       //    Visualization vis = Visualization.VISUALIZE;
@@ -1376,7 +1376,7 @@ public class FootstepGeneratorsTest
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TranslationPath_RandomTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1395,7 +1395,7 @@ public class FootstepGeneratorsTest
       translationAtAngleTest(String.format(testDescription, Math.toDegrees(theta), r), vis, startX, startY, startYaw, r, theta, Double.POSITIVE_INFINITY);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TranslationPath_VaryLeftRightNonStandardInitialConditionsTest()
    {
       //    Visualization vis = Visualization.VISUALIZE;
@@ -1436,7 +1436,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TranslationPath_VaryforwardNonStandardInitialConditionsTest()
    {
       //    Visualization vis = Visualization.VISUALIZE;
@@ -1484,7 +1484,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void TranslationPath_VaryBackwardNonStandardInitialConditionsTest()
    {
       // Visualization vis = Visualization.VISUALIZE;
@@ -1531,7 +1531,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void RotateTranslateRotate_StepInPlaceTest()
    {
       //    Visualization vis = Visualization.VISUALIZE;
@@ -1559,7 +1559,7 @@ public class FootstepGeneratorsTest
       assertEquals("Should have exactly 2 footsteps for step in place. " + testDescription, 2, footsteps.size());
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void RotateTranslateRotate_RandomTest()
    {
 	   Random random = new Random(1789L);
@@ -1583,7 +1583,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void RotateTranslateRotate_RotateTranslateRotateTest()
    {
       //    Visualization vis = Visualization.VISUALIZE;
@@ -1618,7 +1618,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void RotateTranslateRotate_RotateRotateTest()
    {
       // If no translation, treat as one rotate beginning to end.
@@ -1656,7 +1656,7 @@ public class FootstepGeneratorsTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void RotateTranslateRotate_CourseRestepTest()
    {
       //    Visualization vis = Visualization.VISUALIZE;
@@ -1741,7 +1741,7 @@ public class FootstepGeneratorsTest
 
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void RotateTranslateRotate_CourseRestepCrossoverTest()
    {
       //    Visualization vis = Visualization.VISUALIZE;
@@ -1771,7 +1771,7 @@ public class FootstepGeneratorsTest
       assertNoCourseRepeatedSquareUpSteps(testDescription, footsteps, startX, startY, startYaw, eps, 1);
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void RotateTranslateRotate_CourseRestepAtEndTest()
    {
       //    Visualization vis = Visualization.VISUALIZE;

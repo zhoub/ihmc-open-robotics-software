@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -36,13 +36,13 @@ public class StateChangeRecorderTest
    {
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructor()
    {
       // empty, work being done in setUp()
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testAddingValues()
    {
       int index = Math.max(0, listOfStates.size() - 2);
@@ -68,7 +68,7 @@ public class StateChangeRecorderTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testClearAllData()
    {
       int index = Math.max(0, listOfStates.size() - 2);

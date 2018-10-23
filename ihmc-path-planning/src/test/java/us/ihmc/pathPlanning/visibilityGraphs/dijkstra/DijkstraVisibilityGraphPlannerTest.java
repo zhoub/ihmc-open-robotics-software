@@ -1,6 +1,6 @@
 package us.ihmc.pathPlanning.visibilityGraphs.dijkstra;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
@@ -17,7 +17,7 @@ import static junit.framework.TestCase.assertTrue;
 @Tag("fast")
 public class DijkstraVisibilityGraphPlannerTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimplePlanarGraph()
    {
       DijkstraVisibilityGraphPlanner planner = new DijkstraVisibilityGraphPlanner();

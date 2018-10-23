@@ -3,7 +3,7 @@ package us.ihmc.humanoidRobotics.communication.controllerAPI.converter;
 import java.util.Random;
 
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -13,7 +13,7 @@ import us.ihmc.humanoidRobotics.communication.controllerAPI.command.SO3Trajector
 
 public class CommandConversionToolsTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSO3()
    {
       Random random = new Random(4219L);
@@ -31,7 +31,7 @@ public class CommandConversionToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testEuclidean()
    {
       Random random = new Random(5204L);

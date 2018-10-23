@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.CapturePointTools;
 import org.junit.jupiter.api.Tag;
@@ -42,7 +42,7 @@ public class CapturePointToolsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeConstantCMPPointsWithBeginningAndEndBetweenFeetWith2Steps()
    {
       int nFootsteps = 2;
@@ -86,7 +86,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeConstantCMPPointsOnFeetAndEndBetweenFeetWith2Steps()
    {
       int nFootsteps = 2;
@@ -132,7 +132,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeConstantCentersOfPressuresOnFeet()
    {
       int nFootsteps = 10;
@@ -172,7 +172,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeConstantCentersOfPressureWithStartBetweenFeetAndRestOnFeet()
    {
       int nFootsteps = 10;
@@ -220,7 +220,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeConstantCentersOfPressureWithEndBetweenFeetAndRestOnFeet()
    {
       int nFootsteps = 10;
@@ -268,7 +268,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeConstantCentersOfPressureWithEndAndBeginningBetweenFeet()
    {
       int nFootsteps = 10;
@@ -322,7 +322,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeDesiredEndOfStepCapturePointLocations()
    {
       int nFootsteps = 10;
@@ -387,7 +387,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeDesiredCapturePointLocations()
    {
       int nFootsteps = 10;
@@ -451,7 +451,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeDesiredCapturePointVelocity()
    {
       YoFramePoint3D initialCapturePointPosition = new YoFramePoint3D("", ReferenceFrame.getWorldFrame(), registry);
@@ -485,7 +485,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeDesiredCapturePointAcceleration()
    {
       YoFramePoint3D initialCapturePointPosition = new YoFramePoint3D("", ReferenceFrame.getWorldFrame(), registry);
@@ -516,7 +516,7 @@ public class CapturePointToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testComputeConstantCenterOfPressureFromInitialAndFinalCapturePointLocations()
    {
       YoFramePoint3D constantCenterOfPressure = new YoFramePoint3D("COP", ReferenceFrame.getWorldFrame(), registry);

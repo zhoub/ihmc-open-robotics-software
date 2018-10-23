@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -23,7 +23,7 @@ import us.ihmc.simulationconstructionset.SimulationConstructionSetParameters;
 public class DataExporterGraphCreatorTest
 {
 
-    @Test(timeout = 30000)
+    @Test // timeout = 30000
     public void testDataExporterGraphCreator() throws IOException
     {
         SimulationConstructionSet sim = createSimulation();

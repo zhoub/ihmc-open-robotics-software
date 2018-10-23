@@ -3,7 +3,7 @@ package us.ihmc.tools.search.strings.fuzzySearch.comparators;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ import us.ihmc.tools.search.strings.fuzzySearch.CombinedFuzzySearchResult;
  */
 public class SortByMatchedStringComparatorTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompare()
    {
       CombinedFuzzySearchResult aardvark = new CombinedFuzzySearchResult("Aardvark", CombinedFuzzySearchResult.CombinedFuzzySearchResultType.EXACT_SUBSTRING);

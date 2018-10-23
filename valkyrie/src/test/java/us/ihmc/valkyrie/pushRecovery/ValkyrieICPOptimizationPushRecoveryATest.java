@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.pushRecovery;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
 import us.ihmc.avatar.pushRecovery.AvatarICPOptimizationPushRecoveryATest;
@@ -81,7 +81,7 @@ public class ValkyrieICPOptimizationPushRecoveryATest extends AvatarICPOptimizat
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationBackwardPushInSwing() throws Exception
    {
       percentWeight = 0.2;
@@ -89,7 +89,7 @@ public class ValkyrieICPOptimizationPushRecoveryATest extends AvatarICPOptimizat
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationForwardPushInSlowSwing() throws Exception
    {
       percentWeight = 0.2;
@@ -97,7 +97,7 @@ public class ValkyrieICPOptimizationPushRecoveryATest extends AvatarICPOptimizat
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationForwardPushInSwing() throws Exception
    {
       percentWeight = 0.29;
@@ -105,7 +105,7 @@ public class ValkyrieICPOptimizationPushRecoveryATest extends AvatarICPOptimizat
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationInwardPushInSwing() throws Exception
    {
       percentWeight = 0.17;
@@ -113,7 +113,7 @@ public class ValkyrieICPOptimizationPushRecoveryATest extends AvatarICPOptimizat
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationLongInwardPushInSwing() throws Exception
    {
       percentWeight = 0.05;
@@ -121,14 +121,14 @@ public class ValkyrieICPOptimizationPushRecoveryATest extends AvatarICPOptimizat
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationOutwardPushInTransfer() throws Exception
    {
       percentWeight = 0.12;
       super.testPushICPOptimizationOutwardPushInTransfer();
    }
 
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testPushICPOptimizationOutwardPushOnEachStep() throws Exception
    {
       percentWeight = 0.12;

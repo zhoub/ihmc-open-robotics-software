@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -31,7 +31,7 @@ public class ConvexPolygonShrinkerTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleSquareConvexPolygonShrinking()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();
@@ -60,7 +60,7 @@ public class ConvexPolygonShrinkerTest
       assertEquals(1, shrunkenPolygon.getNumberOfVertices());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleTriangleConvexPolygonShrinking()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();
@@ -88,7 +88,7 @@ public class ConvexPolygonShrinkerTest
    }
 
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleLineConvexPolygonShrinking()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();
@@ -113,7 +113,7 @@ public class ConvexPolygonShrinkerTest
       assertEquals(1, shrunkenPolygon.getNumberOfVertices());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimplePointConvexPolygonShrinking()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();
@@ -129,7 +129,7 @@ public class ConvexPolygonShrinkerTest
       EuclidCoreTestTools.assertTuple2DEquals(new Point2D(-1.0, 3.0), shrunkenPolygon.getVertexCCW(0), 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testShrinkingRandomPolygonsAreCompletelyInsideOriginalPolygons()
    {
       Random random = new Random(1984L);
@@ -164,7 +164,7 @@ public class ConvexPolygonShrinkerTest
 
    // Use manually when making sure no garbage is generated or doing timing tests.
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMemoryGarbageGeneration()
    {
       ArrayList<Point2D> vertices = new ArrayList<Point2D>();

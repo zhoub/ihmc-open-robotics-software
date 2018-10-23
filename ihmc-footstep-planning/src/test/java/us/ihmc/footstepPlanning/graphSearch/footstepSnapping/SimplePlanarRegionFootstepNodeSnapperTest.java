@@ -1,7 +1,7 @@
 package us.ihmc.footstepPlanning.graphSearch.footstepSnapping;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
@@ -57,7 +57,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
       unitSquare.update();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIdentity()
    {
       FootstepNode nodeToSnap = new FootstepNode(-0.3, 2.2);
@@ -69,7 +69,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
       doAFullFootholdTest(transformToWorld, nodeToSnap);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testVerticalTranslation()
    {
       FootstepNode nodeToSnap = new FootstepNode(2.5, -0.5);
@@ -82,7 +82,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
       doAFullFootholdTest(transformToWorld, nodeToSnap);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleRotation()
    {
       FootstepNode nodeToSnap = new FootstepNode(0.0, 0.0);
@@ -95,7 +95,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
       doAFullFootholdTest(transformToWorld, nodeToSnap);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleTranslationAndRotation()
    {
       FootstepNode nodeToSnap = new FootstepNode(1.1, 0.0);
@@ -109,7 +109,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
       doAFullFootholdTest(transformToWorld, nodeToSnap);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimplePartialFoothold()
    {
       FootstepNode nodeToSnap = new FootstepNode(1.0, 0.0);
@@ -140,7 +140,7 @@ public class SimplePlanarRegionFootstepNodeSnapperTest
       PlanarRegionPolygonSnapperTest.assertSurfaceNormalsMatchAndSnapPreservesXFromAbove(snapData.getSnapTransform(), transformToWorld);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRandomFullFootholds()
    {
       int numTests = 100;

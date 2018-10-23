@@ -9,7 +9,7 @@ import org.ejml.factory.DecompositionFactory;
 import org.ejml.interfaces.decomposition.SingularValueDecomposition;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -36,7 +36,7 @@ public class PointJacobianTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testVersusNumericalDifferentiation()
    {
       Random random = new Random(1252523L);
@@ -80,7 +80,7 @@ public class PointJacobianTest
       EuclidFrameTestTools.assertFrameTuple3DEquals(pointVelocityFromNumericalDifferentiation, pointVelocityFromJacobian, 1e-6);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSingularValuesOfTwoPointJacobians()
    {
       Random random = new Random(12351235L);

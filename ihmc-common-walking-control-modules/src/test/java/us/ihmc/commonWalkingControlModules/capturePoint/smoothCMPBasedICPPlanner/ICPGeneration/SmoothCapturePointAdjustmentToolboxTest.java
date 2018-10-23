@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.lists.RecyclingArrayList;
 import org.junit.jupiter.api.Tag;
@@ -52,7 +52,7 @@ public class SmoothCapturePointAdjustmentToolboxTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAdjustICPDuringInitialTransfer3DLinear()
    {
       // Linear polynomial: y(x) = a0 + a1*x
@@ -156,7 +156,7 @@ public class SmoothCapturePointAdjustmentToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAdjustICPDuringRegularTransfer3DLinear()
    {
       // Linear polynomial: y(x) = a0 + a1*x
@@ -284,7 +284,7 @@ public class SmoothCapturePointAdjustmentToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAdjustICPDuringRegularTransferRecomputed3DLinear()
    {
       // Linear polynomial: y(x) = a0 + a1*x
@@ -441,7 +441,7 @@ public class SmoothCapturePointAdjustmentToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAdjustICPDuringInitialTransfer3DCubic()
    {
       // Linear polynomial: y(x) = a0 + a1*x + a2*x + a3*x
@@ -545,7 +545,7 @@ public class SmoothCapturePointAdjustmentToolboxTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAdjustICPDuringRegularTransfer3DCubic()
    {
       // Linear polynomial: y(x) = a0 + a1*x + a2*x + a3*x

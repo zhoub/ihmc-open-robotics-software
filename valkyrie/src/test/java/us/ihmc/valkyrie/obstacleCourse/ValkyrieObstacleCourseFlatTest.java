@@ -1,7 +1,7 @@
 package us.ihmc.valkyrie.obstacleCourse;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -38,56 +38,56 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
     */
    @Override
    @Tag("in-development")
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testWalkingUpToRampWithLongStepsAndOccasionallyStraightKnees() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpToRampWithLongStepsAndOccasionallyStraightKnees();
    }
 
    @Override
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
    public void testRotatedStepInTheAir() throws SimulationExceededMaximumTimeException
    {
       super.testRotatedStepInTheAir();
    }
 
    @Tag("slow")
-   @Test(timeout = 430000)
+   @Test // timeout = 430000
    public void testSimpleScripts() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSimpleScripts();
    }
 
    @Tag("slow")
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testACoupleStepsUsingQueuedControllerCommands() throws SimulationExceededMaximumTimeException
    {
       super.testACoupleStepsUsingQueuedControllerCommands();
    }
 
    @Tag("slow")
-   @Test(timeout = 390000)
+   @Test // timeout = 390000
    public void testACoupleQueuedControllerCommands() throws SimulationExceededMaximumTimeException
    {
       super.testACoupleQueuedControllerCommands();
    }
 
    @Tag("slow")
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    public void testACoupleMoreQueuedControllerCommands() throws SimulationExceededMaximumTimeException
    {
       super.testACoupleMoreQueuedControllerCommands();
    }
 
    @Override
-   @Test(timeout = 460000)
+   @Test // timeout = 460000
    public void testWalkingUpToRampWithShortSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingUpToRampWithShortSteps();
    }
 
    @Override
-   @Test(timeout = 150000)
+   @Test // timeout = 150000
    public void testStandingTooHighToCheckIfSingularityStuffIsWorkingProperly() throws SimulationExceededMaximumTimeException
    {
       super.testStandingTooHighToCheckIfSingularityStuffIsWorkingProperly();
@@ -95,14 +95,14 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @Tag("slow")
-   @Test(timeout = 130000)
+   @Test // timeout = 130000
    public void testStandingForACoupleSeconds() throws SimulationExceededMaximumTimeException
    {
       super.testStandingForACoupleSeconds();
    }
 
    @Override
-   @Test(timeout = 550000)
+   @Test // timeout = 550000
    public void testLongStepsMaxHeightPauseAndResume() throws SimulationExceededMaximumTimeException
    {
       super.testLongStepsMaxHeightPauseAndResume();
@@ -111,14 +111,14 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
    @Override
    @Tag("fast")
    @Tag("video")
-   @Test(timeout = 460000)
+   @Test // timeout = 460000
    public void testTurningInPlaceAndPassingPI() throws SimulationExceededMaximumTimeException
    {
       super.testTurningInPlaceAndPassingPI();
    }
 
    @Override
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testStandingOnUnevenTerrainForACoupleSeconds() throws SimulationExceededMaximumTimeException
    {
       super.testStandingOnUnevenTerrainForACoupleSeconds();
@@ -126,7 +126,7 @@ public class ValkyrieObstacleCourseFlatTest extends DRCObstacleCourseFlatTest
 
    @Override
    @Tag("manual")
-   @Test(timeout = 1400000)
+   @Test // timeout = 1400000
    public void testForMemoryLeaks() throws Exception
    {
       super.testForMemoryLeaks();

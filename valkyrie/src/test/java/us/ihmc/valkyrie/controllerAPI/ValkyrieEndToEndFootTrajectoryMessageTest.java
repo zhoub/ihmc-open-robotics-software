@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.controllerAPI.EndToEndFootTrajectoryMessageTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -15,42 +15,42 @@ public class ValkyrieEndToEndFootTrajectoryMessageTest extends EndToEndFootTraje
 {
    private final ValkyrieRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);
 
-   @Test(timeout = 120000)
+   @Test // timeout = 120000
    @Override
    public void testCustomControlPoint() throws SimulationExceededMaximumTimeException
    {
       super.testCustomControlPoint();
    }
    
-   @Test(timeout = 470000)
+   @Test // timeout = 470000
    @Override
    public void testSingleWaypoint() throws SimulationExceededMaximumTimeException
    {
       super.testSingleWaypoint();
    }
    
-   @Test(timeout = 500000)
+   @Test // timeout = 500000
    @Override
    public void testMultipleTrajectoryPoints() throws SimulationExceededMaximumTimeException
    {
       super.testMultipleTrajectoryPoints();
    }
    
-   @Test(timeout = 570000)
+   @Test // timeout = 570000
    @Override
    public void testQueuedMessages() throws SimulationExceededMaximumTimeException
    {
       super.testQueuedMessages();
    }
    
-   @Test(timeout = 420000)
+   @Test // timeout = 420000
    @Override
    public void testQueueStoppedWithOverrideMessage() throws SimulationExceededMaximumTimeException
    {
       super.testQueueStoppedWithOverrideMessage();
    }
    
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
    @Override
    public void testQueueWithWrongPreviousId() throws SimulationExceededMaximumTimeException
    {

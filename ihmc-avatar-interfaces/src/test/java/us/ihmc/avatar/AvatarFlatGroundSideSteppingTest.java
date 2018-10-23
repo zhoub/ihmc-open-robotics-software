@@ -7,7 +7,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
@@ -132,7 +132,7 @@ public abstract class AvatarFlatGroundSideSteppingTest implements MultiRobotTest
       return new FootstepDataListMessage();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSideStepping() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -171,7 +171,7 @@ public abstract class AvatarFlatGroundSideSteppingTest implements MultiRobotTest
       controllerSpy.assertCheckpointsReached();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSideSteppingWithForceDisturbances() throws SimulationExceededMaximumTimeException
    {
       setupTest();

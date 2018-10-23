@@ -4,7 +4,7 @@ import static org.junit.Assert.fail;
 
 import java.util.Set;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.communication.ros.generators.RosMessagePacket;
 import org.junit.jupiter.api.Tag;
@@ -26,7 +26,7 @@ import us.ihmc.utilities.ros.msgToPacket.converter.GenericROSTranslationTools;
  */
 public class ROSMessageFileCreatorTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAllExportedPacketsWithTopicsAreFormattedCorrectly()
    {
       Set<Class<?>> rosMessagePacketAnnotatedClasses = GenericROSTranslationTools.getIHMCCoreRosMessagePacketAnnotatedClasses();

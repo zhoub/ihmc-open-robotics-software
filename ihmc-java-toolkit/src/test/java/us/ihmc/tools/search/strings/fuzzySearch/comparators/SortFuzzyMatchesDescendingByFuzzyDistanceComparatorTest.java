@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ import us.ihmc.tools.search.strings.fuzzySearch.CombinedFuzzySearchResult;
  */
 public class SortFuzzyMatchesDescendingByFuzzyDistanceComparatorTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCompare()
    {
       Random random = new Random(1976L);

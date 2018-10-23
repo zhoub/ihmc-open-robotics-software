@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Set;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
@@ -21,7 +21,7 @@ public class MovingMidFrameTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAgainstFiniteDifferenceWithChainRobot()
    {
       Random random = new Random(3452345L);

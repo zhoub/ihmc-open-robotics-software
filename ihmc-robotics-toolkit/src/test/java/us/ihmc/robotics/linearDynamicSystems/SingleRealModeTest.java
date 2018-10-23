@@ -5,7 +5,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -23,7 +23,7 @@ public class SingleRealModeTest
    {
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testDifferentLengths()
    {
       double eigenvalue = -2.0;
@@ -40,7 +40,7 @@ public class SingleRealModeTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testDotEqualsOne()
    {
       double eigenvalue = -2.0;
@@ -58,7 +58,7 @@ public class SingleRealModeTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructTransferFunctionMatrixSISO()
    {
       double eigenvalue = -2.0;
@@ -85,7 +85,7 @@ public class SingleRealModeTest
       DynamicSystemsTestHelpers.assertEpsilonEquals(new double[] {1.0, -eigenvalue}, denominatorCoefficients, 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructTransferFunctionMatrixMIMO()
    {
       double eigenvalue = -5.0;

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -15,7 +15,7 @@ import us.ihmc.tools.inputDevices.keyboard.Key;
 
 public class KeyListenerHolderTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testKeyListenerHolder()
    {
       final List<Key> pressed1 = new ArrayList<>();

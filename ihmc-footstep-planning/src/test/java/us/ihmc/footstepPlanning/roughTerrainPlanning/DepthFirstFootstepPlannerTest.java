@@ -1,6 +1,6 @@
 package us.ihmc.footstepPlanning.roughTerrainPlanning;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commons.thread.ThreadTools;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -34,7 +34,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testOnStaircase()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -47,7 +47,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testSimpleStepOnBox()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -56,7 +56,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
       super.testSimpleStepOnBox();
    }
 
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testSimpleStepOnBoxTwo()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -66,7 +66,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testRandomEnvironment()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -76,7 +76,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 51000)
+   @Test // timeout = 51000
    public void testSimpleGaps()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -86,7 +86,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testOverCinderBlockField()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -96,7 +96,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testStepAfterPitchedUp()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -106,7 +106,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testStepAfterPitchedDown()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -116,7 +116,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 50000)
+   @Test // timeout = 50000
    public void testCompareStepBeforeGap()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -126,7 +126,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 75000)
+   @Test // timeout = 75000
    public void testWalkingAroundBox()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -136,7 +136,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSteppingStones()
    {
       planner.setMaximumNumberOfNodesToExpand(Integer.MAX_VALUE);
@@ -147,7 +147,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
 
    @Override
    @Disabled
-   @Test(timeout = 51000)
+   @Test // timeout = 51000
    public void testPartialGaps()
    {
       super.testPartialGaps();
@@ -155,7 +155,7 @@ public class DepthFirstFootstepPlannerTest extends FootstepPlannerOnRoughTerrain
 
    @Override
    @Disabled
-   @Test(timeout = 51000)
+   @Test // timeout = 51000
    public void testSpiralStaircase()
    {
       super.testSpiralStaircase();

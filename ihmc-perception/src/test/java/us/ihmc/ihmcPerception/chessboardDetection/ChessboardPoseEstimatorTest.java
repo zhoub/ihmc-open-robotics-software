@@ -14,7 +14,7 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -25,7 +25,7 @@ public class ChessboardPoseEstimatorTest
 {
    static final boolean DEBUG = false;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOpenCVRegression4x7() throws IOException
    {
 
@@ -42,7 +42,7 @@ public class ChessboardPoseEstimatorTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOpenCVRegression4x5() throws IOException
          {
 
@@ -62,7 +62,7 @@ public class ChessboardPoseEstimatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleAlmostFrontChessboard() throws IOException
    {
 
@@ -73,7 +73,7 @@ public class ChessboardPoseEstimatorTest
       testSingleImage(image, squareNumRow, squareNumCol, gridWidth, 1e-2);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testDrivingSimCheckerBoard() throws IOException
    {
 
@@ -86,7 +86,7 @@ public class ChessboardPoseEstimatorTest
 
    //boofCV can't find checker board
    @Disabled
-   @Test(timeout = 5000)
+   @Test // timeout = 5000
    public void testImage3() throws IOException
    {
 
@@ -98,7 +98,7 @@ public class ChessboardPoseEstimatorTest
    }
 
    //boofcv found checkerboard but pose estimated poorly
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testImage1() throws IOException
    {
 

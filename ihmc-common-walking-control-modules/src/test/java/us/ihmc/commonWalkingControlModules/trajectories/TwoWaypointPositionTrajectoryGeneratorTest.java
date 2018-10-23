@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -39,13 +39,13 @@ public class TwoWaypointPositionTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRegisteringYoVariables()
    {
       assertTrue(TwoWaypointPositionTrajectoryGenerator.REGISTER_YOVARIABLES);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleTrajectories()
    {
       testSimpleTrajectory(3);

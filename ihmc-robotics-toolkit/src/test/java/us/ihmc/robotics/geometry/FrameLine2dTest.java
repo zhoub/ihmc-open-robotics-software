@@ -2,7 +2,7 @@ package us.ihmc.robotics.geometry;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -32,7 +32,7 @@ public class FrameLine2dTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIntersectionOne()
    {
       double xMin = -1.0, xMax = 2.0, yMin = -1.0, yMax = 2.0;

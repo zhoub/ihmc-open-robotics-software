@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -54,7 +54,7 @@ public abstract class QuadrupedPositionCrawlTurning360Test implements QuadrupedM
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void rotate360InPlaceRight() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -78,7 +78,7 @@ public abstract class QuadrupedPositionCrawlTurning360Test implements QuadrupedM
       }
    }
    
-   @Test(timeout = 800000)
+   @Test // timeout = 800000
    public void rotate360InPlaceLeft() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);

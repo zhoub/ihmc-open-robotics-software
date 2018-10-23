@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.controlModules.rigidBody;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -20,7 +20,7 @@ public class RigidBodyControlHelperTest
 {
    private static final double epsilon = 1.0e-10;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testControlFrameChange()
    {
       Random random = new Random(328482L);

@@ -1,6 +1,6 @@
 package us.ihmc.valkyrie.networkProcessor.depthData;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.drcRobot.RobotTarget;
@@ -17,7 +17,7 @@ public class ValkyriePointCloudDataReceiverTest extends HumanoidPointCloudDataRe
    private final DRCRobotModel robotModel = new ValkyrieRobotModel(RobotTarget.SCS, false);
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testIsReceivingScansAnd95PercentOfPointsAreCorrect() throws SimulationExceededMaximumTimeException
    {
       super.testIsReceivingScansAnd95PercentOfPointsAreCorrect();

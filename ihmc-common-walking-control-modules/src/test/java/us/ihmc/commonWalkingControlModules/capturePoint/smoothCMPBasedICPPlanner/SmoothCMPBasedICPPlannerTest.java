@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.BipedSupportPolygons;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
@@ -366,7 +366,7 @@ public class SmoothCMPBasedICPPlannerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForDiscontinuitiesWithoutAngularMomentum()
    {
       numberOfFootstepsForTest = 10;
@@ -375,7 +375,7 @@ public class SmoothCMPBasedICPPlannerTest
       simulate(true, false, true);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForDiscontinuitiesWithAngularMomentum()
    {
       numberOfFootstepsForTest = 10;
@@ -384,7 +384,7 @@ public class SmoothCMPBasedICPPlannerTest
       simulate(true, false, true);
    }
 
-   @Test(timeout = 3000000)
+   @Test // timeout = 3000000
    public void testForPlanningConsistencyWithoutAngularMomentum()
    {
       numberOfFootstepsForTest = 10;
@@ -393,7 +393,7 @@ public class SmoothCMPBasedICPPlannerTest
       simulate(false, true, true);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForPlanningConsistencyWithAngularMomentum()
    {
       numberOfFootstepsForTest = 10;
@@ -403,7 +403,7 @@ public class SmoothCMPBasedICPPlannerTest
       simulate(false, true, true);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testForPlanningConsistencyWithAndWithoutContinuousReplanning()
    {
       numberOfFootstepsForTest = 10;

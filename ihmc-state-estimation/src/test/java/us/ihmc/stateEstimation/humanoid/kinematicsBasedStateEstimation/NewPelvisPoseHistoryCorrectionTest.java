@@ -6,7 +6,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.LocalizationPacket;
 import controller_msgs.msg.dds.PelvisPoseErrorPacket;
@@ -244,7 +244,7 @@ public class NewPelvisPoseHistoryCorrectionTest
    private YoDouble maximumErrorAngleInDegrees;
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTranslationCorrectionOnlyWithPelvisFollowingAKnownPathAndRandomLocalizationOffsets()
    {
       isRotationCorrectionEnabled = (YoBoolean) registry.getVariable("ClippedSpeedOffsetErrorInterpolator", "isRotationCorrectionEnabled");
@@ -320,7 +320,7 @@ public class NewPelvisPoseHistoryCorrectionTest
    }
 
    @Disabled
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTooBigAngleErrorAreDetectedAndPacketIsSent()
    {
       boolean checkPacketHasBeenSentNextLoopIteration = false;

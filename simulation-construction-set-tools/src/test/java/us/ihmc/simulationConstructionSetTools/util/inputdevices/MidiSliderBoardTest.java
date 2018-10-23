@@ -3,7 +3,7 @@ package us.ihmc.simulationConstructionSetTools.util.inputdevices;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -25,7 +25,7 @@ public class MidiSliderBoardTest
    {
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testWeirdCase()
    {
       MidiSliderBoard midiSliderBoard = new MidiSliderBoard(null, true);

@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.capturePoint.CapturePointTools;
 import org.junit.jupiter.api.Tag;
@@ -69,7 +69,7 @@ public class OneStepCaptureRegionCalculatorTest
 
    @SuppressWarnings("unused")
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructor()
    {
       double footWidth = 0.5;
@@ -79,7 +79,7 @@ public class OneStepCaptureRegionCalculatorTest
             ankleZUpFrames, registry, null);
    }
 
-   @Test(timeout = 30000000)
+   @Test // timeout = 30000000
    public void testPointsInsideCaptureRegion()
    {
       // do not change parameters
@@ -163,7 +163,7 @@ public class OneStepCaptureRegionCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testProjectedFootCorners()
    {
       // do not change parameters
@@ -238,7 +238,7 @@ public class OneStepCaptureRegionCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCalculationWithICPInFootPolygon()
    {
       double footWidth = 0.5;
@@ -310,7 +310,7 @@ public class OneStepCaptureRegionCalculatorTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCalculationWithHighSwingTime()
    {
       // do not change parameters

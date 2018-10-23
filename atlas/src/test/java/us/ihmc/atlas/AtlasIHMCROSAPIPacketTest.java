@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.avatar.IHMCROSAPIPacketTest;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
@@ -27,14 +27,14 @@ public class AtlasIHMCROSAPIPacketTest extends IHMCROSAPIPacketTest
    }
 
    @Override
-   @Test(timeout = 420000)
+   @Test // timeout = 420000
    public void testFuzzyPacketsUsingRos()
    {
       super.testFuzzyPacketsUsingRos();
    }
 
    @Override
-   @Test(timeout = 420000)
+   @Test // timeout = 420000
    public void testFuzzyPacketsWithoutRos()
    {
       super.testFuzzyPacketsWithoutRos();

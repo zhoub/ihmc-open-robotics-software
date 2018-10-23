@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import gnu.trove.list.array.TDoubleArrayList;
 import us.ihmc.commons.MutationTestFacilitator;
@@ -19,7 +19,7 @@ public class TrajectoryPointOptimizerTest
 {
    private static final double epsilon = 10E-7;
 
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test // timeout = 30000, expected=RuntimeException.class
    public void testEndPointSetters()
    {
       int dimensions = 3;
@@ -36,7 +36,7 @@ public class TrajectoryPointOptimizerTest
       optimizer.setEndPoints(rightSize, wrongSize, rightSize, rightSize);
    }
 
-   @Test(timeout = 30000, expected=RuntimeException.class)
+   @Test // timeout = 30000, expected=RuntimeException.class
    public void testWaypointSetters()
    {
       int dimensions = 1;
@@ -62,7 +62,7 @@ public class TrajectoryPointOptimizerTest
       optimizer.setWaypoints(waypoints);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testYoVariables()
    {
       int dimensions = 3;
@@ -74,7 +74,7 @@ public class TrajectoryPointOptimizerTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleSymmetricProblem()
    {
       int dimensions = 1;
@@ -141,7 +141,7 @@ public class TrajectoryPointOptimizerTest
       assertEquals(waypointVelocity.get(0), 1.5, epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleProblem()
    {
       int dimensions = 1;
@@ -169,7 +169,7 @@ public class TrajectoryPointOptimizerTest
          assertEquals(coefficients.get(0).get(i), expected[i], epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTrivialProblem()
    {
       int dimensions = 1;
@@ -197,7 +197,7 @@ public class TrajectoryPointOptimizerTest
          assertEquals(expected[i], coefficients.get(0).get(i), epsilon);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTimeDescent()
    {
       int dimensions = 2;

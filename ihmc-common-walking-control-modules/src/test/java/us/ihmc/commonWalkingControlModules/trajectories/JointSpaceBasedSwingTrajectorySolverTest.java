@@ -12,7 +12,7 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -31,7 +31,7 @@ import us.ihmc.simulationConstructionSetTools.util.graphs.JFreePlot;
 @Disabled
 public class JointSpaceBasedSwingTrajectorySolverTest
 {
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testOneDoFTrajectory()
    {
       boolean VISUALIZE = false;
@@ -100,7 +100,7 @@ public class JointSpaceBasedSwingTrajectorySolverTest
       }
    }
 
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testPendulumTrajectory()
    {
       boolean VISUALIZE = false;

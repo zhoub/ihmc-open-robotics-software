@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commonWalkingControlModules.momentumBasedController.optimization.groundContactForce.FlatGroundContactForceOptimizer;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -35,7 +35,7 @@ public class FlatGroundContactForceOptimizerTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void simpleTest()
    {
       YoGraphicsListRegistry graphicsListRegistry = new YoGraphicsListRegistry();

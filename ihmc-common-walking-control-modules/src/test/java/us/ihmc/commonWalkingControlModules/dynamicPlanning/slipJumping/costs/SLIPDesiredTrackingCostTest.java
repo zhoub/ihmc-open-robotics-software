@@ -2,7 +2,7 @@ package us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.costs;
 
 import org.ejml.data.DenseMatrix64F;
 import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.TrackingCostFunctionTest;
 import us.ihmc.commonWalkingControlModules.dynamicPlanning.slipJumping.SLIPState;
 import org.junit.jupiter.api.Tag;
@@ -53,7 +53,7 @@ public class SLIPDesiredTrackingCostTest extends TrackingCostFunctionTest<SLIPSt
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCost()
    {
       LQTrackingCostFunction<SLIPState> costFunction = getCostFunction();
@@ -136,35 +136,35 @@ public class SLIPDesiredTrackingCostTest extends TrackingCostFunctionTest<SLIPSt
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateGradientNumerically()
    {
       super.testCostStateGradientNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostControlGradientNumerically()
    {
       super.testCostControlGradientNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateHessianNumerically()
    {
       super.testCostStateHessianNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostControlHessianNumerically()
    {
       super.testCostControlHessianNumerically();
    }
 
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testCostStateControlHessianNumerically()
    {
       super.testCostStateControlHessianNumerically();

@@ -8,7 +8,7 @@ import java.util.Collection;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -40,7 +40,7 @@ public class ReflectionSimulationComparerTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTwoEmptySimulations()
    {
       ReflectionSimulationComparer comparer = new ReflectionSimulationComparer(Integer.MAX_VALUE, Integer.MAX_VALUE);
@@ -90,7 +90,7 @@ public class ReflectionSimulationComparerTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTwoRewindableSimulationsWithAScript() throws IllegalArgumentException, SecurityException, IllegalAccessException, NoSuchFieldException, UnreasonableAccelerationException
    {      
       Robot robot0 = createSimpleRobot();
@@ -130,7 +130,7 @@ public class ReflectionSimulationComparerTest
       return robot0;
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testTwoNonRewindableSimulationsWithAScript() throws IllegalArgumentException, SecurityException, IllegalAccessException, NoSuchFieldException, UnreasonableAccelerationException
    {      
       Robot robot0 = new Robot("robot");

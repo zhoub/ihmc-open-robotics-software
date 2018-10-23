@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.rules.TestName;
 
 import us.ihmc.commons.MutationTestFacilitator;
@@ -52,7 +52,7 @@ public class WaypointDefinedBodyPathPlanTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleBodyPath()
    {
       WaypointDefinedBodyPathPlanner plan = new WaypointDefinedBodyPathPlanner();

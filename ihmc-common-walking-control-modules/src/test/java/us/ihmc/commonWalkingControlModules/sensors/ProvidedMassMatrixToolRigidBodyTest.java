@@ -3,7 +3,7 @@ package us.ihmc.commonWalkingControlModules.sensors;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -29,7 +29,7 @@ public abstract class ProvidedMassMatrixToolRigidBodyTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testprovidedMassMatrixToolRigidBody()
    {
       FullHumanoidRobotModel fullRobotModel = getFullRobotModel();

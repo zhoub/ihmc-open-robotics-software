@@ -2,7 +2,7 @@ package us.ihmc.manipulation.planning.gradientDescent;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import gnu.trove.list.array.TDoubleArrayList;
 import org.junit.jupiter.api.Tag;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Disabled;
 @Tag("fast")
 public class GradientDescentTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGradientDescent()
    {
       System.out.println("Hello Test");

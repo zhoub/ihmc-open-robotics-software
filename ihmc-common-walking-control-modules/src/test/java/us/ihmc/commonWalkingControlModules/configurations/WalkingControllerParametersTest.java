@@ -4,7 +4,7 @@ import static org.junit.Assert.fail;
 
 import java.lang.reflect.Method;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import org.junit.jupiter.api.Tag;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Disabled;
 @Tag("fast")
 public class WalkingControllerParametersTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNoParameters() throws ClassNotFoundException, InstantiationException, IllegalAccessException
    {
       Class<?> c = Class.forName("us.ihmc.commonWalkingControlModules.configurations.WalkingControllerParameters");

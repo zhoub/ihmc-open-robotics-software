@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -21,7 +21,7 @@ import us.ihmc.robotics.random.RandomGeometry;
 @Tag("fast")
 public class LeastSquaresZPlaneFitterTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPointsWithSamePitchAndDifferentPositionGetSameAnswer()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();
@@ -50,7 +50,7 @@ public class LeastSquaresZPlaneFitterTest
       assertTrue(normalA.epsilonEquals(normalB, 1e-7));
    }
    
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleFlatCase()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();
@@ -67,7 +67,7 @@ public class LeastSquaresZPlaneFitterTest
       EuclidCoreTestTools.assertTuple3DEquals(new Vector3D(0.0, 0.0, 1.0), plane3d.getNormalCopy(), 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testRandomlyGeneratedPointsOnRandomPlanes()
    {
       int numberOfTests = 1000;
@@ -135,7 +135,7 @@ public class LeastSquaresZPlaneFitterTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCornerCaseWithOnlyTwoPoints()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();
@@ -152,7 +152,7 @@ public class LeastSquaresZPlaneFitterTest
       assertTrue(isNaN(plane3d.getNormalCopy()));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testCornerCaseWithColinearPoints()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();
@@ -182,7 +182,7 @@ public class LeastSquaresZPlaneFitterTest
 
    // Straight up and down fails with LeastSquaresZPlaneFitter since it assumes equation Ax + By + z + C = 0
 	@Disabled
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testStraightUpAndDownPlane()
    {
       LeastSquaresZPlaneFitter leastSquaresZPlaneFitter = new LeastSquaresZPlaneFitter();

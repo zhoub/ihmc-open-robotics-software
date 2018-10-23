@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.RandomNumbers;
 import org.junit.jupiter.api.Tag;
@@ -18,7 +18,7 @@ public class TimeStampedTransform3DTest
 
    private static final double EPSILON = 1.0e-15;
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testEmptyConstructor()
    {
       TimeStampedTransform3D toBeTested = new TimeStampedTransform3D();
@@ -30,7 +30,7 @@ public class TimeStampedTransform3DTest
       assertTrue("Transform is different from what was expected", expectedTransform.epsilonEquals(toBeTested.getTransform3D(), EPSILON));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testConstructor()
    {
       Random random = new Random(3213620L);
@@ -46,7 +46,7 @@ public class TimeStampedTransform3DTest
       assertTrue("TimestampedTransform should only copy the given transform into an internal variable", expectedTransform != toBeTested.getTransform3D());
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSetters()
    {
       TimeStampedTransform3D toBeTested = new TimeStampedTransform3D();
@@ -80,7 +80,7 @@ public class TimeStampedTransform3DTest
       assertTrue("Transform is different from what was expected", expectedTimeStampedTransform.getTransform3D().epsilonEquals(toBeTested.getTransform3D(), EPSILON));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetTransform()
    {
       TimeStampedTransform3D toBeTested = new TimeStampedTransform3D();

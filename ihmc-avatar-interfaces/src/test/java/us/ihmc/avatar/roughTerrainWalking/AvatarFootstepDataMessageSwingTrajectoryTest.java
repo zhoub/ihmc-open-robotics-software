@@ -11,7 +11,7 @@ import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.FootstepDataMessage;
 import controller_msgs.msg.dds.PelvisHeightTrajectoryMessage;
 import controller_msgs.msg.dds.SE3TrajectoryPointMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
 import us.ihmc.avatar.DRCStartingLocation;
 import us.ihmc.avatar.MultiRobotTestInterface;
@@ -72,13 +72,13 @@ public abstract class AvatarFootstepDataMessageSwingTrajectoryTest implements Mu
     */
    public abstract double getLegLength();
 
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testSwingTrajectoryTouchdownSpeed() throws SimulationExceededMaximumTimeException
    {
       runTestTouchdownSpeed();
    }
 
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testSwingTrajectoryTouchdownWithAdjustment() throws SimulationExceededMaximumTimeException
    {
       runTestTouchdownSpeed();
@@ -165,7 +165,7 @@ public abstract class AvatarFootstepDataMessageSwingTrajectoryTest implements Mu
       Assert.assertEquals(touchdownVelocity, desiredVelocity.getValueAsDouble(), 1.0e-10);
    }
 
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testSwingTrajectoryInWorld() throws SimulationExceededMaximumTimeException
    {
       DRCRobotModel robotModel = setup(DRCObstacleCourseStartingLocation.DEFAULT_BUT_ALMOST_PI);

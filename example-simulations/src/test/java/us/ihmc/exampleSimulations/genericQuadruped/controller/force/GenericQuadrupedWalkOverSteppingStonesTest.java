@@ -2,7 +2,7 @@ package us.ihmc.exampleSimulations.genericQuadruped.controller.force;
 
 import controller_msgs.msg.dds.QuadrupedStepMessage;
 import controller_msgs.msg.dds.QuadrupedTimedStepMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
@@ -26,7 +26,7 @@ public class GenericQuadrupedWalkOverSteppingStonesTest extends QuadrupedWalkOve
    }
    
    @Override
-   @Test(timeout = 520000)
+   @Test // timeout = 520000
    public void testWalkOverSteppingStones() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testWalkOverSteppingStones();

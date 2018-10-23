@@ -2,7 +2,7 @@ package us.ihmc.robotics.math.filters;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -17,7 +17,7 @@ public class FirstOrderFilteredYoVariableTest
 
    private final double DT = 0.001;
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testHighPassAttenuationForSinusoidalInput()
    {
       double inputFrequencyRadPerSec = 15.0;
@@ -40,7 +40,7 @@ public class FirstOrderFilteredYoVariableTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testLowPassAttenuationForSinusoidalInput()
    {
       double inputFrequencyRadPerSec = 10.0;
@@ -63,7 +63,7 @@ public class FirstOrderFilteredYoVariableTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testBandPassAttenuationForSinusoidalInput()
    {
       double inputFrequencyRadPerSec = 10.0;

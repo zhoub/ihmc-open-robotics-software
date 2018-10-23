@@ -9,7 +9,7 @@ import org.ejml.data.DenseMatrix64F;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import gnu.trove.list.array.TDoubleArrayList;
 import gnu.trove.list.array.TIntArrayList;
@@ -112,7 +112,7 @@ public class GenericQuadrupedAllocationTest
    }
 
    @Tag("slow")
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testForAllocationStanding()
    {
       QuadrupedTestBehaviors.standUp(conductor, variables);
@@ -126,7 +126,7 @@ public class GenericQuadrupedAllocationTest
 
 
    @Tag("slow")
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testForAllocationStepping()
    {
       QuadrupedTestBehaviors.readyXGait(conductor, variables, stepTeleopManager);

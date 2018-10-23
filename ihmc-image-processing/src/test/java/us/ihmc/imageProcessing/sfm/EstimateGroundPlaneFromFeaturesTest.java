@@ -9,7 +9,7 @@ import org.ddogleg.struct.FastQueue;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.ejml.ops.MatrixFeatures;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import boofcv.alg.geo.PerspectiveOps;
 import boofcv.struct.calib.IntrinsicParameters;
@@ -33,7 +33,7 @@ public class EstimateGroundPlaneFromFeaturesTest
     * Create a set of observations with perfect data and see if it can reconstruct the plane and transform
     */
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void perfect()
    {
       StereoParameters param = new StereoParameters();

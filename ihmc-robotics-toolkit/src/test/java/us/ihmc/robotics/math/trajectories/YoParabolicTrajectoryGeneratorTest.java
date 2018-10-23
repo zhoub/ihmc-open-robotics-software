@@ -6,7 +6,7 @@ import static org.junit.Assert.fail;
 import java.util.Random;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -26,7 +26,7 @@ public class YoParabolicTrajectoryGeneratorTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConditions()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");
@@ -53,7 +53,7 @@ public class YoParabolicTrajectoryGeneratorTest
       EuclidCoreTestTools.assertTuple3DEquals(finalPosition, positionToPack, delta);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testIllegalParameter1()
    {
       double intermediateParameter = 1.1;
@@ -66,7 +66,7 @@ public class YoParabolicTrajectoryGeneratorTest
       trajectoryGenerator.initialize(initialPosition, intermediatePosition, finalPosition, intermediateParameter);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testIllegalParameter2()
    {
       double intermediateParameter = -0.1;
@@ -79,7 +79,7 @@ public class YoParabolicTrajectoryGeneratorTest
       trajectoryGenerator.initialize(initialPosition, intermediatePosition, finalPosition, intermediateParameter);
    }
 
-	@Test(timeout = 30000,expected = RuntimeException.class)
+	@Test // timeout = 30000,expected = RuntimeException.class
    public void testIllegalParameter3()
    {
       ReferenceFrame referenceFrame = ReferenceFrame.getWorldFrame();
@@ -104,7 +104,7 @@ public class YoParabolicTrajectoryGeneratorTest
       trajectoryGenerator.getPosition(positionToPack, 1.1);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testApex()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");
@@ -136,7 +136,7 @@ public class YoParabolicTrajectoryGeneratorTest
       assertTrue(smallestDifference >= 0.0);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testVelocity()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");
@@ -174,7 +174,7 @@ public class YoParabolicTrajectoryGeneratorTest
       }
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testInitialVelocity()
    {
       YoVariableRegistry registry = new YoVariableRegistry("registry");

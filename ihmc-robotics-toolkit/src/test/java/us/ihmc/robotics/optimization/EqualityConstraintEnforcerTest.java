@@ -3,7 +3,7 @@ package us.ihmc.robotics.optimization;
 import static org.junit.Assert.assertEquals;
 
 import org.ejml.data.DenseMatrix64F;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -14,7 +14,7 @@ public class EqualityConstraintEnforcerTest
 {
    //TODO: Add test where JQ doesn't equal zero after constraint due to damped least squares.
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleCaseOne()
    {
       int matrixSize = 1;
@@ -50,7 +50,7 @@ public class EqualityConstraintEnforcerTest
       assertEquals(xSolution.get(1), 3.0, 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleCaseTwo()
    {
       int matrixSize = 1;
@@ -85,7 +85,7 @@ public class EqualityConstraintEnforcerTest
       assertEquals(xSolution.get(2), 4.0, 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleCaseThree()
    {
       int matrixSize = 1;
@@ -121,7 +121,7 @@ public class EqualityConstraintEnforcerTest
       assertEquals(xSolution.get(2), 4.0, 1e-7);
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testSimpleOverconstrainedCaseFour()
    {
       int matrixSize = 1;

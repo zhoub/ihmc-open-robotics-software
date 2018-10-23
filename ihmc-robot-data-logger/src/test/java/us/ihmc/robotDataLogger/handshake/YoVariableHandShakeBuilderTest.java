@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -43,7 +43,7 @@ public class YoVariableHandShakeBuilderTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testHandshake()
    {
       Random random = new Random(12451528l);

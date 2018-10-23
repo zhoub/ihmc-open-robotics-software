@@ -5,7 +5,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -55,7 +55,7 @@ public abstract class QuadrupedPositionCrawlWalkingWithStopsTest implements Quad
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
    
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testWalkingForwardFastWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       Random random = new Random(1888L);
@@ -76,7 +76,7 @@ public abstract class QuadrupedPositionCrawlWalkingWithStopsTest implements Quad
       }
    }
    
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testWalkingForwardSlowWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       Random random = new Random(1987L);
@@ -97,7 +97,7 @@ public abstract class QuadrupedPositionCrawlWalkingWithStopsTest implements Quad
       }
    }
    
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testWalkingBackwardSlowWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       Random random = new Random(15567L);
@@ -120,7 +120,7 @@ public abstract class QuadrupedPositionCrawlWalkingWithStopsTest implements Quad
    
    @Tag("video")
    @Disabled
-   @Test(timeout = 600000)
+   @Test // timeout = 600000
    public void testWalkingBackwardFastWithStops() throws SimulationExceededMaximumTimeException, ControllerFailureException, IOException
    {
       Random random = new Random(1889L);

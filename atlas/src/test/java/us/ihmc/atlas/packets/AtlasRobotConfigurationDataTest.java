@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Output;
@@ -37,7 +37,7 @@ public class AtlasRobotConfigurationDataTest
     * 
     * This allows sending data without fragmentation, reducing jitter and making UDP communication simpler.
     */
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSerializedSize()
    {
       ByteArrayOutputStream os = new ByteArrayOutputStream(1500);

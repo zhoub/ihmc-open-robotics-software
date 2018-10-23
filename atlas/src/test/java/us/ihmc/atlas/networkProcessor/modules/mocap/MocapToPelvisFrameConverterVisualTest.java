@@ -5,7 +5,7 @@ import java.util.Random;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import optiTrack.MocapMarker;
 import optiTrack.MocapRigidBody;
@@ -55,7 +55,7 @@ public class MocapToPelvisFrameConverterVisualTest
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 14000)
+   @Test // timeout = 14000
    public void testVisuallyForMarkerToPelvisAlignment()
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

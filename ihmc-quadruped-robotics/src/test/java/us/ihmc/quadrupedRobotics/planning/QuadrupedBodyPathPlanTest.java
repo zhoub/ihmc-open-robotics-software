@@ -3,7 +3,7 @@ package us.ihmc.quadrupedRobotics.planning;
 import controller_msgs.msg.dds.EuclideanTrajectoryPointMessage;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.euclid.tuple3D.Vector3D;
@@ -66,7 +66,7 @@ public abstract class QuadrupedBodyPathPlanTest implements QuadrupedMultiRobotTe
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 200000)
+   @Test // timeout = 200000
    public void testSimpleBodyPathPlan()
    {
       setUpSimulation(null);

@@ -2,7 +2,7 @@ package us.ihmc.simulationConstructionSetTools.util.environments;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.PrintTools;
 import org.junit.jupiter.api.Tag;
@@ -29,7 +29,7 @@ public class ContactableDoorRobotTest
    
    RigidBodyTransform doorToWorldTransform = new RigidBodyTransform();
    
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testPointIsClose()
    {      
       double epsilon = 1e-4;
@@ -49,7 +49,7 @@ public class ContactableDoorRobotTest
       assertTrue(door.isPointOnOrInside(diagonal));
    }
    
-   @Test(timeout=300000)
+   @Test // timeout=300000
    public void testDoorIsClosing()
    {
       doorTestRegistry = new YoVariableRegistry("doorTestRegistry");

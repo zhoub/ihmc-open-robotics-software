@@ -1,7 +1,7 @@
 package us.ihmc.atlas.ObstacleCourseTests;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasJointMap;
 import us.ihmc.atlas.AtlasRobotModel;
@@ -30,7 +30,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @Disabled
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testWalkingForwardWithHalfFootContactChangesStopBetweenSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingForwardWithHalfFootContactChangesStopBetweenSteps();
@@ -40,7 +40,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * Tests the foothold detection and makes sure the detected area matches the real one.
     */
    @Override
-   @Test(timeout = 590000)
+   @Test // timeout = 590000
    public void testStandingWithGCPointsChangingOnTheFly() throws SimulationExceededMaximumTimeException, RuntimeException
    {
       super.testStandingWithGCPointsChangingOnTheFly();
@@ -51,7 +51,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @Tag("in-development")
-   @Test(timeout = 570000)
+   @Test // timeout = 570000
    public void testWalkingForwardWithHalfFootContactChangesContinuousSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingForwardWithHalfFootContactChangesContinuousSteps();
@@ -61,7 +61,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * The robot walks forward with partial footholds. The controller knows about the foothold beforehand.
     */
    @Override
-   @Test(timeout = 950000)
+   @Test // timeout = 950000
    public void testWalkingForwardWithPartialFootholdsAndStopBetweenSteps() throws SimulationExceededMaximumTimeException
    {
       super.testWalkingForwardWithPartialFootholdsAndStopBetweenSteps();
@@ -71,7 +71,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * This test steps in place with partial footholds. The controller knows about the foothold beforehand.
     */
    @Override
-   @Test(timeout = 920000)
+   @Test // timeout = 920000
    public void testTakingStepsWithActualAndPredictedFootPolygonsChanging() throws SimulationExceededMaximumTimeException
    {
       super.testTakingStepsWithActualAndPredictedFootPolygonsChanging();
@@ -81,7 +81,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * The robot takes a step while on a partial foothold and receives a push that requires the use of angular momentum to recover.
     */
    @Override
-   @Test(timeout = 310000)
+   @Test // timeout = 310000
    public void testSidePushDuringSwing() throws SimulationExceededMaximumTimeException
    {
       super.testSidePushDuringSwing();
@@ -92,7 +92,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * and hold position. Then it takes some steps in place with the part of foot changing each step.
     */
    @Override
-   @Test(timeout = 390000)
+   @Test // timeout = 390000
    @Disabled // is a duplicate of other tests with less asserts.
    public void testStandingAndStepsInPlaceWithHalfFootContactsChanges() throws SimulationExceededMaximumTimeException
    {
@@ -103,7 +103,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     * The robot walks thinking it has small footholds but actually has full footholds.
     */
    @Override
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
    @Disabled // does only test stuff that is already covered by other tests in a easier setup
    public void testWalkingWithLinePredictedSupportPolygonButFullActualPolygon() throws SimulationExceededMaximumTimeException
    {
@@ -111,7 +111,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
    }
 
    @Override
-   @Test(timeout = 400000)
+   @Test // timeout = 400000
    @Disabled // not very interesting test the push does not do much
    public void testHoldPositionByStandingOnOneLegAndGettingPushedSideways() throws SimulationExceededMaximumTimeException
    {
@@ -123,7 +123,7 @@ public class AtlasPointyRocksTest extends HumanoidPointyRocksTest
     */
    @Override
    @Disabled
-   @Test(timeout = 300000)
+   @Test // timeout = 300000
    public void testBalanceOnLine() throws SimulationExceededMaximumTimeException
    {
       super.testBalanceOnLine();

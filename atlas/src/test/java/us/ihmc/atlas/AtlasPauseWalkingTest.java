@@ -1,6 +1,6 @@
 package us.ihmc.atlas;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.parameters.AtlasWalkingControllerParameters;
 import us.ihmc.avatar.AvatarPauseWalkingTest;
@@ -98,7 +98,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @Tag("slow")
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    @Override
    public void testPauseWalking() throws SimulationExceededMaximumTimeException
    {
@@ -106,7 +106,7 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @Tag("slow")
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    @Override
    public void testTwoIndependentSteps()throws SimulationExceededMaximumTimeException
    {
@@ -114,21 +114,21 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @Tag("slow")
-   @Test(timeout = 380000)
+   @Test // timeout = 380000
    @Override
    public void testStartSecondStepWhileTransitioningToStand()throws SimulationExceededMaximumTimeException
    {
       super.testStartSecondStepWhileTransitioningToStand();
    }
 
-   @Test(timeout = 390000)
+   @Test // timeout = 390000
    @Override
    public void testPauseWalkingForward() throws SimulationExceededMaximumTimeException
    {
       super.testPauseWalkingForward();
    }
 
-   @Test(timeout = 390000)
+   @Test // timeout = 390000
    @Override
    public void testPauseWalkingInitialTransfer() throws SimulationExceededMaximumTimeException
    {
@@ -136,14 +136,14 @@ public class AtlasPauseWalkingTest extends AvatarPauseWalkingTest
    }
 
    @Tag("slow")
-   @Test(timeout = 370000)
+   @Test // timeout = 370000
    @Override
    public void testPauseWalkingForwardInitialTransfer() throws SimulationExceededMaximumTimeException
    {
       super.testPauseWalkingForwardInitialTransfer();
    }
 
-   @Test(timeout = 100000)
+   @Test // timeout = 100000
    public void testPauseWalkingInitialTransferOneStep() throws SimulationExceededMaximumTimeException
    {
       super.testPauseWalkingInitialTransferOneStep();

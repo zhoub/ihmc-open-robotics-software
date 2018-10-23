@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -37,7 +37,7 @@ public class GlitchFilteredYoBooleanTest
       filteredVariable = null;
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testConstructors_Set_Get()
    {
       GlitchFilteredYoBoolean number1 = new GlitchFilteredYoBoolean("stringInt", WINDOW_SIZE);
@@ -63,7 +63,7 @@ public class GlitchFilteredYoBooleanTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testUpdate()
    {
       int windowSize = 3;
@@ -118,7 +118,7 @@ public class GlitchFilteredYoBooleanTest
       }
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testCounter()
    {
       int windowSize = 10;
@@ -134,7 +134,7 @@ public class GlitchFilteredYoBooleanTest
       
    }
 
-	@Test(timeout=300000)
+	@Test // timeout=300000
    public void testFiltering()
    {
       yoVariableToFilter.set(true);

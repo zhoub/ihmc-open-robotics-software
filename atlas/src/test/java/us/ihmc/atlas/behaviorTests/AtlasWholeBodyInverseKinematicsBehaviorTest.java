@@ -2,7 +2,7 @@ package us.ihmc.atlas.behaviorTests;
 
 import java.io.IOException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -31,49 +31,49 @@ public class AtlasWholeBodyInverseKinematicsBehaviorTest extends WholeBodyInvers
    }
 
    @Override
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testSolvingForAHandPose() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSolvingForAHandPose();
    }
 
    @Override
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testSolvingForBothHandPoses() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSolvingForBothHandPoses();
    }
 
    @Override
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testSolvingForChestAngularControl() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSolvingForChestAngularControl();
    }
 
    @Override
-   @Test(timeout = 240000)
+   @Test // timeout = 240000
    public void testSolvingForHandAngularLinearControl() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSolvingForHandAngularLinearControl();
    }
 
    @Override
-   @Test(timeout = 250000)
+   @Test // timeout = 250000
    public void testSolvingForHandRollConstraint() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSolvingForHandRollConstraint();
    }
 
    @Override
-   @Test(timeout = 230000)
+   @Test // timeout = 230000
    public void testSolvingForHandSelectionMatrix() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSolvingForHandSelectionMatrix();
    }
 
    @Override
-   @Test(timeout = 180000)
+   @Test // timeout = 180000
    public void testSolvingForPelvisAngularControl() throws SimulationExceededMaximumTimeException, IOException
    {
       super.testSolvingForPelvisAngularControl();

@@ -2,7 +2,7 @@ package us.ihmc.systemIdentification.frictionId.frictionModels;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -25,7 +25,7 @@ public class AsymmetricCoulombViscousStribeckFrictionModelTest
    private double negativeOutStribeckVelocity = -0.18;
    private double zeroVelocity = 0.0;
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConstructorAndFormula()
    {
       AsymmetricCoulombViscousStribeckFrictionModel model = new AsymmetricCoulombViscousStribeckFrictionModel(positiveSigma,

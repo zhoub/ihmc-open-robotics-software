@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import controller_msgs.msg.dds.HandDesiredConfigurationMessage;
 import us.ihmc.avatar.DRCObstacleCourseStartingLocation;
@@ -76,7 +76,7 @@ public abstract class HumanoidHandDesiredConfigurationBehaviorTest implements Mu
                                                         simulationTestingParameters, getRobotModel());
    }
 
-   @Test(timeout = 83115)
+   @Test // timeout = 83115
    public void testCloseHand() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -103,7 +103,7 @@ public abstract class HumanoidHandDesiredConfigurationBehaviorTest implements Mu
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @Test(timeout = 83115)
+   @Test // timeout = 83115
    public void testStopCloseHand() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());
@@ -144,7 +144,7 @@ public abstract class HumanoidHandDesiredConfigurationBehaviorTest implements Mu
       BambooTools.reportTestFinishedMessage(simulationTestingParameters.getShowWindows());
    }
 
-   @Test(timeout = 83115)
+   @Test // timeout = 83115
    public void testPauseAndResumeCloseHand() throws SimulationExceededMaximumTimeException
    {
       BambooTools.reportTestStartedMessage(simulationTestingParameters.getShowWindows());

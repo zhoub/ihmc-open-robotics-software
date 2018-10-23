@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.awt.event.InputEvent;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -12,7 +12,7 @@ import us.ihmc.graphicsDescription.input.mouse.MouseButton;
 
 public class MouseButtonTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMouseButton()
    {
       assertTrue("Valu not rite", MouseButton.LEFT.getInputEventMask() == InputEvent.BUTTON1_DOWN_MASK);

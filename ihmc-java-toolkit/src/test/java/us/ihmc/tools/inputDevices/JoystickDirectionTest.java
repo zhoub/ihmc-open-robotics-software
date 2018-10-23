@@ -2,14 +2,14 @@ package us.ihmc.tools.inputDevices;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class JoystickDirectionTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testGetFromJoystickPOV()
    {
       assertEquals(JoystickDirection.getFromJoystickPOV(-0.1f), null);

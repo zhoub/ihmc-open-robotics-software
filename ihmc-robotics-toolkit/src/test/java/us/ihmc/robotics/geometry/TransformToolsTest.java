@@ -7,7 +7,7 @@ import java.util.Random;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.ops.CommonOps;
 import org.junit.After;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -32,7 +32,7 @@ public class TransformToolsTest
       ReferenceFrameTools.clearWorldFrameTree();
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testRotate()
    {
       RigidBodyTransform transform = new RigidBodyTransform();
@@ -66,7 +66,7 @@ public class TransformToolsTest
       EuclidCoreTestTools.assertRigidBodyTransformEquals(transform, transform2, 1e-7);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetTransformFromA1toA2Simple()
    {
       Vector3D vectorA1 = new Vector3D(-1.0, -2.0, -3.0);
@@ -97,7 +97,7 @@ public class TransformToolsTest
       a2Origin.epsilonEquals(a2OriginFramePoint, 1e-9);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetTransformFromA1toA2Random()
    {
       DenseMatrix64F matrix = new DenseMatrix64F(4, 4);
@@ -129,7 +129,7 @@ public class TransformToolsTest
       a2Origin.epsilonEquals(a2OriginFramePoint, 1e-9);
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testgetTransformDifference()
    {
       RigidBodyTransform rigidBodyTransform = new RigidBodyTransform();
@@ -164,7 +164,7 @@ public class TransformToolsTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testgetTransformDifferenceBetweenTwoTransforms()
    {
 

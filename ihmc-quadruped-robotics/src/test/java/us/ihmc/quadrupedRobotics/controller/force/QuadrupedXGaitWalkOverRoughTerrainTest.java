@@ -2,7 +2,7 @@ package us.ihmc.quadrupedRobotics.controller.force;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 import us.ihmc.quadrupedRobotics.*;
@@ -48,7 +48,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       MemoryTools.printCurrentMemoryUsageAndReturnUsedMemoryInMB(getClass().getSimpleName() + " after test.");
    }
 
-   @Test(timeout = 2000000)
+   @Test // timeout = 2000000
    public void testWalkingOverTiledGround() throws IOException
    {
       VaryingHeightTiledGroundEnvironment environment = new VaryingHeightTiledGroundEnvironment(0.75, 10, 4, -0.1, 0.1);
@@ -59,7 +59,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       runWalkingOverTerrain(environment, walkTime, walkingSpeed, minimumXPositionAfterWalking, getXGaitSettings());
    }
 
-   @Test(timeout = 2000000)
+   @Test // timeout = 2000000
    public void testWalkingOverSingleStepUp() throws IOException
    {
       SingleStepEnvironment environment = new SingleStepEnvironment(0.1, 1.0);
@@ -70,7 +70,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       runWalkingOverTerrain(environment, walkTime, walkingSpeed, minimumXPositionAfterWalking, getXGaitSettings());
    }
 
-   @Test(timeout = 2000000)
+   @Test // timeout = 2000000
    public void testWalkingOverConsecutiveRamps() throws IOException
    {
       ZigZagSlopeEnvironment environment = new ZigZagSlopeEnvironment(0.15, 0.5, 20, -0.1);
@@ -81,7 +81,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       runWalkingOverTerrain(environment, walkTime, walkingSpeed, minimumXPositionAfterWalking, getXGaitSettings());
    }
 
-   @Test(timeout = 2000000)
+   @Test // timeout = 2000000
    public void testWalkingOverCinderBlockField() throws IOException
    {
       CinderBlockFieldPlanarRegionEnvironment environment = new CinderBlockFieldPlanarRegionEnvironment();
@@ -92,7 +92,7 @@ public abstract class QuadrupedXGaitWalkOverRoughTerrainTest implements Quadrupe
       runWalkingOverTerrain(environment, walkTime, walkingSpeed, minimumXPositionAfterWalking, getXGaitSettings());
    }
 
-   @Test(timeout = 2000000)
+   @Test // timeout = 2000000
    public void testWalkingUpStaircase() throws IOException
    {
       double stepHeight = 0.13;

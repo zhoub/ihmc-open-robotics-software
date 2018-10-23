@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -28,7 +28,7 @@ public class HysteresisFilteredYoVariableTest
    {
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testNoHysteresis()
    {
       guideLineHysteresis.set(0.0);
@@ -50,7 +50,7 @@ public class HysteresisFilteredYoVariableTest
       //    plot(x, new double[][]{unfilteredValues, filteredValues}, "No Hysteresis");
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSomeHysteresis()
    {
       guideLineHysteresis.set(0.2);

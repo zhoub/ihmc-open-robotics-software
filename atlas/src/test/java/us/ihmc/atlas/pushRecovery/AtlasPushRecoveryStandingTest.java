@@ -1,7 +1,7 @@
 package us.ihmc.atlas.pushRecovery;
 
 import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -31,35 +31,35 @@ public class AtlasPushRecoveryStandingTest extends DRCPushRecoveryStandingTest
 	}
 
 	@Disabled
-   @Test(timeout = 270000)
+   @Test // timeout = 270000
 	@Override
 	public void testDoublePushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{
 	   super.testDoublePushForwardInDoubleSupportAndContinueWalking();
 	}
 
-   @Test(timeout = 340000)
+   @Test // timeout = 340000
 	@Override
 	public void testPushBackwardForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{
 	   super.testPushBackwardForwardInDoubleSupportAndContinueWalking();
 	}
 
-   @Test(timeout = 290000)
+   @Test // timeout = 290000
 	@Override
 	public void testPushBackwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{
 	   super.testPushBackwardInDoubleSupportAndContinueWalking();
 	}
 
-   @Test(timeout = 210000)
+   @Test // timeout = 210000
 	@Override
 	public void testPushForwardInDoubleSupport() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{
 	   super.testPushForwardInDoubleSupport();
 	}
 
-   @Test(timeout = 320000)
+   @Test // timeout = 320000
 	@Override
 	public void testPushForwardInDoubleSupportAndContinueWalking() throws SimulationExceededMaximumTimeException, InterruptedException, ControllerFailureException
 	{

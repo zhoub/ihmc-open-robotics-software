@@ -6,7 +6,7 @@ import java.net.URISyntaxException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import std_msgs.String;
 import org.junit.jupiter.api.Tag;
@@ -19,7 +19,7 @@ import us.ihmc.utilities.ros.subscriber.RosTopicSubscriberInterface;
 @Tag("flaky")
 public class RosTopicPublisherSubscriberTest extends IHMCRosTestWithRosCore
 {
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testPubSubMultipleMessages() throws URISyntaxException, InterruptedException
    {
       int nPacket=10;

@@ -2,7 +2,7 @@ package us.ihmc.robotics.geometry;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.commons.MutationTestFacilitator;
 import org.junit.jupiter.api.Tag;
@@ -14,7 +14,7 @@ import us.ihmc.euclid.tuple3D.Vector3D;
 @Tag("fast")
 public class RigidBodyTransformGeneratorTest
 {
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testSimpleTransformGeneration()
    {
       RigidBodyTransformGenerator generator = new RigidBodyTransformGenerator();
@@ -70,7 +70,7 @@ public class RigidBodyTransformGeneratorTest
 
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testTranslateThenRotateTransformGeneration()
    {
       RigidBodyTransformGenerator generator = new RigidBodyTransformGenerator();
@@ -84,7 +84,7 @@ public class RigidBodyTransformGeneratorTest
       assertTrue(transform.epsilonEquals(expectedTransform, 1e-10));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testMultiStepTransformGeneration()
    {
       RigidBodyTransformGenerator generator = new RigidBodyTransformGenerator();

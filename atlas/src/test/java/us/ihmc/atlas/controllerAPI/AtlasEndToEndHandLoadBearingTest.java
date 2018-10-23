@@ -1,6 +1,6 @@
 package us.ihmc.atlas.controllerAPI;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -17,7 +17,7 @@ public class AtlasEndToEndHandLoadBearingTest extends EndToEndHandLoadBearingTes
    private final AtlasRobotModel robotModel = new AtlasRobotModel(AtlasRobotVersion.ATLAS_UNPLUGGED_V5_NO_HANDS, RobotTarget.SCS, false, true);
 
    @Override
-   @Test(timeout = 310000)
+   @Test // timeout = 310000
    public void testUsingHand() throws SimulationExceededMaximumTimeException
    {
       super.testUsingHand();

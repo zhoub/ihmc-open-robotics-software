@@ -2,7 +2,7 @@ package us.ihmc.atlas.referenceFrames;
 
 import java.lang.reflect.InvocationTargetException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import us.ihmc.atlas.AtlasRobotModel;
 import us.ihmc.atlas.AtlasRobotVersion;
@@ -19,21 +19,21 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @Test(timeout = 30000, expected = IllegalArgumentException.class)
+   @Test // timeout = 30000, expected = IllegalArgumentException.class
    public void testAddingTwoFramesWithTheSameNameThrowsException()
    {
       super.testAddingTwoFramesWithTheSameNameThrowsException();
    }
    
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList() throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
       super.testAllFramesGottenFromFullRobotModelMethodsAreInTheHashList();
    }
    
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAllFramesGottenFromHumanoidReferenceFrameMethodsAreInTheHashList()
          throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
    {
@@ -41,14 +41,14 @@ public class AtlasReferenceFrameHashTest extends ReferenceFrameHashTest
    }
    
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode()
    {
       super.testAllFramesInFullRobotModelMatchHumanoidReferenceFramesThroughHashCode();
    }
    
    @Override
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testGetReferenceFrameFromHashCodeReturnsSameNamedFrames()
    {
       super.testGetReferenceFrameFromHashCodeReturnsSameNamedFrames();

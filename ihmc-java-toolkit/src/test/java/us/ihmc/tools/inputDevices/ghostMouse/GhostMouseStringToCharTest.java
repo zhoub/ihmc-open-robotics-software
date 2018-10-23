@@ -4,14 +4,14 @@ import static org.junit.Assert.assertEquals;
 
 import java.awt.event.KeyEvent;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
 public class GhostMouseStringToCharTest
 {
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConvertStringToKeycode()
    {
       assertEquals(KeyEvent.VK_SPACE, GhostMouseStringToChar.convertStringToKeycode("SPACE"));
@@ -26,7 +26,7 @@ public class GhostMouseStringToCharTest
       assertEquals(KeyEvent.VK_9, GhostMouseStringToChar.convertStringToKeycode("9"));
    }
 
-	@Test(timeout = 30000)
+	@Test // timeout = 30000
    public void testConvertKeycodeToString()
    {
       assertEquals("SPACE", GhostMouseStringToChar.convertKeycodeToString(KeyEvent.VK_SPACE));

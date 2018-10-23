@@ -8,7 +8,7 @@ import org.junit.Before;
 import controller_msgs.msg.dds.FootstepDataListMessage;
 import controller_msgs.msg.dds.PlanarRegionsListMessage;
 import controller_msgs.msg.dds.RequestPlanarRegionsListMessage;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import us.ihmc.avatar.MultiRobotTestInterface;
 import us.ihmc.avatar.drcRobot.DRCRobotModel;
 import us.ihmc.avatar.testTools.DRCSimulationTestHelper;
@@ -114,7 +114,7 @@ public abstract class AvatarPushRecoveryOverGapTest implements MultiRobotTestInt
    }
 
 
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testNoPush() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -128,7 +128,7 @@ public abstract class AvatarPushRecoveryOverGapTest implements MultiRobotTestInt
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @Test(timeout = 170000)
+   @Test // timeout = 170000
    public void testForwardPush() throws SimulationExceededMaximumTimeException
    {
       setupTest();
@@ -151,7 +151,7 @@ public abstract class AvatarPushRecoveryOverGapTest implements MultiRobotTestInt
       drcSimulationTestHelper.assertRobotsRootJointIsInBoundingBox(boundingBox);
    }
 
-   @Test(timeout = 70000)
+   @Test // timeout = 70000
    public void testSidePush() throws SimulationExceededMaximumTimeException
    {
       setupTest();

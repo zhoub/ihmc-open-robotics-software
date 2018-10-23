@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Disabled;
@@ -25,7 +25,7 @@ public class CapsuleTest
       assertTrue(result.epsilonEquals(exp, epsilon));
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void test()
    {
       Point3D res1 = new Point3D();
@@ -99,7 +99,7 @@ public class CapsuleTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOther()
    {
       Random rand = new Random();
@@ -117,7 +117,7 @@ public class CapsuleTest
       }
    }
 
-   @Test(timeout = 30000)
+   @Test // timeout = 30000
    public void testOther_2()
    {
       Random rand = new Random();
