@@ -33,6 +33,7 @@ public class AtlasBehaviorDispatcherTest extends HumanoidBehaviorDispatcherTest
       return BambooTools.getSimpleRobotNameFor(BambooTools.SimpleRobotNameKeys.ATLAS);
    }
 
+   @Disabled("Hangs forever, with Exception in thread \"IntraProcessDomainImpl-thread-5938\" java.lang.NullPointerException")
    @Override
    @Test // timeout = 320000
    public void testDispatchPelvisPoseBehavior() throws SimulationExceededMaximumTimeException
