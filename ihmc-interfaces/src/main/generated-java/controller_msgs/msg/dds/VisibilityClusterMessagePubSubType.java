@@ -55,6 +55,9 @@ public class VisibilityClusterMessagePubSubType implements us.ihmc.pubsub.TopicD
       current_alignment += 4 + us.ihmc.idl.CDR.alignment(current_alignment, 4);for(int i0 = 0; i0 < 25; ++i0)
       {
           current_alignment += geometry_msgs.msg.dds.PointPubSubType.getMaxCdrSerializedSize(current_alignment);}
+      current_alignment += 4 + us.ihmc.idl.CDR.alignment(current_alignment, 4);for(int i0 = 0; i0 < 25; ++i0)
+      {
+          current_alignment += geometry_msgs.msg.dds.PointPubSubType.getMaxCdrSerializedSize(current_alignment);}
 
       return current_alignment - initial_alignment;
    }
@@ -91,6 +94,11 @@ public class VisibilityClusterMessagePubSubType implements us.ihmc.pubsub.TopicD
       {
           current_alignment += geometry_msgs.msg.dds.PointPubSubType.getCdrSerializedSize(data.getNonNavigableExtrusionsInLocal().get(i0), current_alignment);}
 
+      current_alignment += 4 + us.ihmc.idl.CDR.alignment(current_alignment, 4);
+      for(int i0 = 0; i0 < data.getRotationExtrusionsInLocal().size(); ++i0)
+      {
+          current_alignment += geometry_msgs.msg.dds.PointPubSubType.getCdrSerializedSize(data.getRotationExtrusionsInLocal().get(i0), current_alignment);}
+
 
       return current_alignment - initial_alignment;
    }
@@ -114,6 +122,10 @@ public class VisibilityClusterMessagePubSubType implements us.ihmc.pubsub.TopicD
       cdr.write_type_e(data.getNonNavigableExtrusionsInLocal());else
           throw new RuntimeException("non_navigable_extrusions_in_local field exceeds the maximum length");
 
+      if(data.getRotationExtrusionsInLocal().size() <= 25)
+      cdr.write_type_e(data.getRotationExtrusionsInLocal());else
+          throw new RuntimeException("rotation_extrusions_in_local field exceeds the maximum length");
+
    }
 
    public static void read(controller_msgs.msg.dds.VisibilityClusterMessage data, us.ihmc.idl.CDR cdr)
@@ -126,6 +138,7 @@ public class VisibilityClusterMessagePubSubType implements us.ihmc.pubsub.TopicD
       cdr.read_type_e(data.getRawPointsInLocal());	
       cdr.read_type_e(data.getNavigableExtrusionsInLocal());	
       cdr.read_type_e(data.getNonNavigableExtrusionsInLocal());	
+      cdr.read_type_e(data.getRotationExtrusionsInLocal());	
 
    }
 
@@ -139,6 +152,7 @@ public class VisibilityClusterMessagePubSubType implements us.ihmc.pubsub.TopicD
       ser.write_type_e("raw_points_in_local", data.getRawPointsInLocal());
       ser.write_type_e("navigable_extrusions_in_local", data.getNavigableExtrusionsInLocal());
       ser.write_type_e("non_navigable_extrusions_in_local", data.getNonNavigableExtrusionsInLocal());
+      ser.write_type_e("rotation_extrusions_in_local", data.getRotationExtrusionsInLocal());
    }
 
    @Override
@@ -151,6 +165,7 @@ public class VisibilityClusterMessagePubSubType implements us.ihmc.pubsub.TopicD
       ser.read_type_e("raw_points_in_local", data.getRawPointsInLocal());
       ser.read_type_e("navigable_extrusions_in_local", data.getNavigableExtrusionsInLocal());
       ser.read_type_e("non_navigable_extrusions_in_local", data.getNonNavigableExtrusionsInLocal());
+      ser.read_type_e("rotation_extrusions_in_local", data.getRotationExtrusionsInLocal());
    }
 
    public static void staticCopy(controller_msgs.msg.dds.VisibilityClusterMessage src, controller_msgs.msg.dds.VisibilityClusterMessage dest)

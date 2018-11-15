@@ -22,4 +22,6 @@ geometry_msgs/Point[] navigable_extrusions_in_local
 
 geometry_msgs/Point[] non_navigable_extrusions_in_local
 
+geometry_msgs/Point[] rotation_extrusions_in_local
+
 

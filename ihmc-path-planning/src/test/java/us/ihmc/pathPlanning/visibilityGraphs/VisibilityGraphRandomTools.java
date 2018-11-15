@@ -34,6 +34,7 @@ public class VisibilityGraphRandomTools
       List<Point3D> rawPointsInLocalExpected = new ArrayList<>();
       List<Point2D> navigableExtrusionsInLocalExpected = new ArrayList<>();
       List<Point2D> nonNavigableExtrusionsInLocalExpected = new ArrayList<>();
+      List<Point2D> rotationExtrusionsInLocalExpected = new ArrayList<>();
 
       for (int i = 0; i < numberOfRawPoints; i++)
          rawPointsInLocalExpected.add(EuclidCoreRandomTools.nextPoint3D(random, 100.0));
@@ -41,6 +42,8 @@ public class VisibilityGraphRandomTools
          navigableExtrusionsInLocalExpected.add(EuclidCoreRandomTools.nextPoint2D(random, 100.0));
       for (int i = 0; i < numberOfNonNavigableExtrusions; i++)
          nonNavigableExtrusionsInLocalExpected.add(EuclidCoreRandomTools.nextPoint2D(random, 100.0));
+      for (int i = 0; i < numberOfNonNavigableExtrusions; i++)
+         rotationExtrusionsInLocalExpected.add(EuclidCoreRandomTools.nextPoint2D(random, 100.0));
 
       Cluster cluster = new Cluster();
       cluster.setTransformToWorld(transformToWorld);
@@ -53,6 +56,8 @@ public class VisibilityGraphRandomTools
          cluster.addNavigableExtrusionInLocal(navigableExtrusionsInLocalExpected.get(i));
       for (int i = 0; i < numberOfNonNavigableExtrusions; i++)
          cluster.addNonNavigableExtrusionInLocal(nonNavigableExtrusionsInLocalExpected.get(i));
+      for (int i = 0; i < numberOfNonNavigableExtrusions; i++)
+         cluster.addRotationExtrusionInLocal(rotationExtrusionsInLocalExpected.get(i));
 
       return cluster;
    }

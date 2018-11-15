@@ -31,6 +31,8 @@
                               GridPane.columnIndex="2" GridPane.rowIndex="3"/>
                 <CheckBox fx:id="showClusterRawPointsToggleButton" mnemonicParsing="false" text="Show cluster raw points" GridPane.columnIndex="2"
                               GridPane.rowIndex="4"/>
+                <CheckBox fx:id="showClusterRotationExtrusionsToggleButton" mnemonicParsing="false" text="Show rotation extrusions"
+                          GridPane.columnIndex="2" GridPane.rowIndex="5"/>
 
                 <CheckBox fx:id="showGoalMapToggleButton" mnemonicParsing="false" text="Show goal map" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
                 <CheckBox fx:id="showStartMapToggleButton" mnemonicParsing="false" text="Show start map" GridPane.columnIndex="3" GridPane.rowIndex="2"/>

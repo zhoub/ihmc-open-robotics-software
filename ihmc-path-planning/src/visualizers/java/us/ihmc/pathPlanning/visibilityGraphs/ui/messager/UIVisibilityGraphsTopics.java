@@ -30,6 +30,7 @@ public class UIVisibilityGraphsTopics
    private static final CategoryTheme NavigableRegion = apiFactory.createCategoryTheme("NavigableRegion");
    private static final CategoryTheme NavigableExtrusions = apiFactory.createCategoryTheme("NavigableExtrusions");
    private static final CategoryTheme NonNavigableExtrusions = apiFactory.createCategoryTheme("NonNavigableExtrusions");
+   private static final CategoryTheme RotationExtrusions = apiFactory.createCategoryTheme("RotationExtrusions");
    private static final CategoryTheme PlanarRegion = apiFactory.createCategoryTheme("PlanarRegion");
    private static final CategoryTheme Start = apiFactory.createCategoryTheme("Start");
    private static final CategoryTheme Goal = apiFactory.createCategoryTheme("Goal");
@@ -99,6 +100,7 @@ public class UIVisibilityGraphsTopics
    public static final Topic<Boolean> ShowClusterRawPoints = Root.child(VisibilityGraphs).child(Cluster).child(RawPoints).topic(Show);
    public static final Topic<Boolean> ShowClusterNavigableExtrusions = Root.child(VisibilityGraphs).child(Cluster).child(NavigableExtrusions).topic(Show);
    public static final Topic<Boolean> ShowClusterNonNavigableExtrusions = Root.child(VisibilityGraphs).child(Cluster).child(NonNavigableExtrusions).topic(Show);
+   public static final Topic<Boolean> ShowClusterRotationExtrusions = Root.child(VisibilityGraphs).child(Cluster).child(RotationExtrusions).topic(Show);
    public static final Topic<Boolean> exportUnitTestDataFile = Root.child(UnitTest).topic(Export);
    public static final Topic<String> exportUnitTestPath = Root.child(UnitTest).topic(Path);
 

@@ -39,6 +39,7 @@ module controller_msgs
         sequence<geometry_msgs::msg::dds::Point, 25> raw_points_in_local;
         sequence<geometry_msgs::msg::dds::Point, 25> navigable_extrusions_in_local;
         sequence<geometry_msgs::msg::dds::Point, 25> non_navigable_extrusions_in_local;
+        sequence<geometry_msgs::msg::dds::Point, 25> rotation_extrusions_in_local;
       };
     };
   };

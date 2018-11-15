@@ -20,6 +20,7 @@ public class Cluster
    private final List<Point3DReadOnly> rawPointsLocal = new ArrayList<>();
    private final List<Point2DReadOnly> navigableExtrusionsInLocal = new ArrayList<>();
    private final List<Point2DReadOnly> nonNavigableExtrusionsInLocal = new ArrayList<>();
+   private final List<Point2DReadOnly> rotationExtrusionsInLocal = new ArrayList<>();
 
    private final BoundingBox2D nonNavigableExtrusionsBoundingBox = new BoundingBox2D();
 
@@ -225,6 +226,20 @@ public class Cluster
       return navigableExtrusionsInLocal.stream().map(this::toWorld3D).collect(Collectors.toList());
    }
 
+   public void addRotationExtrusionInLocal(Point2DReadOnly rotationExtrusionInLocal)
+   {
+      rotationExtrusionsInLocal.add(new Point2D(rotationExtrusionInLocal));
+   }
+
+   public void addRotationExtrusionInLocal(Point3DReadOnly rotationExtrusionInLocal)
+   {
+      rotationExtrusionsInLocal.add(new Point2D(rotationExtrusionInLocal));
+   }
+
+   public void addRotationExtrusionsInLocal(List<Point2DReadOnly> rotationExtrusionsInLocal)
+   {
+      rotationExtrusionsInLocal.forEach(this::addRotationExtrusionInLocal);
+   }
 
    public void addNonNavigableExtrusionInLocal(Point2DReadOnly nonNavigableExtrusionInLocal)
    {
@@ -251,6 +266,11 @@ public class Cluster
       return nonNavigableExtrusionsInLocal.size();
    }
 
+   public int getNumberOfRotationExtrusions()
+   {
+      return rotationExtrusionsInLocal.size();
+   }
+
    public Point2DReadOnly getNonNavigableExtrusionInLocal(int i)
    {
       return nonNavigableExtrusionsInLocal.get(i);
@@ -269,6 +289,21 @@ public class Cluster
    public List<Point3DReadOnly> getNonNavigableExtrusionsInWorld()
    {
       return nonNavigableExtrusionsInLocal.stream().map(this::toWorld3D).collect(Collectors.toList());
+   }
+
+   public Point2DReadOnly getRotationExtrusionInLocal(int i)
+   {
+      return rotationExtrusionsInLocal.get(i);
+   }
+
+   public List<Point2DReadOnly> getRotationExtrusionsInLocal()
+   {
+      return rotationExtrusionsInLocal;
+   }
+
+   public List<Point3DReadOnly> getRotationExtrusionsInWorld()
+   {
+      return rotationExtrusionsInLocal.stream().map(this::toWorld3D).collect(Collectors.toList());
    }
 
    private Point3D toWorld3D(Point2DReadOnly pointInLocal)

@@ -110,6 +110,30 @@ public interface VisibilityGraphsParameters
       };
    }
 
+   /**
+    * This calculator is used when extruding the projection of an obstacle onto a navigable region.
+    *
+    * @return the calculator use for obstacle extrusion.
+    */
+   default ObstacleExtrusionDistanceCalculator getRotationExtrusionDistanceCalculator()
+   {
+      return (pointToExtrude, obstacleHeight) ->
+      {
+         if(obstacleHeight < 0.0)
+         {
+            return 0.0;
+         }
+         else if(obstacleHeight < getTooHighToStepDistance())
+         {
+            return getExtrusionDistanceIfNotTooHighToStep();
+         }
+         else
+         {
+            return getExtrusionDistance();
+         }
+      };
+   }
+
    default NavigableRegionFilter getNavigableRegionFilter()
    {
       return new NavigableRegionFilter()

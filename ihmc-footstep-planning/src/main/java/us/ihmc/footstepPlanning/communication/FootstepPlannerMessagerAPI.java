@@ -44,6 +44,7 @@ public class FootstepPlannerMessagerAPI
    private static final CategoryTheme Raw = apiFactory.createCategoryTheme("Raw");
    private static final CategoryTheme Navigable = apiFactory.createCategoryTheme("Navigable");
    private static final CategoryTheme NonNavigable = apiFactory.createCategoryTheme("NonNavigable");
+   private static final CategoryTheme Rotation = apiFactory.createCategoryTheme("Rotation");
    private static final CategoryTheme OccupancyMap = apiFactory.createCategoryTheme("OccupancyMap");
    private static final CategoryTheme PlannerData = apiFactory.createCategoryTheme("PlannerData");
 
@@ -139,6 +140,7 @@ public class FootstepPlannerMessagerAPI
    public static final Topic<Boolean> ShowClusterRawPoints = Root.child(VisibilityGraphs).child(Cluster).child(Raw).topic(Show);
    public static final Topic<Boolean> ShowClusterNavigableExtrusions = Root.child(VisibilityGraphs).child(Cluster).child(Navigable).topic(Show);
    public static final Topic<Boolean> ShowClusterNonNavigableExtrusions = Root.child(VisibilityGraphs).child(Cluster).child(NonNavigable).topic(Show);
+   public static final Topic<Boolean> ShowClusterRotationExtrusions = Root.child(VisibilityGraphs).child(Cluster).child(Rotation).topic(Show);
 
    public static final Topic<Boolean> ShowStartVisibilityMap = Root.child(VisibilityGraphs).child(Start).child(Map).topic(Show);
    public static final Topic<Boolean> ShowGoalVisibilityMap = Root.child(VisibilityGraphs).child(Goal).child(Map).topic(Show);

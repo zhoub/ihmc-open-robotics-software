@@ -15,6 +15,7 @@ public class NavigableRegionMessage extends Packet<NavigableRegionMessage> imple
    public controller_msgs.msg.dds.VisibilityClusterMessage home_region_cluster_;
    public controller_msgs.msg.dds.VisibilityMapMessage visibility_map_in_world_;
    public us.ihmc.idl.IDLSequence.Object<controller_msgs.msg.dds.VisibilityClusterMessage>  obstacle_clusters_;
+   public us.ihmc.idl.IDLSequence.Object<controller_msgs.msg.dds.VisibilityClusterMessage>  rotation_clusters_;
 
    public NavigableRegionMessage()
    {
@@ -22,6 +23,7 @@ public class NavigableRegionMessage extends Packet<NavigableRegionMessage> imple
       home_region_cluster_ = new controller_msgs.msg.dds.VisibilityClusterMessage();
       visibility_map_in_world_ = new controller_msgs.msg.dds.VisibilityMapMessage();
       obstacle_clusters_ = new us.ihmc.idl.IDLSequence.Object<controller_msgs.msg.dds.VisibilityClusterMessage> (25, new controller_msgs.msg.dds.VisibilityClusterMessagePubSubType());
+      rotation_clusters_ = new us.ihmc.idl.IDLSequence.Object<controller_msgs.msg.dds.VisibilityClusterMessage> (25, new controller_msgs.msg.dds.VisibilityClusterMessagePubSubType());
 
    }
 
@@ -37,6 +39,7 @@ public class NavigableRegionMessage extends Packet<NavigableRegionMessage> imple
       controller_msgs.msg.dds.VisibilityClusterMessagePubSubType.staticCopy(other.home_region_cluster_, home_region_cluster_);
       controller_msgs.msg.dds.VisibilityMapMessagePubSubType.staticCopy(other.visibility_map_in_world_, visibility_map_in_world_);
       obstacle_clusters_.set(other.obstacle_clusters_);
+      rotation_clusters_.set(other.rotation_clusters_);
    }
 
 
@@ -61,6 +64,12 @@ public class NavigableRegionMessage extends Packet<NavigableRegionMessage> imple
    public us.ihmc.idl.IDLSequence.Object<controller_msgs.msg.dds.VisibilityClusterMessage>  getObstacleClusters()
    {
       return obstacle_clusters_;
+   }
+
+
+   public us.ihmc.idl.IDLSequence.Object<controller_msgs.msg.dds.VisibilityClusterMessage>  getRotationClusters()
+   {
+      return rotation_clusters_;
    }
 
 
@@ -91,6 +100,13 @@ public class NavigableRegionMessage extends Packet<NavigableRegionMessage> imple
          {  if (!this.obstacle_clusters_.get(i).epsilonEquals(other.obstacle_clusters_.get(i), epsilon)) return false; }
       }
 
+      if (this.rotation_clusters_.size() != other.rotation_clusters_.size()) { return false; }
+      else
+      {
+         for (int i = 0; i < this.rotation_clusters_.size(); i++)
+         {  if (!this.rotation_clusters_.get(i).epsilonEquals(other.rotation_clusters_.get(i), epsilon)) return false; }
+      }
+
 
       return true;
    }
@@ -108,6 +124,7 @@ public class NavigableRegionMessage extends Packet<NavigableRegionMessage> imple
       if (!this.home_region_cluster_.equals(otherMyClass.home_region_cluster_)) return false;
       if (!this.visibility_map_in_world_.equals(otherMyClass.visibility_map_in_world_)) return false;
       if (!this.obstacle_clusters_.equals(otherMyClass.obstacle_clusters_)) return false;
+      if (!this.rotation_clusters_.equals(otherMyClass.rotation_clusters_)) return false;
 
       return true;
    }
@@ -125,7 +142,9 @@ public class NavigableRegionMessage extends Packet<NavigableRegionMessage> imple
       builder.append("visibility_map_in_world=");
       builder.append(this.visibility_map_in_world_);      builder.append(", ");
       builder.append("obstacle_clusters=");
-      builder.append(this.obstacle_clusters_);
+      builder.append(this.obstacle_clusters_);      builder.append(", ");
+      builder.append("rotation_clusters=");
+      builder.append(this.rotation_clusters_);
       builder.append("}");
       return builder.toString();
    }

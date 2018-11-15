@@ -52,6 +52,7 @@ public class VisibilityGraphMessagesConverterTest
          List<Point3D> rawPointsInLocalExpected = new ArrayList<>();
          List<Point2D> navigableExtrusionsInLocalExpected = new ArrayList<>();
          List<Point2D> nonNavigableExtrusionsInLocalExpected = new ArrayList<>();
+         List<Point2D> rotationExtrusionsInLocalExpected = new ArrayList<>();
 
          for (int i = 0; i < numberOfRawPoints; i++)
             rawPointsInLocalExpected.add(EuclidCoreRandomTools.nextPoint3D(random, 100.0));
@@ -59,6 +60,8 @@ public class VisibilityGraphMessagesConverterTest
             navigableExtrusionsInLocalExpected.add(EuclidCoreRandomTools.nextPoint2D(random, 100.0));
          for (int i = 0; i < numberOfNonNavigableExtrusions; i++)
             nonNavigableExtrusionsInLocalExpected.add(EuclidCoreRandomTools.nextPoint2D(random, 100.0));
+         for (int i = 0; i < numberOfNonNavigableExtrusions; i++)
+            rotationExtrusionsInLocalExpected.add(EuclidCoreRandomTools.nextPoint2D(random, 100.0));
 
          Cluster clusterToConvert = new Cluster();
          clusterToConvert.setTransformToWorld(transformToWorld);
@@ -71,6 +74,8 @@ public class VisibilityGraphMessagesConverterTest
             clusterToConvert.addNavigableExtrusionInLocal(navigableExtrusionsInLocalExpected.get(i));
          for (int i = 0; i < numberOfNonNavigableExtrusions; i++)
             clusterToConvert.addNonNavigableExtrusionInLocal(nonNavigableExtrusionsInLocalExpected.get(i));
+         for (int i = 0; i < numberOfNonNavigableExtrusions; i++)
+            clusterToConvert.addRotationExtrusionInLocal(rotationExtrusionsInLocalExpected.get(i));
 
          VisibilityClusterMessage message = VisibilityGraphMessagesConverter.convertToVisibilityClusterMessage(clusterToConvert);
          Cluster convertedCluster = VisibilityGraphMessagesConverter.convertToCluster(message);
@@ -83,6 +88,8 @@ public class VisibilityGraphMessagesConverterTest
          assertEquals(numberOfNavigableExtrusions, clusterToConvert.getNumberOfNavigableExtrusions());
          assertEquals(numberOfNonNavigableExtrusions, convertedCluster.getNumberOfNonNavigableExtrusions());
          assertEquals(numberOfNonNavigableExtrusions, clusterToConvert.getNumberOfNonNavigableExtrusions());
+         assertEquals(numberOfNonNavigableExtrusions, convertedCluster.getNumberOfRotationExtrusions());
+         assertEquals(numberOfNonNavigableExtrusions, clusterToConvert.getNumberOfRotationExtrusions());
 
          ReferenceFrame localFrame = new ReferenceFrame("localFrame", worldFrame)
          {
@@ -122,6 +129,13 @@ public class VisibilityGraphMessagesConverterTest
                   .assertPoint2DGeometricallyEquals(nonNavigableExtrusionsInLocalExpected.get(i), clusterToConvert.getNonNavigableExtrusionInLocal(i), epsilon);
             EuclidCoreTestTools
                   .assertPoint2DGeometricallyEquals(nonNavigableExtrusionsInLocalExpected.get(i), convertedCluster.getNonNavigableExtrusionInLocal(i), epsilon);
+         }
+         for (int i = 0; i < numberOfNonNavigableExtrusions; i++)
+         {
+            EuclidCoreTestTools
+                  .assertPoint2DGeometricallyEquals(rotationExtrusionsInLocalExpected.get(i), clusterToConvert.getRotationExtrusionInLocal(i), epsilon);
+            EuclidCoreTestTools
+                  .assertPoint2DGeometricallyEquals(rotationExtrusionsInLocalExpected.get(i), convertedCluster.getRotationExtrusionInLocal(i), epsilon);
          }
 
          VisibilityGraphTestTools.assertClustersEqual(clusterToConvert, convertedCluster, epsilon);

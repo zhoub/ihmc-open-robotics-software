@@ -18,6 +18,7 @@ public class NavigableRegion implements VisibilityMapHolder
    private final RigidBodyTransform transformToWorld = new RigidBodyTransform();
 
    private Cluster homeRegionCluster = null;
+   private List<Cluster> rotationClusters = new ArrayList<>();
    private List<Cluster> obstacleClusters = new ArrayList<>();
    private List<Cluster> allClusters = new ArrayList<>();
    private VisibilityMap visibilityMapInLocal = null;
@@ -35,9 +36,20 @@ public class NavigableRegion implements VisibilityMapHolder
       allClusters.add(homeCluster);
    }
 
+   public void addRotationClusters(Iterable<Cluster> rotationClusters)
+   {
+      rotationClusters.forEach(this::addRotationCluster);
+   }
+
    public void addObstacleClusters(Iterable<Cluster> obstacleClusters)
    {
       obstacleClusters.forEach(this::addObstacleCluster);
+   }
+
+   public void addRotationCluster(Cluster rotationCluster)
+   {
+      rotationClusters.add(rotationCluster);
+      allClusters.add(rotationCluster);
    }
 
    public void addObstacleCluster(Cluster obstacleCluster)
@@ -74,6 +86,11 @@ public class NavigableRegion implements VisibilityMapHolder
    public Cluster getHomeRegionCluster()
    {
       return homeRegionCluster;
+   }
+
+   public List<Cluster> getRotationClusters()
+   {
+      return rotationClusters;
    }
 
    public List<Cluster> getObstacleClusters()

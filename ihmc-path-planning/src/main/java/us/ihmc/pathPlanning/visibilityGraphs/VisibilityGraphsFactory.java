@@ -31,7 +31,7 @@ public class VisibilityGraphsFactory
     * I believe these filters are now not useful anymore, but I haven't had the time to make sure
     * they're obsolete. When disabled, everything still looks good.
     */
-   private static final boolean ENABLE_GREEDY_FILTERS = true;
+   private static final boolean ENABLE_GREEDY_FILTERS = false;
 
    public static List<NavigableRegion> createNavigableRegions(List<PlanarRegion> allRegions, VisibilityGraphsParameters parameters)
    {
@@ -66,15 +66,17 @@ public class VisibilityGraphsFactory
       double clusterResolution = parameters.getClusterResolution();
       NavigableExtrusionDistanceCalculator navigableCalculator = parameters.getNavigableExtrusionDistanceCalculator();
       ObstacleExtrusionDistanceCalculator obstacleCalculator = parameters.getObstacleExtrusionDistanceCalculator();
+      ObstacleExtrusionDistanceCalculator rotationCalculator = parameters.getRotationExtrusionDistanceCalculator();
       ObstacleRegionFilter obstacleRegionFilter = parameters.getObstacleRegionFilter();
       return createNavigableRegion(region, otherRegions, orthogonalAngle, clusterResolution, obstacleRegionFilter, planarRegionFilter, navigableCalculator,
-                                   obstacleCalculator);
+                                   obstacleCalculator, rotationCalculator);
    }
 
    public static NavigableRegion createNavigableRegion(PlanarRegion region, List<PlanarRegion> otherRegions, double orthogonalAngle, double clusterResolution,
                                                        ObstacleRegionFilter obstacleRegionFilter, PlanarRegionFilter filter,
                                                        NavigableExtrusionDistanceCalculator navigableCalculator,
-                                                       ObstacleExtrusionDistanceCalculator obstacleCalculator)
+                                                       ObstacleExtrusionDistanceCalculator obstacleCalculator,
+                                                       ObstacleExtrusionDistanceCalculator rotationCalculator)
    {
       NavigableRegion navigableRegion = new NavigableRegion(region);
       PlanarRegion homeRegion = navigableRegion.getHomeRegion();
@@ -87,6 +89,7 @@ public class VisibilityGraphsFactory
 
       navigableRegion.setHomeRegionCluster(ClusterTools.createHomeRegionCluster(homeRegion, navigableCalculator));
       navigableRegion.addObstacleClusters(ClusterTools.createObstacleClusters(homeRegion, obstacleRegions, orthogonalAngle, obstacleCalculator));
+      navigableRegion.addRotationClusters(ClusterTools.createObstacleClusters(homeRegion, obstacleRegions, orthogonalAngle, rotationCalculator));
 
       for (Cluster cluster : navigableRegion.getAllClusters())
       {

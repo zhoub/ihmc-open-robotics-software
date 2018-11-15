@@ -22,6 +22,7 @@ public class VisibilityClusterMessage extends Packet<VisibilityClusterMessage> i
    public us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D>  raw_points_in_local_;
    public us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D>  navigable_extrusions_in_local_;
    public us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D>  non_navigable_extrusions_in_local_;
+   public us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D>  rotation_extrusions_in_local_;
 
    public VisibilityClusterMessage()
    {
@@ -29,6 +30,7 @@ public class VisibilityClusterMessage extends Packet<VisibilityClusterMessage> i
       raw_points_in_local_ = new us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D> (25, new geometry_msgs.msg.dds.PointPubSubType());
       navigable_extrusions_in_local_ = new us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D> (25, new geometry_msgs.msg.dds.PointPubSubType());
       non_navigable_extrusions_in_local_ = new us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D> (25, new geometry_msgs.msg.dds.PointPubSubType());
+      rotation_extrusions_in_local_ = new us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D> (25, new geometry_msgs.msg.dds.PointPubSubType());
 
    }
 
@@ -48,6 +50,7 @@ public class VisibilityClusterMessage extends Packet<VisibilityClusterMessage> i
       raw_points_in_local_.set(other.raw_points_in_local_);
       navigable_extrusions_in_local_.set(other.navigable_extrusions_in_local_);
       non_navigable_extrusions_in_local_.set(other.non_navigable_extrusions_in_local_);
+      rotation_extrusions_in_local_.set(other.rotation_extrusions_in_local_);
    }
 
    public void setExtrusionSide(byte extrusion_side)
@@ -90,6 +93,12 @@ public class VisibilityClusterMessage extends Packet<VisibilityClusterMessage> i
    public us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D>  getNonNavigableExtrusionsInLocal()
    {
       return non_navigable_extrusions_in_local_;
+   }
+
+
+   public us.ihmc.idl.IDLSequence.Object<us.ihmc.euclid.tuple3D.Point3D>  getRotationExtrusionsInLocal()
+   {
+      return rotation_extrusions_in_local_;
    }
 
 
@@ -136,6 +145,13 @@ public class VisibilityClusterMessage extends Packet<VisibilityClusterMessage> i
          {  if (!this.non_navigable_extrusions_in_local_.get(i).epsilonEquals(other.non_navigable_extrusions_in_local_.get(i), epsilon)) return false; }
       }
 
+      if (this.rotation_extrusions_in_local_.size() != other.rotation_extrusions_in_local_.size()) { return false; }
+      else
+      {
+         for (int i = 0; i < this.rotation_extrusions_in_local_.size(); i++)
+         {  if (!this.rotation_extrusions_in_local_.get(i).epsilonEquals(other.rotation_extrusions_in_local_.get(i), epsilon)) return false; }
+      }
+
 
       return true;
    }
@@ -157,6 +173,7 @@ public class VisibilityClusterMessage extends Packet<VisibilityClusterMessage> i
       if (!this.raw_points_in_local_.equals(otherMyClass.raw_points_in_local_)) return false;
       if (!this.navigable_extrusions_in_local_.equals(otherMyClass.navigable_extrusions_in_local_)) return false;
       if (!this.non_navigable_extrusions_in_local_.equals(otherMyClass.non_navigable_extrusions_in_local_)) return false;
+      if (!this.rotation_extrusions_in_local_.equals(otherMyClass.rotation_extrusions_in_local_)) return false;
 
       return true;
    }
@@ -178,7 +195,9 @@ public class VisibilityClusterMessage extends Packet<VisibilityClusterMessage> i
       builder.append("navigable_extrusions_in_local=");
       builder.append(this.navigable_extrusions_in_local_);      builder.append(", ");
       builder.append("non_navigable_extrusions_in_local=");
-      builder.append(this.non_navigable_extrusions_in_local_);
+      builder.append(this.non_navigable_extrusions_in_local_);      builder.append(", ");
+      builder.append("rotation_extrusions_in_local=");
+      builder.append(this.rotation_extrusions_in_local_);
       builder.append("}");
       return builder.toString();
    }

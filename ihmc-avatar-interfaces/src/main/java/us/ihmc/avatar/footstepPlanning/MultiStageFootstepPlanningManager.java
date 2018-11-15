@@ -1020,7 +1020,7 @@ public class MultiStageFootstepPlanningManager implements PlannerCompletionCallb
 
    public void sleep()
    {
-//      processPlanningStatisticsRequest();
+      processPlanningStatisticsRequest();
 
       if (debug)
          PrintTools.debug(this, "Going to sleep");

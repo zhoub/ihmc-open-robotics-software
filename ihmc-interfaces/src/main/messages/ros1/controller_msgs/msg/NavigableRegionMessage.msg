@@ -6,4 +6,6 @@ controller_msgs/VisibilityMapMessage visibility_map_in_world
 
 controller_msgs/VisibilityClusterMessage[] obstacle_clusters
 
+controller_msgs/VisibilityClusterMessage[] rotation_clusters
+
 

@@ -79,9 +79,12 @@ public class VisibilityGraphMessagesConverter
       message.getVisibilityMapInWorld().set(convertToVisibilityMapMessage(navigableRegion.getMapId(), navigableRegion.getVisibilityMapInWorld()));
 
       List<Cluster> obstacleClusters = navigableRegion.getObstacleClusters();
+      List<Cluster> rotationClusters = navigableRegion.getRotationClusters();
 
       for (int i = 0; i < obstacleClusters.size(); i++)
          message.getObstacleClusters().add().set(convertToVisibilityClusterMessage(obstacleClusters.get(i)));
+      for (int i = 0; i < rotationClusters.size(); i++)
+         message.getRotationClusters().add().set(convertToVisibilityClusterMessage(rotationClusters.get(i)));
 
       return message;
    }
@@ -217,6 +220,7 @@ public class VisibilityGraphMessagesConverter
       List<Point3D> rawPointsInLocal = message.getRawPointsInLocal();
       List<Point3D> navigableExtrusionsInLocal = message.getNavigableExtrusionsInLocal();
       List<Point3D> nonNavigableExtrusionsInLocal = message.getNonNavigableExtrusionsInLocal();
+      List<Point3D> rotationExtrusionsInLocal = message.getRotationExtrusionsInLocal();
 
       cluster.setTransformToWorld(transform);
       cluster.addRawPointsInLocal3D(rawPointsInLocal);
@@ -224,6 +228,8 @@ public class VisibilityGraphMessagesConverter
          cluster.addNavigableExtrusionInLocal(navigableExtrusionsInLocal.get(i));
       for (int i = 0; i < nonNavigableExtrusionsInLocal.size(); i++)
          cluster.addNonNavigableExtrusionInLocal(nonNavigableExtrusionsInLocal.get(i));
+      for (int i = 0; i < rotationExtrusionsInLocal.size(); i++)
+         cluster.addRotationExtrusionInLocal(rotationExtrusionsInLocal.get(i));
 
       return cluster;
    }
