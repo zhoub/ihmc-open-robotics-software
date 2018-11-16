@@ -129,7 +129,7 @@ public interface VisibilityGraphsParameters
          }
          else
          {
-            return getExtrusionDistance();
+            return 0.9;
          }
       };
    }

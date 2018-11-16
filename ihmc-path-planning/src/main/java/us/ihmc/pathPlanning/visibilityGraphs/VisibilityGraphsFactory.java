@@ -103,6 +103,7 @@ public class VisibilityGraphsFactory
          connectionsForMap = VisibilityTools.removeConnectionsFromExtrusionsOutsideRegions(connectionsForMap, homeRegion);
          connectionsForMap = VisibilityTools.removeConnectionsFromExtrusionsInsideNoGoZones(connectionsForMap, navigableRegion.getAllClusters());
       }
+      connectionsForMap = VisibilityTools.removeConnectionsFromExtrusionsInsideNoGoZones(connectionsForMap, navigableRegion.getAllClusters());
 
       VisibilityMap visibilityMap = new VisibilityMap();
       visibilityMap.setConnections(connectionsForMap);

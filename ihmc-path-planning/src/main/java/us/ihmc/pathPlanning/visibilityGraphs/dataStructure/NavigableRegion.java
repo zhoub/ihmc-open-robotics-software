@@ -5,6 +5,7 @@ import java.util.List;
 
 import us.ihmc.euclid.interfaces.Transformable;
 import us.ihmc.euclid.transform.RigidBodyTransform;
+import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
 import us.ihmc.pathPlanning.visibilityGraphs.interfaces.VisibilityMapHolder;
 import us.ihmc.robotics.geometry.PlanarRegion;
@@ -14,6 +15,7 @@ import us.ihmc.robotics.geometry.PlanarRegion;
  */
 public class NavigableRegion implements VisibilityMapHolder
 {
+   private final double costOfRotating = 10;
    private final PlanarRegion homeRegion;
    private final RigidBodyTransform transformToWorld = new RigidBodyTransform();
 
@@ -49,7 +51,7 @@ public class NavigableRegion implements VisibilityMapHolder
    public void addRotationCluster(Cluster rotationCluster)
    {
       rotationClusters.add(rotationCluster);
-      allClusters.add(rotationCluster);
+//      allClusters.add(rotationCluster);
    }
 
    public void addObstacleCluster(Cluster obstacleCluster)
@@ -137,5 +139,19 @@ public class NavigableRegion implements VisibilityMapHolder
       }
 
       return visibilityMapInWorld;
+   }
+
+   @Override
+   public double getConnectionWeight(Connection connection)
+   {
+      for (Cluster cluster : rotationClusters)
+      {
+         Point2DReadOnly source = connection.getSourcePoint2D();
+         Point2DReadOnly target = connection.getTargetPoint2D();
+         if (cluster.isInsideNonNavigableZone(source) || cluster.isInsideNonNavigableZone(target))
+            return costOfRotating * connection.length();
+
+      }
+      return connection.length();
    }
 }
