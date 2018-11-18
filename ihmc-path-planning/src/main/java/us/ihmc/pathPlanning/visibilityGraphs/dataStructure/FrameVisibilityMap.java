@@ -58,13 +58,13 @@ public class FrameVisibilityMap implements Iterable<FrameConnection>, FrameChang
    public void setConnections(Collection<FrameConnection> connections)
    {
       this.connections = new HashSet<>(connections);
-      checkConnectionFrames();
+      changeFrameInternal();
    }
 
    public void setConnections(Set<FrameConnection> connections)
    {
       this.connections = connections;
-      checkConnectionFrames();
+      changeFrameInternal();
    }
 
    public void addConnection(FrameConnection connection)
@@ -114,19 +114,23 @@ public class FrameVisibilityMap implements Iterable<FrameConnection>, FrameChang
    @Override
    public void setReferenceFrame(ReferenceFrame referenceFrame)
    {
-
+      this.referenceFrame = referenceFrame;
    }
 
    @Override
    public void applyTransform(Transform transform)
    {
-
+      for (FrameConnection connection : connections)
+         connection.applyTransform(transform);
+      computeVertices();
    }
 
    @Override
    public void applyInverseTransform(Transform transform)
    {
-
+      for (FrameConnection connection : connections)
+         connection.applyInverseTransform(transform);
+      computeVertices();
    }
 
    @Override
@@ -135,9 +139,9 @@ public class FrameVisibilityMap implements Iterable<FrameConnection>, FrameChang
       return null;
    }
 
-   private void checkConnectionFrames()
+   private void changeFrameInternal()
    {
       for (FrameConnection connection : connections)
-         connection.checkReferenceFrameMatch(referenceFrame);
+         connection.changeFrame(referenceFrame);
    }
 }
