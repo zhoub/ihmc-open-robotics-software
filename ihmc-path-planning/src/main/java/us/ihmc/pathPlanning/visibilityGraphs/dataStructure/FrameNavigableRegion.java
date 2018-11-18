@@ -11,19 +11,11 @@ import us.ihmc.robotics.geometry.PlanarRegion;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FrameNavigableRegion implements FrameChangeable
+public class FrameNavigableRegion implements FrameChangeable, FrameVisibilityMapHolder
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
    private final PlanarRegion homeRegion;
-   private final ReferenceFrame localFrame = new ReferenceFrame("localFrame", worldFrame)
-   {
-      @Override
-      protected void updateTransformToParent(RigidBodyTransform transformToParent)
-      {
-         transformToParent.set(transformToWorld);
-      }
-   };
-   private final RigidBodyTransform transformToWorld = new RigidBodyTransform();
+   private ReferenceFrame localFrame;
 
    private FrameCluster homeRegionCluster = null;
    private List<FrameCluster> obstacleClusters = new ArrayList<>();
@@ -33,7 +25,17 @@ public class FrameNavigableRegion implements FrameChangeable
    public FrameNavigableRegion(PlanarRegion homeRegion)
    {
       this.homeRegion = homeRegion;
+
+      RigidBodyTransform transformToWorld = new RigidBodyTransform();
       homeRegion.getTransformToWorld(transformToWorld);
+      localFrame = new ReferenceFrame("localFrame", worldFrame)
+      {
+         @Override
+         protected void updateTransformToParent(RigidBodyTransform transformToParent)
+         {
+            transformToParent.set(transformToWorld);
+         }
+      };
       localFrame.update();
    }
 
@@ -91,4 +93,43 @@ public class FrameNavigableRegion implements FrameChangeable
       return visibilityMapInLocal;
    }
 
+   @Override
+   public void setReferenceFrame(ReferenceFrame referenceFrame)
+   {
+      localFrame = referenceFrame;
+      if (homeRegionCluster != null)
+         homeRegionCluster.setReferenceFrame(referenceFrame);
+      if (visibilityMapInLocal != null)
+         visibilityMapInLocal.setReferenceFrame(referenceFrame);
+      for (FrameCluster cluster : allClusters)
+         cluster.setReferenceFrame(referenceFrame);
+   }
+
+   @Override
+   public void applyTransform(Transform transform)
+   {
+      if (homeRegionCluster != null)
+         homeRegionCluster.applyTransform(transform);
+      if (visibilityMapInLocal != null)
+         visibilityMapInLocal.applyTransform(transform);
+      for (FrameCluster cluster : allClusters)
+         cluster.applyTransform(transform);
+   }
+
+   @Override
+   public void applyInverseTransform(Transform transform)
+   {
+      if (homeRegionCluster != null)
+         homeRegionCluster.applyInverseTransform(transform);
+      if (visibilityMapInLocal != null)
+         visibilityMapInLocal.applyInverseTransform(transform);
+      for (FrameCluster cluster : allClusters)
+         cluster.applyInverseTransform(transform);
+   }
+
+   @Override
+   public ReferenceFrame getReferenceFrame()
+   {
+      return localFrame;
+   }
 }

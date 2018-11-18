@@ -11,26 +11,28 @@ import java.util.Set;
 
 public class FrameVisibilityMap implements Iterable<FrameConnection>, FrameChangeable
 {
-
    private Set<FrameConnection> connections;
-   private final HashSet<FrameConnectionPoint3D> vertices;
+   private final HashSet<FrameConnectionPoint3DReadOnly> vertices;
 
-   public FrameVisibilityMap()
+   private ReferenceFrame referenceFrame;
+
+   public FrameVisibilityMap(ReferenceFrame referenceFrame)
    {
+      this.referenceFrame = referenceFrame;
       connections = new HashSet<>();
       vertices = new HashSet<>();
    }
 
-   public FrameVisibilityMap(Collection<FrameConnection> connections)
+   public FrameVisibilityMap(ReferenceFrame referenceFrame, Collection<FrameConnection> connections)
    {
-      this();
+      this(referenceFrame);
       setConnections(connections);
       computeVertices();
    }
 
    public FrameVisibilityMap(FrameVisibilityMap other)
    {
-      this();
+      this(other.getReferenceFrame());
       set(other);
    }
 
@@ -56,20 +58,25 @@ public class FrameVisibilityMap implements Iterable<FrameConnection>, FrameChang
    public void setConnections(Collection<FrameConnection> connections)
    {
       this.connections = new HashSet<>(connections);
+      checkConnectionFrames();
    }
 
    public void setConnections(Set<FrameConnection> connections)
    {
       this.connections = connections;
+      checkConnectionFrames();
    }
 
    public void addConnection(FrameConnection connection)
    {
+      connection.checkReferenceFrameMatch(referenceFrame);
       connections.add(connection);
    }
 
    public void addConnections(Set<FrameConnection> connections)
    {
+      for (FrameConnection connection : connections)
+         connection.checkReferenceFrameMatch(referenceFrame);
       this.connections.addAll(connections);
    }
 
@@ -83,7 +90,7 @@ public class FrameVisibilityMap implements Iterable<FrameConnection>, FrameChang
       }
    }
 
-   public Set<FrameConnectionPoint3D> getVertices()
+   public Set<FrameConnectionPoint3DReadOnly> getVertices()
    {
       return vertices;
    }
@@ -92,8 +99,6 @@ public class FrameVisibilityMap implements Iterable<FrameConnection>, FrameChang
    {
       return connections;
    }
-
-
 
    public boolean isEmpty()
    {
@@ -106,4 +111,33 @@ public class FrameVisibilityMap implements Iterable<FrameConnection>, FrameChang
       return connections.iterator();
    }
 
+   @Override
+   public void setReferenceFrame(ReferenceFrame referenceFrame)
+   {
+
+   }
+
+   @Override
+   public void applyTransform(Transform transform)
+   {
+
+   }
+
+   @Override
+   public void applyInverseTransform(Transform transform)
+   {
+
+   }
+
+   @Override
+   public ReferenceFrame getReferenceFrame()
+   {
+      return null;
+   }
+
+   private void checkConnectionFrames()
+   {
+      for (FrameConnection connection : connections)
+         connection.checkReferenceFrameMatch(referenceFrame);
+   }
 }

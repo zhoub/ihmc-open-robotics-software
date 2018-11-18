@@ -10,6 +10,7 @@ import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DReadOnly;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DBasics;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.transform.RigidBodyTransform;
+import us.ihmc.euclid.transform.interfaces.Transform;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -24,23 +25,15 @@ import java.util.stream.Collectors;
 public class FrameCluster implements FrameChangeable
 {
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
-   private final ReferenceFrame localFrame = new ReferenceFrame("localClusterFrame", worldFrame)
-   {
-      @Override
-      protected void updateTransformToParent(RigidBodyTransform transformToParent)
-      {
-         transformToParent.set(transformToWorld);
-      }
-   };
+   private ReferenceFrame localFrame;
 
-   private final RigidBodyTransform transformToWorld = new RigidBodyTransform();
-
-   private final List<FramePoint3DReadOnly> rawPoints = new ArrayList<>();
-   private final List<FramePoint3DReadOnly> navigableExtrusions = new ArrayList<>();
+   private final List<FramePoint3DBasics> rawPoints = new ArrayList<>();
+   private final List<FramePoint3DBasics> navigableExtrusions = new ArrayList<>();
    private final List<FramePoint3DBasics> nonNavigableExtrusions = new ArrayList<>();
    private List<? extends Point2DReadOnly> nonNavigableExtrusionsInLocal;
 
    private final BoundingBox2D nonNavigableExtrusionsBoundingBoxInLocal = new BoundingBox2D();
+
 
    public enum ExtrusionSide
    {
@@ -88,8 +81,22 @@ public class FrameCluster implements FrameChangeable
 
    private Type type = Type.POLYGON;
 
-   public FrameCluster()
+   public FrameCluster(ReferenceFrame localFrame)
    {
+      this.localFrame = localFrame;
+   }
+
+   public FrameCluster(RigidBodyTransform transformToWorld)
+   {
+      localFrame = new ReferenceFrame("localClusterFrame", worldFrame)
+      {
+         @Override
+         protected void updateTransformToParent(RigidBodyTransform transformToParent)
+         {
+            transformToParent.set(transformToWorld);
+         }
+      };
+      localFrame.update();
    }
 
    public void updateBoundingBox()
@@ -145,17 +152,6 @@ public class FrameCluster implements FrameChangeable
       return type;
    }
 
-   public void setTransformToWorld(RigidBodyTransform transform)
-   {
-      transformToWorld.set(transform);
-      localFrame.update();
-   }
-
-   public RigidBodyTransform getTransformToWorld()
-   {
-      return transformToWorld;
-   }
-
    public int getNumberOfRawPoints()
    {
       return rawPoints.size();
@@ -206,7 +202,7 @@ public class FrameCluster implements FrameChangeable
       return rawPoints.get(i);
    }
 
-   public List<FramePoint3DReadOnly> getRawPoints()
+   public List<? extends FramePoint3DReadOnly> getRawPoints()
    {
       return rawPoints;
    }
@@ -236,7 +232,7 @@ public class FrameCluster implements FrameChangeable
       return navigableExtrusions.get(i);
    }
 
-   public List<FramePoint3DReadOnly> getNavigableExtrusions()
+   public List<? extends FramePoint3DReadOnly> getNavigableExtrusions()
    {
       return navigableExtrusions;
    }
@@ -276,5 +272,46 @@ public class FrameCluster implements FrameChangeable
    public List<? extends FramePoint3DReadOnly> getNonNavigableExtrusions()
    {
       return nonNavigableExtrusions;
+   }
+
+
+   @Override
+   public void setReferenceFrame(ReferenceFrame referenceFrame)
+   {
+      this.localFrame = referenceFrame;
+      for (FramePoint3DBasics rawPoint : rawPoints)
+         rawPoint.setReferenceFrame(referenceFrame);
+      for (FramePoint3DBasics navigableExtrusion : navigableExtrusions)
+         navigableExtrusion.setReferenceFrame(referenceFrame);
+      for (FramePoint3DBasics nonNavigableExtrusion : nonNavigableExtrusions)
+         nonNavigableExtrusion.setReferenceFrame(referenceFrame);
+   }
+
+   @Override
+   public void applyTransform(Transform transform)
+   {
+      for (FramePoint3DBasics rawPoint : rawPoints)
+         rawPoint.applyTransform(transform);
+      for (FramePoint3DBasics navigableExtrusion : navigableExtrusions)
+         navigableExtrusion.applyTransform(transform);
+      for (FramePoint3DBasics nonNavigableExtrusion : nonNavigableExtrusions)
+         nonNavigableExtrusion.applyTransform(transform);
+   }
+
+   @Override
+   public void applyInverseTransform(Transform transform)
+   {
+      for (FramePoint3DBasics rawPoint : rawPoints)
+         rawPoint.applyInverseTransform(transform);
+      for (FramePoint3DBasics navigableExtrusion : navigableExtrusions)
+         navigableExtrusion.applyInverseTransform(transform);
+      for (FramePoint3DBasics nonNavigableExtrusion : nonNavigableExtrusions)
+         nonNavigableExtrusion.applyInverseTransform(transform);
+   }
+
+   @Override
+   public ReferenceFrame getReferenceFrame()
+   {
+      return localFrame;
    }
 }
