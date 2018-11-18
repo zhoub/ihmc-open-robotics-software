@@ -105,11 +105,13 @@ public class VisibilityMap implements Transformable, Iterable<Connection>
    public void applyTransform(Transform transform)
    {
       connections.forEach(c -> c.applyTransform(transform));
+      computeVertices();
    }
 
    @Override
    public void applyInverseTransform(Transform transform)
    {
       connections.forEach(c -> c.applyInverseTransform(transform));
+      computeVertices();
    }
 }

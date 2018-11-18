@@ -108,7 +108,7 @@ public class NavigableRegionViewer extends AnimationTimer
       Map<Integer, JavaFXMeshBuilder> meshBuilders = new HashMap<>();
       Map<Integer, Material> materials = new HashMap<>();
 
-      for (VisibilityMapHolder navigableRegionLocalPlanner : newRequest)
+      for (NavigableRegion navigableRegionLocalPlanner : newRequest)
       {
          int regionId = navigableRegionLocalPlanner.getMapId();
          JavaFXMeshBuilder meshBuilder = meshBuilders.get(regionId);
@@ -124,7 +124,12 @@ public class NavigableRegionViewer extends AnimationTimer
          {
             Point3DReadOnly edgeSource = connection.getSourcePoint();
             Point3DReadOnly edgeTarget = connection.getTargetPoint();
-            meshBuilder.addLine(edgeSource, edgeTarget, VisualizationParameters.VISBILITYMAP_LINE_THICKNESS);
+            double cost = navigableRegionLocalPlanner.getConnectionWeight(connection);
+            double length = connection.length();
+            double factor = cost / length;
+            factor = 1.0 + 1.0 * (factor - 1.0);
+            double thickness = factor * VisualizationParameters.VISBILITYMAP_LINE_THICKNESS;
+            meshBuilder.addLine(edgeSource, edgeTarget, thickness);
          }
 
          materials.put(regionId, new PhongMaterial(getLineColor(regionId)));

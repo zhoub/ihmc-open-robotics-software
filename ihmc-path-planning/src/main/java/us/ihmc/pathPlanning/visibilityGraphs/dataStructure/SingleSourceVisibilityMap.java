@@ -32,7 +32,6 @@ public class SingleSourceVisibilityMap implements VisibilityMapHolder
       visibilityMapInLocal = new VisibilityMap(connectionsInLocal);
       visibilityMapInWorld = new VisibilityMap(visibilityMapInLocal.getConnections());
       visibilityMapInWorld.applyTransform(transformToWorld);
-      visibilityMapInWorld.computeVertices();
    }
 
    public SingleSourceVisibilityMap(Point3DReadOnly source, int mapId, Collection<Connection> connections)

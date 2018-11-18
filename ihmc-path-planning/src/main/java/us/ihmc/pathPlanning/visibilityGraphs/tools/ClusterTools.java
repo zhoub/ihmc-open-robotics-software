@@ -350,7 +350,7 @@ public class ClusterTools
    }
 
    public static List<Cluster> createObstacleClusters(PlanarRegion homeRegion, List<PlanarRegion> obstacleRegions, double orthogonalAngle,
-                                                      ObstacleExtrusionDistanceCalculator extrusionDistanceCalculator)
+                                                      ObstacleExtrusionDistanceCalculator obstacleExtrusionDistanceCalculator)
    {
       List<Cluster> obstacleClusters = new ArrayList<>();
 
@@ -390,7 +390,7 @@ public class ClusterTools
             cluster.addRawPointsInLocal3D(rawPointsInLocal);
          }
 
-         extrudeObstacleCluster(cluster, extrusionDistanceCalculator);
+         extrudeObstacleCluster(cluster, obstacleExtrusionDistanceCalculator);
          obstacleClusters.add(cluster);
       }
 
@@ -417,7 +417,7 @@ public class ClusterTools
          {
             cluster.addNonNavigableExtrusionsInLocal(extrudePolygon(extrudeToTheLeft, cluster, nonNavigableCalculator));
          }
-         catch(Exception e)
+         catch (Exception e)
          {
             e.printStackTrace();
             return;
@@ -432,9 +432,89 @@ public class ClusterTools
       cluster.updateBoundingBox();
    }
 
+   // TODO clean up some of this computation to use the obstacle clusters, where it was already done
+   public static List<Cluster> createRotationClusters(PlanarRegion homeRegion, List<PlanarRegion> obstacleRegions, double orthogonalAngle,
+                                                      ObstacleExtrusionDistanceCalculator rotationExtrusionDistanceCalculator)
+   {
+      List<Cluster> rotationClusters = new ArrayList<>();
+
+      RigidBodyTransform transformFromHomeToWorld = new RigidBodyTransform();
+      homeRegion.getTransformToWorld(transformFromHomeToWorld);
+      Vector3D referenceNormal = homeRegion.getNormal();
+      double zThresholdBeforeOrthogonal = Math.cos(orthogonalAngle);
+
+      for (PlanarRegion obstacleRegion : obstacleRegions)
+      {
+         Vector3D otherNormal = obstacleRegion.getNormal();
+
+         Cluster cluster = new Cluster();
+         cluster.setExtrusionSide(ExtrusionSide.OUTSIDE);
+         cluster.setTransformToWorld(transformFromHomeToWorld);
+
+         List<Point3D> rawPointsInLocal = new ArrayList<>();
+         RigidBodyTransform transformFromOtherToHome = new RigidBodyTransform();
+         obstacleRegion.getTransformToWorld(transformFromOtherToHome);
+         transformFromOtherToHome.preMultiplyInvertOther(transformFromHomeToWorld);
+
+         for (int i = 0; i < obstacleRegion.getConvexHull().getNumberOfVertices(); i++)
+         {
+            Point3D concaveHullVertexHome = new Point3D(obstacleRegion.getConvexHull().getVertex(i));
+            concaveHullVertexHome.applyTransform(transformFromOtherToHome);
+            rawPointsInLocal.add(concaveHullVertexHome);
+         }
+
+         if (Math.abs(otherNormal.dot(referenceNormal)) < zThresholdBeforeOrthogonal)
+         { // Project region as a line
+            cluster.setType(Type.MULTI_LINE);
+            cluster.addRawPointsInLocal3D(filterVerticalPolygonForMultiLineExtrusion(rawPointsInLocal, POPPING_MULTILINE_POINTS_THRESHOLD));
+         }
+         else
+         { // Project region as a polygon
+            cluster.setType(Type.POLYGON);
+            cluster.addRawPointsInLocal3D(rawPointsInLocal);
+         }
+
+         extrudeRotationCluster(cluster, rotationExtrusionDistanceCalculator);
+         rotationClusters.add(cluster);
+      }
+
+      return rotationClusters;
+   }
+
+   public static void extrudeRotationCluster(Cluster cluster, ObstacleExtrusionDistanceCalculator rotationCalculator)
+   {
+      int numberOfExtrusionsAtEndpoints = 5;
+
+      switch (cluster.getType())
+      {
+      case LINE:
+      case MULTI_LINE:
+         cluster.addRotationExtrusionsInLocal(extrudeMultiLine(cluster, rotationCalculator, numberOfExtrusionsAtEndpoints));
+         break;
+      case POLYGON:
+         boolean extrudeToTheLeft = cluster.getExtrusionSide() != ExtrusionSide.INSIDE;
+
+         try
+         {
+            cluster.addRotationExtrusionsInLocal(extrudePolygon(extrudeToTheLeft, cluster, rotationCalculator));
+         }
+         catch (Exception e)
+         {
+            e.printStackTrace();
+            return;
+         }
+         break;
+
+      default:
+         throw new RuntimeException("Unhandled cluster type: " + cluster.getType());
+      }
+      cluster.updateRotationRegion();
+   }
+
+
    /**
-    * 
-    * 
+    *
+    *
     * @param verticalPolygonVertices
     * @param poppingPointsDistanceSquaredThreshold
     * @return

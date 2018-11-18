@@ -129,7 +129,7 @@ public interface VisibilityGraphsParameters
          }
          else
          {
-            return 0.9;
+            return 0.35;
          }
       };
    }

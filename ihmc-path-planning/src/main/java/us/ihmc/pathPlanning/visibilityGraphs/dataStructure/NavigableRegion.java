@@ -3,11 +3,16 @@ package us.ihmc.pathPlanning.visibilityGraphs.dataStructure;
 import java.util.ArrayList;
 import java.util.List;
 
+import us.ihmc.euclid.geometry.ConvexPolygon2D;
+import us.ihmc.euclid.geometry.tools.EuclidGeometryPolygonTools;
 import us.ihmc.euclid.interfaces.Transformable;
 import us.ihmc.euclid.transform.RigidBodyTransform;
+import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
+import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
 import us.ihmc.pathPlanning.visibilityGraphs.interfaces.VisibilityMapHolder;
+import us.ihmc.pathPlanning.visibilityGraphs.tools.PlanarRegionTools;
 import us.ihmc.robotics.geometry.PlanarRegion;
 
 /**
@@ -15,13 +20,13 @@ import us.ihmc.robotics.geometry.PlanarRegion;
  */
 public class NavigableRegion implements VisibilityMapHolder
 {
-   private final double costOfRotating = 10;
+   private final double costOfRotating = 2.0;
    private final PlanarRegion homeRegion;
    private final RigidBodyTransform transformToWorld = new RigidBodyTransform();
 
    private Cluster homeRegionCluster = null;
-   private List<Cluster> rotationClusters = new ArrayList<>();
    private List<Cluster> obstacleClusters = new ArrayList<>();
+   private List<Cluster> rotationClusters = new ArrayList<>();
    private List<Cluster> allClusters = new ArrayList<>();
    private VisibilityMap visibilityMapInLocal = null;
    private VisibilityMap visibilityMapInWorld = null;
@@ -38,26 +43,25 @@ public class NavigableRegion implements VisibilityMapHolder
       allClusters.add(homeCluster);
    }
 
-   public void addRotationClusters(Iterable<Cluster> rotationClusters)
-   {
-      rotationClusters.forEach(this::addRotationCluster);
-   }
-
    public void addObstacleClusters(Iterable<Cluster> obstacleClusters)
    {
       obstacleClusters.forEach(this::addObstacleCluster);
-   }
-
-   public void addRotationCluster(Cluster rotationCluster)
-   {
-      rotationClusters.add(rotationCluster);
-//      allClusters.add(rotationCluster);
    }
 
    public void addObstacleCluster(Cluster obstacleCluster)
    {
       obstacleClusters.add(obstacleCluster);
       allClusters.add(obstacleCluster);
+   }
+
+   public void addRotationClusters(Iterable<Cluster> rotationClusters)
+   {
+      rotationClusters.forEach(this::addRotationCluster);
+   }
+
+   public void addRotationCluster(Cluster rotationCluster)
+   {
+      rotationClusters.add(rotationCluster);
    }
 
    public void setVisibilityMapInLocal(VisibilityMap visibilityMap)
@@ -71,8 +75,7 @@ public class NavigableRegion implements VisibilityMapHolder
          visibilityMapInLocal = new VisibilityMap();
 
       visibilityMapInLocal.copy(visibilityMap);
-      transformFromWorldToLocal(visibilityMapInLocal);
-      visibilityMapInLocal.computeVertices();
+      visibilityMapInLocal.applyInverseTransform(transformToWorld);
    }
 
    public PlanarRegion getHomeRegion()
@@ -90,14 +93,14 @@ public class NavigableRegion implements VisibilityMapHolder
       return homeRegionCluster;
    }
 
-   public List<Cluster> getRotationClusters()
-   {
-      return rotationClusters;
-   }
-
    public List<Cluster> getObstacleClusters()
    {
       return obstacleClusters;
+   }
+
+   public List<Cluster> getRotationClusters()
+   {
+      return rotationClusters;
    }
 
    public List<Cluster> getAllClusters()
@@ -105,10 +108,6 @@ public class NavigableRegion implements VisibilityMapHolder
       return allClusters;
    }
 
-   public void transformFromLocalToWorld(Transformable objectToTransformToWorld)
-   {
-      objectToTransformToWorld.applyTransform(transformToWorld);
-   }
 
    public void transformFromWorldToLocal(Transformable objectToTransformToWorld)
    {
@@ -134,24 +133,42 @@ public class NavigableRegion implements VisibilityMapHolder
       {
          visibilityMapInWorld = new VisibilityMap();
          visibilityMapInWorld.copy(visibilityMapInLocal);
-         transformFromLocalToWorld(visibilityMapInWorld);
-         visibilityMapInWorld.computeVertices();
+         visibilityMapInWorld.applyTransform(transformToWorld);
       }
 
       return visibilityMapInWorld;
    }
 
+   private final double maxDistanceInside = 0.3;
    @Override
-   public double getConnectionWeight(Connection connection)
+   public double getConnectionWeight(Connection connectionInWorld)
    {
+      Point2DReadOnly source = connectionInWorld.getSourcePoint2D();
+      Point2DReadOnly target = connectionInWorld.getTargetPoint2D();
+      if (source.equals(target))
+         return connectionInWorld.length();
+
       for (Cluster cluster : rotationClusters)
       {
-         Point2DReadOnly source = connection.getSourcePoint2D();
-         Point2DReadOnly target = connection.getTargetPoint2D();
-         if (cluster.isInsideNonNavigableZone(source) || cluster.isInsideNonNavigableZone(target))
-            return costOfRotating * connection.length();
-
+         double distanceInside = PlanarRegionTools.getDistanceOfLine2DInsideConvexPolygon(source, target, cluster.getRotationConvexRegionInWorld().getVertexBufferView());
+         if (distanceInside > 0.0)
+         {
+            double fractionToMaxRotation = distanceInside / maxDistanceInside;
+            return costOfRotating * (1.0 + Math.pow(fractionToMaxRotation, 2.0)) * connectionInWorld.length();
+         }
       }
-      return connection.length();
+
+      return connectionInWorld.length();
+   }
+
+   public double getConnectionWeight(Point3DReadOnly source, Point3DReadOnly target)
+   {
+      return getConnectionWeight(new Point2D(source), new Point2D(target));
+   }
+
+   public double getConnectionWeight(Point2DReadOnly source, Point2DReadOnly target)
+   {
+      Connection connection = new Connection(new ConnectionPoint3D(source, 0), new ConnectionPoint3D(target, 0));
+      return getConnectionWeight(connection);
    }
 }

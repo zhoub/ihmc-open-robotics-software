@@ -35,7 +35,7 @@ public class VisGraphWihAStarToolboxDataSetTest extends FootstepPlannerToolboxDa
       test.pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
       VISUALIZE = true;
       test.setup();
-      test.runAssertionsOnDataset(dataset -> test.runAssertions(dataset), prefix + "20171216_111326_CrossoverPlatforms");
+      test.runAssertionsOnDataset(dataset -> test.runAssertions(dataset), prefix + "20171218_204953_FlatGroundWithWall");
 
       ThreadTools.sleepForever();
       test.tearDown();

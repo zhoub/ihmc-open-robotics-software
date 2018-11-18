@@ -99,7 +99,8 @@ public class VisibilityGraphsTestVisualizer
       bodyPathMeshViewer = new BodyPathMeshViewer(messager, executorService);
 
       clusterMeshViewer = new ClusterMeshViewer(messager, executorService);
-      clusterMeshViewer.setTopics(GlobalReset, ShowClusterRawPoints, ShowClusterNavigableExtrusions, ShowClusterNonNavigableExtrusions, NavigableRegionData, ShowClusterRotationExtrusions);
+      clusterMeshViewer.setTopics(GlobalReset, ShowClusterRawPoints, ShowClusterNavigableExtrusions, ShowClusterNonNavigableExtrusions,
+                                  ShowClusterRotationExtrusions, NavigableRegionData);
 
       navigableRegionMeshViewer = new NavigableRegionViewer(messager, executorService);
       navigableRegionMeshViewer.setTopics(GlobalReset, ShowNavigableRegionVisibilityMaps, NavigableRegionVisibilityMap);

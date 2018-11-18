@@ -89,7 +89,7 @@ public class VisibilityGraphsFactory
 
       navigableRegion.setHomeRegionCluster(ClusterTools.createHomeRegionCluster(homeRegion, navigableCalculator));
       navigableRegion.addObstacleClusters(ClusterTools.createObstacleClusters(homeRegion, obstacleRegions, orthogonalAngle, obstacleCalculator));
-      navigableRegion.addRotationClusters(ClusterTools.createObstacleClusters(homeRegion, obstacleRegions, orthogonalAngle, rotationCalculator));
+      navigableRegion.addRotationClusters(ClusterTools.createRotationClusters(homeRegion, obstacleRegions, orthogonalAngle, rotationCalculator));
 
       for (Cluster cluster : navigableRegion.getAllClusters())
       {

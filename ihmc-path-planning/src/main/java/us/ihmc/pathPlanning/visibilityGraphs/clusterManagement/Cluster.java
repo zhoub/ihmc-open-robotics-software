@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import us.ihmc.euclid.geometry.BoundingBox2D;
+import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
@@ -21,6 +22,7 @@ public class Cluster
    private final List<Point2DReadOnly> navigableExtrusionsInLocal = new ArrayList<>();
    private final List<Point2DReadOnly> nonNavigableExtrusionsInLocal = new ArrayList<>();
    private final List<Point2DReadOnly> rotationExtrusionsInLocal = new ArrayList<>();
+   private ConvexPolygon2D rotationExtrusionPolygonInWorld;
 
    private final BoundingBox2D nonNavigableExtrusionsBoundingBox = new BoundingBox2D();
 
@@ -73,6 +75,11 @@ public class Cluster
    public void updateBoundingBox()
    {
       nonNavigableExtrusionsInLocal.forEach(nonNavigableExtrusionsBoundingBox::updateToIncludePoint);
+   }
+
+   public void updateRotationRegion()
+   {
+      getRotationConvexRegionInWorld();
    }
 
    public boolean isInsideNonNavigableZone(Point2DReadOnly query)
@@ -228,15 +235,16 @@ public class Cluster
 
    public void addRotationExtrusionInLocal(Point2DReadOnly rotationExtrusionInLocal)
    {
-      rotationExtrusionsInLocal.add(new Point2D(rotationExtrusionInLocal));
+      Point2D point = new Point2D(rotationExtrusionInLocal);
+      rotationExtrusionsInLocal.add(point);
    }
 
    public void addRotationExtrusionInLocal(Point3DReadOnly rotationExtrusionInLocal)
    {
-      rotationExtrusionsInLocal.add(new Point2D(rotationExtrusionInLocal));
+      addRotationExtrusionInLocal(new Point2D(rotationExtrusionInLocal));
    }
 
-   public void addRotationExtrusionsInLocal(List<Point2DReadOnly> rotationExtrusionsInLocal)
+   public void addRotationExtrusionsInLocal(List<? extends Point2DReadOnly> rotationExtrusionsInLocal)
    {
       rotationExtrusionsInLocal.forEach(this::addRotationExtrusionInLocal);
    }
@@ -294,6 +302,19 @@ public class Cluster
    public Point2DReadOnly getRotationExtrusionInLocal(int i)
    {
       return rotationExtrusionsInLocal.get(i);
+   }
+
+   public ConvexPolygon2D getRotationConvexRegionInWorld()
+   {
+      if (rotationExtrusionPolygonInWorld == null)
+      {
+         rotationExtrusionPolygonInWorld = new ConvexPolygon2D();
+         List<Point3DReadOnly> extrusions = getRotationExtrusionsInWorld();
+         for (int i = 0; i < extrusions.size(); i++)
+            rotationExtrusionPolygonInWorld.addVertex(extrusions.get(i));
+         rotationExtrusionPolygonInWorld.update();
+      }
+      return rotationExtrusionPolygonInWorld;
    }
 
    public List<Point2DReadOnly> getRotationExtrusionsInLocal()

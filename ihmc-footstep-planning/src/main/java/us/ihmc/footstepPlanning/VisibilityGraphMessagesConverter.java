@@ -99,6 +99,7 @@ public class VisibilityGraphMessagesConverter
       List<? extends Point3DReadOnly> rawPointsInLocal = cluster.getRawPointsInLocal3D();
       List<Point2DReadOnly> navigableExtrusionsInLocal = cluster.getNavigableExtrusionsInLocal();
       List<Point2DReadOnly> nonNavigableExtrusionsInLocal = cluster.getNonNavigableExtrusionsInLocal();
+      List<Point2DReadOnly> rotationExtrusionsInLocal = cluster.getRotationExtrusionsInLocal();
 
       message.setExtrusionSide(cluster.getExtrusionSide().toByte());
       message.setType(cluster.getType().toByte());
@@ -109,6 +110,8 @@ public class VisibilityGraphMessagesConverter
          message.getNavigableExtrusionsInLocal().add().set(navigableExtrusionsInLocal.get(i));
       for (int i = 0; i < nonNavigableExtrusionsInLocal.size(); i++)
          message.getNonNavigableExtrusionsInLocal().add().set(nonNavigableExtrusionsInLocal.get(i));
+      for (int i = 0; i < rotationExtrusionsInLocal.size(); i++)
+         message.getRotationExtrusionsInLocal().add().set(rotationExtrusionsInLocal.get(i));
 
       return message;
    }
@@ -185,8 +188,11 @@ public class VisibilityGraphMessagesConverter
       navigableRegion.setVisibilityMapInWorld(convertToVisibilityMap(message.getVisibilityMapInWorld()));
 
       List<VisibilityClusterMessage> obstacleClusterMessages = message.getObstacleClusters();
+      List<VisibilityClusterMessage> rotationClusterMessages = message.getRotationClusters();
       for (int i = 0; i < obstacleClusterMessages.size(); i++)
          navigableRegion.addObstacleCluster(convertToCluster(obstacleClusterMessages.get(i)));
+      for (int i = 0; i < rotationClusterMessages.size(); i++)
+         navigableRegion.addRotationCluster(convertToCluster(rotationClusterMessages.get(i)));
 
       return navigableRegion;
    }
@@ -230,6 +236,9 @@ public class VisibilityGraphMessagesConverter
          cluster.addNonNavigableExtrusionInLocal(nonNavigableExtrusionsInLocal.get(i));
       for (int i = 0; i < rotationExtrusionsInLocal.size(); i++)
          cluster.addRotationExtrusionInLocal(rotationExtrusionsInLocal.get(i));
+
+      cluster.updateRotationRegion();
+      cluster.updateBoundingBox();
 
       return cluster;
    }

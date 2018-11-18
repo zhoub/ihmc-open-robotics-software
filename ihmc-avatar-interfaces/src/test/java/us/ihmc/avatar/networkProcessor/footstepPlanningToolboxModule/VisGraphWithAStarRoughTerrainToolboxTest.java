@@ -43,7 +43,7 @@ public class VisGraphWithAStarRoughTerrainToolboxTest extends RoughTerrainDataSe
 
    public static void main(String[] args) throws Exception
    {
-      String testName = corridor;
+      String testName = bollards;
       VisGraphWithAStarRoughTerrainToolboxTest test = new VisGraphWithAStarRoughTerrainToolboxTest();
       test.pubSubImplementation = DomainFactory.PubSubImplementation.INTRAPROCESS;
       VISUALIZE = true;

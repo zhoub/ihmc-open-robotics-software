@@ -69,8 +69,8 @@ public class ClusterMeshViewer extends AnimationTimer
    }
 
    public void setTopics(Topic<Boolean> resetRequestedTopic, Topic<Boolean> showClusterRawPointsTopic, Topic<Boolean> showClusterNavigableExtrusionsTopic,
-                         Topic<Boolean> showClusterNonNavigableExtrusionsTopic, Topic<List<NavigableRegion>> navigableRegionDataTopic,
-                         Topic<Boolean> showClusterRotationExtrusionsTopic)
+                         Topic<Boolean> showClusterNonNavigableExtrusionsTopic, Topic<Boolean> showClusterRotationExtrusionsTopic,
+                         Topic<List<NavigableRegion>> navigableRegionDataTopic)
    {
       resetRequested = messager.createInput(resetRequestedTopic, false);
       showRawPoints = messager.createInput(showClusterRawPointsTopic, false);
@@ -91,6 +91,8 @@ public class ClusterMeshViewer extends AnimationTimer
          navigableExtrusionsToRenderReference.getAndSet(null);
          nonNavigableExtrusionsGroup.getChildren().clear();
          nonNavigableExtrusionsToRenderReference.getAndSet(null);
+         rotationExtrusionsGroup.getChildren().clear();
+         rotationExtrusionsToRenderReference.getAndSet(null);
          return;
       }
 
@@ -167,6 +169,7 @@ public class ClusterMeshViewer extends AnimationTimer
          JavaFXMeshBuilder rotationExtrusionsMeshBuilder = getOrCreate(rotationExtrusionsMeshBuilders, regionId);
 
          List<Cluster> clusters = navigableRegionLocalPlanner.getAllClusters();
+         List<Cluster> rotationClusters = navigableRegionLocalPlanner.getRotationClusters();
          for (Cluster cluster : clusters)
          {
             for (Point3DReadOnly rawPoint : cluster.getRawPointsInWorld())
@@ -175,12 +178,15 @@ public class ClusterMeshViewer extends AnimationTimer
                   .addMultiLine(cluster.getNavigableExtrusionsInWorld(), VisualizationParameters.NAVIGABLECLUSTER_LINE_THICKNESS, false);
             nonNavigableExtrusionsMeshBuilder
                   .addMultiLine(cluster.getNonNavigableExtrusionsInWorld(), VisualizationParameters.NON_NAVIGABLECLUSTER_LINE_THICKNESS, false);
-            rotationExtrusionsMeshBuilder
-                  .addMultiLine(cluster.getRotationExtrusionsInWorld(), VisualizationParameters.ROTATIONCLUSTER_LINE_THICKNESS, false);
+         }
+         for (Cluster cluster : rotationClusters)
+         {
+            rotationExtrusionsMeshBuilder.addMultiLine(cluster.getRotationExtrusionsInWorld(), VisualizationParameters.ROTATIONCLUSTER_LINE_THICKNESS, false);
          }
 
          navigableMaterials.put(regionId, new PhongMaterial(getNavigableLineColor(regionId)));
          nonNavigableMaterials.put(regionId, new PhongMaterial(getNonNavigableLineColor(regionId)));
+         rotationMaterials.put(regionId, new PhongMaterial(getRotationLineColor(regionId)));
       }
 
       HashMap<Integer, MeshView> rawPointsMapToRender = new HashMap<>();
@@ -213,6 +219,30 @@ public class ClusterMeshViewer extends AnimationTimer
       rotationExtrusionsToRenderReference.set(rotationExtrusionsMapToRender);
    }
 
+   private void addCustomMultiline(JavaFXMeshBuilder builder, NavigableRegion navigableRegion, List<? extends Point3DReadOnly> points, double lineWidth, boolean close)
+   {
+      if (points.size() < 2)
+         return;
+
+      for (int i = 1; i < points.size(); i++)
+      {
+         Point3DReadOnly start = points.get(i - 1);
+         Point3DReadOnly end = points.get(i);
+         double cost = navigableRegion.getConnectionWeight(start, end);
+         lineWidth *= cost;
+         builder.addLine(start, end, lineWidth);
+      }
+
+      if (close)
+      {
+         Point3DReadOnly start = points.get(points.size() - 1);
+         Point3DReadOnly end = points.get(0);
+         double cost = navigableRegion.getConnectionWeight(start, end);
+         lineWidth *= cost;
+         builder.addLine(start, end, lineWidth);
+      }
+   }
+
    private JavaFXMeshBuilder getOrCreate(Map<Integer, JavaFXMeshBuilder> meshBuilders, int regionId)
    {
       JavaFXMeshBuilder meshBuilder = meshBuilders.get(regionId);
@@ -230,6 +260,11 @@ public class ClusterMeshViewer extends AnimationTimer
    }
 
    private Color getNavigableLineColor(int regionId)
+   {
+      return PlanarRegionViewer.getRegionColor(regionId).brighter();
+   }
+
+   private Color getRotationLineColor(int regionId)
    {
       return PlanarRegionViewer.getRegionColor(regionId).brighter();
    }
