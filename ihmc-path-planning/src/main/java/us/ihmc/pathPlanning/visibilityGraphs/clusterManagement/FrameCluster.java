@@ -242,11 +242,13 @@ public class FrameCluster
 
    public void addNonNavigableExtrusionInLocal(Point2DReadOnly nonNavigableExtrusionInLocal)
    {
+      nonNavigableExtrusionsInLocal = null;
       nonNavigableExtrusions.add(new FramePoint3D(localFrame, nonNavigableExtrusionInLocal));
    }
 
    public void addNonNavigableExtrusionInLocal(Point3DReadOnly nonNavigableExtrusionInLocal)
    {
+      nonNavigableExtrusionsInLocal = null;
       nonNavigableExtrusions.add(new FramePoint3D(localFrame, nonNavigableExtrusionInLocal));
    }
 
