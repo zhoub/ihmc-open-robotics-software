@@ -1,12 +1,17 @@
 package us.ihmc.pathPlanning.visibilityGraphs.dataStructure;
 
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FrameChangeable;
+import us.ihmc.euclid.transform.interfaces.Transform;
+
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class FrameVisibilityMap implements Iterable<FrameConnection>
+public class FrameVisibilityMap implements Iterable<FrameConnection>, FrameChangeable
 {
+
    private Set<FrameConnection> connections;
    private final HashSet<FrameConnectionPoint3D> vertices;
 
@@ -100,4 +105,5 @@ public class FrameVisibilityMap implements Iterable<FrameConnection>
    {
       return connections.iterator();
    }
+
 }

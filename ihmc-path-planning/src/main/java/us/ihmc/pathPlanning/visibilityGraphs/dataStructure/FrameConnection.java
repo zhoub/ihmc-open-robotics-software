@@ -14,7 +14,7 @@ import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 
-public class FrameConnection implements ReferenceFrameHolder, EpsilonComparable<FrameConnection>
+public class FrameConnection implements ReferenceFrameHolder, FrameChangeable, EpsilonComparable<FrameConnection>
 {
    private FrameConnectionPoint3D source;
    private FrameConnectionPoint3D target;
@@ -181,5 +181,26 @@ public class FrameConnection implements ReferenceFrameHolder, EpsilonComparable<
    {
       target.checkReferenceFrameMatch(source);
       return source.getReferenceFrame();
+   }
+
+   @Override
+   public void setReferenceFrame(ReferenceFrame referenceFrame)
+   {
+      target.setReferenceFrame(referenceFrame);
+      source.setReferenceFrame(referenceFrame);
+   }
+
+   @Override
+   public void applyTransform(Transform transform)
+   {
+      target.applyTransform(transform);
+      source.applyTransform(transform);
+   }
+
+   @Override
+   public void applyInverseTransform(Transform transform)
+   {
+      target.applyInverseTransform(transform);
+      source.applyInverseTransform(transform);
    }
 }

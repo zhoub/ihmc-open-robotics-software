@@ -1,64 +1,62 @@
 package us.ihmc.pathPlanning.visibilityGraphs.dataStructure;
 
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FrameChangeable;
+import us.ihmc.euclid.transform.RigidBodyTransform;
+import us.ihmc.euclid.transform.interfaces.Transform;
+import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.FrameCluster;
+import us.ihmc.pathPlanning.visibilityGraphs.interfaces.FrameVisibilityMapHolder;
+import us.ihmc.robotics.geometry.PlanarRegion;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import us.ihmc.euclid.interfaces.Transformable;
-import us.ihmc.euclid.transform.RigidBodyTransform;
-import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
-import us.ihmc.pathPlanning.visibilityGraphs.interfaces.VisibilityMapHolder;
-import us.ihmc.robotics.geometry.PlanarRegion;
-
-/**
- * User: Matt Date: 1/14/13
- */
-public class NavigableRegion implements VisibilityMapHolder
+public class FrameNavigableRegion implements FrameChangeable
 {
+   private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
    private final PlanarRegion homeRegion;
+   private final ReferenceFrame localFrame = new ReferenceFrame("localFrame", worldFrame)
+   {
+      @Override
+      protected void updateTransformToParent(RigidBodyTransform transformToParent)
+      {
+         transformToParent.set(transformToWorld);
+      }
+   };
    private final RigidBodyTransform transformToWorld = new RigidBodyTransform();
 
-   private Cluster homeRegionCluster = null;
-   private List<Cluster> obstacleClusters = new ArrayList<>();
-   private List<Cluster> allClusters = new ArrayList<>();
-   private VisibilityMap visibilityMapInLocal = null;
-   private VisibilityMap visibilityMapInWorld = null;
+   private FrameCluster homeRegionCluster = null;
+   private List<FrameCluster> obstacleClusters = new ArrayList<>();
+   private List<FrameCluster> allClusters = new ArrayList<>();
+   private FrameVisibilityMap visibilityMapInLocal = null;
 
-   public NavigableRegion(PlanarRegion homeRegion)
+   public FrameNavigableRegion(PlanarRegion homeRegion)
    {
       this.homeRegion = homeRegion;
       homeRegion.getTransformToWorld(transformToWorld);
+      localFrame.update();
    }
 
-   public void setHomeRegionCluster(Cluster homeCluster)
+   public void setHomeRegionCluster(FrameCluster homeCluster)
    {
       this.homeRegionCluster = homeCluster;
       allClusters.add(homeCluster);
    }
 
-   public void addObstacleClusters(Iterable<Cluster> obstacleClusters)
+   public void addObstacleClusters(Iterable<FrameCluster> obstacleClusters)
    {
       obstacleClusters.forEach(this::addObstacleCluster);
    }
 
-   public void addObstacleCluster(Cluster obstacleCluster)
+   public void addObstacleCluster(FrameCluster obstacleCluster)
    {
       obstacleClusters.add(obstacleCluster);
       allClusters.add(obstacleCluster);
    }
 
-   public void setVisibilityMapInLocal(VisibilityMap visibilityMap)
+   public void setVisibilityMap(FrameVisibilityMap visibilityMap)
    {
       visibilityMapInLocal = visibilityMap;
-   }
-
-   public void setVisibilityMapInWorld(VisibilityMap visibilityMap)
-   {
-      if (visibilityMapInLocal == null)
-         visibilityMapInLocal = new VisibilityMap();
-
-      visibilityMapInLocal.copy(visibilityMap);
-      transformFromWorldToLocal(visibilityMapInLocal);
-      visibilityMapInLocal.computeVertices();
    }
 
    public PlanarRegion getHomeRegion()
@@ -66,34 +64,19 @@ public class NavigableRegion implements VisibilityMapHolder
       return homeRegion;
    }
 
-   public RigidBodyTransform getTransformToWorld()
-   {
-      return new RigidBodyTransform(transformToWorld);
-   }
-
-   public Cluster getHomeRegionCluster()
+   public FrameCluster getHomeRegionCluster()
    {
       return homeRegionCluster;
    }
 
-   public List<Cluster> getObstacleClusters()
+   public List<FrameCluster> getObstacleClusters()
    {
       return obstacleClusters;
    }
 
-   public List<Cluster> getAllClusters()
+   public List<FrameCluster> getAllClusters()
    {
       return allClusters;
-   }
-
-   public void transformFromLocalToWorld(Transformable objectToTransformToWorld)
-   {
-      objectToTransformToWorld.applyTransform(transformToWorld);
-   }
-
-   public void transformFromWorldToLocal(Transformable objectToTransformToWorld)
-   {
-      objectToTransformToWorld.applyInverseTransform(transformToWorld);
    }
 
    @Override
@@ -103,22 +86,9 @@ public class NavigableRegion implements VisibilityMapHolder
    }
 
    @Override
-   public VisibilityMap getVisibilityMapInLocal()
+   public FrameVisibilityMap getVisibilityMap()
    {
       return visibilityMapInLocal;
    }
 
-   @Override
-   public VisibilityMap getVisibilityMapInWorld()
-   {
-      if (visibilityMapInWorld == null)
-      {
-         visibilityMapInWorld = new VisibilityMap();
-         visibilityMapInWorld.copy(visibilityMapInLocal);
-         transformFromLocalToWorld(visibilityMapInWorld);
-         visibilityMapInWorld.computeVertices();
-      }
-
-      return visibilityMapInWorld;
-   }
 }
