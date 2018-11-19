@@ -104,6 +104,44 @@ public class VisibilityGraphsFactory
       return navigableRegion;
    }
 
+   public static List<FrameNavigableRegion> createFrameNavigableRegions(List<PlanarRegion> allRegions, VisibilityGraphsParameters parameters)
+   {
+      if (allRegions.isEmpty())
+         return null;
+
+      List<FrameNavigableRegion> navigableRegions = new ArrayList<>(allRegions.size());
+
+      NavigableRegionFilter navigableRegionFilter = parameters.getNavigableRegionFilter();
+
+      for (int candidateIndex = 0; candidateIndex < allRegions.size(); candidateIndex++)
+      {
+         PlanarRegion candidate = allRegions.get(candidateIndex);
+
+         List<PlanarRegion> otherRegions = new ArrayList<>(allRegions);
+         Collections.swap(otherRegions, candidateIndex, otherRegions.size() - 1);
+         otherRegions.remove(otherRegions.size() - 1);
+
+         if (!navigableRegionFilter.isPlanarRegionNavigable(candidate, otherRegions))
+            continue;
+
+         navigableRegions.add(createFrameNavigableRegion(candidate, otherRegions, parameters));
+      }
+
+      return navigableRegions;
+   }
+
+   public static FrameNavigableRegion createFrameNavigableRegion(PlanarRegion region, List<PlanarRegion> otherRegions, VisibilityGraphsParameters parameters)
+   {
+      PlanarRegionFilter planarRegionFilter = parameters.getPlanarRegionFilter();
+      double orthogonalAngle = parameters.getRegionOrthogonalAngle();
+      double clusterResolution = parameters.getClusterResolution();
+      NavigableExtrusionDistanceCalculator navigableCalculator = parameters.getNavigableExtrusionDistanceCalculator();
+      ObstacleExtrusionDistanceCalculator obstacleCalculator = parameters.getObstacleExtrusionDistanceCalculator();
+      ObstacleRegionFilter obstacleRegionFilter = parameters.getObstacleRegionFilter();
+      return createFrameNavigableRegion(region, otherRegions, orthogonalAngle, clusterResolution, obstacleRegionFilter, planarRegionFilter, navigableCalculator,
+                                   obstacleCalculator);
+   }
+
    public static FrameNavigableRegion createFrameNavigableRegion(PlanarRegion region, List<PlanarRegion> otherRegions, double orthogonalAngle, double clusterResolution,
                                                                  ObstacleRegionFilter obstacleRegionFilter, PlanarRegionFilter filter,
                                                                  NavigableExtrusionDistanceCalculator navigableCalculator,
