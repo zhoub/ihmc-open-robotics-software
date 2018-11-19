@@ -13,7 +13,12 @@ import java.util.List;
 
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.interfaces.Vertex2DSupplier;
+import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.FrameVector2D;
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DBasics;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DReadOnly;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.Vector2D;
@@ -170,6 +175,7 @@ public class PointCloudTools
       }
    }
 
+
    private static void doBrakeDown2D(List<Point2DReadOnly> points, int index, Point2DReadOnly point1, Point2DReadOnly point2, double brakeDownThreshold)
    {
       double nOfPointsToAddToSegment = Math.floor(point2.distance(point1) / brakeDownThreshold);
@@ -182,6 +188,38 @@ public class PointCloudTools
          double yPos = point1.getY() + direction.getY() * brakeDownThreshold * (i + 1);
 
          points.add(index, new Point2D(xPos, yPos));
+         index++;
+      }
+   }
+
+
+   public static void doBrakeDownOn2DFramePoints(List<FramePoint2DBasics> pointsToBrakeDown, double brakeDownThreshold)
+   {
+      for (int i = 1; i < pointsToBrakeDown.size(); i++)
+      {
+         FramePoint2DReadOnly point1 = pointsToBrakeDown.get(i - 1);
+         FramePoint2DReadOnly point2 = pointsToBrakeDown.get(i);
+
+         doBrakeDown2D(pointsToBrakeDown, i, point1, point2, brakeDownThreshold);
+      }
+   }
+
+   private static void doBrakeDown2D(List<FramePoint2DBasics> pointsToPack, int index, FramePoint2DReadOnly point1, FramePoint2DReadOnly point2, double brakeDownThreshold)
+   {
+      ReferenceFrame referenceFrame = point1.getReferenceFrame();
+
+      double nOfPointsToAddToSegment = Math.floor(point2.distance(point1) / brakeDownThreshold);
+      FrameVector2D direction = new FrameVector2D(referenceFrame);
+      direction.sub(point2, point1);
+      direction.normalize();
+
+      for (int i = 0; i < nOfPointsToAddToSegment; i++)
+      {
+         double xPos = point1.getX() + direction.getX() * brakeDownThreshold * (i + 1);
+         double yPos = point1.getY() + direction.getY() * brakeDownThreshold * (i + 1);
+
+         FramePoint2D point = new FramePoint2D(referenceFrame, xPos, yPos);
+         pointsToPack.add(index, point);
          index++;
       }
    }

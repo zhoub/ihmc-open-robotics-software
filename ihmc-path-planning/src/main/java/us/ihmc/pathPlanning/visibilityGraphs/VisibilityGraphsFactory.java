@@ -11,12 +11,8 @@ import java.util.stream.Collectors;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.Connection;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.ConnectionPoint3D;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.InterRegionVisibilityMap;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.NavigableRegion;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.SingleSourceVisibilityMap;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.VisibilityMap;
+import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.FrameCluster;
+import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.*;
 import us.ihmc.pathPlanning.visibilityGraphs.interfaces.*;
 import us.ihmc.pathPlanning.visibilityGraphs.tools.ClusterTools;
 import us.ihmc.pathPlanning.visibilityGraphs.tools.PlanarRegionTools;
@@ -104,6 +100,43 @@ public class VisibilityGraphsFactory
       VisibilityMap visibilityMap = new VisibilityMap();
       visibilityMap.setConnections(connectionsForMap);
       navigableRegion.setVisibilityMapInLocal(visibilityMap);
+
+      return navigableRegion;
+   }
+
+   public static FrameNavigableRegion createFrameNavigableRegion(PlanarRegion region, List<PlanarRegion> otherRegions, double orthogonalAngle, double clusterResolution,
+                                                                 ObstacleRegionFilter obstacleRegionFilter, PlanarRegionFilter filter,
+                                                                 NavigableExtrusionDistanceCalculator navigableCalculator,
+                                                                 ObstacleExtrusionDistanceCalculator obstacleCalculator)
+   {
+      FrameNavigableRegion navigableRegion = new FrameNavigableRegion(region);
+      PlanarRegion homeRegion = navigableRegion.getHomeRegion();
+
+      List<PlanarRegion> obstacleRegions = otherRegions.stream().filter(candidate -> obstacleRegionFilter.isRegionValidObstacle(candidate, homeRegion))
+                                                       .collect(Collectors.toList());
+
+      obstacleRegions = PlanarRegionTools.filterRegionsByTruncatingVerticesBeneathHomeRegion(obstacleRegions, homeRegion,
+                                                                                             DEPTH_THRESHOLD_FOR_CONVEX_DECOMPOSITION, filter);
+
+      navigableRegion.setHomeRegionCluster(ClusterTools.createHomeRegionFrameCluster(homeRegion, navigableCalculator));
+      navigableRegion.addObstacleClusters(ClusterTools.createObstacleFrameClusters(homeRegion, obstacleRegions, orthogonalAngle, obstacleCalculator));
+
+      for (FrameCluster cluster : navigableRegion.getAllClusters())
+      {
+         PointCloudTools.doBrakeDownOn2DFramePoints(cluster.getNavigableExtrusions(), clusterResolution);
+      }
+
+      Collection<FrameConnection> connectionsForMap = VisibilityTools.createStaticFrameVisibilityMap(navigableRegion.getAllClusters(), navigableRegion);
+
+      if (ENABLE_GREEDY_FILTERS)
+      {
+         connectionsForMap = VisibilityTools.removeFrameConnectionsFromExtrusionsOutsideRegions(connectionsForMap, homeRegion);
+         connectionsForMap = VisibilityTools.removeFrameConnectionsFromExtrusionsInsideNoGoZones(connectionsForMap, navigableRegion.getAllClusters());
+      }
+
+      FrameVisibilityMap visibilityMap = new FrameVisibilityMap(navigableRegion.getReferenceFrame());
+      visibilityMap.setConnections(connectionsForMap);
+      navigableRegion.setVisibilityMap(visibilityMap);
 
       return navigableRegion;
    }

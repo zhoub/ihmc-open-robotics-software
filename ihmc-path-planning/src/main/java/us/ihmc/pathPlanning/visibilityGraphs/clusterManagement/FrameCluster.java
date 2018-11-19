@@ -1,14 +1,13 @@
 package us.ihmc.pathPlanning.visibilityGraphs.clusterManagement;
 
+import us.ihmc.euclid.referenceFrame.interfaces.*;
+import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster.Type;
+import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster.ExtrusionSide;
 import us.ihmc.euclid.geometry.BoundingBox2D;
 import us.ihmc.euclid.geometry.BoundingBox3D;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
 import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
-import us.ihmc.euclid.referenceFrame.interfaces.FrameChangeable;
-import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DReadOnly;
-import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DBasics;
-import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.transform.interfaces.Transform;
 import us.ihmc.euclid.tuple2D.Point2D;
@@ -19,6 +18,7 @@ import us.ihmc.pathPlanning.visibilityGraphs.tools.PlanarRegionTools;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,57 +28,13 @@ public class FrameCluster implements FrameChangeable
    private ReferenceFrame localFrame;
 
    private final List<FramePoint3DBasics> rawPoints = new ArrayList<>();
-   private final List<FramePoint3DBasics> navigableExtrusions = new ArrayList<>();
-   private final List<FramePoint3DBasics> nonNavigableExtrusions = new ArrayList<>();
+   private final List<FramePoint2DBasics> navigableExtrusions = new ArrayList<>();
+   private final List<FramePoint2DBasics> nonNavigableExtrusions = new ArrayList<>();
    private List<? extends Point2DReadOnly> nonNavigableExtrusionsInLocal;
 
    private final BoundingBox2D nonNavigableExtrusionsBoundingBoxInLocal = new BoundingBox2D();
 
-
-   public enum ExtrusionSide
-   {
-      INSIDE, OUTSIDE;
-
-      public static ExtrusionSide[] values = values();
-
-      public byte toByte()
-      {
-         return (byte) ordinal();
-      }
-
-      public static ExtrusionSide fromByte(byte enumAsByte)
-      {
-         if (enumAsByte == -1)
-            return null;
-         return values[enumAsByte];
-      }
-   }
-
-   ;
-
    private ExtrusionSide extrusionSide = ExtrusionSide.OUTSIDE;
-
-   public enum Type
-   {
-      LINE, MULTI_LINE, POLYGON;
-
-      public static Type[] values = values();
-
-      public byte toByte()
-      {
-         return (byte) ordinal();
-      }
-
-      public static Type fromByte(byte enumAsByte)
-      {
-         if (enumAsByte == -1)
-            return null;
-         return values[enumAsByte];
-      }
-   }
-
-   ;
-
    private Type type = Type.POLYGON;
 
    public FrameCluster(ReferenceFrame localFrame)
@@ -162,39 +118,30 @@ public class FrameCluster implements FrameChangeable
       rawPoints.add(new FramePoint3D(point));
    }
 
-   public void addRawPointInLocal(Point2DReadOnly pointInLocal)
+   public void addRawPoints(List<? extends FramePoint3DReadOnly> points)
    {
-      rawPoints.add(new FramePoint3D(localFrame, pointInLocal));
+      points.forEach(this::addRawPoint);
    }
 
-   public void addRawPointInLocal(Point3DReadOnly pointInLocal)
+   public void addRawPoint(ReferenceFrame referenceFrame, Point3DReadOnly point)
    {
-      rawPoints.add(new FramePoint3D(localFrame, pointInLocal));
+      rawPoints.add(new FramePoint3D(referenceFrame, point));
    }
 
-   public void addRawPointInWorld(Point3DReadOnly pointInWorld)
+   public void addRawPoint(ReferenceFrame referenceFrame, Point2DReadOnly point)
    {
-      rawPoints.add(new FramePoint3D(worldFrame, pointInWorld));
+      rawPoints.add(new FramePoint3D(referenceFrame, point));
    }
 
-   public void addRawPointsInLocal2D(List<? extends Point2DReadOnly> pointsInLocal)
+   public void addRawPoints(ReferenceFrame referenceFrame, Collection<? extends Point3DReadOnly> points)
    {
-      pointsInLocal.forEach(this::addRawPointInLocal);
+      points.forEach(point -> addRawPoint(referenceFrame, point));
    }
 
-   public void addRawPointsInLocal3D(List<? extends Point3DReadOnly> pointsInLocal)
+   public void addRawPoints(ReferenceFrame referenceFrame, Point2DReadOnly[] points)
    {
-      pointsInLocal.forEach(this::addRawPointInLocal);
-   }
-
-   public void addRawPointsInWorld(List<? extends Point3DReadOnly> pointsInWorld)
-   {
-      pointsInWorld.forEach(this::addRawPointInWorld);
-   }
-
-   public void addRawPointsInLocal2D(Point2DReadOnly[] pointsInLocal)
-   {
-      addRawPointsInLocal2D(Arrays.asList(pointsInLocal));
+      for (Point2DReadOnly point : points)
+         addRawPoint(referenceFrame, point);
    }
 
    public FramePoint3DReadOnly getRawPoint(int i)
@@ -209,12 +156,12 @@ public class FrameCluster implements FrameChangeable
 
    public void addNavigableExtrusionInLocal(Point2DReadOnly navigableExtrusionInLocal)
    {
-      navigableExtrusions.add(new FramePoint3D(localFrame, navigableExtrusionInLocal));
+      navigableExtrusions.add(new FramePoint2D(localFrame, navigableExtrusionInLocal));
    }
 
    public void addNavigableExtrusionInLocal(Point3DReadOnly navigableExtrusionInLocal)
    {
-      navigableExtrusions.add(new FramePoint3D(localFrame, navigableExtrusionInLocal));
+      navigableExtrusions.add(new FramePoint2D(localFrame, navigableExtrusionInLocal));
    }
 
    public void addNavigableExtrusionsInLocal(List<? extends Point3DReadOnly> navigableExtrusionInLocal)
@@ -222,17 +169,28 @@ public class FrameCluster implements FrameChangeable
       navigableExtrusionInLocal.forEach(this::addNavigableExtrusionInLocal);
    }
 
+   public void addNavigableExtrusion(FramePoint2DBasics navigableExtrusion)
+   {
+      navigableExtrusion.checkReferenceFrameMatch(localFrame);
+      navigableExtrusions.add(navigableExtrusion);
+   }
+
+   public void addNavigableExtrusions(List<FramePoint2DBasics> navigableExtrusion)
+   {
+      navigableExtrusion.forEach(this::addNavigableExtrusionInLocal);
+   }
+
    public int getNumberOfNavigableExtrusions()
    {
       return navigableExtrusions.size();
    }
 
-   public FramePoint3DReadOnly getNavigableExtrusion(int i)
+   public FramePoint2DReadOnly getNavigableExtrusion(int i)
    {
       return navigableExtrusions.get(i);
    }
 
-   public List<? extends FramePoint3DReadOnly> getNavigableExtrusions()
+   public List<FramePoint2DBasics> getNavigableExtrusions()
    {
       return navigableExtrusions;
    }
@@ -240,18 +198,30 @@ public class FrameCluster implements FrameChangeable
    public void addNonNavigableExtrusionInLocal(Point2DReadOnly nonNavigableExtrusionInLocal)
    {
       nonNavigableExtrusionsInLocal = null;
-      nonNavigableExtrusions.add(new FramePoint3D(localFrame, nonNavigableExtrusionInLocal));
+      nonNavigableExtrusions.add(new FramePoint2D(localFrame, nonNavigableExtrusionInLocal));
    }
 
    public void addNonNavigableExtrusionInLocal(Point3DReadOnly nonNavigableExtrusionInLocal)
    {
       nonNavigableExtrusionsInLocal = null;
-      nonNavigableExtrusions.add(new FramePoint3D(localFrame, nonNavigableExtrusionInLocal));
+      nonNavigableExtrusions.add(new FramePoint2D(localFrame, nonNavigableExtrusionInLocal));
    }
 
    public void addNonNavigableExtrusionsInLocal(List<? extends Point3DReadOnly> nonNavigableExtrusionInLocal)
    {
       nonNavigableExtrusionInLocal.forEach(this::addNonNavigableExtrusionInLocal);
+   }
+
+   public void addNonNavigableExtrusion(FramePoint2DBasics nonNavigableExtrusion)
+   {
+      nonNavigableExtrusionsInLocal = null;
+      nonNavigableExtrusion.checkReferenceFrameMatch(localFrame);
+      nonNavigableExtrusions.add(nonNavigableExtrusion);
+   }
+
+   public void addNonNavigableExtrusions(List<FramePoint2DBasics> nonNavigableExtrusionInLocal)
+   {
+      nonNavigableExtrusionInLocal.forEach(this::addNonNavigableExtrusion);
    }
 
    public BoundingBox2D getNonNavigableExtrusionsBoundingBox()
@@ -264,12 +234,12 @@ public class FrameCluster implements FrameChangeable
       return nonNavigableExtrusions.size();
    }
 
-   public FramePoint3DReadOnly getNonNavigableExtrusion(int i)
+   public FramePoint2DReadOnly getNonNavigableExtrusion(int i)
    {
       return nonNavigableExtrusions.get(i);
    }
 
-   public List<? extends FramePoint3DReadOnly> getNonNavigableExtrusions()
+   public List<? extends FramePoint2DReadOnly> getNonNavigableExtrusions()
    {
       return nonNavigableExtrusions;
    }
@@ -281,9 +251,9 @@ public class FrameCluster implements FrameChangeable
       this.localFrame = referenceFrame;
       for (FramePoint3DBasics rawPoint : rawPoints)
          rawPoint.setReferenceFrame(referenceFrame);
-      for (FramePoint3DBasics navigableExtrusion : navigableExtrusions)
+      for (FramePoint2DBasics navigableExtrusion : navigableExtrusions)
          navigableExtrusion.setReferenceFrame(referenceFrame);
-      for (FramePoint3DBasics nonNavigableExtrusion : nonNavigableExtrusions)
+      for (FramePoint2DBasics nonNavigableExtrusion : nonNavigableExtrusions)
          nonNavigableExtrusion.setReferenceFrame(referenceFrame);
    }
 
@@ -292,9 +262,9 @@ public class FrameCluster implements FrameChangeable
    {
       for (FramePoint3DBasics rawPoint : rawPoints)
          rawPoint.applyTransform(transform);
-      for (FramePoint3DBasics navigableExtrusion : navigableExtrusions)
+      for (FramePoint2DBasics navigableExtrusion : navigableExtrusions)
          navigableExtrusion.applyTransform(transform);
-      for (FramePoint3DBasics nonNavigableExtrusion : nonNavigableExtrusions)
+      for (FramePoint2DBasics nonNavigableExtrusion : nonNavigableExtrusions)
          nonNavigableExtrusion.applyTransform(transform);
    }
 
@@ -303,9 +273,9 @@ public class FrameCluster implements FrameChangeable
    {
       for (FramePoint3DBasics rawPoint : rawPoints)
          rawPoint.applyInverseTransform(transform);
-      for (FramePoint3DBasics navigableExtrusion : navigableExtrusions)
+      for (FramePoint2DBasics navigableExtrusion : navigableExtrusions)
          navigableExtrusion.applyInverseTransform(transform);
-      for (FramePoint3DBasics nonNavigableExtrusion : nonNavigableExtrusions)
+      for (FramePoint2DBasics nonNavigableExtrusion : nonNavigableExtrusions)
          nonNavigableExtrusion.applyInverseTransform(transform);
    }
 
