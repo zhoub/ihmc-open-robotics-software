@@ -11,6 +11,11 @@ import java.util.Set;
 import us.ihmc.commons.MathTools;
 import us.ihmc.euclid.geometry.BoundingBox2D;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryTools;
+import us.ihmc.euclid.referenceFrame.FramePoint2D;
+import us.ihmc.euclid.referenceFrame.FrameVector2D;
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DBasics;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DReadOnly;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.Vector2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
@@ -19,13 +24,239 @@ import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster.ExtrusionSide;
+import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.FrameCluster;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.Connection;
+import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.FrameConnection;
+import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.FrameNavigableRegion;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.NavigableRegion;
 import us.ihmc.robotics.geometry.PlanarRegion;
 import us.ihmc.commons.lists.ListWrappingIndexTools;
 
 public class VisibilityTools
 {
+
+   public static Set<FrameConnection> createStaticFrameVisibilityMap(List<FrameCluster> clusters, FrameNavigableRegion navigableRegion)
+   {
+      int regionId = navigableRegion.getMapId();
+      PlanarRegion homeRegion = navigableRegion.getHomeRegion();
+      Set<FrameConnection> connections = new HashSet<>();
+      List<boolean[]> navigability = new ArrayList<>(clusters.size());
+
+      for (FrameCluster cluster : clusters)
+      {
+         navigability.add(addClusterSelfFrameVisibility(cluster, homeRegion, clusters, regionId, connections));
+      }
+
+      for (int sourceIndex = 0; sourceIndex < clusters.size(); sourceIndex++)
+      {
+         FrameCluster source = clusters.get(sourceIndex);
+         boolean[] sourceNavigability = navigability.get(sourceIndex);
+
+         for (int targetIndex = sourceIndex + 1; targetIndex < clusters.size(); targetIndex++)
+         {
+            FrameCluster target = clusters.get(targetIndex);
+            boolean[] targetNavigability = navigability.get(targetIndex);
+
+            addCrossClusterFrameVisibility(source, sourceNavigability, target, targetNavigability, clusters, regionId, connections);
+         }
+      }
+
+      return connections;
+   }
+
+
+
+   /**
+    * Finds all the possible and valid connections using only the vertices from a single cluster,
+    * i.e. {@code clusterToBuildMapOf} while considering all the clusters, including
+    * {@code clusterToBuildMapOf}, for the visibility check when creating connections.
+    *
+    * @param clusterToBuildMapOf the only cluster used to create new connection using its navigable
+    *           extrusions. Not modified.
+    * @param homeRegion the region to which the clusters belong to. Not modified.
+    * @param allClusters list containing all the clusters to consider for the visibility check
+    *           including {@code clusterToBuildMapOf}. Not modified.
+    * @param mapId the ID used to create the connections.
+    * @param connectionsToPack the collection in which the connections are stored. Modified.
+    * @return an array of booleans informing on whether each individual navigable extrusion of
+    *         {@code clusterToBuildMapOf} is actually navigable or not.
+    */
+   private static boolean[] addClusterSelfFrameVisibility(FrameCluster clusterToBuildMapOf, PlanarRegion homeRegion, List<FrameCluster> allClusters, int mapId,
+                                                     Collection<FrameConnection> connectionsToPack)
+   {
+      List<FramePoint2DBasics> navigableExtrusions = clusterToBuildMapOf.getNavigableExtrusions();
+
+      // We first go through the extrusions and check if they are actually navigable, i.e. inside the home region and not inside any non-navigable zone.
+      boolean[] areActuallyNavigable = new boolean[navigableExtrusions.size()];
+      Arrays.fill(areActuallyNavigable, true);
+
+      for (int i = 0; i < navigableExtrusions.size() - 1; i++) // <= the extrusions are actually closed by replicating the first extrusion at the end
+      { // Check that the point is actually navigable
+         FramePoint2DReadOnly query = navigableExtrusions.get(i);
+
+         boolean isNavigable = PlanarRegionTools.isPointInLocalInsidePlanarRegion(homeRegion, query);
+
+         if (isNavigable)
+            isNavigable = allClusters.stream().noneMatch(cluster -> cluster.isInsideNonNavigableZone(query));
+
+         areActuallyNavigable[i] = isNavigable;
+      }
+
+      for (int i = 0; i < navigableExtrusions.size() - 1; i++)
+      { // Adding the edges of the navigable extrusion. As long as both the current and next vertices are navigable, the connection is valid.
+         if (areActuallyNavigable[i] && areActuallyNavigable[i + 1])
+            connectionsToPack.add(new FrameConnection(navigableExtrusions.get(i), mapId, navigableExtrusions.get(i + 1), mapId));
+      }
+
+      FrameVector2D directionToCheck = new FrameVector2D(clusterToBuildMapOf.getReferenceFrame());
+      FrameVector2D nextEdge = new FrameVector2D(clusterToBuildMapOf.getReferenceFrame());
+      FrameVector2D prevEdge = new FrameVector2D(clusterToBuildMapOf.getReferenceFrame());
+
+
+      // Going through all the other possible combinations for finding connections
+      for (int sourceIndex = 0; sourceIndex < navigableExtrusions.size() - 1; sourceIndex++)
+      {
+         if (!areActuallyNavigable[sourceIndex])
+            continue; // Both source and target have to be navigable for the connection to be valid
+
+         FramePoint2DReadOnly source = navigableExtrusions.get(sourceIndex);
+
+         // Starting from after the next vertex of the source as we already added all the edges as connections
+         for (int targetIndex = sourceIndex + 2; targetIndex < navigableExtrusions.size() - 1; targetIndex++)
+         {
+            if (!areActuallyNavigable[targetIndex])
+               continue; // Both source and target have to be navigable for the connection to be valid
+
+            FramePoint2DReadOnly target = navigableExtrusions.get(targetIndex);
+
+            if (ENABLE_EXPERIMENTAL_QUICK_CHECK)
+            {
+               directionToCheck.sub(target, source);
+
+               { // Perform quick check on source
+                  prevEdge.sub(source, ListWrappingIndexTools.getPrevious(sourceIndex, navigableExtrusions));
+                  nextEdge.sub(ListWrappingIndexTools.getNext(sourceIndex, navigableExtrusions), source);
+                  if (!quickFeasibilityCheck(directionToCheck, prevEdge, nextEdge, clusterToBuildMapOf.getExtrusionSide()))
+                     continue;
+               }
+
+               { // Perform quick check on target
+                  directionToCheck.negate();
+                  prevEdge.sub(target, ListWrappingIndexTools.getPrevious(targetIndex, navigableExtrusions));
+                  nextEdge.sub(ListWrappingIndexTools.getNext(targetIndex, navigableExtrusions), target);
+                  if (!quickFeasibilityCheck(directionToCheck, prevEdge, nextEdge, clusterToBuildMapOf.getExtrusionSide()))
+                     continue;
+               }
+            }
+
+            // Finally run the expensive test to verify if the target can be seen from the source.
+            if (isFramePointVisibleForStaticMaps(allClusters, source, target))
+               connectionsToPack.add(new FrameConnection(source, mapId, target, mapId));
+         }
+      }
+
+      return areActuallyNavigable;
+   }
+
+   /**
+    * Finds all the possible and valid connections going from the navigable extrusions of
+    * {@code sourceCluster} to the ones of {@code targetCluster} while considering all the clusters,
+    * including {@code sourceCluster} and {@code targetCluster} when performing the visibility check
+    * when creating connections.
+    *
+    * @param sourceCluster the cluster which the navigable extrusions are used as source points for
+    *           the connections. Not modified.
+    * @param sourceNavigability the array containing the information of whether or not each
+    *           individual navigable extrusion of {@code sourceCluster} is actually navigable. Not
+    *           modified.
+    * @param targetCluster the cluster which the navigable extrusions are used as target points for
+    *           the connections. Not modified.
+    * @param targetNavigability the array containing the information of whether or not each
+    *           individual navigable extrusion of {@code targetCluster} is actually navigable. Not
+    *           modified.
+    * @param allClusters list containing all the clusters to consider for the visibility check
+    *           including {@code sourceCluster} and {@code targetCluster}. Not modified.
+    * @param mapId the ID used to create the connections.
+    * @param connectionsToPack the collection in which the connections are stored. Modified.
+    */
+   private static void addCrossClusterFrameVisibility(FrameCluster sourceCluster, boolean[] sourceNavigability, FrameCluster targetCluster, boolean[] targetNavigability,
+                                                 List<FrameCluster> allClusters, int mapId, Collection<FrameConnection> connectionsToPack)
+   {
+      ReferenceFrame referenceFrame = sourceCluster.getReferenceFrame();
+
+      FrameVector2D directionToCheck = new FrameVector2D(referenceFrame);
+      FrameVector2D nextEdge = new FrameVector2D(referenceFrame);
+      FrameVector2D prevEdge = new FrameVector2D(referenceFrame);
+
+      List<FramePoint2DBasics> sources = sourceCluster.getNavigableExtrusions();
+      List<FramePoint2DBasics> targets = targetCluster.getNavigableExtrusions();
+
+      for (int sourceIndex = 0; sourceIndex < sourceNavigability.length - 1; sourceIndex++)
+      {
+         if (!sourceNavigability[sourceIndex])
+            continue;
+
+         FramePoint2DReadOnly source = sources.get(sourceIndex);
+
+         for (int targetIndex = 0; targetIndex < targetNavigability.length - 1; targetIndex++)
+         {
+            if (!targetNavigability[targetIndex])
+               continue;
+
+            FramePoint2DReadOnly target = targets.get(targetIndex);
+
+            if (ENABLE_EXPERIMENTAL_QUICK_CHECK)
+            {
+               directionToCheck.sub(target, source);
+
+               { // Perform quick check on source
+                  prevEdge.sub(source, ListWrappingIndexTools.getPrevious(sourceIndex, sources));
+                  nextEdge.sub(ListWrappingIndexTools.getNext(sourceIndex, sources), source);
+                  if (!quickFeasibilityCheck(directionToCheck, prevEdge, nextEdge, sourceCluster.getExtrusionSide()))
+                     continue;
+               }
+
+               { // Perform quick check on target
+                  directionToCheck.negate();
+                  prevEdge.sub(target, ListWrappingIndexTools.getPrevious(targetIndex, targets));
+                  nextEdge.sub(ListWrappingIndexTools.getNext(targetIndex, targets), target);
+                  if (!quickFeasibilityCheck(directionToCheck, prevEdge, nextEdge, targetCluster.getExtrusionSide()))
+                     continue;
+               }
+            }
+
+            if (isFramePointVisibleForStaticMaps(allClusters, source, target))
+               connectionsToPack.add(new FrameConnection(source, mapId, target, mapId));
+         }
+      }
+   }
+
+   public static boolean isFramePointVisibleForStaticMaps(List<FrameCluster> clusters, FramePoint2DReadOnly observer, FramePoint2DReadOnly targetPoint)
+   {
+      for (FrameCluster cluster : clusters)
+      {
+         if (cluster.getExtrusionSide() == ExtrusionSide.OUTSIDE)
+         {
+            BoundingBox2D boundingBox = cluster.getNonNavigableExtrusionsBoundingBox();
+
+            // If both the target and observer are in the bounding box, we have to do the thorough check.
+            if (!boundingBox.isInsideInclusive(observer) || !boundingBox.isInsideInclusive(targetPoint))
+            {
+               if (!boundingBox.doesIntersectWithLineSegment2D(observer, targetPoint))
+                  continue;
+            }
+         }
+
+         if (!VisibilityTools.isPointVisible(observer, targetPoint, cluster.getNonNavigableExtrusions()))
+         {
+            return false;
+         }
+      }
+
+      return true;
+   }
+
+
    private static final double MAGIC_NUMBER = MathTools.square(0.01);
    /**
     * Filter that reduces a little the computation time. When enabled, the tests are still passing,
@@ -370,6 +601,40 @@ public class VisibilityTools
       return true;
    }
 
+   public static List<FrameConnection> removeFrameConnectionsFromExtrusionsOutsideRegions(Collection<FrameConnection> connections, PlanarRegion homeRegion)
+   {
+      return VisibilityTools.getFrameConnectionsThatAreInsideRegion(connections, homeRegion);
+   }
+
+   public static List<FrameConnection> removeFrameConnectionsFromExtrusionsInsideNoGoZones(Collection<FrameConnection> connectionsToClean, List<FrameCluster> clusters)
+   {
+      List<FrameConnection> validConnections = new ArrayList<>(connectionsToClean);
+
+      for (FrameCluster cluster : clusters)
+      {
+         validConnections = getValidFrameConnections(validConnections, cluster);
+      }
+
+      return validConnections;
+   }
+
+   public static List<FrameConnection> getFrameConnectionsThatAreInsideRegion(Collection<FrameConnection> connections, PlanarRegion region)
+   {
+      List<FrameConnection> filteredConnections = new ArrayList<>();
+
+      for (FrameConnection connection : connections)
+      {
+
+         if (PlanarRegionTools.areBothPointsInsidePlanarRegion(connection.getSourcePoint2D(), connection.getTargetPoint2D(), region))
+         {
+            filteredConnections.add(connection);
+         }
+      }
+
+      return filteredConnections;
+   }
+
+
    public static List<Connection> removeConnectionsFromExtrusionsOutsideRegions(Collection<Connection> connections, PlanarRegion homeRegion)
    {
       return VisibilityTools.getConnectionsThatAreInsideRegion(connections, homeRegion);
@@ -385,6 +650,22 @@ public class VisibilityTools
       }
 
       return validConnections;
+   }
+
+   public static List<FrameConnection> getValidFrameConnections(Collection<FrameConnection> connections, FrameCluster cluster)
+   {
+      List<FrameConnection> filteredConnections = new ArrayList<>();
+
+      for (FrameConnection connection : connections)
+      {
+         FramePoint2DReadOnly source = connection.getSourcePoint2D();
+         FramePoint2DReadOnly target = connection.getTargetPoint2D();
+
+         if (!cluster.isInsideNonNavigableZone(source) && !cluster.isInsideNonNavigableZone(target))
+            filteredConnections.add(connection);
+      }
+
+      return filteredConnections;
    }
 
    public static List<Connection> getValidConnections(Collection<Connection> connections, Cluster cluster)
