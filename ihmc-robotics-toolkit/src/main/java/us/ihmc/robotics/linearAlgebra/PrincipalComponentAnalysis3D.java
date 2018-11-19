@@ -10,8 +10,10 @@ import org.ejml.ops.SingularOps;
 import us.ihmc.euclid.matrix.RotationMatrix;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
+import us.ihmc.euclid.tuple3D.interfaces.Point3DBasics;
 import us.ihmc.euclid.tuple3D.interfaces.Tuple3DBasics;
 import us.ihmc.euclid.tuple3D.interfaces.Tuple3DReadOnly;
+import us.ihmc.euclid.tuple3D.interfaces.Vector3DBasics;
 
 /**
  * Compute the singular value decomposition of a data matrix to find the three principal axes
@@ -165,7 +167,7 @@ public class PrincipalComponentAnalysis3D
     * 
     * @param meanToPack
     */
-   public void getMean(Point3D meanToPack)
+   public void getMean(Point3DBasics meanToPack)
    {
       covarianceCalculator.getMean(meanToPack);
    }
@@ -230,7 +232,7 @@ public class PrincipalComponentAnalysis3D
     * 
     * @param principalVectorToPack
     */
-   public void getPrincipalVector(Vector3D principalVectorToPack)
+   public void getPrincipalVector(Vector3DBasics principalVectorToPack)
    {
       principalVectorToPack.set(principalAxis);
    }
