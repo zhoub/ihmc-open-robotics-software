@@ -350,7 +350,22 @@ public class PlanarRegionTools
       return isPointInWorldInsidePlanarRegion(planarRegion, pointInWorldToCheck, 0.0);
    }
 
+   public static boolean isPointInWorldInsidePlanarRegion(PlanarRegion planarRegion, Point2DReadOnly pointInWorldToCheck)
+   {
+      return isPointInWorldInsidePlanarRegion(planarRegion, pointInWorldToCheck, 0.0);
+   }
+
+
    public static boolean isPointInWorldInsidePlanarRegion(PlanarRegion planarRegion, Point3DReadOnly pointInWorldToCheck, double epsilon)
+   {
+      RigidBodyTransform transformToWorld = new RigidBodyTransform();
+      planarRegion.getTransformToWorld(transformToWorld);
+      Point2D pointInLocalToCheck = new Point2D(pointInWorldToCheck);
+      pointInLocalToCheck.applyInverseTransform(transformToWorld, false);
+      return isPointInLocalInsidePlanarRegion(planarRegion, pointInLocalToCheck, epsilon);
+   }
+
+   public static boolean isPointInWorldInsidePlanarRegion(PlanarRegion planarRegion, Point2DReadOnly pointInWorldToCheck, double epsilon)
    {
       RigidBodyTransform transformToWorld = new RigidBodyTransform();
       planarRegion.getTransformToWorld(transformToWorld);

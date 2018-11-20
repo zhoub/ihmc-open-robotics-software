@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import us.ihmc.commons.PrintTools;
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
+import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.FrameCluster;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.*;
 import us.ihmc.pathPlanning.visibilityGraphs.interfaces.FrameVisibilityMapHolder;
 import us.ihmc.pathPlanning.visibilityGraphs.interfaces.VisibilityGraphsParameters;
@@ -261,6 +263,43 @@ public class NavigableRegionsManager
          Cluster closestCluster = ClusterTools.getTheClosestCluster(start, intersectingClusters);
          Point3D closestExtrusion = ClusterTools.getTheClosestVisibleExtrusionPoint(1.0, start, goal, closestCluster.getNavigableExtrusionsInWorld(),
                                                                                     regionContainingPoint.getHomeRegion());
+
+         path = calculateBodyPath(start, closestExtrusion);
+         path.add(goal);
+
+         return path;
+      }
+      else
+      {
+         return path;
+      }
+   }
+
+   public List<FramePoint3DReadOnly> calculateBodyPathWithOcclusions(FramePoint3DReadOnly start, FramePoint3DReadOnly goal)
+   {
+      List<FramePoint3DReadOnly> path = calculateBodyPath(start, goal);
+
+      if (path == null)
+      {
+         if (!OcclusionTools.isTheGoalIntersectingAnyObstacles(frameNavigableRegions.get(0), start, goal))
+         {
+            if(debug)
+            {
+               PrintTools.info("StraightLine available");
+            }
+
+            path = new ArrayList<>();
+            path.add(start);
+            path.add(goal);
+
+            return path;
+         }
+
+         FrameNavigableRegion regionContainingPoint = PlanarRegionTools.getFrameNavigableRegionContainingThisPoint(start, frameNavigableRegions);
+         List<FrameCluster> intersectingClusters = OcclusionTools.getListOfIntersectingObstacles(regionContainingPoint.getObstacleClusters(), start, goal);
+         FrameCluster closestCluster = ClusterTools.getTheClosestFrameCluster(start, intersectingClusters);
+         FramePoint3DReadOnly closestExtrusion = ClusterTools.getTheClosestVisibleExtrusionFramePoint(1.0, start, goal, closestCluster.getNavigableExtrusions(),
+                                                                                                      regionContainingPoint.getHomeRegion());
 
          path = calculateBodyPath(start, closestExtrusion);
          path.add(goal);

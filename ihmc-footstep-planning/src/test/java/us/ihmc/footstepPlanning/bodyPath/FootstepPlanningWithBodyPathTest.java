@@ -7,8 +7,11 @@ import org.junit.rules.TestName;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.geometry.Pose2D;
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.FramePose2D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -46,6 +49,8 @@ import java.util.List;
 
 public class FootstepPlanningWithBodyPathTest
 {
+   private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
+
    private static final SimulationTestingParameters simulationTestingParameters = SimulationTestingParameters.createFromSystemProperties();
    private static final boolean visualize = simulationTestingParameters.getKeepSCSUp();
 
@@ -74,12 +79,12 @@ public class FootstepPlanningWithBodyPathTest
       goalPose.setX(goalDistance);
 
       WaypointDefinedBodyPathPlanner bodyPath = new WaypointDefinedBodyPathPlanner();
-      List<Point3D> waypoints = new ArrayList<>();
-      waypoints.add(new Point3D(0.0, 0.0, 0.0));
-      waypoints.add(new Point3D(goalDistance / 8.0, 2.0, 0.0));
-      waypoints.add(new Point3D(2.0 * goalDistance / 3.0, -2.0, 0.0));
-      waypoints.add(new Point3D(7.0 * goalDistance / 8.0, -2.0, 0.0));
-      waypoints.add(new Point3D(goalDistance, 0.0, 0.0));
+      List<FramePoint3DReadOnly> waypoints = new ArrayList<>();
+      waypoints.add(new FramePoint3D(worldFrame, 0.0, 0.0, 0.0));
+      waypoints.add(new FramePoint3D(worldFrame, goalDistance / 8.0, 2.0, 0.0));
+      waypoints.add(new FramePoint3D(worldFrame, 2.0 * goalDistance / 3.0, -2.0, 0.0));
+      waypoints.add(new FramePoint3D(worldFrame, 7.0 * goalDistance / 8.0, -2.0, 0.0));
+      waypoints.add(new FramePoint3D(worldFrame, goalDistance, 0.0, 0.0));
 
       bodyPath.setWaypoints(waypoints);
       bodyPath.compute();
@@ -96,26 +101,26 @@ public class FootstepPlanningWithBodyPathTest
    public void testMaze()
    {
       WaypointDefinedBodyPathPlanner bodyPath = new WaypointDefinedBodyPathPlanner();
-      List<Point3D> waypoints = new ArrayList<>();
+      List<FramePoint3DReadOnly> waypoints = new ArrayList<>();
 
       ArrayList<PlanarRegion> regions = PointCloudTools.loadPlanarRegionsFromFile("resources/PlanarRegions_NRI_Maze.txt");
-      Point3D startPos = new Point3D(9.5, 9, 0);
-      Point3D goalPos = new Point3D(0.5, 0.5, 0);
-      startPos = PlanarRegionTools.projectPointToPlanes(startPos, new PlanarRegionsList(regions));
-      goalPos = PlanarRegionTools.projectPointToPlanes(goalPos, new PlanarRegionsList(regions));
+      FramePoint3D startPos = new FramePoint3D(worldFrame, 9.5, 9, 0);
+      FramePoint3D goalPos = new FramePoint3D(worldFrame, 0.5, 0.5, 0);
+      startPos = new FramePoint3D(startPos.getReferenceFrame(), PlanarRegionTools.projectPointToPlanes(startPos, new PlanarRegionsList(regions)));
+      goalPos = new FramePoint3D(goalPos.getReferenceFrame(), PlanarRegionTools.projectPointToPlanes(goalPos, new PlanarRegionsList(regions)));
 
       NavigableRegionsManager navigableRegionsManager = new NavigableRegionsManager(new DefaultVisibilityGraphParameters());
-      List<Point3DReadOnly> path = new ArrayList<>(navigableRegionsManager.calculateBodyPath(startPos, goalPos));
-      for (Point3DReadOnly waypoint3d : path)
+      List<FramePoint3DReadOnly> path = new ArrayList<>(navigableRegionsManager.calculateBodyPath(startPos, goalPos));
+      for (FramePoint3DReadOnly waypoint3d : path)
       {
-         waypoints.add(new Point3D(waypoint3d));
+         waypoints.add(new FramePoint3D(waypoint3d));
       }
       bodyPath.setWaypoints(waypoints);
       bodyPath.compute();
 
-      Pose2D startPose = new Pose2D();
+      FramePose2D startPose = new FramePose2D();
       bodyPath.getPointAlongPath(0.0, startPose);
-      Pose2D finalPose = new Pose2D();
+      FramePose2D finalPose = new FramePose2D();
       bodyPath.getPointAlongPath(1.0, finalPose);
 
       YoVariableRegistry registry = new YoVariableRegistry(name.getMethodName());

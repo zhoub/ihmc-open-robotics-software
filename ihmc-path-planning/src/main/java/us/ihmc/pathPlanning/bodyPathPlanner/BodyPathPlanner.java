@@ -1,7 +1,9 @@
 package us.ihmc.pathPlanning.bodyPathPlanner;
 
 import us.ihmc.euclid.geometry.Pose2D;
+import us.ihmc.euclid.geometry.interfaces.Pose2DBasics;
 import us.ihmc.euclid.tuple2D.Point2D;
+import us.ihmc.euclid.tuple2D.interfaces.Point2DBasics;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
@@ -28,7 +30,7 @@ public interface BodyPathPlanner
     * This has been deprecated. Use {@link #compute()} along with {@link #setWaypoints(List)} instead
     */
    @Deprecated
-   default void compute(Point2D startPoint, Point2D goalPoint)
+   default void compute(Point2DReadOnly startPoint, Point2DReadOnly goalPoint)
    {
       List<Point3DReadOnly> waypoints = new ArrayList<>();
       waypoints.add(new Point3D(startPoint));
@@ -56,13 +58,13 @@ public interface BodyPathPlanner
     * alpha, which goes from 0.0 (start) to 1.0 (goal).
     * This pose's x-axis aligned with the body path
     */
-   void getPointAlongPath(double alpha, Pose2D poseToPack);
+   void getPointAlongPath(double alpha, Pose2DBasics poseToPack);
 
    /**
     * Computes the pose along the curve closest to the given point
     * @return alpha corresponding to the packed point
     */
-   double getClosestPoint(Point2D point, Pose2D poseToPack);
+   double getClosestPoint(Point2DReadOnly point, Pose2DBasics poseToPack);
 
    /**
     * Returns arc length of the body path from alpha to the goal point

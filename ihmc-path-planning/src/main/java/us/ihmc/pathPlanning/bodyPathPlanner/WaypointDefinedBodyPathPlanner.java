@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import us.ihmc.euclid.geometry.Pose2D;
+import us.ihmc.euclid.geometry.interfaces.Pose2DBasics;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryTools;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DBasics;
@@ -92,7 +93,7 @@ public class WaypointDefinedBodyPathPlanner implements BodyPathPlanner
    }
 
    @Override
-   public void getPointAlongPath(double alpha, Pose2D poseToPack)
+   public void getPointAlongPath(double alpha, Pose2DBasics poseToPack)
    {
       int segmentIndex = getRegionIndexFromAlpha(alpha);
       Point2DReadOnly firstPoint = waypoints.get(segmentIndex);
@@ -107,7 +108,7 @@ public class WaypointDefinedBodyPathPlanner implements BodyPathPlanner
    }
 
    @Override
-   public double getClosestPoint(Point2D point, Pose2D poseToPack)
+   public double getClosestPoint(Point2DReadOnly point, Pose2DBasics poseToPack)
    {
       double closestPointDistance = Double.POSITIVE_INFINITY;
       double alpha = Double.NaN;

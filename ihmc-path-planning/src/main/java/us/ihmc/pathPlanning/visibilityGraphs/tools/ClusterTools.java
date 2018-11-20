@@ -724,6 +724,38 @@ public class ClusterTools
       return closestCluster;
    }
 
+   public static FrameCluster getTheClosestFrameCluster(FramePoint3DReadOnly pointToSortFrom, List<FrameCluster> clusters)
+   {
+      double minDistance = Double.MAX_VALUE;
+      FrameCluster closestCluster = null;
+
+      for (FrameCluster cluster : clusters)
+      {
+         double distOfPoint = Double.MAX_VALUE;
+         FramePoint2DReadOnly closestPointInCluster = null;
+
+         for (FramePoint2DReadOnly point : cluster.getNonNavigableExtrusions())
+         {
+            double currentDistance = point.distanceXYSquared(pointToSortFrom);
+            if (currentDistance < distOfPoint)
+            {
+               distOfPoint = currentDistance;
+               closestPointInCluster = point;
+            }
+         }
+
+         double currentDistance = closestPointInCluster.distanceXYSquared(pointToSortFrom);
+
+         if (currentDistance < minDistance)
+         {
+            minDistance = currentDistance;
+            closestCluster = cluster;
+         }
+      }
+
+      return closestCluster;
+   }
+
    public static Point3D getTheClosestVisibleExtrusionPoint(Point3DReadOnly pointToSortFrom, List<Point3D> extrusionPoints)
    {
       double minDistance = Double.MAX_VALUE;
@@ -763,6 +795,29 @@ public class ClusterTools
       }
 
       return new Point3D(closestPoint);
+   }
+
+   public static FramePoint3DReadOnly getTheClosestVisibleExtrusionFramePoint(double alpha, FramePoint3DReadOnly start, FramePoint3DReadOnly goal,
+                                                                              List<FramePoint2DBasics> extrusionPoints, PlanarRegion region)
+   {
+      double minWeight = Double.MAX_VALUE;
+      FramePoint2DReadOnly closestPoint = null;
+
+      for (FramePoint2DReadOnly point : extrusionPoints)
+      {
+         if (PlanarRegionTools.isPointInWorldInsidePlanarRegion(region, point))
+         {
+            double weight = alpha * goal.distanceXY(point) + (1 - alpha) * start.distanceXY(point);
+
+            if (weight < minWeight)
+            {
+               minWeight = weight;
+               closestPoint = point;
+            }
+         }
+      }
+
+      return new FramePoint3D(closestPoint);
    }
 
    public static Cluster createHomeRegionCluster(PlanarRegion homeRegion, NavigableExtrusionDistanceCalculator calculator)
