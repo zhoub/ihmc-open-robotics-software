@@ -12,10 +12,12 @@ import us.ihmc.commons.MathTools;
 import us.ihmc.euclid.geometry.BoundingBox2D;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryTools;
 import us.ihmc.euclid.referenceFrame.FramePoint2D;
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FrameVector2D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DBasics;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DReadOnly;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.Vector2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
@@ -58,6 +60,42 @@ public class VisibilityTools
             boolean[] targetNavigability = navigability.get(targetIndex);
 
             addCrossClusterFrameVisibility(source, sourceNavigability, target, targetNavigability, clusters, regionId, connections);
+         }
+      }
+
+      return connections;
+   }
+
+   public static Set<FrameConnection> createStaticFrameVisibilityMap(FramePoint3DReadOnly observer, int observerRegionId, List<FrameCluster> clusters, int clustersRegionId)
+   {
+      Set<FrameConnection> connections = new HashSet<>();
+      List<FramePoint2DReadOnly> listOfTargetPoints = new ArrayList<>();
+      FramePoint2DReadOnly observer2D = new FramePoint2D(observer);
+
+      // Add all navigable points (including dynamic objects) to a list
+      for (FrameCluster cluster : clusters)
+      {
+         if (cluster.isInsideNonNavigableZone(observer2D))
+            return Collections.emptySet();
+
+         for (FramePoint2DReadOnly point : cluster.getNavigableExtrusions())
+         {
+            listOfTargetPoints.add(point);
+         }
+      }
+
+      for (int j = 0; j < listOfTargetPoints.size(); j++)
+      {
+         FramePoint2DReadOnly target = listOfTargetPoints.get(j);
+
+         if (observer.distanceXYSquared(target) > MAGIC_NUMBER)
+         {
+            boolean targetIsVisible = isFramePointVisibleForStaticMaps(clusters, observer2D, target);
+
+            if (targetIsVisible)
+            {
+               connections.add(new FrameConnection(observer, observerRegionId, new FramePoint3D(target), clustersRegionId));
+            }
          }
       }
 
@@ -255,6 +293,7 @@ public class VisibilityTools
 
       return true;
    }
+
 
 
    private static final double MAGIC_NUMBER = MathTools.square(0.01);

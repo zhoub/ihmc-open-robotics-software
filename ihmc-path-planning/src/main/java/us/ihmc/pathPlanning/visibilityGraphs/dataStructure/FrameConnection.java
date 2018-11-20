@@ -35,7 +35,7 @@ public class FrameConnection implements ReferenceFrameHolder, FrameChangeable, E
       referenceFrame = source.getReferenceFrame();
    }
 
-   public FrameConnection(FrameConnectionPoint3D source, FrameConnectionPoint3D target)
+   public FrameConnection(FrameConnectionPoint3DReadOnly source, FrameConnectionPoint3DReadOnly target)
    {
       source.checkReferenceFrameMatch(target);
       this.source = new FrameConnectionPoint3D(source);
@@ -109,7 +109,7 @@ public class FrameConnection implements ReferenceFrameHolder, FrameChangeable, E
       target = temp;
    }
 
-   public FrameConnectionPoint3D getOppositePoint(FrameConnectionPoint3D point)
+   public FrameConnectionPoint3D getOppositePoint(FrameConnectionPoint3DReadOnly point)
    {
       if (point.equals(source))
          return target;

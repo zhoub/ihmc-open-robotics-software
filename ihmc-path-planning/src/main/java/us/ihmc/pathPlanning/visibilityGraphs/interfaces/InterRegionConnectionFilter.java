@@ -2,6 +2,7 @@ package us.ihmc.pathPlanning.visibilityGraphs.interfaces;
 
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.Connection;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.ConnectionPoint3D;
+import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.FrameConnectionPoint3DReadOnly;
 
 public interface InterRegionConnectionFilter
 {
@@ -11,4 +12,6 @@ public interface InterRegionConnectionFilter
    }
 
    boolean isConnectionValid(ConnectionPoint3D source, ConnectionPoint3D target);
+
+   boolean isConnectionValid(FrameConnectionPoint3DReadOnly source, FrameConnectionPoint3DReadOnly target);
 }

@@ -9,7 +9,7 @@ import us.ihmc.euclid.tuple3D.interfaces.Tuple3DReadOnly;
 
 public class FrameConnectionPoint3D extends FrameConnectionPoint3DReadOnly implements FramePoint3DBasics
 {
-   public FrameConnectionPoint3D(FrameConnectionPoint3D other)
+   public FrameConnectionPoint3D(FrameConnectionPoint3DReadOnly other)
    {
       super(other);
    }

@@ -4,6 +4,8 @@ import java.util.List;
 
 import us.ihmc.commons.MathTools;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.ConnectionPoint3D;
+import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.FrameConnectionPoint3D;
+import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.FrameConnectionPoint3DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.dijkstra.DijkstraVisibilityGraphPlanner;
 import us.ihmc.pathPlanning.visibilityGraphs.tools.JGraphTools;
 import us.ihmc.pathPlanning.visibilityGraphs.tools.PlanarRegionTools;
@@ -131,6 +133,17 @@ public interface VisibilityGraphsParameters
 
          @Override
          public boolean isConnectionValid(ConnectionPoint3D source, ConnectionPoint3D target)
+         {
+            if (Math.abs(source.getZ() - target.getZ()) > maxDeltaHeight)
+               return false;
+            if (source.distanceSquared(target) > maxLengthSquared)
+               return false;
+
+            return true;
+         }
+
+         @Override
+         public boolean isConnectionValid(FrameConnectionPoint3DReadOnly source, FrameConnectionPoint3DReadOnly target)
          {
             if (Math.abs(source.getZ() - target.getZ()) > maxDeltaHeight)
                return false;

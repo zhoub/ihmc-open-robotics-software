@@ -1,20 +1,19 @@
 package us.ihmc.pathPlanning.visibilityGraphs;
 
 import static us.ihmc.pathPlanning.visibilityGraphs.tools.VisibilityTools.isPointVisibleForStaticMaps;
+import static us.ihmc.pathPlanning.visibilityGraphs.tools.VisibilityTools.isFramePointVisibleForStaticMaps;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import us.ihmc.commons.PrintTools;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.Connection;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.ConnectionPoint3D;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.InterRegionVisibilityMap;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.NavigableRegion;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.SingleSourceVisibilityMap;
+import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.*;
+import us.ihmc.pathPlanning.visibilityGraphs.interfaces.FrameVisibilityMapHolder;
 import us.ihmc.pathPlanning.visibilityGraphs.interfaces.VisibilityGraphsParameters;
 import us.ihmc.pathPlanning.visibilityGraphs.interfaces.VisibilityMapHolder;
 import us.ihmc.pathPlanning.visibilityGraphs.tools.ClusterTools;
@@ -36,6 +35,10 @@ public class NavigableRegionsManager
    private final VisibilityGraphsParameters parameters;
 
    private InterRegionVisibilityMap interRegionVisibilityMap;
+
+   private FrameSingleSourceVisibilityMap frameStartMap, frameGoalMap;
+   private List<FrameNavigableRegion> frameNavigableRegions;
+   private FrameInterRegionVisibilityMap frameInterRegionVisibilityMap;
 
    public NavigableRegionsManager()
    {
@@ -67,6 +70,89 @@ public class NavigableRegionsManager
       }
 
       this.regions = regions;
+   }
+
+   public List<FramePoint3DReadOnly> calculateBodyPath(final FramePoint3DReadOnly start, final FramePoint3DReadOnly goal)
+   {
+      if (start == null)
+      {
+         PrintTools.error("Start is null!");
+         return null;
+      }
+
+      if (goal == null)
+      {
+         PrintTools.error("Goal is null!");
+         return null;
+      }
+
+      if (debug)
+         PrintTools.info("Starting to calculate body path");
+
+      regions = PlanarRegionTools.filterPlanarRegionsWithBoundingCapsule(start, goal, parameters.getExplorationDistanceFromStartGoal(), regions);
+
+      long startBodyPathComputation = System.currentTimeMillis();
+
+      frameNavigableRegions = VisibilityGraphsFactory.createFrameNavigableRegions(regions, parameters);
+      frameInterRegionVisibilityMap = VisibilityGraphsFactory.createFrameInterRegionVisibilityMap(frameNavigableRegions, parameters.getInterRegionConnectionFilter());
+      double searchHostEpsilon = parameters.getSearchHostRegionEpsilon();
+      frameStartMap = VisibilityGraphsFactory.createFrameSingleSourceVisibilityMap(start, frameNavigableRegions, searchHostEpsilon,
+                                                                                   frameInterRegionVisibilityMap.getVisibilityMap());
+      frameGoalMap = VisibilityGraphsFactory.createFrameSingleSourceVisibilityMap(goal, frameNavigableRegions, searchHostEpsilon,
+                                                                                  frameInterRegionVisibilityMap.getVisibilityMap());
+
+      if (frameGoalMap == null)
+      {
+         frameGoalMap = VisibilityGraphsFactory.connectToClosestFramePoints(new FrameConnectionPoint3D(goal, START_GOAL_ID), 1, frameNavigableRegions,
+                                                                            START_GOAL_ID, start.getReferenceFrame());
+      }
+
+      if (frameStartMap != null)
+      {
+         if (frameStartMap.getHostRegion() == frameGoalMap.getHostRegion())
+         {
+            if (isFramePointVisibleForStaticMaps(frameStartMap.getHostRegion().getAllClusters(), frameStartMap.getSource2D(), frameGoalMap.getSource2D()))
+            {
+               frameStartMap.addConnection(new FrameConnection(start, frameStartMap.getMapId(), goal, frameGoalMap.getMapId()));
+            }
+         }
+      }
+      else
+      {
+         frameStartMap = VisibilityGraphsFactory.connectToFallbackMap(start, start.getReferenceFrame(), START_GOAL_ID, 1.0e-3, frameInterRegionVisibilityMap.getVisibilityMap());
+
+         if (frameStartMap == null)
+            frameStartMap = VisibilityGraphsFactory.connectToClosestFramePoints(new FrameConnectionPoint3D(start, START_GOAL_ID), 1, frameNavigableRegions,
+                                                                                START_GOAL_ID, start.getReferenceFrame());
+      }
+
+      if (startMap == null)
+         return null;
+
+      List<FrameVisibilityMapHolder> visibilityMapHolders = new ArrayList<>();
+      visibilityMapHolders.addAll(frameNavigableRegions);
+      visibilityMapHolders.add(frameStartMap);
+      visibilityMapHolders.add(frameGoalMap);
+      visibilityMapHolders.add(frameInterRegionVisibilityMap);
+
+      FrameConnectionPoint3DReadOnly startConnection = new FrameConnectionPoint3D(start, START_GOAL_ID);
+      FrameConnectionPoint3DReadOnly goalConnection = new FrameConnectionPoint3D(goal, START_GOAL_ID);
+
+      List<FramePoint3DReadOnly> path = parameters.getPathPlanner().calculatePath(startConnection, goalConnection, visibilityMapHolders);
+
+      if (debug)
+      {
+         if (path != null)
+         {
+            PrintTools.info("Total time to find solution was: " + (System.currentTimeMillis() - startBodyPathComputation) + "ms");
+         }
+         else
+         {
+            PrintTools.info("NO BODY PATH SOLUTION WAS FOUND!" + (System.currentTimeMillis() - startBodyPathComputation) + "ms");
+         }
+      }
+
+      return path;
    }
 
    public List<Point3DReadOnly> calculateBodyPath(final Point3DReadOnly start, final Point3DReadOnly goal)

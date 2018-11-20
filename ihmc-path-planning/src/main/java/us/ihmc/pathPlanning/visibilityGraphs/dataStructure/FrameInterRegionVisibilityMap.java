@@ -26,7 +26,7 @@ public class FrameInterRegionVisibilityMap implements FrameVisibilityMapHolder
       visibilityMap.addConnection(connection);
    }
 
-   public void addConnection(FrameConnectionPoint3D source, FrameConnectionPoint3D target)
+   public void addConnection(FrameConnectionPoint3DReadOnly source, FrameConnectionPoint3DReadOnly target)
    {
       visibilityMap.addConnection(new FrameConnection(source, target));
    }

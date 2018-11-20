@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
@@ -177,6 +180,230 @@ public class VisibilityGraphsFactory
       navigableRegion.setVisibilityMap(visibilityMap);
 
       return navigableRegion;
+   }
+
+   public static FrameSingleSourceVisibilityMap connectToClosestFramePoints(FrameConnectionPoint3D source, int maximumNumberOfConnections,
+                                                                            List<FrameNavigableRegion> navigableRegions, int mapId, ReferenceFrame referenceFrame)
+   {
+      List<FrameConnection> allConnections = new ArrayList<>();
+
+      for (int i = 0; i < navigableRegions.size(); i++)
+      {
+         FrameVisibilityMap targetMap = navigableRegions.get(i).getVisibilityMap();
+         Set<FrameConnectionPoint3DReadOnly> targetPoints = targetMap.getVertices();
+
+         for (FrameConnectionPoint3DReadOnly targetPoint : targetPoints)
+         {
+            allConnections.add(new FrameConnection(source, targetPoint));
+         }
+      }
+
+      Collections.sort(allConnections, (c1, c2) ->
+      {
+         double c1LengthSquared = c1.lengthSquared();
+         double c2LengthSquared = c2.lengthSquared();
+
+         return c1LengthSquared < c2LengthSquared ? -1 : 1;
+      });
+
+      HashSet<FrameConnection> connections = new HashSet<>();
+      connections.addAll(allConnections.subList(0, maximumNumberOfConnections));
+
+      return new FrameSingleSourceVisibilityMap(source, mapId, referenceFrame, connections);
+   }
+
+   public static FrameInterRegionVisibilityMap createFrameInterRegionVisibilityMap(List<FrameNavigableRegion> navigableRegions, InterRegionConnectionFilter filter)
+   {
+      FrameInterRegionVisibilityMap map = new FrameInterRegionVisibilityMap();
+
+      for (int sourceMapIndex = 0; sourceMapIndex < navigableRegions.size(); sourceMapIndex++)
+      {
+         FrameVisibilityMap sourceMap = navigableRegions.get(sourceMapIndex).getVisibilityMap();
+         Set<FrameConnectionPoint3DReadOnly> sourcePoints = sourceMap.getVertices();
+
+         for (FrameConnectionPoint3DReadOnly source : sourcePoints)
+         {
+            for (int targetMapIndex = sourceMapIndex + 1; targetMapIndex < navigableRegions.size(); targetMapIndex++)
+            {
+               FrameVisibilityMap targetMap = navigableRegions.get(targetMapIndex).getVisibilityMap();
+
+               Set<FrameConnectionPoint3DReadOnly> targetPoints = targetMap.getVertices();
+
+               for (FrameConnectionPoint3DReadOnly target : targetPoints)
+               {
+                  if (source.getRegionId() == target.getRegionId())
+                     continue;
+
+                  if (filter.isConnectionValid(source, target))
+                  {
+                     map.addConnection(source, target);
+                  }
+               }
+            }
+         }
+      }
+
+      return map;
+   }
+
+   /**
+    * Creates a visibility map using the given {@code source} and connect it to all the visibility
+    * connection points of the host region's map.
+    * <p>
+    * The host region is defined as the region that contains the given {@code source}.
+    * </p>
+    * <p>
+    * When the source is located inside non accessible zone on the host region, it then either
+    * connected to the closest connection point of the host region's map or the closest connection
+    * from the given {@code potentialFallbackMap}, whichever is the closest.
+    * </p>
+    *
+    * @param source the single source used to build the visibility map.
+    * @param navigableRegions the list of navigable regions among which the host is to be found. Not
+    *           modified.
+    * @param searchHostEpsilon espilon used during the search. When positive, it is equivalent to
+    *           growing all the regions before testing if the {@code source} is inside.
+    * @param potentialFallbackMap in case the source is located in a non accessible zone, the
+    *           fallback map might be used to connect the source. Additional connections may be
+    *           added to the map.
+    * @return the new map or {@code null} if a host region could not be found.
+    */
+   public static FrameSingleSourceVisibilityMap createFrameSingleSourceVisibilityMap(FramePoint3DReadOnly source, List<FrameNavigableRegion> navigableRegions,
+                                                                                     double searchHostEpsilon, FrameVisibilityMap potentialFallbackMap)
+   {
+      FrameNavigableRegion hostRegion = PlanarRegionTools.getFrameNavigableRegionContainingThisPoint(source, navigableRegions, searchHostEpsilon);
+
+      if (hostRegion == null)
+         return null;
+
+      FramePoint3D sourceInLocal = new FramePoint3D(source);
+      sourceInLocal.changeFrame(hostRegion.getReferenceFrame());
+      int mapId = hostRegion.getMapId();
+
+      Set<FrameConnection> connections = VisibilityTools.createStaticFrameVisibilityMap(sourceInLocal, mapId, hostRegion.getAllClusters(), mapId);
+
+      if (!connections.isEmpty())
+         return new FrameSingleSourceVisibilityMap(source, hostRegion, connections);
+
+      return connectSourceToHostOrFallbackMap(source, potentialFallbackMap, hostRegion);
+   }
+
+   public static FrameSingleSourceVisibilityMap connectToFallbackMap(FramePoint3DReadOnly source, ReferenceFrame referenceFrame, int sourceId,
+                                                                     double maxConnectionLength, FrameVisibilityMap fallbackMap)
+   {
+
+      double minDistance = Double.POSITIVE_INFINITY;
+      FrameConnection closestConnection = null;
+
+      for (FrameConnection connection : fallbackMap)
+      {
+         double distance = connection.distanceSquared(source);
+
+         if (distance < minDistance)
+         {
+            minDistance = distance;
+            closestConnection = connection;
+         }
+      }
+
+      if (minDistance > maxConnectionLength)
+         return null;
+
+      Set<FrameConnection> connections = new HashSet<>();
+      FrameConnectionPoint3D sourceConnectionPoint = new FrameConnectionPoint3D(source, sourceId);
+      double percentage = closestConnection.percentageAlongConnection(source);
+      double epsilon = 1.0e-3;
+      if (percentage <= epsilon)
+      {
+         connections.add(new FrameConnection(sourceConnectionPoint, closestConnection.getSourcePoint()));
+      }
+      else if (percentage >= 1.0 - epsilon)
+      {
+         connections.add(new FrameConnection(sourceConnectionPoint, closestConnection.getTargetPoint()));
+      }
+      else
+      { // Let's create an connection point on the connection.
+         FrameConnectionPoint3D newConnectionPoint = closestConnection.getPointGivenPercentage(percentage, sourceId);
+
+         fallbackMap.addConnection(new FrameConnection(closestConnection.getSourcePoint(), newConnectionPoint));
+         fallbackMap.addConnection(new FrameConnection(newConnectionPoint, closestConnection.getTargetPoint()));
+
+         connections.add(new FrameConnection(sourceConnectionPoint, newConnectionPoint));
+      }
+
+      return new FrameSingleSourceVisibilityMap(source, sourceId, referenceFrame, connections);
+   }
+
+   private static FrameSingleSourceVisibilityMap connectSourceToHostOrFallbackMap(FramePoint3DReadOnly source, FrameVisibilityMap fallbackMap,
+                                                                                  FrameNavigableRegion hostRegion)
+   {
+      FramePoint3D sourceInLocal = new FramePoint3D(source);
+      sourceInLocal.changeFrame(hostRegion.getReferenceFrame());
+      int mapId = hostRegion.getMapId();
+
+      Set<FrameConnection> connections = new HashSet<>();
+      double minDistance = Double.POSITIVE_INFINITY;
+      FrameConnectionPoint3DReadOnly closestHostPoint = null;
+
+      FrameVisibilityMap hostMapInLocal = hostRegion.getVisibilityMap();
+      hostMapInLocal.computeVertices();
+
+      for (FrameConnectionPoint3DReadOnly connectionPoint : hostMapInLocal.getVertices())
+      {
+         double distance = connectionPoint.distanceSquared(sourceInLocal);
+
+         if (distance < minDistance)
+         {
+            minDistance = distance;
+            closestHostPoint = connectionPoint;
+         }
+      }
+
+      FrameConnection closestFallbackConnection = null;
+
+      for (FrameConnection connection : fallbackMap)
+      {
+         double distance = connection.distanceSquared(source);
+
+         if (distance < minDistance)
+         {
+            minDistance = distance;
+            closestFallbackConnection = connection;
+            closestHostPoint = null;
+         }
+      }
+
+      if (closestHostPoint != null)
+      { // Make the connection to the host
+         FrameConnectionPoint3DReadOnly sourceConnectionPoint = new FrameConnectionPoint3D(sourceInLocal, mapId);
+         connections.add(new FrameConnection(sourceConnectionPoint, closestHostPoint));
+         return new FrameSingleSourceVisibilityMap(source, hostRegion, connections);
+      }
+      else
+      { // Make the connection to the fallback map
+         FrameConnectionPoint3D sourceConnectionPoint = new FrameConnectionPoint3D(source, mapId);
+         double percentage = closestFallbackConnection.percentageAlongConnection(source);
+         double epsilon = 1.0e-3;
+         if (percentage <= epsilon)
+         {
+            connections.add(new FrameConnection(sourceConnectionPoint, closestFallbackConnection.getSourcePoint()));
+         }
+         else if (percentage >= 1.0 - epsilon)
+         {
+            connections.add(new FrameConnection(sourceConnectionPoint, closestFallbackConnection.getTargetPoint()));
+         }
+         else
+         { // Let's create an connection point on the connection.
+            FrameConnectionPoint3D newConnectionPoint = closestFallbackConnection.getPointGivenPercentage(percentage, mapId);
+
+            fallbackMap.addConnection(new FrameConnection(closestFallbackConnection.getSourcePoint(), newConnectionPoint));
+            fallbackMap.addConnection(new FrameConnection(newConnectionPoint, closestFallbackConnection.getTargetPoint()));
+
+            connections.add(new FrameConnection(sourceConnectionPoint, newConnectionPoint));
+         }
+
+         return new FrameSingleSourceVisibilityMap(source, hostRegion, connections);
+      }
    }
 
    /**
