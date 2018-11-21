@@ -157,6 +157,8 @@ public class NavigableRegionsManager
       return path;
    }
 
+      /*
+
    public List<Point3DReadOnly> calculateBodyPath(final Point3DReadOnly start, final Point3DReadOnly goal)
    {
       if (start == null)
@@ -274,6 +276,7 @@ public class NavigableRegionsManager
          return path;
       }
    }
+   */
 
    public List<FramePoint3DReadOnly> calculateBodyPathWithOcclusions(FramePoint3DReadOnly start, FramePoint3DReadOnly goal)
    {

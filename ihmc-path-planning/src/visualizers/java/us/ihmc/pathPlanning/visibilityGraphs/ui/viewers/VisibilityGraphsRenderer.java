@@ -4,12 +4,16 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.commons.thread.ThreadTools;
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.javaFXToolkit.messager.Messager;
@@ -120,12 +124,12 @@ public class VisibilityGraphsRenderer
       if (planarRegionsList == null)
          return;
 
-      Point3D start = startPositionReference.get();
+      FramePoint3D start = new FramePoint3D(ReferenceFrame.getWorldFrame(), startPositionReference.get());
 
       if (start == null)
          return;
 
-      Point3D goal = goalPositionReference.get();
+      FramePoint3D goal = new FramePoint3D(ReferenceFrame.getWorldFrame(), goalPositionReference.get());
 
       if (goal == null)
          return;
@@ -140,7 +144,7 @@ public class VisibilityGraphsRenderer
          NavigableRegionsManager navigableRegionsManager = new NavigableRegionsManager(parameters.get());
          navigableRegionsManager.setPlanarRegions(planarRegions);
 
-         List<Point3DReadOnly> bodyPath;
+         List<FramePoint3DReadOnly> bodyPath;
          if (computePathWithOcclusions)
          {
             bodyPath = navigableRegionsManager.calculateBodyPathWithOcclusions(start, goal);
@@ -150,7 +154,7 @@ public class VisibilityGraphsRenderer
             bodyPath = navigableRegionsManager.calculateBodyPath(start, goal);
          }
 
-         messager.submitMessage(BodyPathData, bodyPath);
+         messager.submitMessage(BodyPathData, bodyPath.stream().map(Point3D::new).collect(Collectors.toList()));
          messager.submitMessage(StartVisibilityMap, navigableRegionsManager.getStartMap());
          messager.submitMessage(GoalVisibilityMap, navigableRegionsManager.getGoalMap());
          messager.submitMessage(NavigableRegionVisibilityMap, navigableRegionsManager.getNavigableRegions());

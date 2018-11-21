@@ -25,12 +25,17 @@ import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.Ellipsoid3D;
 import us.ihmc.euclid.geometry.LineSegment3D;
 import us.ihmc.euclid.geometry.Plane3D;
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.FrameVector3D;
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DBasics;
 import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
+import us.ihmc.euclid.tuple3D.interfaces.Point3DBasics;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.euclid.tuple3D.interfaces.Vector3DBasics;
 import us.ihmc.javaFXToolkit.messager.JavaFXMessager;
@@ -333,14 +338,14 @@ public class VisibilityGraphsFrameworkTest extends Application
 
       PlanarRegionsList planarRegionsList = dataset.getPlanarRegionsList();
 
-      Point3D start = dataset.getStart();
-      Point3D goal = dataset.getGoal();
+      FramePoint3D start = new FramePoint3D(ReferenceFrame.getWorldFrame(), dataset.getStart());
+      FramePoint3D goal = new FramePoint3D(ReferenceFrame.getWorldFrame(), dataset.getGoal());
 
       if (VISUALIZE)
       {
          messager.submitMessage(UIVisibilityGraphsTopics.PlanarRegionData, planarRegionsList);
-         messager.submitMessage(UIVisibilityGraphsTopics.StartPosition, start);
-         messager.submitMessage(UIVisibilityGraphsTopics.GoalPosition, goal);
+         messager.submitMessage(UIVisibilityGraphsTopics.StartPosition, dataset.getStart());
+         messager.submitMessage(UIVisibilityGraphsTopics.GoalPosition, dataset.getGoal());
       }
 
       String errorMessages = calculateAndTestVizGraphsBodyPath(datasetName, start, goal, planarRegionsList);
@@ -355,8 +360,8 @@ public class VisibilityGraphsFrameworkTest extends Application
 
       PlanarRegionsList planarRegionsList = dataset.getPlanarRegionsList();
 
-      Point3D start = dataset.getStart();
-      Point3D goal = dataset.getGoal();
+      FramePoint3D start = new FramePoint3D(ReferenceFrame.getWorldFrame(), dataset.getStart());
+      FramePoint3D goal = new FramePoint3D(ReferenceFrame.getWorldFrame(), dataset.getGoal());
       AtomicReference<Boolean> stopWalkerRequest = null;
 
       if (VISUALIZE)
@@ -366,15 +371,15 @@ public class VisibilityGraphsFrameworkTest extends Application
             messager.submitMessage(UIVisibilityGraphsTopics.ShadowPlanarRegionData, planarRegionsList);
          else
             messager.submitMessage(UIVisibilityGraphsTopics.PlanarRegionData, planarRegionsList);
-         messager.submitMessage(UIVisibilityGraphsTopics.StartPosition, start);
-         messager.submitMessage(UIVisibilityGraphsTopics.GoalPosition, goal);
+         messager.submitMessage(UIVisibilityGraphsTopics.StartPosition, dataset.getStart());
+         messager.submitMessage(UIVisibilityGraphsTopics.GoalPosition, dataset.getGoal());
       }
 
       String errorMessages = "";
 
       List<Point3DReadOnly> latestBodyPath = new ArrayList<>();
 
-      Point3D walkerPosition = new Point3D(start);
+      FramePoint3D walkerPosition = new FramePoint3D(start);
 
       PlanarRegionsList knownRegions = new PlanarRegionsList();
 
@@ -384,7 +389,7 @@ public class VisibilityGraphsFrameworkTest extends Application
 
          if (simulateOcclusions)
          {
-            Point3D observer = new Point3D();
+            FramePoint3D observer = new FramePoint3D();
             observer.set(walkerPosition);
             observer.addZ(0.8);
             Pair<PlanarRegionsList, List<Point3D>> result = createVisibleRegions(planarRegionsList, observer, knownRegions);
@@ -430,7 +435,7 @@ public class VisibilityGraphsFrameworkTest extends Application
       return addPrefixToErrorMessages(datasetName, errorMessages);
    }
 
-   private static Point3D travelAlongBodyPath(double distanceToTravel, Point3D startingPosition, List<Point3DReadOnly> bodyPath)
+   private static Point3D travelAlongBodyPath(double distanceToTravel, Point3DBasics startingPosition, List<Point3DReadOnly> bodyPath)
    {
       Point3D newPosition = new Point3D();
 
@@ -458,19 +463,19 @@ public class VisibilityGraphsFrameworkTest extends Application
       return new Point3D(startingPosition);
    }
 
-   private String calculateAndTestVizGraphsBodyPath(String datasetName, Point3D start, Point3D goal, PlanarRegionsList planarRegionsList)
+   private String calculateAndTestVizGraphsBodyPath(String datasetName, FramePoint3D start, FramePoint3D goal, PlanarRegionsList planarRegionsList)
    {
       return calculateAndTestVizGraphsBodyPath(datasetName, start, goal, planarRegionsList, null);
    }
 
-   private String calculateAndTestVizGraphsBodyPath(String datasetName, Point3D start, Point3D goal, PlanarRegionsList planarRegionsList,
+   private String calculateAndTestVizGraphsBodyPath(String datasetName, FramePoint3D start, FramePoint3D goal, PlanarRegionsList planarRegionsList,
                                                     List<Point3DReadOnly> bodyPathToPack)
    {
       VisibilityGraphsParameters parameters = createTestParameters();
       NavigableRegionsManager manager = new NavigableRegionsManager(parameters);
       manager.setPlanarRegions(planarRegionsList.getPlanarRegionsAsList());
 
-      List<Point3DReadOnly> path = null;
+      List<FramePoint3DReadOnly> path = null;
 
       try
       {
@@ -486,7 +491,7 @@ public class VisibilityGraphsFrameworkTest extends Application
       {
          if (path != null)
          {
-            messager.submitMessage(UIVisibilityGraphsTopics.BodyPathData, path);
+            messager.submitMessage(UIVisibilityGraphsTopics.BodyPathData, path.stream().map(Point3D::new).collect(Collectors.toList()));
          }
          messager.submitMessage(UIVisibilityGraphsTopics.NavigableRegionData, manager.getNavigableRegions());
          messager.submitMessage(UIVisibilityGraphsTopics.StartVisibilityMap, manager.getStartMap());
@@ -508,9 +513,9 @@ public class VisibilityGraphsFrameworkTest extends Application
 
       // "Walk" along the body path and assert that the walker does not go through any region.
       int currentSegmentIndex = 0;
-      Point3DReadOnly pathStart = path.get(0);
-      Point3DReadOnly pathEnd = path.get(path.size() - 1);
-      Point3D walkerCurrentPosition = new Point3D(pathStart);
+      FramePoint3DReadOnly pathStart = path.get(0);
+      FramePoint3DReadOnly pathEnd = path.get(path.size() - 1);
+      FramePoint3D walkerCurrentPosition = new FramePoint3D(pathStart);
       List<Point3D> collisions = new ArrayList<>();
       Ellipsoid3D walkerShape = new Ellipsoid3D();
       walkerShape.setRadii(walkerRadii);
@@ -523,9 +528,9 @@ public class VisibilityGraphsFrameworkTest extends Application
 
          errorMessages += walkerCollisionChecks(datasetName, walkerShape, planarRegionsList, collisions);
 
-         Point3DReadOnly segmentStart = path.get(currentSegmentIndex);
-         Point3DReadOnly segmentEnd = path.get(currentSegmentIndex + 1);
-         Vector3D segmentDirection = new Vector3D();
+         FramePoint3DReadOnly segmentStart = path.get(currentSegmentIndex);
+         FramePoint3DReadOnly segmentEnd = path.get(currentSegmentIndex + 1);
+         FrameVector3D segmentDirection = new FrameVector3D();
          segmentDirection.sub(segmentEnd, segmentStart);
          segmentDirection.normalize();
          walkerCurrentPosition.scaleAdd(walkerMarchingSpeed, segmentDirection, walkerCurrentPosition);
@@ -626,7 +631,7 @@ public class VisibilityGraphsFrameworkTest extends Application
    }
 
    // TODO See if possible to support concave hulls instead of convex. It changes the shape of the regions quite some sometimes.
-   private Pair<PlanarRegionsList, List<Point3D>> createVisibleRegions(PlanarRegionsList regions, Point3D observer, PlanarRegionsList knownRegions)
+   private Pair<PlanarRegionsList, List<Point3D>> createVisibleRegions(PlanarRegionsList regions, Point3DBasics observer, PlanarRegionsList knownRegions)
    {
       List<Point3D> rayImpactLocations = new ArrayList<>();
       Point3D[] pointsOnSphere = SpiralBasedAlgorithm.generatePointsOnSphere(observer, 1.0, rays);

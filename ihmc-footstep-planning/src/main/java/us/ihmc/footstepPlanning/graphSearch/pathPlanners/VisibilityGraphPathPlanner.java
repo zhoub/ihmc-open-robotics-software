@@ -3,6 +3,9 @@ package us.ihmc.footstepPlanning.graphSearch.pathPlanners;
 import us.ihmc.commons.PrintTools;
 import us.ihmc.euclid.axisAngle.AxisAngle;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple2D.Vector2D;
 import us.ihmc.euclid.tuple3D.Point3D;
@@ -54,20 +57,20 @@ public class VisibilityGraphPathPlanner extends AbstractWaypointsForFootstepsPla
       }
       else
       {
-         Point3DReadOnly startPos = PlanarRegionTools.projectPointToPlanesVertically(bodyStartPose.getPosition(), planarRegionsList);
-         Point3DReadOnly goalPos = PlanarRegionTools.projectPointToPlanesVertically(bodyGoalPose.getPosition(), planarRegionsList);
+         FramePoint3DReadOnly startPos = new FramePoint3D(bodyStartPose.getReferenceFrame(), PlanarRegionTools.projectPointToPlanesVertically(bodyStartPose.getPosition(), planarRegionsList));
+         FramePoint3DReadOnly goalPos = new FramePoint3D(bodyGoalPose.getReferenceFrame(), PlanarRegionTools.projectPointToPlanesVertically(bodyGoalPose.getPosition(), planarRegionsList));
          navigableRegionsManager.setPlanarRegions(planarRegionsList.getPlanarRegionsAsList());
 
          if (startPos == null)
          {
             PrintTools.info("adding plane at start foot");
-            startPos = new Point3D(bodyStartPose.getX(), bodyStartPose.getY(), 0.0);
+            startPos = new FramePoint3D(bodyStartPose.getReferenceFrame(), bodyStartPose.getX(), bodyStartPose.getY(), 0.0);
             addPlanarRegionAtZeroHeight(bodyStartPose.getX(), bodyStartPose.getY());
          }
          if (goalPos == null)
          {
             PrintTools.info("adding plane at goal pose");
-            goalPos = new Point3D(bodyGoalPose.getX(), bodyGoalPose.getY(), 0.0);
+            goalPos = new FramePoint3D(bodyGoalPose.getReferenceFrame(), bodyGoalPose.getX(), bodyGoalPose.getY(), 0.0);
             addPlanarRegionAtZeroHeight(bodyGoalPose.getX(), bodyGoalPose.getY());
          }
 
@@ -80,9 +83,9 @@ public class VisibilityGraphPathPlanner extends AbstractWaypointsForFootstepsPla
 
          try
          {
-            List<Point3DReadOnly> path = new ArrayList<>(navigableRegionsManager.calculateBodyPath(startPos, goalPos));
+            List<FramePoint3DReadOnly> path = new ArrayList<>(navigableRegionsManager.calculateBodyPath(startPos, goalPos));
 
-            for (Point3DReadOnly waypoint3d : path)
+            for (FramePoint3DReadOnly waypoint3d : path)
             {
                waypoints.add(new Point3D(waypoint3d));
             }

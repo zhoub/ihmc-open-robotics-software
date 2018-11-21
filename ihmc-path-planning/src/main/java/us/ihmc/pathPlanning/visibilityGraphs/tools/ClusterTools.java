@@ -13,6 +13,7 @@ import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DBasics;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DReadOnly;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DBasics;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
+import us.ihmc.euclid.referenceFrame.tools.EuclidFrameTools;
 import us.ihmc.euclid.tools.EuclidCoreTools;
 import us.ihmc.euclid.tools.RotationMatrixTools;
 import us.ihmc.euclid.transform.RigidBodyTransform;
@@ -97,9 +98,9 @@ public class ClusterTools
          }
          else
          {
-            Vector2D extrusionDirection = new Vector2D();
+            FrameVector2D extrusionDirection = new FrameVector2D(referenceFrame);
             extrusionDirection.interpolate(edgePrev.getDirection(), edgeNext.getDirection(), 0.5);
-            extrusionDirection = EuclidGeometryTools.perpendicularVector2D(extrusionDirection);
+            extrusionDirection = EuclidFrameTools.perpendicularVector2D(extrusionDirection);
             if (!extrudeToTheLeft)
                extrusionDirection.negate();
 
@@ -167,12 +168,12 @@ public class ClusterTools
          }
          else
          {
-            Vector2D extrusionDirection = new Vector2D();
+            FrameVector2D extrusionDirection = new FrameVector2D(referenceFrame);
             extrusionDirection.interpolate(edgePrev.getDirection(), edgeNext.getDirection(), 0.5);
             extrusionDirection.normalize();
-            extrusionDirection = EuclidGeometryTools.perpendicularVector2D(extrusionDirection);
+            extrusionDirection = EuclidFrameTools.perpendicularVector2D(extrusionDirection);
 
-            FramePoint2D extrusion = new FramePoint2D();
+            FramePoint2D extrusion = new FramePoint2D(referenceFrame);
             extrusion.scaleAdd(extrusionDistance, extrusionDirection, pointToExtrude);
             extrusions.add(extrusion);
          }
@@ -205,10 +206,10 @@ public class ClusterTools
          }
          else
          {
-            Vector2D extrusionDirection = new Vector2D();
+            FrameVector2D extrusionDirection = new FrameVector2D(referenceFrame);
             extrusionDirection.interpolate(edgePrev.getDirection(), edgeNext.getDirection(), 0.5);
             extrusionDirection.normalize();
-            extrusionDirection = EuclidGeometryTools.perpendicularVector2D(extrusionDirection);
+            extrusionDirection = EuclidFrameTools.perpendicularVector2D(extrusionDirection);
 
             FramePoint2D extrusion = new FramePoint2D(referenceFrame);
             extrusion.scaleAdd(extrusionDistance, extrusionDirection, pointToExtrude);
@@ -231,14 +232,14 @@ public class ClusterTools
 
       List<FramePoint2DBasics> extrusions = new ArrayList<>();
 
-      Vector2D firstExtrusionDirection = EuclidGeometryTools.perpendicularVector2D(previousEdge.getDirection());
+      FrameVector2D firstExtrusionDirection = EuclidFrameTools.perpendicularVector2D(previousEdge.getDirection());
       if (!extrudeToTheLeft)
          firstExtrusionDirection.negate();
       FramePoint2D firstExtrusion = new FramePoint2D(referenceFrame);
       firstExtrusion.scaleAdd(extrusionDistance, firstExtrusionDirection, cornerPointToExtrude);
       extrusions.add(firstExtrusion);
 
-      Vector2D lastExtrusionDirection = EuclidGeometryTools.perpendicularVector2D(nextEdge.getDirection());
+      FrameVector2D lastExtrusionDirection = EuclidFrameTools.perpendicularVector2D(nextEdge.getDirection());
       if (!extrudeToTheLeft)
          lastExtrusionDirection.negate();
       FramePoint2D lastExtrusion = new FramePoint2D(referenceFrame);
@@ -250,7 +251,7 @@ public class ClusterTools
          if (MathTools.epsilonEquals(Math.PI, Math.abs(openingAngle), 1.0e-7))
             openingAngle = extrudeToTheLeft ? -Math.PI : Math.PI;
 
-         Vector2D extrusionDirection = new Vector2D();
+         FrameVector2D extrusionDirection = new FrameVector2D(referenceFrame);
 
          for (int i = 1; i < numberOfExtrusions - 1; i++)
          {
@@ -427,7 +428,7 @@ public class ClusterTools
             if (signedDistanceToStart * signedDistanceToEnd > 0.0)
                continue; // If same sign, the edge is not above/below the point, keep going.
             // The edge is above or below the point, let's compute the edge height at the point x-coordinate
-            double alpha = EuclidGeometryTools.percentageAlongLineSegment2D(projectedPoint, edgeStart, edgeEnd);
+            double alpha = EuclidFrameTools.percentageAlongLineSegment2D(projectedPoint, edgeStart, edgeEnd);
             double height = EuclidCoreTools.interpolate(edgeStart.getY(), edgeEnd.getY(), alpha);
 
             point.setZ(Math.max(height, point.getZ()));

@@ -6,6 +6,9 @@ import us.ihmc.commons.thread.ThreadTools;
 import us.ihmc.continuousIntegration.ContinuousIntegrationAnnotations.ContinuousIntegrationTest;
 import us.ihmc.continuousIntegration.ContinuousIntegrationTools;
 import us.ihmc.euclid.Axis;
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
+import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
@@ -49,11 +52,11 @@ public class VisibilityGraphOcclusionTest
 
    private void runTest(PlanarRegionsList planarRegionsList)
    {
-      Point3D start = new Point3D();
-      Point3D goal = new Point3D(2.0, -1.0, 0.0);
+      FramePoint3D start = new FramePoint3D();
+      FramePoint3D goal = new FramePoint3D(ReferenceFrame.getWorldFrame(), 2.0, -1.0, 0.0);
 
       NavigableRegionsManager navigableRegionsManager = new NavigableRegionsManager(planarRegionsList.getPlanarRegionsAsList());
-      List<Point3DReadOnly> path = navigableRegionsManager.calculateBodyPathWithOcclusions(start, goal);
+      List<FramePoint3DReadOnly> path = navigableRegionsManager.calculateBodyPathWithOcclusions(start, goal);
 
       if(visualize)
       {
@@ -61,7 +64,7 @@ public class VisibilityGraphOcclusionTest
       }
    }
 
-   private static void visualize(List<Point3DReadOnly> path, PlanarRegionsList planarRegionsList, Point3D start, Point3D goal)
+   private static void visualize(List<FramePoint3DReadOnly> path, PlanarRegionsList planarRegionsList, FramePoint3D start, FramePoint3D goal)
    {
       SimulationConstructionSet scs = new SimulationConstructionSet();
 

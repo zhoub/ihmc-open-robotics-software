@@ -188,7 +188,7 @@ public class PlanarRegionTools
       return null;
    }
 
-   public static Point3D intersectRegionsWithRay(PlanarRegionsList regions, Point3D rayStart, Vector3D rayDirection)
+   public static Point3D intersectRegionsWithRay(PlanarRegionsList regions, Point3DBasics rayStart, Vector3D rayDirection)
    {
       double smallestDistance = Double.POSITIVE_INFINITY;
       Point3D closestIntersection = null;
@@ -211,7 +211,7 @@ public class PlanarRegionTools
       return closestIntersection;
    }
 
-   public static Point3D intersectRegionWithRay(PlanarRegion region, Point3D rayStart, Vector3D rayDirection)
+   public static Point3D intersectRegionWithRay(PlanarRegion region, Point3DBasics rayStart, Vector3D rayDirection)
    {
       RigidBodyTransform regionToWorld = new RigidBodyTransform();
       region.getTransformToWorld(regionToWorld);

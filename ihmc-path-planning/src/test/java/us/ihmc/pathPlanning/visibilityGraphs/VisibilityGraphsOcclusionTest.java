@@ -18,14 +18,18 @@ import us.ihmc.continuousIntegration.IntegrationCategory;
 import us.ihmc.euclid.Axis;
 import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.geometry.LineSegment3D;
+import us.ihmc.euclid.referenceFrame.FrameLineSegment3D;
+import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.FramePose3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.referenceFrame.tools.ReferenceFrameTools;
 import us.ihmc.euclid.tools.RotationMatrixTools;
 import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.tuple2D.Point2D;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
+import us.ihmc.euclid.tuple3D.interfaces.Point3DBasics;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.euclid.tuple3D.interfaces.Vector3DBasics;
 import us.ihmc.graphicsDescription.Graphics3DObject;
@@ -100,8 +104,8 @@ public class VisibilityGraphsOcclusionTest
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
    public void testFlatGround()
    {
-      Point3D startPose = new Point3D();
-      Point3D goalPose = new Point3D();
+      FramePoint3D startPose = new FramePoint3D();
+      FramePoint3D goalPose = new FramePoint3D();
       PlanarRegionsList regions = createFlatGround(startPose, goalPose);
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION, defaultMaxAllowedSolveTime, 3.0);
    }
@@ -110,8 +114,10 @@ public class VisibilityGraphsOcclusionTest
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
    public void testFlatGroundWithWall()
    {
-      Point3D startPose = new Point3D(-4.805, 0.001, 0.0);
-      Point3D goalPose = new Point3D(4.805, 0.001, 0.0);
+      FramePoint3D startPose = new FramePoint3D();
+      FramePoint3D goalPose = new FramePoint3D();
+      startPose.set(-4.805, 0.001, 0.0);
+      goalPose.set(4.805, 0.001, 0.0);
 
       PlanarRegionsListGenerator generator = new PlanarRegionsListGenerator();
       generator.addRectangle(10.0, 5.0);
@@ -129,8 +135,8 @@ public class VisibilityGraphsOcclusionTest
    @ContinuousIntegrationTest(estimatedDuration = 10.0)
    public void testSimpleOcclusions()
    {
-      Point3D startPose = new Point3D();
-      Point3D goalPose = new Point3D();
+      FramePoint3D startPose = new FramePoint3D();
+      FramePoint3D goalPose = new FramePoint3D();
       PlanarRegionsList regions = createSimpleOcclusionField(startPose, goalPose);
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION_PLUS_GROUND, defaultMaxAllowedSolveTime);
    }
@@ -139,8 +145,8 @@ public class VisibilityGraphsOcclusionTest
    @ContinuousIntegrationTest(estimatedDuration = 0.5)
    public void testMazeWithOcclusions()
    {
-      Point3D startPose = new Point3D();
-      Point3D goalPose = new Point3D();
+      FramePoint3D startPose = new FramePoint3D();
+      FramePoint3D goalPose = new FramePoint3D();
       PlanarRegionsList regions = createMazeOcclusionField(startPose, goalPose);
       runTest(startPose, goalPose, regions, OcclusionMethod.OCCLUSION_PLUS_GROUND, defaultMaxAllowedSolveTime);
    }
@@ -149,18 +155,20 @@ public class VisibilityGraphsOcclusionTest
    @ContinuousIntegrationTest(estimatedDuration = 10.0, categoriesOverride = {IntegrationCategory.IN_DEVELOPMENT})
    public void testCrazyBridgeEnvironment()
    {
-      Point3D startPose = new Point3D(0.4, 0.5, 0.001);
-      Point3D goalPose = new Point3D(8.5, -3.5, 0.010);
+      FramePoint3D startPose = new FramePoint3D();
+      FramePoint3D goalPose = new FramePoint3D();
+      startPose.set(0.4, 0.5, 0.001);
+      goalPose.set(8.5, -3.5, 0.010);
       PlanarRegionsList regions = createBodyPathPlannerTestEnvironment();
       runTest(startPose, goalPose, regions, OcclusionMethod.NO_OCCLUSION, defaultMaxAllowedSolveTime, 0.2);
    }
 
-   private void runTest(Point3D start, Point3D goal, PlanarRegionsList regions, OcclusionMethod occlusionMethod, double maxAllowedSolveTime)
+   private void runTest(FramePoint3D start, FramePoint3D goal, PlanarRegionsList regions, OcclusionMethod occlusionMethod, double maxAllowedSolveTime)
    {
       runTest(start, goal, regions, occlusionMethod, maxAllowedSolveTime, defaultMarchingSpeedInMetersPerTick);
    }
 
-   private void runTest(Point3D start, Point3D goal, PlanarRegionsList regions, OcclusionMethod occlusionMethod, double maxAllowedSolveTime,
+   private void runTest(FramePoint3D start, FramePoint3D goal, PlanarRegionsList regions, OcclusionMethod occlusionMethod, double maxAllowedSolveTime,
                         double marchingSpeedInMetersPerTick)
    {
       YoVariableRegistry registry = new YoVariableRegistry(name.getMethodName());
@@ -272,7 +280,8 @@ public class VisibilityGraphsOcclusionTest
             PrintTools.info("Too many iterations too reach goal.");
             break;
          }
-         Point3D observer = new Point3D(currentPosition);
+         FramePoint3D observer = new FramePoint3D();
+         observer.set(currentPosition);
          observer.addZ(0.05);
 
          if (occlusionMethod != OcclusionMethod.NO_OCCLUSION)
@@ -305,7 +314,7 @@ public class VisibilityGraphsOcclusionTest
 
          vizGraphs.setPlanarRegions(visiblePlanarRegions.getPlanarRegionsAsList());
 
-         List<Point3DReadOnly> bodyPath = null;
+         List<FramePoint3DReadOnly> bodyPath = null;
 
          try
          {
@@ -409,7 +418,7 @@ public class VisibilityGraphsOcclusionTest
       }
    }
 
-   private static void visualizeBodyPath(List<Point3DReadOnly> bodyPath, BagOfBalls vizToUpdate)
+   private static void visualizeBodyPath(List<FramePoint3DReadOnly> bodyPath, BagOfBalls vizToUpdate)
    {
       int numberOfBalls = vizToUpdate.getNumberOfBalls();
 
@@ -420,7 +429,7 @@ public class VisibilityGraphsOcclusionTest
       }
 
       double distanceToTravel = bodyPathLength / (numberOfBalls - 1.0);
-      Point3D position = new Point3D(bodyPath.get(0));
+      FramePoint3D position = new FramePoint3D(bodyPath.get(0));
       vizToUpdate.setBall(position);
 
       for (int i = 0; i < numberOfBalls - 1; i++)
@@ -430,13 +439,14 @@ public class VisibilityGraphsOcclusionTest
       }
    }
 
-   private static Point3D travelAlongBodyPath(double distanceToTravel, Point3DReadOnly startingPosition, List<Point3DReadOnly> bodyPath)
+   private static FramePoint3D travelAlongBodyPath(double distanceToTravel, FramePoint3DReadOnly startingPosition, List<FramePoint3DReadOnly> bodyPath)
    {
-      Point3D newPosition = new Point3D();
+      FramePoint3D newPosition = new FramePoint3D();
 
       for (int i = 0; i < bodyPath.size() - 1; i++)
       {
-         LineSegment3D segment = new LineSegment3D(bodyPath.get(i), bodyPath.get(i + 1));
+         FrameLineSegment3D segment = new FrameLineSegment3D();
+         segment.setIncludingFrame(bodyPath.get(i), bodyPath.get(i + 1));
 
          if (segment.distance(startingPosition) < 1.0e-4)
          {
@@ -450,15 +460,16 @@ public class VisibilityGraphsOcclusionTest
             else
             {
                distanceToTravel -= startingPosition.distance(segment.getSecondEndpoint());
-               startingPosition = new Point3D(segment.getSecondEndpoint());
+               startingPosition = new FramePoint3D(segment.getSecondEndpoint());
             }
          }
       }
 
-      return new Point3D(startingPosition);
+      return new FramePoint3D(startingPosition);
    }
 
-   private static SimulationConstructionSet setupSCS(String testName, YoVariableRegistry testRegistry, PlanarRegionsList regions, Point3D start, Point3D goal)
+   private static SimulationConstructionSet setupSCS(String testName, YoVariableRegistry testRegistry, PlanarRegionsList regions, Point3DBasics start,
+                                                     Point3DBasics goal)
    {
       Robot robot = new Robot(VisibilityGraphsOcclusionTest.class.getSimpleName());
       robot.addYoVariableRegistry(testRegistry);
@@ -490,7 +501,7 @@ public class VisibilityGraphsOcclusionTest
       return scs;
    }
 
-   private PlanarRegionsList createVisibleRegions(PlanarRegionsList regions, Point3D observer, PlanarRegionsList knownRegions,
+   private PlanarRegionsList createVisibleRegions(PlanarRegionsList regions, FramePoint3D observer, PlanarRegionsList knownRegions,
                                                   List<YoFramePoint3D> rayPointsToPack)
    {
       Point3D[] pointsOnSphere = SpiralBasedAlgorithm.generatePointsOnSphere(observer, 1.0, rays);
@@ -603,7 +614,7 @@ public class VisibilityGraphsOcclusionTest
       return ret;
    }
 
-   private PlanarRegionsList createFlatGround(Point3D startPoseToPack, Point3D goalPoseToPack)
+   private PlanarRegionsList createFlatGround(FramePoint3D startPoseToPack, FramePoint3D goalPoseToPack)
    {
       PlanarRegionsListGenerator generator = new PlanarRegionsListGenerator();
       generator.addRectangle(50.0, 5.0);
@@ -617,7 +628,7 @@ public class VisibilityGraphsOcclusionTest
       return generator.getPlanarRegionsList();
    }
 
-   private PlanarRegionsList createSimpleOcclusionField(Point3D startPoseToPack, Point3D goalPoseToPack)
+   private PlanarRegionsList createSimpleOcclusionField(FramePoint3D startPoseToPack, FramePoint3D goalPoseToPack)
    {
       PlanarRegionsListGenerator generator = new PlanarRegionsListGenerator();
       //      generator.rotate(Math.toRadians(10.0), Axis.X);
@@ -640,7 +651,7 @@ public class VisibilityGraphsOcclusionTest
       return generator.getPlanarRegionsList();
    }
 
-   private PlanarRegionsList createMazeOcclusionField(Point3D startPoseToPack, Point3D goalPoseToPack)
+   private PlanarRegionsList createMazeOcclusionField(FramePoint3D startPoseToPack, FramePoint3D goalPoseToPack)
    {
       PlanarRegionsListGenerator generator = new PlanarRegionsListGenerator();
       generator.rotate(Math.toRadians(10.0), Axis.X);
