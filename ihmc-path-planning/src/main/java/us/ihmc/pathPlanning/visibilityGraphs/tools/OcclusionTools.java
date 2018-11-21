@@ -15,6 +15,7 @@ import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.NavigableRegion;
 
 public class OcclusionTools
 {
+   /*
    public static boolean isTheGoalIntersectingAnyObstacles(NavigableRegion region, Point3DReadOnly start, Point3DReadOnly goal)
    {
       for (Cluster cluster : region.getObstacleClusters())
@@ -58,6 +59,7 @@ public class OcclusionTools
       }
       return clustersTemp;
    }
+   */
 
    public static boolean isTheGoalIntersectingAnyObstacles(FrameNavigableRegion region, FramePoint3DReadOnly start, FramePoint3DReadOnly goal)
    {

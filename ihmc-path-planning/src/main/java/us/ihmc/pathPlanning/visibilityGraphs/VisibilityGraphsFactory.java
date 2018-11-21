@@ -32,6 +32,7 @@ public class VisibilityGraphsFactory
     */
    private static final boolean ENABLE_GREEDY_FILTERS = true;
 
+   /*
    public static List<NavigableRegion> createNavigableRegions(List<PlanarRegion> allRegions, VisibilityGraphsParameters parameters)
    {
       if (allRegions.isEmpty())
@@ -106,6 +107,8 @@ public class VisibilityGraphsFactory
 
       return navigableRegion;
    }
+   */
+
 
    public static List<FrameNavigableRegion> createFrameNavigableRegions(List<PlanarRegion> allRegions, VisibilityGraphsParameters parameters)
    {
@@ -428,6 +431,7 @@ public class VisibilityGraphsFactory
     *           added to the map.
     * @return the new map or {@code null} if a host region could not be found.
     */
+   /*
    public static SingleSourceVisibilityMap createSingleSourceVisibilityMap(Point3DReadOnly source, List<NavigableRegion> navigableRegions,
                                                                            double searchHostEpsilon, VisibilityMap potentialFallbackMap)
    {
@@ -565,6 +569,7 @@ public class VisibilityGraphsFactory
       }
    }
 
+
    public static SingleSourceVisibilityMap connectToClosestPoints(ConnectionPoint3D source, int maximumNumberOfConnections, List<NavigableRegion> navigableRegions, int mapId)
    {
       List<Connection> allConnections = new ArrayList<>();
@@ -627,4 +632,6 @@ public class VisibilityGraphsFactory
 
       return map;
    }
+      */
+
 }

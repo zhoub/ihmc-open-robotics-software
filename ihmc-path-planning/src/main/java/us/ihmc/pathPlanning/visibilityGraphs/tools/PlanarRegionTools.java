@@ -299,6 +299,7 @@ public class PlanarRegionTools
       return closestContainer;
    }
 
+   /*
    public static NavigableRegion getNavigableRegionContainingThisPoint(Point3DReadOnly point, List<NavigableRegion> navigableRegions)
    {
       return getNavigableRegionContainingThisPoint(point, navigableRegions, 0.0);
@@ -344,6 +345,8 @@ public class PlanarRegionTools
 
       return closestContainer;
    }
+      */
+
 
    public static boolean isPointInWorldInsidePlanarRegion(PlanarRegion planarRegion, Point3DReadOnly pointInWorldToCheck)
    {
@@ -374,6 +377,7 @@ public class PlanarRegionTools
       return isPointInLocalInsidePlanarRegion(planarRegion, pointInLocalToCheck, epsilon);
    }
 
+   /*
    public static boolean isPointInLocalInsidePlanarRegion(PlanarRegion planarRegion, Point3DReadOnly pointInLocalToCheck)
    {
       return isPointInLocalInsidePlanarRegion(planarRegion, new Point2D(pointInLocalToCheck));
@@ -383,6 +387,7 @@ public class PlanarRegionTools
    {
       return isPointInLocalInsidePlanarRegion(planarRegion, new Point2D(pointInLocalToCheck), epsilon);
    }
+   */
 
    public static boolean isPointInLocalInsidePlanarRegion(PlanarRegion planarRegion, Point2DReadOnly pointInLocalToCheck)
    {

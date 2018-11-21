@@ -319,6 +319,8 @@ public class VisibilityTools
       return true;
    }
 
+      /*
+
    public static List<Connection> getConnectionsThatAreInsideRegion(Collection<Connection> connections, PlanarRegion region)
    {
       List<Connection> filteredConnections = new ArrayList<>();
@@ -363,6 +365,8 @@ public class VisibilityTools
 
       return connections;
    }
+   */
+
 
    /**
     * Finds all the possible and valid connections using only the vertices from a single cluster,
@@ -379,6 +383,7 @@ public class VisibilityTools
     * @return an array of booleans informing on whether each individual navigable extrusion of
     *         {@code clusterToBuildMapOf} is actually navigable or not.
     */
+   /*
    private static boolean[] addClusterSelfVisibility(Cluster clusterToBuildMapOf, PlanarRegion homeRegion, List<Cluster> allClusters, int mapId,
                                                      Collection<Connection> connectionsToPack)
    {
@@ -454,6 +459,7 @@ public class VisibilityTools
 
       return areActuallyNavigable;
    }
+   */
 
    /**
     * Finds all the possible and valid connections going from the navigable extrusions of
@@ -476,6 +482,7 @@ public class VisibilityTools
     * @param mapId the ID used to create the connections.
     * @param connectionsToPack the collection in which the connections are stored. Modified.
     */
+   /*
    private static void addCrossClusterVisibility(Cluster sourceCluster, boolean[] sourceNavigability, Cluster targetCluster, boolean[] targetNavigability,
                                                  List<Cluster> allClusters, int mapId, Collection<Connection> connectionsToPack)
    {
@@ -562,17 +569,13 @@ public class VisibilityTools
 
       return connections;
    }
+      */
+
 
    /**
     * The main idea of the quick check is to verifying that when attempting to connect a vertex of a
     * clockwise polygon to a target that the direction to that target goes the "proper way" with
     * respect to the next and previous edges of the source.
-    * 
-    * @param directionToCheck
-    * @param previousEdgeDirection
-    * @param nexEdgeDirection
-    * @param extrusionSide
-    * @return
     */
    private static boolean quickFeasibilityCheck(Vector2DReadOnly directionToCheck, Vector2DReadOnly previousEdgeDirection, Vector2DReadOnly nexEdgeDirection,
                                                 ExtrusionSide extrusionSide)
@@ -615,6 +618,7 @@ public class VisibilityTools
       }
    }
 
+   /*
    public static boolean isPointVisibleForStaticMaps(List<Cluster> clusters, Point2DReadOnly observer, Point2DReadOnly targetPoint)
    {
       for (Cluster cluster : clusters)
@@ -639,6 +643,7 @@ public class VisibilityTools
 
       return true;
    }
+   */
 
    public static List<FrameConnection> removeFrameConnectionsFromExtrusionsOutsideRegions(Collection<FrameConnection> connections, PlanarRegion homeRegion)
    {
@@ -674,6 +679,7 @@ public class VisibilityTools
    }
 
 
+   /*
    public static List<Connection> removeConnectionsFromExtrusionsOutsideRegions(Collection<Connection> connections, PlanarRegion homeRegion)
    {
       return VisibilityTools.getConnectionsThatAreInsideRegion(connections, homeRegion);
@@ -690,6 +696,7 @@ public class VisibilityTools
 
       return validConnections;
    }
+   */
 
    public static List<FrameConnection> getValidFrameConnections(Collection<FrameConnection> connections, FrameCluster cluster)
    {
@@ -707,6 +714,7 @@ public class VisibilityTools
       return filteredConnections;
    }
 
+   /*
    public static List<Connection> getValidConnections(Collection<Connection> connections, Cluster cluster)
    {
       List<Connection> filteredConnections = new ArrayList<>();
@@ -722,4 +730,5 @@ public class VisibilityTools
 
       return filteredConnections;
    }
+   */
 }

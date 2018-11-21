@@ -473,6 +473,7 @@ public class ClusterTools
       }
    }
 
+   /*
    public static List<Point2D> extrudePolygon(boolean extrudeToTheLeft, Cluster cluster, ObstacleExtrusionDistanceCalculator calculator)
    {
       List<Point2DReadOnly> rawPoints = cluster.getRawPointsInLocal2D();
@@ -481,6 +482,7 @@ public class ClusterTools
 
       return extrudePolygon(extrudeToTheLeft, rawPoints, extrusionDistances);
    }
+   */
 
    static List<Point2D> extrudePolygon(boolean extrudeToTheLeft, List<Point2DReadOnly> pointsToExtrude, double[] extrusionDistances)
    {
@@ -537,6 +539,7 @@ public class ClusterTools
       return extrusions;
    }
 
+   /*
    public static List<Point2D> extrudeMultiLine(Cluster cluster, ObstacleExtrusionDistanceCalculator calculator, int numberOfExtrusionsAtEndpoints)
    {
       List<Point2DReadOnly> rawPoints = cluster.getRawPointsInLocal2D();
@@ -545,6 +548,7 @@ public class ClusterTools
 
       return extrudeMultiLine(rawPoints, extrusionDistances, numberOfExtrusionsAtEndpoints);
    }
+   */
 
    private static List<Point2D> extrudeMultiLine(List<Point2DReadOnly> pointsToExtrude, double[] extrusionDistances, int numberOfExtrusionsAtEndpoints)
    {
@@ -631,6 +635,7 @@ public class ClusterTools
       return extrusions;
    }
 
+   /*
    public static List<Point2D> extrudeLine(Point2DReadOnly endpoint1, Point2DReadOnly endpoint2, double extrusionDistance, int numberOfExtrusionsAtEndpoints)
    {
       return extrudeLine(endpoint1, extrusionDistance, endpoint2, extrusionDistance, numberOfExtrusionsAtEndpoints);
@@ -651,6 +656,8 @@ public class ClusterTools
 
       return extrusions;
    }
+      */
+
 
    public static List<Point2D> extrudeCorner(Point2DReadOnly cornerPointToExtrude, Line2D previousEdge, Line2D nextEdge, boolean extrudeToTheLeft,
                                              int numberOfExtrusions, double extrusionDistance)
@@ -693,6 +700,7 @@ public class ClusterTools
       return extrusions;
    }
 
+   /*
    public static Cluster getTheClosestCluster(Point3DReadOnly pointToSortFrom, List<Cluster> clusters)
    {
       double minDistance = Double.MAX_VALUE;
@@ -724,6 +732,7 @@ public class ClusterTools
 
       return closestCluster;
    }
+   */
 
    public static FrameCluster getTheClosestFrameCluster(FramePoint3DReadOnly pointToSortFrom, List<FrameCluster> clusters)
    {
@@ -757,6 +766,7 @@ public class ClusterTools
       return closestCluster;
    }
 
+   /*
    public static Point3D getTheClosestVisibleExtrusionPoint(Point3DReadOnly pointToSortFrom, List<Point3D> extrusionPoints)
    {
       double minDistance = Double.MAX_VALUE;
@@ -797,6 +807,7 @@ public class ClusterTools
 
       return new Point3D(closestPoint);
    }
+   */
 
    public static FramePoint3DReadOnly getTheClosestVisibleExtrusionFramePoint(double alpha, FramePoint3DReadOnly start, FramePoint3DReadOnly goal,
                                                                               List<FramePoint2DBasics> extrusionPoints, PlanarRegion region)
@@ -820,6 +831,7 @@ public class ClusterTools
 
       return new FramePoint3D(closestPoint);
    }
+   /*
 
    public static Cluster createHomeRegionCluster(PlanarRegion homeRegion, NavigableExtrusionDistanceCalculator calculator)
    {
@@ -927,13 +939,6 @@ public class ClusterTools
       cluster.updateBoundingBox();
    }
 
-   /**
-    *
-    *
-    * @param verticalPolygonVertices
-    * @param poppingPointsDistanceSquaredThreshold
-    * @return
-    */
    static List<Point3D> filterVerticalPolygonForMultiLineExtrusion(List<? extends Point3DReadOnly> verticalPolygonVertices,
                                                                    double poppingPointsDistanceSquaredThreshold)
    {
@@ -1022,4 +1027,6 @@ public class ClusterTools
          return filteredPoints;
       }
    }
+         */
+
 }
