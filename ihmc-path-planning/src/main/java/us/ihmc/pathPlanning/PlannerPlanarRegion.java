@@ -728,6 +728,7 @@ public class PlannerPlanarRegion
    private void updateConvexHull()
    {
       convexHull.clear();
+      convexHull.setReferenceFrame(referenceFrame);
       for (int i = 0; i < this.getNumberOfConvexPolygons(); i++)
       {
          FrameConvexPolygon2DReadOnly convexPolygon = this.getConvexPolygon(i);

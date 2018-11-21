@@ -380,14 +380,14 @@ public class PlanarRegionTools
    public static boolean isPointInWorldInsidePlanarRegion(PlannerPlanarRegion planarRegion, FramePoint3DReadOnly pointInWorldToCheck, double epsilon)
    {
       FramePoint2D point = new FramePoint2D(ReferenceFrame.getWorldFrame(), pointInWorldToCheck);
-      point.changeFrame(planarRegion.getReferenceFrame());
+      point.changeFrameAndProjectToXYPlane(planarRegion.getReferenceFrame());
       return isPointInLocalInsidePlanarRegion(planarRegion, point, epsilon);
    }
 
    public static boolean isPointInWorldInsidePlanarRegion(PlannerPlanarRegion planarRegion, FramePoint2DReadOnly pointInWorldToCheck, double epsilon)
    {
       FramePoint2D point = new FramePoint2D(ReferenceFrame.getWorldFrame(), pointInWorldToCheck);
-      point.changeFrame(planarRegion.getReferenceFrame());
+      point.changeFrameAndProjectToXYPlane(planarRegion.getReferenceFrame());
       return isPointInLocalInsidePlanarRegion(planarRegion, point, epsilon);
    }
 
@@ -611,7 +611,7 @@ public class PlanarRegionTools
       for (int i = 0; i < regionA.getConvexHull().getNumberOfVertices(); i++)
       {
          FramePoint2D vertexA = new FramePoint2D(regionA.getConvexHull().getVertex(i));
-         vertexA.changeFrame(regionB.getReferenceFrame());
+         vertexA.changeFrameAndProjectToXYPlane(regionB.getReferenceFrame());
          if (convexHullB.getBoundingBox().isInsideEpsilon(vertexA, epsilon) && convexHullB.isPointInside(vertexA, epsilon))
             return true;
       }
@@ -884,6 +884,7 @@ public class PlanarRegionTools
                                                                           PlannerPlanarRegion planarRegionToTruncate, double depthThresholdForConvexDecomposition,
                                                                           PlanarRegionFilter filter)
    {
+      ReferenceFrame referenceFrame = planarRegionToTruncate.getReferenceFrame();
       FramePoint3D pointOnRegion = new FramePoint3D();
       FrameVector3D regionNormal = new FrameVector3D();
       planarRegionToTruncate.getPointInRegion(pointOnRegion);
@@ -931,7 +932,7 @@ public class PlanarRegionTools
             }
             else if (Math.abs(previousSignedDistance) > epsilonDistance)
             {
-               FrameVector3D edgeDirection = new FrameVector3D();
+               FrameVector3D edgeDirection = new FrameVector3D(referenceFrame);
                edgeDirection.sub(vertex3D, previousVertex3D);
                FramePoint3D intersection = EuclidFrameTools
                      .intersectionBetweenLineSegment3DAndPlane3D(pointOnPlaneInRegionFrame, planeNormalInRegionFrame, vertex3D, previousVertex3D);

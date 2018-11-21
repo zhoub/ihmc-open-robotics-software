@@ -116,7 +116,9 @@ public class NavigableRegionsManager
          {
             if (isFramePointVisibleForStaticMaps(frameStartMap.getHostRegion().getAllClusters(), frameStartMap.getSource2D(), frameGoalMap.getSource2D()))
             {
-               frameStartMap.addConnection(new FrameConnection(start, frameStartMap.getMapId(), goal, frameGoalMap.getMapId()));
+               FrameConnection newConnection = new FrameConnection(start, frameStartMap.getMapId(), goal, frameGoalMap.getMapId());
+               newConnection.changeFrame(frameStartMap.getReferenceFrame());
+               frameStartMap.addConnection(newConnection);
             }
          }
       }

@@ -24,14 +24,14 @@ public class FrameSingleSourceVisibilityMap implements FrameVisibilityMapHolder
 
    public FrameSingleSourceVisibilityMap(FramePoint3DReadOnly source, FrameNavigableRegion hostRegion, Collection<FrameConnection> connections)
    {
-      this(source, hostRegion.getMapId(), hostRegion.getReferenceFrame(), connections);
+      this(source, hostRegion, hostRegion.getMapId(), hostRegion.getReferenceFrame(), connections);
    }
 
-   public FrameSingleSourceVisibilityMap(FramePoint3DReadOnly source, int mapId, ReferenceFrame referenceFrame,
+   public FrameSingleSourceVisibilityMap(FramePoint3DReadOnly source, FrameNavigableRegion hostRegion, int mapId, ReferenceFrame referenceFrame,
                                          Collection<FrameConnection> connections)
    {
       this.source = new FramePoint3D(source);
-      this.hostRegion = null;
+      this.hostRegion = hostRegion;
       this.localFrame = referenceFrame;
       this.mapId = mapId;
       this.source.changeFrame(localFrame);
@@ -45,6 +45,10 @@ public class FrameSingleSourceVisibilityMap implements FrameVisibilityMapHolder
       visibilityMap.computeVertices();
    }
 
+   public ReferenceFrame getReferenceFrame()
+   {
+      return localFrame;
+   }
 
    public FramePoint3DReadOnly getSource()
    {

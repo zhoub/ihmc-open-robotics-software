@@ -213,7 +213,7 @@ public class VisibilityGraphsFactory
       HashSet<FrameConnection> connections = new HashSet<>();
       connections.addAll(allConnections.subList(0, maximumNumberOfConnections));
 
-      return new FrameSingleSourceVisibilityMap(source, mapId, referenceFrame, connections);
+      return new FrameSingleSourceVisibilityMap(source, null, mapId, referenceFrame, connections);
    }
 
    public static FrameInterRegionVisibilityMap createFrameInterRegionVisibilityMap(List<FrameNavigableRegion> navigableRegions, InterRegionConnectionFilter filter)
@@ -335,7 +335,7 @@ public class VisibilityGraphsFactory
          connections.add(new FrameConnection(sourceConnectionPoint, newConnectionPoint));
       }
 
-      return new FrameSingleSourceVisibilityMap(source, sourceId, referenceFrame, connections);
+      return new FrameSingleSourceVisibilityMap(source, null, sourceId, referenceFrame, connections);
    }
 
    private static FrameSingleSourceVisibilityMap connectSourceToHostOrFallbackMap(FramePoint3DReadOnly source, FrameVisibilityMap fallbackMap,
