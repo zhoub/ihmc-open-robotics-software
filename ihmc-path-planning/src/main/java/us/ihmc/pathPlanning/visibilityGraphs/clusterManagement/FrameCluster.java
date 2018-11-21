@@ -42,9 +42,9 @@ public class FrameCluster implements FrameChangeable
       this.localFrame = localFrame;
    }
 
-   public FrameCluster(RigidBodyTransform transformToWorld)
+   public FrameCluster(int id, RigidBodyTransform transformToWorld)
    {
-      localFrame = new ReferenceFrame("localClusterFrame", worldFrame)
+      localFrame = new ReferenceFrame("localClusterFrame" + id, worldFrame)
       {
          @Override
          protected void updateTransformToParent(RigidBodyTransform transformToParent)
@@ -115,6 +115,7 @@ public class FrameCluster implements FrameChangeable
 
    public void addRawPoint(FramePoint3DReadOnly point)
    {
+      point.checkReferenceFrameMatch(localFrame);
       rawPoints.add(new FramePoint3D(point));
    }
 
@@ -125,11 +126,13 @@ public class FrameCluster implements FrameChangeable
 
    public void addRawPoint(ReferenceFrame referenceFrame, Point3DReadOnly point)
    {
+      referenceFrame.checkReferenceFrameMatch(localFrame);
       rawPoints.add(new FramePoint3D(referenceFrame, point));
    }
 
    public void addRawPoint(ReferenceFrame referenceFrame, Point2DReadOnly point)
    {
+      referenceFrame.checkReferenceFrameMatch(localFrame);
       rawPoints.add(new FramePoint3D(referenceFrame, point));
    }
 

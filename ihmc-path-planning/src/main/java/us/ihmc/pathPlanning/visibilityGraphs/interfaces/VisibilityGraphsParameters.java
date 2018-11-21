@@ -3,11 +3,10 @@ package us.ihmc.pathPlanning.visibilityGraphs.interfaces;
 import java.util.List;
 
 import us.ihmc.commons.MathTools;
+import us.ihmc.pathPlanning.PlannerPlanarRegion;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.ConnectionPoint3D;
-import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.FrameConnectionPoint3D;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.FrameConnectionPoint3DReadOnly;
 import us.ihmc.pathPlanning.visibilityGraphs.dijkstra.DijkstraVisibilityGraphPlanner;
-import us.ihmc.pathPlanning.visibilityGraphs.tools.JGraphTools;
 import us.ihmc.pathPlanning.visibilityGraphs.tools.PlanarRegionTools;
 import us.ihmc.robotics.geometry.PlanarRegion;
 
@@ -85,6 +84,12 @@ public interface VisibilityGraphsParameters
          {
             return getExtrusionDistanceIfNotTooHighToStep();
          }
+
+         @Override
+         public double computeExtrusionDistance(PlannerPlanarRegion navigableRegionToBeExtruded)
+         {
+            return getExtrusionDistanceIfNotTooHighToStep();
+         }
       };
    }
 
@@ -118,6 +123,12 @@ public interface VisibilityGraphsParameters
       {
          @Override
          public boolean isPlanarRegionNavigable(PlanarRegion query, List<PlanarRegion> allOtherRegions)
+         {
+            return query.getNormal().getZ() >= getNormalZThresholdForAccessibleRegions();
+         }
+
+         @Override
+         public boolean isPlanarRegionNavigable(PlannerPlanarRegion query, List<PlannerPlanarRegion> allOtherRegions)
          {
             return query.getNormal().getZ() >= getNormalZThresholdForAccessibleRegions();
          }
@@ -168,6 +179,16 @@ public interface VisibilityGraphsParameters
                return true;
             return PlanarRegionTools.computePlanarRegionArea(region) >= getPlanarRegionMinArea();
          }
+
+         @Override
+         public boolean isPlanarRegionRelevant(PlannerPlanarRegion region)
+         {
+            if (region.getConcaveHullSize() < getPlanarRegionMinSize())
+               return false;
+            if (!Double.isFinite(getPlanarRegionMinArea()) || getPlanarRegionMinArea() <= 0.0)
+               return true;
+            return PlanarRegionTools.computePlanarRegionArea(region) >= getPlanarRegionMinArea();
+         }
       };
    }
 
@@ -178,7 +199,19 @@ public interface VisibilityGraphsParameters
          @Override
          public boolean isRegionValidObstacle(PlanarRegion query, PlanarRegion navigableRegion)
          {
-            if (!PlanarRegionTools.isRegionAOverlapingWithRegionB(query, navigableRegion, 0.1))
+            if (!PlanarRegionTools.isRegionAOverlappingWithRegionB(query, navigableRegion, 0.1))
+               return false;
+
+            if (PlanarRegionTools.computeMinHeightOfRegionAAboveRegionB(query, navigableRegion) > 3.0)
+               return false;
+
+            return true;
+         }
+
+         @Override
+         public boolean isRegionValidObstacle(PlannerPlanarRegion query, PlannerPlanarRegion navigableRegion)
+         {
+            if (!PlanarRegionTools.isRegionAOverlappingWithRegionB(query, navigableRegion, 0.1))
                return false;
 
             if (PlanarRegionTools.computeMinHeightOfRegionAAboveRegionB(query, navigableRegion) > 3.0)

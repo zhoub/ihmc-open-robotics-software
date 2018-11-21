@@ -24,6 +24,7 @@ import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 import us.ihmc.euclid.tuple2D.interfaces.Vector2DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
+import us.ihmc.pathPlanning.PlannerPlanarRegion;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster.ExtrusionSide;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.FrameCluster;
@@ -40,7 +41,7 @@ public class VisibilityTools
    public static Set<FrameConnection> createStaticFrameVisibilityMap(List<FrameCluster> clusters, FrameNavigableRegion navigableRegion)
    {
       int regionId = navigableRegion.getMapId();
-      PlanarRegion homeRegion = navigableRegion.getHomeRegion();
+      PlannerPlanarRegion homeRegion = navigableRegion.getHomeRegion();
       Set<FrameConnection> connections = new HashSet<>();
       List<boolean[]> navigability = new ArrayList<>(clusters.size());
 
@@ -66,7 +67,8 @@ public class VisibilityTools
       return connections;
    }
 
-   public static Set<FrameConnection> createStaticFrameVisibilityMap(FramePoint3DReadOnly observer, int observerRegionId, List<FrameCluster> clusters, int clustersRegionId)
+   public static Set<FrameConnection> createStaticFrameVisibilityMap(FramePoint3DReadOnly observer, int observerRegionId, List<FrameCluster> clusters,
+                                                                     int clustersRegionId)
    {
       Set<FrameConnection> connections = new HashSet<>();
       List<FramePoint2DReadOnly> listOfTargetPoints = new ArrayList<>();
@@ -102,8 +104,6 @@ public class VisibilityTools
       return connections;
    }
 
-
-
    /**
     * Finds all the possible and valid connections using only the vertices from a single cluster,
     * i.e. {@code clusterToBuildMapOf} while considering all the clusters, including
@@ -119,8 +119,8 @@ public class VisibilityTools
     * @return an array of booleans informing on whether each individual navigable extrusion of
     *         {@code clusterToBuildMapOf} is actually navigable or not.
     */
-   private static boolean[] addClusterSelfFrameVisibility(FrameCluster clusterToBuildMapOf, PlanarRegion homeRegion, List<FrameCluster> allClusters, int mapId,
-                                                     Collection<FrameConnection> connectionsToPack)
+   private static boolean[] addClusterSelfFrameVisibility(FrameCluster clusterToBuildMapOf, PlannerPlanarRegion homeRegion, List<FrameCluster> allClusters,
+                                                          int mapId, Collection<FrameConnection> connectionsToPack)
    {
       List<FramePoint2DBasics> navigableExtrusions = clusterToBuildMapOf.getNavigableExtrusions();
 
@@ -130,12 +130,15 @@ public class VisibilityTools
 
       for (int i = 0; i < navigableExtrusions.size() - 1; i++) // <= the extrusions are actually closed by replicating the first extrusion at the end
       { // Check that the point is actually navigable
-         FramePoint2DReadOnly query = navigableExtrusions.get(i);
+         FramePoint2DBasics query = navigableExtrusions.get(i);
 
          boolean isNavigable = PlanarRegionTools.isPointInLocalInsidePlanarRegion(homeRegion, query);
 
          if (isNavigable)
-            isNavigable = allClusters.stream().noneMatch(cluster -> cluster.isInsideNonNavigableZone(query));
+            isNavigable = allClusters.stream().noneMatch(cluster -> {
+               query.changeFrame(cluster.getReferenceFrame());
+               return cluster.isInsideNonNavigableZone(query);
+            });
 
          areActuallyNavigable[i] = isNavigable;
       }
@@ -149,7 +152,6 @@ public class VisibilityTools
       FrameVector2D directionToCheck = new FrameVector2D(clusterToBuildMapOf.getReferenceFrame());
       FrameVector2D nextEdge = new FrameVector2D(clusterToBuildMapOf.getReferenceFrame());
       FrameVector2D prevEdge = new FrameVector2D(clusterToBuildMapOf.getReferenceFrame());
-
 
       // Going through all the other possible combinations for finding connections
       for (int sourceIndex = 0; sourceIndex < navigableExtrusions.size() - 1; sourceIndex++)
@@ -217,8 +219,9 @@ public class VisibilityTools
     * @param mapId the ID used to create the connections.
     * @param connectionsToPack the collection in which the connections are stored. Modified.
     */
-   private static void addCrossClusterFrameVisibility(FrameCluster sourceCluster, boolean[] sourceNavigability, FrameCluster targetCluster, boolean[] targetNavigability,
-                                                 List<FrameCluster> allClusters, int mapId, Collection<FrameConnection> connectionsToPack)
+   private static void addCrossClusterFrameVisibility(FrameCluster sourceCluster, boolean[] sourceNavigability, FrameCluster targetCluster,
+                                                      boolean[] targetNavigability, List<FrameCluster> allClusters, int mapId,
+                                                      Collection<FrameConnection> connectionsToPack)
    {
       ReferenceFrame referenceFrame = sourceCluster.getReferenceFrame();
 
@@ -294,8 +297,6 @@ public class VisibilityTools
       return true;
    }
 
-
-
    private static final double MAGIC_NUMBER = MathTools.square(0.01);
    /**
     * Filter that reduces a little the computation time. When enabled, the tests are still passing,
@@ -367,12 +368,11 @@ public class VisibilityTools
    }
    */
 
-
    /**
     * Finds all the possible and valid connections using only the vertices from a single cluster,
     * i.e. {@code clusterToBuildMapOf} while considering all the clusters, including
     * {@code clusterToBuildMapOf}, for the visibility check when creating connections.
-    * 
+    *
     * @param clusterToBuildMapOf the only cluster used to create new connection using its navigable
     *           extrusions. Not modified.
     * @param homeRegion the region to which the clusters belong to. Not modified.
@@ -466,7 +466,7 @@ public class VisibilityTools
     * {@code sourceCluster} to the ones of {@code targetCluster} while considering all the clusters,
     * including {@code sourceCluster} and {@code targetCluster} when performing the visibility check
     * when creating connections.
-    * 
+    *
     * @param sourceCluster the cluster which the navigable extrusions are used as source points for
     *           the connections. Not modified.
     * @param sourceNavigability the array containing the information of whether or not each
@@ -571,7 +571,6 @@ public class VisibilityTools
    }
       */
 
-
    /**
     * The main idea of the quick check is to verifying that when attempting to connect a vertex of a
     * clockwise polygon to a target that the direction to that target goes the "proper way" with
@@ -645,12 +644,13 @@ public class VisibilityTools
    }
    */
 
-   public static List<FrameConnection> removeFrameConnectionsFromExtrusionsOutsideRegions(Collection<FrameConnection> connections, PlanarRegion homeRegion)
+   public static List<FrameConnection> removeFrameConnectionsFromExtrusionsOutsideRegions(Collection<FrameConnection> connections, PlannerPlanarRegion homeRegion)
    {
       return VisibilityTools.getFrameConnectionsThatAreInsideRegion(connections, homeRegion);
    }
 
-   public static List<FrameConnection> removeFrameConnectionsFromExtrusionsInsideNoGoZones(Collection<FrameConnection> connectionsToClean, List<FrameCluster> clusters)
+   public static List<FrameConnection> removeFrameConnectionsFromExtrusionsInsideNoGoZones(Collection<FrameConnection> connectionsToClean,
+                                                                                           List<FrameCluster> clusters)
    {
       List<FrameConnection> validConnections = new ArrayList<>(connectionsToClean);
 
@@ -662,7 +662,7 @@ public class VisibilityTools
       return validConnections;
    }
 
-   public static List<FrameConnection> getFrameConnectionsThatAreInsideRegion(Collection<FrameConnection> connections, PlanarRegion region)
+   public static List<FrameConnection> getFrameConnectionsThatAreInsideRegion(Collection<FrameConnection> connections, PlannerPlanarRegion region)
    {
       List<FrameConnection> filteredConnections = new ArrayList<>();
 

@@ -1,6 +1,5 @@
 package us.ihmc.pathPlanning.visibilityGraphs;
 
-import static us.ihmc.pathPlanning.visibilityGraphs.tools.VisibilityTools.isPointVisibleForStaticMaps;
 import static us.ihmc.pathPlanning.visibilityGraphs.tools.VisibilityTools.isFramePointVisibleForStaticMaps;
 
 import java.util.ArrayList;
@@ -12,6 +11,7 @@ import us.ihmc.euclid.referenceFrame.FramePoint3D;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
+import us.ihmc.pathPlanning.PlannerPlanarRegion;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.FrameCluster;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.*;
@@ -30,7 +30,7 @@ public class NavigableRegionsManager
 
    final static int START_GOAL_ID = 0;
 
-   private List<PlanarRegion> regions;
+   private List<PlannerPlanarRegion> regions;
    private SingleSourceVisibilityMap startMap, goalMap;
    private List<NavigableRegion> navigableRegions;
 
@@ -68,10 +68,11 @@ public class NavigableRegionsManager
       if (regions != null)
       {
          regions = PlanarRegionTools.ensureClockwiseOrder(regions);
-         regions = regions.stream().filter(parameters.getPlanarRegionFilter()::isPlanarRegionRelevant).collect(Collectors.toList());
+         this.regions = regions.stream().filter(parameters.getPlanarRegionFilter()::isPlanarRegionRelevant).map(PlannerPlanarRegion::new).collect(Collectors.toList());
+         return;
       }
 
-      this.regions = regions;
+      this.regions = null;
    }
 
    public List<FramePoint3DReadOnly> calculateBodyPath(final FramePoint3DReadOnly start, final FramePoint3DReadOnly goal)

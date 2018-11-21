@@ -9,10 +9,7 @@ import us.ihmc.commons.MathTools;
 import us.ihmc.euclid.geometry.Line2D;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryTools;
 import us.ihmc.euclid.referenceFrame.*;
-import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DBasics;
-import us.ihmc.euclid.referenceFrame.interfaces.FramePoint2DReadOnly;
-import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DBasics;
-import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
+import us.ihmc.euclid.referenceFrame.interfaces.*;
 import us.ihmc.euclid.referenceFrame.tools.EuclidFrameTools;
 import us.ihmc.euclid.tools.EuclidCoreTools;
 import us.ihmc.euclid.tools.RotationMatrixTools;
@@ -23,6 +20,7 @@ import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
+import us.ihmc.pathPlanning.PlannerPlanarRegion;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster.ExtrusionSide;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster.Type;
@@ -268,13 +266,9 @@ public class ClusterTools
       return extrusions;
    }
 
-   public static FrameCluster createHomeRegionFrameCluster(PlanarRegion homeRegion, NavigableExtrusionDistanceCalculator calculator)
+   public static FrameCluster createHomeRegionFrameCluster(PlannerPlanarRegion homeRegion, NavigableExtrusionDistanceCalculator calculator)
    {
-      RigidBodyTransform transformToWorld = new RigidBodyTransform();
-      homeRegion.getTransformToWorld(transformToWorld);
-
-      FrameCluster cluster = new FrameCluster(transformToWorld);
-      cluster.setType(Type.POLYGON);
+      FrameCluster cluster = new FrameCluster(homeRegion.getReferenceFrame());
       cluster.addRawPoints(cluster.getReferenceFrame(), homeRegion.getConcaveHull());
       cluster.setExtrusionSide(ExtrusionSide.INSIDE);
 
@@ -290,39 +284,28 @@ public class ClusterTools
       return cluster;
    }
 
-   public static List<FrameCluster> createObstacleFrameClusters(PlanarRegion homeRegion, List<PlanarRegion> obstacleRegions, double orthogonalAngle,
+   public static List<FrameCluster> createObstacleFrameClusters(PlannerPlanarRegion homeRegion, List<PlannerPlanarRegion> obstacleRegions, double orthogonalAngle,
                                                                 ObstacleExtrusionDistanceCalculator extrusionDistanceCalculator)
    {
       List<FrameCluster> obstacleClusters = new ArrayList<>();
 
-      RigidBodyTransform transformFromHomeToWorld = new RigidBodyTransform();
-      homeRegion.getTransformToWorld(transformFromHomeToWorld);
-      Vector3D referenceNormal = homeRegion.getNormal();
+      FrameVector3DReadOnly referenceNormal = homeRegion.getNormal();
       double zThresholdBeforeOrthogonal = Math.cos(orthogonalAngle);
 
-      for (PlanarRegion obstacleRegion : obstacleRegions)
+      for (PlannerPlanarRegion obstacleRegion : obstacleRegions)
       {
-         Vector3D otherNormal = obstacleRegion.getNormal();
+         FrameVector3DReadOnly otherNormal = obstacleRegion.getNormal();
 
-         FrameCluster cluster = new FrameCluster(transformFromHomeToWorld);
+         FrameCluster cluster = new FrameCluster(homeRegion.getReferenceFrame());
          cluster.setExtrusionSide(ExtrusionSide.OUTSIDE);
 
          List<FramePoint3DBasics> rawPoints = new ArrayList<>();
-         RigidBodyTransform transformFromOtherToWorld = new RigidBodyTransform();
-         obstacleRegion.getTransformToWorld(transformFromOtherToWorld);
-         ReferenceFrame otherFrame = new ReferenceFrame("otherFrame", worldFrame)
-         {
-            @Override
-            protected void updateTransformToParent(RigidBodyTransform transformToParent)
-            {
-               transformToParent.set(transformFromOtherToWorld);
-            }
-         };
-         otherFrame.update();
+         ReferenceFrame otherFrame = obstacleRegion.getReferenceFrame();
 
          for (int i = 0; i < obstacleRegion.getConvexHull().getNumberOfVertices(); i++)
          {
             FramePoint3D concaveHullVertexHome = new FramePoint3D(otherFrame, obstacleRegion.getConvexHull().getVertex(i));
+            concaveHullVertexHome.changeFrame(cluster.getReferenceFrame());
             rawPoints.add(concaveHullVertexHome);
          }
 
@@ -810,7 +793,7 @@ public class ClusterTools
    */
 
    public static FramePoint3DReadOnly getTheClosestVisibleExtrusionFramePoint(double alpha, FramePoint3DReadOnly start, FramePoint3DReadOnly goal,
-                                                                              List<FramePoint2DBasics> extrusionPoints, PlanarRegion region)
+                                                                              List<FramePoint2DBasics> extrusionPoints, PlannerPlanarRegion region)
    {
       double minWeight = Double.MAX_VALUE;
       FramePoint2DReadOnly closestPoint = null;

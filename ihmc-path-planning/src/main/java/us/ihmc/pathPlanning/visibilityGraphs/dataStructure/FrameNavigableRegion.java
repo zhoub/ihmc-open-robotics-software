@@ -2,19 +2,17 @@ package us.ihmc.pathPlanning.visibilityGraphs.dataStructure;
 
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.interfaces.FrameChangeable;
-import us.ihmc.euclid.transform.RigidBodyTransform;
 import us.ihmc.euclid.transform.interfaces.Transform;
+import us.ihmc.pathPlanning.PlannerPlanarRegion;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.FrameCluster;
 import us.ihmc.pathPlanning.visibilityGraphs.interfaces.FrameVisibilityMapHolder;
-import us.ihmc.robotics.geometry.PlanarRegion;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FrameNavigableRegion implements FrameChangeable, FrameVisibilityMapHolder
 {
-   private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
-   private final PlanarRegion homeRegion;
+   private final PlannerPlanarRegion homeRegion;
    private ReferenceFrame localFrame;
 
    private FrameCluster homeRegionCluster = null;
@@ -22,21 +20,10 @@ public class FrameNavigableRegion implements FrameChangeable, FrameVisibilityMap
    private List<FrameCluster> allClusters = new ArrayList<>();
    private FrameVisibilityMap visibilityMapInLocal = null;
 
-   public FrameNavigableRegion(PlanarRegion homeRegion)
+   public FrameNavigableRegion(PlannerPlanarRegion homeRegion)
    {
       this.homeRegion = homeRegion;
-
-      RigidBodyTransform transformToWorld = new RigidBodyTransform();
-      homeRegion.getTransformToWorld(transformToWorld);
-      localFrame = new ReferenceFrame("localFrame", worldFrame)
-      {
-         @Override
-         protected void updateTransformToParent(RigidBodyTransform transformToParent)
-         {
-            transformToParent.set(transformToWorld);
-         }
-      };
-      localFrame.update();
+      localFrame = homeRegion.getReferenceFrame();
    }
 
    public void setHomeRegionCluster(FrameCluster homeCluster)
@@ -61,7 +48,7 @@ public class FrameNavigableRegion implements FrameChangeable, FrameVisibilityMap
       visibilityMapInLocal = visibilityMap;
    }
 
-   public PlanarRegion getHomeRegion()
+   public PlannerPlanarRegion getHomeRegion()
    {
       return homeRegion;
    }

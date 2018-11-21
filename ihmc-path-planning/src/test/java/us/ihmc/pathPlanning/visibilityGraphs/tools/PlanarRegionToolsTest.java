@@ -25,6 +25,9 @@ import us.ihmc.euclid.geometry.interfaces.Vertex2DSupplier;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryPolygonTools;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryRandomTools;
 import us.ihmc.euclid.geometry.tools.EuclidGeometryTools;
+import us.ihmc.euclid.referenceFrame.*;
+import us.ihmc.euclid.referenceFrame.tools.EuclidFrameRandomTools;
+import us.ihmc.euclid.referenceFrame.tools.EuclidFrameTools;
 import us.ihmc.euclid.tools.EuclidCoreRandomTools;
 import us.ihmc.euclid.tools.EuclidCoreTestTools;
 import us.ihmc.euclid.transform.RigidBodyTransform;
@@ -35,12 +38,14 @@ import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
+import us.ihmc.pathPlanning.PlannerPlanarRegion;
 import us.ihmc.robotics.geometry.PlanarRegion;
 import us.ihmc.robotics.geometry.PlanarRegionTest;
 import us.ihmc.robotics.geometry.PlanarRegionsList;
 
 public class PlanarRegionToolsTest
 {
+   private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
    private static final int ITERATIONS = 1000;
    private static final double EPSILON = 1.0e-12;
 
@@ -48,31 +53,31 @@ public class PlanarRegionToolsTest
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testTruncatePlanarRegionIfIntersectingWithPlane() throws Exception
    {
-      Point3D groundOrigin = new Point3D();
-      Vector3D groundNormal = new Vector3D(0.0, 0.0, 1.0);
+      FramePoint3D groundOrigin = new FramePoint3D();
+      FrameVector3D groundNormal = new FrameVector3D();
+      groundNormal.set(0.0, 0.0, 1.0);
 
-      Point3D squareOrigin = new Point3D(0.0, 0.0, -0.001);
-      Vector3D squareNormal = new Vector3D(0.0, -1.0, 0.0);
+      FramePoint3D squareOrigin = new FramePoint3D(worldFrame, 0.0, 0.0, -0.001);
+      FrameVector3D squareNormal = new FrameVector3D(worldFrame, 0.0, -1.0, 0.0);
       AxisAngle squareOrientation = EuclidGeometryTools.axisAngleFromZUpToVector3D(squareNormal);
       RigidBodyTransform squarePose = new RigidBodyTransform(squareOrientation, squareOrigin);
 
       double squareSide = 4.0;
 
-      Point2D[] concaveHullVertices = {new Point2D(0.0, 0.0), new Point2D(0.0, squareSide), new Point2D(squareSide, squareSide), new Point2D(squareSide, 0.0)};
-      List<ConvexPolygon2D> convexPolygons = new ArrayList<>();
-      convexPolygons.add(new ConvexPolygon2D(Vertex2DSupplier.asVertex2DSupplier(concaveHullVertices)));
-      PlanarRegion verticalSquare = new PlanarRegion(squarePose, concaveHullVertices, convexPolygons);
+      FramePoint2D[] concaveHullVertices = {new FramePoint2D(worldFrame, 0.0, 0.0), new FramePoint2D(worldFrame, 0.0, squareSide),
+            new FramePoint2D(worldFrame, squareSide, squareSide), new FramePoint2D(worldFrame, squareSide, 0.0)};
+      List<FrameConvexPolygon2D> convexPolygons = new ArrayList<>();
+      convexPolygons.add(new FrameConvexPolygon2D(worldFrame, Vertex2DSupplier.asVertex2DSupplier(concaveHullVertices)));
+      PlannerPlanarRegion verticalSquare = new PlannerPlanarRegion(squarePose, concaveHullVertices, convexPolygons);
 
-      Point3D[] expectedVerticesInWorld = Arrays.stream(concaveHullVertices).map(p -> toWorld(p, squarePose)).toArray(Point3D[]::new);
+      FramePoint3D[] expectedVerticesInWorld = Arrays.stream(concaveHullVertices).map(p -> toWorld(p)).toArray(FramePoint3D[]::new);
       expectedVerticesInWorld[0].addZ(0.001);
       expectedVerticesInWorld[3].addZ(0.001);
 
-      PlanarRegion truncatedSquare = PlanarRegionTools.truncatePlanarRegionIfIntersectingWithPlane(groundOrigin, groundNormal, verticalSquare, 0.05, null);
-      RigidBodyTransform truncatedTransform = new RigidBodyTransform();
-      truncatedSquare.getTransformToWorld(truncatedTransform);
-      EuclidCoreTestTools.assertRigidBodyTransformGeometricallyEquals(squarePose, truncatedTransform, EPSILON);
+      PlannerPlanarRegion truncatedSquare = PlanarRegionTools.truncatePlanarRegionIfIntersectingWithPlane(groundOrigin, groundNormal, verticalSquare, 0.05, null);
+      EuclidCoreTestTools.assertRigidBodyTransformGeometricallyEquals(squarePose, truncatedSquare.getReferenceFrame().getTransformToWorldFrame(), EPSILON);
 
-      Point3D[] actualVerticesInWorld = Arrays.stream(truncatedSquare.getConcaveHull()).map(p -> toWorld(p, squarePose)).toArray(Point3D[]::new);
+      Point3D[] actualVerticesInWorld = Arrays.stream(truncatedSquare.getConcaveHull()).map(p -> toWorld(p)).toArray(Point3D[]::new);
 
       assertEquals(expectedVerticesInWorld.length, actualVerticesInWorld.length);
 
@@ -80,10 +85,10 @@ public class PlanarRegionToolsTest
          EuclidCoreTestTools.assertPoint3DGeometricallyEquals(expectedVerticesInWorld[i], actualVerticesInWorld[i], EPSILON);
    }
 
-   public static Point3D toWorld(Point2D point2D, Transform transformToWorld)
+   public static FramePoint3D toWorld(FramePoint2D point2D)
    {
-      Point3D inWorld = new Point3D(point2D);
-      transformToWorld.transform(inWorld);
+      FramePoint3D inWorld = new FramePoint3D(point2D);
+      inWorld.changeFrame(worldFrame);
       return inWorld;
    }
 
@@ -434,13 +439,13 @@ public class PlanarRegionToolsTest
          double maxRegionDistanceForGuaranteedOutOfBounds = Math.sqrt(2.0 * maxRegionDimension * maxRegionDimension);
 
          int numberOfPoints = 5;
-         ConvexPolygon2D planarRegionPolygonA = new ConvexPolygon2D();
-         ConvexPolygon2D planarRegionPolygonB = new ConvexPolygon2D();
-         Point2D[] concaveHull = new Point2D[2 * numberOfPoints];
+         FrameConvexPolygon2D planarRegionPolygonA = new FrameConvexPolygon2D(worldFrame);
+         FrameConvexPolygon2D planarRegionPolygonB = new FrameConvexPolygon2D(worldFrame);
+         FramePoint2D[] concaveHull = new FramePoint2D[2 * numberOfPoints];
          for (int i = 0; i < numberOfPoints; i++)
          {
-            Point2D pointA = EuclidCoreRandomTools.nextPoint2D(random, maxRegionDimension);
-            Point2D pointB = EuclidCoreRandomTools.nextPoint2D(random, maxRegionDimension);
+            FramePoint2D pointA = EuclidFrameRandomTools.nextFramePoint2D(random, worldFrame, maxRegionDimension);
+            FramePoint2D pointB = EuclidFrameRandomTools.nextFramePoint2D(random, worldFrame, maxRegionDimension);
             planarRegionPolygonA.addVertex(pointA);
             planarRegionPolygonB.addVertex(pointB);
 
@@ -452,7 +457,7 @@ public class PlanarRegionToolsTest
 
          double maxRegionDistance = Math.max(findFurthestPointFromOrigin(planarRegionPolygonA), findFurthestPointFromOrigin(planarRegionPolygonB));
 
-         List<ConvexPolygon2D> polygons = new ArrayList<>();
+         List<FrameConvexPolygon2D> polygons = new ArrayList<>();
          polygons.add(planarRegionPolygonA);
          polygons.add(planarRegionPolygonB);
 
@@ -465,16 +470,16 @@ public class PlanarRegionToolsTest
          Point3D midpoint = new Point3D();
          midpoint.interpolate(randomOriginStart, randomOriginEnd, 0.5);
 
-         List<PlanarRegion> regionsWithinDistanceExpected = new ArrayList<>();
-         List<PlanarRegion> regionsOutsideDistance = new ArrayList<>();
-         List<PlanarRegion> allRegions = new ArrayList<>();
+         List<PlannerPlanarRegion> regionsWithinDistanceExpected = new ArrayList<>();
+         List<PlannerPlanarRegion> regionsOutsideDistance = new ArrayList<>();
+         List<PlannerPlanarRegion> allRegions = new ArrayList<>();
          for (int i = 0; i < numberOfRegionsWithinDistance; i++)
          {
             RigidBodyTransform transform = new RigidBodyTransform();
             Vector3D translation = EuclidCoreRandomTools.nextVector3D(random, -0.2 * maxRegionDistance, 0.2 * maxRegionDistance);
             translation.add(midpoint);
             transform.setTranslation(translation);
-            PlanarRegion planarRegion = new PlanarRegion(transform, concaveHull, polygons);
+            PlannerPlanarRegion planarRegion = new PlannerPlanarRegion(transform, concaveHull, polygons);
             regionsWithinDistanceExpected.add(planarRegion);
             allRegions.add(planarRegion);
          }
@@ -500,12 +505,12 @@ public class PlanarRegionToolsTest
 
             transform.setTranslation(translation);
 
-            PlanarRegion planarRegion = new PlanarRegion(transform, concaveHull, polygons);
+            PlannerPlanarRegion planarRegion = new PlannerPlanarRegion(transform, concaveHull, polygons);
             regionsOutsideDistance.add(planarRegion);
             allRegions.add(planarRegion);
          }
 
-         List<PlanarRegion> regionsWithinDistance = PlanarRegionTools.filterPlanarRegionsWithBoundingCapsule(randomSegment, maxRegionDistance, allRegions);
+         List<PlannerPlanarRegion> regionsWithinDistance = PlanarRegionTools.filterPlanarRegionsWithBoundingCapsule(randomSegment, maxRegionDistance, allRegions);
 
          assertEquals(regionsWithinDistanceExpected.size(), regionsWithinDistance.size());
          for (int i = 0; i < regionsWithinDistance.size(); i++)
@@ -520,25 +525,26 @@ public class PlanarRegionToolsTest
    @ContinuousIntegrationTest(estimatedDuration = 0.0)
    public void testFilterPlanarRegionsWithBoundingCapsulePointWithinBigRegion()
    {
-      ConvexPolygon2D polygon2D = new ConvexPolygon2D();
+      FrameConvexPolygon2D polygon2D = new FrameConvexPolygon2D(worldFrame);
       polygon2D.addVertex(10.0, 10.0);
       polygon2D.addVertex(10.0, -10.0);
       polygon2D.addVertex(-10.0, -10.0);
       polygon2D.addVertex(-10.0, 10.0);
       polygon2D.update();
-      List<ConvexPolygon2D> polygons = new ArrayList<>();
+      List<FrameConvexPolygon2D> polygons = new ArrayList<>();
       polygons.add(polygon2D);
 
-      Point2D[] concaveHull = polygon2D.getPolygonVerticesView().toArray(new Point2D[0]);
+      FramePoint2D[] concaveHull = polygon2D.getPolygonVerticesView().toArray(new FramePoint2D[0]);
 
       RigidBodyTransform transform = new RigidBodyTransform();
-      PlanarRegion planarRegion = new PlanarRegion(transform, concaveHull, polygons);
-      List<PlanarRegion> planarRegionList = new ArrayList<>();
+      PlannerPlanarRegion planarRegion = new PlannerPlanarRegion(transform, concaveHull, polygons);
+      List<PlannerPlanarRegion> planarRegionList = new ArrayList<>();
       planarRegionList.add(planarRegion);
 
 
       // at middle of planar region
-      List<PlanarRegion> regionsWithinDistance = PlanarRegionTools.filterPlanarRegionsWithBoundingCapsule(new Point3D(0.1, 0.0, 0.0), new Point3D(-0.1, 0.0, 0.0), 1.0, planarRegionList);
+      List<PlannerPlanarRegion> regionsWithinDistance = PlanarRegionTools.filterPlanarRegionsWithBoundingCapsule(new FramePoint3D(worldFrame, 0.1, 0.0, 0.0),
+                                                                                                          new FramePoint3D(worldFrame, -0.1, 0.0, 0.0), 1.0, planarRegionList);
 
       assertTrue(regionsWithinDistance.contains(planarRegion));
 
@@ -548,7 +554,7 @@ public class PlanarRegionToolsTest
       assertTrue(regionsWithinDistance.contains(planarRegion));
    }
 
-   private static double findFurthestPointFromOrigin(ConvexPolygon2D polygon)
+   private static double findFurthestPointFromOrigin(ConvexPolygon2DReadOnly polygon)
    {
       Point2D origin = new Point2D();
       double distance = 0.0;

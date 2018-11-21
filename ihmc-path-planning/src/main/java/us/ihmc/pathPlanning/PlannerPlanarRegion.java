@@ -2,12 +2,18 @@ package us.ihmc.pathPlanning;
 
 import us.ihmc.commons.MathTools;
 import us.ihmc.commons.PrintTools;
+import us.ihmc.euclid.geometry.BoundingBox3D;
+import us.ihmc.euclid.geometry.ConvexPolygon2D;
 import us.ihmc.euclid.referenceFrame.*;
 import us.ihmc.euclid.referenceFrame.interfaces.*;
 import us.ihmc.euclid.referenceFrame.tools.EuclidFrameRandomTools;
 import us.ihmc.euclid.transform.RigidBodyTransform;
+import us.ihmc.euclid.tuple2D.interfaces.Point2DReadOnly;
+import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.Vector3D;
+import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
 import us.ihmc.euclid.tuple4D.Quaternion;
+import us.ihmc.robotics.geometry.PlanarRegion;
 import us.ihmc.robotics.geometry.shapes.FramePlane3d;
 import us.ihmc.robotics.random.RandomGeometry;
 
@@ -20,6 +26,7 @@ public class PlannerPlanarRegion
    private static final ReferenceFrame worldFrame = ReferenceFrame.getWorldFrame();
 
    public static final int NO_REGION_ID = -1;
+   public static final double DEFAULT_BOUNDING_BOX_EPSILON = 0.0;
 
    private int regionId = NO_REGION_ID;
 
@@ -30,12 +37,39 @@ public class PlannerPlanarRegion
    private final List<FrameConvexPolygon2D> convexPolygons;
    private final FrameConvexPolygon2D convexHull = new FrameConvexPolygon2D();
 
+   private final BoundingBox3D boundingBox3dInWorld = new BoundingBox3D(new Point3D(Double.NaN, Double.NaN, Double.NaN),
+                                                                        new Point3D(Double.NaN, Double.NaN, Double.NaN));
+   private double boundingBoxEpsilon = DEFAULT_BOUNDING_BOX_EPSILON;
+
+
    public PlannerPlanarRegion()
    {
       referenceFrame = worldFrame;
       concaveHullsVertices = new FramePoint2D[0];
       convexPolygons = new ArrayList<>();
       updateConvexHull();
+      updateBoundingBox();
+   }
+
+   public PlannerPlanarRegion(PlanarRegion planarRegion)
+   {
+      referenceFrame = new ReferenceFrame("plannerPlanarRegion", worldFrame)
+      {
+         @Override
+         protected void updateTransformToParent(RigidBodyTransform transformToParent)
+         {
+            planarRegion.getTransformToWorld(transformToParent);
+         }
+      };
+      referenceFrame.update();
+      concaveHullsVertices = new FramePoint2D[planarRegion.getConcaveHullSize()];
+      for (int i = 0; i < planarRegion.getConcaveHullSize(); i++)
+         concaveHullsVertices[i] = new FramePoint2D(referenceFrame, planarRegion.getConcaveHullVertex(i));
+      convexPolygons = new ArrayList<>();
+      for (int i = 0; i < planarRegion.getNumberOfConvexPolygons(); i++)
+         convexPolygons.add(new FrameConvexPolygon2D(referenceFrame, planarRegion.getConvexPolygon(i)));
+      updateConvexHull();
+      updateBoundingBox();
    }
 
    /**
@@ -61,6 +95,7 @@ public class PlannerPlanarRegion
       concaveHullsVertices = new FramePoint2D[0];
       convexPolygons = planarRegionConvexPolygons;
       updateConvexHull();
+      updateBoundingBox();
    }
 
    /**
@@ -85,6 +120,7 @@ public class PlannerPlanarRegion
       this.concaveHullsVertices = concaveHullVertices;
       convexPolygons = planarRegionConvexPolygons;
       updateConvexHull();
+      updateBoundingBox();
    }
 
    public PlannerPlanarRegion(ReferenceFrame referenceFrame, FramePoint2D[] concaveHullVertices, List<FrameConvexPolygon2D> planarRegionConvexPolygons)
@@ -93,6 +129,7 @@ public class PlannerPlanarRegion
       this.concaveHullsVertices = concaveHullVertices;
       convexPolygons = planarRegionConvexPolygons;
       updateConvexHull();
+      updateBoundingBox();
    }
 
    /**
@@ -121,6 +158,7 @@ public class PlannerPlanarRegion
       convexPolygons = new ArrayList<>();
       convexPolygons.add(convexPolygon);
       updateConvexHull();
+      updateBoundingBox();
    }
 
    public void set(RigidBodyTransform transformToWorld, List<FrameConvexPolygon2D> planarRegionConvexPolygons)
@@ -144,8 +182,14 @@ public class PlannerPlanarRegion
       convexPolygons.addAll(planarRegionConvexPolygons);
 
       updateConvexHull();
+      updateBoundingBox();
 
       regionId = newRegionId;
+   }
+
+   public ReferenceFrame getReferenceFrame()
+   {
+      return referenceFrame;
    }
 
    /**
@@ -589,6 +633,7 @@ public class PlannerPlanarRegion
    {
       FrameConvexPolygon2D polledPolygon = convexPolygons.remove(i);
       updateConvexHull();
+      updateBoundingBox();
       return polledPolygon;
    }
 
@@ -692,6 +737,32 @@ public class PlannerPlanarRegion
       convexHull.update();
    }
 
+   private final FramePoint3D tempPointForConvexPolygonProjection = new FramePoint3D();
+
+   private void updateBoundingBox()
+   {
+      boundingBox3dInWorld.set(Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN, Double.NaN);
+      for (int i = 0; i < this.getNumberOfConvexPolygons(); i++)
+      {
+         FrameConvexPolygon2D convexPolygon = this.getConvexPolygon(i);
+
+         for (int j = 0; j < convexPolygon.getNumberOfVertices(); j++)
+         {
+            FramePoint2DReadOnly vertex = convexPolygon.getVertex(j);
+            tempPointForConvexPolygonProjection.setIncludingFrame(vertex.getReferenceFrame(), vertex.getX(), vertex.getY(), 0.0);
+            tempPointForConvexPolygonProjection.changeFrame(worldFrame);
+
+            this.boundingBox3dInWorld.updateToIncludePoint(tempPointForConvexPolygonProjection);
+         }
+      }
+
+      Point3DReadOnly minPoint = boundingBox3dInWorld.getMinPoint();
+      Point3DReadOnly maxPoint = boundingBox3dInWorld.getMaxPoint();
+
+      this.boundingBox3dInWorld.setMin(minPoint.getX() - boundingBoxEpsilon, minPoint.getY() - boundingBoxEpsilon, minPoint.getZ() - boundingBoxEpsilon);
+      this.boundingBox3dInWorld.setMax(maxPoint.getX() + boundingBoxEpsilon, maxPoint.getY() + boundingBoxEpsilon, maxPoint.getZ() + boundingBoxEpsilon);
+   }
+
    /**
     * @return a full depth copy of this region. The copy can be entirely modified without
     *         interfering with this region.
@@ -744,6 +815,7 @@ public class PlannerPlanarRegion
    public void update()
    {
       updateConvexHull();
+      updateBoundingBox();
    }
 
 
@@ -755,5 +827,10 @@ public class PlannerPlanarRegion
       FramePlane3d ret = new FramePlane3d(referenceFrame);
       ret.changeFrame(worldFrame);
       return ret;
+   }
+
+   public BoundingBox3D getBoundingBox3dInWorld()
+   {
+      return this.boundingBox3dInWorld;
    }
 }

@@ -13,6 +13,7 @@ import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.euclid.tuple3D.Point3D;
 import us.ihmc.euclid.tuple3D.interfaces.Point3DReadOnly;
+import us.ihmc.pathPlanning.PlannerPlanarRegion;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.Cluster;
 import us.ihmc.pathPlanning.visibilityGraphs.clusterManagement.FrameCluster;
 import us.ihmc.pathPlanning.visibilityGraphs.dataStructure.*;
@@ -110,7 +111,7 @@ public class VisibilityGraphsFactory
    */
 
 
-   public static List<FrameNavigableRegion> createFrameNavigableRegions(List<PlanarRegion> allRegions, VisibilityGraphsParameters parameters)
+   public static List<FrameNavigableRegion> createFrameNavigableRegions(List<PlannerPlanarRegion> allRegions, VisibilityGraphsParameters parameters)
    {
       if (allRegions.isEmpty())
          return null;
@@ -121,9 +122,9 @@ public class VisibilityGraphsFactory
 
       for (int candidateIndex = 0; candidateIndex < allRegions.size(); candidateIndex++)
       {
-         PlanarRegion candidate = allRegions.get(candidateIndex);
+         PlannerPlanarRegion candidate = allRegions.get(candidateIndex);
 
-         List<PlanarRegion> otherRegions = new ArrayList<>(allRegions);
+         List<PlannerPlanarRegion> otherRegions = new ArrayList<>(allRegions);
          Collections.swap(otherRegions, candidateIndex, otherRegions.size() - 1);
          otherRegions.remove(otherRegions.size() - 1);
 
@@ -136,7 +137,7 @@ public class VisibilityGraphsFactory
       return navigableRegions;
    }
 
-   public static FrameNavigableRegion createFrameNavigableRegion(PlanarRegion region, List<PlanarRegion> otherRegions, VisibilityGraphsParameters parameters)
+   public static FrameNavigableRegion createFrameNavigableRegion(PlannerPlanarRegion region, List<PlannerPlanarRegion> otherRegions, VisibilityGraphsParameters parameters)
    {
       PlanarRegionFilter planarRegionFilter = parameters.getPlanarRegionFilter();
       double orthogonalAngle = parameters.getRegionOrthogonalAngle();
@@ -148,15 +149,15 @@ public class VisibilityGraphsFactory
                                    obstacleCalculator);
    }
 
-   public static FrameNavigableRegion createFrameNavigableRegion(PlanarRegion region, List<PlanarRegion> otherRegions, double orthogonalAngle, double clusterResolution,
+   public static FrameNavigableRegion createFrameNavigableRegion(PlannerPlanarRegion region, List<PlannerPlanarRegion> otherRegions, double orthogonalAngle, double clusterResolution,
                                                                  ObstacleRegionFilter obstacleRegionFilter, PlanarRegionFilter filter,
                                                                  NavigableExtrusionDistanceCalculator navigableCalculator,
                                                                  ObstacleExtrusionDistanceCalculator obstacleCalculator)
    {
       FrameNavigableRegion navigableRegion = new FrameNavigableRegion(region);
-      PlanarRegion homeRegion = navigableRegion.getHomeRegion();
+      PlannerPlanarRegion homeRegion = navigableRegion.getHomeRegion();
 
-      List<PlanarRegion> obstacleRegions = otherRegions.stream().filter(candidate -> obstacleRegionFilter.isRegionValidObstacle(candidate, homeRegion))
+      List<PlannerPlanarRegion> obstacleRegions = otherRegions.stream().filter(candidate -> obstacleRegionFilter.isRegionValidObstacle(candidate, homeRegion))
                                                        .collect(Collectors.toList());
 
       obstacleRegions = PlanarRegionTools.filterRegionsByTruncatingVerticesBeneathHomeRegion(obstacleRegions, homeRegion,
