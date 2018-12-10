@@ -4,7 +4,6 @@ import controller_msgs.msg.dds.QuadrupedFootstepStatusMessage;
 import controller_msgs.msg.dds.QuadrupedGroundPlaneMessage;
 import controller_msgs.msg.dds.QuadrupedSteppingStateChangeMessage;
 import us.ihmc.commonWalkingControlModules.bipedSupportPolygons.YoPlaneContactState;
-import us.ihmc.commonWalkingControlModules.configurations.JointPrivilegedConfigurationParameters;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControlCoreToolbox;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCore;
 import us.ihmc.commonWalkingControlModules.controllerCore.WholeBodyControllerCoreMode;
@@ -44,8 +43,6 @@ import us.ihmc.quadrupedRobotics.planning.ContactState;
 import us.ihmc.robotModels.FullQuadrupedRobotModel;
 import us.ihmc.robotics.robotSide.QuadrantDependentList;
 import us.ihmc.robotics.robotSide.RobotQuadrant;
-import us.ihmc.robotics.robotSide.RobotSide;
-import us.ihmc.robotics.robotSide.SideDependentList;
 import us.ihmc.robotics.stateMachine.core.StateChangedListener;
 import us.ihmc.robotics.stateMachine.core.StateMachine;
 import us.ihmc.robotics.stateMachine.extra.EventState;
@@ -57,7 +54,6 @@ import us.ihmc.sensorProcessing.outputData.JointDesiredOutputList;
 import us.ihmc.sensorProcessing.outputData.JointDesiredOutputListReadOnly;
 import us.ihmc.yoVariables.parameters.EnumParameter;
 import us.ihmc.yoVariables.providers.EnumProvider;
-import us.ihmc.yoVariables.registry.YoVariableRegistry;
 import us.ihmc.yoVariables.variable.YoBoolean;
 import us.ihmc.yoVariables.variable.YoEnum;
 import us.ihmc.yoVariables.variable.YoFramePoint3D;
@@ -244,7 +240,7 @@ public class QuadrupedWalkingControllerState extends HighLevelControllerState im
       tempPoint.setToZero(controllerToolbox.getSoleReferenceFrame(quadrant));
       groundPlanePositions.get(quadrant).setMatchingFrame(tempPoint);
 
-      step.getGoalPosition(tempPoint);
+      step.getGoalPositionProvider(tempPoint);
       tempPoint.changeFrame(worldFrame);
       upcomingGroundPlanePositions.get(quadrant).setMatchingFrame(tempPoint);
 
@@ -262,7 +258,7 @@ public class QuadrupedWalkingControllerState extends HighLevelControllerState im
       footstepStatusMessage.getDesiredStepInterval().setEndTime(step.getTimeInterval().getEndTime());
       footstepStatusMessage.getActualStepInterval().setStartTime(currentTime);
       footstepStatusMessage.getActualStepInterval().setEndTime(Double.NaN);
-      step.getGoalPosition(footstepStatusMessage.getDesiredTouchdownPositionInWorld());
+      step.getGoalPositionProvider(footstepStatusMessage.getDesiredTouchdownPositionInWorld());
       statusMessageOutputManager.reportStatusMessage(footstepStatusMessage);
    }
 
