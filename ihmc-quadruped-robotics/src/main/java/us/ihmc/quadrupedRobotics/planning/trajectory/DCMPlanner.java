@@ -7,6 +7,7 @@ import us.ihmc.euclid.referenceFrame.FrameVector3D;
 import us.ihmc.euclid.referenceFrame.ReferenceFrame;
 import us.ihmc.euclid.referenceFrame.interfaces.FixedFramePoint3DBasics;
 import us.ihmc.euclid.referenceFrame.interfaces.FixedFrameVector3DBasics;
+import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DBasics;
 import us.ihmc.euclid.referenceFrame.interfaces.FramePoint3DReadOnly;
 import us.ihmc.graphicsDescription.appearance.YoAppearance;
 import us.ihmc.graphicsDescription.yoGraphics.YoGraphicPosition;
@@ -119,7 +120,7 @@ public class DCMPlanner implements DCMPlannerInterface
       numberOfStepsInPlanner.set(0);
    }
 
-   public void setCoMHeight(double comHeight)
+   public void setNominalCoMHeight(double comHeight)
    {
       this.comHeight.set(comHeight);
    }
@@ -258,6 +259,7 @@ public class DCMPlanner implements DCMPlannerInterface
       CapturePointTools.computeDesiredCentroidalMomentumPivot(desiredDCMPosition, desiredDCMVelocity, dcmTrajectory.getNaturalFrequency(), perfectCMPPosition);
    }
 
+
    private void runOutputDebugChecks()
    {
       if (desiredDCMPosition.containsNaN())
@@ -276,9 +278,10 @@ public class DCMPlanner implements DCMPlannerInterface
       finalDesiredDCMToPack.setMatchingFrame(finalDCM);
    }
 
-   public void getPerfectCMPPosition(FramePoint2D perfectCMPPositionToPack)
+   @Override
+   public void getDesiredECMPPosition(FramePoint3DBasics desiredECMPPositionToPack)
    {
-      perfectCMPPositionToPack.setIncludingFrame(perfectCMPPosition);
+      desiredECMPPositionToPack.setIncludingFrame(perfectCMPPosition);
    }
 
    public double getFinalTime()
