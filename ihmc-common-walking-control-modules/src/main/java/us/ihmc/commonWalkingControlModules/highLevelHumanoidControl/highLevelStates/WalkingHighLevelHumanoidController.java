@@ -229,7 +229,8 @@ public class WalkingHighLevelHumanoidController implements JointLoadStatusProvid
 
       String[] jointNamesRestrictiveLimits = walkingControllerParameters.getJointsWithRestrictiveLimits();
       JointLimitParameters limitParameters = walkingControllerParameters.getJointLimitParametersForJointsWithRestictiveLimits();
-      OneDoFJointBasics[] jointsWithRestrictiveLimit = MultiBodySystemTools.filterJoints(ScrewTools.findJointsWithNames(allOneDoFjoints, jointNamesRestrictiveLimits), OneDoFJointBasics.class);
+      OneDoFJointBasics[] jointsWithRestrictiveLimit = MultiBodySystemTools
+            .filterJoints(ScrewTools.findJointsWithNames(allOneDoFjoints, jointNamesRestrictiveLimits), OneDoFJointBasics.class);
       for (OneDoFJointBasics joint : jointsWithRestrictiveLimit)
       {
          if (limitParameters == null)
@@ -287,8 +288,8 @@ public class WalkingHighLevelHumanoidController implements JointLoadStatusProvid
       {
          WalkingStateEnum stateEnum = WalkingStateEnum.getFlamingoTransferState(transferToSide);
          TransferToFlamingoStanceState transferState = new TransferToFlamingoStanceState(stateEnum, walkingControllerParameters, walkingMessageHandler,
-                                                                                         controllerToolbox, managerFactory, failureDetectionControlModule,
-                                                                                         null, rhoMin, registry);
+                                                                                         controllerToolbox, managerFactory, failureDetectionControlModule, null,
+                                                                                         rhoMin, registry);
          flamingoTransferStates.put(transferToSide, transferState);
          factory.addState(stateEnum, transferState);
       }
@@ -633,12 +634,13 @@ public class WalkingHighLevelHumanoidController implements JointLoadStatusProvid
       // the comHeightManager can control the pelvis with a feedback controller and doesn't always need the z component of the momentum command. It would be better to remove the coupling between these two modules
       boolean controlHeightWithMomentum = comHeightManager.getControlHeightWithMomentum();
       boolean keepCMPInsideSupportPolygon = !bodyManagerIsLoadBearing;
+
+      double comHeightAcceleration = controlHeightWithMomentum ? controlledCoMHeightAcceleration.getDoubleValue() : legConfigurationManager.getDesiredVerticalAcceleration();
+
       if (currentState.isDoubleSupportState())
-         balanceManager.compute(currentState.getTransferToSide(), controlledCoMHeightAcceleration.getDoubleValue(), keepCMPInsideSupportPolygon,
-                                controlHeightWithMomentum);
+         balanceManager.compute(currentState.getTransferToSide(), comHeightAcceleration, keepCMPInsideSupportPolygon, controlHeightWithMomentum);
       else
-         balanceManager.compute(currentState.getSupportSide(), controlledCoMHeightAcceleration.getDoubleValue(), keepCMPInsideSupportPolygon,
-                                controlHeightWithMomentum);
+         balanceManager.compute(currentState.getSupportSide(), comHeightAcceleration, keepCMPInsideSupportPolygon, controlHeightWithMomentum);
    }
 
    private void submitControllerCoreCommands()
