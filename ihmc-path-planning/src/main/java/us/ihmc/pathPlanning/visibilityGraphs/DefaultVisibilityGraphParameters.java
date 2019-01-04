@@ -16,7 +16,7 @@ public class DefaultVisibilityGraphParameters implements VisibilityGraphsParamet
    @Override
    public double getNormalZThresholdForAccessibleRegions()
    {
-      return 0.75;
+      return 0.5;
    }
 
    /** {@inheritDoc} */
