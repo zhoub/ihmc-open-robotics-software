@@ -27,7 +27,7 @@ public class ValkyrieFootstepPlannerParameters implements FootstepPlannerParamet
    @Override
    public double getMaximumStepReach()
    {
-      return 0.35;
+      return 0.4;
    }
 
    @Override
@@ -123,7 +123,7 @@ public class ValkyrieFootstepPlannerParameters implements FootstepPlannerParamet
    @Override
    public double getWiggleInsideDelta()
    {
-      return 0.01;
+      return 0.03;
    }
 
    @Override
@@ -177,7 +177,7 @@ public class ValkyrieFootstepPlannerParameters implements FootstepPlannerParamet
    @Override
    public double getMaximumStepXWhenForwardAndDown()
    {
-      return 0.3;
+      return 0.35;
    }
 
    @Override

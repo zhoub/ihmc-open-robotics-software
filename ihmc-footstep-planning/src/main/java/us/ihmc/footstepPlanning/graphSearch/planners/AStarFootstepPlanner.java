@@ -245,11 +245,6 @@ public class AStarFootstepPlanner implements BodyPathAndFootstepPlanner
          ConvexPolygon2D foothold = snapData.getCroppedFoothold();
          if (!foothold.isEmpty())
             plan.getFootstep(i - 1).setFoothold(foothold);
-
-         System.out.println("====================================================================================");
-         System.out.println(robotSide);
-         System.out.println(path.get(i));
-         System.out.println(snapTransform);
       }
 
       plan.setLowLevelPlanGoal(goalPoseInWorld);
